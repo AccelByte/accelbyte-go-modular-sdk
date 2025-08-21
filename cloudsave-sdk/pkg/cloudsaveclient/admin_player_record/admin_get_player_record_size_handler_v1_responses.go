@@ -130,9 +130,10 @@ func NewAdminGetPlayerRecordSizeHandlerV1OK() *AdminGetPlayerRecordSizeHandlerV1
 	return &AdminGetPlayerRecordSizeHandlerV1OK{}
 }
 
-/*AdminGetPlayerRecordSizeHandlerV1OK handles this case with default header values.
+/*
+AdminGetPlayerRecordSizeHandlerV1OK handles this case with default header values.
 
-  Record in user-level retrieved
+	Record in user-level retrieved
 */
 type AdminGetPlayerRecordSizeHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsPlayerRecordSizeResponse
@@ -184,9 +185,10 @@ func NewAdminGetPlayerRecordSizeHandlerV1Unauthorized() *AdminGetPlayerRecordSiz
 	return &AdminGetPlayerRecordSizeHandlerV1Unauthorized{}
 }
 
-/*AdminGetPlayerRecordSizeHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminGetPlayerRecordSizeHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetPlayerRecordSizeHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewAdminGetPlayerRecordSizeHandlerV1Forbidden() *AdminGetPlayerRecordSizeHa
 	return &AdminGetPlayerRecordSizeHandlerV1Forbidden{}
 }
 
-/*AdminGetPlayerRecordSizeHandlerV1Forbidden handles this case with default header values.
+/*
+AdminGetPlayerRecordSizeHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetPlayerRecordSizeHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewAdminGetPlayerRecordSizeHandlerV1NotFound() *AdminGetPlayerRecordSizeHan
 	return &AdminGetPlayerRecordSizeHandlerV1NotFound{}
 }
 
-/*AdminGetPlayerRecordSizeHandlerV1NotFound handles this case with default header values.
+/*
+AdminGetPlayerRecordSizeHandlerV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18022</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18022</td><td>record not found</td></tr></table>
 */
 type AdminGetPlayerRecordSizeHandlerV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewAdminGetPlayerRecordSizeHandlerV1InternalServerError() *AdminGetPlayerRe
 	return &AdminGetPlayerRecordSizeHandlerV1InternalServerError{}
 }
 
-/*AdminGetPlayerRecordSizeHandlerV1InternalServerError handles this case with default header values.
+/*
+AdminGetPlayerRecordSizeHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18020</td><td>unable to get record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18020</td><td>unable to get record</td></tr></table>
 */
 type AdminGetPlayerRecordSizeHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

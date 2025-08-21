@@ -59,7 +59,8 @@ func NewAdminBulkSaveItemToInventoryParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminBulkSaveItemToInventoryParams contains all the parameters to send to the API endpoint
+/*
+AdminBulkSaveItemToInventoryParams contains all the parameters to send to the API endpoint
 for the admin bulk save item to inventory operation typically these are written to a http.Request
 */
 type AdminBulkSaveItemToInventoryParams struct {

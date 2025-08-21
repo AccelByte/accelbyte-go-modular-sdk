@@ -57,7 +57,8 @@ func NewGetNotificationSubscriberListV3ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*GetNotificationSubscriberListV3Params contains all the parameters to send to the API endpoint
+/*
+GetNotificationSubscriberListV3Params contains all the parameters to send to the API endpoint
 for the get notification subscriber list v3 operation typically these are written to a http.Request
 */
 type GetNotificationSubscriberListV3Params struct {

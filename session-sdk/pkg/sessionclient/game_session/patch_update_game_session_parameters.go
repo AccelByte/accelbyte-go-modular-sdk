@@ -59,7 +59,8 @@ func NewPatchUpdateGameSessionParamsWithHTTPClient(client *http.Client) *PatchUp
 	}
 }
 
-/*PatchUpdateGameSessionParams contains all the parameters to send to the API endpoint
+/*
+PatchUpdateGameSessionParams contains all the parameters to send to the API endpoint
 for the patch update game session operation typically these are written to a http.Request
 */
 type PatchUpdateGameSessionParams struct {

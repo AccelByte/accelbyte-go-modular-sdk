@@ -145,9 +145,10 @@ func NewKickGroupMemberPublicV2OK() *KickGroupMemberPublicV2OK {
 	return &KickGroupMemberPublicV2OK{}
 }
 
-/*KickGroupMemberPublicV2OK handles this case with default header values.
+/*
+KickGroupMemberPublicV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type KickGroupMemberPublicV2OK struct {
 	Payload *groupclientmodels.ModelsKickGroupMemberResponseV1
@@ -199,9 +200,10 @@ func NewKickGroupMemberPublicV2BadRequest() *KickGroupMemberPublicV2BadRequest {
 	return &KickGroupMemberPublicV2BadRequest{}
 }
 
-/*KickGroupMemberPublicV2BadRequest handles this case with default header values.
+/*
+KickGroupMemberPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type KickGroupMemberPublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewKickGroupMemberPublicV2Unauthorized() *KickGroupMemberPublicV2Unauthoriz
 	return &KickGroupMemberPublicV2Unauthorized{}
 }
 
-/*KickGroupMemberPublicV2Unauthorized handles this case with default header values.
+/*
+KickGroupMemberPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type KickGroupMemberPublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewKickGroupMemberPublicV2Forbidden() *KickGroupMemberPublicV2Forbidden {
 	return &KickGroupMemberPublicV2Forbidden{}
 }
 
-/*KickGroupMemberPublicV2Forbidden handles this case with default header values.
+/*
+KickGroupMemberPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type KickGroupMemberPublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewKickGroupMemberPublicV2NotFound() *KickGroupMemberPublicV2NotFound {
 	return &KickGroupMemberPublicV2NotFound{}
 }
 
-/*KickGroupMemberPublicV2NotFound handles this case with default header values.
+/*
+KickGroupMemberPublicV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73433</td><td>member group not found</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73433</td><td>member group not found</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
 */
 type KickGroupMemberPublicV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewKickGroupMemberPublicV2InternalServerError() *KickGroupMemberPublicV2Int
 	return &KickGroupMemberPublicV2InternalServerError{}
 }
 
-/*KickGroupMemberPublicV2InternalServerError handles this case with default header values.
+/*
+KickGroupMemberPublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type KickGroupMemberPublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

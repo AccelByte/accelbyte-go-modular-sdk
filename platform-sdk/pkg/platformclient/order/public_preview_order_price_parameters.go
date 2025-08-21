@@ -59,7 +59,8 @@ func NewPublicPreviewOrderPriceParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicPreviewOrderPriceParams contains all the parameters to send to the API endpoint
+/*
+PublicPreviewOrderPriceParams contains all the parameters to send to the API endpoint
 for the public preview order price operation typically these are written to a http.Request
 */
 type PublicPreviewOrderPriceParams struct {

@@ -59,7 +59,8 @@ func NewUpdateClientPermissionParamsWithHTTPClient(client *http.Client) *UpdateC
 	}
 }
 
-/*UpdateClientPermissionParams contains all the parameters to send to the API endpoint
+/*
+UpdateClientPermissionParams contains all the parameters to send to the API endpoint
 for the update client permission operation typically these are written to a http.Request
 */
 type UpdateClientPermissionParams struct {

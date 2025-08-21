@@ -100,9 +100,10 @@ func NewGetUserSeasonOK() *GetUserSeasonOK {
 	return &GetUserSeasonOK{}
 }
 
-/*GetUserSeasonOK handles this case with default header values.
+/*
+GetUserSeasonOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserSeasonOK struct {
 	Payload *seasonpassclientmodels.ClaimableUserSeasonInfo
@@ -154,9 +155,10 @@ func NewGetUserSeasonBadRequest() *GetUserSeasonBadRequest {
 	return &GetUserSeasonBadRequest{}
 }
 
-/*GetUserSeasonBadRequest handles this case with default header values.
+/*
+GetUserSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type GetUserSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewGetUserSeasonNotFound() *GetUserSeasonNotFound {
 	return &GetUserSeasonNotFound{}
 }
 
-/*GetUserSeasonNotFound handles this case with default header values.
+/*
+GetUserSeasonNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49148</td><td>User season does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49148</td><td>User season does not exist</td></tr></table>
 */
 type GetUserSeasonNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

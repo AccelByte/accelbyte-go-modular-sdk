@@ -69,9 +69,10 @@ func NewAdminGetSteamJobInfoOK() *AdminGetSteamJobInfoOK {
 	return &AdminGetSteamJobInfoOK{}
 }
 
-/*AdminGetSteamJobInfoOK handles this case with default header values.
+/*
+AdminGetSteamJobInfoOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AdminGetSteamJobInfoOK struct {
 	Payload []*platformclientmodels.SteamReportJobInfo

@@ -145,9 +145,10 @@ func NewListGroupConfigurationAdminV1OK() *ListGroupConfigurationAdminV1OK {
 	return &ListGroupConfigurationAdminV1OK{}
 }
 
-/*ListGroupConfigurationAdminV1OK handles this case with default header values.
+/*
+ListGroupConfigurationAdminV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type ListGroupConfigurationAdminV1OK struct {
 	Payload *groupclientmodels.ModelsListConfigurationResponseV1
@@ -199,9 +200,10 @@ func NewListGroupConfigurationAdminV1BadRequest() *ListGroupConfigurationAdminV1
 	return &ListGroupConfigurationAdminV1BadRequest{}
 }
 
-/*ListGroupConfigurationAdminV1BadRequest handles this case with default header values.
+/*
+ListGroupConfigurationAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type ListGroupConfigurationAdminV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewListGroupConfigurationAdminV1Unauthorized() *ListGroupConfigurationAdmin
 	return &ListGroupConfigurationAdminV1Unauthorized{}
 }
 
-/*ListGroupConfigurationAdminV1Unauthorized handles this case with default header values.
+/*
+ListGroupConfigurationAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type ListGroupConfigurationAdminV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewListGroupConfigurationAdminV1Forbidden() *ListGroupConfigurationAdminV1F
 	return &ListGroupConfigurationAdminV1Forbidden{}
 }
 
-/*ListGroupConfigurationAdminV1Forbidden handles this case with default header values.
+/*
+ListGroupConfigurationAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type ListGroupConfigurationAdminV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewListGroupConfigurationAdminV1NotFound() *ListGroupConfigurationAdminV1No
 	return &ListGroupConfigurationAdminV1NotFound{}
 }
 
-/*ListGroupConfigurationAdminV1NotFound handles this case with default header values.
+/*
+ListGroupConfigurationAdminV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
 */
 type ListGroupConfigurationAdminV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewListGroupConfigurationAdminV1InternalServerError() *ListGroupConfigurati
 	return &ListGroupConfigurationAdminV1InternalServerError{}
 }
 
-/*ListGroupConfigurationAdminV1InternalServerError handles this case with default header values.
+/*
+ListGroupConfigurationAdminV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ListGroupConfigurationAdminV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

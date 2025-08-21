@@ -144,9 +144,10 @@ func NewAdminUpdateDSInformationNoContent() *AdminUpdateDSInformationNoContent {
 	return &AdminUpdateDSInformationNoContent{}
 }
 
-/*AdminUpdateDSInformationNoContent handles this case with default header values.
+/*
+AdminUpdateDSInformationNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminUpdateDSInformationNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminUpdateDSInformationBadRequest() *AdminUpdateDSInformationBadRequest
 	return &AdminUpdateDSInformationBadRequest{}
 }
 
-/*AdminUpdateDSInformationBadRequest handles this case with default header values.
+/*
+AdminUpdateDSInformationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateDSInformationBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewAdminUpdateDSInformationUnauthorized() *AdminUpdateDSInformationUnauthor
 	return &AdminUpdateDSInformationUnauthorized{}
 }
 
-/*AdminUpdateDSInformationUnauthorized handles this case with default header values.
+/*
+AdminUpdateDSInformationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdateDSInformationUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewAdminUpdateDSInformationForbidden() *AdminUpdateDSInformationForbidden {
 	return &AdminUpdateDSInformationForbidden{}
 }
 
-/*AdminUpdateDSInformationForbidden handles this case with default header values.
+/*
+AdminUpdateDSInformationForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdateDSInformationForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewAdminUpdateDSInformationNotFound() *AdminUpdateDSInformationNotFound {
 	return &AdminUpdateDSInformationNotFound{}
 }
 
-/*AdminUpdateDSInformationNotFound handles this case with default header values.
+/*
+AdminUpdateDSInformationNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateDSInformationNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewAdminUpdateDSInformationInternalServerError() *AdminUpdateDSInformationI
 	return &AdminUpdateDSInformationInternalServerError{}
 }
 
-/*AdminUpdateDSInformationInternalServerError handles this case with default header values.
+/*
+AdminUpdateDSInformationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateDSInformationInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

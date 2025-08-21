@@ -57,7 +57,8 @@ func NewGetSectionPluginConfigParamsWithHTTPClient(client *http.Client) *GetSect
 	}
 }
 
-/*GetSectionPluginConfigParams contains all the parameters to send to the API endpoint
+/*
+GetSectionPluginConfigParams contains all the parameters to send to the API endpoint
 for the get section plugin config operation typically these are written to a http.Request
 */
 type GetSectionPluginConfigParams struct {

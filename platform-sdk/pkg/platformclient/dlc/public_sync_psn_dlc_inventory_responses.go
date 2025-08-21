@@ -99,9 +99,10 @@ func NewPublicSyncPsnDLCInventoryNoContent() *PublicSyncPsnDLCInventoryNoContent
 	return &PublicSyncPsnDLCInventoryNoContent{}
 }
 
-/*PublicSyncPsnDLCInventoryNoContent handles this case with default header values.
+/*
+PublicSyncPsnDLCInventoryNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type PublicSyncPsnDLCInventoryNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewPublicSyncPsnDLCInventoryBadRequest() *PublicSyncPsnDLCInventoryBadReque
 	return &PublicSyncPsnDLCInventoryBadRequest{}
 }
 
-/*PublicSyncPsnDLCInventoryBadRequest handles this case with default header values.
+/*
+PublicSyncPsnDLCInventoryBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39127</td><td>Invalid service label [{serviceLabel}]</td></tr><tr><td>39132</td><td>Bad request for playstation under namespace [{namespace}], reason: [{reason}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39127</td><td>Invalid service label [{serviceLabel}]</td></tr><tr><td>39132</td><td>Bad request for playstation under namespace [{namespace}], reason: [{reason}].</td></tr></table>
 */
 type PublicSyncPsnDLCInventoryBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewPublicSyncPsnDLCInventoryNotFound() *PublicSyncPsnDLCInventoryNotFound {
 	return &PublicSyncPsnDLCInventoryNotFound{}
 }
 
-/*PublicSyncPsnDLCInventoryNotFound handles this case with default header values.
+/*
+PublicSyncPsnDLCInventoryNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39143</td><td>PlayStation IAP config not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39143</td><td>PlayStation IAP config not found in namespace [{namespace}]</td></tr></table>
 */
 type PublicSyncPsnDLCInventoryNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

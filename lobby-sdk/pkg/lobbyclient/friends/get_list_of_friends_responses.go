@@ -130,10 +130,9 @@ func NewGetListOfFriendsOK() *GetListOfFriendsOK {
 	return &GetListOfFriendsOK{}
 }
 
-/*GetListOfFriendsOK handles this case with default header values.
-
-
- */
+/*
+GetListOfFriendsOK handles this case with default header values.
+*/
 type GetListOfFriendsOK struct {
 	Payload *lobbyclientmodels.ModelGetFriendsResponse
 }
@@ -184,9 +183,10 @@ func NewGetListOfFriendsBadRequest() *GetListOfFriendsBadRequest {
 	return &GetListOfFriendsBadRequest{}
 }
 
-/*GetListOfFriendsBadRequest handles this case with default header values.
+/*
+GetListOfFriendsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetListOfFriendsBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -238,9 +238,10 @@ func NewGetListOfFriendsUnauthorized() *GetListOfFriendsUnauthorized {
 	return &GetListOfFriendsUnauthorized{}
 }
 
-/*GetListOfFriendsUnauthorized handles this case with default header values.
+/*
+GetListOfFriendsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetListOfFriendsUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -292,9 +293,10 @@ func NewGetListOfFriendsForbidden() *GetListOfFriendsForbidden {
 	return &GetListOfFriendsForbidden{}
 }
 
-/*GetListOfFriendsForbidden handles this case with default header values.
+/*
+GetListOfFriendsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetListOfFriendsForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -346,9 +348,10 @@ func NewGetListOfFriendsInternalServerError() *GetListOfFriendsInternalServerErr
 	return &GetListOfFriendsInternalServerError{}
 }
 
-/*GetListOfFriendsInternalServerError handles this case with default header values.
+/*
+GetListOfFriendsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetListOfFriendsInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

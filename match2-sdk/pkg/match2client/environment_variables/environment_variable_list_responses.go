@@ -100,9 +100,10 @@ func NewEnvironmentVariableListOK() *EnvironmentVariableListOK {
 	return &EnvironmentVariableListOK{}
 }
 
-/*EnvironmentVariableListOK handles this case with default header values.
+/*
+EnvironmentVariableListOK handles this case with default header values.
 
-  Created
+	Created
 */
 type EnvironmentVariableListOK struct {
 	Payload *match2clientmodels.APIListEnvironmentVariablesResponse
@@ -154,9 +155,10 @@ func NewEnvironmentVariableListUnauthorized() *EnvironmentVariableListUnauthoriz
 	return &EnvironmentVariableListUnauthorized{}
 }
 
-/*EnvironmentVariableListUnauthorized handles this case with default header values.
+/*
+EnvironmentVariableListUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type EnvironmentVariableListUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -208,9 +210,10 @@ func NewEnvironmentVariableListForbidden() *EnvironmentVariableListForbidden {
 	return &EnvironmentVariableListForbidden{}
 }
 
-/*EnvironmentVariableListForbidden handles this case with default header values.
+/*
+EnvironmentVariableListForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type EnvironmentVariableListForbidden struct {
 	Payload *match2clientmodels.ResponseError

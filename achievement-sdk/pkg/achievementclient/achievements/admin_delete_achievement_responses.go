@@ -129,9 +129,10 @@ func NewAdminDeleteAchievementNoContent() *AdminDeleteAchievementNoContent {
 	return &AdminDeleteAchievementNoContent{}
 }
 
-/*AdminDeleteAchievementNoContent handles this case with default header values.
+/*
+AdminDeleteAchievementNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteAchievementNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDeleteAchievementBadRequest() *AdminDeleteAchievementBadRequest {
 	return &AdminDeleteAchievementBadRequest{}
 }
 
-/*AdminDeleteAchievementBadRequest handles this case with default header values.
+/*
+AdminDeleteAchievementBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeleteAchievementBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewAdminDeleteAchievementUnauthorized() *AdminDeleteAchievementUnauthorized
 	return &AdminDeleteAchievementUnauthorized{}
 }
 
-/*AdminDeleteAchievementUnauthorized handles this case with default header values.
+/*
+AdminDeleteAchievementUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeleteAchievementUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewAdminDeleteAchievementNotFound() *AdminDeleteAchievementNotFound {
 	return &AdminDeleteAchievementNotFound{}
 }
 
-/*AdminDeleteAchievementNotFound handles this case with default header values.
+/*
+AdminDeleteAchievementNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminDeleteAchievementNotFound struct {
 	Payload *achievementclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewAdminDeleteAchievementInternalServerError() *AdminDeleteAchievementInter
 	return &AdminDeleteAchievementInternalServerError{}
 }
 
-/*AdminDeleteAchievementInternalServerError handles this case with default header values.
+/*
+AdminDeleteAchievementInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteAchievementInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

@@ -130,9 +130,10 @@ func NewAdminBulkCheckValidUserIDV4OK() *AdminBulkCheckValidUserIDV4OK {
 	return &AdminBulkCheckValidUserIDV4OK{}
 }
 
-/*AdminBulkCheckValidUserIDV4OK handles this case with default header values.
+/*
+AdminBulkCheckValidUserIDV4OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminBulkCheckValidUserIDV4OK struct {
 	Payload *iamclientmodels.ModelListValidUserIDResponseV4
@@ -184,9 +185,10 @@ func NewAdminBulkCheckValidUserIDV4BadRequest() *AdminBulkCheckValidUserIDV4BadR
 	return &AdminBulkCheckValidUserIDV4BadRequest{}
 }
 
-/*AdminBulkCheckValidUserIDV4BadRequest handles this case with default header values.
+/*
+AdminBulkCheckValidUserIDV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminBulkCheckValidUserIDV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminBulkCheckValidUserIDV4Unauthorized() *AdminBulkCheckValidUserIDV4Un
 	return &AdminBulkCheckValidUserIDV4Unauthorized{}
 }
 
-/*AdminBulkCheckValidUserIDV4Unauthorized handles this case with default header values.
+/*
+AdminBulkCheckValidUserIDV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminBulkCheckValidUserIDV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminBulkCheckValidUserIDV4Forbidden() *AdminBulkCheckValidUserIDV4Forbi
 	return &AdminBulkCheckValidUserIDV4Forbidden{}
 }
 
-/*AdminBulkCheckValidUserIDV4Forbidden handles this case with default header values.
+/*
+AdminBulkCheckValidUserIDV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminBulkCheckValidUserIDV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminBulkCheckValidUserIDV4InternalServerError() *AdminBulkCheckValidUse
 	return &AdminBulkCheckValidUserIDV4InternalServerError{}
 }
 
-/*AdminBulkCheckValidUserIDV4InternalServerError handles this case with default header values.
+/*
+AdminBulkCheckValidUserIDV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminBulkCheckValidUserIDV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

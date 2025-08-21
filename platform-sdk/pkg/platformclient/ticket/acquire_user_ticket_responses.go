@@ -115,9 +115,10 @@ func NewAcquireUserTicketOK() *AcquireUserTicketOK {
 	return &AcquireUserTicketOK{}
 }
 
-/*AcquireUserTicketOK handles this case with default header values.
+/*
+AcquireUserTicketOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AcquireUserTicketOK struct {
 	Payload *platformclientmodels.TicketAcquireResult
@@ -169,9 +170,10 @@ func NewAcquireUserTicketNotFound() *AcquireUserTicketNotFound {
 	return &AcquireUserTicketNotFound{}
 }
 
-/*AcquireUserTicketNotFound handles this case with default header values.
+/*
+AcquireUserTicketNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type AcquireUserTicketNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewAcquireUserTicketConflict() *AcquireUserTicketConflict {
 	return &AcquireUserTicketConflict{}
 }
 
-/*AcquireUserTicketConflict handles this case with default header values.
+/*
+AcquireUserTicketConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37071</td><td>Insufficient ticket in booth [{boothName}] in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37071</td><td>Insufficient ticket in booth [{boothName}] in namespace [{namespace}]</td></tr></table>
 */
 type AcquireUserTicketConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewAcquireUserTicketUnprocessableEntity() *AcquireUserTicketUnprocessableEn
 	return &AcquireUserTicketUnprocessableEntity{}
 }
 
-/*AcquireUserTicketUnprocessableEntity handles this case with default header values.
+/*
+AcquireUserTicketUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AcquireUserTicketUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

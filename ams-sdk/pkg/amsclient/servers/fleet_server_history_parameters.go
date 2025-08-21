@@ -58,7 +58,8 @@ func NewFleetServerHistoryParamsWithHTTPClient(client *http.Client) *FleetServer
 	}
 }
 
-/*FleetServerHistoryParams contains all the parameters to send to the API endpoint
+/*
+FleetServerHistoryParams contains all the parameters to send to the API endpoint
 for the fleet server history operation typically these are written to a http.Request
 */
 type FleetServerHistoryParams struct {

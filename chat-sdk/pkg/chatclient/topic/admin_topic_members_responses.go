@@ -130,9 +130,10 @@ func NewAdminTopicMembersOK() *AdminTopicMembersOK {
 	return &AdminTopicMembersOK{}
 }
 
-/*AdminTopicMembersOK handles this case with default header values.
+/*
+AdminTopicMembersOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminTopicMembersOK struct {
 	Payload *chatclientmodels.ModelsTopicMemberWithPaginationResponse
@@ -184,9 +185,10 @@ func NewAdminTopicMembersBadRequest() *AdminTopicMembersBadRequest {
 	return &AdminTopicMembersBadRequest{}
 }
 
-/*AdminTopicMembersBadRequest handles this case with default header values.
+/*
+AdminTopicMembersBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminTopicMembersBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminTopicMembersUnauthorized() *AdminTopicMembersUnauthorized {
 	return &AdminTopicMembersUnauthorized{}
 }
 
-/*AdminTopicMembersUnauthorized handles this case with default header values.
+/*
+AdminTopicMembersUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminTopicMembersUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminTopicMembersForbidden() *AdminTopicMembersForbidden {
 	return &AdminTopicMembersForbidden{}
 }
 
-/*AdminTopicMembersForbidden handles this case with default header values.
+/*
+AdminTopicMembersForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminTopicMembersForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminTopicMembersInternalServerError() *AdminTopicMembersInternalServerE
 	return &AdminTopicMembersInternalServerError{}
 }
 
-/*AdminTopicMembersInternalServerError handles this case with default header values.
+/*
+AdminTopicMembersInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminTopicMembersInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

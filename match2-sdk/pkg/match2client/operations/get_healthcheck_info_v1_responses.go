@@ -66,9 +66,10 @@ func NewGetHealthcheckInfoV1OK() *GetHealthcheckInfoV1OK {
 	return &GetHealthcheckInfoV1OK{}
 }
 
-/*GetHealthcheckInfoV1OK handles this case with default header values.
+/*
+GetHealthcheckInfoV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetHealthcheckInfoV1OK struct {
 }

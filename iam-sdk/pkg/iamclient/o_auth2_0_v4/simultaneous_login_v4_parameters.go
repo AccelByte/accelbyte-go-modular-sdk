@@ -95,7 +95,8 @@ func NewSimultaneousLoginV4ParamsWithHTTPClient(client *http.Client) *Simultaneo
 	}
 }
 
-/*SimultaneousLoginV4Params contains all the parameters to send to the API endpoint
+/*
+SimultaneousLoginV4Params contains all the parameters to send to the API endpoint
 for the simultaneous login v4 operation typically these are written to a http.Request
 */
 type SimultaneousLoginV4Params struct {

@@ -85,9 +85,10 @@ func NewBulkDebitOK() *BulkDebitOK {
 	return &BulkDebitOK{}
 }
 
-/*BulkDebitOK handles this case with default header values.
+/*
+BulkDebitOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkDebitOK struct {
 	Payload *platformclientmodels.BulkDebitResult
@@ -139,9 +140,10 @@ func NewBulkDebitUnprocessableEntity() *BulkDebitUnprocessableEntity {
 	return &BulkDebitUnprocessableEntity{}
 }
 
-/*BulkDebitUnprocessableEntity handles this case with default header values.
+/*
+BulkDebitUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkDebitUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

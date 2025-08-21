@@ -57,7 +57,8 @@ func NewAdminGenerateMyAuthenticatorKeyV4ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*AdminGenerateMyAuthenticatorKeyV4Params contains all the parameters to send to the API endpoint
+/*
+AdminGenerateMyAuthenticatorKeyV4Params contains all the parameters to send to the API endpoint
 for the admin generate my authenticator key v4 operation typically these are written to a http.Request
 */
 type AdminGenerateMyAuthenticatorKeyV4Params struct {

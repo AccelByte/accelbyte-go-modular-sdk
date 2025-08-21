@@ -59,7 +59,8 @@ func NewAdminUpdateInventoryParamsWithHTTPClient(client *http.Client) *AdminUpda
 	}
 }
 
-/*AdminUpdateInventoryParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateInventoryParams contains all the parameters to send to the API endpoint
 for the admin update inventory operation typically these are written to a http.Request
 */
 type AdminUpdateInventoryParams struct {

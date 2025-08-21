@@ -129,9 +129,10 @@ func NewSendUsersFreeformNotificationV1AdminAccepted() *SendUsersFreeformNotific
 	return &SendUsersFreeformNotificationV1AdminAccepted{}
 }
 
-/*SendUsersFreeformNotificationV1AdminAccepted handles this case with default header values.
+/*
+SendUsersFreeformNotificationV1AdminAccepted handles this case with default header values.
 
-  Accepted
+	Accepted
 */
 type SendUsersFreeformNotificationV1AdminAccepted struct {
 }
@@ -156,9 +157,10 @@ func NewSendUsersFreeformNotificationV1AdminBadRequest() *SendUsersFreeformNotif
 	return &SendUsersFreeformNotificationV1AdminBadRequest{}
 }
 
-/*SendUsersFreeformNotificationV1AdminBadRequest handles this case with default header values.
+/*
+SendUsersFreeformNotificationV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type SendUsersFreeformNotificationV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -210,9 +212,10 @@ func NewSendUsersFreeformNotificationV1AdminUnauthorized() *SendUsersFreeformNot
 	return &SendUsersFreeformNotificationV1AdminUnauthorized{}
 }
 
-/*SendUsersFreeformNotificationV1AdminUnauthorized handles this case with default header values.
+/*
+SendUsersFreeformNotificationV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SendUsersFreeformNotificationV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -264,9 +267,10 @@ func NewSendUsersFreeformNotificationV1AdminForbidden() *SendUsersFreeformNotifi
 	return &SendUsersFreeformNotificationV1AdminForbidden{}
 }
 
-/*SendUsersFreeformNotificationV1AdminForbidden handles this case with default header values.
+/*
+SendUsersFreeformNotificationV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type SendUsersFreeformNotificationV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -318,9 +322,10 @@ func NewSendUsersFreeformNotificationV1AdminNotFound() *SendUsersFreeformNotific
 	return &SendUsersFreeformNotificationV1AdminNotFound{}
 }
 
-/*SendUsersFreeformNotificationV1AdminNotFound handles this case with default header values.
+/*
+SendUsersFreeformNotificationV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type SendUsersFreeformNotificationV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

@@ -57,7 +57,8 @@ func NewImportConfigParamsWithHTTPClient(client *http.Client) *ImportConfigParam
 	}
 }
 
-/*ImportConfigParams contains all the parameters to send to the API endpoint
+/*
+ImportConfigParams contains all the parameters to send to the API endpoint
 for the import config operation typically these are written to a http.Request
 */
 type ImportConfigParams struct {

@@ -115,9 +115,10 @@ func NewConsumeUserEntitlementOK() *ConsumeUserEntitlementOK {
 	return &ConsumeUserEntitlementOK{}
 }
 
-/*ConsumeUserEntitlementOK handles this case with default header values.
+/*
+ConsumeUserEntitlementOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ConsumeUserEntitlementOK struct {
 	Payload *platformclientmodels.EntitlementDecrementResult
@@ -169,9 +170,10 @@ func NewConsumeUserEntitlementBadRequest() *ConsumeUserEntitlementBadRequest {
 	return &ConsumeUserEntitlementBadRequest{}
 }
 
-/*ConsumeUserEntitlementBadRequest handles this case with default header values.
+/*
+ConsumeUserEntitlementBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31123</td><td>Unable to acquire box item, box item [{itemId}] expired</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31123</td><td>Unable to acquire box item, box item [{itemId}] expired</td></tr></table>
 */
 type ConsumeUserEntitlementBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewConsumeUserEntitlementNotFound() *ConsumeUserEntitlementNotFound {
 	return &ConsumeUserEntitlementNotFound{}
 }
 
-/*ConsumeUserEntitlementNotFound handles this case with default header values.
+/*
+ConsumeUserEntitlementNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type ConsumeUserEntitlementNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewConsumeUserEntitlementConflict() *ConsumeUserEntitlementConflict {
 	return &ConsumeUserEntitlementConflict{}
 }
 
-/*ConsumeUserEntitlementConflict handles this case with default header values.
+/*
+ConsumeUserEntitlementConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31171</td><td>Entitlement [{entitlementId}] already revoked</td></tr><tr><td>31172</td><td>Entitlement [{entitlementId}] not active</td></tr><tr><td>31173</td><td>Entitlement [{entitlementId}] is not consumable</td></tr><tr><td>31174</td><td>Entitlement [{entitlementId}] already consumed</td></tr><tr><td>31176</td><td>Entitlement [{entitlementId}] use count is insufficient</td></tr><tr><td>31178</td><td>Entitlement [{entitlementId}] out of time range</td></tr><tr><td>31180</td><td>Duplicate request id: [{requestId}]</td></tr><tr><td>31183</td><td>Entitlement [{entitlementId}] origin [{origin}] not allowed be operated at [{platform}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31171</td><td>Entitlement [{entitlementId}] already revoked</td></tr><tr><td>31172</td><td>Entitlement [{entitlementId}] not active</td></tr><tr><td>31173</td><td>Entitlement [{entitlementId}] is not consumable</td></tr><tr><td>31174</td><td>Entitlement [{entitlementId}] already consumed</td></tr><tr><td>31176</td><td>Entitlement [{entitlementId}] use count is insufficient</td></tr><tr><td>31178</td><td>Entitlement [{entitlementId}] out of time range</td></tr><tr><td>31180</td><td>Duplicate request id: [{requestId}]</td></tr><tr><td>31183</td><td>Entitlement [{entitlementId}] origin [{origin}] not allowed be operated at [{platform}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type ConsumeUserEntitlementConflict struct {
 	Payload *platformclientmodels.ErrorEntity

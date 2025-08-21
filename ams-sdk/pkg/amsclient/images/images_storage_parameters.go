@@ -57,7 +57,8 @@ func NewImagesStorageParamsWithHTTPClient(client *http.Client) *ImagesStoragePar
 	}
 }
 
-/*ImagesStorageParams contains all the parameters to send to the API endpoint
+/*
+ImagesStorageParams contains all the parameters to send to the API endpoint
 for the images storage operation typically these are written to a http.Request
 */
 type ImagesStorageParams struct {

@@ -160,9 +160,10 @@ func NewAdminClaimUserRewardsByGoalCodeOK() *AdminClaimUserRewardsByGoalCodeOK {
 	return &AdminClaimUserRewardsByGoalCodeOK{}
 }
 
-/*AdminClaimUserRewardsByGoalCodeOK handles this case with default header values.
+/*
+AdminClaimUserRewardsByGoalCodeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminClaimUserRewardsByGoalCodeOK struct {
 	Payload []*challengeclientmodels.ModelUserReward
@@ -212,9 +213,10 @@ func NewAdminClaimUserRewardsByGoalCodeBadRequest() *AdminClaimUserRewardsByGoal
 	return &AdminClaimUserRewardsByGoalCodeBadRequest{}
 }
 
-/*AdminClaimUserRewardsByGoalCodeBadRequest handles this case with default header values.
+/*
+AdminClaimUserRewardsByGoalCodeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminClaimUserRewardsByGoalCodeBadRequest struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -266,9 +268,10 @@ func NewAdminClaimUserRewardsByGoalCodeUnauthorized() *AdminClaimUserRewardsByGo
 	return &AdminClaimUserRewardsByGoalCodeUnauthorized{}
 }
 
-/*AdminClaimUserRewardsByGoalCodeUnauthorized handles this case with default header values.
+/*
+AdminClaimUserRewardsByGoalCodeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminClaimUserRewardsByGoalCodeUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -320,9 +323,10 @@ func NewAdminClaimUserRewardsByGoalCodeForbidden() *AdminClaimUserRewardsByGoalC
 	return &AdminClaimUserRewardsByGoalCodeForbidden{}
 }
 
-/*AdminClaimUserRewardsByGoalCodeForbidden handles this case with default header values.
+/*
+AdminClaimUserRewardsByGoalCodeForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminClaimUserRewardsByGoalCodeForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -374,9 +378,10 @@ func NewAdminClaimUserRewardsByGoalCodeNotFound() *AdminClaimUserRewardsByGoalCo
 	return &AdminClaimUserRewardsByGoalCodeNotFound{}
 }
 
-/*AdminClaimUserRewardsByGoalCodeNotFound handles this case with default header values.
+/*
+AdminClaimUserRewardsByGoalCodeNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminClaimUserRewardsByGoalCodeNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -428,9 +433,10 @@ func NewAdminClaimUserRewardsByGoalCodeUnprocessableEntity() *AdminClaimUserRewa
 	return &AdminClaimUserRewardsByGoalCodeUnprocessableEntity{}
 }
 
-/*AdminClaimUserRewardsByGoalCodeUnprocessableEntity handles this case with default header values.
+/*
+AdminClaimUserRewardsByGoalCodeUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
 */
 type AdminClaimUserRewardsByGoalCodeUnprocessableEntity struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -482,9 +488,10 @@ func NewAdminClaimUserRewardsByGoalCodeInternalServerError() *AdminClaimUserRewa
 	return &AdminClaimUserRewardsByGoalCodeInternalServerError{}
 }
 
-/*AdminClaimUserRewardsByGoalCodeInternalServerError handles this case with default header values.
+/*
+AdminClaimUserRewardsByGoalCodeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminClaimUserRewardsByGoalCodeInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

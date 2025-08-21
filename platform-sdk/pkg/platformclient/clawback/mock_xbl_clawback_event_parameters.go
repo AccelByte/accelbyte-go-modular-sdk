@@ -59,7 +59,8 @@ func NewMockXblClawbackEventParamsWithHTTPClient(client *http.Client) *MockXblCl
 	}
 }
 
-/*MockXblClawbackEventParams contains all the parameters to send to the API endpoint
+/*
+MockXblClawbackEventParams contains all the parameters to send to the API endpoint
 for the mock xbl clawback event operation typically these are written to a http.Request
 */
 type MockXblClawbackEventParams struct {

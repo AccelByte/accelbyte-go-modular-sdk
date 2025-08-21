@@ -57,7 +57,8 @@ func NewQueryUserExpGrantHistoryTagParamsWithHTTPClient(client *http.Client) *Qu
 	}
 }
 
-/*QueryUserExpGrantHistoryTagParams contains all the parameters to send to the API endpoint
+/*
+QueryUserExpGrantHistoryTagParams contains all the parameters to send to the API endpoint
 for the query user exp grant history tag operation typically these are written to a http.Request
 */
 type QueryUserExpGrantHistoryTagParams struct {

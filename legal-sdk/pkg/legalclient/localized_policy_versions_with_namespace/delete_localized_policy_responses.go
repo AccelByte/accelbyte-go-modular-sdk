@@ -84,9 +84,10 @@ func NewDeleteLocalizedPolicyNoContent() *DeleteLocalizedPolicyNoContent {
 	return &DeleteLocalizedPolicyNoContent{}
 }
 
-/*DeleteLocalizedPolicyNoContent handles this case with default header values.
+/*
+DeleteLocalizedPolicyNoContent handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DeleteLocalizedPolicyNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewDeleteLocalizedPolicyBadRequest() *DeleteLocalizedPolicyBadRequest {
 	return &DeleteLocalizedPolicyBadRequest{}
 }
 
-/*DeleteLocalizedPolicyBadRequest handles this case with default header values.
+/*
+DeleteLocalizedPolicyBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40075</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_is_published_and_already_accepted_by_user</td></tr><tr><td>40076</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_is_active</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40075</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_is_published_and_already_accepted_by_user</td></tr><tr><td>40076</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_is_active</td></tr></table>
 */
 type DeleteLocalizedPolicyBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

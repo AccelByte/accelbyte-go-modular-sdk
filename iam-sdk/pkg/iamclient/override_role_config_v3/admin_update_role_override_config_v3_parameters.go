@@ -86,7 +86,8 @@ func NewAdminUpdateRoleOverrideConfigV3ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*AdminUpdateRoleOverrideConfigV3Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateRoleOverrideConfigV3Params contains all the parameters to send to the API endpoint
 for the admin update role override config v3 operation typically these are written to a http.Request
 */
 type AdminUpdateRoleOverrideConfigV3Params struct {

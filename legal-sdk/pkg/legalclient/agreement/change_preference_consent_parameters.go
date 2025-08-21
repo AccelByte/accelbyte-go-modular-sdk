@@ -59,7 +59,8 @@ func NewChangePreferenceConsentParamsWithHTTPClient(client *http.Client) *Change
 	}
 }
 
-/*ChangePreferenceConsentParams contains all the parameters to send to the API endpoint
+/*
+ChangePreferenceConsentParams contains all the parameters to send to the API endpoint
 for the change preference consent operation typically these are written to a http.Request
 */
 type ChangePreferenceConsentParams struct {

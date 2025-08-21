@@ -144,9 +144,10 @@ func NewStopAppV2Accepted() *StopAppV2Accepted {
 	return &StopAppV2Accepted{}
 }
 
-/*StopAppV2Accepted handles this case with default header values.
+/*
+StopAppV2Accepted handles this case with default header values.
 
-  This means the request to stop the application is accepted, and it will be processed in the background.
+	This means the request to stop the application is accepted, and it will be processed in the background.
 */
 type StopAppV2Accepted struct {
 }
@@ -171,9 +172,10 @@ func NewStopAppV2BadRequest() *StopAppV2BadRequest {
 	return &StopAppV2BadRequest{}
 }
 
-/*StopAppV2BadRequest handles this case with default header values.
+/*
+StopAppV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type StopAppV2BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -225,9 +227,10 @@ func NewStopAppV2Unauthorized() *StopAppV2Unauthorized {
 	return &StopAppV2Unauthorized{}
 }
 
-/*StopAppV2Unauthorized handles this case with default header values.
+/*
+StopAppV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type StopAppV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -279,9 +282,10 @@ func NewStopAppV2Forbidden() *StopAppV2Forbidden {
 	return &StopAppV2Forbidden{}
 }
 
-/*StopAppV2Forbidden handles this case with default header values.
+/*
+StopAppV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type StopAppV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -333,9 +337,10 @@ func NewStopAppV2NotFound() *StopAppV2NotFound {
 	return &StopAppV2NotFound{}
 }
 
-/*StopAppV2NotFound handles this case with default header values.
+/*
+StopAppV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type StopAppV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -387,9 +392,10 @@ func NewStopAppV2InternalServerError() *StopAppV2InternalServerError {
 	return &StopAppV2InternalServerError{}
 }
 
-/*StopAppV2InternalServerError handles this case with default header values.
+/*
+StopAppV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type StopAppV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

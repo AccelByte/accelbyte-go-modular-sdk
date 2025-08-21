@@ -100,9 +100,10 @@ func NewSyncSubscriptionTransactionOK() *SyncSubscriptionTransactionOK {
 	return &SyncSubscriptionTransactionOK{}
 }
 
-/*SyncSubscriptionTransactionOK handles this case with default header values.
+/*
+SyncSubscriptionTransactionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SyncSubscriptionTransactionOK struct {
 	Payload *platformclientmodels.ThirdPartySubscriptionTransactionInfo
@@ -154,9 +155,10 @@ func NewSyncSubscriptionTransactionBadRequest() *SyncSubscriptionTransactionBadR
 	return &SyncSubscriptionTransactionBadRequest{}
 }
 
-/*SyncSubscriptionTransactionBadRequest handles this case with default header values.
+/*
+SyncSubscriptionTransactionBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39131</td><td>Invalid Apple IAP config under namespace [{namespace}]: [{message}]</td></tr><tr><td>39136</td><td>Request Apple API failed with status code [{statusCode}] and error message [{message}]</td></tr><tr><td>39137</td><td>Verify Apple transaction failed with status [{status}] and error message [{message}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39131</td><td>Invalid Apple IAP config under namespace [{namespace}]: [{message}]</td></tr><tr><td>39136</td><td>Request Apple API failed with status code [{statusCode}] and error message [{message}]</td></tr><tr><td>39137</td><td>Verify Apple transaction failed with status [{status}] and error message [{message}]</td></tr></table>
 */
 type SyncSubscriptionTransactionBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewSyncSubscriptionTransactionNotFound() *SyncSubscriptionTransactionNotFou
 	return &SyncSubscriptionTransactionNotFound{}
 }
 
-/*SyncSubscriptionTransactionNotFound handles this case with default header values.
+/*
+SyncSubscriptionTransactionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39149</td><td>Third Party Subscription Transaction [{id}] not found for user [{userId}] in the namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39149</td><td>Third Party Subscription Transaction [{id}] not found for user [{userId}] in the namespace [{namespace}].</td></tr></table>
 */
 type SyncSubscriptionTransactionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

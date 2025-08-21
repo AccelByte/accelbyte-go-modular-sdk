@@ -58,7 +58,8 @@ func NewPublicGetUserGameProfilesParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*PublicGetUserGameProfilesParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserGameProfilesParams contains all the parameters to send to the API endpoint
 for the public get user game profiles operation typically these are written to a http.Request
 */
 type PublicGetUserGameProfilesParams struct {

@@ -57,7 +57,8 @@ func NewAdminDownloadContentPreviewParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminDownloadContentPreviewParams contains all the parameters to send to the API endpoint
+/*
+AdminDownloadContentPreviewParams contains all the parameters to send to the API endpoint
 for the admin download content preview operation typically these are written to a http.Request
 */
 type AdminDownloadContentPreviewParams struct {

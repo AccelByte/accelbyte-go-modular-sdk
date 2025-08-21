@@ -57,7 +57,8 @@ func NewDeleteUserStagingContentByIDParamsWithHTTPClient(client *http.Client) *D
 	}
 }
 
-/*DeleteUserStagingContentByIDParams contains all the parameters to send to the API endpoint
+/*
+DeleteUserStagingContentByIDParams contains all the parameters to send to the API endpoint
 for the delete user staging content by id operation typically these are written to a http.Request
 */
 type DeleteUserStagingContentByIDParams struct {

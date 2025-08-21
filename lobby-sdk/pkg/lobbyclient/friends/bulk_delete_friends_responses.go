@@ -126,9 +126,10 @@ func NewBulkDeleteFriendsOK() *BulkDeleteFriendsOK {
 	return &BulkDeleteFriendsOK{}
 }
 
-/*BulkDeleteFriendsOK handles this case with default header values.
+/*
+BulkDeleteFriendsOK handles this case with default header values.
 
-  number of deleted items (one friendship consists of 2 items)
+	number of deleted items (one friendship consists of 2 items)
 */
 type BulkDeleteFriendsOK struct {
 	Payload *lobbyclientmodels.ModelBulkFriendsResponse
@@ -180,9 +181,10 @@ func NewBulkDeleteFriendsBadRequest() *BulkDeleteFriendsBadRequest {
 	return &BulkDeleteFriendsBadRequest{}
 }
 
-/*BulkDeleteFriendsBadRequest handles this case with default header values.
+/*
+BulkDeleteFriendsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type BulkDeleteFriendsBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -234,9 +236,10 @@ func NewBulkDeleteFriendsUnauthorized() *BulkDeleteFriendsUnauthorized {
 	return &BulkDeleteFriendsUnauthorized{}
 }
 
-/*BulkDeleteFriendsUnauthorized handles this case with default header values.
+/*
+BulkDeleteFriendsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type BulkDeleteFriendsUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -288,9 +291,10 @@ func NewBulkDeleteFriendsForbidden() *BulkDeleteFriendsForbidden {
 	return &BulkDeleteFriendsForbidden{}
 }
 
-/*BulkDeleteFriendsForbidden handles this case with default header values.
+/*
+BulkDeleteFriendsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type BulkDeleteFriendsForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -342,9 +346,10 @@ func NewBulkDeleteFriendsInternalServerError() *BulkDeleteFriendsInternalServerE
 	return &BulkDeleteFriendsInternalServerError{}
 }
 
-/*BulkDeleteFriendsInternalServerError handles this case with default header values.
+/*
+BulkDeleteFriendsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type BulkDeleteFriendsInternalServerError struct {
 	Payload *lobbyclientmodels.ModelBulkFriendsResponse

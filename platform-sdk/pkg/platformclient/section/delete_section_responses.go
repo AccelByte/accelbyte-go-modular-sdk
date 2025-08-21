@@ -99,9 +99,10 @@ func NewDeleteSectionNoContent() *DeleteSectionNoContent {
 	return &DeleteSectionNoContent{}
 }
 
-/*DeleteSectionNoContent handles this case with default header values.
+/*
+DeleteSectionNoContent handles this case with default header values.
 
-  Delete section successfully
+	Delete section successfully
 */
 type DeleteSectionNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewDeleteSectionNotFound() *DeleteSectionNotFound {
 	return &DeleteSectionNotFound{}
 }
 
-/*DeleteSectionNotFound handles this case with default header values.
+/*
+DeleteSectionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30741</td><td>Section [{sectionId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30741</td><td>Section [{sectionId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DeleteSectionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewDeleteSectionConflict() *DeleteSectionConflict {
 	return &DeleteSectionConflict{}
 }
 
-/*DeleteSectionConflict handles this case with default header values.
+/*
+DeleteSectionConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type DeleteSectionConflict struct {
 	Payload *platformclientmodels.ErrorEntity

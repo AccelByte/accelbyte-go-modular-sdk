@@ -99,9 +99,10 @@ func NewSyncXboxDLCNoContent() *SyncXboxDLCNoContent {
 	return &SyncXboxDLCNoContent{}
 }
 
-/*SyncXboxDLCNoContent handles this case with default header values.
+/*
+SyncXboxDLCNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type SyncXboxDLCNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewSyncXboxDLCBadRequest() *SyncXboxDLCBadRequest {
 	return &SyncXboxDLCBadRequest{}
 }
 
-/*SyncXboxDLCBadRequest handles this case with default header values.
+/*
+SyncXboxDLCBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39221</td><td>Invalid Xbox Business Partner Certificate or password: [{message}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39221</td><td>Invalid Xbox Business Partner Certificate or password: [{message}]</td></tr></table>
 */
 type SyncXboxDLCBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewSyncXboxDLCNotFound() *SyncXboxDLCNotFound {
 	return &SyncXboxDLCNotFound{}
 }
 
-/*SyncXboxDLCNotFound handles this case with default header values.
+/*
+SyncXboxDLCNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39145</td><td>XBox IAP config not found in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39145</td><td>XBox IAP config not found in namespace [{namespace}].</td></tr></table>
 */
 type SyncXboxDLCNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -59,7 +59,8 @@ func NewAdminClaimUserRewardsByGoalCodeParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*AdminClaimUserRewardsByGoalCodeParams contains all the parameters to send to the API endpoint
+/*
+AdminClaimUserRewardsByGoalCodeParams contains all the parameters to send to the API endpoint
 for the admin claim user rewards by goal code operation typically these are written to a http.Request
 */
 type AdminClaimUserRewardsByGoalCodeParams struct {

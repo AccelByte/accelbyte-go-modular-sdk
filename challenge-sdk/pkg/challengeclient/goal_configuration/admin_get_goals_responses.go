@@ -130,9 +130,10 @@ func NewAdminGetGoalsOK() *AdminGetGoalsOK {
 	return &AdminGetGoalsOK{}
 }
 
-/*AdminGetGoalsOK handles this case with default header values.
+/*
+AdminGetGoalsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetGoalsOK struct {
 	Payload *challengeclientmodels.ModelGetGoalsResponse
@@ -184,9 +185,10 @@ func NewAdminGetGoalsUnauthorized() *AdminGetGoalsUnauthorized {
 	return &AdminGetGoalsUnauthorized{}
 }
 
-/*AdminGetGoalsUnauthorized handles this case with default header values.
+/*
+AdminGetGoalsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetGoalsUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -238,9 +240,10 @@ func NewAdminGetGoalsForbidden() *AdminGetGoalsForbidden {
 	return &AdminGetGoalsForbidden{}
 }
 
-/*AdminGetGoalsForbidden handles this case with default header values.
+/*
+AdminGetGoalsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetGoalsForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetGoalsNotFound() *AdminGetGoalsNotFound {
 	return &AdminGetGoalsNotFound{}
 }
 
-/*AdminGetGoalsNotFound handles this case with default header values.
+/*
+AdminGetGoalsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminGetGoalsNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetGoalsInternalServerError() *AdminGetGoalsInternalServerError {
 	return &AdminGetGoalsInternalServerError{}
 }
 
-/*AdminGetGoalsInternalServerError handles this case with default header values.
+/*
+AdminGetGoalsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminGetGoalsInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

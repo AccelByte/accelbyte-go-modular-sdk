@@ -115,9 +115,10 @@ func NewPublicClaimUserRewardOK() *PublicClaimUserRewardOK {
 	return &PublicClaimUserRewardOK{}
 }
 
-/*PublicClaimUserRewardOK handles this case with default header values.
+/*
+PublicClaimUserRewardOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicClaimUserRewardOK struct {
 	Payload *seasonpassclientmodels.ClaimableRewards
@@ -169,9 +170,10 @@ func NewPublicClaimUserRewardBadRequest() *PublicClaimUserRewardBadRequest {
 	return &PublicClaimUserRewardBadRequest{}
 }
 
-/*PublicClaimUserRewardBadRequest handles this case with default header values.
+/*
+PublicClaimUserRewardBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49124</td><td>Manual claim not supported</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49124</td><td>Manual claim not supported</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type PublicClaimUserRewardBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewPublicClaimUserRewardNotFound() *PublicClaimUserRewardNotFound {
 	return &PublicClaimUserRewardNotFound{}
 }
 
-/*PublicClaimUserRewardNotFound handles this case with default header values.
+/*
+PublicClaimUserRewardNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr><tr><td>49148</td><td>User season does not exist</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr><tr><td>49148</td><td>User season does not exist</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
 */
 type PublicClaimUserRewardNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewPublicClaimUserRewardConflict() *PublicClaimUserRewardConflict {
 	return &PublicClaimUserRewardConflict{}
 }
 
-/*PublicClaimUserRewardConflict handles this case with default header values.
+/*
+PublicClaimUserRewardConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49182</td><td>Reward is already claimed</td></tr><tr><td>49188</td><td>Reward is claiming</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49182</td><td>Reward is already claimed</td></tr><tr><td>49188</td><td>Reward is claiming</td></tr></table>
 */
 type PublicClaimUserRewardConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity

@@ -85,9 +85,10 @@ func NewQueryItemReferencesOK() *QueryItemReferencesOK {
 	return &QueryItemReferencesOK{}
 }
 
-/*QueryItemReferencesOK handles this case with default header values.
+/*
+QueryItemReferencesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryItemReferencesOK struct {
 	Payload *platformclientmodels.ItemDependency
@@ -139,9 +140,10 @@ func NewQueryItemReferencesNotFound() *QueryItemReferencesNotFound {
 	return &QueryItemReferencesNotFound{}
 }
 
-/*QueryItemReferencesNotFound handles this case with default header values.
+/*
+QueryItemReferencesNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type QueryItemReferencesNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

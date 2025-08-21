@@ -130,9 +130,10 @@ func NewAdminGetRecentTeamPlayerOK() *AdminGetRecentTeamPlayerOK {
 	return &AdminGetRecentTeamPlayerOK{}
 }
 
-/*AdminGetRecentTeamPlayerOK handles this case with default header values.
+/*
+AdminGetRecentTeamPlayerOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetRecentTeamPlayerOK struct {
 	Payload *sessionclientmodels.ModelsRecentPlayerQueryResponse
@@ -184,9 +185,10 @@ func NewAdminGetRecentTeamPlayerBadRequest() *AdminGetRecentTeamPlayerBadRequest
 	return &AdminGetRecentTeamPlayerBadRequest{}
 }
 
-/*AdminGetRecentTeamPlayerBadRequest handles this case with default header values.
+/*
+AdminGetRecentTeamPlayerBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetRecentTeamPlayerBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetRecentTeamPlayerUnauthorized() *AdminGetRecentTeamPlayerUnauthor
 	return &AdminGetRecentTeamPlayerUnauthorized{}
 }
 
-/*AdminGetRecentTeamPlayerUnauthorized handles this case with default header values.
+/*
+AdminGetRecentTeamPlayerUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetRecentTeamPlayerUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGetRecentTeamPlayerNotFound() *AdminGetRecentTeamPlayerNotFound {
 	return &AdminGetRecentTeamPlayerNotFound{}
 }
 
-/*AdminGetRecentTeamPlayerNotFound handles this case with default header values.
+/*
+AdminGetRecentTeamPlayerNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetRecentTeamPlayerNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetRecentTeamPlayerInternalServerError() *AdminGetRecentTeamPlayerI
 	return &AdminGetRecentTeamPlayerInternalServerError{}
 }
 
-/*AdminGetRecentTeamPlayerInternalServerError handles this case with default header values.
+/*
+AdminGetRecentTeamPlayerInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetRecentTeamPlayerInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

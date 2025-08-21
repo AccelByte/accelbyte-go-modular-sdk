@@ -78,7 +78,8 @@ func NewRetrievePlayerRecordsParamsWithHTTPClient(client *http.Client) *Retrieve
 	}
 }
 
-/*RetrievePlayerRecordsParams contains all the parameters to send to the API endpoint
+/*
+RetrievePlayerRecordsParams contains all the parameters to send to the API endpoint
 for the retrieve player records operation typically these are written to a http.Request
 */
 type RetrievePlayerRecordsParams struct {

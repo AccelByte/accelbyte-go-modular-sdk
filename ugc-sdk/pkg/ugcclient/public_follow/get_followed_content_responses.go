@@ -115,9 +115,10 @@ func NewGetFollowedContentOK() *GetFollowedContentOK {
 	return &GetFollowedContentOK{}
 }
 
-/*GetFollowedContentOK handles this case with default header values.
+/*
+GetFollowedContentOK handles this case with default header values.
 
-  Get contents from followed creators
+	Get contents from followed creators
 */
 type GetFollowedContentOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponse
@@ -169,9 +170,10 @@ func NewGetFollowedContentBadRequest() *GetFollowedContentBadRequest {
 	return &GetFollowedContentBadRequest{}
 }
 
-/*GetFollowedContentBadRequest handles this case with default header values.
+/*
+GetFollowedContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771311</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771311</td><td>invalid paging parameter</td></tr></table>
 */
 type GetFollowedContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewGetFollowedContentUnauthorized() *GetFollowedContentUnauthorized {
 	return &GetFollowedContentUnauthorized{}
 }
 
-/*GetFollowedContentUnauthorized handles this case with default header values.
+/*
+GetFollowedContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetFollowedContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewGetFollowedContentInternalServerError() *GetFollowedContentInternalServe
 	return &GetFollowedContentInternalServerError{}
 }
 
-/*GetFollowedContentInternalServerError handles this case with default header values.
+/*
+GetFollowedContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771310</td><td>Unable to get ugc content: database error</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771310</td><td>Unable to get ugc content: database error</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
 */
 type GetFollowedContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

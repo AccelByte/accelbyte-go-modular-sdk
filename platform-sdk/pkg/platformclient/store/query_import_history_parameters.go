@@ -86,7 +86,8 @@ func NewQueryImportHistoryParamsWithHTTPClient(client *http.Client) *QueryImport
 	}
 }
 
-/*QueryImportHistoryParams contains all the parameters to send to the API endpoint
+/*
+QueryImportHistoryParams contains all the parameters to send to the API endpoint
 for the query import history operation typically these are written to a http.Request
 */
 type QueryImportHistoryParams struct {

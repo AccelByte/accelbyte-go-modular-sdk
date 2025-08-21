@@ -115,9 +115,10 @@ func NewGetUsersByLoginIdsOK() *GetUsersByLoginIdsOK {
 	return &GetUsersByLoginIdsOK{}
 }
 
-/*GetUsersByLoginIdsOK handles this case with default header values.
+/*
+GetUsersByLoginIdsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUsersByLoginIdsOK struct {
 	Payload *iamclientmodels.ModelPublicUsersResponse
@@ -169,9 +170,10 @@ func NewGetUsersByLoginIdsBadRequest() *GetUsersByLoginIdsBadRequest {
 	return &GetUsersByLoginIdsBadRequest{}
 }
 
-/*GetUsersByLoginIdsBadRequest handles this case with default header values.
+/*
+GetUsersByLoginIdsBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type GetUsersByLoginIdsBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewGetUsersByLoginIdsUnauthorized() *GetUsersByLoginIdsUnauthorized {
 	return &GetUsersByLoginIdsUnauthorized{}
 }
 
-/*GetUsersByLoginIdsUnauthorized handles this case with default header values.
+/*
+GetUsersByLoginIdsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUsersByLoginIdsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewGetUsersByLoginIdsForbidden() *GetUsersByLoginIdsForbidden {
 	return &GetUsersByLoginIdsForbidden{}
 }
 
-/*GetUsersByLoginIdsForbidden handles this case with default header values.
+/*
+GetUsersByLoginIdsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUsersByLoginIdsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

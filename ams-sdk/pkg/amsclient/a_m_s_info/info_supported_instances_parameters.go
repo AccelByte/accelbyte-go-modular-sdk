@@ -57,7 +57,8 @@ func NewInfoSupportedInstancesParamsWithHTTPClient(client *http.Client) *InfoSup
 	}
 }
 
-/*InfoSupportedInstancesParams contains all the parameters to send to the API endpoint
+/*
+InfoSupportedInstancesParams contains all the parameters to send to the API endpoint
 for the info supported instances operation typically these are written to a http.Request
 */
 type InfoSupportedInstancesParams struct {

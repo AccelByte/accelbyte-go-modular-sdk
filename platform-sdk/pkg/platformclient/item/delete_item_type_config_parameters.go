@@ -57,7 +57,8 @@ func NewDeleteItemTypeConfigParamsWithHTTPClient(client *http.Client) *DeleteIte
 	}
 }
 
-/*DeleteItemTypeConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteItemTypeConfigParams contains all the parameters to send to the API endpoint
 for the delete item type config operation typically these are written to a http.Request
 */
 type DeleteItemTypeConfigParams struct {

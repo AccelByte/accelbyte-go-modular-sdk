@@ -160,9 +160,10 @@ func NewPublicQueryUserStatItems2OK() *PublicQueryUserStatItems2OK {
 	return &PublicQueryUserStatItems2OK{}
 }
 
-/*PublicQueryUserStatItems2OK handles this case with default header values.
+/*
+PublicQueryUserStatItems2OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicQueryUserStatItems2OK struct {
 	Payload []*socialclientmodels.ADTOObjectForUserStatItemValue
@@ -212,9 +213,10 @@ func NewPublicQueryUserStatItems2BadRequest() *PublicQueryUserStatItems2BadReque
 	return &PublicQueryUserStatItems2BadRequest{}
 }
 
-/*PublicQueryUserStatItems2BadRequest handles this case with default header values.
+/*
+PublicQueryUserStatItems2BadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12223</td><td>Invalid stat codes in namespace [{namespace}]: [{statCodes}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12223</td><td>Invalid stat codes in namespace [{namespace}]: [{statCodes}]</td></tr></table>
 */
 type PublicQueryUserStatItems2BadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -266,9 +268,10 @@ func NewPublicQueryUserStatItems2Unauthorized() *PublicQueryUserStatItems2Unauth
 	return &PublicQueryUserStatItems2Unauthorized{}
 }
 
-/*PublicQueryUserStatItems2Unauthorized handles this case with default header values.
+/*
+PublicQueryUserStatItems2Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicQueryUserStatItems2Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -320,9 +323,10 @@ func NewPublicQueryUserStatItems2Forbidden() *PublicQueryUserStatItems2Forbidden
 	return &PublicQueryUserStatItems2Forbidden{}
 }
 
-/*PublicQueryUserStatItems2Forbidden handles this case with default header values.
+/*
+PublicQueryUserStatItems2Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicQueryUserStatItems2Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -374,9 +378,10 @@ func NewPublicQueryUserStatItems2NotFound() *PublicQueryUserStatItems2NotFound {
 	return &PublicQueryUserStatItems2NotFound{}
 }
 
-/*PublicQueryUserStatItems2NotFound handles this case with default header values.
+/*
+PublicQueryUserStatItems2NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12243</td><td>Stats cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12243</td><td>Stats cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type PublicQueryUserStatItems2NotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -428,9 +433,10 @@ func NewPublicQueryUserStatItems2UnprocessableEntity() *PublicQueryUserStatItems
 	return &PublicQueryUserStatItems2UnprocessableEntity{}
 }
 
-/*PublicQueryUserStatItems2UnprocessableEntity handles this case with default header values.
+/*
+PublicQueryUserStatItems2UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicQueryUserStatItems2UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -482,9 +488,10 @@ func NewPublicQueryUserStatItems2InternalServerError() *PublicQueryUserStatItems
 	return &PublicQueryUserStatItems2InternalServerError{}
 }
 
-/*PublicQueryUserStatItems2InternalServerError handles this case with default header values.
+/*
+PublicQueryUserStatItems2InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicQueryUserStatItems2InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

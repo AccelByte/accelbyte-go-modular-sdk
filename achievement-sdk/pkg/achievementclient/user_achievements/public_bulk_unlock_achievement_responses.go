@@ -145,9 +145,10 @@ func NewPublicBulkUnlockAchievementOK() *PublicBulkUnlockAchievementOK {
 	return &PublicBulkUnlockAchievementOK{}
 }
 
-/*PublicBulkUnlockAchievementOK handles this case with default header values.
+/*
+PublicBulkUnlockAchievementOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicBulkUnlockAchievementOK struct {
 	Payload []*achievementclientmodels.ModelsBulkUnlockAchievementResponse
@@ -197,9 +198,10 @@ func NewPublicBulkUnlockAchievementBadRequest() *PublicBulkUnlockAchievementBadR
 	return &PublicBulkUnlockAchievementBadRequest{}
 }
 
-/*PublicBulkUnlockAchievementBadRequest handles this case with default header values.
+/*
+PublicBulkUnlockAchievementBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicBulkUnlockAchievementBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -251,9 +253,10 @@ func NewPublicBulkUnlockAchievementUnauthorized() *PublicBulkUnlockAchievementUn
 	return &PublicBulkUnlockAchievementUnauthorized{}
 }
 
-/*PublicBulkUnlockAchievementUnauthorized handles this case with default header values.
+/*
+PublicBulkUnlockAchievementUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicBulkUnlockAchievementUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -305,9 +308,10 @@ func NewPublicBulkUnlockAchievementNotFound() *PublicBulkUnlockAchievementNotFou
 	return &PublicBulkUnlockAchievementNotFound{}
 }
 
-/*PublicBulkUnlockAchievementNotFound handles this case with default header values.
+/*
+PublicBulkUnlockAchievementNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicBulkUnlockAchievementNotFound struct {
 	Payload *achievementclientmodels.ResponseError
@@ -359,9 +363,10 @@ func NewPublicBulkUnlockAchievementUnprocessableEntity() *PublicBulkUnlockAchiev
 	return &PublicBulkUnlockAchievementUnprocessableEntity{}
 }
 
-/*PublicBulkUnlockAchievementUnprocessableEntity handles this case with default header values.
+/*
+PublicBulkUnlockAchievementUnprocessableEntity handles this case with default header values.
 
-  Unprocessable Entity
+	Unprocessable Entity
 */
 type PublicBulkUnlockAchievementUnprocessableEntity struct {
 	Payload *achievementclientmodels.ResponseError
@@ -413,9 +418,10 @@ func NewPublicBulkUnlockAchievementInternalServerError() *PublicBulkUnlockAchiev
 	return &PublicBulkUnlockAchievementInternalServerError{}
 }
 
-/*PublicBulkUnlockAchievementInternalServerError handles this case with default header values.
+/*
+PublicBulkUnlockAchievementInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicBulkUnlockAchievementInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

@@ -129,9 +129,10 @@ func NewSendSpecificUserTemplatedNotificationV1AdminNoContent() *SendSpecificUse
 	return &SendSpecificUserTemplatedNotificationV1AdminNoContent{}
 }
 
-/*SendSpecificUserTemplatedNotificationV1AdminNoContent handles this case with default header values.
+/*
+SendSpecificUserTemplatedNotificationV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type SendSpecificUserTemplatedNotificationV1AdminNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewSendSpecificUserTemplatedNotificationV1AdminBadRequest() *SendSpecificUs
 	return &SendSpecificUserTemplatedNotificationV1AdminBadRequest{}
 }
 
-/*SendSpecificUserTemplatedNotificationV1AdminBadRequest handles this case with default header values.
+/*
+SendSpecificUserTemplatedNotificationV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type SendSpecificUserTemplatedNotificationV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -210,9 +212,10 @@ func NewSendSpecificUserTemplatedNotificationV1AdminUnauthorized() *SendSpecific
 	return &SendSpecificUserTemplatedNotificationV1AdminUnauthorized{}
 }
 
-/*SendSpecificUserTemplatedNotificationV1AdminUnauthorized handles this case with default header values.
+/*
+SendSpecificUserTemplatedNotificationV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SendSpecificUserTemplatedNotificationV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -264,9 +267,10 @@ func NewSendSpecificUserTemplatedNotificationV1AdminForbidden() *SendSpecificUse
 	return &SendSpecificUserTemplatedNotificationV1AdminForbidden{}
 }
 
-/*SendSpecificUserTemplatedNotificationV1AdminForbidden handles this case with default header values.
+/*
+SendSpecificUserTemplatedNotificationV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type SendSpecificUserTemplatedNotificationV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -318,9 +322,10 @@ func NewSendSpecificUserTemplatedNotificationV1AdminNotFound() *SendSpecificUser
 	return &SendSpecificUserTemplatedNotificationV1AdminNotFound{}
 }
 
-/*SendSpecificUserTemplatedNotificationV1AdminNotFound handles this case with default header values.
+/*
+SendSpecificUserTemplatedNotificationV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type SendSpecificUserTemplatedNotificationV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

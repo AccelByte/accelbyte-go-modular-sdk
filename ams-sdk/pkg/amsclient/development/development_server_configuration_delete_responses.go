@@ -129,9 +129,10 @@ func NewDevelopmentServerConfigurationDeleteNoContent() *DevelopmentServerConfig
 	return &DevelopmentServerConfigurationDeleteNoContent{}
 }
 
-/*DevelopmentServerConfigurationDeleteNoContent handles this case with default header values.
+/*
+DevelopmentServerConfigurationDeleteNoContent handles this case with default header values.
 
-  development server configuration deleted
+	development server configuration deleted
 */
 type DevelopmentServerConfigurationDeleteNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDevelopmentServerConfigurationDeleteUnauthorized() *DevelopmentServerCon
 	return &DevelopmentServerConfigurationDeleteUnauthorized{}
 }
 
-/*DevelopmentServerConfigurationDeleteUnauthorized handles this case with default header values.
+/*
+DevelopmentServerConfigurationDeleteUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type DevelopmentServerConfigurationDeleteUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -210,9 +212,10 @@ func NewDevelopmentServerConfigurationDeleteForbidden() *DevelopmentServerConfig
 	return &DevelopmentServerConfigurationDeleteForbidden{}
 }
 
-/*DevelopmentServerConfigurationDeleteForbidden handles this case with default header values.
+/*
+DevelopmentServerConfigurationDeleteForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type DevelopmentServerConfigurationDeleteForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -264,9 +267,10 @@ func NewDevelopmentServerConfigurationDeleteNotFound() *DevelopmentServerConfigu
 	return &DevelopmentServerConfigurationDeleteNotFound{}
 }
 
-/*DevelopmentServerConfigurationDeleteNotFound handles this case with default header values.
+/*
+DevelopmentServerConfigurationDeleteNotFound handles this case with default header values.
 
-  development server configuration not found
+	development server configuration not found
 */
 type DevelopmentServerConfigurationDeleteNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -318,9 +322,10 @@ func NewDevelopmentServerConfigurationDeleteInternalServerError() *DevelopmentSe
 	return &DevelopmentServerConfigurationDeleteInternalServerError{}
 }
 
-/*DevelopmentServerConfigurationDeleteInternalServerError handles this case with default header values.
+/*
+DevelopmentServerConfigurationDeleteInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type DevelopmentServerConfigurationDeleteInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

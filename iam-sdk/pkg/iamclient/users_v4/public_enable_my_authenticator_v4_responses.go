@@ -159,9 +159,10 @@ func NewPublicEnableMyAuthenticatorV4NoContent() *PublicEnableMyAuthenticatorV4N
 	return &PublicEnableMyAuthenticatorV4NoContent{}
 }
 
-/*PublicEnableMyAuthenticatorV4NoContent handles this case with default header values.
+/*
+PublicEnableMyAuthenticatorV4NoContent handles this case with default header values.
 
-  Authenticator enabled
+	Authenticator enabled
 */
 type PublicEnableMyAuthenticatorV4NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewPublicEnableMyAuthenticatorV4BadRequest() *PublicEnableMyAuthenticatorV4
 	return &PublicEnableMyAuthenticatorV4BadRequest{}
 }
 
-/*PublicEnableMyAuthenticatorV4BadRequest handles this case with default header values.
+/*
+PublicEnableMyAuthenticatorV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10190</td><td>auth secret key expired</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10190</td><td>auth secret key expired</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type PublicEnableMyAuthenticatorV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewPublicEnableMyAuthenticatorV4Unauthorized() *PublicEnableMyAuthenticator
 	return &PublicEnableMyAuthenticatorV4Unauthorized{}
 }
 
-/*PublicEnableMyAuthenticatorV4Unauthorized handles this case with default header values.
+/*
+PublicEnableMyAuthenticatorV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicEnableMyAuthenticatorV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewPublicEnableMyAuthenticatorV4Forbidden() *PublicEnableMyAuthenticatorV4F
 	return &PublicEnableMyAuthenticatorV4Forbidden{}
 }
 
-/*PublicEnableMyAuthenticatorV4Forbidden handles this case with default header values.
+/*
+PublicEnableMyAuthenticatorV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicEnableMyAuthenticatorV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewPublicEnableMyAuthenticatorV4NotFound() *PublicEnableMyAuthenticatorV4No
 	return &PublicEnableMyAuthenticatorV4NotFound{}
 }
 
-/*PublicEnableMyAuthenticatorV4NotFound handles this case with default header values.
+/*
+PublicEnableMyAuthenticatorV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicEnableMyAuthenticatorV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewPublicEnableMyAuthenticatorV4Conflict() *PublicEnableMyAuthenticatorV4Co
 	return &PublicEnableMyAuthenticatorV4Conflict{}
 }
 
-/*PublicEnableMyAuthenticatorV4Conflict handles this case with default header values.
+/*
+PublicEnableMyAuthenticatorV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10194</td><td>factor already enabled</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10194</td><td>factor already enabled</td></tr></table>
 */
 type PublicEnableMyAuthenticatorV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewPublicEnableMyAuthenticatorV4InternalServerError() *PublicEnableMyAuthen
 	return &PublicEnableMyAuthenticatorV4InternalServerError{}
 }
 
-/*PublicEnableMyAuthenticatorV4InternalServerError handles this case with default header values.
+/*
+PublicEnableMyAuthenticatorV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicEnableMyAuthenticatorV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

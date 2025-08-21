@@ -115,9 +115,10 @@ func NewProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePl
 	return &ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutOK{}
 }
 
-/*ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutOK handles this case with default header values.
+/*
+ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutOK handles this case with default header values.
 
-  Successful Response
+	Successful Response
 */
 type ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutOK struct {
 	Payload *gametelemetryclientmodels.PlayTimeResponse
@@ -169,9 +170,10 @@ func NewProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePl
 	return &ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutNotFound{}
 }
 
-/*ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutNotFound handles this case with default header values.
+/*
+ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutNotFound handles this case with default header values.
 
-  User not found
+	User not found
 */
 type ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutNotFound struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse
@@ -223,9 +225,10 @@ func NewProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePl
 	return &ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutUnprocessableEntity{}
 }
 
-/*ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutUnprocessableEntity handles this case with default header values.
+/*
+ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutUnprocessableEntity handles this case with default header values.
 
-  Unable to process request
+	Unable to process request
 */
 type ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutUnprocessableEntity struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse
@@ -277,9 +280,10 @@ func NewProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePl
 	return &ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutInternalServerError{}
 }
 
-/*ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutInternalServerError handles this case with default header values.
+/*
+ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutInternalServerError struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse

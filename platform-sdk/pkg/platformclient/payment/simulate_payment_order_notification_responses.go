@@ -100,9 +100,10 @@ func NewSimulatePaymentOrderNotificationOK() *SimulatePaymentOrderNotificationOK
 	return &SimulatePaymentOrderNotificationOK{}
 }
 
-/*SimulatePaymentOrderNotificationOK handles this case with default header values.
+/*
+SimulatePaymentOrderNotificationOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SimulatePaymentOrderNotificationOK struct {
 	Payload *platformclientmodels.NotificationProcessResult
@@ -154,9 +155,10 @@ func NewSimulatePaymentOrderNotificationBadRequest() *SimulatePaymentOrderNotifi
 	return &SimulatePaymentOrderNotificationBadRequest{}
 }
 
-/*SimulatePaymentOrderNotificationBadRequest handles this case with default header values.
+/*
+SimulatePaymentOrderNotificationBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33322</td><td>Payment provider [{paymentProvider}] not supported</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33322</td><td>Payment provider [{paymentProvider}] not supported</td></tr></table>
 */
 type SimulatePaymentOrderNotificationBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewSimulatePaymentOrderNotificationNotFound() *SimulatePaymentOrderNotifica
 	return &SimulatePaymentOrderNotificationNotFound{}
 }
 
-/*SimulatePaymentOrderNotificationNotFound handles this case with default header values.
+/*
+SimulatePaymentOrderNotificationNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
 */
 type SimulatePaymentOrderNotificationNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

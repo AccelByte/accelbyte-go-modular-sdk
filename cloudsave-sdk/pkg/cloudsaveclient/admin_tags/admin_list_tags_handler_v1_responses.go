@@ -130,9 +130,10 @@ func NewAdminListTagsHandlerV1OK() *AdminListTagsHandlerV1OK {
 	return &AdminListTagsHandlerV1OK{}
 }
 
-/*AdminListTagsHandlerV1OK handles this case with default header values.
+/*
+AdminListTagsHandlerV1OK handles this case with default header values.
 
-  Available tags retrieved
+	Available tags retrieved
 */
 type AdminListTagsHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsListTagsResponse
@@ -184,9 +185,10 @@ func NewAdminListTagsHandlerV1BadRequest() *AdminListTagsHandlerV1BadRequest {
 	return &AdminListTagsHandlerV1BadRequest{}
 }
 
-/*AdminListTagsHandlerV1BadRequest handles this case with default header values.
+/*
+AdminListTagsHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18503</td><td>unable to list tags</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18503</td><td>unable to list tags</td></tr></table>
 */
 type AdminListTagsHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewAdminListTagsHandlerV1Unauthorized() *AdminListTagsHandlerV1Unauthorized
 	return &AdminListTagsHandlerV1Unauthorized{}
 }
 
-/*AdminListTagsHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminListTagsHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListTagsHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewAdminListTagsHandlerV1Forbidden() *AdminListTagsHandlerV1Forbidden {
 	return &AdminListTagsHandlerV1Forbidden{}
 }
 
-/*AdminListTagsHandlerV1Forbidden handles this case with default header values.
+/*
+AdminListTagsHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminListTagsHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewAdminListTagsHandlerV1InternalServerError() *AdminListTagsHandlerV1Inter
 	return &AdminListTagsHandlerV1InternalServerError{}
 }
 
-/*AdminListTagsHandlerV1InternalServerError handles this case with default header values.
+/*
+AdminListTagsHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18502</td><td>unable to list tags</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18502</td><td>unable to list tags</td></tr></table>
 */
 type AdminListTagsHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

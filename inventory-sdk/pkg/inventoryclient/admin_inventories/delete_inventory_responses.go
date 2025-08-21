@@ -114,9 +114,10 @@ func NewDeleteInventoryNoContent() *DeleteInventoryNoContent {
 	return &DeleteInventoryNoContent{}
 }
 
-/*DeleteInventoryNoContent handles this case with default header values.
+/*
+DeleteInventoryNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteInventoryNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteInventoryBadRequest() *DeleteInventoryBadRequest {
 	return &DeleteInventoryBadRequest{}
 }
 
-/*DeleteInventoryBadRequest handles this case with default header values.
+/*
+DeleteInventoryBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type DeleteInventoryBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -195,9 +197,10 @@ func NewDeleteInventoryNotFound() *DeleteInventoryNotFound {
 	return &DeleteInventoryNotFound{}
 }
 
-/*DeleteInventoryNotFound handles this case with default header values.
+/*
+DeleteInventoryNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteInventoryNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -249,9 +252,10 @@ func NewDeleteInventoryInternalServerError() *DeleteInventoryInternalServerError
 	return &DeleteInventoryInternalServerError{}
 }
 
-/*DeleteInventoryInternalServerError handles this case with default header values.
+/*
+DeleteInventoryInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteInventoryInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

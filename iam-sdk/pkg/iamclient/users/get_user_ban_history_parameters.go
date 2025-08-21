@@ -57,7 +57,8 @@ func NewGetUserBanHistoryParamsWithHTTPClient(client *http.Client) *GetUserBanHi
 	}
 }
 
-/*GetUserBanHistoryParams contains all the parameters to send to the API endpoint
+/*
+GetUserBanHistoryParams contains all the parameters to send to the API endpoint
 for the get user ban history operation typically these are written to a http.Request
 */
 type GetUserBanHistoryParams struct {

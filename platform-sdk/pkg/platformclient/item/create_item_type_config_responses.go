@@ -114,9 +114,10 @@ func NewCreateItemTypeConfigCreated() *CreateItemTypeConfigCreated {
 	return &CreateItemTypeConfigCreated{}
 }
 
-/*CreateItemTypeConfigCreated handles this case with default header values.
+/*
+CreateItemTypeConfigCreated handles this case with default header values.
 
-  item type config created
+	item type config created
 */
 type CreateItemTypeConfigCreated struct {
 }
@@ -141,9 +142,10 @@ func NewCreateItemTypeConfigBadRequest() *CreateItemTypeConfigBadRequest {
 	return &CreateItemTypeConfigBadRequest{}
 }
 
-/*CreateItemTypeConfigBadRequest handles this case with default header values.
+/*
+CreateItemTypeConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30336</td><td>Item type [{itemType}] does not support</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30336</td><td>Item type [{itemType}] does not support</td></tr></table>
 */
 type CreateItemTypeConfigBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -195,9 +197,10 @@ func NewCreateItemTypeConfigConflict() *CreateItemTypeConfigConflict {
 	return &CreateItemTypeConfigConflict{}
 }
 
-/*CreateItemTypeConfigConflict handles this case with default header values.
+/*
+CreateItemTypeConfigConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30371</td><td>Item type config for type [{itemType}] and clazz [{clazz}] already exists</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30371</td><td>Item type config for type [{itemType}] and clazz [{clazz}] already exists</td></tr></table>
 */
 type CreateItemTypeConfigConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -249,9 +252,10 @@ func NewCreateItemTypeConfigUnprocessableEntity() *CreateItemTypeConfigUnprocess
 	return &CreateItemTypeConfigUnprocessableEntity{}
 }
 
-/*CreateItemTypeConfigUnprocessableEntity handles this case with default header values.
+/*
+CreateItemTypeConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateItemTypeConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

@@ -144,9 +144,10 @@ func NewAdminDeletePlatformAccountClosureClientNoContent() *AdminDeletePlatformA
 	return &AdminDeletePlatformAccountClosureClientNoContent{}
 }
 
-/*AdminDeletePlatformAccountClosureClientNoContent handles this case with default header values.
+/*
+AdminDeletePlatformAccountClosureClientNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeletePlatformAccountClosureClientNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeletePlatformAccountClosureClientBadRequest() *AdminDeletePlatform
 	return &AdminDeletePlatformAccountClosureClientBadRequest{}
 }
 
-/*AdminDeletePlatformAccountClosureClientBadRequest handles this case with default header values.
+/*
+AdminDeletePlatformAccountClosureClientBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeletePlatformAccountClosureClientBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewAdminDeletePlatformAccountClosureClientUnauthorized() *AdminDeletePlatfo
 	return &AdminDeletePlatformAccountClosureClientUnauthorized{}
 }
 
-/*AdminDeletePlatformAccountClosureClientUnauthorized handles this case with default header values.
+/*
+AdminDeletePlatformAccountClosureClientUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeletePlatformAccountClosureClientUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewAdminDeletePlatformAccountClosureClientForbidden() *AdminDeletePlatformA
 	return &AdminDeletePlatformAccountClosureClientForbidden{}
 }
 
-/*AdminDeletePlatformAccountClosureClientForbidden handles this case with default header values.
+/*
+AdminDeletePlatformAccountClosureClientForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeletePlatformAccountClosureClientForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewAdminDeletePlatformAccountClosureClientNotFound() *AdminDeletePlatformAc
 	return &AdminDeletePlatformAccountClosureClientNotFound{}
 }
 
-/*AdminDeletePlatformAccountClosureClientNotFound handles this case with default header values.
+/*
+AdminDeletePlatformAccountClosureClientNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminDeletePlatformAccountClosureClientNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewAdminDeletePlatformAccountClosureClientInternalServerError() *AdminDelet
 	return &AdminDeletePlatformAccountClosureClientInternalServerError{}
 }
 
-/*AdminDeletePlatformAccountClosureClientInternalServerError handles this case with default header values.
+/*
+AdminDeletePlatformAccountClosureClientInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeletePlatformAccountClosureClientInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

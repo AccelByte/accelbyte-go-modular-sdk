@@ -57,7 +57,8 @@ func NewGetPaymentCallbackConfigParamsWithHTTPClient(client *http.Client) *GetPa
 	}
 }
 
-/*GetPaymentCallbackConfigParams contains all the parameters to send to the API endpoint
+/*
+GetPaymentCallbackConfigParams contains all the parameters to send to the API endpoint
 for the get payment callback config operation typically these are written to a http.Request
 */
 type GetPaymentCallbackConfigParams struct {

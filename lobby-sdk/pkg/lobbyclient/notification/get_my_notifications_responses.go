@@ -145,9 +145,10 @@ func NewGetMyNotificationsOK() *GetMyNotificationsOK {
 	return &GetMyNotificationsOK{}
 }
 
-/*GetMyNotificationsOK handles this case with default header values.
+/*
+GetMyNotificationsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetMyNotificationsOK struct {
 	Payload *lobbyclientmodels.ModelNotificationResponse
@@ -199,9 +200,10 @@ func NewGetMyNotificationsBadRequest() *GetMyNotificationsBadRequest {
 	return &GetMyNotificationsBadRequest{}
 }
 
-/*GetMyNotificationsBadRequest handles this case with default header values.
+/*
+GetMyNotificationsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetMyNotificationsBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -253,9 +255,10 @@ func NewGetMyNotificationsUnauthorized() *GetMyNotificationsUnauthorized {
 	return &GetMyNotificationsUnauthorized{}
 }
 
-/*GetMyNotificationsUnauthorized handles this case with default header values.
+/*
+GetMyNotificationsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetMyNotificationsUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -307,9 +310,10 @@ func NewGetMyNotificationsForbidden() *GetMyNotificationsForbidden {
 	return &GetMyNotificationsForbidden{}
 }
 
-/*GetMyNotificationsForbidden handles this case with default header values.
+/*
+GetMyNotificationsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetMyNotificationsForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -361,9 +365,10 @@ func NewGetMyNotificationsNotFound() *GetMyNotificationsNotFound {
 	return &GetMyNotificationsNotFound{}
 }
 
-/*GetMyNotificationsNotFound handles this case with default header values.
+/*
+GetMyNotificationsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetMyNotificationsNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -415,9 +420,10 @@ func NewGetMyNotificationsInternalServerError() *GetMyNotificationsInternalServe
 	return &GetMyNotificationsInternalServerError{}
 }
 
-/*GetMyNotificationsInternalServerError handles this case with default header values.
+/*
+GetMyNotificationsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetMyNotificationsInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

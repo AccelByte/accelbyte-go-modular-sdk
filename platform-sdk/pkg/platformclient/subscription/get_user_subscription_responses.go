@@ -85,9 +85,10 @@ func NewGetUserSubscriptionOK() *GetUserSubscriptionOK {
 	return &GetUserSubscriptionOK{}
 }
 
-/*GetUserSubscriptionOK handles this case with default header values.
+/*
+GetUserSubscriptionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserSubscriptionOK struct {
 	Payload *platformclientmodels.SubscriptionInfo
@@ -139,9 +140,10 @@ func NewGetUserSubscriptionNotFound() *GetUserSubscriptionNotFound {
 	return &GetUserSubscriptionNotFound{}
 }
 
-/*GetUserSubscriptionNotFound handles this case with default header values.
+/*
+GetUserSubscriptionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
 */
 type GetUserSubscriptionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

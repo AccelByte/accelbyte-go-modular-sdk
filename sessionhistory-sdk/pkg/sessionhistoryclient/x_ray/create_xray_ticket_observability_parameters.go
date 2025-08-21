@@ -59,7 +59,8 @@ func NewCreateXrayTicketObservabilityParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*CreateXrayTicketObservabilityParams contains all the parameters to send to the API endpoint
+/*
+CreateXrayTicketObservabilityParams contains all the parameters to send to the API endpoint
 for the create xray ticket observability operation typically these are written to a http.Request
 */
 type CreateXrayTicketObservabilityParams struct {

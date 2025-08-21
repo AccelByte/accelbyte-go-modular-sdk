@@ -66,9 +66,10 @@ func NewPublicDeletePaymentAccountNoContent() *PublicDeletePaymentAccountNoConte
 	return &PublicDeletePaymentAccountNoContent{}
 }
 
-/*PublicDeletePaymentAccountNoContent handles this case with default header values.
+/*
+PublicDeletePaymentAccountNoContent handles this case with default header values.
 
-  delete a payment account successfully
+	delete a payment account successfully
 */
 type PublicDeletePaymentAccountNoContent struct {
 }

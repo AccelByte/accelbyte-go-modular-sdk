@@ -159,9 +159,10 @@ func NewAdminJoinPartyV1Accepted() *AdminJoinPartyV1Accepted {
 	return &AdminJoinPartyV1Accepted{}
 }
 
-/*AdminJoinPartyV1Accepted handles this case with default header values.
+/*
+AdminJoinPartyV1Accepted handles this case with default header values.
 
-  Accepted
+	Accepted
 */
 type AdminJoinPartyV1Accepted struct {
 }
@@ -186,9 +187,10 @@ func NewAdminJoinPartyV1BadRequest() *AdminJoinPartyV1BadRequest {
 	return &AdminJoinPartyV1BadRequest{}
 }
 
-/*AdminJoinPartyV1BadRequest handles this case with default header values.
+/*
+AdminJoinPartyV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminJoinPartyV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -240,9 +242,10 @@ func NewAdminJoinPartyV1Unauthorized() *AdminJoinPartyV1Unauthorized {
 	return &AdminJoinPartyV1Unauthorized{}
 }
 
-/*AdminJoinPartyV1Unauthorized handles this case with default header values.
+/*
+AdminJoinPartyV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminJoinPartyV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -294,9 +297,10 @@ func NewAdminJoinPartyV1Forbidden() *AdminJoinPartyV1Forbidden {
 	return &AdminJoinPartyV1Forbidden{}
 }
 
-/*AdminJoinPartyV1Forbidden handles this case with default header values.
+/*
+AdminJoinPartyV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminJoinPartyV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -348,9 +352,10 @@ func NewAdminJoinPartyV1NotFound() *AdminJoinPartyV1NotFound {
 	return &AdminJoinPartyV1NotFound{}
 }
 
-/*AdminJoinPartyV1NotFound handles this case with default header values.
+/*
+AdminJoinPartyV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminJoinPartyV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -402,9 +407,10 @@ func NewAdminJoinPartyV1PreconditionFailed() *AdminJoinPartyV1PreconditionFailed
 	return &AdminJoinPartyV1PreconditionFailed{}
 }
 
-/*AdminJoinPartyV1PreconditionFailed handles this case with default header values.
+/*
+AdminJoinPartyV1PreconditionFailed handles this case with default header values.
 
-  Precondition Failed
+	Precondition Failed
 */
 type AdminJoinPartyV1PreconditionFailed struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -456,9 +462,10 @@ func NewAdminJoinPartyV1InternalServerError() *AdminJoinPartyV1InternalServerErr
 	return &AdminJoinPartyV1InternalServerError{}
 }
 
-/*AdminJoinPartyV1InternalServerError handles this case with default header values.
+/*
+AdminJoinPartyV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminJoinPartyV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

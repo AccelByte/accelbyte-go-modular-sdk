@@ -99,10 +99,8 @@ CreatePolicyShort create a base legal policy
 Create a legal policy.
 Note:
 
-
-  *  countryType field only accept COUNTRY or COUNTRY_GROUP.
-  * COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
-
+  - countryType field only accept COUNTRY or COUNTRY_GROUP.
+  - COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
 
 * policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */
@@ -243,10 +241,8 @@ PartialUpdatePolicyShort update base legal policy
 Update an existing base policy.
 Note:
 
-
-  *  countryType field only accept COUNTRY or COUNTRY_GROUP.
-  * COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
-
+  - countryType field only accept COUNTRY or COUNTRY_GROUP.
+  - COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
 
 * policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */

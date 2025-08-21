@@ -59,7 +59,8 @@ func NewUpdateKeyGroupParamsWithHTTPClient(client *http.Client) *UpdateKeyGroupP
 	}
 }
 
-/*UpdateKeyGroupParams contains all the parameters to send to the API endpoint
+/*
+UpdateKeyGroupParams contains all the parameters to send to the API endpoint
 for the update key group operation typically these are written to a http.Request
 */
 type UpdateKeyGroupParams struct {

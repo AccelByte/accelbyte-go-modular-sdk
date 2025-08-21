@@ -130,9 +130,10 @@ func NewUpdateSectionOK() *UpdateSectionOK {
 	return &UpdateSectionOK{}
 }
 
-/*UpdateSectionOK handles this case with default header values.
+/*
+UpdateSectionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateSectionOK struct {
 	Payload *platformclientmodels.FullSectionInfo
@@ -184,9 +185,10 @@ func NewUpdateSectionBadRequest() *UpdateSectionBadRequest {
 	return &UpdateSectionBadRequest{}
 }
 
-/*UpdateSectionBadRequest handles this case with default header values.
+/*
+UpdateSectionBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20027</td><td>Invalid time range</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr><tr><td>30023</td><td>Catalog plugin grpc server address required</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20027</td><td>Invalid time range</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr><tr><td>30023</td><td>Catalog plugin grpc server address required</td></tr></table>
 */
 type UpdateSectionBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewUpdateSectionNotFound() *UpdateSectionNotFound {
 	return &UpdateSectionNotFound{}
 }
 
-/*UpdateSectionNotFound handles this case with default header values.
+/*
+UpdateSectionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30641</td><td>View [{viewId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30741</td><td>Section [{sectionId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30641</td><td>View [{viewId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30741</td><td>Section [{sectionId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateSectionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewUpdateSectionConflict() *UpdateSectionConflict {
 	return &UpdateSectionConflict{}
 }
 
-/*UpdateSectionConflict handles this case with default header values.
+/*
+UpdateSectionConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type UpdateSectionConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewUpdateSectionUnprocessableEntity() *UpdateSectionUnprocessableEntity {
 	return &UpdateSectionUnprocessableEntity{}
 }
 
-/*UpdateSectionUnprocessableEntity handles this case with default header values.
+/*
+UpdateSectionUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateSectionUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

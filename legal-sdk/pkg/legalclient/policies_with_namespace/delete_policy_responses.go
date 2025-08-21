@@ -84,9 +84,10 @@ func NewDeletePolicyNoContent() *DeletePolicyNoContent {
 	return &DeletePolicyNoContent{}
 }
 
-/*DeletePolicyNoContent handles this case with default header values.
+/*
+DeletePolicyNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type DeletePolicyNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewDeletePolicyBadRequest() *DeletePolicyBadRequest {
 	return &DeletePolicyBadRequest{}
 }
 
-/*DeletePolicyBadRequest handles this case with default header values.
+/*
+DeletePolicyBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy_id</td></tr><tr><td>40072</td><td>errors.net.accelbyte.platform.legal.policy_have_published_policy_version</td></tr><tr><td>40073</td><td>errors.net.accelbyte.platform.legal.policy_have_published_policy_version_and_already_accepted_by_user</td></tr><tr><td>40074</td><td>errors.net.accelbyte.platform.legal.policy_is_default_policy</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy_id</td></tr><tr><td>40072</td><td>errors.net.accelbyte.platform.legal.policy_have_published_policy_version</td></tr><tr><td>40073</td><td>errors.net.accelbyte.platform.legal.policy_have_published_policy_version_and_already_accepted_by_user</td></tr><tr><td>40074</td><td>errors.net.accelbyte.platform.legal.policy_is_default_policy</td></tr></table>
 */
 type DeletePolicyBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewGetPlayStationIAPConfigParamsWithHTTPClient(client *http.Client) *GetPla
 	}
 }
 
-/*GetPlayStationIAPConfigParams contains all the parameters to send to the API endpoint
+/*
+GetPlayStationIAPConfigParams contains all the parameters to send to the API endpoint
 for the get play station iap config operation typically these are written to a http.Request
 */
 type GetPlayStationIAPConfigParams struct {

@@ -130,9 +130,10 @@ func NewAdminGetUserPlatformAccountClosureHistoriesOK() *AdminGetUserPlatformAcc
 	return &AdminGetUserPlatformAccountClosureHistoriesOK{}
 }
 
-/*AdminGetUserPlatformAccountClosureHistoriesOK handles this case with default header values.
+/*
+AdminGetUserPlatformAccountClosureHistoriesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserPlatformAccountClosureHistoriesOK struct {
 	Payload *gdprclientmodels.DTOUserPlatformAccountClosureHistoriesResponse
@@ -184,9 +185,10 @@ func NewAdminGetUserPlatformAccountClosureHistoriesBadRequest() *AdminGetUserPla
 	return &AdminGetUserPlatformAccountClosureHistoriesBadRequest{}
 }
 
-/*AdminGetUserPlatformAccountClosureHistoriesBadRequest handles this case with default header values.
+/*
+AdminGetUserPlatformAccountClosureHistoriesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetUserPlatformAccountClosureHistoriesBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetUserPlatformAccountClosureHistoriesUnauthorized() *AdminGetUserP
 	return &AdminGetUserPlatformAccountClosureHistoriesUnauthorized{}
 }
 
-/*AdminGetUserPlatformAccountClosureHistoriesUnauthorized handles this case with default header values.
+/*
+AdminGetUserPlatformAccountClosureHistoriesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetUserPlatformAccountClosureHistoriesUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGetUserPlatformAccountClosureHistoriesForbidden() *AdminGetUserPlat
 	return &AdminGetUserPlatformAccountClosureHistoriesForbidden{}
 }
 
-/*AdminGetUserPlatformAccountClosureHistoriesForbidden handles this case with default header values.
+/*
+AdminGetUserPlatformAccountClosureHistoriesForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetUserPlatformAccountClosureHistoriesForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetUserPlatformAccountClosureHistoriesInternalServerError() *AdminG
 	return &AdminGetUserPlatformAccountClosureHistoriesInternalServerError{}
 }
 
-/*AdminGetUserPlatformAccountClosureHistoriesInternalServerError handles this case with default header values.
+/*
+AdminGetUserPlatformAccountClosureHistoriesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetUserPlatformAccountClosureHistoriesInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

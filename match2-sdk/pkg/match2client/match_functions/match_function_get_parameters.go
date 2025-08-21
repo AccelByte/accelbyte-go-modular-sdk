@@ -57,7 +57,8 @@ func NewMatchFunctionGetParamsWithHTTPClient(client *http.Client) *MatchFunction
 	}
 }
 
-/*MatchFunctionGetParams contains all the parameters to send to the API endpoint
+/*
+MatchFunctionGetParams contains all the parameters to send to the API endpoint
 for the match function get operation typically these are written to a http.Request
 */
 type MatchFunctionGetParams struct {

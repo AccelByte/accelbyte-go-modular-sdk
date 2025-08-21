@@ -114,9 +114,10 @@ func NewAdminDeleteOfficialContentV2NoContent() *AdminDeleteOfficialContentV2NoC
 	return &AdminDeleteOfficialContentV2NoContent{}
 }
 
-/*AdminDeleteOfficialContentV2NoContent handles this case with default header values.
+/*
+AdminDeleteOfficialContentV2NoContent handles this case with default header values.
 
-  Official content deleted
+	Official content deleted
 */
 type AdminDeleteOfficialContentV2NoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminDeleteOfficialContentV2Unauthorized() *AdminDeleteOfficialContentV2
 	return &AdminDeleteOfficialContentV2Unauthorized{}
 }
 
-/*AdminDeleteOfficialContentV2Unauthorized handles this case with default header values.
+/*
+AdminDeleteOfficialContentV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteOfficialContentV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewAdminDeleteOfficialContentV2NotFound() *AdminDeleteOfficialContentV2NotF
 	return &AdminDeleteOfficialContentV2NotFound{}
 }
 
-/*AdminDeleteOfficialContentV2NotFound handles this case with default header values.
+/*
+AdminDeleteOfficialContentV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772702</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772702</td><td>Content not found</td></tr></table>
 */
 type AdminDeleteOfficialContentV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewAdminDeleteOfficialContentV2InternalServerError() *AdminDeleteOfficialCo
 	return &AdminDeleteOfficialContentV2InternalServerError{}
 }
 
-/*AdminDeleteOfficialContentV2InternalServerError handles this case with default header values.
+/*
+AdminDeleteOfficialContentV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772701</td><td>Unable to delete content/Unable to update user liked count/Unable to delete like state/Unable to delete like state</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772701</td><td>Unable to delete content/Unable to update user liked count/Unable to delete like state/Unable to delete like state</td></tr></table>
 */
 type AdminDeleteOfficialContentV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

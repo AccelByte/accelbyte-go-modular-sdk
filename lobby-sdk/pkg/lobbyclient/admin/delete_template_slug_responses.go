@@ -129,9 +129,10 @@ func NewDeleteTemplateSlugNoContent() *DeleteTemplateSlugNoContent {
 	return &DeleteTemplateSlugNoContent{}
 }
 
-/*DeleteTemplateSlugNoContent handles this case with default header values.
+/*
+DeleteTemplateSlugNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteTemplateSlugNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteTemplateSlugBadRequest() *DeleteTemplateSlugBadRequest {
 	return &DeleteTemplateSlugBadRequest{}
 }
 
-/*DeleteTemplateSlugBadRequest handles this case with default header values.
+/*
+DeleteTemplateSlugBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type DeleteTemplateSlugBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewDeleteTemplateSlugUnauthorized() *DeleteTemplateSlugUnauthorized {
 	return &DeleteTemplateSlugUnauthorized{}
 }
 
-/*DeleteTemplateSlugUnauthorized handles this case with default header values.
+/*
+DeleteTemplateSlugUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteTemplateSlugUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewDeleteTemplateSlugForbidden() *DeleteTemplateSlugForbidden {
 	return &DeleteTemplateSlugForbidden{}
 }
 
-/*DeleteTemplateSlugForbidden handles this case with default header values.
+/*
+DeleteTemplateSlugForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteTemplateSlugForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewDeleteTemplateSlugNotFound() *DeleteTemplateSlugNotFound {
 	return &DeleteTemplateSlugNotFound{}
 }
 
-/*DeleteTemplateSlugNotFound handles this case with default header values.
+/*
+DeleteTemplateSlugNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteTemplateSlugNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

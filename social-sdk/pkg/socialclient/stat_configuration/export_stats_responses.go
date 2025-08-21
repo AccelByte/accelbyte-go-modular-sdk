@@ -118,9 +118,10 @@ func NewExportStatsOK(writer io.Writer) *ExportStatsOK {
 	}
 }
 
-/*ExportStatsOK handles this case with default header values.
+/*
+ExportStatsOK handles this case with default header values.
 
-  successful export of stat configs
+	successful export of stat configs
 */
 type ExportStatsOK struct {
 	Payload io.Writer
@@ -170,9 +171,10 @@ func NewExportStatsUnauthorized() *ExportStatsUnauthorized {
 	return &ExportStatsUnauthorized{}
 }
 
-/*ExportStatsUnauthorized handles this case with default header values.
+/*
+ExportStatsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type ExportStatsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -224,9 +226,10 @@ func NewExportStatsForbidden() *ExportStatsForbidden {
 	return &ExportStatsForbidden{}
 }
 
-/*ExportStatsForbidden handles this case with default header values.
+/*
+ExportStatsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type ExportStatsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -278,9 +281,10 @@ func NewExportStatsInternalServerError() *ExportStatsInternalServerError {
 	return &ExportStatsInternalServerError{}
 }
 
-/*ExportStatsInternalServerError handles this case with default header values.
+/*
+ExportStatsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type ExportStatsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

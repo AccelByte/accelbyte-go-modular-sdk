@@ -115,9 +115,10 @@ func NewUpdateIAPItemConfigOK() *UpdateIAPItemConfigOK {
 	return &UpdateIAPItemConfigOK{}
 }
 
-/*UpdateIAPItemConfigOK handles this case with default header values.
+/*
+UpdateIAPItemConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateIAPItemConfigOK struct {
 	Payload *platformclientmodels.IAPItemConfigInfo
@@ -169,9 +170,10 @@ func NewUpdateIAPItemConfigBadRequest() *UpdateIAPItemConfigBadRequest {
 	return &UpdateIAPItemConfigBadRequest{}
 }
 
-/*UpdateIAPItemConfigBadRequest handles this case with default header values.
+/*
+UpdateIAPItemConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39321</td><td>Invalid IAP item config namespace [{namespace}]: [{message}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39321</td><td>Invalid IAP item config namespace [{namespace}]: [{message}]</td></tr></table>
 */
 type UpdateIAPItemConfigBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewUpdateIAPItemConfigConflict() *UpdateIAPItemConfigConflict {
 	return &UpdateIAPItemConfigConflict{}
 }
 
-/*UpdateIAPItemConfigConflict handles this case with default header values.
+/*
+UpdateIAPItemConfigConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39175</td><td>Duplicate IAP item mapping, IAPType: [{iapType}] and id: [{iapId}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39175</td><td>Duplicate IAP item mapping, IAPType: [{iapType}] and id: [{iapId}]</td></tr></table>
 */
 type UpdateIAPItemConfigConflict struct {
 	Payload *platformclientmodels.ValidationErrorEntity
@@ -277,9 +280,10 @@ func NewUpdateIAPItemConfigUnprocessableEntity() *UpdateIAPItemConfigUnprocessab
 	return &UpdateIAPItemConfigUnprocessableEntity{}
 }
 
-/*UpdateIAPItemConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdateIAPItemConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateIAPItemConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

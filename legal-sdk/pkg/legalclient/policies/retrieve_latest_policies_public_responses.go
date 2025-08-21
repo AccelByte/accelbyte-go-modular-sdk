@@ -85,9 +85,10 @@ func NewRetrieveLatestPoliciesPublicOK() *RetrieveLatestPoliciesPublicOK {
 	return &RetrieveLatestPoliciesPublicOK{}
 }
 
-/*RetrieveLatestPoliciesPublicOK handles this case with default header values.
+/*
+RetrieveLatestPoliciesPublicOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveLatestPoliciesPublicOK struct {
 	Payload []*legalclientmodels.RetrievePolicyPublicResponse
@@ -137,9 +138,10 @@ func NewRetrieveLatestPoliciesPublicNotFound() *RetrieveLatestPoliciesPublicNotF
 	return &RetrieveLatestPoliciesPublicNotFound{}
 }
 
-/*RetrieveLatestPoliciesPublicNotFound handles this case with default header values.
+/*
+RetrieveLatestPoliciesPublicNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40040</td><td>errors.net.accelbyte.platform.legal.user_has_no_country</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40040</td><td>errors.net.accelbyte.platform.legal.user_has_no_country</td></tr></table>
 */
 type RetrieveLatestPoliciesPublicNotFound struct {
 	Payload *legalclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewDeleteXblAPConfigParamsWithHTTPClient(client *http.Client) *DeleteXblAPC
 	}
 }
 
-/*DeleteXblAPConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteXblAPConfigParams contains all the parameters to send to the API endpoint
 for the delete xbl ap config operation typically these are written to a http.Request
 */
 type DeleteXblAPConfigParams struct {

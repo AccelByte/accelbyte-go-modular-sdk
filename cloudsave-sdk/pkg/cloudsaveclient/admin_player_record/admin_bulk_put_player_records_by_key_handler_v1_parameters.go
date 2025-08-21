@@ -59,7 +59,8 @@ func NewAdminBulkPutPlayerRecordsByKeyHandlerV1ParamsWithHTTPClient(client *http
 	}
 }
 
-/*AdminBulkPutPlayerRecordsByKeyHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+AdminBulkPutPlayerRecordsByKeyHandlerV1Params contains all the parameters to send to the API endpoint
 for the admin bulk put player records by key handler v1 operation typically these are written to a http.Request
 */
 type AdminBulkPutPlayerRecordsByKeyHandlerV1Params struct {

@@ -160,9 +160,10 @@ func NewCreateStatCycleCreated() *CreateStatCycleCreated {
 	return &CreateStatCycleCreated{}
 }
 
-/*CreateStatCycleCreated handles this case with default header values.
+/*
+CreateStatCycleCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateStatCycleCreated struct {
 	Payload *socialclientmodels.StatCycleInfo
@@ -214,9 +215,10 @@ func NewCreateStatCycleBadRequest() *CreateStatCycleBadRequest {
 	return &CreateStatCycleBadRequest{}
 }
 
-/*CreateStatCycleBadRequest handles this case with default header values.
+/*
+CreateStatCycleBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12225</td><td>Invalid time range</td></tr><tr><td>12226</td><td>Invalid date [{date}] of month [{month}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12225</td><td>Invalid time range</td></tr><tr><td>12226</td><td>Invalid date [{date}] of month [{month}]</td></tr></table>
 */
 type CreateStatCycleBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -268,9 +270,10 @@ func NewCreateStatCycleUnauthorized() *CreateStatCycleUnauthorized {
 	return &CreateStatCycleUnauthorized{}
 }
 
-/*CreateStatCycleUnauthorized handles this case with default header values.
+/*
+CreateStatCycleUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type CreateStatCycleUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -322,9 +325,10 @@ func NewCreateStatCycleForbidden() *CreateStatCycleForbidden {
 	return &CreateStatCycleForbidden{}
 }
 
-/*CreateStatCycleForbidden handles this case with default header values.
+/*
+CreateStatCycleForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type CreateStatCycleForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -376,9 +380,10 @@ func NewCreateStatCycleConflict() *CreateStatCycleConflict {
 	return &CreateStatCycleConflict{}
 }
 
-/*CreateStatCycleConflict handles this case with default header values.
+/*
+CreateStatCycleConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12274</td><td>Stat cycle with id [{id}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12274</td><td>Stat cycle with id [{id}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type CreateStatCycleConflict struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -430,9 +435,10 @@ func NewCreateStatCycleUnprocessableEntity() *CreateStatCycleUnprocessableEntity
 	return &CreateStatCycleUnprocessableEntity{}
 }
 
-/*CreateStatCycleUnprocessableEntity handles this case with default header values.
+/*
+CreateStatCycleUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateStatCycleUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -484,9 +490,10 @@ func NewCreateStatCycleInternalServerError() *CreateStatCycleInternalServerError
 	return &CreateStatCycleInternalServerError{}
 }
 
-/*CreateStatCycleInternalServerError handles this case with default header values.
+/*
+CreateStatCycleInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type CreateStatCycleInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

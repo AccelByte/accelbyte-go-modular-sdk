@@ -115,9 +115,10 @@ func NewAdminListGlobalAchievementContributorsOK() *AdminListGlobalAchievementCo
 	return &AdminListGlobalAchievementContributorsOK{}
 }
 
-/*AdminListGlobalAchievementContributorsOK handles this case with default header values.
+/*
+AdminListGlobalAchievementContributorsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListGlobalAchievementContributorsOK struct {
 	Payload *achievementclientmodels.ModelsPaginatedContributorResponse
@@ -169,9 +170,10 @@ func NewAdminListGlobalAchievementContributorsBadRequest() *AdminListGlobalAchie
 	return &AdminListGlobalAchievementContributorsBadRequest{}
 }
 
-/*AdminListGlobalAchievementContributorsBadRequest handles this case with default header values.
+/*
+AdminListGlobalAchievementContributorsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminListGlobalAchievementContributorsBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminListGlobalAchievementContributorsUnauthorized() *AdminListGlobalAch
 	return &AdminListGlobalAchievementContributorsUnauthorized{}
 }
 
-/*AdminListGlobalAchievementContributorsUnauthorized handles this case with default header values.
+/*
+AdminListGlobalAchievementContributorsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminListGlobalAchievementContributorsUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminListGlobalAchievementContributorsInternalServerError() *AdminListGl
 	return &AdminListGlobalAchievementContributorsInternalServerError{}
 }
 
-/*AdminListGlobalAchievementContributorsInternalServerError handles this case with default header values.
+/*
+AdminListGlobalAchievementContributorsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminListGlobalAchievementContributorsInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

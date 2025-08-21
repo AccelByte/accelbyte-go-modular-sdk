@@ -114,9 +114,10 @@ func NewAuthCheckOK() *AuthCheckOK {
 	return &AuthCheckOK{}
 }
 
-/*AuthCheckOK handles this case with default header values.
+/*
+AuthCheckOK handles this case with default header values.
 
-  success
+	success
 */
 type AuthCheckOK struct {
 }
@@ -141,9 +142,10 @@ func NewAuthCheckUnauthorized() *AuthCheckUnauthorized {
 	return &AuthCheckUnauthorized{}
 }
 
-/*AuthCheckUnauthorized handles this case with default header values.
+/*
+AuthCheckUnauthorized handles this case with default header values.
 
-  unauthorized
+	unauthorized
 */
 type AuthCheckUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -195,9 +197,10 @@ func NewAuthCheckForbidden() *AuthCheckForbidden {
 	return &AuthCheckForbidden{}
 }
 
-/*AuthCheckForbidden handles this case with default header values.
+/*
+AuthCheckForbidden handles this case with default header values.
 
-  forbidden
+	forbidden
 */
 type AuthCheckForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -249,9 +252,10 @@ func NewAuthCheckInternalServerError() *AuthCheckInternalServerError {
 	return &AuthCheckInternalServerError{}
 }
 
-/*AuthCheckInternalServerError handles this case with default header values.
+/*
+AuthCheckInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type AuthCheckInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

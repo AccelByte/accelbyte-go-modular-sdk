@@ -145,9 +145,10 @@ func NewAdminGetMyBackupCodesV4OK() *AdminGetMyBackupCodesV4OK {
 	return &AdminGetMyBackupCodesV4OK{}
 }
 
-/*AdminGetMyBackupCodesV4OK handles this case with default header values.
+/*
+AdminGetMyBackupCodesV4OK handles this case with default header values.
 
-  Get backup codes
+	Get backup codes
 */
 type AdminGetMyBackupCodesV4OK struct {
 	Payload *iamclientmodels.ModelBackupCodesResponseV4
@@ -199,9 +200,10 @@ func NewAdminGetMyBackupCodesV4BadRequest() *AdminGetMyBackupCodesV4BadRequest {
 	return &AdminGetMyBackupCodesV4BadRequest{}
 }
 
-/*AdminGetMyBackupCodesV4BadRequest handles this case with default header values.
+/*
+AdminGetMyBackupCodesV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type AdminGetMyBackupCodesV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewAdminGetMyBackupCodesV4Unauthorized() *AdminGetMyBackupCodesV4Unauthoriz
 	return &AdminGetMyBackupCodesV4Unauthorized{}
 }
 
-/*AdminGetMyBackupCodesV4Unauthorized handles this case with default header values.
+/*
+AdminGetMyBackupCodesV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetMyBackupCodesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewAdminGetMyBackupCodesV4Forbidden() *AdminGetMyBackupCodesV4Forbidden {
 	return &AdminGetMyBackupCodesV4Forbidden{}
 }
 
-/*AdminGetMyBackupCodesV4Forbidden handles this case with default header values.
+/*
+AdminGetMyBackupCodesV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetMyBackupCodesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewAdminGetMyBackupCodesV4NotFound() *AdminGetMyBackupCodesV4NotFound {
 	return &AdminGetMyBackupCodesV4NotFound{}
 }
 
-/*AdminGetMyBackupCodesV4NotFound handles this case with default header values.
+/*
+AdminGetMyBackupCodesV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminGetMyBackupCodesV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewAdminGetMyBackupCodesV4InternalServerError() *AdminGetMyBackupCodesV4Int
 	return &AdminGetMyBackupCodesV4InternalServerError{}
 }
 
-/*AdminGetMyBackupCodesV4InternalServerError handles this case with default header values.
+/*
+AdminGetMyBackupCodesV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetMyBackupCodesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

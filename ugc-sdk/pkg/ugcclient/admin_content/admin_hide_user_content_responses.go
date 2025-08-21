@@ -130,9 +130,10 @@ func NewAdminHideUserContentOK() *AdminHideUserContentOK {
 	return &AdminHideUserContentOK{}
 }
 
-/*AdminHideUserContentOK handles this case with default header values.
+/*
+AdminHideUserContentOK handles this case with default header values.
 
-  hide/unhide user's generated content
+	hide/unhide user's generated content
 */
 type AdminHideUserContentOK struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponse
@@ -184,9 +185,10 @@ func NewAdminHideUserContentBadRequest() *AdminHideUserContentBadRequest {
 	return &AdminHideUserContentBadRequest{}
 }
 
-/*AdminHideUserContentBadRequest handles this case with default header values.
+/*
+AdminHideUserContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773801</td><td>Invalid request body/Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773801</td><td>Invalid request body/Malformed request</td></tr></table>
 */
 type AdminHideUserContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminHideUserContentUnauthorized() *AdminHideUserContentUnauthorized {
 	return &AdminHideUserContentUnauthorized{}
 }
 
-/*AdminHideUserContentUnauthorized handles this case with default header values.
+/*
+AdminHideUserContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminHideUserContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminHideUserContentNotFound() *AdminHideUserContentNotFound {
 	return &AdminHideUserContentNotFound{}
 }
 
-/*AdminHideUserContentNotFound handles this case with default header values.
+/*
+AdminHideUserContentNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773803</td><td>Unable to update hide status: content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773803</td><td>Unable to update hide status: content not found</td></tr></table>
 */
 type AdminHideUserContentNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminHideUserContentInternalServerError() *AdminHideUserContentInternalS
 	return &AdminHideUserContentInternalServerError{}
 }
 
-/*AdminHideUserContentInternalServerError handles this case with default header values.
+/*
+AdminHideUserContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773802</td><td>Unable to update hide status: database error</td></tr><tr><td>773804</td><td>Unable to save ugc content: failed generate upload URL</td></tr><tr><td>773805</td><td>Unable to save ugc content preview: failed generate upload URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773802</td><td>Unable to update hide status: database error</td></tr><tr><td>773804</td><td>Unable to save ugc content: failed generate upload URL</td></tr><tr><td>773805</td><td>Unable to save ugc content preview: failed generate upload URL</td></tr></table>
 */
 type AdminHideUserContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

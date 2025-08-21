@@ -130,9 +130,10 @@ func NewAdminProfanityExportOK() *AdminProfanityExportOK {
 	return &AdminProfanityExportOK{}
 }
 
-/*AdminProfanityExportOK handles this case with default header values.
+/*
+AdminProfanityExportOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminProfanityExportOK struct {
 	Payload *chatclientmodels.ModelsDictionaryExport
@@ -184,9 +185,10 @@ func NewAdminProfanityExportBadRequest() *AdminProfanityExportBadRequest {
 	return &AdminProfanityExportBadRequest{}
 }
 
-/*AdminProfanityExportBadRequest handles this case with default header values.
+/*
+AdminProfanityExportBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminProfanityExportBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminProfanityExportUnauthorized() *AdminProfanityExportUnauthorized {
 	return &AdminProfanityExportUnauthorized{}
 }
 
-/*AdminProfanityExportUnauthorized handles this case with default header values.
+/*
+AdminProfanityExportUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminProfanityExportUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminProfanityExportForbidden() *AdminProfanityExportForbidden {
 	return &AdminProfanityExportForbidden{}
 }
 
-/*AdminProfanityExportForbidden handles this case with default header values.
+/*
+AdminProfanityExportForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminProfanityExportForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminProfanityExportInternalServerError() *AdminProfanityExportInternalS
 	return &AdminProfanityExportInternalServerError{}
 }
 
-/*AdminProfanityExportInternalServerError handles this case with default header values.
+/*
+AdminProfanityExportInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminProfanityExportInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

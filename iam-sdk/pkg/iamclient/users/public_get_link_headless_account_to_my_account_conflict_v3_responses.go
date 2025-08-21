@@ -130,9 +130,10 @@ func NewPublicGetLinkHeadlessAccountToMyAccountConflictV3OK() *PublicGetLinkHead
 	return &PublicGetLinkHeadlessAccountToMyAccountConflictV3OK{}
 }
 
-/*PublicGetLinkHeadlessAccountToMyAccountConflictV3OK handles this case with default header values.
+/*
+PublicGetLinkHeadlessAccountToMyAccountConflictV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetLinkHeadlessAccountToMyAccountConflictV3OK struct {
 	Payload *iamclientmodels.ModelGetLinkHeadlessAccountConflictResponse
@@ -184,9 +185,10 @@ func NewPublicGetLinkHeadlessAccountToMyAccountConflictV3BadRequest() *PublicGet
 	return &PublicGetLinkHeadlessAccountToMyAccountConflictV3BadRequest{}
 }
 
-/*PublicGetLinkHeadlessAccountToMyAccountConflictV3BadRequest handles this case with default header values.
+/*
+PublicGetLinkHeadlessAccountToMyAccountConflictV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetLinkHeadlessAccountToMyAccountConflictV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewPublicGetLinkHeadlessAccountToMyAccountConflictV3Unauthorized() *PublicG
 	return &PublicGetLinkHeadlessAccountToMyAccountConflictV3Unauthorized{}
 }
 
-/*PublicGetLinkHeadlessAccountToMyAccountConflictV3Unauthorized handles this case with default header values.
+/*
+PublicGetLinkHeadlessAccountToMyAccountConflictV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicGetLinkHeadlessAccountToMyAccountConflictV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewPublicGetLinkHeadlessAccountToMyAccountConflictV3Forbidden() *PublicGetL
 	return &PublicGetLinkHeadlessAccountToMyAccountConflictV3Forbidden{}
 }
 
-/*PublicGetLinkHeadlessAccountToMyAccountConflictV3Forbidden handles this case with default header values.
+/*
+PublicGetLinkHeadlessAccountToMyAccountConflictV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetLinkHeadlessAccountToMyAccountConflictV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewPublicGetLinkHeadlessAccountToMyAccountConflictV3InternalServerError() *
 	return &PublicGetLinkHeadlessAccountToMyAccountConflictV3InternalServerError{}
 }
 
-/*PublicGetLinkHeadlessAccountToMyAccountConflictV3InternalServerError handles this case with default header values.
+/*
+PublicGetLinkHeadlessAccountToMyAccountConflictV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetLinkHeadlessAccountToMyAccountConflictV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

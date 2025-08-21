@@ -57,7 +57,8 @@ func NewProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePl
 	}
 }
 
-/*ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutParams contains all the parameters to send to the API endpoint
+/*
+ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutParams contains all the parameters to send to the API endpoint
 for the protected update playtime game telemetry v1 protected steam ids steam id playtime playtime put operation typically these are written to a http.Request
 */
 type ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutParams struct {

@@ -57,7 +57,8 @@ func NewAdminGetIAPOrderLineItemsParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminGetIAPOrderLineItemsParams contains all the parameters to send to the API endpoint
+/*
+AdminGetIAPOrderLineItemsParams contains all the parameters to send to the API endpoint
 for the admin get iap order line items operation typically these are written to a http.Request
 */
 type AdminGetIAPOrderLineItemsParams struct {

@@ -114,9 +114,10 @@ func NewDeleteRewardNoContent() *DeleteRewardNoContent {
 	return &DeleteRewardNoContent{}
 }
 
-/*DeleteRewardNoContent handles this case with default header values.
+/*
+DeleteRewardNoContent handles this case with default header values.
 
-  Delete reward successfully
+	Delete reward successfully
 */
 type DeleteRewardNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteRewardBadRequest() *DeleteRewardBadRequest {
 	return &DeleteRewardBadRequest{}
 }
 
-/*DeleteRewardBadRequest handles this case with default header values.
+/*
+DeleteRewardBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type DeleteRewardBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -195,9 +197,10 @@ func NewDeleteRewardNotFound() *DeleteRewardNotFound {
 	return &DeleteRewardNotFound{}
 }
 
-/*DeleteRewardNotFound handles this case with default header values.
+/*
+DeleteRewardNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DeleteRewardNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -249,9 +252,10 @@ func NewDeleteRewardConflict() *DeleteRewardConflict {
 	return &DeleteRewardConflict{}
 }
 
-/*DeleteRewardConflict handles this case with default header values.
+/*
+DeleteRewardConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Season is not updatable in status [{status}]</td></tr><tr><td>49179</td><td>Reward [{code}] is in use</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Season is not updatable in status [{status}]</td></tr><tr><td>49179</td><td>Reward [{code}] is in use</td></tr></table>
 */
 type DeleteRewardConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity

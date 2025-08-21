@@ -69,9 +69,10 @@ func NewGetServicePluginConfigOK() *GetServicePluginConfigOK {
 	return &GetServicePluginConfigOK{}
 }
 
-/*GetServicePluginConfigOK handles this case with default header values.
+/*
+GetServicePluginConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetServicePluginConfigOK struct {
 	Payload *platformclientmodels.ServicePluginConfigInfo

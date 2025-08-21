@@ -78,7 +78,8 @@ func NewAdminSearchContentParamsWithHTTPClient(client *http.Client) *AdminSearch
 	}
 }
 
-/*AdminSearchContentParams contains all the parameters to send to the API endpoint
+/*
+AdminSearchContentParams contains all the parameters to send to the API endpoint
 for the admin search content operation typically these are written to a http.Request
 */
 type AdminSearchContentParams struct {

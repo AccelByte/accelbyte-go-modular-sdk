@@ -130,10 +130,9 @@ func NewSyncNativeBlockedUserOK() *SyncNativeBlockedUserOK {
 	return &SyncNativeBlockedUserOK{}
 }
 
-/*SyncNativeBlockedUserOK handles this case with default header values.
-
-
- */
+/*
+SyncNativeBlockedUserOK handles this case with default header values.
+*/
 type SyncNativeBlockedUserOK struct {
 	Payload []*lobbyclientmodels.ModelNativeUserBlockResponse
 }
@@ -182,9 +181,10 @@ func NewSyncNativeBlockedUserBadRequest() *SyncNativeBlockedUserBadRequest {
 	return &SyncNativeBlockedUserBadRequest{}
 }
 
-/*SyncNativeBlockedUserBadRequest handles this case with default header values.
+/*
+SyncNativeBlockedUserBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type SyncNativeBlockedUserBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -236,9 +236,10 @@ func NewSyncNativeBlockedUserUnauthorized() *SyncNativeBlockedUserUnauthorized {
 	return &SyncNativeBlockedUserUnauthorized{}
 }
 
-/*SyncNativeBlockedUserUnauthorized handles this case with default header values.
+/*
+SyncNativeBlockedUserUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SyncNativeBlockedUserUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -290,9 +291,10 @@ func NewSyncNativeBlockedUserForbidden() *SyncNativeBlockedUserForbidden {
 	return &SyncNativeBlockedUserForbidden{}
 }
 
-/*SyncNativeBlockedUserForbidden handles this case with default header values.
+/*
+SyncNativeBlockedUserForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type SyncNativeBlockedUserForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -344,9 +346,10 @@ func NewSyncNativeBlockedUserInternalServerError() *SyncNativeBlockedUserInterna
 	return &SyncNativeBlockedUserInternalServerError{}
 }
 
-/*SyncNativeBlockedUserInternalServerError handles this case with default header values.
+/*
+SyncNativeBlockedUserInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type SyncNativeBlockedUserInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

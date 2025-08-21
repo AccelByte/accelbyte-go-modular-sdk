@@ -129,9 +129,10 @@ func NewNotificationWithTemplateByUserIDNoContent() *NotificationWithTemplateByU
 	return &NotificationWithTemplateByUserIDNoContent{}
 }
 
-/*NotificationWithTemplateByUserIDNoContent handles this case with default header values.
+/*
+NotificationWithTemplateByUserIDNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type NotificationWithTemplateByUserIDNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewNotificationWithTemplateByUserIDBadRequest() *NotificationWithTemplateBy
 	return &NotificationWithTemplateByUserIDBadRequest{}
 }
 
-/*NotificationWithTemplateByUserIDBadRequest handles this case with default header values.
+/*
+NotificationWithTemplateByUserIDBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type NotificationWithTemplateByUserIDBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewNotificationWithTemplateByUserIDUnauthorized() *NotificationWithTemplate
 	return &NotificationWithTemplateByUserIDUnauthorized{}
 }
 
-/*NotificationWithTemplateByUserIDUnauthorized handles this case with default header values.
+/*
+NotificationWithTemplateByUserIDUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type NotificationWithTemplateByUserIDUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewNotificationWithTemplateByUserIDForbidden() *NotificationWithTemplateByU
 	return &NotificationWithTemplateByUserIDForbidden{}
 }
 
-/*NotificationWithTemplateByUserIDForbidden handles this case with default header values.
+/*
+NotificationWithTemplateByUserIDForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type NotificationWithTemplateByUserIDForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewNotificationWithTemplateByUserIDNotFound() *NotificationWithTemplateByUs
 	return &NotificationWithTemplateByUserIDNotFound{}
 }
 
-/*NotificationWithTemplateByUserIDNotFound handles this case with default header values.
+/*
+NotificationWithTemplateByUserIDNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type NotificationWithTemplateByUserIDNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

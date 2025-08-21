@@ -58,7 +58,8 @@ func NewAuthenticateAndLinkForwardV3ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AuthenticateAndLinkForwardV3Params contains all the parameters to send to the API endpoint
+/*
+AuthenticateAndLinkForwardV3Params contains all the parameters to send to the API endpoint
 for the authenticate and link forward v3 operation typically these are written to a http.Request
 */
 type AuthenticateAndLinkForwardV3Params struct {

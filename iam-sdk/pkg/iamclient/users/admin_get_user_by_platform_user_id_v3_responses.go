@@ -130,9 +130,10 @@ func NewAdminGetUserByPlatformUserIDV3OK() *AdminGetUserByPlatformUserIDV3OK {
 	return &AdminGetUserByPlatformUserIDV3OK{}
 }
 
-/*AdminGetUserByPlatformUserIDV3OK handles this case with default header values.
+/*
+AdminGetUserByPlatformUserIDV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserByPlatformUserIDV3OK struct {
 	Payload *iamclientmodels.ModelUserResponseV3
@@ -184,9 +185,10 @@ func NewAdminGetUserByPlatformUserIDV3Unauthorized() *AdminGetUserByPlatformUser
 	return &AdminGetUserByPlatformUserIDV3Unauthorized{}
 }
 
-/*AdminGetUserByPlatformUserIDV3Unauthorized handles this case with default header values.
+/*
+AdminGetUserByPlatformUserIDV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserByPlatformUserIDV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminGetUserByPlatformUserIDV3Forbidden() *AdminGetUserByPlatformUserIDV
 	return &AdminGetUserByPlatformUserIDV3Forbidden{}
 }
 
-/*AdminGetUserByPlatformUserIDV3Forbidden handles this case with default header values.
+/*
+AdminGetUserByPlatformUserIDV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserByPlatformUserIDV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetUserByPlatformUserIDV3NotFound() *AdminGetUserByPlatformUserIDV3
 	return &AdminGetUserByPlatformUserIDV3NotFound{}
 }
 
-/*AdminGetUserByPlatformUserIDV3NotFound handles this case with default header values.
+/*
+AdminGetUserByPlatformUserIDV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type AdminGetUserByPlatformUserIDV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetUserByPlatformUserIDV3InternalServerError() *AdminGetUserByPlatf
 	return &AdminGetUserByPlatformUserIDV3InternalServerError{}
 }
 
-/*AdminGetUserByPlatformUserIDV3InternalServerError handles this case with default header values.
+/*
+AdminGetUserByPlatformUserIDV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetUserByPlatformUserIDV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

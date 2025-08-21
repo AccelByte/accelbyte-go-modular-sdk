@@ -85,9 +85,10 @@ func NewGetTicketDynamicOK() *GetTicketDynamicOK {
 	return &GetTicketDynamicOK{}
 }
 
-/*GetTicketDynamicOK handles this case with default header values.
+/*
+GetTicketDynamicOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetTicketDynamicOK struct {
 	Payload *platformclientmodels.TicketDynamicInfo
@@ -139,9 +140,10 @@ func NewGetTicketDynamicNotFound() *GetTicketDynamicNotFound {
 	return &GetTicketDynamicNotFound{}
 }
 
-/*GetTicketDynamicNotFound handles this case with default header values.
+/*
+GetTicketDynamicNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetTicketDynamicNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

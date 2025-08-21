@@ -114,9 +114,10 @@ func NewUpdateModerationRuleStatusNoContent() *UpdateModerationRuleStatusNoConte
 	return &UpdateModerationRuleStatusNoContent{}
 }
 
-/*UpdateModerationRuleStatusNoContent handles this case with default header values.
+/*
+UpdateModerationRuleStatusNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UpdateModerationRuleStatusNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewUpdateModerationRuleStatusBadRequest() *UpdateModerationRuleStatusBadReq
 	return &UpdateModerationRuleStatusBadRequest{}
 }
 
-/*UpdateModerationRuleStatusBadRequest handles this case with default header values.
+/*
+UpdateModerationRuleStatusBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateModerationRuleStatusBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
@@ -195,9 +197,10 @@ func NewUpdateModerationRuleStatusNotFound() *UpdateModerationRuleStatusNotFound
 	return &UpdateModerationRuleStatusNotFound{}
 }
 
-/*UpdateModerationRuleStatusNotFound handles this case with default header values.
+/*
+UpdateModerationRuleStatusNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UpdateModerationRuleStatusNotFound struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
@@ -249,9 +252,10 @@ func NewUpdateModerationRuleStatusInternalServerError() *UpdateModerationRuleSta
 	return &UpdateModerationRuleStatusInternalServerError{}
 }
 
-/*UpdateModerationRuleStatusInternalServerError handles this case with default header values.
+/*
+UpdateModerationRuleStatusInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateModerationRuleStatusInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse

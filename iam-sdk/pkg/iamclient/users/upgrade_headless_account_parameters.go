@@ -59,7 +59,8 @@ func NewUpgradeHeadlessAccountParamsWithHTTPClient(client *http.Client) *Upgrade
 	}
 }
 
-/*UpgradeHeadlessAccountParams contains all the parameters to send to the API endpoint
+/*
+UpgradeHeadlessAccountParams contains all the parameters to send to the API endpoint
 for the upgrade headless account operation typically these are written to a http.Request
 */
 type UpgradeHeadlessAccountParams struct {

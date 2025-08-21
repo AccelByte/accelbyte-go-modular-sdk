@@ -145,9 +145,10 @@ func NewAdminBulkGetAdminGameRecordV1OK() *AdminBulkGetAdminGameRecordV1OK {
 	return &AdminBulkGetAdminGameRecordV1OK{}
 }
 
-/*AdminBulkGetAdminGameRecordV1OK handles this case with default header values.
+/*
+AdminBulkGetAdminGameRecordV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminBulkGetAdminGameRecordV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsBulkGetAdminGameRecordResponse
@@ -199,9 +200,10 @@ func NewAdminBulkGetAdminGameRecordV1BadRequest() *AdminBulkGetAdminGameRecordV1
 	return &AdminBulkGetAdminGameRecordV1BadRequest{}
 }
 
-/*AdminBulkGetAdminGameRecordV1BadRequest handles this case with default header values.
+/*
+AdminBulkGetAdminGameRecordV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18168</td><td>invalid request body</td></tr><tr><td>18169</td><td>request record keys list exceed max size [%d]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18168</td><td>invalid request body</td></tr><tr><td>18169</td><td>request record keys list exceed max size [%d]</td></tr></table>
 */
 type AdminBulkGetAdminGameRecordV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewAdminBulkGetAdminGameRecordV1Unauthorized() *AdminBulkGetAdminGameRecord
 	return &AdminBulkGetAdminGameRecordV1Unauthorized{}
 }
 
-/*AdminBulkGetAdminGameRecordV1Unauthorized handles this case with default header values.
+/*
+AdminBulkGetAdminGameRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminBulkGetAdminGameRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewAdminBulkGetAdminGameRecordV1Forbidden() *AdminBulkGetAdminGameRecordV1F
 	return &AdminBulkGetAdminGameRecordV1Forbidden{}
 }
 
-/*AdminBulkGetAdminGameRecordV1Forbidden handles this case with default header values.
+/*
+AdminBulkGetAdminGameRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminBulkGetAdminGameRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewAdminBulkGetAdminGameRecordV1NotFound() *AdminBulkGetAdminGameRecordV1No
 	return &AdminBulkGetAdminGameRecordV1NotFound{}
 }
 
-/*AdminBulkGetAdminGameRecordV1NotFound handles this case with default header values.
+/*
+AdminBulkGetAdminGameRecordV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18171</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18171</td><td>record not found</td></tr></table>
 */
 type AdminBulkGetAdminGameRecordV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewAdminBulkGetAdminGameRecordV1InternalServerError() *AdminBulkGetAdminGam
 	return &AdminBulkGetAdminGameRecordV1InternalServerError{}
 }
 
-/*AdminBulkGetAdminGameRecordV1InternalServerError handles this case with default header values.
+/*
+AdminBulkGetAdminGameRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18170</td><td>unable to get record</td></tr><tr><td>18172</td><td>unable to decode record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18170</td><td>unable to get record</td></tr><tr><td>18172</td><td>unable to decode record</td></tr></table>
 */
 type AdminBulkGetAdminGameRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

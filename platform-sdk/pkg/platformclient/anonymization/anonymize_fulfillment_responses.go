@@ -66,9 +66,10 @@ func NewAnonymizeFulfillmentNoContent() *AnonymizeFulfillmentNoContent {
 	return &AnonymizeFulfillmentNoContent{}
 }
 
-/*AnonymizeFulfillmentNoContent handles this case with default header values.
+/*
+AnonymizeFulfillmentNoContent handles this case with default header values.
 
-  Anonymize successfully
+	Anonymize successfully
 */
 type AnonymizeFulfillmentNoContent struct {
 }

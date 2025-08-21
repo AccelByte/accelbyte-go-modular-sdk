@@ -59,7 +59,8 @@ func NewAdminPostPlayerBinaryPresignedURLV1ParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*AdminPostPlayerBinaryPresignedURLV1Params contains all the parameters to send to the API endpoint
+/*
+AdminPostPlayerBinaryPresignedURLV1Params contains all the parameters to send to the API endpoint
 for the admin post player binary presigned urlv1 operation typically these are written to a http.Request
 */
 type AdminPostPlayerBinaryPresignedURLV1Params struct {

@@ -69,9 +69,10 @@ func NewPublicGetQRCodeOK() *PublicGetQRCodeOK {
 	return &PublicGetQRCodeOK{}
 }
 
-/*PublicGetQRCodeOK handles this case with default header values.
+/*
+PublicGetQRCodeOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type PublicGetQRCodeOK struct {
 	Payload *platformclientmodels.BinarySchema

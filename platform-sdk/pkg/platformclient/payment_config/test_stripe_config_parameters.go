@@ -72,7 +72,8 @@ func NewTestStripeConfigParamsWithHTTPClient(client *http.Client) *TestStripeCon
 	}
 }
 
-/*TestStripeConfigParams contains all the parameters to send to the API endpoint
+/*
+TestStripeConfigParams contains all the parameters to send to the API endpoint
 for the test stripe config operation typically these are written to a http.Request
 */
 type TestStripeConfigParams struct {

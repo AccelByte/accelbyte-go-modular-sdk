@@ -85,9 +85,10 @@ func NewGenerateInvoiceSummaryOK() *GenerateInvoiceSummaryOK {
 	return &GenerateInvoiceSummaryOK{}
 }
 
-/*GenerateInvoiceSummaryOK handles this case with default header values.
+/*
+GenerateInvoiceSummaryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GenerateInvoiceSummaryOK struct {
 	Payload *platformclientmodels.InvoiceSummary
@@ -139,9 +140,10 @@ func NewGenerateInvoiceSummaryUnprocessableEntity() *GenerateInvoiceSummaryUnpro
 	return &GenerateInvoiceSummaryUnprocessableEntity{}
 }
 
-/*GenerateInvoiceSummaryUnprocessableEntity handles this case with default header values.
+/*
+GenerateInvoiceSummaryUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GenerateInvoiceSummaryUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

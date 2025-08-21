@@ -145,9 +145,10 @@ func NewPublicUpdateContentFileLocationOK() *PublicUpdateContentFileLocationOK {
 	return &PublicUpdateContentFileLocationOK{}
 }
 
-/*PublicUpdateContentFileLocationOK handles this case with default header values.
+/*
+PublicUpdateContentFileLocationOK handles this case with default header values.
 
-  Update content file location
+	Update content file location
 */
 type PublicUpdateContentFileLocationOK struct {
 	Payload *ugcclientmodels.ModelsUpdateContentResponseV2
@@ -199,9 +200,10 @@ func NewPublicUpdateContentFileLocationBadRequest() *PublicUpdateContentFileLoca
 	return &PublicUpdateContentFileLocationBadRequest{}
 }
 
-/*PublicUpdateContentFileLocationBadRequest handles this case with default header values.
+/*
+PublicUpdateContentFileLocationBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774001</td><td>unable to read response body/unable to update file location</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774001</td><td>unable to read response body/unable to update file location</td></tr></table>
 */
 type PublicUpdateContentFileLocationBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewPublicUpdateContentFileLocationUnauthorized() *PublicUpdateContentFileLo
 	return &PublicUpdateContentFileLocationUnauthorized{}
 }
 
-/*PublicUpdateContentFileLocationUnauthorized handles this case with default header values.
+/*
+PublicUpdateContentFileLocationUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicUpdateContentFileLocationUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewPublicUpdateContentFileLocationForbidden() *PublicUpdateContentFileLocat
 	return &PublicUpdateContentFileLocationForbidden{}
 }
 
-/*PublicUpdateContentFileLocationForbidden handles this case with default header values.
+/*
+PublicUpdateContentFileLocationForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicUpdateContentFileLocationForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewPublicUpdateContentFileLocationNotFound() *PublicUpdateContentFileLocati
 	return &PublicUpdateContentFileLocationNotFound{}
 }
 
-/*PublicUpdateContentFileLocationNotFound handles this case with default header values.
+/*
+PublicUpdateContentFileLocationNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774002</td><td>unable to update content file location: content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774002</td><td>unable to update content file location: content not found</td></tr></table>
 */
 type PublicUpdateContentFileLocationNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicUpdateContentFileLocationInternalServerError() *PublicUpdateConten
 	return &PublicUpdateContentFileLocationInternalServerError{}
 }
 
-/*PublicUpdateContentFileLocationInternalServerError handles this case with default header values.
+/*
+PublicUpdateContentFileLocationInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>774003</td><td>unable to update content file location</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>774003</td><td>unable to update content file location</td></tr></table>
 */
 type PublicUpdateContentFileLocationInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

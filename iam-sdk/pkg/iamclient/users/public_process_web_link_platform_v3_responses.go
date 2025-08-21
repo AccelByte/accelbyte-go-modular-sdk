@@ -85,9 +85,10 @@ func NewPublicProcessWebLinkPlatformV3OK() *PublicProcessWebLinkPlatformV3OK {
 	return &PublicProcessWebLinkPlatformV3OK{}
 }
 
-/*PublicProcessWebLinkPlatformV3OK handles this case with default header values.
+/*
+PublicProcessWebLinkPlatformV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicProcessWebLinkPlatformV3OK struct {
 	Payload *iamclientmodels.ModelLinkRequest
@@ -139,9 +140,10 @@ func NewPublicProcessWebLinkPlatformV3BadRequest() *PublicProcessWebLinkPlatform
 	return &PublicProcessWebLinkPlatformV3BadRequest{}
 }
 
-/*PublicProcessWebLinkPlatformV3BadRequest handles this case with default header values.
+/*
+PublicProcessWebLinkPlatformV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicProcessWebLinkPlatformV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse

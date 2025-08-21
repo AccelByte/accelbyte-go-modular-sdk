@@ -160,9 +160,10 @@ func NewRejectGroupInvitationPublicV2OK() *RejectGroupInvitationPublicV2OK {
 	return &RejectGroupInvitationPublicV2OK{}
 }
 
-/*RejectGroupInvitationPublicV2OK handles this case with default header values.
+/*
+RejectGroupInvitationPublicV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type RejectGroupInvitationPublicV2OK struct {
 	Payload *groupclientmodels.ModelsMemberRequestGroupResponseV1
@@ -214,9 +215,10 @@ func NewRejectGroupInvitationPublicV2BadRequest() *RejectGroupInvitationPublicV2
 	return &RejectGroupInvitationPublicV2BadRequest{}
 }
 
-/*RejectGroupInvitationPublicV2BadRequest handles this case with default header values.
+/*
+RejectGroupInvitationPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type RejectGroupInvitationPublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -268,9 +270,10 @@ func NewRejectGroupInvitationPublicV2Unauthorized() *RejectGroupInvitationPublic
 	return &RejectGroupInvitationPublicV2Unauthorized{}
 }
 
-/*RejectGroupInvitationPublicV2Unauthorized handles this case with default header values.
+/*
+RejectGroupInvitationPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type RejectGroupInvitationPublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -322,9 +325,10 @@ func NewRejectGroupInvitationPublicV2Forbidden() *RejectGroupInvitationPublicV2F
 	return &RejectGroupInvitationPublicV2Forbidden{}
 }
 
-/*RejectGroupInvitationPublicV2Forbidden handles this case with default header values.
+/*
+RejectGroupInvitationPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type RejectGroupInvitationPublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -376,9 +380,10 @@ func NewRejectGroupInvitationPublicV2NotFound() *RejectGroupInvitationPublicV2No
 	return &RejectGroupInvitationPublicV2NotFound{}
 }
 
-/*RejectGroupInvitationPublicV2NotFound handles this case with default header values.
+/*
+RejectGroupInvitationPublicV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73443</td><td>member request not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73443</td><td>member request not found</td></tr></table>
 */
 type RejectGroupInvitationPublicV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -430,9 +435,10 @@ func NewRejectGroupInvitationPublicV2Conflict() *RejectGroupInvitationPublicV2Co
 	return &RejectGroupInvitationPublicV2Conflict{}
 }
 
-/*RejectGroupInvitationPublicV2Conflict handles this case with default header values.
+/*
+RejectGroupInvitationPublicV2Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73442</td><td>user already joined in another group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73442</td><td>user already joined in another group</td></tr></table>
 */
 type RejectGroupInvitationPublicV2Conflict struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -484,9 +490,10 @@ func NewRejectGroupInvitationPublicV2InternalServerError() *RejectGroupInvitatio
 	return &RejectGroupInvitationPublicV2InternalServerError{}
 }
 
-/*RejectGroupInvitationPublicV2InternalServerError handles this case with default header values.
+/*
+RejectGroupInvitationPublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type RejectGroupInvitationPublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

@@ -85,9 +85,10 @@ func NewUpdateXblBPCertFileOK() *UpdateXblBPCertFileOK {
 	return &UpdateXblBPCertFileOK{}
 }
 
-/*UpdateXblBPCertFileOK handles this case with default header values.
+/*
+UpdateXblBPCertFileOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateXblBPCertFileOK struct {
 	Payload *platformclientmodels.XblIAPConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateXblBPCertFileBadRequest() *UpdateXblBPCertFileBadRequest {
 	return &UpdateXblBPCertFileBadRequest{}
 }
 
-/*UpdateXblBPCertFileBadRequest handles this case with default header values.
+/*
+UpdateXblBPCertFileBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39221</td><td>Invalid Xbox Business Partner Certificate or password: [{message}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39221</td><td>Invalid Xbox Business Partner Certificate or password: [{message}]</td></tr></table>
 */
 type UpdateXblBPCertFileBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity

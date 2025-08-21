@@ -115,9 +115,10 @@ func NewPublishSelectedOK() *PublishSelectedOK {
 	return &PublishSelectedOK{}
 }
 
-/*PublishSelectedOK handles this case with default header values.
+/*
+PublishSelectedOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublishSelectedOK struct {
 	Payload *platformclientmodels.StoreInfo
@@ -169,9 +170,10 @@ func NewPublishSelectedBadRequest() *PublishSelectedBadRequest {
 	return &PublishSelectedBadRequest{}
 }
 
-/*PublishSelectedBadRequest handles this case with default header values.
+/*
+PublishSelectedBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30122</td><td>Store's meta mismatch</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30122</td><td>Store's meta mismatch</td></tr></table>
 */
 type PublishSelectedBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewPublishSelectedNotFound() *PublishSelectedNotFound {
 	return &PublishSelectedNotFound{}
 }
 
-/*PublishSelectedNotFound handles this case with default header values.
+/*
+PublishSelectedNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublishSelectedNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewPublishSelectedConflict() *PublishSelectedConflict {
 	return &PublishSelectedConflict{}
 }
 
-/*PublishSelectedConflict handles this case with default header values.
+/*
+PublishSelectedConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30375</td><td>Item id [{itemId}] of sku [{sku}] is duplicate with un-published deleted item in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30375</td><td>Item id [{itemId}] of sku [{sku}] is duplicate with un-published deleted item in namespace [{namespace}]</td></tr></table>
 */
 type PublishSelectedConflict struct {
 	Payload *platformclientmodels.ErrorEntity

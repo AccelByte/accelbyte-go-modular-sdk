@@ -115,9 +115,10 @@ func NewGetMyMatchTicketsOK() *GetMyMatchTicketsOK {
 	return &GetMyMatchTicketsOK{}
 }
 
-/*GetMyMatchTicketsOK handles this case with default header values.
+/*
+GetMyMatchTicketsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetMyMatchTicketsOK struct {
 	Payload *match2clientmodels.APIMatchTicketStatuses
@@ -169,9 +170,10 @@ func NewGetMyMatchTicketsUnauthorized() *GetMyMatchTicketsUnauthorized {
 	return &GetMyMatchTicketsUnauthorized{}
 }
 
-/*GetMyMatchTicketsUnauthorized handles this case with default header values.
+/*
+GetMyMatchTicketsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetMyMatchTicketsUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewGetMyMatchTicketsForbidden() *GetMyMatchTicketsForbidden {
 	return &GetMyMatchTicketsForbidden{}
 }
 
-/*GetMyMatchTicketsForbidden handles this case with default header values.
+/*
+GetMyMatchTicketsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetMyMatchTicketsForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewGetMyMatchTicketsInternalServerError() *GetMyMatchTicketsInternalServerE
 	return &GetMyMatchTicketsInternalServerError{}
 }
 
-/*GetMyMatchTicketsInternalServerError handles this case with default header values.
+/*
+GetMyMatchTicketsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetMyMatchTicketsInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

@@ -58,7 +58,8 @@ func NewAdminListInvitationHistoriesV4ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*AdminListInvitationHistoriesV4Params contains all the parameters to send to the API endpoint
+/*
+AdminListInvitationHistoriesV4Params contains all the parameters to send to the API endpoint
 for the admin list invitation histories v4 operation typically these are written to a http.Request
 */
 type AdminListInvitationHistoriesV4Params struct {

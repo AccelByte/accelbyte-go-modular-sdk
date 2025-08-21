@@ -100,9 +100,10 @@ func NewDebitByWalletPlatformOK() *DebitByWalletPlatformOK {
 	return &DebitByWalletPlatformOK{}
 }
 
-/*DebitByWalletPlatformOK handles this case with default header values.
+/*
+DebitByWalletPlatformOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DebitByWalletPlatformOK struct {
 	Payload *platformclientmodels.PlatformWallet
@@ -154,9 +155,10 @@ func NewDebitByWalletPlatformBadRequest() *DebitByWalletPlatformBadRequest {
 	return &DebitByWalletPlatformBadRequest{}
 }
 
-/*DebitByWalletPlatformBadRequest handles this case with default header values.
+/*
+DebitByWalletPlatformBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
 */
 type DebitByWalletPlatformBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewDebitByWalletPlatformUnprocessableEntity() *DebitByWalletPlatformUnproce
 	return &DebitByWalletPlatformUnprocessableEntity{}
 }
 
-/*DebitByWalletPlatformUnprocessableEntity handles this case with default header values.
+/*
+DebitByWalletPlatformUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DebitByWalletPlatformUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

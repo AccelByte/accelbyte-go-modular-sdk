@@ -114,9 +114,10 @@ func NewAdminDeleteInventoryConfigurationNoContent() *AdminDeleteInventoryConfig
 	return &AdminDeleteInventoryConfigurationNoContent{}
 }
 
-/*AdminDeleteInventoryConfigurationNoContent handles this case with default header values.
+/*
+AdminDeleteInventoryConfigurationNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteInventoryConfigurationNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminDeleteInventoryConfigurationBadRequest() *AdminDeleteInventoryConfi
 	return &AdminDeleteInventoryConfigurationBadRequest{}
 }
 
-/*AdminDeleteInventoryConfigurationBadRequest handles this case with default header values.
+/*
+AdminDeleteInventoryConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeleteInventoryConfigurationBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -195,9 +197,10 @@ func NewAdminDeleteInventoryConfigurationNotFound() *AdminDeleteInventoryConfigu
 	return &AdminDeleteInventoryConfigurationNotFound{}
 }
 
-/*AdminDeleteInventoryConfigurationNotFound handles this case with default header values.
+/*
+AdminDeleteInventoryConfigurationNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminDeleteInventoryConfigurationNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -249,9 +252,10 @@ func NewAdminDeleteInventoryConfigurationInternalServerError() *AdminDeleteInven
 	return &AdminDeleteInventoryConfigurationInternalServerError{}
 }
 
-/*AdminDeleteInventoryConfigurationInternalServerError handles this case with default header values.
+/*
+AdminDeleteInventoryConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteInventoryConfigurationInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

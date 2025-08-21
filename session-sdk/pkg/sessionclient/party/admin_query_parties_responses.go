@@ -115,9 +115,10 @@ func NewAdminQueryPartiesOK() *AdminQueryPartiesOK {
 	return &AdminQueryPartiesOK{}
 }
 
-/*AdminQueryPartiesOK handles this case with default header values.
+/*
+AdminQueryPartiesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminQueryPartiesOK struct {
 	Payload *sessionclientmodels.ApimodelsPartyQueryResponse
@@ -169,9 +170,10 @@ func NewAdminQueryPartiesBadRequest() *AdminQueryPartiesBadRequest {
 	return &AdminQueryPartiesBadRequest{}
 }
 
-/*AdminQueryPartiesBadRequest handles this case with default header values.
+/*
+AdminQueryPartiesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminQueryPartiesBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminQueryPartiesUnauthorized() *AdminQueryPartiesUnauthorized {
 	return &AdminQueryPartiesUnauthorized{}
 }
 
-/*AdminQueryPartiesUnauthorized handles this case with default header values.
+/*
+AdminQueryPartiesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminQueryPartiesUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminQueryPartiesInternalServerError() *AdminQueryPartiesInternalServerE
 	return &AdminQueryPartiesInternalServerError{}
 }
 
-/*AdminQueryPartiesInternalServerError handles this case with default header values.
+/*
+AdminQueryPartiesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminQueryPartiesInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

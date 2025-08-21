@@ -115,9 +115,10 @@ func NewPublicDownloadContentPreviewOK() *PublicDownloadContentPreviewOK {
 	return &PublicDownloadContentPreviewOK{}
 }
 
-/*PublicDownloadContentPreviewOK handles this case with default header values.
+/*
+PublicDownloadContentPreviewOK handles this case with default header values.
 
-  Get content preview
+	Get content preview
 */
 type PublicDownloadContentPreviewOK struct {
 	Payload *ugcclientmodels.ModelsGetContentPreviewResponse
@@ -169,9 +170,10 @@ func NewPublicDownloadContentPreviewUnauthorized() *PublicDownloadContentPreview
 	return &PublicDownloadContentPreviewUnauthorized{}
 }
 
-/*PublicDownloadContentPreviewUnauthorized handles this case with default header values.
+/*
+PublicDownloadContentPreviewUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicDownloadContentPreviewUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicDownloadContentPreviewNotFound() *PublicDownloadContentPreviewNotF
 	return &PublicDownloadContentPreviewNotFound{}
 }
 
-/*PublicDownloadContentPreviewNotFound handles this case with default header values.
+/*
+PublicDownloadContentPreviewNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773702</td><td>ugc content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773702</td><td>ugc content not found</td></tr></table>
 */
 type PublicDownloadContentPreviewNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicDownloadContentPreviewInternalServerError() *PublicDownloadContent
 	return &PublicDownloadContentPreviewInternalServerError{}
 }
 
-/*PublicDownloadContentPreviewInternalServerError handles this case with default header values.
+/*
+PublicDownloadContentPreviewInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773701</td><td>Unable to get ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773701</td><td>Unable to get ugc content</td></tr></table>
 */
 type PublicDownloadContentPreviewInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

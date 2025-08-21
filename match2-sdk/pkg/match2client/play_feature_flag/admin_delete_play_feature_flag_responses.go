@@ -114,9 +114,10 @@ func NewAdminDeletePlayFeatureFlagNoContent() *AdminDeletePlayFeatureFlagNoConte
 	return &AdminDeletePlayFeatureFlagNoContent{}
 }
 
-/*AdminDeletePlayFeatureFlagNoContent handles this case with default header values.
+/*
+AdminDeletePlayFeatureFlagNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeletePlayFeatureFlagNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminDeletePlayFeatureFlagUnauthorized() *AdminDeletePlayFeatureFlagUnau
 	return &AdminDeletePlayFeatureFlagUnauthorized{}
 }
 
-/*AdminDeletePlayFeatureFlagUnauthorized handles this case with default header values.
+/*
+AdminDeletePlayFeatureFlagUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeletePlayFeatureFlagUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewAdminDeletePlayFeatureFlagForbidden() *AdminDeletePlayFeatureFlagForbidd
 	return &AdminDeletePlayFeatureFlagForbidden{}
 }
 
-/*AdminDeletePlayFeatureFlagForbidden handles this case with default header values.
+/*
+AdminDeletePlayFeatureFlagForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeletePlayFeatureFlagForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewAdminDeletePlayFeatureFlagInternalServerError() *AdminDeletePlayFeatureF
 	return &AdminDeletePlayFeatureFlagInternalServerError{}
 }
 
-/*AdminDeletePlayFeatureFlagInternalServerError handles this case with default header values.
+/*
+AdminDeletePlayFeatureFlagInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeletePlayFeatureFlagInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

@@ -130,9 +130,10 @@ func NewGetPlayerMetricOK() *GetPlayerMetricOK {
 	return &GetPlayerMetricOK{}
 }
 
-/*GetPlayerMetricOK handles this case with default header values.
+/*
+GetPlayerMetricOK handles this case with default header values.
 
-  Created
+	Created
 */
 type GetPlayerMetricOK struct {
 	Payload *match2clientmodels.APIPlayerMetricRecord
@@ -184,9 +185,10 @@ func NewGetPlayerMetricUnauthorized() *GetPlayerMetricUnauthorized {
 	return &GetPlayerMetricUnauthorized{}
 }
 
-/*GetPlayerMetricUnauthorized handles this case with default header values.
+/*
+GetPlayerMetricUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetPlayerMetricUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewGetPlayerMetricForbidden() *GetPlayerMetricForbidden {
 	return &GetPlayerMetricForbidden{}
 }
 
-/*GetPlayerMetricForbidden handles this case with default header values.
+/*
+GetPlayerMetricForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetPlayerMetricForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewGetPlayerMetricNotFound() *GetPlayerMetricNotFound {
 	return &GetPlayerMetricNotFound{}
 }
 
-/*GetPlayerMetricNotFound handles this case with default header values.
+/*
+GetPlayerMetricNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetPlayerMetricNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewGetPlayerMetricInternalServerError() *GetPlayerMetricInternalServerError
 	return &GetPlayerMetricInternalServerError{}
 }
 
-/*GetPlayerMetricInternalServerError handles this case with default header values.
+/*
+GetPlayerMetricInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetPlayerMetricInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

@@ -85,9 +85,10 @@ func NewGetPublishedStoreBackupOK() *GetPublishedStoreBackupOK {
 	return &GetPublishedStoreBackupOK{}
 }
 
-/*GetPublishedStoreBackupOK handles this case with default header values.
+/*
+GetPublishedStoreBackupOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPublishedStoreBackupOK struct {
 	Payload *platformclientmodels.StoreBackupInfo
@@ -139,9 +140,10 @@ func NewGetPublishedStoreBackupNotFound() *GetPublishedStoreBackupNotFound {
 	return &GetPublishedStoreBackupNotFound{}
 }
 
-/*GetPublishedStoreBackupNotFound handles this case with default header values.
+/*
+GetPublishedStoreBackupNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30143</td><td>Published store [{storeId}] backup does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30143</td><td>Published store [{storeId}] backup does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetPublishedStoreBackupNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

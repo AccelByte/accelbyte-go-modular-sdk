@@ -57,7 +57,8 @@ func NewRetrieveSinglePolicyVersion1ParamsWithHTTPClient(client *http.Client) *R
 	}
 }
 
-/*RetrieveSinglePolicyVersion1Params contains all the parameters to send to the API endpoint
+/*
+RetrieveSinglePolicyVersion1Params contains all the parameters to send to the API endpoint
 for the retrieve single policy version 1 operation typically these are written to a http.Request
 */
 type RetrieveSinglePolicyVersion1Params struct {

@@ -145,9 +145,10 @@ func NewAdminProfanityQueryOK() *AdminProfanityQueryOK {
 	return &AdminProfanityQueryOK{}
 }
 
-/*AdminProfanityQueryOK handles this case with default header values.
+/*
+AdminProfanityQueryOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminProfanityQueryOK struct {
 	Payload *chatclientmodels.ModelsDictionaryQueryResult
@@ -199,9 +200,10 @@ func NewAdminProfanityQueryBadRequest() *AdminProfanityQueryBadRequest {
 	return &AdminProfanityQueryBadRequest{}
 }
 
-/*AdminProfanityQueryBadRequest handles this case with default header values.
+/*
+AdminProfanityQueryBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminProfanityQueryBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminProfanityQueryUnauthorized() *AdminProfanityQueryUnauthorized {
 	return &AdminProfanityQueryUnauthorized{}
 }
 
-/*AdminProfanityQueryUnauthorized handles this case with default header values.
+/*
+AdminProfanityQueryUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminProfanityQueryUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminProfanityQueryForbidden() *AdminProfanityQueryForbidden {
 	return &AdminProfanityQueryForbidden{}
 }
 
-/*AdminProfanityQueryForbidden handles this case with default header values.
+/*
+AdminProfanityQueryForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminProfanityQueryForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminProfanityQueryNotFound() *AdminProfanityQueryNotFound {
 	return &AdminProfanityQueryNotFound{}
 }
 
-/*AdminProfanityQueryNotFound handles this case with default header values.
+/*
+AdminProfanityQueryNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminProfanityQueryNotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminProfanityQueryInternalServerError() *AdminProfanityQueryInternalSer
 	return &AdminProfanityQueryInternalServerError{}
 }
 
-/*AdminProfanityQueryInternalServerError handles this case with default header values.
+/*
+AdminProfanityQueryInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminProfanityQueryInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

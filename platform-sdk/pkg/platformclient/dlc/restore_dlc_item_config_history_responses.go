@@ -84,9 +84,10 @@ func NewRestoreDLCItemConfigHistoryNoContent() *RestoreDLCItemConfigHistoryNoCon
 	return &RestoreDLCItemConfigHistoryNoContent{}
 }
 
-/*RestoreDLCItemConfigHistoryNoContent handles this case with default header values.
+/*
+RestoreDLCItemConfigHistoryNoContent handles this case with default header values.
 
-  Succesfully restore the revision
+	Succesfully restore the revision
 */
 type RestoreDLCItemConfigHistoryNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewRestoreDLCItemConfigHistoryNotFound() *RestoreDLCItemConfigHistoryNotFou
 	return &RestoreDLCItemConfigHistoryNotFound{}
 }
 
-/*RestoreDLCItemConfigHistoryNotFound handles this case with default header values.
+/*
+RestoreDLCItemConfigHistoryNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39442</td><td>DLC item config cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39442</td><td>DLC item config cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type RestoreDLCItemConfigHistoryNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

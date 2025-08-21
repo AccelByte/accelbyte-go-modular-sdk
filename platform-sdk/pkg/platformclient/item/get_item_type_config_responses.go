@@ -85,9 +85,10 @@ func NewGetItemTypeConfigOK() *GetItemTypeConfigOK {
 	return &GetItemTypeConfigOK{}
 }
 
-/*GetItemTypeConfigOK handles this case with default header values.
+/*
+GetItemTypeConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetItemTypeConfigOK struct {
 	Payload *platformclientmodels.ItemTypeConfigInfo
@@ -139,9 +140,10 @@ func NewGetItemTypeConfigNotFound() *GetItemTypeConfigNotFound {
 	return &GetItemTypeConfigNotFound{}
 }
 
-/*GetItemTypeConfigNotFound handles this case with default header values.
+/*
+GetItemTypeConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30541</td><td>Item type config [{id}] doesn't exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30541</td><td>Item type config [{id}] doesn't exist</td></tr></table>
 */
 type GetItemTypeConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

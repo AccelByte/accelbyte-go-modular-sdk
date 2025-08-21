@@ -145,9 +145,10 @@ func NewPublicGetConfigV1OK() *PublicGetConfigV1OK {
 	return &PublicGetConfigV1OK{}
 }
 
-/*PublicGetConfigV1OK handles this case with default header values.
+/*
+PublicGetConfigV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetConfigV1OK struct {
 	Payload *chatclientmodels.ModelsPublicConfigResponse
@@ -199,9 +200,10 @@ func NewPublicGetConfigV1BadRequest() *PublicGetConfigV1BadRequest {
 	return &PublicGetConfigV1BadRequest{}
 }
 
-/*PublicGetConfigV1BadRequest handles this case with default header values.
+/*
+PublicGetConfigV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetConfigV1BadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewPublicGetConfigV1Unauthorized() *PublicGetConfigV1Unauthorized {
 	return &PublicGetConfigV1Unauthorized{}
 }
 
-/*PublicGetConfigV1Unauthorized handles this case with default header values.
+/*
+PublicGetConfigV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetConfigV1Unauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewPublicGetConfigV1Forbidden() *PublicGetConfigV1Forbidden {
 	return &PublicGetConfigV1Forbidden{}
 }
 
-/*PublicGetConfigV1Forbidden handles this case with default header values.
+/*
+PublicGetConfigV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicGetConfigV1Forbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewPublicGetConfigV1NotFound() *PublicGetConfigV1NotFound {
 	return &PublicGetConfigV1NotFound{}
 }
 
-/*PublicGetConfigV1NotFound handles this case with default header values.
+/*
+PublicGetConfigV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetConfigV1NotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewPublicGetConfigV1InternalServerError() *PublicGetConfigV1InternalServerE
 	return &PublicGetConfigV1InternalServerError{}
 }
 
-/*PublicGetConfigV1InternalServerError handles this case with default header values.
+/*
+PublicGetConfigV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetConfigV1InternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

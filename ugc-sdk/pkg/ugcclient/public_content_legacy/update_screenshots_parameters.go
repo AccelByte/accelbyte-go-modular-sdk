@@ -59,7 +59,8 @@ func NewUpdateScreenshotsParamsWithHTTPClient(client *http.Client) *UpdateScreen
 	}
 }
 
-/*UpdateScreenshotsParams contains all the parameters to send to the API endpoint
+/*
+UpdateScreenshotsParams contains all the parameters to send to the API endpoint
 for the update screenshots operation typically these are written to a http.Request
 */
 type UpdateScreenshotsParams struct {

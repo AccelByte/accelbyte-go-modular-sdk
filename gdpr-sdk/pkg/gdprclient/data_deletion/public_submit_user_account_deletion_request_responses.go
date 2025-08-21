@@ -160,9 +160,10 @@ func NewPublicSubmitUserAccountDeletionRequestCreated() *PublicSubmitUserAccount
 	return &PublicSubmitUserAccountDeletionRequestCreated{}
 }
 
-/*PublicSubmitUserAccountDeletionRequestCreated handles this case with default header values.
+/*
+PublicSubmitUserAccountDeletionRequestCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicSubmitUserAccountDeletionRequestCreated struct {
 	Payload *gdprclientmodels.ModelsRequestDeleteResponse
@@ -214,9 +215,10 @@ func NewPublicSubmitUserAccountDeletionRequestBadRequest() *PublicSubmitUserAcco
 	return &PublicSubmitUserAccountDeletionRequestBadRequest{}
 }
 
-/*PublicSubmitUserAccountDeletionRequestBadRequest handles this case with default header values.
+/*
+PublicSubmitUserAccountDeletionRequestBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicSubmitUserAccountDeletionRequestBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewPublicSubmitUserAccountDeletionRequestUnauthorized() *PublicSubmitUserAc
 	return &PublicSubmitUserAccountDeletionRequestUnauthorized{}
 }
 
-/*PublicSubmitUserAccountDeletionRequestUnauthorized handles this case with default header values.
+/*
+PublicSubmitUserAccountDeletionRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicSubmitUserAccountDeletionRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewPublicSubmitUserAccountDeletionRequestForbidden() *PublicSubmitUserAccou
 	return &PublicSubmitUserAccountDeletionRequestForbidden{}
 }
 
-/*PublicSubmitUserAccountDeletionRequestForbidden handles this case with default header values.
+/*
+PublicSubmitUserAccountDeletionRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicSubmitUserAccountDeletionRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewPublicSubmitUserAccountDeletionRequestNotFound() *PublicSubmitUserAccoun
 	return &PublicSubmitUserAccountDeletionRequestNotFound{}
 }
 
-/*PublicSubmitUserAccountDeletionRequestNotFound handles this case with default header values.
+/*
+PublicSubmitUserAccountDeletionRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicSubmitUserAccountDeletionRequestNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewPublicSubmitUserAccountDeletionRequestConflict() *PublicSubmitUserAccoun
 	return &PublicSubmitUserAccountDeletionRequestConflict{}
 }
 
-/*PublicSubmitUserAccountDeletionRequestConflict handles this case with default header values.
+/*
+PublicSubmitUserAccountDeletionRequestConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type PublicSubmitUserAccountDeletionRequestConflict struct {
 	Payload *gdprclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewPublicSubmitUserAccountDeletionRequestInternalServerError() *PublicSubmi
 	return &PublicSubmitUserAccountDeletionRequestInternalServerError{}
 }
 
-/*PublicSubmitUserAccountDeletionRequestInternalServerError handles this case with default header values.
+/*
+PublicSubmitUserAccountDeletionRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicSubmitUserAccountDeletionRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

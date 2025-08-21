@@ -57,7 +57,8 @@ func NewAdminDeletePlatformAccountClosureClientParamsWithHTTPClient(client *http
 	}
 }
 
-/*AdminDeletePlatformAccountClosureClientParams contains all the parameters to send to the API endpoint
+/*
+AdminDeletePlatformAccountClosureClientParams contains all the parameters to send to the API endpoint
 for the admin delete platform account closure client operation typically these are written to a http.Request
 */
 type AdminDeletePlatformAccountClosureClientParams struct {

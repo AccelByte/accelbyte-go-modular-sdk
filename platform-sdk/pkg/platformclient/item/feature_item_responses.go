@@ -100,9 +100,10 @@ func NewFeatureItemOK() *FeatureItemOK {
 	return &FeatureItemOK{}
 }
 
-/*FeatureItemOK handles this case with default header values.
+/*
+FeatureItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type FeatureItemOK struct {
 	Payload *platformclientmodels.FullItemInfo
@@ -154,9 +155,10 @@ func NewFeatureItemNotFound() *FeatureItemNotFound {
 	return &FeatureItemNotFound{}
 }
 
-/*FeatureItemNotFound handles this case with default header values.
+/*
+FeatureItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type FeatureItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewFeatureItemConflict() *FeatureItemConflict {
 	return &FeatureItemConflict{}
 }
 
-/*FeatureItemConflict handles this case with default header values.
+/*
+FeatureItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type FeatureItemConflict struct {
 	Payload *platformclientmodels.ErrorEntity

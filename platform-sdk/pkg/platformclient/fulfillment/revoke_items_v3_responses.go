@@ -85,9 +85,10 @@ func NewRevokeItemsV3OK() *RevokeItemsV3OK {
 	return &RevokeItemsV3OK{}
 }
 
-/*RevokeItemsV3OK handles this case with default header values.
+/*
+RevokeItemsV3OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RevokeItemsV3OK struct {
 	Payload *platformclientmodels.RevokeFulfillmentV2Result
@@ -139,9 +140,10 @@ func NewRevokeItemsV3NotFound() *RevokeItemsV3NotFound {
 	return &RevokeItemsV3NotFound{}
 }
 
-/*RevokeItemsV3NotFound handles this case with default header values.
+/*
+RevokeItemsV3NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38145</td><td>Fulfillment with transactionId [{transactionId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38145</td><td>Fulfillment with transactionId [{transactionId}] does not exist</td></tr></table>
 */
 type RevokeItemsV3NotFound struct {
 	Payload *platformclientmodels.ErrorEntity

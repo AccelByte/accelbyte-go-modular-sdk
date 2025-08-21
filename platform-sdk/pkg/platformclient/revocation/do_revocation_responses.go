@@ -85,9 +85,10 @@ func NewDoRevocationOK() *DoRevocationOK {
 	return &DoRevocationOK{}
 }
 
-/*DoRevocationOK handles this case with default header values.
+/*
+DoRevocationOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DoRevocationOK struct {
 	Payload *platformclientmodels.RevocationResult
@@ -139,9 +140,10 @@ func NewDoRevocationConflict() *DoRevocationConflict {
 	return &DoRevocationConflict{}
 }
 
-/*DoRevocationConflict handles this case with default header values.
+/*
+DoRevocationConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>41171</td><td>Request has different payload on previous call</td></tr><tr><td>41172</td><td>Request has different user id on previous call</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>41171</td><td>Request has different payload on previous call</td></tr><tr><td>41172</td><td>Request has different user id on previous call</td></tr></table>
 */
 type DoRevocationConflict struct {
 	Payload *platformclientmodels.ErrorEntity

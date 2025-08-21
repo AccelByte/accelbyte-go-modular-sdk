@@ -45,9 +45,11 @@ type ClientService interface {
 
 /*
 QueryPaymentNotificationsShort query payment notifications
- [Not supported yet in AGS Shared Cloud] Query payment notifications.
+
+	[Not supported yet in AGS Shared Cloud] Query payment notifications.
+
 Other detail info:
-            * Returns : Payment notifications
+  - Returns : Payment notifications
 */
 func (a *Client) QueryPaymentNotificationsShort(params *QueryPaymentNotificationsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentNotificationsResponse, error) {
 	// TODO: Validate the params before sending
@@ -101,9 +103,11 @@ func (a *Client) QueryPaymentNotificationsShort(params *QueryPaymentNotification
 
 /*
 QueryPaymentOrdersShort query payment orders
- [Not supported yet in AGS Shared Cloud] Query payment orders.
+
+	[Not supported yet in AGS Shared Cloud] Query payment orders.
+
 Other detail info:
-            * Returns : query payment orders
+  - Returns : query payment orders
 */
 func (a *Client) QueryPaymentOrdersShort(params *QueryPaymentOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentOrdersResponse, error) {
 	// TODO: Validate the params before sending
@@ -157,9 +161,11 @@ func (a *Client) QueryPaymentOrdersShort(params *QueryPaymentOrdersParams, authI
 
 /*
 ListExtOrderNoByExtTxIDShort list external order no by external transaction id
- [Not supported yet in AGS Shared Cloud] List external order No by external transaction id.
+
+	[Not supported yet in AGS Shared Cloud] List external order No by external transaction id.
+
 Other detail info:
-            * Returns : payment orders
+  - Returns : payment orders
 */
 func (a *Client) ListExtOrderNoByExtTxIDShort(params *ListExtOrderNoByExtTxIDParams, authInfo runtime.ClientAuthInfoWriter) (*ListExtOrderNoByExtTxIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -213,9 +219,11 @@ func (a *Client) ListExtOrderNoByExtTxIDShort(params *ListExtOrderNoByExtTxIDPar
 
 /*
 GetPaymentOrderShort get payment order
- [Not supported yet in AGS Shared Cloud] Get payment order by paymentOrderNo.
+
+	[Not supported yet in AGS Shared Cloud] Get payment order by paymentOrderNo.
+
 Other detail info:
-            * Returns : payment order instance
+  - Returns : payment order instance
 */
 func (a *Client) GetPaymentOrderShort(params *GetPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderResponse, error) {
 	// TODO: Validate the params before sending
@@ -276,9 +284,11 @@ func (a *Client) GetPaymentOrderShort(params *GetPaymentOrderParams, authInfo ru
 
 /*
 ChargePaymentOrderShort charge payment order without payment flow
- [Not supported yet in AGS Shared Cloud] [TEST FACILITY ONLY] Forbidden in live environment. Charge payment order without payment flow for unpaid payment order, usually for test usage to simulate real currency payment process.
+
+	[Not supported yet in AGS Shared Cloud] [TEST FACILITY ONLY] Forbidden in live environment. Charge payment order without payment flow for unpaid payment order, usually for test usage to simulate real currency payment process.
+
 Other detail info:
-            * Returns : payment order instance
+  - Returns : payment order instance
 */
 func (a *Client) ChargePaymentOrderShort(params *ChargePaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*ChargePaymentOrderResponse, error) {
 	// TODO: Validate the params before sending
@@ -353,9 +363,11 @@ func (a *Client) ChargePaymentOrderShort(params *ChargePaymentOrderParams, authI
 
 /*
 SimulatePaymentOrderNotificationShort simulate payment notification
- [Not supported yet in AGS Shared Cloud] [TEST FACILITY ONLY] Forbidden in live environment. Simulate payment notification on sandbox payment order, usually for test usage to simulate real currency payment notification.
+
+	[Not supported yet in AGS Shared Cloud] [TEST FACILITY ONLY] Forbidden in live environment. Simulate payment notification on sandbox payment order, usually for test usage to simulate real currency payment notification.
+
 Other detail info:
-            * Returns : notification process result
+  - Returns : notification process result
 */
 func (a *Client) SimulatePaymentOrderNotificationShort(params *SimulatePaymentOrderNotificationParams, authInfo runtime.ClientAuthInfoWriter) (*SimulatePaymentOrderNotificationResponse, error) {
 	// TODO: Validate the params before sending
@@ -423,9 +435,11 @@ func (a *Client) SimulatePaymentOrderNotificationShort(params *SimulatePaymentOr
 
 /*
 GetPaymentOrderChargeStatusShort get payment order charge status
- [Not supported yet in AGS Shared Cloud] Get payment order charge status.
+
+	[Not supported yet in AGS Shared Cloud] Get payment order charge status.
+
 Other detail info:
-            * Returns : payment order charge status
+  - Returns : payment order charge status
 */
 func (a *Client) GetPaymentOrderChargeStatusShort(params *GetPaymentOrderChargeStatusParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentOrderChargeStatusResponse, error) {
 	// TODO: Validate the params before sending
@@ -486,24 +500,24 @@ func (a *Client) GetPaymentOrderChargeStatusShort(params *GetPaymentOrderChargeS
 
 /*
 CreateUserPaymentOrderShort create payment order
- [Not supported yet in AGS Shared Cloud] [SERVICE COMMUNICATION ONLY] This API is used to create payment order from justice service. The result contains the payment station url.
+
+	[Not supported yet in AGS Shared Cloud] [SERVICE COMMUNICATION ONLY] This API is used to create payment order from justice service. The result contains the payment station url.
+
 Other detail info:
-            * It will be forbidden while the user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT
-            *  Returns : created order
+  - It will be forbidden while the user is banned: PAYMENT_INITIATE or ORDER_AND_PAYMENT
+  - Returns : created order
 
 ## Restrictions for custom parameters and meta data
-
 
 1. Cannot use "." as the key name
 -
 
-                                        { "data.2": "value" }
-
+	{ "data.2": "value" }
 
 2. Cannot use "$" as the prefix in key names
 -
 
-                                        { "$data": "value" }
+	{ "$data": "value" }
 */
 func (a *Client) CreateUserPaymentOrderShort(params *CreateUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserPaymentOrderResponse, error) {
 	// TODO: Validate the params before sending
@@ -592,7 +606,8 @@ func (a *Client) CreateUserPaymentOrderShort(params *CreateUserPaymentOrderParam
 
 /*
 RefundUserPaymentOrderShort refund payment order
- [Not supported yet in AGS Shared Cloud] [SERVICE COMMUNICATION ONLY] This API is used to refund order by paymentOrderNo from justice service.
+
+	[Not supported yet in AGS Shared Cloud] [SERVICE COMMUNICATION ONLY] This API is used to refund order by paymentOrderNo from justice service.
 */
 func (a *Client) RefundUserPaymentOrderShort(params *RefundUserPaymentOrderParams, authInfo runtime.ClientAuthInfoWriter) (*RefundUserPaymentOrderResponse, error) {
 	// TODO: Validate the params before sending

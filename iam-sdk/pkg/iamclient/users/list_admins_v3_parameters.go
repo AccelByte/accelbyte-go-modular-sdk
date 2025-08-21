@@ -58,7 +58,8 @@ func NewListAdminsV3ParamsWithHTTPClient(client *http.Client) *ListAdminsV3Param
 	}
 }
 
-/*ListAdminsV3Params contains all the parameters to send to the API endpoint
+/*
+ListAdminsV3Params contains all the parameters to send to the API endpoint
 for the list admins v3 operation typically these are written to a http.Request
 */
 type ListAdminsV3Params struct {

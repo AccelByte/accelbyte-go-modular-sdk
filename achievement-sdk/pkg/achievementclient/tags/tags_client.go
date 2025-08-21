@@ -39,7 +39,6 @@ type ClientService interface {
 /*
 AdminListTagsShort query tags
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -123,7 +122,6 @@ func (a *Client) AdminListTagsShort(params *AdminListTagsParams, authInfo runtim
 
 /*
 PublicListTagsShort query tags
-
 
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`

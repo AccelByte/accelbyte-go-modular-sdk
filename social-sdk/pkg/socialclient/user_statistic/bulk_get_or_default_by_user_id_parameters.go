@@ -59,7 +59,8 @@ func NewBulkGetOrDefaultByUserIDParamsWithHTTPClient(client *http.Client) *BulkG
 	}
 }
 
-/*BulkGetOrDefaultByUserIDParams contains all the parameters to send to the API endpoint
+/*
+BulkGetOrDefaultByUserIDParams contains all the parameters to send to the API endpoint
 for the bulk get or default by user id operation typically these are written to a http.Request
 */
 type BulkGetOrDefaultByUserIDParams struct {

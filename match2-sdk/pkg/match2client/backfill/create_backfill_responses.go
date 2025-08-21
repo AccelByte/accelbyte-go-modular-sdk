@@ -160,9 +160,10 @@ func NewCreateBackfillCreated() *CreateBackfillCreated {
 	return &CreateBackfillCreated{}
 }
 
-/*CreateBackfillCreated handles this case with default header values.
+/*
+CreateBackfillCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateBackfillCreated struct {
 	Payload *match2clientmodels.APIBackfillCreateResponse
@@ -214,9 +215,10 @@ func NewCreateBackfillBadRequest() *CreateBackfillBadRequest {
 	return &CreateBackfillBadRequest{}
 }
 
-/*CreateBackfillBadRequest handles this case with default header values.
+/*
+CreateBackfillBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateBackfillBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewCreateBackfillUnauthorized() *CreateBackfillUnauthorized {
 	return &CreateBackfillUnauthorized{}
 }
 
-/*CreateBackfillUnauthorized handles this case with default header values.
+/*
+CreateBackfillUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateBackfillUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewCreateBackfillForbidden() *CreateBackfillForbidden {
 	return &CreateBackfillForbidden{}
 }
 
-/*CreateBackfillForbidden handles this case with default header values.
+/*
+CreateBackfillForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateBackfillForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewCreateBackfillNotFound() *CreateBackfillNotFound {
 	return &CreateBackfillNotFound{}
 }
 
-/*CreateBackfillNotFound handles this case with default header values.
+/*
+CreateBackfillNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type CreateBackfillNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewCreateBackfillConflict() *CreateBackfillConflict {
 	return &CreateBackfillConflict{}
 }
 
-/*CreateBackfillConflict handles this case with default header values.
+/*
+CreateBackfillConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateBackfillConflict struct {
 	Payload *match2clientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewCreateBackfillInternalServerError() *CreateBackfillInternalServerError {
 	return &CreateBackfillInternalServerError{}
 }
 
-/*CreateBackfillInternalServerError handles this case with default header values.
+/*
+CreateBackfillInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateBackfillInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

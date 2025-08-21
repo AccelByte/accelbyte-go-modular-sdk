@@ -57,7 +57,8 @@ func NewS2SGetListFinishedPersonalDataRequestParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*S2SGetListFinishedPersonalDataRequestParams contains all the parameters to send to the API endpoint
+/*
+S2SGetListFinishedPersonalDataRequestParams contains all the parameters to send to the API endpoint
 for the s2s get list finished personal data request operation typically these are written to a http.Request
 */
 type S2SGetListFinishedPersonalDataRequestParams struct {

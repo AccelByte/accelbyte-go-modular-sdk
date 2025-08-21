@@ -57,7 +57,8 @@ func NewDeleteUserRankingPublicV1ParamsWithHTTPClient(client *http.Client) *Dele
 	}
 }
 
-/*DeleteUserRankingPublicV1Params contains all the parameters to send to the API endpoint
+/*
+DeleteUserRankingPublicV1Params contains all the parameters to send to the API endpoint
 for the delete user ranking public v1 operation typically these are written to a http.Request
 */
 type DeleteUserRankingPublicV1Params struct {

@@ -130,9 +130,10 @@ func NewListOtherPlayerPublicBinaryRecordsV1OK() *ListOtherPlayerPublicBinaryRec
 	return &ListOtherPlayerPublicBinaryRecordsV1OK{}
 }
 
-/*ListOtherPlayerPublicBinaryRecordsV1OK handles this case with default header values.
+/*
+ListOtherPlayerPublicBinaryRecordsV1OK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type ListOtherPlayerPublicBinaryRecordsV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsListPlayerBinaryRecordsResponse
@@ -184,9 +185,10 @@ func NewListOtherPlayerPublicBinaryRecordsV1BadRequest() *ListOtherPlayerPublicB
 	return &ListOtherPlayerPublicBinaryRecordsV1BadRequest{}
 }
 
-/*ListOtherPlayerPublicBinaryRecordsV1BadRequest handles this case with default header values.
+/*
+ListOtherPlayerPublicBinaryRecordsV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18347</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18347</td><td>invalid request body</td></tr></table>
 */
 type ListOtherPlayerPublicBinaryRecordsV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewListOtherPlayerPublicBinaryRecordsV1Unauthorized() *ListOtherPlayerPubli
 	return &ListOtherPlayerPublicBinaryRecordsV1Unauthorized{}
 }
 
-/*ListOtherPlayerPublicBinaryRecordsV1Unauthorized handles this case with default header values.
+/*
+ListOtherPlayerPublicBinaryRecordsV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type ListOtherPlayerPublicBinaryRecordsV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewListOtherPlayerPublicBinaryRecordsV1Forbidden() *ListOtherPlayerPublicBi
 	return &ListOtherPlayerPublicBinaryRecordsV1Forbidden{}
 }
 
-/*ListOtherPlayerPublicBinaryRecordsV1Forbidden handles this case with default header values.
+/*
+ListOtherPlayerPublicBinaryRecordsV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type ListOtherPlayerPublicBinaryRecordsV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewListOtherPlayerPublicBinaryRecordsV1InternalServerError() *ListOtherPlay
 	return &ListOtherPlayerPublicBinaryRecordsV1InternalServerError{}
 }
 
-/*ListOtherPlayerPublicBinaryRecordsV1InternalServerError handles this case with default header values.
+/*
+ListOtherPlayerPublicBinaryRecordsV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18345</td><td>unable to retrieve list of key records</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18345</td><td>unable to retrieve list of key records</td></tr></table>
 */
 type ListOtherPlayerPublicBinaryRecordsV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

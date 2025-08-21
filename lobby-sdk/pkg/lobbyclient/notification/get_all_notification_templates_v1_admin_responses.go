@@ -145,9 +145,10 @@ func NewGetAllNotificationTemplatesV1AdminOK() *GetAllNotificationTemplatesV1Adm
 	return &GetAllNotificationTemplatesV1AdminOK{}
 }
 
-/*GetAllNotificationTemplatesV1AdminOK handles this case with default header values.
+/*
+GetAllNotificationTemplatesV1AdminOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetAllNotificationTemplatesV1AdminOK struct {
 	Payload []*lobbyclientmodels.ModelNotificationTemplateResponse
@@ -197,9 +198,10 @@ func NewGetAllNotificationTemplatesV1AdminBadRequest() *GetAllNotificationTempla
 	return &GetAllNotificationTemplatesV1AdminBadRequest{}
 }
 
-/*GetAllNotificationTemplatesV1AdminBadRequest handles this case with default header values.
+/*
+GetAllNotificationTemplatesV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetAllNotificationTemplatesV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -251,9 +253,10 @@ func NewGetAllNotificationTemplatesV1AdminUnauthorized() *GetAllNotificationTemp
 	return &GetAllNotificationTemplatesV1AdminUnauthorized{}
 }
 
-/*GetAllNotificationTemplatesV1AdminUnauthorized handles this case with default header values.
+/*
+GetAllNotificationTemplatesV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetAllNotificationTemplatesV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -305,9 +308,10 @@ func NewGetAllNotificationTemplatesV1AdminForbidden() *GetAllNotificationTemplat
 	return &GetAllNotificationTemplatesV1AdminForbidden{}
 }
 
-/*GetAllNotificationTemplatesV1AdminForbidden handles this case with default header values.
+/*
+GetAllNotificationTemplatesV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetAllNotificationTemplatesV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -359,9 +363,10 @@ func NewGetAllNotificationTemplatesV1AdminNotFound() *GetAllNotificationTemplate
 	return &GetAllNotificationTemplatesV1AdminNotFound{}
 }
 
-/*GetAllNotificationTemplatesV1AdminNotFound handles this case with default header values.
+/*
+GetAllNotificationTemplatesV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetAllNotificationTemplatesV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -413,9 +418,10 @@ func NewGetAllNotificationTemplatesV1AdminInternalServerError() *GetAllNotificat
 	return &GetAllNotificationTemplatesV1AdminInternalServerError{}
 }
 
-/*GetAllNotificationTemplatesV1AdminInternalServerError handles this case with default header values.
+/*
+GetAllNotificationTemplatesV1AdminInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetAllNotificationTemplatesV1AdminInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

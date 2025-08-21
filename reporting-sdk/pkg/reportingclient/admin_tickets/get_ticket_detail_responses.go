@@ -100,10 +100,9 @@ func NewGetTicketDetailOK() *GetTicketDetailOK {
 	return &GetTicketDetailOK{}
 }
 
-/*GetTicketDetailOK handles this case with default header values.
-
-
- */
+/*
+GetTicketDetailOK handles this case with default header values.
+*/
 type GetTicketDetailOK struct {
 	Payload *reportingclientmodels.RestapiTicketResponse
 }
@@ -154,10 +153,9 @@ func NewGetTicketDetailNotFound() *GetTicketDetailNotFound {
 	return &GetTicketDetailNotFound{}
 }
 
-/*GetTicketDetailNotFound handles this case with default header values.
-
-
- */
+/*
+GetTicketDetailNotFound handles this case with default header values.
+*/
 type GetTicketDetailNotFound struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -208,10 +206,9 @@ func NewGetTicketDetailInternalServerError() *GetTicketDetailInternalServerError
 	return &GetTicketDetailInternalServerError{}
 }
 
-/*GetTicketDetailInternalServerError handles this case with default header values.
-
-
- */
+/*
+GetTicketDetailInternalServerError handles this case with default header values.
+*/
 type GetTicketDetailInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

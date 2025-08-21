@@ -60,7 +60,8 @@ func NewAdminDeleteConfigPermissionsByGroupParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*AdminDeleteConfigPermissionsByGroupParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteConfigPermissionsByGroupParams contains all the parameters to send to the API endpoint
 for the admin delete config permissions by group operation typically these are written to a http.Request
 */
 type AdminDeleteConfigPermissionsByGroupParams struct {

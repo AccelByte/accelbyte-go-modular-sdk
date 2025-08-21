@@ -85,9 +85,10 @@ func NewGetXblUserAchievementsOK() *GetXblUserAchievementsOK {
 	return &GetXblUserAchievementsOK{}
 }
 
-/*GetXblUserAchievementsOK handles this case with default header values.
+/*
+GetXblUserAchievementsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetXblUserAchievementsOK struct {
 	Payload *platformclientmodels.XblUserAchievements
@@ -139,9 +140,10 @@ func NewGetXblUserAchievementsBadRequest() *GetXblUserAchievementsBadRequest {
 	return &GetXblUserAchievementsBadRequest{}
 }
 
-/*GetXblUserAchievementsBadRequest handles this case with default header values.
+/*
+GetXblUserAchievementsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetXblUserAchievementsBadRequest struct {
 	Payload *platformclientmodels.ValidationErrorEntity

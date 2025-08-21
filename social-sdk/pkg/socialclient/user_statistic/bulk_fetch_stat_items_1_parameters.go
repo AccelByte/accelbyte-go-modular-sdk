@@ -57,7 +57,8 @@ func NewBulkFetchStatItems1ParamsWithHTTPClient(client *http.Client) *BulkFetchS
 	}
 }
 
-/*BulkFetchStatItems1Params contains all the parameters to send to the API endpoint
+/*
+BulkFetchStatItems1Params contains all the parameters to send to the API endpoint
 for the bulk fetch stat items 1 operation typically these are written to a http.Request
 */
 type BulkFetchStatItems1Params struct {

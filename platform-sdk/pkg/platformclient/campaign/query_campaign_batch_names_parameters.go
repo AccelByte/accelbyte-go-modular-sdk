@@ -70,7 +70,8 @@ func NewQueryCampaignBatchNamesParamsWithHTTPClient(client *http.Client) *QueryC
 	}
 }
 
-/*QueryCampaignBatchNamesParams contains all the parameters to send to the API endpoint
+/*
+QueryCampaignBatchNamesParams contains all the parameters to send to the API endpoint
 for the query campaign batch names operation typically these are written to a http.Request
 */
 type QueryCampaignBatchNamesParams struct {

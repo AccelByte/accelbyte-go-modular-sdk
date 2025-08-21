@@ -130,9 +130,10 @@ func NewPublicListUserIDByPlatformUserIDsV4OK() *PublicListUserIDByPlatformUserI
 	return &PublicListUserIDByPlatformUserIDsV4OK{}
 }
 
-/*PublicListUserIDByPlatformUserIDsV4OK handles this case with default header values.
+/*
+PublicListUserIDByPlatformUserIDsV4OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicListUserIDByPlatformUserIDsV4OK struct {
 	Payload *iamclientmodels.AccountcommonUserPlatforms
@@ -184,9 +185,10 @@ func NewPublicListUserIDByPlatformUserIDsV4BadRequest() *PublicListUserIDByPlatf
 	return &PublicListUserIDByPlatformUserIDsV4BadRequest{}
 }
 
-/*PublicListUserIDByPlatformUserIDsV4BadRequest handles this case with default header values.
+/*
+PublicListUserIDByPlatformUserIDsV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10229</td><td>request body exceed max limitation</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10229</td><td>request body exceed max limitation</td></tr></table>
 */
 type PublicListUserIDByPlatformUserIDsV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewPublicListUserIDByPlatformUserIDsV4Unauthorized() *PublicListUserIDByPla
 	return &PublicListUserIDByPlatformUserIDsV4Unauthorized{}
 }
 
-/*PublicListUserIDByPlatformUserIDsV4Unauthorized handles this case with default header values.
+/*
+PublicListUserIDByPlatformUserIDsV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicListUserIDByPlatformUserIDsV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewPublicListUserIDByPlatformUserIDsV4Forbidden() *PublicListUserIDByPlatfo
 	return &PublicListUserIDByPlatformUserIDsV4Forbidden{}
 }
 
-/*PublicListUserIDByPlatformUserIDsV4Forbidden handles this case with default header values.
+/*
+PublicListUserIDByPlatformUserIDsV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicListUserIDByPlatformUserIDsV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewPublicListUserIDByPlatformUserIDsV4InternalServerError() *PublicListUser
 	return &PublicListUserIDByPlatformUserIDsV4InternalServerError{}
 }
 
-/*PublicListUserIDByPlatformUserIDsV4InternalServerError handles this case with default header values.
+/*
+PublicListUserIDByPlatformUserIDsV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicListUserIDByPlatformUserIDsV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

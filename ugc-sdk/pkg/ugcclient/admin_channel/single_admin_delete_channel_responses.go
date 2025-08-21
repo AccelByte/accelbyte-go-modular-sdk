@@ -114,9 +114,10 @@ func NewSingleAdminDeleteChannelNoContent() *SingleAdminDeleteChannelNoContent {
 	return &SingleAdminDeleteChannelNoContent{}
 }
 
-/*SingleAdminDeleteChannelNoContent handles this case with default header values.
+/*
+SingleAdminDeleteChannelNoContent handles this case with default header values.
 
-  Channel deleted
+	Channel deleted
 */
 type SingleAdminDeleteChannelNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewSingleAdminDeleteChannelUnauthorized() *SingleAdminDeleteChannelUnauthor
 	return &SingleAdminDeleteChannelUnauthorized{}
 }
 
-/*SingleAdminDeleteChannelUnauthorized handles this case with default header values.
+/*
+SingleAdminDeleteChannelUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SingleAdminDeleteChannelUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewSingleAdminDeleteChannelNotFound() *SingleAdminDeleteChannelNotFound {
 	return &SingleAdminDeleteChannelNotFound{}
 }
 
-/*SingleAdminDeleteChannelNotFound handles this case with default header values.
+/*
+SingleAdminDeleteChannelNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772502</td><td>Channel not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772502</td><td>Channel not found</td></tr></table>
 */
 type SingleAdminDeleteChannelNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewSingleAdminDeleteChannelInternalServerError() *SingleAdminDeleteChannelI
 	return &SingleAdminDeleteChannelInternalServerError{}
 }
 
-/*SingleAdminDeleteChannelInternalServerError handles this case with default header values.
+/*
+SingleAdminDeleteChannelInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772501</td><td>Unable to delete channel</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772501</td><td>Unable to delete channel</td></tr></table>
 */
 type SingleAdminDeleteChannelInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

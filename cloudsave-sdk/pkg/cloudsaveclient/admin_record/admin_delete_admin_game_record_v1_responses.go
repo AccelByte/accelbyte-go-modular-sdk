@@ -129,9 +129,10 @@ func NewAdminDeleteAdminGameRecordV1NoContent() *AdminDeleteAdminGameRecordV1NoC
 	return &AdminDeleteAdminGameRecordV1NoContent{}
 }
 
-/*AdminDeleteAdminGameRecordV1NoContent handles this case with default header values.
+/*
+AdminDeleteAdminGameRecordV1NoContent handles this case with default header values.
 
-  Record deleted
+	Record deleted
 */
 type AdminDeleteAdminGameRecordV1NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDeleteAdminGameRecordV1Unauthorized() *AdminDeleteAdminGameRecordV1
 	return &AdminDeleteAdminGameRecordV1Unauthorized{}
 }
 
-/*AdminDeleteAdminGameRecordV1Unauthorized handles this case with default header values.
+/*
+AdminDeleteAdminGameRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteAdminGameRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -210,9 +212,10 @@ func NewAdminDeleteAdminGameRecordV1Forbidden() *AdminDeleteAdminGameRecordV1For
 	return &AdminDeleteAdminGameRecordV1Forbidden{}
 }
 
-/*AdminDeleteAdminGameRecordV1Forbidden handles this case with default header values.
+/*
+AdminDeleteAdminGameRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminDeleteAdminGameRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -264,9 +267,10 @@ func NewAdminDeleteAdminGameRecordV1NotFound() *AdminDeleteAdminGameRecordV1NotF
 	return &AdminDeleteAdminGameRecordV1NotFound{}
 }
 
-/*AdminDeleteAdminGameRecordV1NotFound handles this case with default header values.
+/*
+AdminDeleteAdminGameRecordV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18167</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18167</td><td>record not found</td></tr></table>
 */
 type AdminDeleteAdminGameRecordV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -318,9 +322,10 @@ func NewAdminDeleteAdminGameRecordV1InternalServerError() *AdminDeleteAdminGameR
 	return &AdminDeleteAdminGameRecordV1InternalServerError{}
 }
 
-/*AdminDeleteAdminGameRecordV1InternalServerError handles this case with default header values.
+/*
+AdminDeleteAdminGameRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18142</td><td>unable to delete record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18142</td><td>unable to delete record</td></tr></table>
 */
 type AdminDeleteAdminGameRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

@@ -57,7 +57,8 @@ func NewSyncPaymentOrdersParamsWithHTTPClient(client *http.Client) *SyncPaymentO
 	}
 }
 
-/*SyncPaymentOrdersParams contains all the parameters to send to the API endpoint
+/*
+SyncPaymentOrdersParams contains all the parameters to send to the API endpoint
 for the sync payment orders operation typically these are written to a http.Request
 */
 type SyncPaymentOrdersParams struct {

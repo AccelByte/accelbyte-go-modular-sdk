@@ -58,7 +58,8 @@ func NewBulkEnableCodesParamsWithHTTPClient(client *http.Client) *BulkEnableCode
 	}
 }
 
-/*BulkEnableCodesParams contains all the parameters to send to the API endpoint
+/*
+BulkEnableCodesParams contains all the parameters to send to the API endpoint
 for the bulk enable codes operation typically these are written to a http.Request
 */
 type BulkEnableCodesParams struct {

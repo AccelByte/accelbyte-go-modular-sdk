@@ -58,7 +58,8 @@ func NewGetHiddenUsersV2ParamsWithHTTPClient(client *http.Client) *GetHiddenUser
 	}
 }
 
-/*GetHiddenUsersV2Params contains all the parameters to send to the API endpoint
+/*
+GetHiddenUsersV2Params contains all the parameters to send to the API endpoint
 for the get hidden users v2 operation typically these are written to a http.Request
 */
 type GetHiddenUsersV2Params struct {

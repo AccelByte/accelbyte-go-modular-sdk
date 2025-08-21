@@ -57,7 +57,8 @@ func NewGetUserGroupStatusInformationV2ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*GetUserGroupStatusInformationV2Params contains all the parameters to send to the API endpoint
+/*
+GetUserGroupStatusInformationV2Params contains all the parameters to send to the API endpoint
 for the get user group status information v2 operation typically these are written to a http.Request
 */
 type GetUserGroupStatusInformationV2Params struct {

@@ -57,7 +57,8 @@ func NewDeleteMatchPoolParamsWithHTTPClient(client *http.Client) *DeleteMatchPoo
 	}
 }
 
-/*DeleteMatchPoolParams contains all the parameters to send to the API endpoint
+/*
+DeleteMatchPoolParams contains all the parameters to send to the API endpoint
 for the delete match pool operation typically these are written to a http.Request
 */
 type DeleteMatchPoolParams struct {

@@ -59,7 +59,8 @@ func NewAdminUpdateUserContentFileLocationParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*AdminUpdateUserContentFileLocationParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateUserContentFileLocationParams contains all the parameters to send to the API endpoint
 for the admin update user content file location operation typically these are written to a http.Request
 */
 type AdminUpdateUserContentFileLocationParams struct {

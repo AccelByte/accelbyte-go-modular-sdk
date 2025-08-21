@@ -130,9 +130,10 @@ func NewMatchPoolMetricOK() *MatchPoolMetricOK {
 	return &MatchPoolMetricOK{}
 }
 
-/*MatchPoolMetricOK handles this case with default header values.
+/*
+MatchPoolMetricOK handles this case with default header values.
 
-  Created
+	Created
 */
 type MatchPoolMetricOK struct {
 	Payload *match2clientmodels.APITicketMetricResultRecord
@@ -184,9 +185,10 @@ func NewMatchPoolMetricUnauthorized() *MatchPoolMetricUnauthorized {
 	return &MatchPoolMetricUnauthorized{}
 }
 
-/*MatchPoolMetricUnauthorized handles this case with default header values.
+/*
+MatchPoolMetricUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type MatchPoolMetricUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewMatchPoolMetricForbidden() *MatchPoolMetricForbidden {
 	return &MatchPoolMetricForbidden{}
 }
 
-/*MatchPoolMetricForbidden handles this case with default header values.
+/*
+MatchPoolMetricForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type MatchPoolMetricForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewMatchPoolMetricNotFound() *MatchPoolMetricNotFound {
 	return &MatchPoolMetricNotFound{}
 }
 
-/*MatchPoolMetricNotFound handles this case with default header values.
+/*
+MatchPoolMetricNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type MatchPoolMetricNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewMatchPoolMetricInternalServerError() *MatchPoolMetricInternalServerError
 	return &MatchPoolMetricInternalServerError{}
 }
 
-/*MatchPoolMetricInternalServerError handles this case with default header values.
+/*
+MatchPoolMetricInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type MatchPoolMetricInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

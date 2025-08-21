@@ -57,7 +57,8 @@ func NewGetKeyGroupDynamicParamsWithHTTPClient(client *http.Client) *GetKeyGroup
 	}
 }
 
-/*GetKeyGroupDynamicParams contains all the parameters to send to the API endpoint
+/*
+GetKeyGroupDynamicParams contains all the parameters to send to the API endpoint
 for the get key group dynamic operation typically these are written to a http.Request
 */
 type GetKeyGroupDynamicParams struct {

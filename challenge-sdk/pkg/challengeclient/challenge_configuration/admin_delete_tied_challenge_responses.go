@@ -144,9 +144,10 @@ func NewAdminDeleteTiedChallengeNoContent() *AdminDeleteTiedChallengeNoContent {
 	return &AdminDeleteTiedChallengeNoContent{}
 }
 
-/*AdminDeleteTiedChallengeNoContent handles this case with default header values.
+/*
+AdminDeleteTiedChallengeNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteTiedChallengeNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeleteTiedChallengeBadRequest() *AdminDeleteTiedChallengeBadRequest
 	return &AdminDeleteTiedChallengeBadRequest{}
 }
 
-/*AdminDeleteTiedChallengeBadRequest handles this case with default header values.
+/*
+AdminDeleteTiedChallengeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminDeleteTiedChallengeBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewAdminDeleteTiedChallengeUnauthorized() *AdminDeleteTiedChallengeUnauthor
 	return &AdminDeleteTiedChallengeUnauthorized{}
 }
 
-/*AdminDeleteTiedChallengeUnauthorized handles this case with default header values.
+/*
+AdminDeleteTiedChallengeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteTiedChallengeUnauthorized struct {
 	Payload *challengeclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewAdminDeleteTiedChallengeForbidden() *AdminDeleteTiedChallengeForbidden {
 	return &AdminDeleteTiedChallengeForbidden{}
 }
 
-/*AdminDeleteTiedChallengeForbidden handles this case with default header values.
+/*
+AdminDeleteTiedChallengeForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminDeleteTiedChallengeForbidden struct {
 	Payload *challengeclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewAdminDeleteTiedChallengeNotFound() *AdminDeleteTiedChallengeNotFound {
 	return &AdminDeleteTiedChallengeNotFound{}
 }
 
-/*AdminDeleteTiedChallengeNotFound handles this case with default header values.
+/*
+AdminDeleteTiedChallengeNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminDeleteTiedChallengeNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewAdminDeleteTiedChallengeInternalServerError() *AdminDeleteTiedChallengeI
 	return &AdminDeleteTiedChallengeInternalServerError{}
 }
 
-/*AdminDeleteTiedChallengeInternalServerError handles this case with default header values.
+/*
+AdminDeleteTiedChallengeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminDeleteTiedChallengeInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

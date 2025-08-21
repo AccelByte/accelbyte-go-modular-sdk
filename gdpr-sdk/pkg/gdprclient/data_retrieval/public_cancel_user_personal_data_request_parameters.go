@@ -57,7 +57,8 @@ func NewPublicCancelUserPersonalDataRequestParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*PublicCancelUserPersonalDataRequestParams contains all the parameters to send to the API endpoint
+/*
+PublicCancelUserPersonalDataRequestParams contains all the parameters to send to the API endpoint
 for the public cancel user personal data request operation typically these are written to a http.Request
 */
 type PublicCancelUserPersonalDataRequestParams struct {

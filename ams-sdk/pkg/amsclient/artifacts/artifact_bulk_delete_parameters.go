@@ -57,7 +57,8 @@ func NewArtifactBulkDeleteParamsWithHTTPClient(client *http.Client) *ArtifactBul
 	}
 }
 
-/*ArtifactBulkDeleteParams contains all the parameters to send to the API endpoint
+/*
+ArtifactBulkDeleteParams contains all the parameters to send to the API endpoint
 for the artifact bulk delete operation typically these are written to a http.Request
 */
 type ArtifactBulkDeleteParams struct {

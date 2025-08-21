@@ -57,7 +57,8 @@ func NewPlatformUnlinkParamsWithHTTPClient(client *http.Client) *PlatformUnlinkP
 	}
 }
 
-/*PlatformUnlinkParams contains all the parameters to send to the API endpoint
+/*
+PlatformUnlinkParams contains all the parameters to send to the API endpoint
 for the platform unlink operation typically these are written to a http.Request
 */
 type PlatformUnlinkParams struct {

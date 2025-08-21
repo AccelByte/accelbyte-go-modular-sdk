@@ -115,9 +115,10 @@ func NewPublicGetItemOK() *PublicGetItemOK {
 	return &PublicGetItemOK{}
 }
 
-/*PublicGetItemOK handles this case with default header values.
+/*
+PublicGetItemOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetItemOK struct {
 	Payload *inventoryclientmodels.ApimodelsItemResp
@@ -169,9 +170,10 @@ func NewPublicGetItemBadRequest() *PublicGetItemBadRequest {
 	return &PublicGetItemBadRequest{}
 }
 
-/*PublicGetItemBadRequest handles this case with default header values.
+/*
+PublicGetItemBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetItemBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -223,9 +225,10 @@ func NewPublicGetItemNotFound() *PublicGetItemNotFound {
 	return &PublicGetItemNotFound{}
 }
 
-/*PublicGetItemNotFound handles this case with default header values.
+/*
+PublicGetItemNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetItemNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -277,9 +280,10 @@ func NewPublicGetItemInternalServerError() *PublicGetItemInternalServerError {
 	return &PublicGetItemInternalServerError{}
 }
 
-/*PublicGetItemInternalServerError handles this case with default header values.
+/*
+PublicGetItemInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetItemInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

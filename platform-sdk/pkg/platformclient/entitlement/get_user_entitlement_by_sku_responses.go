@@ -85,9 +85,10 @@ func NewGetUserEntitlementBySkuOK() *GetUserEntitlementBySkuOK {
 	return &GetUserEntitlementBySkuOK{}
 }
 
-/*GetUserEntitlementBySkuOK handles this case with default header values.
+/*
+GetUserEntitlementBySkuOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserEntitlementBySkuOK struct {
 	Payload *platformclientmodels.EntitlementInfo
@@ -139,9 +140,10 @@ func NewGetUserEntitlementBySkuNotFound() *GetUserEntitlementBySkuNotFound {
 	return &GetUserEntitlementBySkuNotFound{}
 }
 
-/*GetUserEntitlementBySkuNotFound handles this case with default header values.
+/*
+GetUserEntitlementBySkuNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31143</td><td>Entitlement with sku [{sku}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31143</td><td>Entitlement with sku [{sku}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetUserEntitlementBySkuNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

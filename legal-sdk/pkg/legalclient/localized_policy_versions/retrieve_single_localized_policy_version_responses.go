@@ -85,9 +85,10 @@ func NewRetrieveSingleLocalizedPolicyVersionOK() *RetrieveSingleLocalizedPolicyV
 	return &RetrieveSingleLocalizedPolicyVersionOK{}
 }
 
-/*RetrieveSingleLocalizedPolicyVersionOK handles this case with default header values.
+/*
+RetrieveSingleLocalizedPolicyVersionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveSingleLocalizedPolicyVersionOK struct {
 	Payload *legalclientmodels.RetrieveLocalizedPolicyVersionResponse
@@ -139,9 +140,10 @@ func NewRetrieveSingleLocalizedPolicyVersionNotFound() *RetrieveSingleLocalizedP
 	return &RetrieveSingleLocalizedPolicyVersionNotFound{}
 }
 
-/*RetrieveSingleLocalizedPolicyVersionNotFound handles this case with default header values.
+/*
+RetrieveSingleLocalizedPolicyVersionNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>2912</td><td>errors.net.accelbyte.platform.legal.policy_version_not_found</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>2912</td><td>errors.net.accelbyte.platform.legal.policy_version_not_found</td></tr></table>
 */
 type RetrieveSingleLocalizedPolicyVersionNotFound struct {
 	Payload *legalclientmodels.ErrorEntity

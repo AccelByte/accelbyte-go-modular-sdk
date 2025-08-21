@@ -130,9 +130,10 @@ func NewAdminCreateRoleV3Created() *AdminCreateRoleV3Created {
 	return &AdminCreateRoleV3Created{}
 }
 
-/*AdminCreateRoleV3Created handles this case with default header values.
+/*
+AdminCreateRoleV3Created handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateRoleV3Created struct {
 	Payload *iamclientmodels.AccountcommonRoleV3
@@ -184,9 +185,10 @@ func NewAdminCreateRoleV3BadRequest() *AdminCreateRoleV3BadRequest {
 	return &AdminCreateRoleV3BadRequest{}
 }
 
-/*AdminCreateRoleV3BadRequest handles this case with default header values.
+/*
+AdminCreateRoleV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10466</td><td>invalid role members</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10466</td><td>invalid role members</td></tr></table>
 */
 type AdminCreateRoleV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminCreateRoleV3Unauthorized() *AdminCreateRoleV3Unauthorized {
 	return &AdminCreateRoleV3Unauthorized{}
 }
 
-/*AdminCreateRoleV3Unauthorized handles this case with default header values.
+/*
+AdminCreateRoleV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCreateRoleV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminCreateRoleV3Forbidden() *AdminCreateRoleV3Forbidden {
 	return &AdminCreateRoleV3Forbidden{}
 }
 
-/*AdminCreateRoleV3Forbidden handles this case with default header values.
+/*
+AdminCreateRoleV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminCreateRoleV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminCreateRoleV3InternalServerError() *AdminCreateRoleV3InternalServerE
 	return &AdminCreateRoleV3InternalServerError{}
 }
 
-/*AdminCreateRoleV3InternalServerError handles this case with default header values.
+/*
+AdminCreateRoleV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminCreateRoleV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

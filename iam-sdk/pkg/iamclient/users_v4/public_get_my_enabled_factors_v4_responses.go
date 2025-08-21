@@ -145,9 +145,10 @@ func NewPublicGetMyEnabledFactorsV4OK() *PublicGetMyEnabledFactorsV4OK {
 	return &PublicGetMyEnabledFactorsV4OK{}
 }
 
-/*PublicGetMyEnabledFactorsV4OK handles this case with default header values.
+/*
+PublicGetMyEnabledFactorsV4OK handles this case with default header values.
 
-  Methods returned
+	Methods returned
 */
 type PublicGetMyEnabledFactorsV4OK struct {
 	Payload *iamclientmodels.ModelEnabledFactorsResponseV4
@@ -199,9 +200,10 @@ func NewPublicGetMyEnabledFactorsV4BadRequest() *PublicGetMyEnabledFactorsV4BadR
 	return &PublicGetMyEnabledFactorsV4BadRequest{}
 }
 
-/*PublicGetMyEnabledFactorsV4BadRequest handles this case with default header values.
+/*
+PublicGetMyEnabledFactorsV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10193</td><td>mfa not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10193</td><td>mfa not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type PublicGetMyEnabledFactorsV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewPublicGetMyEnabledFactorsV4Unauthorized() *PublicGetMyEnabledFactorsV4Un
 	return &PublicGetMyEnabledFactorsV4Unauthorized{}
 }
 
-/*PublicGetMyEnabledFactorsV4Unauthorized handles this case with default header values.
+/*
+PublicGetMyEnabledFactorsV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetMyEnabledFactorsV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewPublicGetMyEnabledFactorsV4Forbidden() *PublicGetMyEnabledFactorsV4Forbi
 	return &PublicGetMyEnabledFactorsV4Forbidden{}
 }
 
-/*PublicGetMyEnabledFactorsV4Forbidden handles this case with default header values.
+/*
+PublicGetMyEnabledFactorsV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetMyEnabledFactorsV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewPublicGetMyEnabledFactorsV4NotFound() *PublicGetMyEnabledFactorsV4NotFou
 	return &PublicGetMyEnabledFactorsV4NotFound{}
 }
 
-/*PublicGetMyEnabledFactorsV4NotFound handles this case with default header values.
+/*
+PublicGetMyEnabledFactorsV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicGetMyEnabledFactorsV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewPublicGetMyEnabledFactorsV4InternalServerError() *PublicGetMyEnabledFact
 	return &PublicGetMyEnabledFactorsV4InternalServerError{}
 }
 
-/*PublicGetMyEnabledFactorsV4InternalServerError handles this case with default header values.
+/*
+PublicGetMyEnabledFactorsV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetMyEnabledFactorsV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

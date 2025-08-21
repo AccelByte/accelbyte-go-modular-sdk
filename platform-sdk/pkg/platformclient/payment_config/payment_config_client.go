@@ -75,9 +75,11 @@ type ClientService interface {
 
 /*
 GetPaymentMerchantConfigShort get payment domain whitelist config
- [Not supported yet in AGS Shared Cloud] Get payment domain whitelist config by namespace.
+
+	[Not supported yet in AGS Shared Cloud] Get payment domain whitelist config by namespace.
+
 Other detail info:
-              * Returns : payment domain whitelist config info
+  - Returns : payment domain whitelist config info
 */
 func (a *Client) GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -131,20 +133,19 @@ func (a *Client) GetPaymentMerchantConfigShort(params *GetPaymentMerchantConfigP
 
 /*
 UpdatePaymentDomainWhitelistConfigShort update payment domain whitelist config
- [Not supported yet in AGS Shared Cloud] Update payment provider config by namespace.
+
+	[Not supported yet in AGS Shared Cloud] Update payment provider config by namespace.
 
 
-                                                 Request Body Parameters:
+	                                                Request Body Parameters:
 
-                         Parameter | Type   | Required | Description
-                        -----------|--------|----------|--------------------------------------------------
-                        domains    | String | Yes      | list of domains to whitelist for the return URL.
-
-
+	                        Parameter | Type   | Required | Description
+	                       -----------|--------|----------|--------------------------------------------------
+	                       domains    | String | Yes      | list of domains to whitelist for the return URL.
 
 Other detail info:
-              * Validation : the domain should include the protocol (http/https), but the whitelist check will only compare the host part (www.example.com)
-              *  Returns : payment domain whitelist config
+  - Validation : the domain should include the protocol (http/https), but the whitelist check will only compare the host part (www.example.com)
+  - Returns : payment domain whitelist config
 */
 func (a *Client) UpdatePaymentDomainWhitelistConfigShort(params *UpdatePaymentDomainWhitelistConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentDomainWhitelistConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -205,24 +206,26 @@ func (a *Client) UpdatePaymentDomainWhitelistConfigShort(params *UpdatePaymentDo
 
 /*
 TestAdyenConfigShort test adyen configuration
- [Not supported yet in AGS Shared Cloud] Test adyen configuration.
+
+	[Not supported yet in AGS Shared Cloud] Test adyen configuration.
 
 #### Check List:
 
-              * apiKey
-              * merchantAccount
+  - apiKey
+  - merchantAccount
 
 #### Non-check list:
 
-              * notificationHmacKey
-              * notificationUsername
-              * notificationPassword
-              * liveEndpointUrlPrefix
-              * allowedPaymentMethods
-              * blockedPaymentMethods
-              * settings
+  - notificationHmacKey
+  - notificationUsername
+  - notificationPassword
+  - liveEndpointUrlPrefix
+  - allowedPaymentMethods
+  - blockedPaymentMethods
+  - settings
+
 Other detail info:
-              * Returns : test adyen config
+  - Returns : test adyen config
 */
 func (a *Client) TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -276,9 +279,11 @@ func (a *Client) TestAdyenConfigShort(params *TestAdyenConfigParams, authInfo ru
 
 /*
 TestAliPayConfigShort test alipay configuration
- [Not supported yet in AGS Shared Cloud] Test AliPay configuration.Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
+	[Not supported yet in AGS Shared Cloud] Test AliPay configuration.Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
 Other detail info:
-              * Returns : test result
+  - Returns : test result
 */
 func (a *Client) TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -332,14 +337,16 @@ func (a *Client) TestAliPayConfigShort(params *TestAliPayConfigParams, authInfo 
 
 /*
 TestCheckoutConfigShort test checkout.com configuration
- [Not supported yet in AGS Shared Cloud] Test checkout.com configuration.
+
+	[Not supported yet in AGS Shared Cloud] Test checkout.com configuration.
 
 #### Check List:
 
-              * publicKey
-              * secretKey
+  - publicKey
+  - secretKey
+
 Other detail info:
-              * Returns : test result
+  - Returns : test result
 */
 func (a *Client) TestCheckoutConfigShort(params *TestCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -393,9 +400,11 @@ func (a *Client) TestCheckoutConfigShort(params *TestCheckoutConfigParams, authI
 
 /*
 DebugMatchedPaymentMerchantConfigShort debug matched payment merchant config(internal)
- [Not supported yet in AGS Shared Cloud] Debug matched payment merchant config.
+
+	[Not supported yet in AGS Shared Cloud] Debug matched payment merchant config.
+
 Other detail info:
-              * Returns : payment merchant config info
+  - Returns : payment merchant config info
 */
 func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaymentMerchantConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentMerchantConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -456,14 +465,16 @@ func (a *Client) DebugMatchedPaymentMerchantConfigShort(params *DebugMatchedPaym
 
 /*
 TestNeonPayConfigShort test neon pay configuration
- [Not supported yet in AGS Shared Cloud] Check Neon Pay configuration, Reference: [Neon Pay Document](https://docs.neonpay.com/docs/checkout).
+
+	[Not supported yet in AGS Shared Cloud] Check Neon Pay configuration, Reference: [Neon Pay Document](https://docs.neonpay.com/docs/checkout).
 
 #### Check List:
 
-              * apiKey
-              * webhookSecretKey
+  - apiKey
+  - webhookSecretKey
+
 Other detail info:
-              * Returns : test result
+  - Returns : test result
 */
 func (a *Client) TestNeonPayConfigShort(params *TestNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -517,18 +528,20 @@ func (a *Client) TestNeonPayConfigShort(params *TestNeonPayConfigParams, authInf
 
 /*
 TestPayPalConfigShort test paypal configuration
- [Not supported yet in AGS Shared Cloud] Test PayPal configuration.
+
+	[Not supported yet in AGS Shared Cloud] Test PayPal configuration.
 
 #### Check List:
 
-              * clientID
-              * clientSecret
+  - clientID
+  - clientSecret
 
 #### Non-check list:
 
-              * webHookId
+  - webHookId
+
 Other detail info:
-              * Returns : test result
+  - Returns : test result
 */
 func (a *Client) TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -582,19 +595,21 @@ func (a *Client) TestPayPalConfigShort(params *TestPayPalConfigParams, authInfo 
 
 /*
 TestStripeConfigShort test stripe configuration
- [Not supported yet in AGS Shared Cloud] Test stripe configuration.
+
+	[Not supported yet in AGS Shared Cloud] Test stripe configuration.
 
 #### Check List:
 
-              * secretKey
-              * allowedPaymentMethodTypes
+  - secretKey
+  - allowedPaymentMethodTypes
 
 #### Non-check list:
 
-              * publishableKey
-              * webhookSecret
+  - publishableKey
+  - webhookSecret
+
 Other detail info:
-              * Returns : test adyen config
+  - Returns : test adyen config
 */
 func (a *Client) TestStripeConfigShort(params *TestStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -648,9 +663,11 @@ func (a *Client) TestStripeConfigShort(params *TestStripeConfigParams, authInfo 
 
 /*
 TestWxPayConfigShort test wxpay configuration
- [Not supported yet in AGS Shared Cloud] Test WxPay configuration. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
+	[Not supported yet in AGS Shared Cloud] Test WxPay configuration. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
 Other detail info:
-              * Returns : test WxPay config
+  - Returns : test WxPay config
 */
 func (a *Client) TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -704,19 +721,21 @@ func (a *Client) TestWxPayConfigShort(params *TestWxPayConfigParams, authInfo ru
 
 /*
 TestXsollaConfigShort test xsolla configuration
- [Not supported yet in AGS Shared Cloud] Check xsolla configuration, Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
+	[Not supported yet in AGS Shared Cloud] Check xsolla configuration, Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
 
 #### Check List:
 
-              * merchantId
-              * projectId
-              * apiKey
+  - merchantId
+  - projectId
+  - apiKey
 
 #### Non-check list:
 
-              * projectSecretKey
+  - projectSecretKey
+
 Other detail info:
-              * Returns : test result
+  - Returns : test result
 */
 func (a *Client) TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -770,9 +789,11 @@ func (a *Client) TestXsollaConfigShort(params *TestXsollaConfigParams, authInfo 
 
 /*
 GetPaymentMerchantConfig1Short get payment merchant config
- [Not supported yet in AGS Shared Cloud] Get payment merchant config by id.
+
+	[Not supported yet in AGS Shared Cloud] Get payment merchant config by id.
+
 Other detail info:
-              * Returns : payment merchant config info
+  - Returns : payment merchant config info
 */
 func (a *Client) GetPaymentMerchantConfig1Short(params *GetPaymentMerchantConfig1Params, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentMerchantConfig1Response, error) {
 	// TODO: Validate the params before sending
@@ -833,9 +854,11 @@ func (a *Client) GetPaymentMerchantConfig1Short(params *GetPaymentMerchantConfig
 
 /*
 UpdateAdyenConfigShort update adyen config
- [Not supported yet in AGS Shared Cloud] Update adyen config.
+
+	[Not supported yet in AGS Shared Cloud] Update adyen config.
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAdyenConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -896,8 +919,9 @@ func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInf
 
 /*
 TestAdyenConfigByIDShort test adyen configuration by id
- [Not supported yet in AGS Shared Cloud] Test adyen configuration in payment merchant config. Other detail info:
-              * Returns : test adyen config
+
+	[Not supported yet in AGS Shared Cloud] Test adyen configuration in payment merchant config. Other detail info:
+	             * Returns : test adyen config
 */
 func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -958,9 +982,11 @@ func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, aut
 
 /*
 UpdateAliPayConfigShort update alipay configuration
- [Not supported yet in AGS Shared Cloud] Update alipay configuration.
+
+	[Not supported yet in AGS Shared Cloud] Update alipay configuration.
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAliPayConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1021,9 +1047,11 @@ func (a *Client) UpdateAliPayConfigShort(params *UpdateAliPayConfigParams, authI
 
 /*
 TestAliPayConfigByIDShort test alipay configuration by id
- [Not supported yet in AGS Shared Cloud] Test AliPay configuration in payment merchant config. Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
+	[Not supported yet in AGS Shared Cloud] Test AliPay configuration in payment merchant config. Reference: [Alipay Document](https://docs.open.alipay.com/270/alipay.trade.page.pay).
+
 Other detail info:
-              * Returns : test alipay config
+  - Returns : test alipay config
 */
 func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAliPayConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1084,9 +1112,11 @@ func (a *Client) TestAliPayConfigByIDShort(params *TestAliPayConfigByIDParams, a
 
 /*
 UpdateCheckoutConfigShort update checkout.com config
- [Not supported yet in AGS Shared Cloud] Update checkout.com config.
+
+	[Not supported yet in AGS Shared Cloud] Update checkout.com config.
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCheckoutConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1147,8 +1177,9 @@ func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, a
 
 /*
 TestCheckoutConfigByIDShort test checkout.com configuration by id
- [Not supported yet in AGS Shared Cloud] Test checkout.com configuration in payment merchant config. Other detail info:
-              * Returns : test result
+
+	[Not supported yet in AGS Shared Cloud] Test checkout.com configuration in payment merchant config. Other detail info:
+	             * Returns : test result
 */
 func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1209,9 +1240,11 @@ func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParam
 
 /*
 UpdateNeonPayConfigShort update neon pay config
- [Not supported yet in AGS Shared Cloud] Update Neon Pay config.
+
+	[Not supported yet in AGS Shared Cloud] Update Neon Pay config.
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNeonPayConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1272,8 +1305,9 @@ func (a *Client) UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, aut
 
 /*
 TestNeonPayConfigByIDShort test neon pay configuration by id
- [Not supported yet in AGS Shared Cloud] Test Neon Pay configuration in payment merchant config. Other detail info:
-              * Returns : test result
+
+	[Not supported yet in AGS Shared Cloud] Test Neon Pay configuration in payment merchant config. Other detail info:
+	             * Returns : test result
 */
 func (a *Client) TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1334,9 +1368,11 @@ func (a *Client) TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams,
 
 /*
 UpdatePayPalConfigShort update paypal config
- [Not supported yet in AGS Shared Cloud] Update PayPal config.
+
+	[Not supported yet in AGS Shared Cloud] Update PayPal config.
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePayPalConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1397,8 +1433,9 @@ func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authI
 
 /*
 TestPayPalConfigByIDShort test paypal configuration by id
- [Not supported yet in AGS Shared Cloud] Test PayPal configuration in payment merchant config. Other detail info:
-              * Returns : test result
+
+	[Not supported yet in AGS Shared Cloud] Test PayPal configuration in payment merchant config. Other detail info:
+	             * Returns : test result
 */
 func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1459,9 +1496,11 @@ func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, a
 
 /*
 UpdateStripeConfigShort update stripe config
- [Not supported yet in AGS Shared Cloud] Update stripe config.
+
+	[Not supported yet in AGS Shared Cloud] Update stripe config.
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStripeConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1522,8 +1561,9 @@ func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authI
 
 /*
 TestStripeConfigByIDShort test stripe configuration by id
- [Not supported yet in AGS Shared Cloud] Test stripe configuration in payment merchant config. Other detail info:
-              * Returns : test adyen config
+
+	[Not supported yet in AGS Shared Cloud] Test stripe configuration in payment merchant config. Other detail info:
+	             * Returns : test adyen config
 */
 func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1584,9 +1624,11 @@ func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, a
 
 /*
 UpdateWxPayConfigShort update wxpay configuration
- [Not supported yet in AGS Shared Cloud] Update wxpay configuration.
+
+	[Not supported yet in AGS Shared Cloud] Update wxpay configuration.
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1647,9 +1689,11 @@ func (a *Client) UpdateWxPayConfigShort(params *UpdateWxPayConfigParams, authInf
 
 /*
 UpdateWxPayConfigCertShort upload wxpay cert file
- [Not supported yet in AGS Shared Cloud] Upload wxpay cert file.
+
+	[Not supported yet in AGS Shared Cloud] Upload wxpay cert file.
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateWxPayConfigCertResponse, error) {
 	// TODO: Validate the params before sending
@@ -1710,9 +1754,11 @@ func (a *Client) UpdateWxPayConfigCertShort(params *UpdateWxPayConfigCertParams,
 
 /*
 TestWxPayConfigByIDShort test wxpay configuration by id
- [Not supported yet in AGS Shared Cloud] Test WxPay configuration in payment merchant config. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
+	[Not supported yet in AGS Shared Cloud] Test WxPay configuration in payment merchant config. Reference: [WxPay Document](https://pay.weixin.qq.com/wiki/doc/api/native.php?chapter=9_1).
+
 Other detail info:
-              * Returns : test WxPay config
+  - Returns : test WxPay config
 */
 func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestWxPayConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1773,9 +1819,11 @@ func (a *Client) TestWxPayConfigByIDShort(params *TestWxPayConfigByIDParams, aut
 
 /*
 UpdateXsollaConfigShort update xsolla configuration
- [Not supported yet in AGS Shared Cloud] Update xsolla configuration. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
+	[Not supported yet in AGS Shared Cloud] Update xsolla configuration. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1836,9 +1884,11 @@ func (a *Client) UpdateXsollaConfigShort(params *UpdateXsollaConfigParams, authI
 
 /*
 TestXsollaConfigByIDShort test xsolla configuration by id
- [Not supported yet in AGS Shared Cloud] Test xsolla configuration in payment merchant config. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
+	[Not supported yet in AGS Shared Cloud] Test xsolla configuration in payment merchant config. Reference: [Xsolla Document](https://developers.xsolla.com/?#simple-checkout).
+
 Other detail info:
-              * Returns : test xsolla config
+  - Returns : test xsolla config
 */
 func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestXsollaConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1899,9 +1949,11 @@ func (a *Client) TestXsollaConfigByIDShort(params *TestXsollaConfigByIDParams, a
 
 /*
 UpdateXsollaUIConfigShort update xsolla ui configuration
- [Not supported yet in AGS Shared Cloud] Update xsolla UI configuration.Reference: [Xsolla Document](https://developers.xsolla.com/api.html#ui-integrations).
+
+	[Not supported yet in AGS Shared Cloud] Update xsolla UI configuration.Reference: [Xsolla Document](https://developers.xsolla.com/api.html#ui-integrations).
+
 Other detail info:
-              * Returns : updated payment merchant config
+  - Returns : updated payment merchant config
 */
 func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXsollaUIConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1962,9 +2014,11 @@ func (a *Client) UpdateXsollaUIConfigShort(params *UpdateXsollaUIConfigParams, a
 
 /*
 QueryPaymentProviderConfigShort query payment provider config
- [Not supported yet in AGS Shared Cloud] Query payment provider config.
+
+	[Not supported yet in AGS Shared Cloud] Query payment provider config.
+
 Other detail info:
-              * Returns : payment provider config list
+  - Returns : payment provider config list
 */
 func (a *Client) QueryPaymentProviderConfigShort(params *QueryPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -2018,27 +2072,27 @@ func (a *Client) QueryPaymentProviderConfigShort(params *QueryPaymentProviderCon
 
 /*
 CreatePaymentProviderConfigShort create payment provider config
- [Not supported yet in AGS Shared Cloud] Create payment provider config.
+
+	[Not supported yet in AGS Shared Cloud] Create payment provider config.
 
 
-                                                 Request Body Parameters:
+	                                                Request Body Parameters:
 
-                         Parameter | Type   | Required | Description
-                        -----------|--------|----------|-----------------------------------------------------------
-                        namespace  | String | Yes      | namespace, * indicates all namespace
-                        region     | String | Yes      | region, * indicates all regions
-                        aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
-                        specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
-
-
+	                        Parameter | Type   | Required | Description
+	                       -----------|--------|----------|-----------------------------------------------------------
+	                       namespace  | String | Yes      | namespace, * indicates all namespace
+	                       region     | String | Yes      | region, * indicates all regions
+	                       aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+	                       specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
 
 payment provider applied has priority:
-              1. namespace and region match
-              2. namespace matches and region is *
-              3. region matches and namespace is *
-              4. namespace and region are *
+ 1. namespace and region match
+ 2. namespace matches and region is *
+ 3. region matches and namespace is *
+ 4. namespace and region are *
+
 Other detail info:
-              * Returns : payment provider config
+  - Returns : payment provider config
 */
 func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -2113,9 +2167,11 @@ func (a *Client) CreatePaymentProviderConfigShort(params *CreatePaymentProviderC
 
 /*
 GetAggregatePaymentProvidersShort get aggregate payment providers
- [Not supported yet in AGS Shared Cloud] Get aggregate payment providers, such as XSOLLA, ADYEN.
+
+	[Not supported yet in AGS Shared Cloud] Get aggregate payment providers, such as XSOLLA, ADYEN.
+
 Other detail info:
-              * Returns : payment provider list
+  - Returns : payment provider list
 */
 func (a *Client) GetAggregatePaymentProvidersShort(params *GetAggregatePaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetAggregatePaymentProvidersResponse, error) {
 	// TODO: Validate the params before sending
@@ -2169,9 +2225,11 @@ func (a *Client) GetAggregatePaymentProvidersShort(params *GetAggregatePaymentPr
 
 /*
 DebugMatchedPaymentProviderConfigShort debug matched payment provider config(internal)
- [Not supported yet in AGS Shared Cloud] Debug matched payment provider config.
+
+	[Not supported yet in AGS Shared Cloud] Debug matched payment provider config.
+
 Other detail info:
-              * Returns : payment provider config
+  - Returns : payment provider config
 */
 func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DebugMatchedPaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -2232,9 +2290,11 @@ func (a *Client) DebugMatchedPaymentProviderConfigShort(params *DebugMatchedPaym
 
 /*
 GetSpecialPaymentProvidersShort get special payment providers
- [Not supported yet in AGS Shared Cloud] Get special payment providers, such as ALIPAY, WXPAY.
+
+	[Not supported yet in AGS Shared Cloud] Get special payment providers, such as ALIPAY, WXPAY.
+
 Other detail info:
-              * Returns : payment provider list
+  - Returns : payment provider list
 */
 func (a *Client) GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvidersParams, authInfo runtime.ClientAuthInfoWriter) (*GetSpecialPaymentProvidersResponse, error) {
 	// TODO: Validate the params before sending
@@ -2288,27 +2348,27 @@ func (a *Client) GetSpecialPaymentProvidersShort(params *GetSpecialPaymentProvid
 
 /*
 UpdatePaymentProviderConfigShort update payment provider config
- [Not supported yet in AGS Shared Cloud] Update payment provider config.
+
+	[Not supported yet in AGS Shared Cloud] Update payment provider config.
 
 
-                                                 Request Body Parameters:
+	                                                Request Body Parameters:
 
-                         Parameter | Type   | Required | Description
-                        -----------|--------|----------|-----------------------------------------------------------
-                        namespace  | String | Yes      | namespace, * indicates all namespace
-                        region     | String | Yes      | region, * indicates all regions
-                        aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
-                        specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
-
-
+	                        Parameter | Type   | Required | Description
+	                       -----------|--------|----------|-----------------------------------------------------------
+	                       namespace  | String | Yes      | namespace, * indicates all namespace
+	                       region     | String | Yes      | region, * indicates all regions
+	                       aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+	                       specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
 
 payment provider applied has priority:
-              1. namespace and region match
-              2. namespace matches and region is *
-              3. region matches and namespace is *
-              4. namespace and region are *
+ 1. namespace and region match
+ 2. namespace matches and region is *
+ 3. region matches and namespace is *
+ 4. namespace and region are *
+
 Other detail info:
-              * Returns : payment provider config
+  - Returns : payment provider config
 */
 func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -2390,9 +2450,11 @@ func (a *Client) UpdatePaymentProviderConfigShort(params *UpdatePaymentProviderC
 
 /*
 DeletePaymentProviderConfigShort delete payment provider config
- [Not supported yet in AGS Shared Cloud] Delete payment provider config.
+
+	[Not supported yet in AGS Shared Cloud] Delete payment provider config.
+
 Other detail info:
-              * Returns : payment provider config
+  - Returns : payment provider config
 */
 func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePaymentProviderConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -2452,9 +2514,11 @@ func (a *Client) DeletePaymentProviderConfigShort(params *DeletePaymentProviderC
 
 /*
 GetPaymentTaxConfigShort get payment global tax config
- [Not supported yet in AGS Shared Cloud] Get payment global tax config.
+
+	[Not supported yet in AGS Shared Cloud] Get payment global tax config.
+
 Other detail info:
-              * Returns : payment provider list
+  - Returns : payment provider list
 */
 func (a *Client) GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPaymentTaxConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -2508,22 +2572,21 @@ func (a *Client) GetPaymentTaxConfigShort(params *GetPaymentTaxConfigParams, aut
 
 /*
 UpdatePaymentTaxConfigShort update payment global tax config
- [Not supported yet in AGS Shared Cloud] Update payment tax config.
+
+	[Not supported yet in AGS Shared Cloud] Update payment tax config.
 
 
-                                                 Request Body Parameters:
+	                                                Request Body Parameters:
 
-                         Parameter                | Type    | Required | Description
-                        --------------------------|---------|----------|---------------------------------------------------------------------
-                        taxJarEnabled             | Boolean | false
-                        taxJarApiToken            | String  | false    | required, when taxJarEnabled is true and there is no existing token
-                        sandboxTaxJarApiToken     | String  | false    | optional
-                        taxJarProductCodesMapping | Map     | No       | key is item type(APP                                                |COINS |INGAMEITEM |BUNDLE |CODE |SUBSCRIPTION) and value is product tax code: https://developers.taxjar.com/api/reference/?ruby#get-list-tax-categories
-
-
+	                        Parameter                | Type    | Required | Description
+	                       --------------------------|---------|----------|---------------------------------------------------------------------
+	                       taxJarEnabled             | Boolean | false
+	                       taxJarApiToken            | String  | false    | required, when taxJarEnabled is true and there is no existing token
+	                       sandboxTaxJarApiToken     | String  | false    | optional
+	                       taxJarProductCodesMapping | Map     | No       | key is item type(APP                                                |COINS |INGAMEITEM |BUNDLE |CODE |SUBSCRIPTION) and value is product tax code: https://developers.taxjar.com/api/reference/?ruby#get-list-tax-categories
 
 Other detail info:
-            * Returns : payment global tax config
+  - Returns : payment global tax config
 */
 func (a *Client) UpdatePaymentTaxConfigShort(params *UpdatePaymentTaxConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePaymentTaxConfigResponse, error) {
 	// TODO: Validate the params before sending

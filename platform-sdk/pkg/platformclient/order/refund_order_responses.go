@@ -115,9 +115,10 @@ func NewRefundOrderOK() *RefundOrderOK {
 	return &RefundOrderOK{}
 }
 
-/*RefundOrderOK handles this case with default header values.
+/*
+RefundOrderOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RefundOrderOK struct {
 	Payload *platformclientmodels.OrderInfo
@@ -169,9 +170,10 @@ func NewRefundOrderNotFound() *RefundOrderNotFound {
 	return &RefundOrderNotFound{}
 }
 
-/*RefundOrderNotFound handles this case with default header values.
+/*
+RefundOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
 */
 type RefundOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewRefundOrderConflict() *RefundOrderConflict {
 	return &RefundOrderConflict{}
 }
 
-/*RefundOrderConflict handles this case with default header values.
+/*
+RefundOrderConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32171</td><td>Order [{orderNo}] is not refundable</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32171</td><td>Order [{orderNo}] is not refundable</td></tr></table>
 */
 type RefundOrderConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewRefundOrderUnprocessableEntity() *RefundOrderUnprocessableEntity {
 	return &RefundOrderUnprocessableEntity{}
 }
 
-/*RefundOrderUnprocessableEntity handles this case with default header values.
+/*
+RefundOrderUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type RefundOrderUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

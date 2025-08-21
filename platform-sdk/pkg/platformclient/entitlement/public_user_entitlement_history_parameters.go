@@ -101,7 +101,8 @@ func NewPublicUserEntitlementHistoryParamsWithHTTPClient(client *http.Client) *P
 	}
 }
 
-/*PublicUserEntitlementHistoryParams contains all the parameters to send to the API endpoint
+/*
+PublicUserEntitlementHistoryParams contains all the parameters to send to the API endpoint
 for the public user entitlement history operation typically these are written to a http.Request
 */
 type PublicUserEntitlementHistoryParams struct {

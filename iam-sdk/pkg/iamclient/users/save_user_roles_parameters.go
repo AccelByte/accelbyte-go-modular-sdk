@@ -57,7 +57,8 @@ func NewSaveUserRolesParamsWithHTTPClient(client *http.Client) *SaveUserRolesPar
 	}
 }
 
-/*SaveUserRolesParams contains all the parameters to send to the API endpoint
+/*
+SaveUserRolesParams contains all the parameters to send to the API endpoint
 for the save user roles operation typically these are written to a http.Request
 */
 type SaveUserRolesParams struct {

@@ -69,9 +69,10 @@ func NewAdminResetSteamJobTimeOK() *AdminResetSteamJobTimeOK {
 	return &AdminResetSteamJobTimeOK{}
 }
 
-/*AdminResetSteamJobTimeOK handles this case with default header values.
+/*
+AdminResetSteamJobTimeOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AdminResetSteamJobTimeOK struct {
 	Payload *platformclientmodels.SteamReportJobInfo

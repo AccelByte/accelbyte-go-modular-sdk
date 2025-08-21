@@ -115,9 +115,10 @@ func NewAdminUpdateInventoryOK() *AdminUpdateInventoryOK {
 	return &AdminUpdateInventoryOK{}
 }
 
-/*AdminUpdateInventoryOK handles this case with default header values.
+/*
+AdminUpdateInventoryOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateInventoryOK struct {
 	Payload *inventoryclientmodels.ApimodelsInventoryResp
@@ -169,9 +170,10 @@ func NewAdminUpdateInventoryBadRequest() *AdminUpdateInventoryBadRequest {
 	return &AdminUpdateInventoryBadRequest{}
 }
 
-/*AdminUpdateInventoryBadRequest handles this case with default header values.
+/*
+AdminUpdateInventoryBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateInventoryBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -223,9 +225,10 @@ func NewAdminUpdateInventoryNotFound() *AdminUpdateInventoryNotFound {
 	return &AdminUpdateInventoryNotFound{}
 }
 
-/*AdminUpdateInventoryNotFound handles this case with default header values.
+/*
+AdminUpdateInventoryNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateInventoryNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -277,9 +280,10 @@ func NewAdminUpdateInventoryInternalServerError() *AdminUpdateInventoryInternalS
 	return &AdminUpdateInventoryInternalServerError{}
 }
 
-/*AdminUpdateInventoryInternalServerError handles this case with default header values.
+/*
+AdminUpdateInventoryInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateInventoryInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

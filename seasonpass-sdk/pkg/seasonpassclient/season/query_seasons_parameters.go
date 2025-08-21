@@ -93,7 +93,8 @@ func NewQuerySeasonsParamsWithHTTPClient(client *http.Client) *QuerySeasonsParam
 	}
 }
 
-/*QuerySeasonsParams contains all the parameters to send to the API endpoint
+/*
+QuerySeasonsParams contains all the parameters to send to the API endpoint
 for the query seasons operation typically these are written to a http.Request
 */
 type QuerySeasonsParams struct {

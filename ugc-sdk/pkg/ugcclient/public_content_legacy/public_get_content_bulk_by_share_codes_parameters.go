@@ -59,7 +59,8 @@ func NewPublicGetContentBulkByShareCodesParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*PublicGetContentBulkByShareCodesParams contains all the parameters to send to the API endpoint
+/*
+PublicGetContentBulkByShareCodesParams contains all the parameters to send to the API endpoint
 for the public get content bulk by share codes operation typically these are written to a http.Request
 */
 type PublicGetContentBulkByShareCodesParams struct {

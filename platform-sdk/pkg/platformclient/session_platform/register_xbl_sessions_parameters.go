@@ -59,7 +59,8 @@ func NewRegisterXblSessionsParamsWithHTTPClient(client *http.Client) *RegisterXb
 	}
 }
 
-/*RegisterXblSessionsParams contains all the parameters to send to the API endpoint
+/*
+RegisterXblSessionsParams contains all the parameters to send to the API endpoint
 for the register xbl sessions operation typically these are written to a http.Request
 */
 type RegisterXblSessionsParams struct {

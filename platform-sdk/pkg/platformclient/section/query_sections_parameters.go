@@ -78,7 +78,8 @@ func NewQuerySectionsParamsWithHTTPClient(client *http.Client) *QuerySectionsPar
 	}
 }
 
-/*QuerySectionsParams contains all the parameters to send to the API endpoint
+/*
+QuerySectionsParams contains all the parameters to send to the API endpoint
 for the query sections operation typically these are written to a http.Request
 */
 type QuerySectionsParams struct {

@@ -129,9 +129,10 @@ func NewAdminUpdateClientPermissionV3NoContent() *AdminUpdateClientPermissionV3N
 	return &AdminUpdateClientPermissionV3NoContent{}
 }
 
-/*AdminUpdateClientPermissionV3NoContent handles this case with default header values.
+/*
+AdminUpdateClientPermissionV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminUpdateClientPermissionV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminUpdateClientPermissionV3BadRequest() *AdminUpdateClientPermissionV3
 	return &AdminUpdateClientPermissionV3BadRequest{}
 }
 
-/*AdminUpdateClientPermissionV3BadRequest handles this case with default header values.
+/*
+AdminUpdateClientPermissionV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminUpdateClientPermissionV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,9 +212,10 @@ func NewAdminUpdateClientPermissionV3Unauthorized() *AdminUpdateClientPermission
 	return &AdminUpdateClientPermissionV3Unauthorized{}
 }
 
-/*AdminUpdateClientPermissionV3Unauthorized handles this case with default header values.
+/*
+AdminUpdateClientPermissionV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateClientPermissionV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +267,10 @@ func NewAdminUpdateClientPermissionV3Forbidden() *AdminUpdateClientPermissionV3F
 	return &AdminUpdateClientPermissionV3Forbidden{}
 }
 
-/*AdminUpdateClientPermissionV3Forbidden handles this case with default header values.
+/*
+AdminUpdateClientPermissionV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateClientPermissionV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +322,10 @@ func NewAdminUpdateClientPermissionV3NotFound() *AdminUpdateClientPermissionV3No
 	return &AdminUpdateClientPermissionV3NotFound{}
 }
 
-/*AdminUpdateClientPermissionV3NotFound handles this case with default header values.
+/*
+AdminUpdateClientPermissionV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr></table>
 */
 type AdminUpdateClientPermissionV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

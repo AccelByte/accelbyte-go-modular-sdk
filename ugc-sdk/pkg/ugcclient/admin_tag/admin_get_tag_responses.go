@@ -115,9 +115,10 @@ func NewAdminGetTagOK() *AdminGetTagOK {
 	return &AdminGetTagOK{}
 }
 
-/*AdminGetTagOK handles this case with default header values.
+/*
+AdminGetTagOK handles this case with default header values.
 
-  Get Tags
+	Get Tags
 */
 type AdminGetTagOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGetTagResponse
@@ -169,9 +170,10 @@ func NewAdminGetTagBadRequest() *AdminGetTagBadRequest {
 	return &AdminGetTagBadRequest{}
 }
 
-/*AdminGetTagBadRequest handles this case with default header values.
+/*
+AdminGetTagBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771501</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771501</td><td>invalid paging parameter</td></tr></table>
 */
 type AdminGetTagBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetTagUnauthorized() *AdminGetTagUnauthorized {
 	return &AdminGetTagUnauthorized{}
 }
 
-/*AdminGetTagUnauthorized handles this case with default header values.
+/*
+AdminGetTagUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetTagUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetTagInternalServerError() *AdminGetTagInternalServerError {
 	return &AdminGetTagInternalServerError{}
 }
 
-/*AdminGetTagInternalServerError handles this case with default header values.
+/*
+AdminGetTagInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771402</td><td>Unable to save ugc tag</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771402</td><td>Unable to save ugc tag</td></tr></table>
 */
 type AdminGetTagInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

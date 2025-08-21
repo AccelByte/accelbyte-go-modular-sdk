@@ -78,7 +78,8 @@ func NewAdminGetListNativeSessionParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminGetListNativeSessionParams contains all the parameters to send to the API endpoint
+/*
+AdminGetListNativeSessionParams contains all the parameters to send to the API endpoint
 for the admin get list native session operation typically these are written to a http.Request
 */
 type AdminGetListNativeSessionParams struct {

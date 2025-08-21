@@ -114,9 +114,10 @@ func NewFulfillRewardsNoContent() *FulfillRewardsNoContent {
 	return &FulfillRewardsNoContent{}
 }
 
-/*FulfillRewardsNoContent handles this case with default header values.
+/*
+FulfillRewardsNoContent handles this case with default header values.
 
-  fulfill successfully
+	fulfill successfully
 */
 type FulfillRewardsNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewFulfillRewardsBadRequest() *FulfillRewardsBadRequest {
 	return &FulfillRewardsBadRequest{}
 }
 
-/*FulfillRewardsBadRequest handles this case with default header values.
+/*
+FulfillRewardsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr></table>
 */
 type FulfillRewardsBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -195,9 +197,10 @@ func NewFulfillRewardsNotFound() *FulfillRewardsNotFound {
 	return &FulfillRewardsNotFound{}
 }
 
-/*FulfillRewardsNotFound handles this case with default header values.
+/*
+FulfillRewardsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type FulfillRewardsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -249,9 +252,10 @@ func NewFulfillRewardsConflict() *FulfillRewardsConflict {
 	return &FulfillRewardsConflict{}
 }
 
-/*FulfillRewardsConflict handles this case with default header values.
+/*
+FulfillRewardsConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type FulfillRewardsConflict struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -69,9 +69,10 @@ func NewGetCatalogDefinitionOK() *GetCatalogDefinitionOK {
 	return &GetCatalogDefinitionOK{}
 }
 
-/*GetCatalogDefinitionOK handles this case with default header values.
+/*
+GetCatalogDefinitionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCatalogDefinitionOK struct {
 	Payload []*platformclientmodels.CatalogDefinitionInfo

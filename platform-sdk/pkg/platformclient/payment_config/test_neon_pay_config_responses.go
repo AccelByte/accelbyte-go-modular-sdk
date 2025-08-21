@@ -69,9 +69,10 @@ func NewTestNeonPayConfigOK() *TestNeonPayConfigOK {
 	return &TestNeonPayConfigOK{}
 }
 
-/*TestNeonPayConfigOK handles this case with default header values.
+/*
+TestNeonPayConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestNeonPayConfigOK struct {
 	Payload *platformclientmodels.TestResult

@@ -130,9 +130,10 @@ func NewAppendTeamGameSessionOK() *AppendTeamGameSessionOK {
 	return &AppendTeamGameSessionOK{}
 }
 
-/*AppendTeamGameSessionOK handles this case with default header values.
+/*
+AppendTeamGameSessionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AppendTeamGameSessionOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -184,9 +185,10 @@ func NewAppendTeamGameSessionUnauthorized() *AppendTeamGameSessionUnauthorized {
 	return &AppendTeamGameSessionUnauthorized{}
 }
 
-/*AppendTeamGameSessionUnauthorized handles this case with default header values.
+/*
+AppendTeamGameSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AppendTeamGameSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAppendTeamGameSessionForbidden() *AppendTeamGameSessionForbidden {
 	return &AppendTeamGameSessionForbidden{}
 }
 
-/*AppendTeamGameSessionForbidden handles this case with default header values.
+/*
+AppendTeamGameSessionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AppendTeamGameSessionForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAppendTeamGameSessionNotFound() *AppendTeamGameSessionNotFound {
 	return &AppendTeamGameSessionNotFound{}
 }
 
-/*AppendTeamGameSessionNotFound handles this case with default header values.
+/*
+AppendTeamGameSessionNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AppendTeamGameSessionNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAppendTeamGameSessionInternalServerError() *AppendTeamGameSessionInterna
 	return &AppendTeamGameSessionInternalServerError{}
 }
 
-/*AppendTeamGameSessionInternalServerError handles this case with default header values.
+/*
+AppendTeamGameSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AppendTeamGameSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

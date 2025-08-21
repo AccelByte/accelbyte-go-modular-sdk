@@ -114,9 +114,10 @@ func NewDeleteChannelNoContent() *DeleteChannelNoContent {
 	return &DeleteChannelNoContent{}
 }
 
-/*DeleteChannelNoContent handles this case with default header values.
+/*
+DeleteChannelNoContent handles this case with default header values.
 
-  Channel deleted
+	Channel deleted
 */
 type DeleteChannelNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteChannelUnauthorized() *DeleteChannelUnauthorized {
 	return &DeleteChannelUnauthorized{}
 }
 
-/*DeleteChannelUnauthorized handles this case with default header values.
+/*
+DeleteChannelUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteChannelUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewDeleteChannelNotFound() *DeleteChannelNotFound {
 	return &DeleteChannelNotFound{}
 }
 
-/*DeleteChannelNotFound handles this case with default header values.
+/*
+DeleteChannelNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772502</td><td>Channel not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772502</td><td>Channel not found</td></tr></table>
 */
 type DeleteChannelNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewDeleteChannelInternalServerError() *DeleteChannelInternalServerError {
 	return &DeleteChannelInternalServerError{}
 }
 
-/*DeleteChannelInternalServerError handles this case with default header values.
+/*
+DeleteChannelInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772501</td><td>Unable to delete channel</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772501</td><td>Unable to delete channel</td></tr></table>
 */
 type DeleteChannelInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

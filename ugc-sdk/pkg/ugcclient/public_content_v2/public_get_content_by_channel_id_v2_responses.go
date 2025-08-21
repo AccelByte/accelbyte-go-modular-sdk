@@ -115,9 +115,10 @@ func NewPublicGetContentByChannelIDV2OK() *PublicGetContentByChannelIDV2OK {
 	return &PublicGetContentByChannelIDV2OK{}
 }
 
-/*PublicGetContentByChannelIDV2OK handles this case with default header values.
+/*
+PublicGetContentByChannelIDV2OK handles this case with default header values.
 
-  List content specific to a channel
+	List content specific to a channel
 */
 type PublicGetContentByChannelIDV2OK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponseV2
@@ -169,9 +170,10 @@ func NewPublicGetContentByChannelIDV2BadRequest() *PublicGetContentByChannelIDV2
 	return &PublicGetContentByChannelIDV2BadRequest{}
 }
 
-/*PublicGetContentByChannelIDV2BadRequest handles this case with default header values.
+/*
+PublicGetContentByChannelIDV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770804</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770804</td><td>invalid paging parameter</td></tr></table>
 */
 type PublicGetContentByChannelIDV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicGetContentByChannelIDV2Unauthorized() *PublicGetContentByChannelID
 	return &PublicGetContentByChannelIDV2Unauthorized{}
 }
 
-/*PublicGetContentByChannelIDV2Unauthorized handles this case with default header values.
+/*
+PublicGetContentByChannelIDV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetContentByChannelIDV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicGetContentByChannelIDV2InternalServerError() *PublicGetContentByCh
 	return &PublicGetContentByChannelIDV2InternalServerError{}
 }
 
-/*PublicGetContentByChannelIDV2InternalServerError handles this case with default header values.
+/*
+PublicGetContentByChannelIDV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770805</td><td>Unable to get ugc content: database error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770805</td><td>Unable to get ugc content: database error</td></tr></table>
 */
 type PublicGetContentByChannelIDV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

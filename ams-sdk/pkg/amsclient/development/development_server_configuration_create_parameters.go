@@ -59,7 +59,8 @@ func NewDevelopmentServerConfigurationCreateParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*DevelopmentServerConfigurationCreateParams contains all the parameters to send to the API endpoint
+/*
+DevelopmentServerConfigurationCreateParams contains all the parameters to send to the API endpoint
 for the development server configuration create operation typically these are written to a http.Request
 */
 type DevelopmentServerConfigurationCreateParams struct {

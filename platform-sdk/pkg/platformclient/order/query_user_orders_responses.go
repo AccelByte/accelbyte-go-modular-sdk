@@ -69,9 +69,10 @@ func NewQueryUserOrdersOK() *QueryUserOrdersOK {
 	return &QueryUserOrdersOK{}
 }
 
-/*QueryUserOrdersOK handles this case with default header values.
+/*
+QueryUserOrdersOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryUserOrdersOK struct {
 	Payload *platformclientmodels.OrderPagingSlicedResult

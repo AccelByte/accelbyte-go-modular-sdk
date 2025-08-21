@@ -44,9 +44,8 @@ type ClientService interface {
 DeletePolicyVersionShort delete a version of policy
 Delete a policy version from policy.Can only be deleted if match these criteria:
 
-
-  * Policy version is not published
-  * Policy version has never been accepted by any user
+  - Policy version is not published
+  - Policy version has never been accepted by any user
 */
 func (a *Client) DeletePolicyVersionShort(params *DeletePolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyVersionResponse, error) {
 	// TODO: Validate the params before sending
@@ -243,8 +242,7 @@ func (a *Client) PublishPolicyVersion1Short(params *PublishPolicyVersion1Params,
 UnpublishPolicyVersionShort un-publish version from policy
 Un-publish a policy version from policy.Can only be un-publish if match these criteria:
 
-
-  * Policy version has never been accepted by any user
+  - Policy version has never been accepted by any user
 */
 func (a *Client) UnpublishPolicyVersionShort(params *UnpublishPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishPolicyVersionResponse, error) {
 	// TODO: Validate the params before sending

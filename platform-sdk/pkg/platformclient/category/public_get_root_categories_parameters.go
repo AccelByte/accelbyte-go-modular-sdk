@@ -57,7 +57,8 @@ func NewPublicGetRootCategoriesParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicGetRootCategoriesParams contains all the parameters to send to the API endpoint
+/*
+PublicGetRootCategoriesParams contains all the parameters to send to the API endpoint
 for the public get root categories operation typically these are written to a http.Request
 */
 type PublicGetRootCategoriesParams struct {

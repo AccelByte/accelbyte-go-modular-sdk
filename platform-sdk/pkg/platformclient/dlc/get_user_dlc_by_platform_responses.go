@@ -69,9 +69,10 @@ func NewGetUserDLCByPlatformOK() *GetUserDLCByPlatformOK {
 	return &GetUserDLCByPlatformOK{}
 }
 
-/*GetUserDLCByPlatformOK handles this case with default header values.
+/*
+GetUserDLCByPlatformOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserDLCByPlatformOK struct {
 	Payload *platformclientmodels.UserDLC

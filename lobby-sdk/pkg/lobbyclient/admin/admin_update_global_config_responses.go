@@ -100,9 +100,10 @@ func NewAdminUpdateGlobalConfigOK() *AdminUpdateGlobalConfigOK {
 	return &AdminUpdateGlobalConfigOK{}
 }
 
-/*AdminUpdateGlobalConfigOK handles this case with default header values.
+/*
+AdminUpdateGlobalConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateGlobalConfigOK struct {
 	Payload *lobbyclientmodels.ModelGlobalConfiguration
@@ -154,9 +155,10 @@ func NewAdminUpdateGlobalConfigUnauthorized() *AdminUpdateGlobalConfigUnauthoriz
 	return &AdminUpdateGlobalConfigUnauthorized{}
 }
 
-/*AdminUpdateGlobalConfigUnauthorized handles this case with default header values.
+/*
+AdminUpdateGlobalConfigUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdateGlobalConfigUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -208,9 +210,10 @@ func NewAdminUpdateGlobalConfigForbidden() *AdminUpdateGlobalConfigForbidden {
 	return &AdminUpdateGlobalConfigForbidden{}
 }
 
-/*AdminUpdateGlobalConfigForbidden handles this case with default header values.
+/*
+AdminUpdateGlobalConfigForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdateGlobalConfigForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

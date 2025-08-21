@@ -93,7 +93,8 @@ func NewGetTradeHistoryByCriteriaParamsWithHTTPClient(client *http.Client) *GetT
 	}
 }
 
-/*GetTradeHistoryByCriteriaParams contains all the parameters to send to the API endpoint
+/*
+GetTradeHistoryByCriteriaParams contains all the parameters to send to the API endpoint
 for the get trade history by criteria operation typically these are written to a http.Request
 */
 type GetTradeHistoryByCriteriaParams struct {

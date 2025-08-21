@@ -59,7 +59,8 @@ func NewDevelopmentServerConfigurationPatchParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*DevelopmentServerConfigurationPatchParams contains all the parameters to send to the API endpoint
+/*
+DevelopmentServerConfigurationPatchParams contains all the parameters to send to the API endpoint
 for the development server configuration patch operation typically these are written to a http.Request
 */
 type DevelopmentServerConfigurationPatchParams struct {

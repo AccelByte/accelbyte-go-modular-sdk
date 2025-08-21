@@ -58,7 +58,8 @@ func NewAdminGetListDeletionDataRequestParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*AdminGetListDeletionDataRequestParams contains all the parameters to send to the API endpoint
+/*
+AdminGetListDeletionDataRequestParams contains all the parameters to send to the API endpoint
 for the admin get list deletion data request operation typically these are written to a http.Request
 */
 type AdminGetListDeletionDataRequestParams struct {

@@ -160,9 +160,10 @@ func NewAdminGetUserProgressionOK() *AdminGetUserProgressionOK {
 	return &AdminGetUserProgressionOK{}
 }
 
-/*AdminGetUserProgressionOK handles this case with default header values.
+/*
+AdminGetUserProgressionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserProgressionOK struct {
 	Payload *challengeclientmodels.ModelUserProgressionResponse
@@ -214,9 +215,10 @@ func NewAdminGetUserProgressionBadRequest() *AdminGetUserProgressionBadRequest {
 	return &AdminGetUserProgressionBadRequest{}
 }
 
-/*AdminGetUserProgressionBadRequest handles this case with default header values.
+/*
+AdminGetUserProgressionBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminGetUserProgressionBadRequest struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -268,9 +270,10 @@ func NewAdminGetUserProgressionUnauthorized() *AdminGetUserProgressionUnauthoriz
 	return &AdminGetUserProgressionUnauthorized{}
 }
 
-/*AdminGetUserProgressionUnauthorized handles this case with default header values.
+/*
+AdminGetUserProgressionUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserProgressionUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -322,9 +325,10 @@ func NewAdminGetUserProgressionForbidden() *AdminGetUserProgressionForbidden {
 	return &AdminGetUserProgressionForbidden{}
 }
 
-/*AdminGetUserProgressionForbidden handles this case with default header values.
+/*
+AdminGetUserProgressionForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetUserProgressionForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -376,9 +380,10 @@ func NewAdminGetUserProgressionNotFound() *AdminGetUserProgressionNotFound {
 	return &AdminGetUserProgressionNotFound{}
 }
 
-/*AdminGetUserProgressionNotFound handles this case with default header values.
+/*
+AdminGetUserProgressionNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminGetUserProgressionNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -430,9 +435,10 @@ func NewAdminGetUserProgressionUnprocessableEntity() *AdminGetUserProgressionUnp
 	return &AdminGetUserProgressionUnprocessableEntity{}
 }
 
-/*AdminGetUserProgressionUnprocessableEntity handles this case with default header values.
+/*
+AdminGetUserProgressionUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
 */
 type AdminGetUserProgressionUnprocessableEntity struct {
 	Payload *challengeclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewAdminGetUserProgressionInternalServerError() *AdminGetUserProgressionInt
 	return &AdminGetUserProgressionInternalServerError{}
 }
 
-/*AdminGetUserProgressionInternalServerError handles this case with default header values.
+/*
+AdminGetUserProgressionInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminGetUserProgressionInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

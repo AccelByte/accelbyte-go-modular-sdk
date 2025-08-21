@@ -130,9 +130,10 @@ func NewDeleteBulkLeaderboardConfigurationAdminV1OK() *DeleteBulkLeaderboardConf
 	return &DeleteBulkLeaderboardConfigurationAdminV1OK{}
 }
 
-/*DeleteBulkLeaderboardConfigurationAdminV1OK handles this case with default header values.
+/*
+DeleteBulkLeaderboardConfigurationAdminV1OK handles this case with default header values.
 
-  Leaderboards deleted
+	Leaderboards deleted
 */
 type DeleteBulkLeaderboardConfigurationAdminV1OK struct {
 	Payload *leaderboardclientmodels.ModelsDeleteBulkLeaderboardsResp
@@ -184,9 +185,10 @@ func NewDeleteBulkLeaderboardConfigurationAdminV1BadRequest() *DeleteBulkLeaderb
 	return &DeleteBulkLeaderboardConfigurationAdminV1BadRequest{}
 }
 
-/*DeleteBulkLeaderboardConfigurationAdminV1BadRequest handles this case with default header values.
+/*
+DeleteBulkLeaderboardConfigurationAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DeleteBulkLeaderboardConfigurationAdminV1BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewDeleteBulkLeaderboardConfigurationAdminV1Unauthorized() *DeleteBulkLeade
 	return &DeleteBulkLeaderboardConfigurationAdminV1Unauthorized{}
 }
 
-/*DeleteBulkLeaderboardConfigurationAdminV1Unauthorized handles this case with default header values.
+/*
+DeleteBulkLeaderboardConfigurationAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteBulkLeaderboardConfigurationAdminV1Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewDeleteBulkLeaderboardConfigurationAdminV1Forbidden() *DeleteBulkLeaderbo
 	return &DeleteBulkLeaderboardConfigurationAdminV1Forbidden{}
 }
 
-/*DeleteBulkLeaderboardConfigurationAdminV1Forbidden handles this case with default header values.
+/*
+DeleteBulkLeaderboardConfigurationAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteBulkLeaderboardConfigurationAdminV1Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewDeleteBulkLeaderboardConfigurationAdminV1InternalServerError() *DeleteBu
 	return &DeleteBulkLeaderboardConfigurationAdminV1InternalServerError{}
 }
 
-/*DeleteBulkLeaderboardConfigurationAdminV1InternalServerError handles this case with default header values.
+/*
+DeleteBulkLeaderboardConfigurationAdminV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DeleteBulkLeaderboardConfigurationAdminV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

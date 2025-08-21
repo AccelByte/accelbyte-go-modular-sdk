@@ -85,9 +85,10 @@ func NewUpdateXsollaUIConfigOK() *UpdateXsollaUIConfigOK {
 	return &UpdateXsollaUIConfigOK{}
 }
 
-/*UpdateXsollaUIConfigOK handles this case with default header values.
+/*
+UpdateXsollaUIConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateXsollaUIConfigOK struct {
 	Payload *platformclientmodels.PaymentMerchantConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateXsollaUIConfigNotFound() *UpdateXsollaUIConfigNotFound {
 	return &UpdateXsollaUIConfigNotFound{}
 }
 
-/*UpdateXsollaUIConfigNotFound handles this case with default header values.
+/*
+UpdateXsollaUIConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
 */
 type UpdateXsollaUIConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

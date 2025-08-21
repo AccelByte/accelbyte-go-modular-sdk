@@ -59,7 +59,8 @@ func NewAdminUpdateInboxMessageParamsWithHTTPClient(client *http.Client) *AdminU
 	}
 }
 
-/*AdminUpdateInboxMessageParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateInboxMessageParams contains all the parameters to send to the API endpoint
 for the admin update inbox message operation typically these are written to a http.Request
 */
 type AdminUpdateInboxMessageParams struct {

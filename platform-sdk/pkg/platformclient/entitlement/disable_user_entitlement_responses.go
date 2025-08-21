@@ -100,9 +100,10 @@ func NewDisableUserEntitlementOK() *DisableUserEntitlementOK {
 	return &DisableUserEntitlementOK{}
 }
 
-/*DisableUserEntitlementOK handles this case with default header values.
+/*
+DisableUserEntitlementOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DisableUserEntitlementOK struct {
 	Payload *platformclientmodels.EntitlementInfo
@@ -154,9 +155,10 @@ func NewDisableUserEntitlementNotFound() *DisableUserEntitlementNotFound {
 	return &DisableUserEntitlementNotFound{}
 }
 
-/*DisableUserEntitlementNotFound handles this case with default header values.
+/*
+DisableUserEntitlementNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DisableUserEntitlementNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewDisableUserEntitlementConflict() *DisableUserEntitlementConflict {
 	return &DisableUserEntitlementConflict{}
 }
 
-/*DisableUserEntitlementConflict handles this case with default header values.
+/*
+DisableUserEntitlementConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31172</td><td>Entitlement [{entitlementId}] not active</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31172</td><td>Entitlement [{entitlementId}] not active</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type DisableUserEntitlementConflict struct {
 	Payload *platformclientmodels.ErrorEntity

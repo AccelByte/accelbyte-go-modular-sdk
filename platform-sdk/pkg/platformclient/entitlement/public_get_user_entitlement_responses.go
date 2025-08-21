@@ -85,9 +85,10 @@ func NewPublicGetUserEntitlementOK() *PublicGetUserEntitlementOK {
 	return &PublicGetUserEntitlementOK{}
 }
 
-/*PublicGetUserEntitlementOK handles this case with default header values.
+/*
+PublicGetUserEntitlementOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetUserEntitlementOK struct {
 	Payload *platformclientmodels.EntitlementInfo
@@ -139,9 +140,10 @@ func NewPublicGetUserEntitlementNotFound() *PublicGetUserEntitlementNotFound {
 	return &PublicGetUserEntitlementNotFound{}
 }
 
-/*PublicGetUserEntitlementNotFound handles this case with default header values.
+/*
+PublicGetUserEntitlementNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicGetUserEntitlementNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

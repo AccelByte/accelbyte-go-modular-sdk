@@ -57,7 +57,8 @@ func NewAdminAnonymizeUserAchievementParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*AdminAnonymizeUserAchievementParams contains all the parameters to send to the API endpoint
+/*
+AdminAnonymizeUserAchievementParams contains all the parameters to send to the API endpoint
 for the admin anonymize user achievement operation typically these are written to a http.Request
 */
 type AdminAnonymizeUserAchievementParams struct {

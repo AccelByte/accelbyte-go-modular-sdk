@@ -66,9 +66,10 @@ func NewUploadURLGetOK() *UploadURLGetOK {
 	return &UploadURLGetOK{}
 }
 
-/*UploadURLGetOK handles this case with default header values.
+/*
+UploadURLGetOK handles this case with default header values.
 
-  success
+	success
 */
 type UploadURLGetOK struct {
 }

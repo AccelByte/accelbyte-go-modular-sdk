@@ -66,9 +66,10 @@ func NewDeleteFulfillmentScriptNoContent() *DeleteFulfillmentScriptNoContent {
 	return &DeleteFulfillmentScriptNoContent{}
 }
 
-/*DeleteFulfillmentScriptNoContent handles this case with default header values.
+/*
+DeleteFulfillmentScriptNoContent handles this case with default header values.
 
-  delete fulfillment script successfully
+	delete fulfillment script successfully
 */
 type DeleteFulfillmentScriptNoContent struct {
 }

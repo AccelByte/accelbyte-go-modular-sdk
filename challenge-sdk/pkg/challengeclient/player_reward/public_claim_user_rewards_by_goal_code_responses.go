@@ -160,9 +160,10 @@ func NewPublicClaimUserRewardsByGoalCodeOK() *PublicClaimUserRewardsByGoalCodeOK
 	return &PublicClaimUserRewardsByGoalCodeOK{}
 }
 
-/*PublicClaimUserRewardsByGoalCodeOK handles this case with default header values.
+/*
+PublicClaimUserRewardsByGoalCodeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicClaimUserRewardsByGoalCodeOK struct {
 	Payload []*challengeclientmodels.ModelUserReward
@@ -212,9 +213,10 @@ func NewPublicClaimUserRewardsByGoalCodeBadRequest() *PublicClaimUserRewardsByGo
 	return &PublicClaimUserRewardsByGoalCodeBadRequest{}
 }
 
-/*PublicClaimUserRewardsByGoalCodeBadRequest handles this case with default header values.
+/*
+PublicClaimUserRewardsByGoalCodeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type PublicClaimUserRewardsByGoalCodeBadRequest struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -266,9 +268,10 @@ func NewPublicClaimUserRewardsByGoalCodeUnauthorized() *PublicClaimUserRewardsBy
 	return &PublicClaimUserRewardsByGoalCodeUnauthorized{}
 }
 
-/*PublicClaimUserRewardsByGoalCodeUnauthorized handles this case with default header values.
+/*
+PublicClaimUserRewardsByGoalCodeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicClaimUserRewardsByGoalCodeUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -320,9 +323,10 @@ func NewPublicClaimUserRewardsByGoalCodeForbidden() *PublicClaimUserRewardsByGoa
 	return &PublicClaimUserRewardsByGoalCodeForbidden{}
 }
 
-/*PublicClaimUserRewardsByGoalCodeForbidden handles this case with default header values.
+/*
+PublicClaimUserRewardsByGoalCodeForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicClaimUserRewardsByGoalCodeForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -374,9 +378,10 @@ func NewPublicClaimUserRewardsByGoalCodeNotFound() *PublicClaimUserRewardsByGoal
 	return &PublicClaimUserRewardsByGoalCodeNotFound{}
 }
 
-/*PublicClaimUserRewardsByGoalCodeNotFound handles this case with default header values.
+/*
+PublicClaimUserRewardsByGoalCodeNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type PublicClaimUserRewardsByGoalCodeNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -428,9 +433,10 @@ func NewPublicClaimUserRewardsByGoalCodeUnprocessableEntity() *PublicClaimUserRe
 	return &PublicClaimUserRewardsByGoalCodeUnprocessableEntity{}
 }
 
-/*PublicClaimUserRewardsByGoalCodeUnprocessableEntity handles this case with default header values.
+/*
+PublicClaimUserRewardsByGoalCodeUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
 */
 type PublicClaimUserRewardsByGoalCodeUnprocessableEntity struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -482,9 +488,10 @@ func NewPublicClaimUserRewardsByGoalCodeInternalServerError() *PublicClaimUserRe
 	return &PublicClaimUserRewardsByGoalCodeInternalServerError{}
 }
 
-/*PublicClaimUserRewardsByGoalCodeInternalServerError handles this case with default header values.
+/*
+PublicClaimUserRewardsByGoalCodeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type PublicClaimUserRewardsByGoalCodeInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

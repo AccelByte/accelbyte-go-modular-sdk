@@ -115,9 +115,10 @@ func NewRuleSetListOK() *RuleSetListOK {
 	return &RuleSetListOK{}
 }
 
-/*RuleSetListOK handles this case with default header values.
+/*
+RuleSetListOK handles this case with default header values.
 
-  Created
+	Created
 */
 type RuleSetListOK struct {
 	Payload *match2clientmodels.APIListRuleSetsResponse
@@ -169,9 +170,10 @@ func NewRuleSetListUnauthorized() *RuleSetListUnauthorized {
 	return &RuleSetListUnauthorized{}
 }
 
-/*RuleSetListUnauthorized handles this case with default header values.
+/*
+RuleSetListUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type RuleSetListUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewRuleSetListForbidden() *RuleSetListForbidden {
 	return &RuleSetListForbidden{}
 }
 
-/*RuleSetListForbidden handles this case with default header values.
+/*
+RuleSetListForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type RuleSetListForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewRuleSetListInternalServerError() *RuleSetListInternalServerError {
 	return &RuleSetListInternalServerError{}
 }
 
-/*RuleSetListInternalServerError handles this case with default header values.
+/*
+RuleSetListInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type RuleSetListInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

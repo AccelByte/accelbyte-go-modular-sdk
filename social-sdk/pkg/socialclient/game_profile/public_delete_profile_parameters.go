@@ -57,7 +57,8 @@ func NewPublicDeleteProfileParamsWithHTTPClient(client *http.Client) *PublicDele
 	}
 }
 
-/*PublicDeleteProfileParams contains all the parameters to send to the API endpoint
+/*
+PublicDeleteProfileParams contains all the parameters to send to the API endpoint
 for the public delete profile operation typically these are written to a http.Request
 */
 type PublicDeleteProfileParams struct {

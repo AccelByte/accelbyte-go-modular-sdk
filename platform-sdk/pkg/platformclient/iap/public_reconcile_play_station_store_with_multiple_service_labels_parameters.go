@@ -59,7 +59,8 @@ func NewPublicReconcilePlayStationStoreWithMultipleServiceLabelsParamsWithHTTPCl
 	}
 }
 
-/*PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams contains all the parameters to send to the API endpoint
+/*
+PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams contains all the parameters to send to the API endpoint
 for the public reconcile play station store with multiple service labels operation typically these are written to a http.Request
 */
 type PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams struct {

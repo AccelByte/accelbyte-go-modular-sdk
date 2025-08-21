@@ -160,9 +160,10 @@ func NewAdminCreateChallengeCreated() *AdminCreateChallengeCreated {
 	return &AdminCreateChallengeCreated{}
 }
 
-/*AdminCreateChallengeCreated handles this case with default header values.
+/*
+AdminCreateChallengeCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateChallengeCreated struct {
 	Payload *challengeclientmodels.ModelChallengeResponse
@@ -214,9 +215,10 @@ func NewAdminCreateChallengeBadRequest() *AdminCreateChallengeBadRequest {
 	return &AdminCreateChallengeBadRequest{}
 }
 
-/*AdminCreateChallengeBadRequest handles this case with default header values.
+/*
+AdminCreateChallengeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminCreateChallengeBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewAdminCreateChallengeUnauthorized() *AdminCreateChallengeUnauthorized {
 	return &AdminCreateChallengeUnauthorized{}
 }
 
-/*AdminCreateChallengeUnauthorized handles this case with default header values.
+/*
+AdminCreateChallengeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCreateChallengeUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -322,9 +325,10 @@ func NewAdminCreateChallengeForbidden() *AdminCreateChallengeForbidden {
 	return &AdminCreateChallengeForbidden{}
 }
 
-/*AdminCreateChallengeForbidden handles this case with default header values.
+/*
+AdminCreateChallengeForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminCreateChallengeForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -376,9 +380,10 @@ func NewAdminCreateChallengeConflict() *AdminCreateChallengeConflict {
 	return &AdminCreateChallengeConflict{}
 }
 
-/*AdminCreateChallengeConflict handles this case with default header values.
+/*
+AdminCreateChallengeConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99002</td><td>duplicate key error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99002</td><td>duplicate key error: {{message}}</td></tr></table>
 */
 type AdminCreateChallengeConflict struct {
 	Payload *challengeclientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewAdminCreateChallengeUnprocessableEntity() *AdminCreateChallengeUnprocess
 	return &AdminCreateChallengeUnprocessableEntity{}
 }
 
-/*AdminCreateChallengeUnprocessableEntity handles this case with default header values.
+/*
+AdminCreateChallengeUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99003</td><td>challenge validation error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99003</td><td>challenge validation error: {{message}}</td></tr></table>
 */
 type AdminCreateChallengeUnprocessableEntity struct {
 	Payload *challengeclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewAdminCreateChallengeInternalServerError() *AdminCreateChallengeInternalS
 	return &AdminCreateChallengeInternalServerError{}
 }
 
-/*AdminCreateChallengeInternalServerError handles this case with default header values.
+/*
+AdminCreateChallengeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminCreateChallengeInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

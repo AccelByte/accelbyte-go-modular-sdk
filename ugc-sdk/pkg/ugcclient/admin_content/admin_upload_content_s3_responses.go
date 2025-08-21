@@ -145,9 +145,10 @@ func NewAdminUploadContentS3Created() *AdminUploadContentS3Created {
 	return &AdminUploadContentS3Created{}
 }
 
-/*AdminUploadContentS3Created handles this case with default header values.
+/*
+AdminUploadContentS3Created handles this case with default header values.
 
-  Content Uploaded to S3 bucket
+	Content Uploaded to S3 bucket
 */
 type AdminUploadContentS3Created struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponse
@@ -199,9 +200,10 @@ func NewAdminUploadContentS3BadRequest() *AdminUploadContentS3BadRequest {
 	return &AdminUploadContentS3BadRequest{}
 }
 
-/*AdminUploadContentS3BadRequest handles this case with default header values.
+/*
+AdminUploadContentS3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr><tr><td>770107</td><td>Unable to update ugc content: invalid shareCode format</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr><tr><td>770107</td><td>Unable to update ugc content: invalid shareCode format</td></tr></table>
 */
 type AdminUploadContentS3BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUploadContentS3Unauthorized() *AdminUploadContentS3Unauthorized {
 	return &AdminUploadContentS3Unauthorized{}
 }
 
-/*AdminUploadContentS3Unauthorized handles this case with default header values.
+/*
+AdminUploadContentS3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUploadContentS3Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUploadContentS3Forbidden() *AdminUploadContentS3Forbidden {
 	return &AdminUploadContentS3Forbidden{}
 }
 
-/*AdminUploadContentS3Forbidden handles this case with default header values.
+/*
+AdminUploadContentS3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770104</td><td>User has been banned to create content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770104</td><td>User has been banned to create content</td></tr></table>
 */
 type AdminUploadContentS3Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUploadContentS3Conflict() *AdminUploadContentS3Conflict {
 	return &AdminUploadContentS3Conflict{}
 }
 
-/*AdminUploadContentS3Conflict handles this case with default header values.
+/*
+AdminUploadContentS3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
 */
 type AdminUploadContentS3Conflict struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUploadContentS3InternalServerError() *AdminUploadContentS3InternalS
 	return &AdminUploadContentS3InternalServerError{}
 }
 
-/*AdminUploadContentS3InternalServerError handles this case with default header values.
+/*
+AdminUploadContentS3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
 */
 type AdminUploadContentS3InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

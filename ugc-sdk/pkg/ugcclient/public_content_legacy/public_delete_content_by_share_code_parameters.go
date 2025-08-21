@@ -57,7 +57,8 @@ func NewPublicDeleteContentByShareCodeParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*PublicDeleteContentByShareCodeParams contains all the parameters to send to the API endpoint
+/*
+PublicDeleteContentByShareCodeParams contains all the parameters to send to the API endpoint
 for the public delete content by share code operation typically these are written to a http.Request
 */
 type PublicDeleteContentByShareCodeParams struct {

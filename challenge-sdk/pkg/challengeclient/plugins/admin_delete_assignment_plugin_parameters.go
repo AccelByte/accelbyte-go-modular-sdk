@@ -57,7 +57,8 @@ func NewAdminDeleteAssignmentPluginParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminDeleteAssignmentPluginParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteAssignmentPluginParams contains all the parameters to send to the API endpoint
 for the admin delete assignment plugin operation typically these are written to a http.Request
 */
 type AdminDeleteAssignmentPluginParams struct {

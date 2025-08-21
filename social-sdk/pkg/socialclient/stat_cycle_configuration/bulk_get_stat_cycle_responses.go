@@ -145,9 +145,10 @@ func NewBulkGetStatCycleOK() *BulkGetStatCycleOK {
 	return &BulkGetStatCycleOK{}
 }
 
-/*BulkGetStatCycleOK handles this case with default header values.
+/*
+BulkGetStatCycleOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkGetStatCycleOK struct {
 	Payload *socialclientmodels.BulkStatCycleResult
@@ -199,9 +200,10 @@ func NewBulkGetStatCycleBadRequest() *BulkGetStatCycleBadRequest {
 	return &BulkGetStatCycleBadRequest{}
 }
 
-/*BulkGetStatCycleBadRequest handles this case with default header values.
+/*
+BulkGetStatCycleBadRequest handles this case with default header values.
 
-  Bad request
+	Bad request
 */
 type BulkGetStatCycleBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -253,9 +255,10 @@ func NewBulkGetStatCycleUnauthorized() *BulkGetStatCycleUnauthorized {
 	return &BulkGetStatCycleUnauthorized{}
 }
 
-/*BulkGetStatCycleUnauthorized handles this case with default header values.
+/*
+BulkGetStatCycleUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type BulkGetStatCycleUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -307,9 +310,10 @@ func NewBulkGetStatCycleForbidden() *BulkGetStatCycleForbidden {
 	return &BulkGetStatCycleForbidden{}
 }
 
-/*BulkGetStatCycleForbidden handles this case with default header values.
+/*
+BulkGetStatCycleForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkGetStatCycleForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -361,9 +365,10 @@ func NewBulkGetStatCycleUnprocessableEntity() *BulkGetStatCycleUnprocessableEnti
 	return &BulkGetStatCycleUnprocessableEntity{}
 }
 
-/*BulkGetStatCycleUnprocessableEntity handles this case with default header values.
+/*
+BulkGetStatCycleUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkGetStatCycleUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -415,9 +420,10 @@ func NewBulkGetStatCycleInternalServerError() *BulkGetStatCycleInternalServerErr
 	return &BulkGetStatCycleInternalServerError{}
 }
 
-/*BulkGetStatCycleInternalServerError handles this case with default header values.
+/*
+BulkGetStatCycleInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type BulkGetStatCycleInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

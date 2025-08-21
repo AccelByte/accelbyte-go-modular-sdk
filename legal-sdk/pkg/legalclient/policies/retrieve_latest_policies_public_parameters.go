@@ -83,7 +83,8 @@ func NewRetrieveLatestPoliciesPublicParamsWithHTTPClient(client *http.Client) *R
 	}
 }
 
-/*RetrieveLatestPoliciesPublicParams contains all the parameters to send to the API endpoint
+/*
+RetrieveLatestPoliciesPublicParams contains all the parameters to send to the API endpoint
 for the retrieve latest policies public operation typically these are written to a http.Request
 */
 type RetrieveLatestPoliciesPublicParams struct {

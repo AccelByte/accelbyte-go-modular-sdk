@@ -57,7 +57,8 @@ func NewStartAppV2ParamsWithHTTPClient(client *http.Client) *StartAppV2Params {
 	}
 }
 
-/*StartAppV2Params contains all the parameters to send to the API endpoint
+/*
+StartAppV2Params contains all the parameters to send to the API endpoint
 for the start app v2 operation typically these are written to a http.Request
 */
 type StartAppV2Params struct {

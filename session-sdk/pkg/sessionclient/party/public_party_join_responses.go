@@ -145,9 +145,10 @@ func NewPublicPartyJoinOK() *PublicPartyJoinOK {
 	return &PublicPartyJoinOK{}
 }
 
-/*PublicPartyJoinOK handles this case with default header values.
+/*
+PublicPartyJoinOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicPartyJoinOK struct {
 	Payload *sessionclientmodels.ApimodelsPartySessionResponse
@@ -199,9 +200,10 @@ func NewPublicPartyJoinBadRequest() *PublicPartyJoinBadRequest {
 	return &PublicPartyJoinBadRequest{}
 }
 
-/*PublicPartyJoinBadRequest handles this case with default header values.
+/*
+PublicPartyJoinBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPartyJoinBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewPublicPartyJoinUnauthorized() *PublicPartyJoinUnauthorized {
 	return &PublicPartyJoinUnauthorized{}
 }
 
-/*PublicPartyJoinUnauthorized handles this case with default header values.
+/*
+PublicPartyJoinUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPartyJoinUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewPublicPartyJoinForbidden() *PublicPartyJoinForbidden {
 	return &PublicPartyJoinForbidden{}
 }
 
-/*PublicPartyJoinForbidden handles this case with default header values.
+/*
+PublicPartyJoinForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicPartyJoinForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewPublicPartyJoinNotFound() *PublicPartyJoinNotFound {
 	return &PublicPartyJoinNotFound{}
 }
 
-/*PublicPartyJoinNotFound handles this case with default header values.
+/*
+PublicPartyJoinNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPartyJoinNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicPartyJoinInternalServerError() *PublicPartyJoinInternalServerError
 	return &PublicPartyJoinInternalServerError{}
 }
 
-/*PublicPartyJoinInternalServerError handles this case with default header values.
+/*
+PublicPartyJoinInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPartyJoinInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -100,9 +100,10 @@ func NewUpdatePaymentTaxConfigOK() *UpdatePaymentTaxConfigOK {
 	return &UpdatePaymentTaxConfigOK{}
 }
 
-/*UpdatePaymentTaxConfigOK handles this case with default header values.
+/*
+UpdatePaymentTaxConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePaymentTaxConfigOK struct {
 	Payload *platformclientmodels.PaymentTaxConfigInfo
@@ -154,9 +155,10 @@ func NewUpdatePaymentTaxConfigBadRequest() *UpdatePaymentTaxConfigBadRequest {
 	return &UpdatePaymentTaxConfigBadRequest{}
 }
 
-/*UpdatePaymentTaxConfigBadRequest handles this case with default header values.
+/*
+UpdatePaymentTaxConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33221</td><td>TaxJar api token required</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33221</td><td>TaxJar api token required</td></tr></table>
 */
 type UpdatePaymentTaxConfigBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewUpdatePaymentTaxConfigUnprocessableEntity() *UpdatePaymentTaxConfigUnpro
 	return &UpdatePaymentTaxConfigUnprocessableEntity{}
 }
 
-/*UpdatePaymentTaxConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdatePaymentTaxConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdatePaymentTaxConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

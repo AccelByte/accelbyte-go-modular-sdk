@@ -57,7 +57,8 @@ func NewPublicGetOpenidUserInfoV3ParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*PublicGetOpenidUserInfoV3Params contains all the parameters to send to the API endpoint
+/*
+PublicGetOpenidUserInfoV3Params contains all the parameters to send to the API endpoint
 for the public get openid user info v3 operation typically these are written to a http.Request
 */
 type PublicGetOpenidUserInfoV3Params struct {

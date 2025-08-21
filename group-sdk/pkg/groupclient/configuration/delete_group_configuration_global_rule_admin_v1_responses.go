@@ -145,9 +145,10 @@ func NewDeleteGroupConfigurationGlobalRuleAdminV1OK() *DeleteGroupConfigurationG
 	return &DeleteGroupConfigurationGlobalRuleAdminV1OK{}
 }
 
-/*DeleteGroupConfigurationGlobalRuleAdminV1OK handles this case with default header values.
+/*
+DeleteGroupConfigurationGlobalRuleAdminV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type DeleteGroupConfigurationGlobalRuleAdminV1OK struct {
 	Payload *groupclientmodels.ModelsUpdateGroupConfigurationResponseV1
@@ -199,9 +200,10 @@ func NewDeleteGroupConfigurationGlobalRuleAdminV1BadRequest() *DeleteGroupConfig
 	return &DeleteGroupConfigurationGlobalRuleAdminV1BadRequest{}
 }
 
-/*DeleteGroupConfigurationGlobalRuleAdminV1BadRequest handles this case with default header values.
+/*
+DeleteGroupConfigurationGlobalRuleAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DeleteGroupConfigurationGlobalRuleAdminV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewDeleteGroupConfigurationGlobalRuleAdminV1Unauthorized() *DeleteGroupConf
 	return &DeleteGroupConfigurationGlobalRuleAdminV1Unauthorized{}
 }
 
-/*DeleteGroupConfigurationGlobalRuleAdminV1Unauthorized handles this case with default header values.
+/*
+DeleteGroupConfigurationGlobalRuleAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteGroupConfigurationGlobalRuleAdminV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewDeleteGroupConfigurationGlobalRuleAdminV1Forbidden() *DeleteGroupConfigu
 	return &DeleteGroupConfigurationGlobalRuleAdminV1Forbidden{}
 }
 
-/*DeleteGroupConfigurationGlobalRuleAdminV1Forbidden handles this case with default header values.
+/*
+DeleteGroupConfigurationGlobalRuleAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type DeleteGroupConfigurationGlobalRuleAdminV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewDeleteGroupConfigurationGlobalRuleAdminV1NotFound() *DeleteGroupConfigur
 	return &DeleteGroupConfigurationGlobalRuleAdminV1NotFound{}
 }
 
-/*DeleteGroupConfigurationGlobalRuleAdminV1NotFound handles this case with default header values.
+/*
+DeleteGroupConfigurationGlobalRuleAdminV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
 */
 type DeleteGroupConfigurationGlobalRuleAdminV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewDeleteGroupConfigurationGlobalRuleAdminV1InternalServerError() *DeleteGr
 	return &DeleteGroupConfigurationGlobalRuleAdminV1InternalServerError{}
 }
 
-/*DeleteGroupConfigurationGlobalRuleAdminV1InternalServerError handles this case with default header values.
+/*
+DeleteGroupConfigurationGlobalRuleAdminV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteGroupConfigurationGlobalRuleAdminV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

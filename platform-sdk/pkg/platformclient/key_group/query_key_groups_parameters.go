@@ -78,7 +78,8 @@ func NewQueryKeyGroupsParamsWithHTTPClient(client *http.Client) *QueryKeyGroupsP
 	}
 }
 
-/*QueryKeyGroupsParams contains all the parameters to send to the API endpoint
+/*
+QueryKeyGroupsParams contains all the parameters to send to the API endpoint
 for the query key groups operation typically these are written to a http.Request
 */
 type QueryKeyGroupsParams struct {

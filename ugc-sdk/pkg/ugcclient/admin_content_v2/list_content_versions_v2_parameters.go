@@ -57,7 +57,8 @@ func NewListContentVersionsV2ParamsWithHTTPClient(client *http.Client) *ListCont
 	}
 }
 
-/*ListContentVersionsV2Params contains all the parameters to send to the API endpoint
+/*
+ListContentVersionsV2Params contains all the parameters to send to the API endpoint
 for the list content versions v2 operation typically these are written to a http.Request
 */
 type ListContentVersionsV2Params struct {

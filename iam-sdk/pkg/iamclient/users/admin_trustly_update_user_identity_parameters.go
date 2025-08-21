@@ -59,7 +59,8 @@ func NewAdminTrustlyUpdateUserIdentityParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*AdminTrustlyUpdateUserIdentityParams contains all the parameters to send to the API endpoint
+/*
+AdminTrustlyUpdateUserIdentityParams contains all the parameters to send to the API endpoint
 for the admin trustly update user identity operation typically these are written to a http.Request
 */
 type AdminTrustlyUpdateUserIdentityParams struct {

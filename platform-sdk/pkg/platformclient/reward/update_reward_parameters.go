@@ -59,7 +59,8 @@ func NewUpdateRewardParamsWithHTTPClient(client *http.Client) *UpdateRewardParam
 	}
 }
 
-/*UpdateRewardParams contains all the parameters to send to the API endpoint
+/*
+UpdateRewardParams contains all the parameters to send to the API endpoint
 for the update reward operation typically these are written to a http.Request
 */
 type UpdateRewardParams struct {

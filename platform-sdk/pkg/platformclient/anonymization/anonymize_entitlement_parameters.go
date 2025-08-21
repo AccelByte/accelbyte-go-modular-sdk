@@ -57,7 +57,8 @@ func NewAnonymizeEntitlementParamsWithHTTPClient(client *http.Client) *Anonymize
 	}
 }
 
-/*AnonymizeEntitlementParams contains all the parameters to send to the API endpoint
+/*
+AnonymizeEntitlementParams contains all the parameters to send to the API endpoint
 for the anonymize entitlement operation typically these are written to a http.Request
 */
 type AnonymizeEntitlementParams struct {

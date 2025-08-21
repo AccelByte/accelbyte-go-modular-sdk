@@ -125,9 +125,10 @@ func NewGetUserMappingOK() *GetUserMappingOK {
 	return &GetUserMappingOK{}
 }
 
-/*GetUserMappingOK handles this case with default header values.
+/*
+GetUserMappingOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserMappingOK struct {
 	Payload *iamclientmodels.ModelGetUserMapping
@@ -179,9 +180,10 @@ func NewGetUserMappingBadRequest() *GetUserMappingBadRequest {
 	return &GetUserMappingBadRequest{}
 }
 
-/*GetUserMappingBadRequest handles this case with default header values.
+/*
+GetUserMappingBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type GetUserMappingBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -233,9 +235,10 @@ func NewGetUserMappingUnauthorized() *GetUserMappingUnauthorized {
 	return &GetUserMappingUnauthorized{}
 }
 
-/*GetUserMappingUnauthorized handles this case with default header values.
+/*
+GetUserMappingUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserMappingUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -287,9 +290,10 @@ func NewGetUserMappingForbidden() *GetUserMappingForbidden {
 	return &GetUserMappingForbidden{}
 }
 
-/*GetUserMappingForbidden handles this case with default header values.
+/*
+GetUserMappingForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserMappingForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -341,9 +345,10 @@ func NewGetUserMappingNotFound() *GetUserMappingNotFound {
 	return &GetUserMappingNotFound{}
 }
 
-/*GetUserMappingNotFound handles this case with default header values.
+/*
+GetUserMappingNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type GetUserMappingNotFound struct {
 }

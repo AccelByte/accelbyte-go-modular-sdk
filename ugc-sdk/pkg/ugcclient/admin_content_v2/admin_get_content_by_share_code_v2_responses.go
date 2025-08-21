@@ -115,9 +115,10 @@ func NewAdminGetContentByShareCodeV2OK() *AdminGetContentByShareCodeV2OK {
 	return &AdminGetContentByShareCodeV2OK{}
 }
 
-/*AdminGetContentByShareCodeV2OK handles this case with default header values.
+/*
+AdminGetContentByShareCodeV2OK handles this case with default header values.
 
-  Get content by sharecode
+	Get content by sharecode
 */
 type AdminGetContentByShareCodeV2OK struct {
 	Payload *ugcclientmodels.ModelsContentDownloadResponseV2
@@ -169,9 +170,10 @@ func NewAdminGetContentByShareCodeV2Unauthorized() *AdminGetContentByShareCodeV2
 	return &AdminGetContentByShareCodeV2Unauthorized{}
 }
 
-/*AdminGetContentByShareCodeV2Unauthorized handles this case with default header values.
+/*
+AdminGetContentByShareCodeV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetContentByShareCodeV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetContentByShareCodeV2NotFound() *AdminGetContentByShareCodeV2NotF
 	return &AdminGetContentByShareCodeV2NotFound{}
 }
 
-/*AdminGetContentByShareCodeV2NotFound handles this case with default header values.
+/*
+AdminGetContentByShareCodeV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770300</td><td>ugc content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770300</td><td>ugc content not found</td></tr></table>
 */
 type AdminGetContentByShareCodeV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetContentByShareCodeV2InternalServerError() *AdminGetContentByShar
 	return &AdminGetContentByShareCodeV2InternalServerError{}
 }
 
-/*AdminGetContentByShareCodeV2InternalServerError handles this case with default header values.
+/*
+AdminGetContentByShareCodeV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770301</td><td>Unable to get ugc content/Unable to get creator</td></tr><tr><td>773201</td><td>Unable to get ugc content/Unable to get creator/Unable to get included group</td></tr><tr><td>770303</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770301</td><td>Unable to get ugc content/Unable to get creator</td></tr><tr><td>773201</td><td>Unable to get ugc content/Unable to get creator/Unable to get included group</td></tr><tr><td>770303</td><td>Failed generate download URL</td></tr></table>
 */
 type AdminGetContentByShareCodeV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

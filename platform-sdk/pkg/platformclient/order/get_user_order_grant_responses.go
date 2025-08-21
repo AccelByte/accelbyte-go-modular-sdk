@@ -69,9 +69,10 @@ func NewGetUserOrderGrantOK() *GetUserOrderGrantOK {
 	return &GetUserOrderGrantOK{}
 }
 
-/*GetUserOrderGrantOK handles this case with default header values.
+/*
+GetUserOrderGrantOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserOrderGrantOK struct {
 	Payload *platformclientmodels.OrderGrantInfo

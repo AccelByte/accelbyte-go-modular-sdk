@@ -114,9 +114,10 @@ func NewSaveAdminEmailConfigurationNoContent() *SaveAdminEmailConfigurationNoCon
 	return &SaveAdminEmailConfigurationNoContent{}
 }
 
-/*SaveAdminEmailConfigurationNoContent handles this case with default header values.
+/*
+SaveAdminEmailConfigurationNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type SaveAdminEmailConfigurationNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewSaveAdminEmailConfigurationBadRequest() *SaveAdminEmailConfigurationBadR
 	return &SaveAdminEmailConfigurationBadRequest{}
 }
 
-/*SaveAdminEmailConfigurationBadRequest handles this case with default header values.
+/*
+SaveAdminEmailConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type SaveAdminEmailConfigurationBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewSaveAdminEmailConfigurationUnauthorized() *SaveAdminEmailConfigurationUn
 	return &SaveAdminEmailConfigurationUnauthorized{}
 }
 
-/*SaveAdminEmailConfigurationUnauthorized handles this case with default header values.
+/*
+SaveAdminEmailConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SaveAdminEmailConfigurationUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewSaveAdminEmailConfigurationInternalServerError() *SaveAdminEmailConfigur
 	return &SaveAdminEmailConfigurationInternalServerError{}
 }
 
-/*SaveAdminEmailConfigurationInternalServerError handles this case with default header values.
+/*
+SaveAdminEmailConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type SaveAdminEmailConfigurationInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

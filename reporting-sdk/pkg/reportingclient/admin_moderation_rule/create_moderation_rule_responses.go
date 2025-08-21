@@ -114,9 +114,10 @@ func NewCreateModerationRuleCreated() *CreateModerationRuleCreated {
 	return &CreateModerationRuleCreated{}
 }
 
-/*CreateModerationRuleCreated handles this case with default header values.
+/*
+CreateModerationRuleCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateModerationRuleCreated struct {
 }
@@ -141,9 +142,10 @@ func NewCreateModerationRuleBadRequest() *CreateModerationRuleBadRequest {
 	return &CreateModerationRuleBadRequest{}
 }
 
-/*CreateModerationRuleBadRequest handles this case with default header values.
+/*
+CreateModerationRuleBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateModerationRuleBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
@@ -195,9 +197,10 @@ func NewCreateModerationRuleConflict() *CreateModerationRuleConflict {
 	return &CreateModerationRuleConflict{}
 }
 
-/*CreateModerationRuleConflict handles this case with default header values.
+/*
+CreateModerationRuleConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateModerationRuleConflict struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
@@ -249,9 +252,10 @@ func NewCreateModerationRuleInternalServerError() *CreateModerationRuleInternalS
 	return &CreateModerationRuleInternalServerError{}
 }
 
-/*CreateModerationRuleInternalServerError handles this case with default header values.
+/*
+CreateModerationRuleInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateModerationRuleInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse

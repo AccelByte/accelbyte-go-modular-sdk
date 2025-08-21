@@ -130,9 +130,10 @@ func NewSingleAdminUpdateGroupOK() *SingleAdminUpdateGroupOK {
 	return &SingleAdminUpdateGroupOK{}
 }
 
-/*SingleAdminUpdateGroupOK handles this case with default header values.
+/*
+SingleAdminUpdateGroupOK handles this case with default header values.
 
-  Group updated
+	Group updated
 */
 type SingleAdminUpdateGroupOK struct {
 	Payload *ugcclientmodels.ModelsCreateGroupResponse
@@ -184,9 +185,10 @@ func NewSingleAdminUpdateGroupBadRequest() *SingleAdminUpdateGroupBadRequest {
 	return &SingleAdminUpdateGroupBadRequest{}
 }
 
-/*SingleAdminUpdateGroupBadRequest handles this case with default header values.
+/*
+SingleAdminUpdateGroupBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772201</td><td>Malformed request/Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772201</td><td>Malformed request/Invalid request body</td></tr></table>
 */
 type SingleAdminUpdateGroupBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewSingleAdminUpdateGroupUnauthorized() *SingleAdminUpdateGroupUnauthorized
 	return &SingleAdminUpdateGroupUnauthorized{}
 }
 
-/*SingleAdminUpdateGroupUnauthorized handles this case with default header values.
+/*
+SingleAdminUpdateGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SingleAdminUpdateGroupUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewSingleAdminUpdateGroupNotFound() *SingleAdminUpdateGroupNotFound {
 	return &SingleAdminUpdateGroupNotFound{}
 }
 
-/*SingleAdminUpdateGroupNotFound handles this case with default header values.
+/*
+SingleAdminUpdateGroupNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772203</td><td>Group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772203</td><td>Group not found</td></tr></table>
 */
 type SingleAdminUpdateGroupNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewSingleAdminUpdateGroupInternalServerError() *SingleAdminUpdateGroupInter
 	return &SingleAdminUpdateGroupInternalServerError{}
 }
 
-/*SingleAdminUpdateGroupInternalServerError handles this case with default header values.
+/*
+SingleAdminUpdateGroupInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772202</td><td>Unable to update group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772202</td><td>Unable to update group</td></tr></table>
 */
 type SingleAdminUpdateGroupInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

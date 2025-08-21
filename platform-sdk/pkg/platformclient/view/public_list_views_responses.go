@@ -69,9 +69,10 @@ func NewPublicListViewsOK() *PublicListViewsOK {
 	return &PublicListViewsOK{}
 }
 
-/*PublicListViewsOK handles this case with default header values.
+/*
+PublicListViewsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicListViewsOK struct {
 	Payload []*platformclientmodels.ViewInfo

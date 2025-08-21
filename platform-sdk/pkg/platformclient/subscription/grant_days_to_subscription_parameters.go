@@ -59,7 +59,8 @@ func NewGrantDaysToSubscriptionParamsWithHTTPClient(client *http.Client) *GrantD
 	}
 }
 
-/*GrantDaysToSubscriptionParams contains all the parameters to send to the API endpoint
+/*
+GrantDaysToSubscriptionParams contains all the parameters to send to the API endpoint
 for the grant days to subscription operation typically these are written to a http.Request
 */
 type GrantDaysToSubscriptionParams struct {

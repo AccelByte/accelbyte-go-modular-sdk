@@ -144,9 +144,10 @@ func NewPublicSetPartyLimitV1OK() *PublicSetPartyLimitV1OK {
 	return &PublicSetPartyLimitV1OK{}
 }
 
-/*PublicSetPartyLimitV1OK handles this case with default header values.
+/*
+PublicSetPartyLimitV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicSetPartyLimitV1OK struct {
 }
@@ -171,9 +172,10 @@ func NewPublicSetPartyLimitV1BadRequest() *PublicSetPartyLimitV1BadRequest {
 	return &PublicSetPartyLimitV1BadRequest{}
 }
 
-/*PublicSetPartyLimitV1BadRequest handles this case with default header values.
+/*
+PublicSetPartyLimitV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicSetPartyLimitV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -225,9 +227,10 @@ func NewPublicSetPartyLimitV1Unauthorized() *PublicSetPartyLimitV1Unauthorized {
 	return &PublicSetPartyLimitV1Unauthorized{}
 }
 
-/*PublicSetPartyLimitV1Unauthorized handles this case with default header values.
+/*
+PublicSetPartyLimitV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicSetPartyLimitV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -279,9 +282,10 @@ func NewPublicSetPartyLimitV1Forbidden() *PublicSetPartyLimitV1Forbidden {
 	return &PublicSetPartyLimitV1Forbidden{}
 }
 
-/*PublicSetPartyLimitV1Forbidden handles this case with default header values.
+/*
+PublicSetPartyLimitV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicSetPartyLimitV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -333,9 +337,10 @@ func NewPublicSetPartyLimitV1NotFound() *PublicSetPartyLimitV1NotFound {
 	return &PublicSetPartyLimitV1NotFound{}
 }
 
-/*PublicSetPartyLimitV1NotFound handles this case with default header values.
+/*
+PublicSetPartyLimitV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicSetPartyLimitV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -387,9 +392,10 @@ func NewPublicSetPartyLimitV1InternalServerError() *PublicSetPartyLimitV1Interna
 	return &PublicSetPartyLimitV1InternalServerError{}
 }
 
-/*PublicSetPartyLimitV1InternalServerError handles this case with default header values.
+/*
+PublicSetPartyLimitV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicSetPartyLimitV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

@@ -57,7 +57,8 @@ func NewGetUserVerificationCodeParamsWithHTTPClient(client *http.Client) *GetUse
 	}
 }
 
-/*GetUserVerificationCodeParams contains all the parameters to send to the API endpoint
+/*
+GetUserVerificationCodeParams contains all the parameters to send to the API endpoint
 for the get user verification code operation typically these are written to a http.Request
 */
 type GetUserVerificationCodeParams struct {

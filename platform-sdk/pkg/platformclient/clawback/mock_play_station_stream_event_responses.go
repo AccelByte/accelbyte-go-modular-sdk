@@ -69,9 +69,10 @@ func NewMockPlayStationStreamEventOK() *MockPlayStationStreamEventOK {
 	return &MockPlayStationStreamEventOK{}
 }
 
-/*MockPlayStationStreamEventOK handles this case with default header values.
+/*
+MockPlayStationStreamEventOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type MockPlayStationStreamEventOK struct {
 	Payload *platformclientmodels.ClawbackInfo

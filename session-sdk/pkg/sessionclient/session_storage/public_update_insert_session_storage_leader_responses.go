@@ -145,9 +145,10 @@ func NewPublicUpdateInsertSessionStorageLeaderOK() *PublicUpdateInsertSessionSto
 	return &PublicUpdateInsertSessionStorageLeaderOK{}
 }
 
-/*PublicUpdateInsertSessionStorageLeaderOK handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageLeaderOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicUpdateInsertSessionStorageLeaderOK struct {
 	Payload map[string]interface{}
@@ -197,9 +198,10 @@ func NewPublicUpdateInsertSessionStorageLeaderBadRequest() *PublicUpdateInsertSe
 	return &PublicUpdateInsertSessionStorageLeaderBadRequest{}
 }
 
-/*PublicUpdateInsertSessionStorageLeaderBadRequest handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageLeaderBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicUpdateInsertSessionStorageLeaderBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -251,9 +253,10 @@ func NewPublicUpdateInsertSessionStorageLeaderUnauthorized() *PublicUpdateInsert
 	return &PublicUpdateInsertSessionStorageLeaderUnauthorized{}
 }
 
-/*PublicUpdateInsertSessionStorageLeaderUnauthorized handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageLeaderUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicUpdateInsertSessionStorageLeaderUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -305,9 +308,10 @@ func NewPublicUpdateInsertSessionStorageLeaderForbidden() *PublicUpdateInsertSes
 	return &PublicUpdateInsertSessionStorageLeaderForbidden{}
 }
 
-/*PublicUpdateInsertSessionStorageLeaderForbidden handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageLeaderForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicUpdateInsertSessionStorageLeaderForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -359,9 +363,10 @@ func NewPublicUpdateInsertSessionStorageLeaderNotFound() *PublicUpdateInsertSess
 	return &PublicUpdateInsertSessionStorageLeaderNotFound{}
 }
 
-/*PublicUpdateInsertSessionStorageLeaderNotFound handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageLeaderNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicUpdateInsertSessionStorageLeaderNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -413,9 +418,10 @@ func NewPublicUpdateInsertSessionStorageLeaderInternalServerError() *PublicUpdat
 	return &PublicUpdateInsertSessionStorageLeaderInternalServerError{}
 }
 
-/*PublicUpdateInsertSessionStorageLeaderInternalServerError handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageLeaderInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicUpdateInsertSessionStorageLeaderInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

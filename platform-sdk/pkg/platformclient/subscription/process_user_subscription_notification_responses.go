@@ -77,9 +77,10 @@ func NewProcessUserSubscriptionNotificationNoContent() *ProcessUserSubscriptionN
 	return &ProcessUserSubscriptionNotificationNoContent{}
 }
 
-/*ProcessUserSubscriptionNotificationNoContent handles this case with default header values.
+/*
+ProcessUserSubscriptionNotificationNoContent handles this case with default header values.
 
-  process successfully
+	process successfully
 */
 type ProcessUserSubscriptionNotificationNoContent struct {
 }
@@ -104,9 +105,10 @@ func NewProcessUserSubscriptionNotificationBadRequest() *ProcessUserSubscription
 	return &ProcessUserSubscriptionNotificationBadRequest{}
 }
 
-/*ProcessUserSubscriptionNotificationBadRequest handles this case with default header values.
+/*
+ProcessUserSubscriptionNotificationBadRequest handles this case with default header values.
 
-  process failed
+	process failed
 */
 type ProcessUserSubscriptionNotificationBadRequest struct {
 }

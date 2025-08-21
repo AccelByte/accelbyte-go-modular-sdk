@@ -130,9 +130,10 @@ func NewAdminAccountGetOK() *AdminAccountGetOK {
 	return &AdminAccountGetOK{}
 }
 
-/*AdminAccountGetOK handles this case with default header values.
+/*
+AdminAccountGetOK handles this case with default header values.
 
-  success
+	success
 */
 type AdminAccountGetOK struct {
 	Payload *amsclientmodels.APIAccountResponse
@@ -184,9 +185,10 @@ func NewAdminAccountGetUnauthorized() *AdminAccountGetUnauthorized {
 	return &AdminAccountGetUnauthorized{}
 }
 
-/*AdminAccountGetUnauthorized handles this case with default header values.
+/*
+AdminAccountGetUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type AdminAccountGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewAdminAccountGetForbidden() *AdminAccountGetForbidden {
 	return &AdminAccountGetForbidden{}
 }
 
-/*AdminAccountGetForbidden handles this case with default header values.
+/*
+AdminAccountGetForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type AdminAccountGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewAdminAccountGetNotFound() *AdminAccountGetNotFound {
 	return &AdminAccountGetNotFound{}
 }
 
-/*AdminAccountGetNotFound handles this case with default header values.
+/*
+AdminAccountGetNotFound handles this case with default header values.
 
-  account not linked
+	account not linked
 */
 type AdminAccountGetNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewAdminAccountGetInternalServerError() *AdminAccountGetInternalServerError
 	return &AdminAccountGetInternalServerError{}
 }
 
-/*AdminAccountGetInternalServerError handles this case with default header values.
+/*
+AdminAccountGetInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type AdminAccountGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

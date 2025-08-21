@@ -100,9 +100,10 @@ func NewAdminSaveItemOK() *AdminSaveItemOK {
 	return &AdminSaveItemOK{}
 }
 
-/*AdminSaveItemOK handles this case with default header values.
+/*
+AdminSaveItemOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminSaveItemOK struct {
 	Payload *inventoryclientmodels.ApimodelsItemResp
@@ -154,9 +155,10 @@ func NewAdminSaveItemBadRequest() *AdminSaveItemBadRequest {
 	return &AdminSaveItemBadRequest{}
 }
 
-/*AdminSaveItemBadRequest handles this case with default header values.
+/*
+AdminSaveItemBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminSaveItemBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -208,9 +210,10 @@ func NewAdminSaveItemInternalServerError() *AdminSaveItemInternalServerError {
 	return &AdminSaveItemInternalServerError{}
 }
 
-/*AdminSaveItemInternalServerError handles this case with default header values.
+/*
+AdminSaveItemInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSaveItemInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

@@ -59,7 +59,8 @@ func NewGetGameRecordsBulkParamsWithHTTPClient(client *http.Client) *GetGameReco
 	}
 }
 
-/*GetGameRecordsBulkParams contains all the parameters to send to the API endpoint
+/*
+GetGameRecordsBulkParams contains all the parameters to send to the API endpoint
 for the get game records bulk operation typically these are written to a http.Request
 */
 type GetGameRecordsBulkParams struct {

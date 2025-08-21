@@ -85,9 +85,10 @@ func NewGetRevocationListV3OK() *GetRevocationListV3OK {
 	return &GetRevocationListV3OK{}
 }
 
-/*GetRevocationListV3OK handles this case with default header values.
+/*
+GetRevocationListV3OK handles this case with default header values.
 
-  Revocation list returned
+	Revocation list returned
 */
 type GetRevocationListV3OK struct {
 	Payload *iamclientmodels.OauthapiRevocationList
@@ -139,9 +140,10 @@ func NewGetRevocationListV3Unauthorized() *GetRevocationListV3Unauthorized {
 	return &GetRevocationListV3Unauthorized{}
 }
 
-/*GetRevocationListV3Unauthorized handles this case with default header values.
+/*
+GetRevocationListV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetRevocationListV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse

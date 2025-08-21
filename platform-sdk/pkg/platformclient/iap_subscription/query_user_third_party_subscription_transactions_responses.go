@@ -69,9 +69,10 @@ func NewQueryUserThirdPartySubscriptionTransactionsOK() *QueryUserThirdPartySubs
 	return &QueryUserThirdPartySubscriptionTransactionsOK{}
 }
 
-/*QueryUserThirdPartySubscriptionTransactionsOK handles this case with default header values.
+/*
+QueryUserThirdPartySubscriptionTransactionsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryUserThirdPartySubscriptionTransactionsOK struct {
 	Payload *platformclientmodels.ThirdPartySubscriptionTransactionPagingSlicedResult

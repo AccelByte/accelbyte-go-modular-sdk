@@ -59,7 +59,8 @@ func NewChargePaymentOrderParamsWithHTTPClient(client *http.Client) *ChargePayme
 	}
 }
 
-/*ChargePaymentOrderParams contains all the parameters to send to the API endpoint
+/*
+ChargePaymentOrderParams contains all the parameters to send to the API endpoint
 for the charge payment order operation typically these are written to a http.Request
 */
 type ChargePaymentOrderParams struct {

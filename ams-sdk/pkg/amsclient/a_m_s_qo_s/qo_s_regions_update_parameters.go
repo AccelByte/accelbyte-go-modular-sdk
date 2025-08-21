@@ -59,7 +59,8 @@ func NewQoSRegionsUpdateParamsWithHTTPClient(client *http.Client) *QoSRegionsUpd
 	}
 }
 
-/*QoSRegionsUpdateParams contains all the parameters to send to the API endpoint
+/*
+QoSRegionsUpdateParams contains all the parameters to send to the API endpoint
 for the qo s regions update operation typically these are written to a http.Request
 */
 type QoSRegionsUpdateParams struct {

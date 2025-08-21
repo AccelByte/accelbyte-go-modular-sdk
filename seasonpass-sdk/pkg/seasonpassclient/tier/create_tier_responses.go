@@ -130,9 +130,10 @@ func NewCreateTierCreated() *CreateTierCreated {
 	return &CreateTierCreated{}
 }
 
-/*CreateTierCreated handles this case with default header values.
+/*
+CreateTierCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateTierCreated struct {
 	Payload []*seasonpassclientmodels.Tier
@@ -182,9 +183,10 @@ func NewCreateTierBadRequest() *CreateTierBadRequest {
 	return &CreateTierBadRequest{}
 }
 
-/*CreateTierBadRequest handles this case with default header values.
+/*
+CreateTierBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type CreateTierBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -236,9 +238,10 @@ func NewCreateTierNotFound() *CreateTierNotFound {
 	return &CreateTierNotFound{}
 }
 
-/*CreateTierNotFound handles this case with default header values.
+/*
+CreateTierNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr><tr><td>49145</td><td>Pass [{code}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr><tr><td>49145</td><td>Pass [{code}] does not exist</td></tr></table>
 */
 type CreateTierNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -290,9 +293,10 @@ func NewCreateTierConflict() *CreateTierConflict {
 	return &CreateTierConflict{}
 }
 
-/*CreateTierConflict handles this case with default header values.
+/*
+CreateTierConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
 */
 type CreateTierConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -344,9 +348,10 @@ func NewCreateTierUnprocessableEntity() *CreateTierUnprocessableEntity {
 	return &CreateTierUnprocessableEntity{}
 }
 
-/*CreateTierUnprocessableEntity handles this case with default header values.
+/*
+CreateTierUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateTierUnprocessableEntity struct {
 	Payload *seasonpassclientmodels.ValidationErrorEntity

@@ -134,7 +134,8 @@ func NewAuthorizeV3ParamsWithHTTPClient(client *http.Client) *AuthorizeV3Params 
 	}
 }
 
-/*AuthorizeV3Params contains all the parameters to send to the API endpoint
+/*
+AuthorizeV3Params contains all the parameters to send to the API endpoint
 for the authorize v3 operation typically these are written to a http.Request
 */
 type AuthorizeV3Params struct {

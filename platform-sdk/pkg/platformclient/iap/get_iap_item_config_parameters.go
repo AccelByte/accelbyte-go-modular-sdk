@@ -57,7 +57,8 @@ func NewGetIAPItemConfigParamsWithHTTPClient(client *http.Client) *GetIAPItemCon
 	}
 }
 
-/*GetIAPItemConfigParams contains all the parameters to send to the API endpoint
+/*
+GetIAPItemConfigParams contains all the parameters to send to the API endpoint
 for the get iap item config operation typically these are written to a http.Request
 */
 type GetIAPItemConfigParams struct {

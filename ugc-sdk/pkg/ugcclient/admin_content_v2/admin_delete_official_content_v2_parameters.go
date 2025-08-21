@@ -57,7 +57,8 @@ func NewAdminDeleteOfficialContentV2ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminDeleteOfficialContentV2Params contains all the parameters to send to the API endpoint
+/*
+AdminDeleteOfficialContentV2Params contains all the parameters to send to the API endpoint
 for the admin delete official content v2 operation typically these are written to a http.Request
 */
 type AdminDeleteOfficialContentV2Params struct {

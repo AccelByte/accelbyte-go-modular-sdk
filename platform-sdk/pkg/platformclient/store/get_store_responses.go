@@ -85,9 +85,10 @@ func NewGetStoreOK() *GetStoreOK {
 	return &GetStoreOK{}
 }
 
-/*GetStoreOK handles this case with default header values.
+/*
+GetStoreOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetStoreOK struct {
 	Payload *platformclientmodels.StoreInfo
@@ -139,9 +140,10 @@ func NewGetStoreNotFound() *GetStoreNotFound {
 	return &GetStoreNotFound{}
 }
 
-/*GetStoreNotFound handles this case with default header values.
+/*
+GetStoreNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetStoreNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

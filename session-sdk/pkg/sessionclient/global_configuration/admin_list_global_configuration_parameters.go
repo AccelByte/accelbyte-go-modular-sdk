@@ -57,7 +57,8 @@ func NewAdminListGlobalConfigurationParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminListGlobalConfigurationParams contains all the parameters to send to the API endpoint
+/*
+AdminListGlobalConfigurationParams contains all the parameters to send to the API endpoint
 for the admin list global configuration operation typically these are written to a http.Request
 */
 type AdminListGlobalConfigurationParams struct {

@@ -66,9 +66,10 @@ func NewDeleteOculusIAPConfigNoContent() *DeleteOculusIAPConfigNoContent {
 	return &DeleteOculusIAPConfigNoContent{}
 }
 
-/*DeleteOculusIAPConfigNoContent handles this case with default header values.
+/*
+DeleteOculusIAPConfigNoContent handles this case with default header values.
 
-  Delete successfully
+	Delete successfully
 */
 type DeleteOculusIAPConfigNoContent struct {
 }

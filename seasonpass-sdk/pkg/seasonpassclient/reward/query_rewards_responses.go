@@ -100,9 +100,10 @@ func NewQueryRewardsOK() *QueryRewardsOK {
 	return &QueryRewardsOK{}
 }
 
-/*QueryRewardsOK handles this case with default header values.
+/*
+QueryRewardsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryRewardsOK struct {
 	Payload []*seasonpassclientmodels.RewardInfo
@@ -152,9 +153,10 @@ func NewQueryRewardsBadRequest() *QueryRewardsBadRequest {
 	return &QueryRewardsBadRequest{}
 }
 
-/*QueryRewardsBadRequest handles this case with default header values.
+/*
+QueryRewardsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type QueryRewardsBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewQueryRewardsNotFound() *QueryRewardsNotFound {
 	return &QueryRewardsNotFound{}
 }
 
-/*QueryRewardsNotFound handles this case with default header values.
+/*
+QueryRewardsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type QueryRewardsNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

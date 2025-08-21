@@ -100,9 +100,10 @@ func NewQueryTiersOK() *QueryTiersOK {
 	return &QueryTiersOK{}
 }
 
-/*QueryTiersOK handles this case with default header values.
+/*
+QueryTiersOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryTiersOK struct {
 	Payload *seasonpassclientmodels.TierPagingSlicedResult
@@ -154,9 +155,10 @@ func NewQueryTiersBadRequest() *QueryTiersBadRequest {
 	return &QueryTiersBadRequest{}
 }
 
-/*QueryTiersBadRequest handles this case with default header values.
+/*
+QueryTiersBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type QueryTiersBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewQueryTiersNotFound() *QueryTiersNotFound {
 	return &QueryTiersNotFound{}
 }
 
-/*QueryTiersNotFound handles this case with default header values.
+/*
+QueryTiersNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type QueryTiersNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

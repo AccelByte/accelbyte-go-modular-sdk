@@ -145,9 +145,10 @@ func NewPublicPromoteGameSessionLeaderOK() *PublicPromoteGameSessionLeaderOK {
 	return &PublicPromoteGameSessionLeaderOK{}
 }
 
-/*PublicPromoteGameSessionLeaderOK handles this case with default header values.
+/*
+PublicPromoteGameSessionLeaderOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicPromoteGameSessionLeaderOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -199,9 +200,10 @@ func NewPublicPromoteGameSessionLeaderBadRequest() *PublicPromoteGameSessionLead
 	return &PublicPromoteGameSessionLeaderBadRequest{}
 }
 
-/*PublicPromoteGameSessionLeaderBadRequest handles this case with default header values.
+/*
+PublicPromoteGameSessionLeaderBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPromoteGameSessionLeaderBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewPublicPromoteGameSessionLeaderUnauthorized() *PublicPromoteGameSessionLe
 	return &PublicPromoteGameSessionLeaderUnauthorized{}
 }
 
-/*PublicPromoteGameSessionLeaderUnauthorized handles this case with default header values.
+/*
+PublicPromoteGameSessionLeaderUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPromoteGameSessionLeaderUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewPublicPromoteGameSessionLeaderForbidden() *PublicPromoteGameSessionLeade
 	return &PublicPromoteGameSessionLeaderForbidden{}
 }
 
-/*PublicPromoteGameSessionLeaderForbidden handles this case with default header values.
+/*
+PublicPromoteGameSessionLeaderForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicPromoteGameSessionLeaderForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewPublicPromoteGameSessionLeaderNotFound() *PublicPromoteGameSessionLeader
 	return &PublicPromoteGameSessionLeaderNotFound{}
 }
 
-/*PublicPromoteGameSessionLeaderNotFound handles this case with default header values.
+/*
+PublicPromoteGameSessionLeaderNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPromoteGameSessionLeaderNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicPromoteGameSessionLeaderInternalServerError() *PublicPromoteGameSe
 	return &PublicPromoteGameSessionLeaderInternalServerError{}
 }
 
-/*PublicPromoteGameSessionLeaderInternalServerError handles this case with default header values.
+/*
+PublicPromoteGameSessionLeaderInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPromoteGameSessionLeaderInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -145,10 +145,9 @@ func NewCreateDeploymentV1Created() *CreateDeploymentV1Created {
 	return &CreateDeploymentV1Created{}
 }
 
-/*CreateDeploymentV1Created handles this case with default header values.
-
-
- */
+/*
+CreateDeploymentV1Created handles this case with default header values.
+*/
 type CreateDeploymentV1Created struct {
 	Payload *csmclientmodels.GeneratedCreateDeploymentV1Response
 }
@@ -199,9 +198,10 @@ func NewCreateDeploymentV1BadRequest() *CreateDeploymentV1BadRequest {
 	return &CreateDeploymentV1BadRequest{}
 }
 
-/*CreateDeploymentV1BadRequest handles this case with default header values.
+/*
+CreateDeploymentV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateDeploymentV1BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -253,9 +253,10 @@ func NewCreateDeploymentV1Unauthorized() *CreateDeploymentV1Unauthorized {
 	return &CreateDeploymentV1Unauthorized{}
 }
 
-/*CreateDeploymentV1Unauthorized handles this case with default header values.
+/*
+CreateDeploymentV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateDeploymentV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -307,9 +308,10 @@ func NewCreateDeploymentV1Forbidden() *CreateDeploymentV1Forbidden {
 	return &CreateDeploymentV1Forbidden{}
 }
 
-/*CreateDeploymentV1Forbidden handles this case with default header values.
+/*
+CreateDeploymentV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateDeploymentV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -361,9 +363,10 @@ func NewCreateDeploymentV1NotFound() *CreateDeploymentV1NotFound {
 	return &CreateDeploymentV1NotFound{}
 }
 
-/*CreateDeploymentV1NotFound handles this case with default header values.
+/*
+CreateDeploymentV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type CreateDeploymentV1NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -415,9 +418,10 @@ func NewCreateDeploymentV1InternalServerError() *CreateDeploymentV1InternalServe
 	return &CreateDeploymentV1InternalServerError{}
 }
 
-/*CreateDeploymentV1InternalServerError handles this case with default header values.
+/*
+CreateDeploymentV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateDeploymentV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

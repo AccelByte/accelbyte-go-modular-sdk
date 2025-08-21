@@ -69,9 +69,10 @@ func NewGetBulkItemIDBySkusOK() *GetBulkItemIDBySkusOK {
 	return &GetBulkItemIDBySkusOK{}
 }
 
-/*GetBulkItemIDBySkusOK handles this case with default header values.
+/*
+GetBulkItemIDBySkusOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetBulkItemIDBySkusOK struct {
 	Payload []*platformclientmodels.ItemID

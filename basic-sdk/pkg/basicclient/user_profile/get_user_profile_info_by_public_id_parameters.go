@@ -57,7 +57,8 @@ func NewGetUserProfileInfoByPublicIDParamsWithHTTPClient(client *http.Client) *G
 	}
 }
 
-/*GetUserProfileInfoByPublicIDParams contains all the parameters to send to the API endpoint
+/*
+GetUserProfileInfoByPublicIDParams contains all the parameters to send to the API endpoint
 for the get user profile info by public id operation typically these are written to a http.Request
 */
 type GetUserProfileInfoByPublicIDParams struct {

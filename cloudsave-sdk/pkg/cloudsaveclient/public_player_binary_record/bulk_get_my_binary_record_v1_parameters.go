@@ -59,7 +59,8 @@ func NewBulkGetMyBinaryRecordV1ParamsWithHTTPClient(client *http.Client) *BulkGe
 	}
 }
 
-/*BulkGetMyBinaryRecordV1Params contains all the parameters to send to the API endpoint
+/*
+BulkGetMyBinaryRecordV1Params contains all the parameters to send to the API endpoint
 for the bulk get my binary record v1 operation typically these are written to a http.Request
 */
 type BulkGetMyBinaryRecordV1Params struct {

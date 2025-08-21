@@ -59,7 +59,8 @@ func NewUpdateSteamIAPConfigParamsWithHTTPClient(client *http.Client) *UpdateSte
 	}
 }
 
-/*UpdateSteamIAPConfigParams contains all the parameters to send to the API endpoint
+/*
+UpdateSteamIAPConfigParams contains all the parameters to send to the API endpoint
 for the update steam iap config operation typically these are written to a http.Request
 */
 type UpdateSteamIAPConfigParams struct {

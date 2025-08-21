@@ -68,9 +68,10 @@ func NewVerify2FACodeForwardFound() *Verify2FACodeForwardFound {
 	return &Verify2FACodeForwardFound{}
 }
 
-/*Verify2FACodeForwardFound handles this case with default header values.
+/*
+Verify2FACodeForwardFound handles this case with default header values.
 
-  Found. Redirect to clients redirection URL with code or redirect to login web with error on the query parameter
+	Found. Redirect to clients redirection URL with code or redirect to login web with error on the query parameter
 */
 type Verify2FACodeForwardFound struct {
 	Location string

@@ -38,11 +38,7 @@ type ClientService interface {
 /*
 AdminAnonymizeUserAchievementShort anonymize user's achievement
 
-
-This API will delete specified user achievement
-
-
-
+# This API will delete specified user achievement
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ANONYMIZATION [DELETE]`

@@ -145,9 +145,10 @@ func NewGetCurrentCycleLeaderboardRankingAdminV3OK() *GetCurrentCycleLeaderboard
 	return &GetCurrentCycleLeaderboardRankingAdminV3OK{}
 }
 
-/*GetCurrentCycleLeaderboardRankingAdminV3OK handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingAdminV3OK handles this case with default header values.
 
-  Cycle leaderboard ranking data retrieved
+	Cycle leaderboard ranking data retrieved
 */
 type GetCurrentCycleLeaderboardRankingAdminV3OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
@@ -199,9 +200,10 @@ func NewGetCurrentCycleLeaderboardRankingAdminV3BadRequest() *GetCurrentCycleLea
 	return &GetCurrentCycleLeaderboardRankingAdminV3BadRequest{}
 }
 
-/*GetCurrentCycleLeaderboardRankingAdminV3BadRequest handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingAdminV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetCurrentCycleLeaderboardRankingAdminV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetCurrentCycleLeaderboardRankingAdminV3Unauthorized() *GetCurrentCycleL
 	return &GetCurrentCycleLeaderboardRankingAdminV3Unauthorized{}
 }
 
-/*GetCurrentCycleLeaderboardRankingAdminV3Unauthorized handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingAdminV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetCurrentCycleLeaderboardRankingAdminV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetCurrentCycleLeaderboardRankingAdminV3Forbidden() *GetCurrentCycleLead
 	return &GetCurrentCycleLeaderboardRankingAdminV3Forbidden{}
 }
 
-/*GetCurrentCycleLeaderboardRankingAdminV3Forbidden handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingAdminV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetCurrentCycleLeaderboardRankingAdminV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetCurrentCycleLeaderboardRankingAdminV3NotFound() *GetCurrentCycleLeade
 	return &GetCurrentCycleLeaderboardRankingAdminV3NotFound{}
 }
 
-/*GetCurrentCycleLeaderboardRankingAdminV3NotFound handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingAdminV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
 */
 type GetCurrentCycleLeaderboardRankingAdminV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetCurrentCycleLeaderboardRankingAdminV3InternalServerError() *GetCurren
 	return &GetCurrentCycleLeaderboardRankingAdminV3InternalServerError{}
 }
 
-/*GetCurrentCycleLeaderboardRankingAdminV3InternalServerError handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingAdminV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
 */
 type GetCurrentCycleLeaderboardRankingAdminV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

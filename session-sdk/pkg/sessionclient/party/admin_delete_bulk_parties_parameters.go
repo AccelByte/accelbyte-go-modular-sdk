@@ -59,7 +59,8 @@ func NewAdminDeleteBulkPartiesParamsWithHTTPClient(client *http.Client) *AdminDe
 	}
 }
 
-/*AdminDeleteBulkPartiesParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteBulkPartiesParams contains all the parameters to send to the API endpoint
 for the admin delete bulk parties operation typically these are written to a http.Request
 */
 type AdminDeleteBulkPartiesParams struct {

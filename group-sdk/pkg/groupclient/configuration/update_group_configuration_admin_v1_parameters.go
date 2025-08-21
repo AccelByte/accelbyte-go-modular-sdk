@@ -59,7 +59,8 @@ func NewUpdateGroupConfigurationAdminV1ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*UpdateGroupConfigurationAdminV1Params contains all the parameters to send to the API endpoint
+/*
+UpdateGroupConfigurationAdminV1Params contains all the parameters to send to the API endpoint
 for the update group configuration admin v1 operation typically these are written to a http.Request
 */
 type UpdateGroupConfigurationAdminV1Params struct {

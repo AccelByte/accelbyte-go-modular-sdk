@@ -130,9 +130,10 @@ func NewPublicCreateUserProfileCreated() *PublicCreateUserProfileCreated {
 	return &PublicCreateUserProfileCreated{}
 }
 
-/*PublicCreateUserProfileCreated handles this case with default header values.
+/*
+PublicCreateUserProfileCreated handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type PublicCreateUserProfileCreated struct {
 	Payload *basicclientmodels.UserProfileInfo
@@ -184,9 +185,10 @@ func NewPublicCreateUserProfileBadRequest() *PublicCreateUserProfileBadRequest {
 	return &PublicCreateUserProfileBadRequest{}
 }
 
-/*PublicCreateUserProfileBadRequest handles this case with default header values.
+/*
+PublicCreateUserProfileBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicCreateUserProfileBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -238,9 +240,10 @@ func NewPublicCreateUserProfileUnauthorized() *PublicCreateUserProfileUnauthoriz
 	return &PublicCreateUserProfileUnauthorized{}
 }
 
-/*PublicCreateUserProfileUnauthorized handles this case with default header values.
+/*
+PublicCreateUserProfileUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type PublicCreateUserProfileUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewPublicCreateUserProfileForbidden() *PublicCreateUserProfileForbidden {
 	return &PublicCreateUserProfileForbidden{}
 }
 
-/*PublicCreateUserProfileForbidden handles this case with default header values.
+/*
+PublicCreateUserProfileForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicCreateUserProfileForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewPublicCreateUserProfileConflict() *PublicCreateUserProfileConflict {
 	return &PublicCreateUserProfileConflict{}
 }
 
-/*PublicCreateUserProfileConflict handles this case with default header values.
+/*
+PublicCreateUserProfileConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11441</td><td>Unable to {action}: User profile already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11441</td><td>Unable to {action}: User profile already exists</td></tr></table>
 */
 type PublicCreateUserProfileConflict struct {
 	Payload *basicclientmodels.ErrorEntity

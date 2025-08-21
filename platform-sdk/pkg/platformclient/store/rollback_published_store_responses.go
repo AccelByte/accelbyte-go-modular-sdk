@@ -85,9 +85,10 @@ func NewRollbackPublishedStoreOK() *RollbackPublishedStoreOK {
 	return &RollbackPublishedStoreOK{}
 }
 
-/*RollbackPublishedStoreOK handles this case with default header values.
+/*
+RollbackPublishedStoreOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RollbackPublishedStoreOK struct {
 	Payload *platformclientmodels.StoreInfo
@@ -139,9 +140,10 @@ func NewRollbackPublishedStoreNotFound() *RollbackPublishedStoreNotFound {
 	return &RollbackPublishedStoreNotFound{}
 }
 
-/*RollbackPublishedStoreNotFound handles this case with default header values.
+/*
+RollbackPublishedStoreNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30143</td><td>Published store [{storeId}] backup does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30143</td><td>Published store [{storeId}] backup does not exist in namespace [{namespace}]</td></tr></table>
 */
 type RollbackPublishedStoreNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

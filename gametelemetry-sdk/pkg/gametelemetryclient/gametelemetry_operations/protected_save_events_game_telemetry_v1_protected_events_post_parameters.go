@@ -59,7 +59,8 @@ func NewProtectedSaveEventsGameTelemetryV1ProtectedEventsPostParamsWithHTTPClien
 	}
 }
 
-/*ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostParams contains all the parameters to send to the API endpoint
+/*
+ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostParams contains all the parameters to send to the API endpoint
 for the protected save events game telemetry v1 protected events post operation typically these are written to a http.Request
 */
 type ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostParams struct {

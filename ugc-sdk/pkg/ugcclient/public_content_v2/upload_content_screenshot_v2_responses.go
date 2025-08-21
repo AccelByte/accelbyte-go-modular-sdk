@@ -130,9 +130,10 @@ func NewUploadContentScreenshotV2Created() *UploadContentScreenshotV2Created {
 	return &UploadContentScreenshotV2Created{}
 }
 
-/*UploadContentScreenshotV2Created handles this case with default header values.
+/*
+UploadContentScreenshotV2Created handles this case with default header values.
 
-  Screenshot uploaded
+	Screenshot uploaded
 */
 type UploadContentScreenshotV2Created struct {
 	Payload *ugcclientmodels.ModelsCreateScreenshotResponse
@@ -184,9 +185,10 @@ func NewUploadContentScreenshotV2BadRequest() *UploadContentScreenshotV2BadReque
 	return &UploadContentScreenshotV2BadRequest{}
 }
 
-/*UploadContentScreenshotV2BadRequest handles this case with default header values.
+/*
+UploadContentScreenshotV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
 */
 type UploadContentScreenshotV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewUploadContentScreenshotV2Unauthorized() *UploadContentScreenshotV2Unauth
 	return &UploadContentScreenshotV2Unauthorized{}
 }
 
-/*UploadContentScreenshotV2Unauthorized handles this case with default header values.
+/*
+UploadContentScreenshotV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UploadContentScreenshotV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewUploadContentScreenshotV2Forbidden() *UploadContentScreenshotV2Forbidden
 	return &UploadContentScreenshotV2Forbidden{}
 }
 
-/*UploadContentScreenshotV2Forbidden handles this case with default header values.
+/*
+UploadContentScreenshotV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type UploadContentScreenshotV2Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewUploadContentScreenshotV2InternalServerError() *UploadContentScreenshotV
 	return &UploadContentScreenshotV2InternalServerError{}
 }
 
-/*UploadContentScreenshotV2InternalServerError handles this case with default header values.
+/*
+UploadContentScreenshotV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
 */
 type UploadContentScreenshotV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

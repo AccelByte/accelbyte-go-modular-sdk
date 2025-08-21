@@ -85,9 +85,10 @@ func NewGetDLCItemConfigOK() *GetDLCItemConfigOK {
 	return &GetDLCItemConfigOK{}
 }
 
-/*GetDLCItemConfigOK handles this case with default header values.
+/*
+GetDLCItemConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetDLCItemConfigOK struct {
 	Payload *platformclientmodels.DLCItemConfigInfo
@@ -139,9 +140,10 @@ func NewGetDLCItemConfigNotFound() *GetDLCItemConfigNotFound {
 	return &GetDLCItemConfigNotFound{}
 }
 
-/*GetDLCItemConfigNotFound handles this case with default header values.
+/*
+GetDLCItemConfigNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39442</td><td>DLC item config cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39442</td><td>DLC item config cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type GetDLCItemConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

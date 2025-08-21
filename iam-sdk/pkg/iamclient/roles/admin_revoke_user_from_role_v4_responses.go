@@ -129,9 +129,10 @@ func NewAdminRevokeUserFromRoleV4NoContent() *AdminRevokeUserFromRoleV4NoContent
 	return &AdminRevokeUserFromRoleV4NoContent{}
 }
 
-/*AdminRevokeUserFromRoleV4NoContent handles this case with default header values.
+/*
+AdminRevokeUserFromRoleV4NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminRevokeUserFromRoleV4NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminRevokeUserFromRoleV4BadRequest() *AdminRevokeUserFromRoleV4BadReque
 	return &AdminRevokeUserFromRoleV4BadRequest{}
 }
 
-/*AdminRevokeUserFromRoleV4BadRequest handles this case with default header values.
+/*
+AdminRevokeUserFromRoleV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10457</td><td>specified role is not admin role</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10457</td><td>specified role is not admin role</td></tr></table>
 */
 type AdminRevokeUserFromRoleV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,9 +212,10 @@ func NewAdminRevokeUserFromRoleV4Unauthorized() *AdminRevokeUserFromRoleV4Unauth
 	return &AdminRevokeUserFromRoleV4Unauthorized{}
 }
 
-/*AdminRevokeUserFromRoleV4Unauthorized handles this case with default header values.
+/*
+AdminRevokeUserFromRoleV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminRevokeUserFromRoleV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +267,10 @@ func NewAdminRevokeUserFromRoleV4Forbidden() *AdminRevokeUserFromRoleV4Forbidden
 	return &AdminRevokeUserFromRoleV4Forbidden{}
 }
 
-/*AdminRevokeUserFromRoleV4Forbidden handles this case with default header values.
+/*
+AdminRevokeUserFromRoleV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10459</td><td>operator is not a role manager</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10459</td><td>operator is not a role manager</td></tr></table>
 */
 type AdminRevokeUserFromRoleV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +322,10 @@ func NewAdminRevokeUserFromRoleV4NotFound() *AdminRevokeUserFromRoleV4NotFound {
 	return &AdminRevokeUserFromRoleV4NotFound{}
 }
 
-/*AdminRevokeUserFromRoleV4NotFound handles this case with default header values.
+/*
+AdminRevokeUserFromRoleV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminRevokeUserFromRoleV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

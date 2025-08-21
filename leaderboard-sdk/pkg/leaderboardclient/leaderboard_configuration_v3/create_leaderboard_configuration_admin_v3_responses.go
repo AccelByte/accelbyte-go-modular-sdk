@@ -145,9 +145,10 @@ func NewCreateLeaderboardConfigurationAdminV3Created() *CreateLeaderboardConfigu
 	return &CreateLeaderboardConfigurationAdminV3Created{}
 }
 
-/*CreateLeaderboardConfigurationAdminV3Created handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV3Created handles this case with default header values.
 
-  Leaderboard created
+	Leaderboard created
 */
 type CreateLeaderboardConfigurationAdminV3Created struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardConfigRespV3
@@ -199,9 +200,10 @@ func NewCreateLeaderboardConfigurationAdminV3BadRequest() *CreateLeaderboardConf
 	return &CreateLeaderboardConfigurationAdminV3BadRequest{}
 }
 
-/*CreateLeaderboardConfigurationAdminV3BadRequest handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>71242</td><td>stat code not found in namespace</td></tr><tr><td>71243</td><td>cycle doesn't belong to the stat code</td></tr><tr><td>71244</td><td>cycle is already stopped</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>71242</td><td>stat code not found in namespace</td></tr><tr><td>71243</td><td>cycle doesn't belong to the stat code</td></tr><tr><td>71244</td><td>cycle is already stopped</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewCreateLeaderboardConfigurationAdminV3Unauthorized() *CreateLeaderboardCo
 	return &CreateLeaderboardConfigurationAdminV3Unauthorized{}
 }
 
-/*CreateLeaderboardConfigurationAdminV3Unauthorized handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewCreateLeaderboardConfigurationAdminV3Forbidden() *CreateLeaderboardConfi
 	return &CreateLeaderboardConfigurationAdminV3Forbidden{}
 }
 
-/*CreateLeaderboardConfigurationAdminV3Forbidden handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewCreateLeaderboardConfigurationAdminV3Conflict() *CreateLeaderboardConfig
 	return &CreateLeaderboardConfigurationAdminV3Conflict{}
 }
 
-/*CreateLeaderboardConfigurationAdminV3Conflict handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71132</td><td>leaderboard configuration already exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71132</td><td>leaderboard configuration already exist</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV3Conflict struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewCreateLeaderboardConfigurationAdminV3InternalServerError() *CreateLeader
 	return &CreateLeaderboardConfigurationAdminV3InternalServerError{}
 }
 
-/*CreateLeaderboardConfigurationAdminV3InternalServerError handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

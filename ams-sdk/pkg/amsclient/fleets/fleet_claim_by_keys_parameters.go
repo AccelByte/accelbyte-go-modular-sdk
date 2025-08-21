@@ -59,7 +59,8 @@ func NewFleetClaimByKeysParamsWithHTTPClient(client *http.Client) *FleetClaimByK
 	}
 }
 
-/*FleetClaimByKeysParams contains all the parameters to send to the API endpoint
+/*
+FleetClaimByKeysParams contains all the parameters to send to the API endpoint
 for the fleet claim by keys operation typically these are written to a http.Request
 */
 type FleetClaimByKeysParams struct {

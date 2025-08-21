@@ -160,9 +160,10 @@ func NewPublicCreateUserV4Created() *PublicCreateUserV4Created {
 	return &PublicCreateUserV4Created{}
 }
 
-/*PublicCreateUserV4Created handles this case with default header values.
+/*
+PublicCreateUserV4Created handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicCreateUserV4Created struct {
 	Payload *iamclientmodels.AccountCreateUserResponseV4
@@ -214,9 +215,10 @@ func NewPublicCreateUserV4BadRequest() *PublicCreateUserV4BadRequest {
 	return &PublicCreateUserV4BadRequest{}
 }
 
-/*PublicCreateUserV4BadRequest handles this case with default header values.
+/*
+PublicCreateUserV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10130</td><td>user under age</td></tr><tr><td>10152</td><td>verification code not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10130</td><td>user under age</td></tr><tr><td>10152</td><td>verification code not found</td></tr></table>
 */
 type PublicCreateUserV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -268,9 +270,10 @@ func NewPublicCreateUserV4Forbidden() *PublicCreateUserV4Forbidden {
 	return &PublicCreateUserV4Forbidden{}
 }
 
-/*PublicCreateUserV4Forbidden handles this case with default header values.
+/*
+PublicCreateUserV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
 */
 type PublicCreateUserV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,9 +325,10 @@ func NewPublicCreateUserV4NotFound() *PublicCreateUserV4NotFound {
 	return &PublicCreateUserV4NotFound{}
 }
 
-/*PublicCreateUserV4NotFound handles this case with default header values.
+/*
+PublicCreateUserV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
 */
 type PublicCreateUserV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -376,9 +380,10 @@ func NewPublicCreateUserV4Conflict() *PublicCreateUserV4Conflict {
 	return &PublicCreateUserV4Conflict{}
 }
 
-/*PublicCreateUserV4Conflict handles this case with default header values.
+/*
+PublicCreateUserV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10177</td><td>username already used</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10177</td><td>username already used</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
 */
 type PublicCreateUserV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -430,9 +435,10 @@ func NewPublicCreateUserV4TooManyRequests() *PublicCreateUserV4TooManyRequests {
 	return &PublicCreateUserV4TooManyRequests{}
 }
 
-/*PublicCreateUserV4TooManyRequests handles this case with default header values.
+/*
+PublicCreateUserV4TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type PublicCreateUserV4TooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -484,9 +490,10 @@ func NewPublicCreateUserV4InternalServerError() *PublicCreateUserV4InternalServe
 	return &PublicCreateUserV4InternalServerError{}
 }
 
-/*PublicCreateUserV4InternalServerError handles this case with default header values.
+/*
+PublicCreateUserV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicCreateUserV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

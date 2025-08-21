@@ -145,9 +145,10 @@ func NewBulkGetUsersRankingPublicV3OK() *BulkGetUsersRankingPublicV3OK {
 	return &BulkGetUsersRankingPublicV3OK{}
 }
 
-/*BulkGetUsersRankingPublicV3OK handles this case with default header values.
+/*
+BulkGetUsersRankingPublicV3OK handles this case with default header values.
 
-  Users ranking retrieved
+	Users ranking retrieved
 */
 type BulkGetUsersRankingPublicV3OK struct {
 	Payload *leaderboardclientmodels.ModelsBulkUserRankingResponseV3
@@ -199,9 +200,10 @@ func NewBulkGetUsersRankingPublicV3BadRequest() *BulkGetUsersRankingPublicV3BadR
 	return &BulkGetUsersRankingPublicV3BadRequest{}
 }
 
-/*BulkGetUsersRankingPublicV3BadRequest handles this case with default header values.
+/*
+BulkGetUsersRankingPublicV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkGetUsersRankingPublicV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewBulkGetUsersRankingPublicV3Unauthorized() *BulkGetUsersRankingPublicV3Un
 	return &BulkGetUsersRankingPublicV3Unauthorized{}
 }
 
-/*BulkGetUsersRankingPublicV3Unauthorized handles this case with default header values.
+/*
+BulkGetUsersRankingPublicV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type BulkGetUsersRankingPublicV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewBulkGetUsersRankingPublicV3Forbidden() *BulkGetUsersRankingPublicV3Forbi
 	return &BulkGetUsersRankingPublicV3Forbidden{}
 }
 
-/*BulkGetUsersRankingPublicV3Forbidden handles this case with default header values.
+/*
+BulkGetUsersRankingPublicV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type BulkGetUsersRankingPublicV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewBulkGetUsersRankingPublicV3NotFound() *BulkGetUsersRankingPublicV3NotFou
 	return &BulkGetUsersRankingPublicV3NotFound{}
 }
 
-/*BulkGetUsersRankingPublicV3NotFound handles this case with default header values.
+/*
+BulkGetUsersRankingPublicV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr></table>
 */
 type BulkGetUsersRankingPublicV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewBulkGetUsersRankingPublicV3InternalServerError() *BulkGetUsersRankingPub
 	return &BulkGetUsersRankingPublicV3InternalServerError{}
 }
 
-/*BulkGetUsersRankingPublicV3InternalServerError handles this case with default header values.
+/*
+BulkGetUsersRankingPublicV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type BulkGetUsersRankingPublicV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

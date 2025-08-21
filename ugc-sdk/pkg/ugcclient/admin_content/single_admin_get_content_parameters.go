@@ -78,7 +78,8 @@ func NewSingleAdminGetContentParamsWithHTTPClient(client *http.Client) *SingleAd
 	}
 }
 
-/*SingleAdminGetContentParams contains all the parameters to send to the API endpoint
+/*
+SingleAdminGetContentParams contains all the parameters to send to the API endpoint
 for the single admin get content operation typically these are written to a http.Request
 */
 type SingleAdminGetContentParams struct {

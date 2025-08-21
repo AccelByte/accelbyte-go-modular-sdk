@@ -115,9 +115,10 @@ func NewGetAllTimeLeaderboardRankingPublicV3OK() *GetAllTimeLeaderboardRankingPu
 	return &GetAllTimeLeaderboardRankingPublicV3OK{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV3OK handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV3OK handles this case with default header values.
 
-  All time leaderboard ranking retrieved
+	All time leaderboard ranking retrieved
 */
 type GetAllTimeLeaderboardRankingPublicV3OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
@@ -169,9 +170,10 @@ func NewGetAllTimeLeaderboardRankingPublicV3BadRequest() *GetAllTimeLeaderboardR
 	return &GetAllTimeLeaderboardRankingPublicV3BadRequest{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV3BadRequest handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -223,9 +225,10 @@ func NewGetAllTimeLeaderboardRankingPublicV3NotFound() *GetAllTimeLeaderboardRan
 	return &GetAllTimeLeaderboardRankingPublicV3NotFound{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV3NotFound handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -277,9 +280,10 @@ func NewGetAllTimeLeaderboardRankingPublicV3InternalServerError() *GetAllTimeLea
 	return &GetAllTimeLeaderboardRankingPublicV3InternalServerError{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV3InternalServerError handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

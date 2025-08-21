@@ -130,9 +130,10 @@ func NewAdminListUserAchievementsOK() *AdminListUserAchievementsOK {
 	return &AdminListUserAchievementsOK{}
 }
 
-/*AdminListUserAchievementsOK handles this case with default header values.
+/*
+AdminListUserAchievementsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListUserAchievementsOK struct {
 	Payload *achievementclientmodels.ModelsPaginatedUserAchievementResponse
@@ -184,9 +185,10 @@ func NewAdminListUserAchievementsBadRequest() *AdminListUserAchievementsBadReque
 	return &AdminListUserAchievementsBadRequest{}
 }
 
-/*AdminListUserAchievementsBadRequest handles this case with default header values.
+/*
+AdminListUserAchievementsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminListUserAchievementsBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminListUserAchievementsUnauthorized() *AdminListUserAchievementsUnauth
 	return &AdminListUserAchievementsUnauthorized{}
 }
 
-/*AdminListUserAchievementsUnauthorized handles this case with default header values.
+/*
+AdminListUserAchievementsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminListUserAchievementsUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminListUserAchievementsNotFound() *AdminListUserAchievementsNotFound {
 	return &AdminListUserAchievementsNotFound{}
 }
 
-/*AdminListUserAchievementsNotFound handles this case with default header values.
+/*
+AdminListUserAchievementsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminListUserAchievementsNotFound struct {
 	Payload *achievementclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminListUserAchievementsInternalServerError() *AdminListUserAchievement
 	return &AdminListUserAchievementsInternalServerError{}
 }
 
-/*AdminListUserAchievementsInternalServerError handles this case with default header values.
+/*
+AdminListUserAchievementsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminListUserAchievementsInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

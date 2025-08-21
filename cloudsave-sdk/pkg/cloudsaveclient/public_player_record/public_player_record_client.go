@@ -300,7 +300,6 @@ func (a *Client) GetPlayerRecordsBulkHandlerV1Short(params *GetPlayerRecordsBulk
 PublicDeletePlayerPublicRecordHandlerV1Short delete player public record
 Delete player public record.
 
-
 ## Warning: This endpoint is going to deprecate
 
 This endpoint is going to deprecate in the future please don't use it.
@@ -673,8 +672,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Record Metadata
 
 Metadata allows user to define the behaviour of the record.
@@ -804,7 +801,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -817,7 +813,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
 
 ## Record Metadata
 
@@ -1120,15 +1115,12 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1238,7 +1230,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -1252,14 +1243,12 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Warning: This endpoint is going to deprecate
 

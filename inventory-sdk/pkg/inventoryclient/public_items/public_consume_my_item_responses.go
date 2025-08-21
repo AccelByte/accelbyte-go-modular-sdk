@@ -115,9 +115,10 @@ func NewPublicConsumeMyItemOK() *PublicConsumeMyItemOK {
 	return &PublicConsumeMyItemOK{}
 }
 
-/*PublicConsumeMyItemOK handles this case with default header values.
+/*
+PublicConsumeMyItemOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicConsumeMyItemOK struct {
 	Payload *inventoryclientmodels.ApimodelsItemResp
@@ -169,9 +170,10 @@ func NewPublicConsumeMyItemBadRequest() *PublicConsumeMyItemBadRequest {
 	return &PublicConsumeMyItemBadRequest{}
 }
 
-/*PublicConsumeMyItemBadRequest handles this case with default header values.
+/*
+PublicConsumeMyItemBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicConsumeMyItemBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -223,9 +225,10 @@ func NewPublicConsumeMyItemNotFound() *PublicConsumeMyItemNotFound {
 	return &PublicConsumeMyItemNotFound{}
 }
 
-/*PublicConsumeMyItemNotFound handles this case with default header values.
+/*
+PublicConsumeMyItemNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicConsumeMyItemNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -277,9 +280,10 @@ func NewPublicConsumeMyItemInternalServerError() *PublicConsumeMyItemInternalSer
 	return &PublicConsumeMyItemInternalServerError{}
 }
 
-/*PublicConsumeMyItemInternalServerError handles this case with default header values.
+/*
+PublicConsumeMyItemInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicConsumeMyItemInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

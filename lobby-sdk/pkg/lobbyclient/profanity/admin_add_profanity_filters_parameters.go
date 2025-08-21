@@ -59,7 +59,8 @@ func NewAdminAddProfanityFiltersParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminAddProfanityFiltersParams contains all the parameters to send to the API endpoint
+/*
+AdminAddProfanityFiltersParams contains all the parameters to send to the API endpoint
 for the admin add profanity filters operation typically these are written to a http.Request
 */
 type AdminAddProfanityFiltersParams struct {

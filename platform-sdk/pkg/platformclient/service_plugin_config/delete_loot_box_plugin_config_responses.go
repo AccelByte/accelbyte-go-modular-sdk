@@ -66,9 +66,10 @@ func NewDeleteLootBoxPluginConfigNoContent() *DeleteLootBoxPluginConfigNoContent
 	return &DeleteLootBoxPluginConfigNoContent{}
 }
 
-/*DeleteLootBoxPluginConfigNoContent handles this case with default header values.
+/*
+DeleteLootBoxPluginConfigNoContent handles this case with default header values.
 
-  Delete successfully
+	Delete successfully
 */
 type DeleteLootBoxPluginConfigNoContent struct {
 }

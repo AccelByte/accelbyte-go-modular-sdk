@@ -129,9 +129,10 @@ func NewAdminDeleteTagHandlerV1NoContent() *AdminDeleteTagHandlerV1NoContent {
 	return &AdminDeleteTagHandlerV1NoContent{}
 }
 
-/*AdminDeleteTagHandlerV1NoContent handles this case with default header values.
+/*
+AdminDeleteTagHandlerV1NoContent handles this case with default header values.
 
-  Tag deleted
+	Tag deleted
 */
 type AdminDeleteTagHandlerV1NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDeleteTagHandlerV1Unauthorized() *AdminDeleteTagHandlerV1Unauthoriz
 	return &AdminDeleteTagHandlerV1Unauthorized{}
 }
 
-/*AdminDeleteTagHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminDeleteTagHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteTagHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -210,9 +212,10 @@ func NewAdminDeleteTagHandlerV1Forbidden() *AdminDeleteTagHandlerV1Forbidden {
 	return &AdminDeleteTagHandlerV1Forbidden{}
 }
 
-/*AdminDeleteTagHandlerV1Forbidden handles this case with default header values.
+/*
+AdminDeleteTagHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminDeleteTagHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -264,9 +267,10 @@ func NewAdminDeleteTagHandlerV1NotFound() *AdminDeleteTagHandlerV1NotFound {
 	return &AdminDeleteTagHandlerV1NotFound{}
 }
 
-/*AdminDeleteTagHandlerV1NotFound handles this case with default header values.
+/*
+AdminDeleteTagHandlerV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18510</td><td>tag not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18510</td><td>tag not found</td></tr></table>
 */
 type AdminDeleteTagHandlerV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -318,9 +322,10 @@ func NewAdminDeleteTagHandlerV1InternalServerError() *AdminDeleteTagHandlerV1Int
 	return &AdminDeleteTagHandlerV1InternalServerError{}
 }
 
-/*AdminDeleteTagHandlerV1InternalServerError handles this case with default header values.
+/*
+AdminDeleteTagHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18509</td><td>unable to delete tag</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18509</td><td>unable to delete tag</td></tr></table>
 */
 type AdminDeleteTagHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

@@ -66,9 +66,10 @@ func NewLogoutNoContent() *LogoutNoContent {
 	return &LogoutNoContent{}
 }
 
-/*LogoutNoContent handles this case with default header values.
+/*
+LogoutNoContent handles this case with default header values.
 
-  Logout successfully
+	Logout successfully
 */
 type LogoutNoContent struct {
 }

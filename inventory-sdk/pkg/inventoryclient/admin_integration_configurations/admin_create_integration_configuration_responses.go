@@ -115,9 +115,10 @@ func NewAdminCreateIntegrationConfigurationCreated() *AdminCreateIntegrationConf
 	return &AdminCreateIntegrationConfigurationCreated{}
 }
 
-/*AdminCreateIntegrationConfigurationCreated handles this case with default header values.
+/*
+AdminCreateIntegrationConfigurationCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateIntegrationConfigurationCreated struct {
 	Payload *inventoryclientmodels.ApimodelsIntegrationConfigurationResp
@@ -169,9 +170,10 @@ func NewAdminCreateIntegrationConfigurationBadRequest() *AdminCreateIntegrationC
 	return &AdminCreateIntegrationConfigurationBadRequest{}
 }
 
-/*AdminCreateIntegrationConfigurationBadRequest handles this case with default header values.
+/*
+AdminCreateIntegrationConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCreateIntegrationConfigurationBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -223,9 +225,10 @@ func NewAdminCreateIntegrationConfigurationConflict() *AdminCreateIntegrationCon
 	return &AdminCreateIntegrationConfigurationConflict{}
 }
 
-/*AdminCreateIntegrationConfigurationConflict handles this case with default header values.
+/*
+AdminCreateIntegrationConfigurationConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminCreateIntegrationConfigurationConflict struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -277,9 +280,10 @@ func NewAdminCreateIntegrationConfigurationInternalServerError() *AdminCreateInt
 	return &AdminCreateIntegrationConfigurationInternalServerError{}
 }
 
-/*AdminCreateIntegrationConfigurationInternalServerError handles this case with default header values.
+/*
+AdminCreateIntegrationConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCreateIntegrationConfigurationInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

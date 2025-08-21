@@ -145,9 +145,10 @@ func NewUpdateMemberRolePermissionAdminV1OK() *UpdateMemberRolePermissionAdminV1
 	return &UpdateMemberRolePermissionAdminV1OK{}
 }
 
-/*UpdateMemberRolePermissionAdminV1OK handles this case with default header values.
+/*
+UpdateMemberRolePermissionAdminV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateMemberRolePermissionAdminV1OK struct {
 	Payload *groupclientmodels.ModelsMemberRoleResponseV1
@@ -199,9 +200,10 @@ func NewUpdateMemberRolePermissionAdminV1BadRequest() *UpdateMemberRolePermissio
 	return &UpdateMemberRolePermissionAdminV1BadRequest{}
 }
 
-/*UpdateMemberRolePermissionAdminV1BadRequest handles this case with default header values.
+/*
+UpdateMemberRolePermissionAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type UpdateMemberRolePermissionAdminV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewUpdateMemberRolePermissionAdminV1Unauthorized() *UpdateMemberRolePermiss
 	return &UpdateMemberRolePermissionAdminV1Unauthorized{}
 }
 
-/*UpdateMemberRolePermissionAdminV1Unauthorized handles this case with default header values.
+/*
+UpdateMemberRolePermissionAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateMemberRolePermissionAdminV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewUpdateMemberRolePermissionAdminV1Forbidden() *UpdateMemberRolePermission
 	return &UpdateMemberRolePermissionAdminV1Forbidden{}
 }
 
-/*UpdateMemberRolePermissionAdminV1Forbidden handles this case with default header values.
+/*
+UpdateMemberRolePermissionAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateMemberRolePermissionAdminV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewUpdateMemberRolePermissionAdminV1NotFound() *UpdateMemberRolePermissionA
 	return &UpdateMemberRolePermissionAdminV1NotFound{}
 }
 
-/*UpdateMemberRolePermissionAdminV1NotFound handles this case with default header values.
+/*
+UpdateMemberRolePermissionAdminV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73232</td><td>member role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73232</td><td>member role not found</td></tr></table>
 */
 type UpdateMemberRolePermissionAdminV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewUpdateMemberRolePermissionAdminV1InternalServerError() *UpdateMemberRole
 	return &UpdateMemberRolePermissionAdminV1InternalServerError{}
 }
 
-/*UpdateMemberRolePermissionAdminV1InternalServerError handles this case with default header values.
+/*
+UpdateMemberRolePermissionAdminV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateMemberRolePermissionAdminV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

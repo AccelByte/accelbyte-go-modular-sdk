@@ -57,7 +57,8 @@ func NewDeleteRevocationPluginConfigParamsWithHTTPClient(client *http.Client) *D
 	}
 }
 
-/*DeleteRevocationPluginConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteRevocationPluginConfigParams contains all the parameters to send to the API endpoint
 for the delete revocation plugin config operation typically these are written to a http.Request
 */
 type DeleteRevocationPluginConfigParams struct {

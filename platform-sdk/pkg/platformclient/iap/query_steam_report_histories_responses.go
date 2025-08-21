@@ -69,9 +69,10 @@ func NewQuerySteamReportHistoriesOK() *QuerySteamReportHistoriesOK {
 	return &QuerySteamReportHistoriesOK{}
 }
 
-/*QuerySteamReportHistoriesOK handles this case with default header values.
+/*
+QuerySteamReportHistoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QuerySteamReportHistoriesOK struct {
 	Payload *platformclientmodels.SteamReportInfoPagingSlicedResult

@@ -160,9 +160,10 @@ func NewResetUserStatItemValue1OK() *ResetUserStatItemValue1OK {
 	return &ResetUserStatItemValue1OK{}
 }
 
-/*ResetUserStatItemValue1OK handles this case with default header values.
+/*
+ResetUserStatItemValue1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ResetUserStatItemValue1OK struct {
 	Payload *socialclientmodels.StatItemIncResult
@@ -214,9 +215,10 @@ func NewResetUserStatItemValue1BadRequest() *ResetUserStatItemValue1BadRequest {
 	return &ResetUserStatItemValue1BadRequest{}
 }
 
-/*ResetUserStatItemValue1BadRequest handles this case with default header values.
+/*
+ResetUserStatItemValue1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12221</td><td>Invalid stat operator, expect [{expected}] but actual [{actual}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12221</td><td>Invalid stat operator, expect [{expected}] but actual [{actual}]</td></tr></table>
 */
 type ResetUserStatItemValue1BadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -268,9 +270,10 @@ func NewResetUserStatItemValue1Unauthorized() *ResetUserStatItemValue1Unauthoriz
 	return &ResetUserStatItemValue1Unauthorized{}
 }
 
-/*ResetUserStatItemValue1Unauthorized handles this case with default header values.
+/*
+ResetUserStatItemValue1Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type ResetUserStatItemValue1Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -322,9 +325,10 @@ func NewResetUserStatItemValue1Forbidden() *ResetUserStatItemValue1Forbidden {
 	return &ResetUserStatItemValue1Forbidden{}
 }
 
-/*ResetUserStatItemValue1Forbidden handles this case with default header values.
+/*
+ResetUserStatItemValue1Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type ResetUserStatItemValue1Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -376,9 +380,10 @@ func NewResetUserStatItemValue1NotFound() *ResetUserStatItemValue1NotFound {
 	return &ResetUserStatItemValue1NotFound{}
 }
 
-/*ResetUserStatItemValue1NotFound handles this case with default header values.
+/*
+ResetUserStatItemValue1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type ResetUserStatItemValue1NotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -430,9 +435,10 @@ func NewResetUserStatItemValue1UnprocessableEntity() *ResetUserStatItemValue1Unp
 	return &ResetUserStatItemValue1UnprocessableEntity{}
 }
 
-/*ResetUserStatItemValue1UnprocessableEntity handles this case with default header values.
+/*
+ResetUserStatItemValue1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type ResetUserStatItemValue1UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -484,9 +490,10 @@ func NewResetUserStatItemValue1InternalServerError() *ResetUserStatItemValue1Int
 	return &ResetUserStatItemValue1InternalServerError{}
 }
 
-/*ResetUserStatItemValue1InternalServerError handles this case with default header values.
+/*
+ResetUserStatItemValue1InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type ResetUserStatItemValue1InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

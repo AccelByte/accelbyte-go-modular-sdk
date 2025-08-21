@@ -57,7 +57,8 @@ func NewDeleteGroupPredefinedRulePublicV2ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*DeleteGroupPredefinedRulePublicV2Params contains all the parameters to send to the API endpoint
+/*
+DeleteGroupPredefinedRulePublicV2Params contains all the parameters to send to the API endpoint
 for the delete group predefined rule public v2 operation typically these are written to a http.Request
 */
 type DeleteGroupPredefinedRulePublicV2Params struct {

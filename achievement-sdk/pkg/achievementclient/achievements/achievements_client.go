@@ -131,10 +131,8 @@ func (a *Client) AdminListAchievementsShort(params *AdminListAchievementsParams,
 /*
 AdminCreateNewAchievementShort create new achievement
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [CREATE]` and scope `social`
-
 
 Other detail info:
 - achievementCode: Human readable unique code to indentify the achievement. Must be lowercase
@@ -229,8 +227,6 @@ func (a *Client) AdminCreateNewAchievementShort(params *AdminCreateNewAchievemen
 
 /*
 ExportAchievementsShort export achievements configuration into a json file
-
-
 
 Required permission `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]`
 
@@ -402,7 +398,6 @@ func (a *Client) ImportAchievementsShort(params *ImportAchievementsParams, authI
 /*
 AdminGetAchievementShort get an achievement
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -486,7 +481,6 @@ func (a *Client) AdminGetAchievementShort(params *AdminGetAchievementParams, aut
 
 /*
 AdminUpdateAchievementShort update an achievement
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [UPDATE]` and scope `social`
@@ -572,7 +566,6 @@ func (a *Client) AdminUpdateAchievementShort(params *AdminUpdateAchievementParam
 /*
 AdminDeleteAchievementShort delete an achievement
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [DELETE]` and scope `social`
 */
@@ -655,7 +648,6 @@ func (a *Client) AdminDeleteAchievementShort(params *AdminDeleteAchievementParam
 
 /*
 AdminUpdateAchievementListOrderShort update achievements listorder
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [UPDATE]` and scope `social`
@@ -740,7 +732,6 @@ func (a *Client) AdminUpdateAchievementListOrderShort(params *AdminUpdateAchieve
 /*
 PublicListAchievementsShort query achievements
 
-
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -824,7 +815,6 @@ func (a *Client) PublicListAchievementsShort(params *PublicListAchievementsParam
 
 /*
 PublicGetAchievementShort get an achievement
-
 
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`

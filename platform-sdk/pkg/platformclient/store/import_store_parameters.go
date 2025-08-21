@@ -57,7 +57,8 @@ func NewImportStoreParamsWithHTTPClient(client *http.Client) *ImportStoreParams 
 	}
 }
 
-/*ImportStoreParams contains all the parameters to send to the API endpoint
+/*
+ImportStoreParams contains all the parameters to send to the API endpoint
 for the import store operation typically these are written to a http.Request
 */
 type ImportStoreParams struct {

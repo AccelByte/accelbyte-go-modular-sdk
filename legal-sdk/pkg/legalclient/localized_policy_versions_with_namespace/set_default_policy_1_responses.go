@@ -66,9 +66,10 @@ func NewSetDefaultPolicy1OK() *SetDefaultPolicy1OK {
 	return &SetDefaultPolicy1OK{}
 }
 
-/*SetDefaultPolicy1OK handles this case with default header values.
+/*
+SetDefaultPolicy1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SetDefaultPolicy1OK struct {
 }

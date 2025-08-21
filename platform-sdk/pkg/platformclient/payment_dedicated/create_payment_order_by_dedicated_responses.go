@@ -145,9 +145,10 @@ func NewCreatePaymentOrderByDedicatedCreated() *CreatePaymentOrderByDedicatedCre
 	return &CreatePaymentOrderByDedicatedCreated{}
 }
 
-/*CreatePaymentOrderByDedicatedCreated handles this case with default header values.
+/*
+CreatePaymentOrderByDedicatedCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreatePaymentOrderByDedicatedCreated struct {
 	Payload *platformclientmodels.PaymentOrderCreateResult
@@ -199,9 +200,10 @@ func NewCreatePaymentOrderByDedicatedBadRequest() *CreatePaymentOrderByDedicated
 	return &CreatePaymentOrderByDedicatedBadRequest{}
 }
 
-/*CreatePaymentOrderByDedicatedBadRequest handles this case with default header values.
+/*
+CreatePaymentOrderByDedicatedBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33121</td><td>Recurring payment failed with code: [{errorCode}] and message: [{errorMessage}] by provider: [{provider}]</td></tr><tr><td>33122</td><td>Subscription not match when create payment order</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33121</td><td>Recurring payment failed with code: [{errorCode}] and message: [{errorMessage}] by provider: [{provider}]</td></tr><tr><td>33122</td><td>Subscription not match when create payment order</td></tr></table>
 */
 type CreatePaymentOrderByDedicatedBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -253,9 +255,10 @@ func NewCreatePaymentOrderByDedicatedForbidden() *CreatePaymentOrderByDedicatedF
 	return &CreatePaymentOrderByDedicatedForbidden{}
 }
 
-/*CreatePaymentOrderByDedicatedForbidden handles this case with default header values.
+/*
+CreatePaymentOrderByDedicatedForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20016</td><td>action is banned</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20016</td><td>action is banned</td></tr></table>
 */
 type CreatePaymentOrderByDedicatedForbidden struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -307,9 +310,10 @@ func NewCreatePaymentOrderByDedicatedNotFound() *CreatePaymentOrderByDedicatedNo
 	return &CreatePaymentOrderByDedicatedNotFound{}
 }
 
-/*CreatePaymentOrderByDedicatedNotFound handles this case with default header values.
+/*
+CreatePaymentOrderByDedicatedNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr><tr><td>33145</td><td>Recurring token not found</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr><tr><td>33145</td><td>Recurring token not found</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CreatePaymentOrderByDedicatedNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -361,9 +365,10 @@ func NewCreatePaymentOrderByDedicatedConflict() *CreatePaymentOrderByDedicatedCo
 	return &CreatePaymentOrderByDedicatedConflict{}
 }
 
-/*CreatePaymentOrderByDedicatedConflict handles this case with default header values.
+/*
+CreatePaymentOrderByDedicatedConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr><tr><td>33173</td><td>ExtOrderNo [{extOrderNo}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr><tr><td>33173</td><td>ExtOrderNo [{extOrderNo}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type CreatePaymentOrderByDedicatedConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -415,9 +420,10 @@ func NewCreatePaymentOrderByDedicatedUnprocessableEntity() *CreatePaymentOrderBy
 	return &CreatePaymentOrderByDedicatedUnprocessableEntity{}
 }
 
-/*CreatePaymentOrderByDedicatedUnprocessableEntity handles this case with default header values.
+/*
+CreatePaymentOrderByDedicatedUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreatePaymentOrderByDedicatedUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

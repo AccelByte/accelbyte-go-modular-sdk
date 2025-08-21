@@ -57,7 +57,8 @@ func NewPublicDownloadContentByShareCodeParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*PublicDownloadContentByShareCodeParams contains all the parameters to send to the API endpoint
+/*
+PublicDownloadContentByShareCodeParams contains all the parameters to send to the API endpoint
 for the public download content by share code operation typically these are written to a http.Request
 */
 type PublicDownloadContentByShareCodeParams struct {

@@ -144,9 +144,10 @@ func NewArtifactDeleteAccepted() *ArtifactDeleteAccepted {
 	return &ArtifactDeleteAccepted{}
 }
 
-/*ArtifactDeleteAccepted handles this case with default header values.
+/*
+ArtifactDeleteAccepted handles this case with default header values.
 
-  delete received
+	delete received
 */
 type ArtifactDeleteAccepted struct {
 }
@@ -171,9 +172,10 @@ func NewArtifactDeleteBadRequest() *ArtifactDeleteBadRequest {
 	return &ArtifactDeleteBadRequest{}
 }
 
-/*ArtifactDeleteBadRequest handles this case with default header values.
+/*
+ArtifactDeleteBadRequest handles this case with default header values.
 
-  bad request
+	bad request
 */
 type ArtifactDeleteBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -225,9 +227,10 @@ func NewArtifactDeleteUnauthorized() *ArtifactDeleteUnauthorized {
 	return &ArtifactDeleteUnauthorized{}
 }
 
-/*ArtifactDeleteUnauthorized handles this case with default header values.
+/*
+ArtifactDeleteUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type ArtifactDeleteUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -279,9 +282,10 @@ func NewArtifactDeleteForbidden() *ArtifactDeleteForbidden {
 	return &ArtifactDeleteForbidden{}
 }
 
-/*ArtifactDeleteForbidden handles this case with default header values.
+/*
+ArtifactDeleteForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type ArtifactDeleteForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -333,9 +337,10 @@ func NewArtifactDeleteNotFound() *ArtifactDeleteNotFound {
 	return &ArtifactDeleteNotFound{}
 }
 
-/*ArtifactDeleteNotFound handles this case with default header values.
+/*
+ArtifactDeleteNotFound handles this case with default header values.
 
-  no artifact with specifed artifactID
+	no artifact with specifed artifactID
 */
 type ArtifactDeleteNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -387,9 +392,10 @@ func NewArtifactDeleteInternalServerError() *ArtifactDeleteInternalServerError {
 	return &ArtifactDeleteInternalServerError{}
 }
 
-/*ArtifactDeleteInternalServerError handles this case with default header values.
+/*
+ArtifactDeleteInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type ArtifactDeleteInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

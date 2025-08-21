@@ -85,9 +85,10 @@ func NewBulkGetLocaleItemsOK() *BulkGetLocaleItemsOK {
 	return &BulkGetLocaleItemsOK{}
 }
 
-/*BulkGetLocaleItemsOK handles this case with default header values.
+/*
+BulkGetLocaleItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkGetLocaleItemsOK struct {
 	Payload []*platformclientmodels.ItemInfo
@@ -137,9 +138,10 @@ func NewBulkGetLocaleItemsNotFound() *BulkGetLocaleItemsNotFound {
 	return &BulkGetLocaleItemsNotFound{}
 }
 
-/*BulkGetLocaleItemsNotFound handles this case with default header values.
+/*
+BulkGetLocaleItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
 */
 type BulkGetLocaleItemsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

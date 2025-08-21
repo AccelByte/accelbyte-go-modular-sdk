@@ -130,10 +130,9 @@ func NewGetNotificationSubscriberListV3OK() *GetNotificationSubscriberListV3OK {
 	return &GetNotificationSubscriberListV3OK{}
 }
 
-/*GetNotificationSubscriberListV3OK handles this case with default header values.
-
-
- */
+/*
+GetNotificationSubscriberListV3OK handles this case with default header values.
+*/
 type GetNotificationSubscriberListV3OK struct {
 	Payload *csmclientmodels.ApimodelGetNotificationSubscriberListResponseV2
 }
@@ -184,9 +183,10 @@ func NewGetNotificationSubscriberListV3Unauthorized() *GetNotificationSubscriber
 	return &GetNotificationSubscriberListV3Unauthorized{}
 }
 
-/*GetNotificationSubscriberListV3Unauthorized handles this case with default header values.
+/*
+GetNotificationSubscriberListV3Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetNotificationSubscriberListV3Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewGetNotificationSubscriberListV3Forbidden() *GetNotificationSubscriberLis
 	return &GetNotificationSubscriberListV3Forbidden{}
 }
 
-/*GetNotificationSubscriberListV3Forbidden handles this case with default header values.
+/*
+GetNotificationSubscriberListV3Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetNotificationSubscriberListV3Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewGetNotificationSubscriberListV3NotFound() *GetNotificationSubscriberList
 	return &GetNotificationSubscriberListV3NotFound{}
 }
 
-/*GetNotificationSubscriberListV3NotFound handles this case with default header values.
+/*
+GetNotificationSubscriberListV3NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetNotificationSubscriberListV3NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewGetNotificationSubscriberListV3InternalServerError() *GetNotificationSub
 	return &GetNotificationSubscriberListV3InternalServerError{}
 }
 
-/*GetNotificationSubscriberListV3InternalServerError handles this case with default header values.
+/*
+GetNotificationSubscriberListV3InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetNotificationSubscriberListV3InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

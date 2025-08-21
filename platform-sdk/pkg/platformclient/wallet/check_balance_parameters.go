@@ -59,7 +59,8 @@ func NewCheckBalanceParamsWithHTTPClient(client *http.Client) *CheckBalanceParam
 	}
 }
 
-/*CheckBalanceParams contains all the parameters to send to the API endpoint
+/*
+CheckBalanceParams contains all the parameters to send to the API endpoint
 for the check balance operation typically these are written to a http.Request
 */
 type CheckBalanceParams struct {

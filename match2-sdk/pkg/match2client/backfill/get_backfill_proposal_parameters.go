@@ -57,7 +57,8 @@ func NewGetBackfillProposalParamsWithHTTPClient(client *http.Client) *GetBackfil
 	}
 }
 
-/*GetBackfillProposalParams contains all the parameters to send to the API endpoint
+/*
+GetBackfillProposalParams contains all the parameters to send to the API endpoint
 for the get backfill proposal operation typically these are written to a http.Request
 */
 type GetBackfillProposalParams struct {

@@ -78,7 +78,8 @@ func NewAdminListGameBinaryRecordsV1ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminListGameBinaryRecordsV1Params contains all the parameters to send to the API endpoint
+/*
+AdminListGameBinaryRecordsV1Params contains all the parameters to send to the API endpoint
 for the admin list game binary records v1 operation typically these are written to a http.Request
 */
 type AdminListGameBinaryRecordsV1Params struct {

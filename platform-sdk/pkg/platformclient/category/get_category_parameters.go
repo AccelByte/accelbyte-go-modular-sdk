@@ -57,7 +57,8 @@ func NewGetCategoryParamsWithHTTPClient(client *http.Client) *GetCategoryParams 
 	}
 }
 
-/*GetCategoryParams contains all the parameters to send to the API endpoint
+/*
+GetCategoryParams contains all the parameters to send to the API endpoint
 for the get category operation typically these are written to a http.Request
 */
 type GetCategoryParams struct {

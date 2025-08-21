@@ -130,9 +130,10 @@ func NewUpdateVariableV2OK() *UpdateVariableV2OK {
 	return &UpdateVariableV2OK{}
 }
 
-/*UpdateVariableV2OK handles this case with default header values.
+/*
+UpdateVariableV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateVariableV2OK struct {
 	Payload *csmclientmodels.ApimodelUpdateConfigurationV2Response
@@ -184,9 +185,10 @@ func NewUpdateVariableV2BadRequest() *UpdateVariableV2BadRequest {
 	return &UpdateVariableV2BadRequest{}
 }
 
-/*UpdateVariableV2BadRequest handles this case with default header values.
+/*
+UpdateVariableV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateVariableV2BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewUpdateVariableV2Unauthorized() *UpdateVariableV2Unauthorized {
 	return &UpdateVariableV2Unauthorized{}
 }
 
-/*UpdateVariableV2Unauthorized handles this case with default header values.
+/*
+UpdateVariableV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateVariableV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewUpdateVariableV2Forbidden() *UpdateVariableV2Forbidden {
 	return &UpdateVariableV2Forbidden{}
 }
 
-/*UpdateVariableV2Forbidden handles this case with default header values.
+/*
+UpdateVariableV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateVariableV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewUpdateVariableV2InternalServerError() *UpdateVariableV2InternalServerErr
 	return &UpdateVariableV2InternalServerError{}
 }
 
-/*UpdateVariableV2InternalServerError handles this case with default header values.
+/*
+UpdateVariableV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateVariableV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

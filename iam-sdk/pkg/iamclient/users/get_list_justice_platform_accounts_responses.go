@@ -95,9 +95,10 @@ func NewGetListJusticePlatformAccountsOK() *GetListJusticePlatformAccountsOK {
 	return &GetListJusticePlatformAccountsOK{}
 }
 
-/*GetListJusticePlatformAccountsOK handles this case with default header values.
+/*
+GetListJusticePlatformAccountsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetListJusticePlatformAccountsOK struct {
 	Payload []*iamclientmodels.ModelGetUserMapping
@@ -147,9 +148,10 @@ func NewGetListJusticePlatformAccountsBadRequest() *GetListJusticePlatformAccoun
 	return &GetListJusticePlatformAccountsBadRequest{}
 }
 
-/*GetListJusticePlatformAccountsBadRequest handles this case with default header values.
+/*
+GetListJusticePlatformAccountsBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type GetListJusticePlatformAccountsBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -201,9 +203,10 @@ func NewGetListJusticePlatformAccountsNotFound() *GetListJusticePlatformAccounts
 	return &GetListJusticePlatformAccountsNotFound{}
 }
 
-/*GetListJusticePlatformAccountsNotFound handles this case with default header values.
+/*
+GetListJusticePlatformAccountsNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type GetListJusticePlatformAccountsNotFound struct {
 }

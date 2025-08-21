@@ -115,9 +115,10 @@ func NewAdminGetMemberActiveSessionOK() *AdminGetMemberActiveSessionOK {
 	return &AdminGetMemberActiveSessionOK{}
 }
 
-/*AdminGetMemberActiveSessionOK handles this case with default header values.
+/*
+AdminGetMemberActiveSessionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetMemberActiveSessionOK struct {
 	Payload *sessionclientmodels.ModelsMemberActiveSession
@@ -169,9 +170,10 @@ func NewAdminGetMemberActiveSessionBadRequest() *AdminGetMemberActiveSessionBadR
 	return &AdminGetMemberActiveSessionBadRequest{}
 }
 
-/*AdminGetMemberActiveSessionBadRequest handles this case with default header values.
+/*
+AdminGetMemberActiveSessionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetMemberActiveSessionBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetMemberActiveSessionUnauthorized() *AdminGetMemberActiveSessionUn
 	return &AdminGetMemberActiveSessionUnauthorized{}
 }
 
-/*AdminGetMemberActiveSessionUnauthorized handles this case with default header values.
+/*
+AdminGetMemberActiveSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetMemberActiveSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetMemberActiveSessionInternalServerError() *AdminGetMemberActiveSe
 	return &AdminGetMemberActiveSessionInternalServerError{}
 }
 
-/*AdminGetMemberActiveSessionInternalServerError handles this case with default header values.
+/*
+AdminGetMemberActiveSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetMemberActiveSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

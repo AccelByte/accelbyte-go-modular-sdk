@@ -57,7 +57,8 @@ func NewCancelInvitationGroupMemberV2ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*CancelInvitationGroupMemberV2Params contains all the parameters to send to the API endpoint
+/*
+CancelInvitationGroupMemberV2Params contains all the parameters to send to the API endpoint
 for the cancel invitation group member v2 operation typically these are written to a http.Request
 */
 type CancelInvitationGroupMemberV2Params struct {

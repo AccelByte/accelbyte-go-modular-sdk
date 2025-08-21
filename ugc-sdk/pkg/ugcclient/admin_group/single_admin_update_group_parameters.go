@@ -59,7 +59,8 @@ func NewSingleAdminUpdateGroupParamsWithHTTPClient(client *http.Client) *SingleA
 	}
 }
 
-/*SingleAdminUpdateGroupParams contains all the parameters to send to the API endpoint
+/*
+SingleAdminUpdateGroupParams contains all the parameters to send to the API endpoint
 for the single admin update group operation typically these are written to a http.Request
 */
 type SingleAdminUpdateGroupParams struct {

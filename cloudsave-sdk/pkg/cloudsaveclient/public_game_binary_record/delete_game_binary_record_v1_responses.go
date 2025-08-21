@@ -144,9 +144,10 @@ func NewDeleteGameBinaryRecordV1NoContent() *DeleteGameBinaryRecordV1NoContent {
 	return &DeleteGameBinaryRecordV1NoContent{}
 }
 
-/*DeleteGameBinaryRecordV1NoContent handles this case with default header values.
+/*
+DeleteGameBinaryRecordV1NoContent handles this case with default header values.
 
-  Record deleted
+	Record deleted
 */
 type DeleteGameBinaryRecordV1NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteGameBinaryRecordV1BadRequest() *DeleteGameBinaryRecordV1BadRequest
 	return &DeleteGameBinaryRecordV1BadRequest{}
 }
 
-/*DeleteGameBinaryRecordV1BadRequest handles this case with default header values.
+/*
+DeleteGameBinaryRecordV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
 */
 type DeleteGameBinaryRecordV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -225,9 +227,10 @@ func NewDeleteGameBinaryRecordV1Unauthorized() *DeleteGameBinaryRecordV1Unauthor
 	return &DeleteGameBinaryRecordV1Unauthorized{}
 }
 
-/*DeleteGameBinaryRecordV1Unauthorized handles this case with default header values.
+/*
+DeleteGameBinaryRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteGameBinaryRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -279,9 +282,10 @@ func NewDeleteGameBinaryRecordV1Forbidden() *DeleteGameBinaryRecordV1Forbidden {
 	return &DeleteGameBinaryRecordV1Forbidden{}
 }
 
-/*DeleteGameBinaryRecordV1Forbidden handles this case with default header values.
+/*
+DeleteGameBinaryRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteGameBinaryRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -333,9 +337,10 @@ func NewDeleteGameBinaryRecordV1NotFound() *DeleteGameBinaryRecordV1NotFound {
 	return &DeleteGameBinaryRecordV1NotFound{}
 }
 
-/*DeleteGameBinaryRecordV1NotFound handles this case with default header values.
+/*
+DeleteGameBinaryRecordV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18322</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18322</td><td>record not found</td></tr></table>
 */
 type DeleteGameBinaryRecordV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -387,9 +392,10 @@ func NewDeleteGameBinaryRecordV1InternalServerError() *DeleteGameBinaryRecordV1I
 	return &DeleteGameBinaryRecordV1InternalServerError{}
 }
 
-/*DeleteGameBinaryRecordV1InternalServerError handles this case with default header values.
+/*
+DeleteGameBinaryRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18320</td><td>unable to delete record</td></tr><tr><td>18322</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18320</td><td>unable to delete record</td></tr><tr><td>18322</td><td>record not found</td></tr></table>
 */
 type DeleteGameBinaryRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

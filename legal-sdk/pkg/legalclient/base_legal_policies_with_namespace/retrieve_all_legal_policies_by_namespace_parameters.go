@@ -70,7 +70,8 @@ func NewRetrieveAllLegalPoliciesByNamespaceParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*RetrieveAllLegalPoliciesByNamespaceParams contains all the parameters to send to the API endpoint
+/*
+RetrieveAllLegalPoliciesByNamespaceParams contains all the parameters to send to the API endpoint
 for the retrieve all legal policies by namespace operation typically these are written to a http.Request
 */
 type RetrieveAllLegalPoliciesByNamespaceParams struct {

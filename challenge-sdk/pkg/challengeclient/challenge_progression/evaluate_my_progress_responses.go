@@ -114,9 +114,10 @@ func NewEvaluateMyProgressNoContent() *EvaluateMyProgressNoContent {
 	return &EvaluateMyProgressNoContent{}
 }
 
-/*EvaluateMyProgressNoContent handles this case with default header values.
+/*
+EvaluateMyProgressNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type EvaluateMyProgressNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewEvaluateMyProgressUnauthorized() *EvaluateMyProgressUnauthorized {
 	return &EvaluateMyProgressUnauthorized{}
 }
 
-/*EvaluateMyProgressUnauthorized handles this case with default header values.
+/*
+EvaluateMyProgressUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type EvaluateMyProgressUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -195,9 +197,10 @@ func NewEvaluateMyProgressForbidden() *EvaluateMyProgressForbidden {
 	return &EvaluateMyProgressForbidden{}
 }
 
-/*EvaluateMyProgressForbidden handles this case with default header values.
+/*
+EvaluateMyProgressForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type EvaluateMyProgressForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -249,9 +252,10 @@ func NewEvaluateMyProgressInternalServerError() *EvaluateMyProgressInternalServe
 	return &EvaluateMyProgressInternalServerError{}
 }
 
-/*EvaluateMyProgressInternalServerError handles this case with default header values.
+/*
+EvaluateMyProgressInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type EvaluateMyProgressInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

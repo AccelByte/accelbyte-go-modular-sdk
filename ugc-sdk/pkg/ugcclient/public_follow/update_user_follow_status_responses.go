@@ -115,9 +115,10 @@ func NewUpdateUserFollowStatusOK() *UpdateUserFollowStatusOK {
 	return &UpdateUserFollowStatusOK{}
 }
 
-/*UpdateUserFollowStatusOK handles this case with default header values.
+/*
+UpdateUserFollowStatusOK handles this case with default header values.
 
-  update status follow/unfollow status to a user
+	update status follow/unfollow status to a user
 */
 type UpdateUserFollowStatusOK struct {
 	Payload *ugcclientmodels.ModelsUserFollowResponse
@@ -169,9 +170,10 @@ func NewUpdateUserFollowStatusBadRequest() *UpdateUserFollowStatusBadRequest {
 	return &UpdateUserFollowStatusBadRequest{}
 }
 
-/*UpdateUserFollowStatusBadRequest handles this case with default header values.
+/*
+UpdateUserFollowStatusBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771200</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771200</td><td>Malformed request</td></tr></table>
 */
 type UpdateUserFollowStatusBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewUpdateUserFollowStatusUnauthorized() *UpdateUserFollowStatusUnauthorized
 	return &UpdateUserFollowStatusUnauthorized{}
 }
 
-/*UpdateUserFollowStatusUnauthorized handles this case with default header values.
+/*
+UpdateUserFollowStatusUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateUserFollowStatusUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewUpdateUserFollowStatusInternalServerError() *UpdateUserFollowStatusInter
 	return &UpdateUserFollowStatusInternalServerError{}
 }
 
-/*UpdateUserFollowStatusInternalServerError handles this case with default header values.
+/*
+UpdateUserFollowStatusInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771201</td><td>Unable to update follow status: database error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771201</td><td>Unable to update follow status: database error</td></tr></table>
 */
 type UpdateUserFollowStatusInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

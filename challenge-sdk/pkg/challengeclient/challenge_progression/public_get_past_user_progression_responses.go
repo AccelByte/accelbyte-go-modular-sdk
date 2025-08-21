@@ -145,9 +145,10 @@ func NewPublicGetPastUserProgressionOK() *PublicGetPastUserProgressionOK {
 	return &PublicGetPastUserProgressionOK{}
 }
 
-/*PublicGetPastUserProgressionOK handles this case with default header values.
+/*
+PublicGetPastUserProgressionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetPastUserProgressionOK struct {
 	Payload *challengeclientmodels.ModelUserProgressionResponse
@@ -199,9 +200,10 @@ func NewPublicGetPastUserProgressionBadRequest() *PublicGetPastUserProgressionBa
 	return &PublicGetPastUserProgressionBadRequest{}
 }
 
-/*PublicGetPastUserProgressionBadRequest handles this case with default header values.
+/*
+PublicGetPastUserProgressionBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type PublicGetPastUserProgressionBadRequest struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -253,9 +255,10 @@ func NewPublicGetPastUserProgressionUnauthorized() *PublicGetPastUserProgression
 	return &PublicGetPastUserProgressionUnauthorized{}
 }
 
-/*PublicGetPastUserProgressionUnauthorized handles this case with default header values.
+/*
+PublicGetPastUserProgressionUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetPastUserProgressionUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -307,9 +310,10 @@ func NewPublicGetPastUserProgressionForbidden() *PublicGetPastUserProgressionFor
 	return &PublicGetPastUserProgressionForbidden{}
 }
 
-/*PublicGetPastUserProgressionForbidden handles this case with default header values.
+/*
+PublicGetPastUserProgressionForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGetPastUserProgressionForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -361,9 +365,10 @@ func NewPublicGetPastUserProgressionNotFound() *PublicGetPastUserProgressionNotF
 	return &PublicGetPastUserProgressionNotFound{}
 }
 
-/*PublicGetPastUserProgressionNotFound handles this case with default header values.
+/*
+PublicGetPastUserProgressionNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type PublicGetPastUserProgressionNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -415,9 +420,10 @@ func NewPublicGetPastUserProgressionInternalServerError() *PublicGetPastUserProg
 	return &PublicGetPastUserProgressionInternalServerError{}
 }
 
-/*PublicGetPastUserProgressionInternalServerError handles this case with default header values.
+/*
+PublicGetPastUserProgressionInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type PublicGetPastUserProgressionInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

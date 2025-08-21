@@ -412,9 +412,9 @@ func (a *Client) GetGroupListPublicV1Short(params *GetGroupListPublicV1Params, a
 CreateNewGroupPublicV1Short create new group
 Required valid user authentication
 
-This endpoint is used to create new group
+# This endpoint is used to create new group
 
-There are some fields that needs to be fulfilled
+# There are some fields that needs to be fulfilled
 
 * **groupDescription**: the description of the group (optional)
 * **groupIcon**: group icon URL link (optional)
@@ -1087,7 +1087,7 @@ Required Member Role Permission: "GROUP [UPDATE]"
 
 Update predefined group rule. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter. It will also check the member role of the user based on the access token
 
-If the rule action is not defined in the group, it will be added immediately to the predefined group rule
+# If the rule action is not defined in the group, it will be added immediately to the predefined group rule
 
 Action Code: 73310
 */
@@ -1360,9 +1360,9 @@ func (a *Client) GetListGroupByIDsAdminV2Short(params *GetListGroupByIDsAdminV2P
 CreateNewGroupPublicV2Short create new group
 Required valid user authentication
 
-This endpoint is used to create new group
+# This endpoint is used to create new group
 
-There are some fields that needs to be fulfilled
+# There are some fields that needs to be fulfilled
 
 * **groupDescription**: the description of the group (optional)
 * **groupIcon**: group icon URL link (optional)
@@ -2028,7 +2028,7 @@ Required Member Role Permission: "GROUP [UPDATE]"
 
 Update predefined group rule. This endpoint will check the group ID of the user based on the access token and compare it with the group ID in path parameter. It will also check the member role of the user based on the access token
 
-If the rule action is not defined in the group, it will be added immediately to the predefined group rule
+# If the rule action is not defined in the group, it will be added immediately to the predefined group rule
 
 Action Code: 73310
 */

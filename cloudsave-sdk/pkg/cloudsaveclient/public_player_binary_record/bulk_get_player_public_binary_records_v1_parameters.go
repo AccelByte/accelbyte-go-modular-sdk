@@ -59,7 +59,8 @@ func NewBulkGetPlayerPublicBinaryRecordsV1ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*BulkGetPlayerPublicBinaryRecordsV1Params contains all the parameters to send to the API endpoint
+/*
+BulkGetPlayerPublicBinaryRecordsV1Params contains all the parameters to send to the API endpoint
 for the bulk get player public binary records v1 operation typically these are written to a http.Request
 */
 type BulkGetPlayerPublicBinaryRecordsV1Params struct {

@@ -130,9 +130,10 @@ func NewAdminFilterChatMessageOK() *AdminFilterChatMessageOK {
 	return &AdminFilterChatMessageOK{}
 }
 
-/*AdminFilterChatMessageOK handles this case with default header values.
+/*
+AdminFilterChatMessageOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminFilterChatMessageOK struct {
 	Payload *chatclientmodels.ModelsMessageResultWithAttributes
@@ -184,9 +185,10 @@ func NewAdminFilterChatMessageBadRequest() *AdminFilterChatMessageBadRequest {
 	return &AdminFilterChatMessageBadRequest{}
 }
 
-/*AdminFilterChatMessageBadRequest handles this case with default header values.
+/*
+AdminFilterChatMessageBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminFilterChatMessageBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminFilterChatMessageUnauthorized() *AdminFilterChatMessageUnauthorized
 	return &AdminFilterChatMessageUnauthorized{}
 }
 
-/*AdminFilterChatMessageUnauthorized handles this case with default header values.
+/*
+AdminFilterChatMessageUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminFilterChatMessageUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminFilterChatMessageForbidden() *AdminFilterChatMessageForbidden {
 	return &AdminFilterChatMessageForbidden{}
 }
 
-/*AdminFilterChatMessageForbidden handles this case with default header values.
+/*
+AdminFilterChatMessageForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminFilterChatMessageForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminFilterChatMessageInternalServerError() *AdminFilterChatMessageInter
 	return &AdminFilterChatMessageInternalServerError{}
 }
 
-/*AdminFilterChatMessageInternalServerError handles this case with default header values.
+/*
+AdminFilterChatMessageInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminFilterChatMessageInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

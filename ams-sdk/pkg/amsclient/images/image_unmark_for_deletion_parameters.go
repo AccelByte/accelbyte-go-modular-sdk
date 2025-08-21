@@ -57,7 +57,8 @@ func NewImageUnmarkForDeletionParamsWithHTTPClient(client *http.Client) *ImageUn
 	}
 }
 
-/*ImageUnmarkForDeletionParams contains all the parameters to send to the API endpoint
+/*
+ImageUnmarkForDeletionParams contains all the parameters to send to the API endpoint
 for the image unmark for deletion operation typically these are written to a http.Request
 */
 type ImageUnmarkForDeletionParams struct {

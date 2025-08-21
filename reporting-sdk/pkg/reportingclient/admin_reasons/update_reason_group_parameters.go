@@ -59,7 +59,8 @@ func NewUpdateReasonGroupParamsWithHTTPClient(client *http.Client) *UpdateReason
 	}
 }
 
-/*UpdateReasonGroupParams contains all the parameters to send to the API endpoint
+/*
+UpdateReasonGroupParams contains all the parameters to send to the API endpoint
 for the update reason group operation typically these are written to a http.Request
 */
 type UpdateReasonGroupParams struct {

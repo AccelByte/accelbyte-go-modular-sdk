@@ -115,9 +115,10 @@ func NewAdminCreateTestUsersV4Created() *AdminCreateTestUsersV4Created {
 	return &AdminCreateTestUsersV4Created{}
 }
 
-/*AdminCreateTestUsersV4Created handles this case with default header values.
+/*
+AdminCreateTestUsersV4Created handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateTestUsersV4Created struct {
 	Payload *iamclientmodels.AccountCreateTestUsersResponseV4
@@ -169,9 +170,10 @@ func NewAdminCreateTestUsersV4BadRequest() *AdminCreateTestUsersV4BadRequest {
 	return &AdminCreateTestUsersV4BadRequest{}
 }
 
-/*AdminCreateTestUsersV4BadRequest handles this case with default header values.
+/*
+AdminCreateTestUsersV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminCreateTestUsersV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminCreateTestUsersV4InternalServerError() *AdminCreateTestUsersV4Inter
 	return &AdminCreateTestUsersV4InternalServerError{}
 }
 
-/*AdminCreateTestUsersV4InternalServerError handles this case with default header values.
+/*
+AdminCreateTestUsersV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminCreateTestUsersV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminCreateTestUsersV4NotImplemented() *AdminCreateTestUsersV4NotImpleme
 	return &AdminCreateTestUsersV4NotImplemented{}
 }
 
-/*AdminCreateTestUsersV4NotImplemented handles this case with default header values.
+/*
+AdminCreateTestUsersV4NotImplemented handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
 */
 type AdminCreateTestUsersV4NotImplemented struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -59,7 +59,8 @@ func NewAdminUpdateContentByShareCodeV2ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*AdminUpdateContentByShareCodeV2Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateContentByShareCodeV2Params contains all the parameters to send to the API endpoint
 for the admin update content by share code v2 operation typically these are written to a http.Request
 */
 type AdminUpdateContentByShareCodeV2Params struct {

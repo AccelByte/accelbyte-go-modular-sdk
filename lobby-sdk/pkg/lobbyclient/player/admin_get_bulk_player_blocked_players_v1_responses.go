@@ -145,9 +145,10 @@ func NewAdminGetBulkPlayerBlockedPlayersV1OK() *AdminGetBulkPlayerBlockedPlayers
 	return &AdminGetBulkPlayerBlockedPlayersV1OK{}
 }
 
-/*AdminGetBulkPlayerBlockedPlayersV1OK handles this case with default header values.
+/*
+AdminGetBulkPlayerBlockedPlayersV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetBulkPlayerBlockedPlayersV1OK struct {
 	Payload *lobbyclientmodels.ModelsGetBulkAllPlayerBlockedUsersResponse
@@ -199,9 +200,10 @@ func NewAdminGetBulkPlayerBlockedPlayersV1BadRequest() *AdminGetBulkPlayerBlocke
 	return &AdminGetBulkPlayerBlockedPlayersV1BadRequest{}
 }
 
-/*AdminGetBulkPlayerBlockedPlayersV1BadRequest handles this case with default header values.
+/*
+AdminGetBulkPlayerBlockedPlayersV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetBulkPlayerBlockedPlayersV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetBulkPlayerBlockedPlayersV1Unauthorized() *AdminGetBulkPlayerBloc
 	return &AdminGetBulkPlayerBlockedPlayersV1Unauthorized{}
 }
 
-/*AdminGetBulkPlayerBlockedPlayersV1Unauthorized handles this case with default header values.
+/*
+AdminGetBulkPlayerBlockedPlayersV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetBulkPlayerBlockedPlayersV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetBulkPlayerBlockedPlayersV1Forbidden() *AdminGetBulkPlayerBlocked
 	return &AdminGetBulkPlayerBlockedPlayersV1Forbidden{}
 }
 
-/*AdminGetBulkPlayerBlockedPlayersV1Forbidden handles this case with default header values.
+/*
+AdminGetBulkPlayerBlockedPlayersV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetBulkPlayerBlockedPlayersV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetBulkPlayerBlockedPlayersV1NotFound() *AdminGetBulkPlayerBlockedP
 	return &AdminGetBulkPlayerBlockedPlayersV1NotFound{}
 }
 
-/*AdminGetBulkPlayerBlockedPlayersV1NotFound handles this case with default header values.
+/*
+AdminGetBulkPlayerBlockedPlayersV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetBulkPlayerBlockedPlayersV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetBulkPlayerBlockedPlayersV1InternalServerError() *AdminGetBulkPla
 	return &AdminGetBulkPlayerBlockedPlayersV1InternalServerError{}
 }
 
-/*AdminGetBulkPlayerBlockedPlayersV1InternalServerError handles this case with default header values.
+/*
+AdminGetBulkPlayerBlockedPlayersV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetBulkPlayerBlockedPlayersV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

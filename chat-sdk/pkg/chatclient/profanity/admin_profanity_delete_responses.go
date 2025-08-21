@@ -144,9 +144,10 @@ func NewAdminProfanityDeleteNoContent() *AdminProfanityDeleteNoContent {
 	return &AdminProfanityDeleteNoContent{}
 }
 
-/*AdminProfanityDeleteNoContent handles this case with default header values.
+/*
+AdminProfanityDeleteNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminProfanityDeleteNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminProfanityDeleteBadRequest() *AdminProfanityDeleteBadRequest {
 	return &AdminProfanityDeleteBadRequest{}
 }
 
-/*AdminProfanityDeleteBadRequest handles this case with default header values.
+/*
+AdminProfanityDeleteBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminProfanityDeleteBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -225,9 +227,10 @@ func NewAdminProfanityDeleteUnauthorized() *AdminProfanityDeleteUnauthorized {
 	return &AdminProfanityDeleteUnauthorized{}
 }
 
-/*AdminProfanityDeleteUnauthorized handles this case with default header values.
+/*
+AdminProfanityDeleteUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminProfanityDeleteUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -279,9 +282,10 @@ func NewAdminProfanityDeleteForbidden() *AdminProfanityDeleteForbidden {
 	return &AdminProfanityDeleteForbidden{}
 }
 
-/*AdminProfanityDeleteForbidden handles this case with default header values.
+/*
+AdminProfanityDeleteForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminProfanityDeleteForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -333,9 +337,10 @@ func NewAdminProfanityDeleteNotFound() *AdminProfanityDeleteNotFound {
 	return &AdminProfanityDeleteNotFound{}
 }
 
-/*AdminProfanityDeleteNotFound handles this case with default header values.
+/*
+AdminProfanityDeleteNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminProfanityDeleteNotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -387,9 +392,10 @@ func NewAdminProfanityDeleteInternalServerError() *AdminProfanityDeleteInternalS
 	return &AdminProfanityDeleteInternalServerError{}
 }
 
-/*AdminProfanityDeleteInternalServerError handles this case with default header values.
+/*
+AdminProfanityDeleteInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminProfanityDeleteInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

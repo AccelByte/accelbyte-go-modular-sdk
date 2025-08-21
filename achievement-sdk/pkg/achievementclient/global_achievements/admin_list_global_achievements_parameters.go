@@ -99,7 +99,8 @@ func NewAdminListGlobalAchievementsParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminListGlobalAchievementsParams contains all the parameters to send to the API endpoint
+/*
+AdminListGlobalAchievementsParams contains all the parameters to send to the API endpoint
 for the admin list global achievements operation typically these are written to a http.Request
 */
 type AdminListGlobalAchievementsParams struct {

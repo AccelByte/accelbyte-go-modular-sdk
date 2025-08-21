@@ -129,9 +129,10 @@ func NewDeleteAllUserRankingByCycleIDAdminV3NoContent() *DeleteAllUserRankingByC
 	return &DeleteAllUserRankingByCycleIDAdminV3NoContent{}
 }
 
-/*DeleteAllUserRankingByCycleIDAdminV3NoContent handles this case with default header values.
+/*
+DeleteAllUserRankingByCycleIDAdminV3NoContent handles this case with default header values.
 
-  all user ranking in specific cycleId successfully deleted
+	all user ranking in specific cycleId successfully deleted
 */
 type DeleteAllUserRankingByCycleIDAdminV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteAllUserRankingByCycleIDAdminV3Unauthorized() *DeleteAllUserRanking
 	return &DeleteAllUserRankingByCycleIDAdminV3Unauthorized{}
 }
 
-/*DeleteAllUserRankingByCycleIDAdminV3Unauthorized handles this case with default header values.
+/*
+DeleteAllUserRankingByCycleIDAdminV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteAllUserRankingByCycleIDAdminV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -210,9 +212,10 @@ func NewDeleteAllUserRankingByCycleIDAdminV3Forbidden() *DeleteAllUserRankingByC
 	return &DeleteAllUserRankingByCycleIDAdminV3Forbidden{}
 }
 
-/*DeleteAllUserRankingByCycleIDAdminV3Forbidden handles this case with default header values.
+/*
+DeleteAllUserRankingByCycleIDAdminV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>71241</td><td>forbidden environment</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>71241</td><td>forbidden environment</td></tr></table>
 */
 type DeleteAllUserRankingByCycleIDAdminV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -264,9 +267,10 @@ func NewDeleteAllUserRankingByCycleIDAdminV3NotFound() *DeleteAllUserRankingByCy
 	return &DeleteAllUserRankingByCycleIDAdminV3NotFound{}
 }
 
-/*DeleteAllUserRankingByCycleIDAdminV3NotFound handles this case with default header values.
+/*
+DeleteAllUserRankingByCycleIDAdminV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
 */
 type DeleteAllUserRankingByCycleIDAdminV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -318,9 +322,10 @@ func NewDeleteAllUserRankingByCycleIDAdminV3InternalServerError() *DeleteAllUser
 	return &DeleteAllUserRankingByCycleIDAdminV3InternalServerError{}
 }
 
-/*DeleteAllUserRankingByCycleIDAdminV3InternalServerError handles this case with default header values.
+/*
+DeleteAllUserRankingByCycleIDAdminV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DeleteAllUserRankingByCycleIDAdminV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

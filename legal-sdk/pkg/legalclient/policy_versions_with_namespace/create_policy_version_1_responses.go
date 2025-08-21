@@ -85,9 +85,10 @@ func NewCreatePolicyVersion1Created() *CreatePolicyVersion1Created {
 	return &CreatePolicyVersion1Created{}
 }
 
-/*CreatePolicyVersion1Created handles this case with default header values.
+/*
+CreatePolicyVersion1Created handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreatePolicyVersion1Created struct {
 	Payload *legalclientmodels.CreatePolicyVersionResponse
@@ -139,9 +140,10 @@ func NewCreatePolicyVersion1BadRequest() *CreatePolicyVersion1BadRequest {
 	return &CreatePolicyVersion1BadRequest{}
 }
 
-/*CreatePolicyVersion1BadRequest handles this case with default header values.
+/*
+CreatePolicyVersion1BadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy</td></tr></table>
 */
 type CreatePolicyVersion1BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

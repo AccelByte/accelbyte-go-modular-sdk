@@ -115,9 +115,10 @@ func NewPublicGetUserPersonalDataRequestsOK() *PublicGetUserPersonalDataRequests
 	return &PublicGetUserPersonalDataRequestsOK{}
 }
 
-/*PublicGetUserPersonalDataRequestsOK handles this case with default header values.
+/*
+PublicGetUserPersonalDataRequestsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetUserPersonalDataRequestsOK struct {
 	Payload *gdprclientmodels.ModelsUserPersonalDataResponse
@@ -169,9 +170,10 @@ func NewPublicGetUserPersonalDataRequestsBadRequest() *PublicGetUserPersonalData
 	return &PublicGetUserPersonalDataRequestsBadRequest{}
 }
 
-/*PublicGetUserPersonalDataRequestsBadRequest handles this case with default header values.
+/*
+PublicGetUserPersonalDataRequestsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetUserPersonalDataRequestsBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicGetUserPersonalDataRequestsUnauthorized() *PublicGetUserPersonalDa
 	return &PublicGetUserPersonalDataRequestsUnauthorized{}
 }
 
-/*PublicGetUserPersonalDataRequestsUnauthorized handles this case with default header values.
+/*
+PublicGetUserPersonalDataRequestsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetUserPersonalDataRequestsUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicGetUserPersonalDataRequestsInternalServerError() *PublicGetUserPer
 	return &PublicGetUserPersonalDataRequestsInternalServerError{}
 }
 
-/*PublicGetUserPersonalDataRequestsInternalServerError handles this case with default header values.
+/*
+PublicGetUserPersonalDataRequestsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetUserPersonalDataRequestsInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

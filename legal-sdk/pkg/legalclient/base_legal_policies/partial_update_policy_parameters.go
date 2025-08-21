@@ -59,7 +59,8 @@ func NewPartialUpdatePolicyParamsWithHTTPClient(client *http.Client) *PartialUpd
 	}
 }
 
-/*PartialUpdatePolicyParams contains all the parameters to send to the API endpoint
+/*
+PartialUpdatePolicyParams contains all the parameters to send to the API endpoint
 for the partial update policy operation typically these are written to a http.Request
 */
 type PartialUpdatePolicyParams struct {

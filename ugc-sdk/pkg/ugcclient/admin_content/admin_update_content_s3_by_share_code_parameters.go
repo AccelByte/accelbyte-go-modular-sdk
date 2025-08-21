@@ -59,7 +59,8 @@ func NewAdminUpdateContentS3ByShareCodeParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*AdminUpdateContentS3ByShareCodeParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateContentS3ByShareCodeParams contains all the parameters to send to the API endpoint
 for the admin update content s3 by share code operation typically these are written to a http.Request
 */
 type AdminUpdateContentS3ByShareCodeParams struct {

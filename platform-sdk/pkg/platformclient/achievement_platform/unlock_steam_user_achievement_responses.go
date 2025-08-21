@@ -99,9 +99,10 @@ func NewUnlockSteamUserAchievementNoContent() *UnlockSteamUserAchievementNoConte
 	return &UnlockSteamUserAchievementNoContent{}
 }
 
-/*UnlockSteamUserAchievementNoContent handles this case with default header values.
+/*
+UnlockSteamUserAchievementNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UnlockSteamUserAchievementNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewUnlockSteamUserAchievementBadRequest() *UnlockSteamUserAchievementBadReq
 	return &UnlockSteamUserAchievementBadRequest{}
 }
 
-/*UnlockSteamUserAchievementBadRequest handles this case with default header values.
+/*
+UnlockSteamUserAchievementBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UnlockSteamUserAchievementBadRequest struct {
 	Payload *platformclientmodels.ValidationErrorEntity
@@ -180,9 +182,10 @@ func NewUnlockSteamUserAchievementNotFound() *UnlockSteamUserAchievementNotFound
 	return &UnlockSteamUserAchievementNotFound{}
 }
 
-/*UnlockSteamUserAchievementNotFound handles this case with default header values.
+/*
+UnlockSteamUserAchievementNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39244</td><td>Steam config does not exist</td></tr><tr><td>39245</td><td>Steam app id does not exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39244</td><td>Steam config does not exist</td></tr><tr><td>39245</td><td>Steam app id does not exist</td></tr></table>
 */
 type UnlockSteamUserAchievementNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -145,9 +145,10 @@ func NewGetLeaderboardConfigurationAdminV1OK() *GetLeaderboardConfigurationAdmin
 	return &GetLeaderboardConfigurationAdminV1OK{}
 }
 
-/*GetLeaderboardConfigurationAdminV1OK handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV1OK handles this case with default header values.
 
-  Leaderboard retrieved
+	Leaderboard retrieved
 */
 type GetLeaderboardConfigurationAdminV1OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardConfigResp
@@ -199,9 +200,10 @@ func NewGetLeaderboardConfigurationAdminV1BadRequest() *GetLeaderboardConfigurat
 	return &GetLeaderboardConfigurationAdminV1BadRequest{}
 }
 
-/*GetLeaderboardConfigurationAdminV1BadRequest handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV1BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetLeaderboardConfigurationAdminV1Unauthorized() *GetLeaderboardConfigur
 	return &GetLeaderboardConfigurationAdminV1Unauthorized{}
 }
 
-/*GetLeaderboardConfigurationAdminV1Unauthorized handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV1Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetLeaderboardConfigurationAdminV1Forbidden() *GetLeaderboardConfigurati
 	return &GetLeaderboardConfigurationAdminV1Forbidden{}
 }
 
-/*GetLeaderboardConfigurationAdminV1Forbidden handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV1Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetLeaderboardConfigurationAdminV1NotFound() *GetLeaderboardConfiguratio
 	return &GetLeaderboardConfigurationAdminV1NotFound{}
 }
 
-/*GetLeaderboardConfigurationAdminV1NotFound handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV1NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetLeaderboardConfigurationAdminV1InternalServerError() *GetLeaderboardC
 	return &GetLeaderboardConfigurationAdminV1InternalServerError{}
 }
 
-/*GetLeaderboardConfigurationAdminV1InternalServerError handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

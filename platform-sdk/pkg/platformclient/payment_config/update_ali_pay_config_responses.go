@@ -85,9 +85,10 @@ func NewUpdateAliPayConfigOK() *UpdateAliPayConfigOK {
 	return &UpdateAliPayConfigOK{}
 }
 
-/*UpdateAliPayConfigOK handles this case with default header values.
+/*
+UpdateAliPayConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateAliPayConfigOK struct {
 	Payload *platformclientmodels.PaymentMerchantConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateAliPayConfigNotFound() *UpdateAliPayConfigNotFound {
 	return &UpdateAliPayConfigNotFound{}
 }
 
-/*UpdateAliPayConfigNotFound handles this case with default header values.
+/*
+UpdateAliPayConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr><tr><td>33221</td><td>Update [{paymentProvider}] config in payment merchant config [{id}] failed with message [{errMsg}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr><tr><td>33221</td><td>Update [{paymentProvider}] config in payment merchant config [{id}] failed with message [{errMsg}]</td></tr></table>
 */
 type UpdateAliPayConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

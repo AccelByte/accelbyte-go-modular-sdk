@@ -100,9 +100,10 @@ func NewCreateKeyGroupCreated() *CreateKeyGroupCreated {
 	return &CreateKeyGroupCreated{}
 }
 
-/*CreateKeyGroupCreated handles this case with default header values.
+/*
+CreateKeyGroupCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateKeyGroupCreated struct {
 	Payload *platformclientmodels.KeyGroupInfo
@@ -154,9 +155,10 @@ func NewCreateKeyGroupConflict() *CreateKeyGroupConflict {
 	return &CreateKeyGroupConflict{}
 }
 
-/*CreateKeyGroupConflict handles this case with default header values.
+/*
+CreateKeyGroupConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37271</td><td>Key group [{name}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37271</td><td>Key group [{name}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type CreateKeyGroupConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewCreateKeyGroupUnprocessableEntity() *CreateKeyGroupUnprocessableEntity {
 	return &CreateKeyGroupUnprocessableEntity{}
 }
 
-/*CreateKeyGroupUnprocessableEntity handles this case with default header values.
+/*
+CreateKeyGroupUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateKeyGroupUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

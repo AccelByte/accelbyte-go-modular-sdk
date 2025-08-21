@@ -145,9 +145,10 @@ func NewPublicUpdateInsertPartySessionStorageReservedOK() *PublicUpdateInsertPar
 	return &PublicUpdateInsertPartySessionStorageReservedOK{}
 }
 
-/*PublicUpdateInsertPartySessionStorageReservedOK handles this case with default header values.
+/*
+PublicUpdateInsertPartySessionStorageReservedOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicUpdateInsertPartySessionStorageReservedOK struct {
 	Payload map[string]interface{}
@@ -197,9 +198,10 @@ func NewPublicUpdateInsertPartySessionStorageReservedBadRequest() *PublicUpdateI
 	return &PublicUpdateInsertPartySessionStorageReservedBadRequest{}
 }
 
-/*PublicUpdateInsertPartySessionStorageReservedBadRequest handles this case with default header values.
+/*
+PublicUpdateInsertPartySessionStorageReservedBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicUpdateInsertPartySessionStorageReservedBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -251,9 +253,10 @@ func NewPublicUpdateInsertPartySessionStorageReservedUnauthorized() *PublicUpdat
 	return &PublicUpdateInsertPartySessionStorageReservedUnauthorized{}
 }
 
-/*PublicUpdateInsertPartySessionStorageReservedUnauthorized handles this case with default header values.
+/*
+PublicUpdateInsertPartySessionStorageReservedUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicUpdateInsertPartySessionStorageReservedUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -305,9 +308,10 @@ func NewPublicUpdateInsertPartySessionStorageReservedForbidden() *PublicUpdateIn
 	return &PublicUpdateInsertPartySessionStorageReservedForbidden{}
 }
 
-/*PublicUpdateInsertPartySessionStorageReservedForbidden handles this case with default header values.
+/*
+PublicUpdateInsertPartySessionStorageReservedForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicUpdateInsertPartySessionStorageReservedForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -359,9 +363,10 @@ func NewPublicUpdateInsertPartySessionStorageReservedNotFound() *PublicUpdateIns
 	return &PublicUpdateInsertPartySessionStorageReservedNotFound{}
 }
 
-/*PublicUpdateInsertPartySessionStorageReservedNotFound handles this case with default header values.
+/*
+PublicUpdateInsertPartySessionStorageReservedNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicUpdateInsertPartySessionStorageReservedNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -413,9 +418,10 @@ func NewPublicUpdateInsertPartySessionStorageReservedInternalServerError() *Publ
 	return &PublicUpdateInsertPartySessionStorageReservedInternalServerError{}
 }
 
-/*PublicUpdateInsertPartySessionStorageReservedInternalServerError handles this case with default header values.
+/*
+PublicUpdateInsertPartySessionStorageReservedInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicUpdateInsertPartySessionStorageReservedInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

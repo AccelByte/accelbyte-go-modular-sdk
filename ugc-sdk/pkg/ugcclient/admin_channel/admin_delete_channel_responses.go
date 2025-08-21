@@ -114,9 +114,10 @@ func NewAdminDeleteChannelNoContent() *AdminDeleteChannelNoContent {
 	return &AdminDeleteChannelNoContent{}
 }
 
-/*AdminDeleteChannelNoContent handles this case with default header values.
+/*
+AdminDeleteChannelNoContent handles this case with default header values.
 
-  Channel deleted
+	Channel deleted
 */
 type AdminDeleteChannelNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminDeleteChannelUnauthorized() *AdminDeleteChannelUnauthorized {
 	return &AdminDeleteChannelUnauthorized{}
 }
 
-/*AdminDeleteChannelUnauthorized handles this case with default header values.
+/*
+AdminDeleteChannelUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteChannelUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewAdminDeleteChannelNotFound() *AdminDeleteChannelNotFound {
 	return &AdminDeleteChannelNotFound{}
 }
 
-/*AdminDeleteChannelNotFound handles this case with default header values.
+/*
+AdminDeleteChannelNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772502</td><td>Channel not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772502</td><td>Channel not found</td></tr></table>
 */
 type AdminDeleteChannelNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewAdminDeleteChannelInternalServerError() *AdminDeleteChannelInternalServe
 	return &AdminDeleteChannelInternalServerError{}
 }
 
-/*AdminDeleteChannelInternalServerError handles this case with default header values.
+/*
+AdminDeleteChannelInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772501</td><td>Unable to delete channel</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772501</td><td>Unable to delete channel</td></tr></table>
 */
 type AdminDeleteChannelInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

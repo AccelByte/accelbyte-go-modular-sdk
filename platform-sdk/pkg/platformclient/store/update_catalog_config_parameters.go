@@ -59,7 +59,8 @@ func NewUpdateCatalogConfigParamsWithHTTPClient(client *http.Client) *UpdateCata
 	}
 }
 
-/*UpdateCatalogConfigParams contains all the parameters to send to the API endpoint
+/*
+UpdateCatalogConfigParams contains all the parameters to send to the API endpoint
 for the update catalog config operation typically these are written to a http.Request
 */
 type UpdateCatalogConfigParams struct {

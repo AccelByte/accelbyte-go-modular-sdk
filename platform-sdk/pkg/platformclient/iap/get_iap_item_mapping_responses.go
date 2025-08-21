@@ -85,9 +85,10 @@ func NewGetIAPItemMappingOK() *GetIAPItemMappingOK {
 	return &GetIAPItemMappingOK{}
 }
 
-/*GetIAPItemMappingOK handles this case with default header values.
+/*
+GetIAPItemMappingOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetIAPItemMappingOK struct {
 	Payload *platformclientmodels.IAPItemMappingInfo
@@ -139,9 +140,10 @@ func NewGetIAPItemMappingNotFound() *GetIAPItemMappingNotFound {
 	return &GetIAPItemMappingNotFound{}
 }
 
-/*GetIAPItemMappingNotFound handles this case with default header values.
+/*
+GetIAPItemMappingNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39341</td><td>IAP item config cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39341</td><td>IAP item config cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type GetIAPItemMappingNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

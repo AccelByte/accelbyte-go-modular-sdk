@@ -85,9 +85,10 @@ func NewPublicGetEstimatedPriceOK() *PublicGetEstimatedPriceOK {
 	return &PublicGetEstimatedPriceOK{}
 }
 
-/*PublicGetEstimatedPriceOK handles this case with default header values.
+/*
+PublicGetEstimatedPriceOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetEstimatedPriceOK struct {
 	Payload []*platformclientmodels.EstimatedPriceInfo
@@ -137,9 +138,10 @@ func NewPublicGetEstimatedPriceNotFound() *PublicGetEstimatedPriceNotFound {
 	return &PublicGetEstimatedPriceNotFound{}
 }
 
-/*PublicGetEstimatedPriceNotFound handles this case with default header values.
+/*
+PublicGetEstimatedPriceNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicGetEstimatedPriceNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -115,9 +115,10 @@ func NewSingleAdminGetChannelOK() *SingleAdminGetChannelOK {
 	return &SingleAdminGetChannelOK{}
 }
 
-/*SingleAdminGetChannelOK handles this case with default header values.
+/*
+SingleAdminGetChannelOK handles this case with default header values.
 
-  Get channels
+	Get channels
 */
 type SingleAdminGetChannelOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGetChannelResponse
@@ -169,9 +170,10 @@ func NewSingleAdminGetChannelBadRequest() *SingleAdminGetChannelBadRequest {
 	return &SingleAdminGetChannelBadRequest{}
 }
 
-/*SingleAdminGetChannelBadRequest handles this case with default header values.
+/*
+SingleAdminGetChannelBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770702</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770702</td><td>invalid paging parameter</td></tr></table>
 */
 type SingleAdminGetChannelBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewSingleAdminGetChannelUnauthorized() *SingleAdminGetChannelUnauthorized {
 	return &SingleAdminGetChannelUnauthorized{}
 }
 
-/*SingleAdminGetChannelUnauthorized handles this case with default header values.
+/*
+SingleAdminGetChannelUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SingleAdminGetChannelUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewSingleAdminGetChannelInternalServerError() *SingleAdminGetChannelInterna
 	return &SingleAdminGetChannelInternalServerError{}
 }
 
-/*SingleAdminGetChannelInternalServerError handles this case with default header values.
+/*
+SingleAdminGetChannelInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770700</td><td>Unable get user channels</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770700</td><td>Unable get user channels</td></tr></table>
 */
 type SingleAdminGetChannelInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -129,9 +129,10 @@ func NewDeletePluginConfigNoContent() *DeletePluginConfigNoContent {
 	return &DeletePluginConfigNoContent{}
 }
 
-/*DeletePluginConfigNoContent handles this case with default header values.
+/*
+DeletePluginConfigNoContent handles this case with default header values.
 
-  OK
+	OK
 */
 type DeletePluginConfigNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeletePluginConfigUnauthorized() *DeletePluginConfigUnauthorized {
 	return &DeletePluginConfigUnauthorized{}
 }
 
-/*DeletePluginConfigUnauthorized handles this case with default header values.
+/*
+DeletePluginConfigUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeletePluginConfigUnauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -210,9 +212,10 @@ func NewDeletePluginConfigForbidden() *DeletePluginConfigForbidden {
 	return &DeletePluginConfigForbidden{}
 }
 
-/*DeletePluginConfigForbidden handles this case with default header values.
+/*
+DeletePluginConfigForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeletePluginConfigForbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -264,9 +267,10 @@ func NewDeletePluginConfigNotFound() *DeletePluginConfigNotFound {
 	return &DeletePluginConfigNotFound{}
 }
 
-/*DeletePluginConfigNotFound handles this case with default header values.
+/*
+DeletePluginConfigNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18406</td><td>plugins config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18406</td><td>plugins config not found</td></tr></table>
 */
 type DeletePluginConfigNotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -318,9 +322,10 @@ func NewDeletePluginConfigInternalServerError() *DeletePluginConfigInternalServe
 	return &DeletePluginConfigInternalServerError{}
 }
 
-/*DeletePluginConfigInternalServerError handles this case with default header values.
+/*
+DeletePluginConfigInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DeletePluginConfigInternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

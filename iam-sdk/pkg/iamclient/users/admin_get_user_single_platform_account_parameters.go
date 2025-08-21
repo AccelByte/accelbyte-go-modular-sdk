@@ -70,7 +70,8 @@ func NewAdminGetUserSinglePlatformAccountParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*AdminGetUserSinglePlatformAccountParams contains all the parameters to send to the API endpoint
+/*
+AdminGetUserSinglePlatformAccountParams contains all the parameters to send to the API endpoint
 for the admin get user single platform account operation typically these are written to a http.Request
 */
 type AdminGetUserSinglePlatformAccountParams struct {

@@ -59,7 +59,8 @@ func NewAdminPostTagHandlerV1ParamsWithHTTPClient(client *http.Client) *AdminPos
 	}
 }
 
-/*AdminPostTagHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+AdminPostTagHandlerV1Params contains all the parameters to send to the API endpoint
 for the admin post tag handler v1 operation typically these are written to a http.Request
 */
 type AdminPostTagHandlerV1Params struct {

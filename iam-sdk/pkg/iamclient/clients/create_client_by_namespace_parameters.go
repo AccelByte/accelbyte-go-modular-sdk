@@ -59,7 +59,8 @@ func NewCreateClientByNamespaceParamsWithHTTPClient(client *http.Client) *Create
 	}
 }
 
-/*CreateClientByNamespaceParams contains all the parameters to send to the API endpoint
+/*
+CreateClientByNamespaceParams contains all the parameters to send to the API endpoint
 for the create client by namespace operation typically these are written to a http.Request
 */
 type CreateClientByNamespaceParams struct {

@@ -57,7 +57,8 @@ func NewAdminRandomizeChallengeParamsWithHTTPClient(client *http.Client) *AdminR
 	}
 }
 
-/*AdminRandomizeChallengeParams contains all the parameters to send to the API endpoint
+/*
+AdminRandomizeChallengeParams contains all the parameters to send to the API endpoint
 for the admin randomize challenge operation typically these are written to a http.Request
 */
 type AdminRandomizeChallengeParams struct {

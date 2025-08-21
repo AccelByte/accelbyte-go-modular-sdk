@@ -144,9 +144,10 @@ func NewAdminUpdateProfanityListOK() *AdminUpdateProfanityListOK {
 	return &AdminUpdateProfanityListOK{}
 }
 
-/*AdminUpdateProfanityListOK handles this case with default header values.
+/*
+AdminUpdateProfanityListOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateProfanityListOK struct {
 }
@@ -171,9 +172,10 @@ func NewAdminUpdateProfanityListBadRequest() *AdminUpdateProfanityListBadRequest
 	return &AdminUpdateProfanityListBadRequest{}
 }
 
-/*AdminUpdateProfanityListBadRequest handles this case with default header values.
+/*
+AdminUpdateProfanityListBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateProfanityListBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -225,9 +227,10 @@ func NewAdminUpdateProfanityListUnauthorized() *AdminUpdateProfanityListUnauthor
 	return &AdminUpdateProfanityListUnauthorized{}
 }
 
-/*AdminUpdateProfanityListUnauthorized handles this case with default header values.
+/*
+AdminUpdateProfanityListUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdateProfanityListUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -279,9 +282,10 @@ func NewAdminUpdateProfanityListForbidden() *AdminUpdateProfanityListForbidden {
 	return &AdminUpdateProfanityListForbidden{}
 }
 
-/*AdminUpdateProfanityListForbidden handles this case with default header values.
+/*
+AdminUpdateProfanityListForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdateProfanityListForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -333,9 +337,10 @@ func NewAdminUpdateProfanityListNotFound() *AdminUpdateProfanityListNotFound {
 	return &AdminUpdateProfanityListNotFound{}
 }
 
-/*AdminUpdateProfanityListNotFound handles this case with default header values.
+/*
+AdminUpdateProfanityListNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateProfanityListNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -387,9 +392,10 @@ func NewAdminUpdateProfanityListInternalServerError() *AdminUpdateProfanityListI
 	return &AdminUpdateProfanityListInternalServerError{}
 }
 
-/*AdminUpdateProfanityListInternalServerError handles this case with default header values.
+/*
+AdminUpdateProfanityListInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateProfanityListInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

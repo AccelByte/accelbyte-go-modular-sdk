@@ -100,9 +100,10 @@ func NewRetrieveSingleLocalizedPolicyVersion3OK() *RetrieveSingleLocalizedPolicy
 	return &RetrieveSingleLocalizedPolicyVersion3OK{}
 }
 
-/*RetrieveSingleLocalizedPolicyVersion3OK handles this case with default header values.
+/*
+RetrieveSingleLocalizedPolicyVersion3OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveSingleLocalizedPolicyVersion3OK struct {
 	Payload *legalclientmodels.RetrieveLocalizedPolicyVersionPublicResponse
@@ -154,9 +155,10 @@ func NewRetrieveSingleLocalizedPolicyVersion3Forbidden() *RetrieveSingleLocalize
 	return &RetrieveSingleLocalizedPolicyVersion3Forbidden{}
 }
 
-/*RetrieveSingleLocalizedPolicyVersion3Forbidden handles this case with default header values.
+/*
+RetrieveSingleLocalizedPolicyVersion3Forbidden handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40081</td><td>errors.net.accelbyte.platform.legal.policy_not_accessible</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40081</td><td>errors.net.accelbyte.platform.legal.policy_not_accessible</td></tr></table>
 */
 type RetrieveSingleLocalizedPolicyVersion3Forbidden struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewRetrieveSingleLocalizedPolicyVersion3NotFound() *RetrieveSingleLocalized
 	return &RetrieveSingleLocalizedPolicyVersion3NotFound{}
 }
 
-/*RetrieveSingleLocalizedPolicyVersion3NotFound handles this case with default header values.
+/*
+RetrieveSingleLocalizedPolicyVersion3NotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40038</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_not_found</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40038</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_not_found</td></tr></table>
 */
 type RetrieveSingleLocalizedPolicyVersion3NotFound struct {
 	Payload *legalclientmodels.ErrorEntity

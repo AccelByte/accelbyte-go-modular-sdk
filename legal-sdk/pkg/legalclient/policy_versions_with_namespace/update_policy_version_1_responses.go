@@ -100,9 +100,10 @@ func NewUpdatePolicyVersion1OK() *UpdatePolicyVersion1OK {
 	return &UpdatePolicyVersion1OK{}
 }
 
-/*UpdatePolicyVersion1OK handles this case with default header values.
+/*
+UpdatePolicyVersion1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePolicyVersion1OK struct {
 	Payload *legalclientmodels.UpdatePolicyVersionResponse
@@ -154,9 +155,10 @@ func NewUpdatePolicyVersion1BadRequest() *UpdatePolicyVersion1BadRequest {
 	return &UpdatePolicyVersion1BadRequest{}
 }
 
-/*UpdatePolicyVersion1BadRequest handles this case with default header values.
+/*
+UpdatePolicyVersion1BadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr><tr><td>40042</td><td>errors.net.accelbyte.platform.legal.policy_version_freezed</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr><tr><td>40042</td><td>errors.net.accelbyte.platform.legal.policy_version_freezed</td></tr></table>
 */
 type UpdatePolicyVersion1BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewUpdatePolicyVersion1Conflict() *UpdatePolicyVersion1Conflict {
 	return &UpdatePolicyVersion1Conflict{}
 }
 
-/*UpdatePolicyVersion1Conflict handles this case with default header values.
+/*
+UpdatePolicyVersion1Conflict handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40043</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_exist</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40043</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_exist</td></tr></table>
 */
 type UpdatePolicyVersion1Conflict struct {
 	Payload *legalclientmodels.ErrorEntity

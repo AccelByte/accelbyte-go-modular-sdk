@@ -115,9 +115,10 @@ func NewPublicGetCreatorOK() *PublicGetCreatorOK {
 	return &PublicGetCreatorOK{}
 }
 
-/*PublicGetCreatorOK handles this case with default header values.
+/*
+PublicGetCreatorOK handles this case with default header values.
 
-  Get creator stats
+	Get creator stats
 */
 type PublicGetCreatorOK struct {
 	Payload *ugcclientmodels.ModelsCreatorResponse
@@ -169,9 +170,10 @@ func NewPublicGetCreatorUnauthorized() *PublicGetCreatorUnauthorized {
 	return &PublicGetCreatorUnauthorized{}
 }
 
-/*PublicGetCreatorUnauthorized handles this case with default header values.
+/*
+PublicGetCreatorUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetCreatorUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicGetCreatorNotFound() *PublicGetCreatorNotFound {
 	return &PublicGetCreatorNotFound{}
 }
 
-/*PublicGetCreatorNotFound handles this case with default header values.
+/*
+PublicGetCreatorNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771601</td><td>Creator not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771601</td><td>Creator not found</td></tr></table>
 */
 type PublicGetCreatorNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicGetCreatorInternalServerError() *PublicGetCreatorInternalServerErr
 	return &PublicGetCreatorInternalServerError{}
 }
 
-/*PublicGetCreatorInternalServerError handles this case with default header values.
+/*
+PublicGetCreatorInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771103</td><td>Unable to get total liked content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771103</td><td>Unable to get total liked content</td></tr></table>
 */
 type PublicGetCreatorInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewGetRevocationPluginConfigParamsWithHTTPClient(client *http.Client) *GetR
 	}
 }
 
-/*GetRevocationPluginConfigParams contains all the parameters to send to the API endpoint
+/*
+GetRevocationPluginConfigParams contains all the parameters to send to the API endpoint
 for the get revocation plugin config operation typically these are written to a http.Request
 */
 type GetRevocationPluginConfigParams struct {

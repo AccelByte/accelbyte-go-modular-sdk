@@ -57,7 +57,8 @@ func NewAdminExportConfigV1ParamsWithHTTPClient(client *http.Client) *AdminExpor
 	}
 }
 
-/*AdminExportConfigV1Params contains all the parameters to send to the API endpoint
+/*
+AdminExportConfigV1Params contains all the parameters to send to the API endpoint
 for the admin export config v1 operation typically these are written to a http.Request
 */
 type AdminExportConfigV1Params struct {

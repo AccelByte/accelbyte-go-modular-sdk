@@ -69,9 +69,10 @@ func NewGetXboxEntitlementOwnershipOK() *GetXboxEntitlementOwnershipOK {
 	return &GetXboxEntitlementOwnershipOK{}
 }
 
-/*GetXboxEntitlementOwnershipOK handles this case with default header values.
+/*
+GetXboxEntitlementOwnershipOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetXboxEntitlementOwnershipOK struct {
 	Payload *platformclientmodels.PlatformOwnership

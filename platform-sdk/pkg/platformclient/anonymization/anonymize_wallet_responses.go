@@ -66,9 +66,10 @@ func NewAnonymizeWalletNoContent() *AnonymizeWalletNoContent {
 	return &AnonymizeWalletNoContent{}
 }
 
-/*AnonymizeWalletNoContent handles this case with default header values.
+/*
+AnonymizeWalletNoContent handles this case with default header values.
 
-  Anonymize successfully
+	Anonymize successfully
 */
 type AnonymizeWalletNoContent struct {
 }

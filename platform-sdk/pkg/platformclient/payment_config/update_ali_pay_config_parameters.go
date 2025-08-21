@@ -80,7 +80,8 @@ func NewUpdateAliPayConfigParamsWithHTTPClient(client *http.Client) *UpdateAliPa
 	}
 }
 
-/*UpdateAliPayConfigParams contains all the parameters to send to the API endpoint
+/*
+UpdateAliPayConfigParams contains all the parameters to send to the API endpoint
 for the update ali pay config operation typically these are written to a http.Request
 */
 type UpdateAliPayConfigParams struct {

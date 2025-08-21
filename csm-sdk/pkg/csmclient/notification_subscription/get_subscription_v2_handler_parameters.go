@@ -57,7 +57,8 @@ func NewGetSubscriptionV2HandlerParamsWithHTTPClient(client *http.Client) *GetSu
 	}
 }
 
-/*GetSubscriptionV2HandlerParams contains all the parameters to send to the API endpoint
+/*
+GetSubscriptionV2HandlerParams contains all the parameters to send to the API endpoint
 for the get subscription v2 handler operation typically these are written to a http.Request
 */
 type GetSubscriptionV2HandlerParams struct {

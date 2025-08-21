@@ -145,9 +145,10 @@ func NewPublicListSchedulesByGoalOK() *PublicListSchedulesByGoalOK {
 	return &PublicListSchedulesByGoalOK{}
 }
 
-/*PublicListSchedulesByGoalOK handles this case with default header values.
+/*
+PublicListSchedulesByGoalOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicListSchedulesByGoalOK struct {
 	Payload *challengeclientmodels.ModelListScheduleByGoalResponse
@@ -199,9 +200,10 @@ func NewPublicListSchedulesByGoalBadRequest() *PublicListSchedulesByGoalBadReque
 	return &PublicListSchedulesByGoalBadRequest{}
 }
 
-/*PublicListSchedulesByGoalBadRequest handles this case with default header values.
+/*
+PublicListSchedulesByGoalBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type PublicListSchedulesByGoalBadRequest struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -253,9 +255,10 @@ func NewPublicListSchedulesByGoalUnauthorized() *PublicListSchedulesByGoalUnauth
 	return &PublicListSchedulesByGoalUnauthorized{}
 }
 
-/*PublicListSchedulesByGoalUnauthorized handles this case with default header values.
+/*
+PublicListSchedulesByGoalUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicListSchedulesByGoalUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -307,9 +310,10 @@ func NewPublicListSchedulesByGoalForbidden() *PublicListSchedulesByGoalForbidden
 	return &PublicListSchedulesByGoalForbidden{}
 }
 
-/*PublicListSchedulesByGoalForbidden handles this case with default header values.
+/*
+PublicListSchedulesByGoalForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicListSchedulesByGoalForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -361,9 +365,10 @@ func NewPublicListSchedulesByGoalNotFound() *PublicListSchedulesByGoalNotFound {
 	return &PublicListSchedulesByGoalNotFound{}
 }
 
-/*PublicListSchedulesByGoalNotFound handles this case with default header values.
+/*
+PublicListSchedulesByGoalNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type PublicListSchedulesByGoalNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicListSchedulesByGoalInternalServerError() *PublicListSchedulesByGoa
 	return &PublicListSchedulesByGoalInternalServerError{}
 }
 
-/*PublicListSchedulesByGoalInternalServerError handles this case with default header values.
+/*
+PublicListSchedulesByGoalInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type PublicListSchedulesByGoalInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

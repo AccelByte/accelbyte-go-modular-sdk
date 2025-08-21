@@ -99,7 +99,8 @@ func NewAdminListTagsParamsWithHTTPClient(client *http.Client) *AdminListTagsPar
 	}
 }
 
-/*AdminListTagsParams contains all the parameters to send to the API endpoint
+/*
+AdminListTagsParams contains all the parameters to send to the API endpoint
 for the admin list tags operation typically these are written to a http.Request
 */
 type AdminListTagsParams struct {

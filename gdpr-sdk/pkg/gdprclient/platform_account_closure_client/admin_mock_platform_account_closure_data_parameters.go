@@ -59,7 +59,8 @@ func NewAdminMockPlatformAccountClosureDataParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*AdminMockPlatformAccountClosureDataParams contains all the parameters to send to the API endpoint
+/*
+AdminMockPlatformAccountClosureDataParams contains all the parameters to send to the API endpoint
 for the admin mock platform account closure data operation typically these are written to a http.Request
 */
 type AdminMockPlatformAccountClosureDataParams struct {

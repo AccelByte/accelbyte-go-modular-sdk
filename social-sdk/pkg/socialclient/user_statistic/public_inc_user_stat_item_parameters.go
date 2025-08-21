@@ -59,7 +59,8 @@ func NewPublicIncUserStatItemParamsWithHTTPClient(client *http.Client) *PublicIn
 	}
 }
 
-/*PublicIncUserStatItemParams contains all the parameters to send to the API endpoint
+/*
+PublicIncUserStatItemParams contains all the parameters to send to the API endpoint
 for the public inc user stat item operation typically these are written to a http.Request
 */
 type PublicIncUserStatItemParams struct {

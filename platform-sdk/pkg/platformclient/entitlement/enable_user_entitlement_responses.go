@@ -100,9 +100,10 @@ func NewEnableUserEntitlementOK() *EnableUserEntitlementOK {
 	return &EnableUserEntitlementOK{}
 }
 
-/*EnableUserEntitlementOK handles this case with default header values.
+/*
+EnableUserEntitlementOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type EnableUserEntitlementOK struct {
 	Payload *platformclientmodels.EntitlementInfo
@@ -154,9 +155,10 @@ func NewEnableUserEntitlementNotFound() *EnableUserEntitlementNotFound {
 	return &EnableUserEntitlementNotFound{}
 }
 
-/*EnableUserEntitlementNotFound handles this case with default header values.
+/*
+EnableUserEntitlementNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type EnableUserEntitlementNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewEnableUserEntitlementConflict() *EnableUserEntitlementConflict {
 	return &EnableUserEntitlementConflict{}
 }
 
-/*EnableUserEntitlementConflict handles this case with default header values.
+/*
+EnableUserEntitlementConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31171</td><td>Entitlement [{entitlementId}] already revoked</td></tr><tr><td>31174</td><td>Entitlement [{entitlementId}] already consumed</td></tr><tr><td>31177</td><td>Permanent item already owned</td></tr><tr><td>31179</td><td>Duplicate entitlement exists</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31171</td><td>Entitlement [{entitlementId}] already revoked</td></tr><tr><td>31174</td><td>Entitlement [{entitlementId}] already consumed</td></tr><tr><td>31177</td><td>Permanent item already owned</td></tr><tr><td>31179</td><td>Duplicate entitlement exists</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type EnableUserEntitlementConflict struct {
 	Payload *platformclientmodels.ErrorEntity

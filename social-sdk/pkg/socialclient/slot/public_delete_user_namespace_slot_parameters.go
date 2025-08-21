@@ -57,7 +57,8 @@ func NewPublicDeleteUserNamespaceSlotParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicDeleteUserNamespaceSlotParams contains all the parameters to send to the API endpoint
+/*
+PublicDeleteUserNamespaceSlotParams contains all the parameters to send to the API endpoint
 for the public delete user namespace slot operation typically these are written to a http.Request
 */
 type PublicDeleteUserNamespaceSlotParams struct {

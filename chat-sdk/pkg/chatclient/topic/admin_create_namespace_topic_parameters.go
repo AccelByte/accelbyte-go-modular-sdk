@@ -59,7 +59,8 @@ func NewAdminCreateNamespaceTopicParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminCreateNamespaceTopicParams contains all the parameters to send to the API endpoint
+/*
+AdminCreateNamespaceTopicParams contains all the parameters to send to the API endpoint
 for the admin create namespace topic operation typically these are written to a http.Request
 */
 type AdminCreateNamespaceTopicParams struct {

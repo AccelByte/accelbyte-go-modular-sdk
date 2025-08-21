@@ -59,7 +59,8 @@ func NewUpdateUserPointAdminV1ParamsWithHTTPClient(client *http.Client) *UpdateU
 	}
 }
 
-/*UpdateUserPointAdminV1Params contains all the parameters to send to the API endpoint
+/*
+UpdateUserPointAdminV1Params contains all the parameters to send to the API endpoint
 for the update user point admin v1 operation typically these are written to a http.Request
 */
 type UpdateUserPointAdminV1Params struct {

@@ -85,9 +85,10 @@ func NewGetItemOK() *GetItemOK {
 	return &GetItemOK{}
 }
 
-/*GetItemOK handles this case with default header values.
+/*
+GetItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetItemOK struct {
 	Payload *platformclientmodels.FullItemInfo
@@ -139,9 +140,10 @@ func NewGetItemNotFound() *GetItemNotFound {
 	return &GetItemNotFound{}
 }
 
-/*GetItemNotFound handles this case with default header values.
+/*
+GetItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

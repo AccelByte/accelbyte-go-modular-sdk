@@ -130,9 +130,10 @@ func NewAdminGetUserAccountDeletionRequestOK() *AdminGetUserAccountDeletionReque
 	return &AdminGetUserAccountDeletionRequestOK{}
 }
 
-/*AdminGetUserAccountDeletionRequestOK handles this case with default header values.
+/*
+AdminGetUserAccountDeletionRequestOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserAccountDeletionRequestOK struct {
 	Payload *gdprclientmodels.ModelsDeletionData
@@ -184,9 +185,10 @@ func NewAdminGetUserAccountDeletionRequestUnauthorized() *AdminGetUserAccountDel
 	return &AdminGetUserAccountDeletionRequestUnauthorized{}
 }
 
-/*AdminGetUserAccountDeletionRequestUnauthorized handles this case with default header values.
+/*
+AdminGetUserAccountDeletionRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetUserAccountDeletionRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetUserAccountDeletionRequestForbidden() *AdminGetUserAccountDeleti
 	return &AdminGetUserAccountDeletionRequestForbidden{}
 }
 
-/*AdminGetUserAccountDeletionRequestForbidden handles this case with default header values.
+/*
+AdminGetUserAccountDeletionRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetUserAccountDeletionRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGetUserAccountDeletionRequestNotFound() *AdminGetUserAccountDeletio
 	return &AdminGetUserAccountDeletionRequestNotFound{}
 }
 
-/*AdminGetUserAccountDeletionRequestNotFound handles this case with default header values.
+/*
+AdminGetUserAccountDeletionRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetUserAccountDeletionRequestNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetUserAccountDeletionRequestInternalServerError() *AdminGetUserAcc
 	return &AdminGetUserAccountDeletionRequestInternalServerError{}
 }
 
-/*AdminGetUserAccountDeletionRequestInternalServerError handles this case with default header values.
+/*
+AdminGetUserAccountDeletionRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetUserAccountDeletionRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

@@ -115,9 +115,10 @@ func NewFulfillItemOK() *FulfillItemOK {
 	return &FulfillItemOK{}
 }
 
-/*FulfillItemOK handles this case with default header values.
+/*
+FulfillItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type FulfillItemOK struct {
 	Payload *platformclientmodels.FulfillmentResult
@@ -169,9 +170,10 @@ func NewFulfillItemBadRequest() *FulfillItemBadRequest {
 	return &FulfillItemBadRequest{}
 }
 
-/*FulfillItemBadRequest handles this case with default header values.
+/*
+FulfillItemBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>38122</td><td>Subscription endDate required</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>38122</td><td>Subscription endDate required</td></tr></table>
 */
 type FulfillItemBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewFulfillItemNotFound() *FulfillItemNotFound {
 	return &FulfillItemNotFound{}
 }
 
-/*FulfillItemNotFound handles this case with default header values.
+/*
+FulfillItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type FulfillItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewFulfillItemConflict() *FulfillItemConflict {
 	return &FulfillItemConflict{}
 }
 
-/*FulfillItemConflict handles this case with default header values.
+/*
+FulfillItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type FulfillItemConflict struct {
 	Payload *platformclientmodels.ErrorEntity

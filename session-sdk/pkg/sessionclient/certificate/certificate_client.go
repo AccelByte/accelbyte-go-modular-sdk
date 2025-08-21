@@ -37,7 +37,7 @@ type ClientService interface {
 
 /*
 AdminUploadXBoxCertificateShort upload certificates for xbox.
-Upload certificates for XBox. Certificate must be in the valid form of PFX format. 'certname'' must be specified to 'xbl-pfx' for Session Sync to work
+Upload certificates for XBox. Certificate must be in the valid form of PFX format. 'certname” must be specified to 'xbl-pfx' for Session Sync to work
 */
 func (a *Client) AdminUploadXBoxCertificateShort(params *AdminUploadXBoxCertificateParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadXBoxCertificateResponse, error) {
 	// TODO: Validate the params before sending

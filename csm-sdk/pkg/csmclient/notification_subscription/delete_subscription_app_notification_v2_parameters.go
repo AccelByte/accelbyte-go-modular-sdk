@@ -57,7 +57,8 @@ func NewDeleteSubscriptionAppNotificationV2ParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*DeleteSubscriptionAppNotificationV2Params contains all the parameters to send to the API endpoint
+/*
+DeleteSubscriptionAppNotificationV2Params contains all the parameters to send to the API endpoint
 for the delete subscription app notification v2 operation typically these are written to a http.Request
 */
 type DeleteSubscriptionAppNotificationV2Params struct {

@@ -129,9 +129,10 @@ func NewCreateArchivedLeaderboardRankingDataV1HandlerCreated() *CreateArchivedLe
 	return &CreateArchivedLeaderboardRankingDataV1HandlerCreated{}
 }
 
-/*CreateArchivedLeaderboardRankingDataV1HandlerCreated handles this case with default header values.
+/*
+CreateArchivedLeaderboardRankingDataV1HandlerCreated handles this case with default header values.
 
-  leaderboard data ranking archived
+	leaderboard data ranking archived
 */
 type CreateArchivedLeaderboardRankingDataV1HandlerCreated struct {
 }
@@ -156,9 +157,10 @@ func NewCreateArchivedLeaderboardRankingDataV1HandlerBadRequest() *CreateArchive
 	return &CreateArchivedLeaderboardRankingDataV1HandlerBadRequest{}
 }
 
-/*CreateArchivedLeaderboardRankingDataV1HandlerBadRequest handles this case with default header values.
+/*
+CreateArchivedLeaderboardRankingDataV1HandlerBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type CreateArchivedLeaderboardRankingDataV1HandlerBadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -210,9 +212,10 @@ func NewCreateArchivedLeaderboardRankingDataV1HandlerUnauthorized() *CreateArchi
 	return &CreateArchivedLeaderboardRankingDataV1HandlerUnauthorized{}
 }
 
-/*CreateArchivedLeaderboardRankingDataV1HandlerUnauthorized handles this case with default header values.
+/*
+CreateArchivedLeaderboardRankingDataV1HandlerUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateArchivedLeaderboardRankingDataV1HandlerUnauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -264,9 +267,10 @@ func NewCreateArchivedLeaderboardRankingDataV1HandlerForbidden() *CreateArchived
 	return &CreateArchivedLeaderboardRankingDataV1HandlerForbidden{}
 }
 
-/*CreateArchivedLeaderboardRankingDataV1HandlerForbidden handles this case with default header values.
+/*
+CreateArchivedLeaderboardRankingDataV1HandlerForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type CreateArchivedLeaderboardRankingDataV1HandlerForbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -318,9 +322,10 @@ func NewCreateArchivedLeaderboardRankingDataV1HandlerInternalServerError() *Crea
 	return &CreateArchivedLeaderboardRankingDataV1HandlerInternalServerError{}
 }
 
-/*CreateArchivedLeaderboardRankingDataV1HandlerInternalServerError handles this case with default header values.
+/*
+CreateArchivedLeaderboardRankingDataV1HandlerInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type CreateArchivedLeaderboardRankingDataV1HandlerInternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

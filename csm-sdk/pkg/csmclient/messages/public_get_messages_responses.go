@@ -80,9 +80,10 @@ func NewPublicGetMessagesOK() *PublicGetMessagesOK {
 	return &PublicGetMessagesOK{}
 }
 
-/*PublicGetMessagesOK handles this case with default header values.
+/*
+PublicGetMessagesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetMessagesOK struct {
 	Payload []*csmclientmodels.LogAppMessageDeclaration
@@ -132,9 +133,10 @@ func NewPublicGetMessagesInternalServerError() *PublicGetMessagesInternalServerE
 	return &PublicGetMessagesInternalServerError{}
 }
 
-/*PublicGetMessagesInternalServerError handles this case with default header values.
+/*
+PublicGetMessagesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetMessagesInternalServerError struct {
 }

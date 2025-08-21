@@ -70,7 +70,8 @@ func NewGetItemByAppIDParamsWithHTTPClient(client *http.Client) *GetItemByAppIDP
 	}
 }
 
-/*GetItemByAppIDParams contains all the parameters to send to the API endpoint
+/*
+GetItemByAppIDParams contains all the parameters to send to the API endpoint
 for the get item by app id operation typically these are written to a http.Request
 */
 type GetItemByAppIDParams struct {

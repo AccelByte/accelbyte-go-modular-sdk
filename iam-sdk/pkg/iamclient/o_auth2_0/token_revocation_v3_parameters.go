@@ -57,7 +57,8 @@ func NewTokenRevocationV3ParamsWithHTTPClient(client *http.Client) *TokenRevocat
 	}
 }
 
-/*TokenRevocationV3Params contains all the parameters to send to the API endpoint
+/*
+TokenRevocationV3Params contains all the parameters to send to the API endpoint
 for the token revocation v3 operation typically these are written to a http.Request
 */
 type TokenRevocationV3Params struct {

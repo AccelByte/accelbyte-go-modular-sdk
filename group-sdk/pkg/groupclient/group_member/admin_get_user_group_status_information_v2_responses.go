@@ -130,9 +130,10 @@ func NewAdminGetUserGroupStatusInformationV2OK() *AdminGetUserGroupStatusInforma
 	return &AdminGetUserGroupStatusInformationV2OK{}
 }
 
-/*AdminGetUserGroupStatusInformationV2OK handles this case with default header values.
+/*
+AdminGetUserGroupStatusInformationV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserGroupStatusInformationV2OK struct {
 	Payload *groupclientmodels.ModelsGetUserGroupInformationResponseV1
@@ -184,9 +185,10 @@ func NewAdminGetUserGroupStatusInformationV2Unauthorized() *AdminGetUserGroupSta
 	return &AdminGetUserGroupStatusInformationV2Unauthorized{}
 }
 
-/*AdminGetUserGroupStatusInformationV2Unauthorized handles this case with default header values.
+/*
+AdminGetUserGroupStatusInformationV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserGroupStatusInformationV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewAdminGetUserGroupStatusInformationV2Forbidden() *AdminGetUserGroupStatus
 	return &AdminGetUserGroupStatusInformationV2Forbidden{}
 }
 
-/*AdminGetUserGroupStatusInformationV2Forbidden handles this case with default header values.
+/*
+AdminGetUserGroupStatusInformationV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type AdminGetUserGroupStatusInformationV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetUserGroupStatusInformationV2NotFound() *AdminGetUserGroupStatusI
 	return &AdminGetUserGroupStatusInformationV2NotFound{}
 }
 
-/*AdminGetUserGroupStatusInformationV2NotFound handles this case with default header values.
+/*
+AdminGetUserGroupStatusInformationV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73433</td><td>member group not found</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73433</td><td>member group not found</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
 */
 type AdminGetUserGroupStatusInformationV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetUserGroupStatusInformationV2InternalServerError() *AdminGetUserG
 	return &AdminGetUserGroupStatusInformationV2InternalServerError{}
 }
 
-/*AdminGetUserGroupStatusInformationV2InternalServerError handles this case with default header values.
+/*
+AdminGetUserGroupStatusInformationV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetUserGroupStatusInformationV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

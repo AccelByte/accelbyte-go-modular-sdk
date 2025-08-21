@@ -85,9 +85,10 @@ func NewPublicGetCountryListV3OK() *PublicGetCountryListV3OK {
 	return &PublicGetCountryListV3OK{}
 }
 
-/*PublicGetCountryListV3OK handles this case with default header values.
+/*
+PublicGetCountryListV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetCountryListV3OK struct {
 	Payload []*iamclientmodels.ModelCountryResponse
@@ -137,9 +138,10 @@ func NewPublicGetCountryListV3InternalServerError() *PublicGetCountryListV3Inter
 	return &PublicGetCountryListV3InternalServerError{}
 }
 
-/*PublicGetCountryListV3InternalServerError handles this case with default header values.
+/*
+PublicGetCountryListV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetCountryListV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

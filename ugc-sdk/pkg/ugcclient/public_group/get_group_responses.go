@@ -115,9 +115,10 @@ func NewGetGroupOK() *GetGroupOK {
 	return &GetGroupOK{}
 }
 
-/*GetGroupOK handles this case with default header values.
+/*
+GetGroupOK handles this case with default header values.
 
-  Get user's group
+	Get user's group
 */
 type GetGroupOK struct {
 	Payload *ugcclientmodels.ModelsCreateGroupResponse
@@ -169,9 +170,10 @@ func NewGetGroupUnauthorized() *GetGroupUnauthorized {
 	return &GetGroupUnauthorized{}
 }
 
-/*GetGroupUnauthorized handles this case with default header values.
+/*
+GetGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetGroupUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewGetGroupNotFound() *GetGroupNotFound {
 	return &GetGroupNotFound{}
 }
 
-/*GetGroupNotFound handles this case with default header values.
+/*
+GetGroupNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773002</td><td>Group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773002</td><td>Group not found</td></tr></table>
 */
 type GetGroupNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewGetGroupInternalServerError() *GetGroupInternalServerError {
 	return &GetGroupInternalServerError{}
 }
 
-/*GetGroupInternalServerError handles this case with default header values.
+/*
+GetGroupInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773001</td><td>Unable get group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773001</td><td>Unable get group</td></tr></table>
 */
 type GetGroupInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

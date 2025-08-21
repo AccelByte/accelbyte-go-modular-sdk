@@ -129,9 +129,10 @@ func NewCreateTopicCreated() *CreateTopicCreated {
 	return &CreateTopicCreated{}
 }
 
-/*CreateTopicCreated handles this case with default header values.
+/*
+CreateTopicCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateTopicCreated struct {
 }
@@ -156,9 +157,10 @@ func NewCreateTopicBadRequest() *CreateTopicBadRequest {
 	return &CreateTopicBadRequest{}
 }
 
-/*CreateTopicBadRequest handles this case with default header values.
+/*
+CreateTopicBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateTopicBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewCreateTopicUnauthorized() *CreateTopicUnauthorized {
 	return &CreateTopicUnauthorized{}
 }
 
-/*CreateTopicUnauthorized handles this case with default header values.
+/*
+CreateTopicUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateTopicUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewCreateTopicForbidden() *CreateTopicForbidden {
 	return &CreateTopicForbidden{}
 }
 
-/*CreateTopicForbidden handles this case with default header values.
+/*
+CreateTopicForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateTopicForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewCreateTopicConflict() *CreateTopicConflict {
 	return &CreateTopicConflict{}
 }
 
-/*CreateTopicConflict handles this case with default header values.
+/*
+CreateTopicConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateTopicConflict struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

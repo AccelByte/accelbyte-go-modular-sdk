@@ -69,9 +69,10 @@ func NewValidateExistedPlaystationIAPConfigOK() *ValidateExistedPlaystationIAPCo
 	return &ValidateExistedPlaystationIAPConfigOK{}
 }
 
-/*ValidateExistedPlaystationIAPConfigOK handles this case with default header values.
+/*
+ValidateExistedPlaystationIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ValidateExistedPlaystationIAPConfigOK struct {
 	Payload *platformclientmodels.TestResult

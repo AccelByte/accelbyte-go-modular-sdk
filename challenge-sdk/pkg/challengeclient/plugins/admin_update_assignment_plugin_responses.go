@@ -145,9 +145,10 @@ func NewAdminUpdateAssignmentPluginOK() *AdminUpdateAssignmentPluginOK {
 	return &AdminUpdateAssignmentPluginOK{}
 }
 
-/*AdminUpdateAssignmentPluginOK handles this case with default header values.
+/*
+AdminUpdateAssignmentPluginOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateAssignmentPluginOK struct {
 	Payload *challengeclientmodels.ModelPluginAssignmentResponse
@@ -199,9 +200,10 @@ func NewAdminUpdateAssignmentPluginBadRequest() *AdminUpdateAssignmentPluginBadR
 	return &AdminUpdateAssignmentPluginBadRequest{}
 }
 
-/*AdminUpdateAssignmentPluginBadRequest handles this case with default header values.
+/*
+AdminUpdateAssignmentPluginBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminUpdateAssignmentPluginBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUpdateAssignmentPluginUnauthorized() *AdminUpdateAssignmentPluginUn
 	return &AdminUpdateAssignmentPluginUnauthorized{}
 }
 
-/*AdminUpdateAssignmentPluginUnauthorized handles this case with default header values.
+/*
+AdminUpdateAssignmentPluginUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateAssignmentPluginUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -307,9 +310,10 @@ func NewAdminUpdateAssignmentPluginForbidden() *AdminUpdateAssignmentPluginForbi
 	return &AdminUpdateAssignmentPluginForbidden{}
 }
 
-/*AdminUpdateAssignmentPluginForbidden handles this case with default header values.
+/*
+AdminUpdateAssignmentPluginForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminUpdateAssignmentPluginForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -361,9 +365,10 @@ func NewAdminUpdateAssignmentPluginNotFound() *AdminUpdateAssignmentPluginNotFou
 	return &AdminUpdateAssignmentPluginNotFound{}
 }
 
-/*AdminUpdateAssignmentPluginNotFound handles this case with default header values.
+/*
+AdminUpdateAssignmentPluginNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminUpdateAssignmentPluginNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -415,9 +420,10 @@ func NewAdminUpdateAssignmentPluginInternalServerError() *AdminUpdateAssignmentP
 	return &AdminUpdateAssignmentPluginInternalServerError{}
 }
 
-/*AdminUpdateAssignmentPluginInternalServerError handles this case with default header values.
+/*
+AdminUpdateAssignmentPluginInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminUpdateAssignmentPluginInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

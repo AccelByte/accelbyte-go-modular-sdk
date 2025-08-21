@@ -100,9 +100,10 @@ func NewGetChildNamespacesOK() *GetChildNamespacesOK {
 	return &GetChildNamespacesOK{}
 }
 
-/*GetChildNamespacesOK handles this case with default header values.
+/*
+GetChildNamespacesOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type GetChildNamespacesOK struct {
 	Payload []*basicclientmodels.NamespaceInfo
@@ -152,9 +153,10 @@ func NewGetChildNamespacesUnauthorized() *GetChildNamespacesUnauthorized {
 	return &GetChildNamespacesUnauthorized{}
 }
 
-/*GetChildNamespacesUnauthorized handles this case with default header values.
+/*
+GetChildNamespacesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetChildNamespacesUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewGetChildNamespacesForbidden() *GetChildNamespacesForbidden {
 	return &GetChildNamespacesForbidden{}
 }
 
-/*GetChildNamespacesForbidden handles this case with default header values.
+/*
+GetChildNamespacesForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetChildNamespacesForbidden struct {
 	Payload *basicclientmodels.ErrorEntity

@@ -138,13 +138,12 @@ func (a *Client) GetAppListV2Short(params *GetAppListV2Params, authInfo runtime.
 GetAppV2Short get extend app by name
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
 
-Get extend app by name
+# Get extend app by name
 
 Available scenario:
 - scenario 1: `function-override`
 - scenario 2: `service-extension`
 - scenario 3: `event-handler`
-
 
 Available app status:
 - `app-creating`
@@ -252,7 +251,6 @@ Available scenario:
 - scenario 1: `function-override`
 - scenario 2: `service-extension`
 - scenario 3: `event-handler`
-
 
 Available app status:
 - `app-creating`

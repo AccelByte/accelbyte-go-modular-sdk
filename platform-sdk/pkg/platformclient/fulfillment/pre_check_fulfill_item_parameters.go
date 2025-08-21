@@ -59,7 +59,8 @@ func NewPreCheckFulfillItemParamsWithHTTPClient(client *http.Client) *PreCheckFu
 	}
 }
 
-/*PreCheckFulfillItemParams contains all the parameters to send to the API endpoint
+/*
+PreCheckFulfillItemParams contains all the parameters to send to the API endpoint
 for the pre check fulfill item operation typically these are written to a http.Request
 */
 type PreCheckFulfillItemParams struct {

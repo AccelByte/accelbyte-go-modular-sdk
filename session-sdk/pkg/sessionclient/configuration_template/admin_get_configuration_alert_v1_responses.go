@@ -145,9 +145,10 @@ func NewAdminGetConfigurationAlertV1OK() *AdminGetConfigurationAlertV1OK {
 	return &AdminGetConfigurationAlertV1OK{}
 }
 
-/*AdminGetConfigurationAlertV1OK handles this case with default header values.
+/*
+AdminGetConfigurationAlertV1OK handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminGetConfigurationAlertV1OK struct {
 	Payload *sessionclientmodels.ApimodelsConfigAlertResponse
@@ -199,9 +200,10 @@ func NewAdminGetConfigurationAlertV1BadRequest() *AdminGetConfigurationAlertV1Ba
 	return &AdminGetConfigurationAlertV1BadRequest{}
 }
 
-/*AdminGetConfigurationAlertV1BadRequest handles this case with default header values.
+/*
+AdminGetConfigurationAlertV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetConfigurationAlertV1BadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminGetConfigurationAlertV1Unauthorized() *AdminGetConfigurationAlertV1
 	return &AdminGetConfigurationAlertV1Unauthorized{}
 }
 
-/*AdminGetConfigurationAlertV1Unauthorized handles this case with default header values.
+/*
+AdminGetConfigurationAlertV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetConfigurationAlertV1Unauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminGetConfigurationAlertV1Forbidden() *AdminGetConfigurationAlertV1For
 	return &AdminGetConfigurationAlertV1Forbidden{}
 }
 
-/*AdminGetConfigurationAlertV1Forbidden handles this case with default header values.
+/*
+AdminGetConfigurationAlertV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetConfigurationAlertV1Forbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminGetConfigurationAlertV1NotFound() *AdminGetConfigurationAlertV1NotF
 	return &AdminGetConfigurationAlertV1NotFound{}
 }
 
-/*AdminGetConfigurationAlertV1NotFound handles this case with default header values.
+/*
+AdminGetConfigurationAlertV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetConfigurationAlertV1NotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminGetConfigurationAlertV1InternalServerError() *AdminGetConfiguration
 	return &AdminGetConfigurationAlertV1InternalServerError{}
 }
 
-/*AdminGetConfigurationAlertV1InternalServerError handles this case with default header values.
+/*
+AdminGetConfigurationAlertV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetConfigurationAlertV1InternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -99,9 +99,10 @@ func NewAdminDeleteTagNoContent() *AdminDeleteTagNoContent {
 	return &AdminDeleteTagNoContent{}
 }
 
-/*AdminDeleteTagNoContent handles this case with default header values.
+/*
+AdminDeleteTagNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteTagNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewAdminDeleteTagNotFound() *AdminDeleteTagNotFound {
 	return &AdminDeleteTagNotFound{}
 }
 
-/*AdminDeleteTagNotFound handles this case with default header values.
+/*
+AdminDeleteTagNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminDeleteTagNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -180,9 +182,10 @@ func NewAdminDeleteTagInternalServerError() *AdminDeleteTagInternalServerError {
 	return &AdminDeleteTagInternalServerError{}
 }
 
-/*AdminDeleteTagInternalServerError handles this case with default header values.
+/*
+AdminDeleteTagInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteTagInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

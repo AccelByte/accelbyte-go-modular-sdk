@@ -72,7 +72,8 @@ func NewPublicVerifyHeadlessAccountV3ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicVerifyHeadlessAccountV3Params contains all the parameters to send to the API endpoint
+/*
+PublicVerifyHeadlessAccountV3Params contains all the parameters to send to the API endpoint
 for the public verify headless account v3 operation typically these are written to a http.Request
 */
 type PublicVerifyHeadlessAccountV3Params struct {

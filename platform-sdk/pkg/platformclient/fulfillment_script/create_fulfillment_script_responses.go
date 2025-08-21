@@ -85,9 +85,10 @@ func NewCreateFulfillmentScriptCreated() *CreateFulfillmentScriptCreated {
 	return &CreateFulfillmentScriptCreated{}
 }
 
-/*CreateFulfillmentScriptCreated handles this case with default header values.
+/*
+CreateFulfillmentScriptCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateFulfillmentScriptCreated struct {
 	Payload *platformclientmodels.FulfillmentScriptInfo
@@ -139,9 +140,10 @@ func NewCreateFulfillmentScriptConflict() *CreateFulfillmentScriptConflict {
 	return &CreateFulfillmentScriptConflict{}
 }
 
-/*CreateFulfillmentScriptConflict handles this case with default header values.
+/*
+CreateFulfillmentScriptConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38171</td><td>Fulfillment script already exists</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38171</td><td>Fulfillment script already exists</td></tr></table>
 */
 type CreateFulfillmentScriptConflict struct {
 	Payload *platformclientmodels.ErrorEntity

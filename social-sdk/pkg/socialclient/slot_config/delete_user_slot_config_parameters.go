@@ -57,7 +57,8 @@ func NewDeleteUserSlotConfigParamsWithHTTPClient(client *http.Client) *DeleteUse
 	}
 }
 
-/*DeleteUserSlotConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteUserSlotConfigParams contains all the parameters to send to the API endpoint
 for the delete user slot config operation typically these are written to a http.Request
 */
 type DeleteUserSlotConfigParams struct {

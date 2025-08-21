@@ -100,9 +100,10 @@ func NewPublicCancelUserOrderOK() *PublicCancelUserOrderOK {
 	return &PublicCancelUserOrderOK{}
 }
 
-/*PublicCancelUserOrderOK handles this case with default header values.
+/*
+PublicCancelUserOrderOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicCancelUserOrderOK struct {
 	Payload *platformclientmodels.OrderInfo
@@ -154,9 +155,10 @@ func NewPublicCancelUserOrderNotFound() *PublicCancelUserOrderNotFound {
 	return &PublicCancelUserOrderNotFound{}
 }
 
-/*PublicCancelUserOrderNotFound handles this case with default header values.
+/*
+PublicCancelUserOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
 */
 type PublicCancelUserOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewPublicCancelUserOrderConflict() *PublicCancelUserOrderConflict {
 	return &PublicCancelUserOrderConflict{}
 }
 
-/*PublicCancelUserOrderConflict handles this case with default header values.
+/*
+PublicCancelUserOrderConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32177</td><td>Order [{orderNo}] is not cancelable</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32177</td><td>Order [{orderNo}] is not cancelable</td></tr></table>
 */
 type PublicCancelUserOrderConflict struct {
 	Payload *platformclientmodels.ErrorEntity

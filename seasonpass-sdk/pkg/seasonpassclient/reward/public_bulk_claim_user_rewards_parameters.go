@@ -57,7 +57,8 @@ func NewPublicBulkClaimUserRewardsParamsWithHTTPClient(client *http.Client) *Pub
 	}
 }
 
-/*PublicBulkClaimUserRewardsParams contains all the parameters to send to the API endpoint
+/*
+PublicBulkClaimUserRewardsParams contains all the parameters to send to the API endpoint
 for the public bulk claim user rewards operation typically these are written to a http.Request
 */
 type PublicBulkClaimUserRewardsParams struct {

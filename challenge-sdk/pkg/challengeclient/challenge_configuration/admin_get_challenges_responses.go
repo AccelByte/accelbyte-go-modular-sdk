@@ -130,9 +130,10 @@ func NewAdminGetChallengesOK() *AdminGetChallengesOK {
 	return &AdminGetChallengesOK{}
 }
 
-/*AdminGetChallengesOK handles this case with default header values.
+/*
+AdminGetChallengesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetChallengesOK struct {
 	Payload *challengeclientmodels.ModelListChallengeResponse
@@ -184,9 +185,10 @@ func NewAdminGetChallengesBadRequest() *AdminGetChallengesBadRequest {
 	return &AdminGetChallengesBadRequest{}
 }
 
-/*AdminGetChallengesBadRequest handles this case with default header values.
+/*
+AdminGetChallengesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminGetChallengesBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetChallengesUnauthorized() *AdminGetChallengesUnauthorized {
 	return &AdminGetChallengesUnauthorized{}
 }
 
-/*AdminGetChallengesUnauthorized handles this case with default header values.
+/*
+AdminGetChallengesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetChallengesUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetChallengesForbidden() *AdminGetChallengesForbidden {
 	return &AdminGetChallengesForbidden{}
 }
 
-/*AdminGetChallengesForbidden handles this case with default header values.
+/*
+AdminGetChallengesForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetChallengesForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetChallengesInternalServerError() *AdminGetChallengesInternalServe
 	return &AdminGetChallengesInternalServerError{}
 }
 
-/*AdminGetChallengesInternalServerError handles this case with default header values.
+/*
+AdminGetChallengesInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminGetChallengesInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

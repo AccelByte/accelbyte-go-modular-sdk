@@ -85,9 +85,10 @@ func NewGeDLCDurableRewardShortMapOK() *GeDLCDurableRewardShortMapOK {
 	return &GeDLCDurableRewardShortMapOK{}
 }
 
-/*GeDLCDurableRewardShortMapOK handles this case with default header values.
+/*
+GeDLCDurableRewardShortMapOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GeDLCDurableRewardShortMapOK struct {
 	Payload *platformclientmodels.DLCConfigRewardShortInfo
@@ -139,9 +140,10 @@ func NewGeDLCDurableRewardShortMapNotFound() *GeDLCDurableRewardShortMapNotFound
 	return &GeDLCDurableRewardShortMapNotFound{}
 }
 
-/*GeDLCDurableRewardShortMapNotFound handles this case with default header values.
+/*
+GeDLCDurableRewardShortMapNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39442</td><td>DLC item config cannot be found in namespace [{namespace}]</td></tr><tr><td>39441</td><td>Platform dlc config cannot be found in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39442</td><td>DLC item config cannot be found in namespace [{namespace}]</td></tr><tr><td>39441</td><td>Platform dlc config cannot be found in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GeDLCDurableRewardShortMapNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

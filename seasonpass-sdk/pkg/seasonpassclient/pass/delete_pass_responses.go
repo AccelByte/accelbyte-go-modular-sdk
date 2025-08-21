@@ -114,9 +114,10 @@ func NewDeletePassNoContent() *DeletePassNoContent {
 	return &DeletePassNoContent{}
 }
 
-/*DeletePassNoContent handles this case with default header values.
+/*
+DeletePassNoContent handles this case with default header values.
 
-  Delete pass successfully
+	Delete pass successfully
 */
 type DeletePassNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeletePassBadRequest() *DeletePassBadRequest {
 	return &DeletePassBadRequest{}
 }
 
-/*DeletePassBadRequest handles this case with default header values.
+/*
+DeletePassBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type DeletePassBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -195,9 +197,10 @@ func NewDeletePassNotFound() *DeletePassNotFound {
 	return &DeletePassNotFound{}
 }
 
-/*DeletePassNotFound handles this case with default header values.
+/*
+DeletePassNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49145</td><td>Pass [{code}] does not exist</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49145</td><td>Pass [{code}] does not exist</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DeletePassNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -249,9 +252,10 @@ func NewDeletePassConflict() *DeletePassConflict {
 	return &DeletePassConflict{}
 }
 
-/*DeletePassConflict handles this case with default header values.
+/*
+DeletePassConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Season is not updatable in status [{status}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Season is not updatable in status [{status}]</td></tr></table>
 */
 type DeletePassConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity

@@ -69,9 +69,10 @@ func NewGetAppOK() *GetAppOK {
 	return &GetAppOK{}
 }
 
-/*GetAppOK handles this case with default header values.
+/*
+GetAppOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetAppOK struct {
 	Payload *platformclientmodels.FullAppInfo

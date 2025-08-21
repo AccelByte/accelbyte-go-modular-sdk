@@ -129,9 +129,10 @@ func NewDeleteTopicByTopicNameNoContent() *DeleteTopicByTopicNameNoContent {
 	return &DeleteTopicByTopicNameNoContent{}
 }
 
-/*DeleteTopicByTopicNameNoContent handles this case with default header values.
+/*
+DeleteTopicByTopicNameNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteTopicByTopicNameNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteTopicByTopicNameUnauthorized() *DeleteTopicByTopicNameUnauthorized
 	return &DeleteTopicByTopicNameUnauthorized{}
 }
 
-/*DeleteTopicByTopicNameUnauthorized handles this case with default header values.
+/*
+DeleteTopicByTopicNameUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteTopicByTopicNameUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewDeleteTopicByTopicNameForbidden() *DeleteTopicByTopicNameForbidden {
 	return &DeleteTopicByTopicNameForbidden{}
 }
 
-/*DeleteTopicByTopicNameForbidden handles this case with default header values.
+/*
+DeleteTopicByTopicNameForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteTopicByTopicNameForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewDeleteTopicByTopicNameNotFound() *DeleteTopicByTopicNameNotFound {
 	return &DeleteTopicByTopicNameNotFound{}
 }
 
-/*DeleteTopicByTopicNameNotFound handles this case with default header values.
+/*
+DeleteTopicByTopicNameNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteTopicByTopicNameNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewDeleteTopicByTopicNameInternalServerError() *DeleteTopicByTopicNameInter
 	return &DeleteTopicByTopicNameInternalServerError{}
 }
 
-/*DeleteTopicByTopicNameInternalServerError handles this case with default header values.
+/*
+DeleteTopicByTopicNameInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteTopicByTopicNameInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

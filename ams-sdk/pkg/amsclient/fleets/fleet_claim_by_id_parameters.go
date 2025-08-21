@@ -59,7 +59,8 @@ func NewFleetClaimByIDParamsWithHTTPClient(client *http.Client) *FleetClaimByIDP
 	}
 }
 
-/*FleetClaimByIDParams contains all the parameters to send to the API endpoint
+/*
+FleetClaimByIDParams contains all the parameters to send to the API endpoint
 for the fleet claim by id operation typically these are written to a http.Request
 */
 type FleetClaimByIDParams struct {

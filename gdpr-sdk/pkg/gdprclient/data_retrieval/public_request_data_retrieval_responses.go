@@ -130,9 +130,10 @@ func NewPublicRequestDataRetrievalCreated() *PublicRequestDataRetrievalCreated {
 	return &PublicRequestDataRetrievalCreated{}
 }
 
-/*PublicRequestDataRetrievalCreated handles this case with default header values.
+/*
+PublicRequestDataRetrievalCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicRequestDataRetrievalCreated struct {
 	Payload *gdprclientmodels.ModelsDataRetrievalResponse
@@ -184,9 +185,10 @@ func NewPublicRequestDataRetrievalBadRequest() *PublicRequestDataRetrievalBadReq
 	return &PublicRequestDataRetrievalBadRequest{}
 }
 
-/*PublicRequestDataRetrievalBadRequest handles this case with default header values.
+/*
+PublicRequestDataRetrievalBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicRequestDataRetrievalBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicRequestDataRetrievalUnauthorized() *PublicRequestDataRetrievalUnau
 	return &PublicRequestDataRetrievalUnauthorized{}
 }
 
-/*PublicRequestDataRetrievalUnauthorized handles this case with default header values.
+/*
+PublicRequestDataRetrievalUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicRequestDataRetrievalUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicRequestDataRetrievalTooManyRequests() *PublicRequestDataRetrievalT
 	return &PublicRequestDataRetrievalTooManyRequests{}
 }
 
-/*PublicRequestDataRetrievalTooManyRequests handles this case with default header values.
+/*
+PublicRequestDataRetrievalTooManyRequests handles this case with default header values.
 
-  Too Many Requests
+	Too Many Requests
 */
 type PublicRequestDataRetrievalTooManyRequests struct {
 	Payload *gdprclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicRequestDataRetrievalInternalServerError() *PublicRequestDataRetrie
 	return &PublicRequestDataRetrievalInternalServerError{}
 }
 
-/*PublicRequestDataRetrievalInternalServerError handles this case with default header values.
+/*
+PublicRequestDataRetrievalInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicRequestDataRetrievalInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

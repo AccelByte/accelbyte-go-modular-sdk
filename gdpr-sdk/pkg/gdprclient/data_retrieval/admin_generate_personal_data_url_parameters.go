@@ -57,7 +57,8 @@ func NewAdminGeneratePersonalDataURLParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminGeneratePersonalDataURLParams contains all the parameters to send to the API endpoint
+/*
+AdminGeneratePersonalDataURLParams contains all the parameters to send to the API endpoint
 for the admin generate personal data url operation typically these are written to a http.Request
 */
 type AdminGeneratePersonalDataURLParams struct {

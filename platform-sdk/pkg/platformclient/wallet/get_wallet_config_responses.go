@@ -69,9 +69,10 @@ func NewGetWalletConfigOK() *GetWalletConfigOK {
 	return &GetWalletConfigOK{}
 }
 
-/*GetWalletConfigOK handles this case with default header values.
+/*
+GetWalletConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetWalletConfigOK struct {
 	Payload *platformclientmodels.WalletConfigInfo

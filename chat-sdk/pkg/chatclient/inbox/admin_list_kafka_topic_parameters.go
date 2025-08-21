@@ -57,7 +57,8 @@ func NewAdminListKafkaTopicParamsWithHTTPClient(client *http.Client) *AdminListK
 	}
 }
 
-/*AdminListKafkaTopicParams contains all the parameters to send to the API endpoint
+/*
+AdminListKafkaTopicParams contains all the parameters to send to the API endpoint
 for the admin list kafka topic operation typically these are written to a http.Request
 */
 type AdminListKafkaTopicParams struct {

@@ -69,9 +69,10 @@ func NewGetPlayStationIAPConfigOK() *GetPlayStationIAPConfigOK {
 	return &GetPlayStationIAPConfigOK{}
 }
 
-/*GetPlayStationIAPConfigOK handles this case with default header values.
+/*
+GetPlayStationIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPlayStationIAPConfigOK struct {
 	Payload *platformclientmodels.PlayStationIAPConfigInfo

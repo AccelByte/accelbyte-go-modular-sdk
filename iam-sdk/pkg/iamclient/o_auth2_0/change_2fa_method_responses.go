@@ -114,9 +114,10 @@ func NewChange2FAMethodNoContent() *Change2FAMethodNoContent {
 	return &Change2FAMethodNoContent{}
 }
 
-/*Change2FAMethodNoContent handles this case with default header values.
+/*
+Change2FAMethodNoContent handles this case with default header values.
 
-  Method changed
+	Method changed
 */
 type Change2FAMethodNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewChange2FAMethodBadRequest() *Change2FAMethodBadRequest {
 	return &Change2FAMethodBadRequest{}
 }
 
-/*Change2FAMethodBadRequest handles this case with default header values.
+/*
+Change2FAMethodBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10189</td><td>invalid factor</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10189</td><td>invalid factor</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type Change2FAMethodBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -195,9 +197,10 @@ func NewChange2FAMethodTooManyRequests() *Change2FAMethodTooManyRequests {
 	return &Change2FAMethodTooManyRequests{}
 }
 
-/*Change2FAMethodTooManyRequests handles this case with default header values.
+/*
+Change2FAMethodTooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type Change2FAMethodTooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -249,9 +252,10 @@ func NewChange2FAMethodInternalServerError() *Change2FAMethodInternalServerError
 	return &Change2FAMethodInternalServerError{}
 }
 
-/*Change2FAMethodInternalServerError handles this case with default header values.
+/*
+Change2FAMethodInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type Change2FAMethodInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

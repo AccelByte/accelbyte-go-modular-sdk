@@ -85,9 +85,10 @@ func NewTestStripeConfigByIDOK() *TestStripeConfigByIDOK {
 	return &TestStripeConfigByIDOK{}
 }
 
-/*TestStripeConfigByIDOK handles this case with default header values.
+/*
+TestStripeConfigByIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestStripeConfigByIDOK struct {
 	Payload *platformclientmodels.TestResult
@@ -139,9 +140,10 @@ func NewTestStripeConfigByIDNotFound() *TestStripeConfigByIDNotFound {
 	return &TestStripeConfigByIDNotFound{}
 }
 
-/*TestStripeConfigByIDNotFound handles this case with default header values.
+/*
+TestStripeConfigByIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
 */
 type TestStripeConfigByIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

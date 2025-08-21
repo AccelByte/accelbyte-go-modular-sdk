@@ -59,7 +59,8 @@ func NewBulkUpdateUserStatItemV2ParamsWithHTTPClient(client *http.Client) *BulkU
 	}
 }
 
-/*BulkUpdateUserStatItemV2Params contains all the parameters to send to the API endpoint
+/*
+BulkUpdateUserStatItemV2Params contains all the parameters to send to the API endpoint
 for the bulk update user stat item v2 operation typically these are written to a http.Request
 */
 type BulkUpdateUserStatItemV2Params struct {

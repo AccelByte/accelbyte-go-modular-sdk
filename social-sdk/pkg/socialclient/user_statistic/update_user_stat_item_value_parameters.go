@@ -59,7 +59,8 @@ func NewUpdateUserStatItemValueParamsWithHTTPClient(client *http.Client) *Update
 	}
 }
 
-/*UpdateUserStatItemValueParams contains all the parameters to send to the API endpoint
+/*
+UpdateUserStatItemValueParams contains all the parameters to send to the API endpoint
 for the update user stat item value operation typically these are written to a http.Request
 */
 type UpdateUserStatItemValueParams struct {

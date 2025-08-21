@@ -59,7 +59,8 @@ func NewAdminUpdateContentDirectParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminUpdateContentDirectParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateContentDirectParams contains all the parameters to send to the API endpoint
 for the admin update content direct operation typically these are written to a http.Request
 */
 type AdminUpdateContentDirectParams struct {

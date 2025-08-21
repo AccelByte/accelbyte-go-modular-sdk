@@ -130,9 +130,10 @@ func NewMatchPoolDetailsOK() *MatchPoolDetailsOK {
 	return &MatchPoolDetailsOK{}
 }
 
-/*MatchPoolDetailsOK handles this case with default header values.
+/*
+MatchPoolDetailsOK handles this case with default header values.
 
-  Created
+	Created
 */
 type MatchPoolDetailsOK struct {
 	Payload *match2clientmodels.APIMatchPool
@@ -184,9 +185,10 @@ func NewMatchPoolDetailsUnauthorized() *MatchPoolDetailsUnauthorized {
 	return &MatchPoolDetailsUnauthorized{}
 }
 
-/*MatchPoolDetailsUnauthorized handles this case with default header values.
+/*
+MatchPoolDetailsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type MatchPoolDetailsUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewMatchPoolDetailsForbidden() *MatchPoolDetailsForbidden {
 	return &MatchPoolDetailsForbidden{}
 }
 
-/*MatchPoolDetailsForbidden handles this case with default header values.
+/*
+MatchPoolDetailsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type MatchPoolDetailsForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewMatchPoolDetailsNotFound() *MatchPoolDetailsNotFound {
 	return &MatchPoolDetailsNotFound{}
 }
 
-/*MatchPoolDetailsNotFound handles this case with default header values.
+/*
+MatchPoolDetailsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type MatchPoolDetailsNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewMatchPoolDetailsInternalServerError() *MatchPoolDetailsInternalServerErr
 	return &MatchPoolDetailsInternalServerError{}
 }
 
-/*MatchPoolDetailsInternalServerError handles this case with default header values.
+/*
+MatchPoolDetailsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type MatchPoolDetailsInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

@@ -85,9 +85,10 @@ func NewAcquireItemOK() *AcquireItemOK {
 	return &AcquireItemOK{}
 }
 
-/*AcquireItemOK handles this case with default header values.
+/*
+AcquireItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AcquireItemOK struct {
 	Payload *platformclientmodels.ItemAcquireResult
@@ -139,9 +140,10 @@ func NewAcquireItemNotFound() *AcquireItemNotFound {
 	return &AcquireItemNotFound{}
 }
 
-/*AcquireItemNotFound handles this case with default header values.
+/*
+AcquireItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type AcquireItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

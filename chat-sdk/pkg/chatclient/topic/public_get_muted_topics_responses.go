@@ -130,9 +130,10 @@ func NewPublicGetMutedTopicsOK() *PublicGetMutedTopicsOK {
 	return &PublicGetMutedTopicsOK{}
 }
 
-/*PublicGetMutedTopicsOK handles this case with default header values.
+/*
+PublicGetMutedTopicsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetMutedTopicsOK struct {
 	Payload []*chatclientmodels.APIMutedTopicResponse
@@ -182,9 +183,10 @@ func NewPublicGetMutedTopicsBadRequest() *PublicGetMutedTopicsBadRequest {
 	return &PublicGetMutedTopicsBadRequest{}
 }
 
-/*PublicGetMutedTopicsBadRequest handles this case with default header values.
+/*
+PublicGetMutedTopicsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetMutedTopicsBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewPublicGetMutedTopicsUnauthorized() *PublicGetMutedTopicsUnauthorized {
 	return &PublicGetMutedTopicsUnauthorized{}
 }
 
-/*PublicGetMutedTopicsUnauthorized handles this case with default header values.
+/*
+PublicGetMutedTopicsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetMutedTopicsUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewPublicGetMutedTopicsForbidden() *PublicGetMutedTopicsForbidden {
 	return &PublicGetMutedTopicsForbidden{}
 }
 
-/*PublicGetMutedTopicsForbidden handles this case with default header values.
+/*
+PublicGetMutedTopicsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicGetMutedTopicsForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewPublicGetMutedTopicsInternalServerError() *PublicGetMutedTopicsInternalS
 	return &PublicGetMutedTopicsInternalServerError{}
 }
 
-/*PublicGetMutedTopicsInternalServerError handles this case with default header values.
+/*
+PublicGetMutedTopicsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetMutedTopicsInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

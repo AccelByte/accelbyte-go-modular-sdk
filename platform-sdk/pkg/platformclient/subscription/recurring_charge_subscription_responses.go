@@ -69,9 +69,10 @@ func NewRecurringChargeSubscriptionOK() *RecurringChargeSubscriptionOK {
 	return &RecurringChargeSubscriptionOK{}
 }
 
-/*RecurringChargeSubscriptionOK handles this case with default header values.
+/*
+RecurringChargeSubscriptionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RecurringChargeSubscriptionOK struct {
 	Payload *platformclientmodels.RecurringChargeResult

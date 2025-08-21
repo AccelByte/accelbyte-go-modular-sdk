@@ -130,9 +130,10 @@ func NewAdminUpdateGoalsOK() *AdminUpdateGoalsOK {
 	return &AdminUpdateGoalsOK{}
 }
 
-/*AdminUpdateGoalsOK handles this case with default header values.
+/*
+AdminUpdateGoalsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateGoalsOK struct {
 	Payload *challengeclientmodels.ModelGoalResponse
@@ -184,9 +185,10 @@ func NewAdminUpdateGoalsBadRequest() *AdminUpdateGoalsBadRequest {
 	return &AdminUpdateGoalsBadRequest{}
 }
 
-/*AdminUpdateGoalsBadRequest handles this case with default header values.
+/*
+AdminUpdateGoalsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminUpdateGoalsBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminUpdateGoalsNotFound() *AdminUpdateGoalsNotFound {
 	return &AdminUpdateGoalsNotFound{}
 }
 
-/*AdminUpdateGoalsNotFound handles this case with default header values.
+/*
+AdminUpdateGoalsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateGoalsNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminUpdateGoalsUnprocessableEntity() *AdminUpdateGoalsUnprocessableEnti
 	return &AdminUpdateGoalsUnprocessableEntity{}
 }
 
-/*AdminUpdateGoalsUnprocessableEntity handles this case with default header values.
+/*
+AdminUpdateGoalsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
 */
 type AdminUpdateGoalsUnprocessableEntity struct {
 	Payload *challengeclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminUpdateGoalsInternalServerError() *AdminUpdateGoalsInternalServerErr
 	return &AdminUpdateGoalsInternalServerError{}
 }
 
-/*AdminUpdateGoalsInternalServerError handles this case with default header values.
+/*
+AdminUpdateGoalsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateGoalsInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

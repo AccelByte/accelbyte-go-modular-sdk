@@ -57,7 +57,8 @@ func NewAdminReadPartySessionStorageParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminReadPartySessionStorageParams contains all the parameters to send to the API endpoint
+/*
+AdminReadPartySessionStorageParams contains all the parameters to send to the API endpoint
 for the admin read party session storage operation typically these are written to a http.Request
 */
 type AdminReadPartySessionStorageParams struct {

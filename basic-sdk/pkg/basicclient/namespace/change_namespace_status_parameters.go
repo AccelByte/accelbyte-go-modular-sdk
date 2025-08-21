@@ -59,7 +59,8 @@ func NewChangeNamespaceStatusParamsWithHTTPClient(client *http.Client) *ChangeNa
 	}
 }
 
-/*ChangeNamespaceStatusParams contains all the parameters to send to the API endpoint
+/*
+ChangeNamespaceStatusParams contains all the parameters to send to the API endpoint
 for the change namespace status operation typically these are written to a http.Request
 */
 type ChangeNamespaceStatusParams struct {

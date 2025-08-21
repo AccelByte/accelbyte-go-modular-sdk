@@ -110,9 +110,10 @@ func NewAdminGetUserBanV2OK() *AdminGetUserBanV2OK {
 	return &AdminGetUserBanV2OK{}
 }
 
-/*AdminGetUserBanV2OK handles this case with default header values.
+/*
+AdminGetUserBanV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserBanV2OK struct {
 	Payload []*iamclientmodels.ModelUserBanResponse
@@ -162,9 +163,10 @@ func NewAdminGetUserBanV2Unauthorized() *AdminGetUserBanV2Unauthorized {
 	return &AdminGetUserBanV2Unauthorized{}
 }
 
-/*AdminGetUserBanV2Unauthorized handles this case with default header values.
+/*
+AdminGetUserBanV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserBanV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -216,9 +218,10 @@ func NewAdminGetUserBanV2Forbidden() *AdminGetUserBanV2Forbidden {
 	return &AdminGetUserBanV2Forbidden{}
 }
 
-/*AdminGetUserBanV2Forbidden handles this case with default header values.
+/*
+AdminGetUserBanV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserBanV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -270,9 +273,10 @@ func NewAdminGetUserBanV2NotFound() *AdminGetUserBanV2NotFound {
 	return &AdminGetUserBanV2NotFound{}
 }
 
-/*AdminGetUserBanV2NotFound handles this case with default header values.
+/*
+AdminGetUserBanV2NotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type AdminGetUserBanV2NotFound struct {
 }

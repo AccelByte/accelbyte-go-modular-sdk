@@ -99,9 +99,10 @@ func NewDecreaseTicketSaleNoContent() *DecreaseTicketSaleNoContent {
 	return &DecreaseTicketSaleNoContent{}
 }
 
-/*DecreaseTicketSaleNoContent handles this case with default header values.
+/*
+DecreaseTicketSaleNoContent handles this case with default header values.
 
-  Return item successfully
+	Return item successfully
 */
 type DecreaseTicketSaleNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewDecreaseTicketSaleNotFound() *DecreaseTicketSaleNotFound {
 	return &DecreaseTicketSaleNotFound{}
 }
 
-/*DecreaseTicketSaleNotFound handles this case with default header values.
+/*
+DecreaseTicketSaleNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DecreaseTicketSaleNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewDecreaseTicketSaleUnprocessableEntity() *DecreaseTicketSaleUnprocessable
 	return &DecreaseTicketSaleUnprocessableEntity{}
 }
 
-/*DecreaseTicketSaleUnprocessableEntity handles this case with default header values.
+/*
+DecreaseTicketSaleUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DecreaseTicketSaleUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

@@ -145,9 +145,10 @@ func NewPublicPartyJoinCodeOK() *PublicPartyJoinCodeOK {
 	return &PublicPartyJoinCodeOK{}
 }
 
-/*PublicPartyJoinCodeOK handles this case with default header values.
+/*
+PublicPartyJoinCodeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicPartyJoinCodeOK struct {
 	Payload *sessionclientmodels.ApimodelsPartySessionResponse
@@ -199,9 +200,10 @@ func NewPublicPartyJoinCodeBadRequest() *PublicPartyJoinCodeBadRequest {
 	return &PublicPartyJoinCodeBadRequest{}
 }
 
-/*PublicPartyJoinCodeBadRequest handles this case with default header values.
+/*
+PublicPartyJoinCodeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPartyJoinCodeBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewPublicPartyJoinCodeUnauthorized() *PublicPartyJoinCodeUnauthorized {
 	return &PublicPartyJoinCodeUnauthorized{}
 }
 
-/*PublicPartyJoinCodeUnauthorized handles this case with default header values.
+/*
+PublicPartyJoinCodeUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPartyJoinCodeUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewPublicPartyJoinCodeForbidden() *PublicPartyJoinCodeForbidden {
 	return &PublicPartyJoinCodeForbidden{}
 }
 
-/*PublicPartyJoinCodeForbidden handles this case with default header values.
+/*
+PublicPartyJoinCodeForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicPartyJoinCodeForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewPublicPartyJoinCodeNotFound() *PublicPartyJoinCodeNotFound {
 	return &PublicPartyJoinCodeNotFound{}
 }
 
-/*PublicPartyJoinCodeNotFound handles this case with default header values.
+/*
+PublicPartyJoinCodeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPartyJoinCodeNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicPartyJoinCodeInternalServerError() *PublicPartyJoinCodeInternalSer
 	return &PublicPartyJoinCodeInternalServerError{}
 }
 
-/*PublicPartyJoinCodeInternalServerError handles this case with default header values.
+/*
+PublicPartyJoinCodeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPartyJoinCodeInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

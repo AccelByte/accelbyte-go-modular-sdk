@@ -145,9 +145,10 @@ func NewUpdateGroupConfigurationGlobalRuleAdminV1OK() *UpdateGroupConfigurationG
 	return &UpdateGroupConfigurationGlobalRuleAdminV1OK{}
 }
 
-/*UpdateGroupConfigurationGlobalRuleAdminV1OK handles this case with default header values.
+/*
+UpdateGroupConfigurationGlobalRuleAdminV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateGroupConfigurationGlobalRuleAdminV1OK struct {
 	Payload *groupclientmodels.ModelsUpdateGroupConfigurationResponseV1
@@ -199,9 +200,10 @@ func NewUpdateGroupConfigurationGlobalRuleAdminV1BadRequest() *UpdateGroupConfig
 	return &UpdateGroupConfigurationGlobalRuleAdminV1BadRequest{}
 }
 
-/*UpdateGroupConfigurationGlobalRuleAdminV1BadRequest handles this case with default header values.
+/*
+UpdateGroupConfigurationGlobalRuleAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateGroupConfigurationGlobalRuleAdminV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewUpdateGroupConfigurationGlobalRuleAdminV1Unauthorized() *UpdateGroupConf
 	return &UpdateGroupConfigurationGlobalRuleAdminV1Unauthorized{}
 }
 
-/*UpdateGroupConfigurationGlobalRuleAdminV1Unauthorized handles this case with default header values.
+/*
+UpdateGroupConfigurationGlobalRuleAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateGroupConfigurationGlobalRuleAdminV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewUpdateGroupConfigurationGlobalRuleAdminV1Forbidden() *UpdateGroupConfigu
 	return &UpdateGroupConfigurationGlobalRuleAdminV1Forbidden{}
 }
 
-/*UpdateGroupConfigurationGlobalRuleAdminV1Forbidden handles this case with default header values.
+/*
+UpdateGroupConfigurationGlobalRuleAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type UpdateGroupConfigurationGlobalRuleAdminV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewUpdateGroupConfigurationGlobalRuleAdminV1NotFound() *UpdateGroupConfigur
 	return &UpdateGroupConfigurationGlobalRuleAdminV1NotFound{}
 }
 
-/*UpdateGroupConfigurationGlobalRuleAdminV1NotFound handles this case with default header values.
+/*
+UpdateGroupConfigurationGlobalRuleAdminV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
 */
 type UpdateGroupConfigurationGlobalRuleAdminV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewUpdateGroupConfigurationGlobalRuleAdminV1InternalServerError() *UpdateGr
 	return &UpdateGroupConfigurationGlobalRuleAdminV1InternalServerError{}
 }
 
-/*UpdateGroupConfigurationGlobalRuleAdminV1InternalServerError handles this case with default header values.
+/*
+UpdateGroupConfigurationGlobalRuleAdminV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateGroupConfigurationGlobalRuleAdminV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

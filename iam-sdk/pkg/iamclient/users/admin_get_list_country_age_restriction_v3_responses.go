@@ -130,9 +130,10 @@ func NewAdminGetListCountryAgeRestrictionV3OK() *AdminGetListCountryAgeRestricti
 	return &AdminGetListCountryAgeRestrictionV3OK{}
 }
 
-/*AdminGetListCountryAgeRestrictionV3OK handles this case with default header values.
+/*
+AdminGetListCountryAgeRestrictionV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetListCountryAgeRestrictionV3OK struct {
 	Payload []*iamclientmodels.ModelCountryV3Response
@@ -182,9 +183,10 @@ func NewAdminGetListCountryAgeRestrictionV3BadRequest() *AdminGetListCountryAgeR
 	return &AdminGetListCountryAgeRestrictionV3BadRequest{}
 }
 
-/*AdminGetListCountryAgeRestrictionV3BadRequest handles this case with default header values.
+/*
+AdminGetListCountryAgeRestrictionV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetListCountryAgeRestrictionV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -236,9 +238,10 @@ func NewAdminGetListCountryAgeRestrictionV3Unauthorized() *AdminGetListCountryAg
 	return &AdminGetListCountryAgeRestrictionV3Unauthorized{}
 }
 
-/*AdminGetListCountryAgeRestrictionV3Unauthorized handles this case with default header values.
+/*
+AdminGetListCountryAgeRestrictionV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetListCountryAgeRestrictionV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,9 +293,10 @@ func NewAdminGetListCountryAgeRestrictionV3Forbidden() *AdminGetListCountryAgeRe
 	return &AdminGetListCountryAgeRestrictionV3Forbidden{}
 }
 
-/*AdminGetListCountryAgeRestrictionV3Forbidden handles this case with default header values.
+/*
+AdminGetListCountryAgeRestrictionV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetListCountryAgeRestrictionV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -344,9 +348,10 @@ func NewAdminGetListCountryAgeRestrictionV3InternalServerError() *AdminGetListCo
 	return &AdminGetListCountryAgeRestrictionV3InternalServerError{}
 }
 
-/*AdminGetListCountryAgeRestrictionV3InternalServerError handles this case with default header values.
+/*
+AdminGetListCountryAgeRestrictionV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetListCountryAgeRestrictionV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -57,7 +57,8 @@ func NewPublicPartyRejectParamsWithHTTPClient(client *http.Client) *PublicPartyR
 	}
 }
 
-/*PublicPartyRejectParams contains all the parameters to send to the API endpoint
+/*
+PublicPartyRejectParams contains all the parameters to send to the API endpoint
 for the public party reject operation typically these are written to a http.Request
 */
 type PublicPartyRejectParams struct {

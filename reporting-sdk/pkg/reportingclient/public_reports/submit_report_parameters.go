@@ -59,7 +59,8 @@ func NewSubmitReportParamsWithHTTPClient(client *http.Client) *SubmitReportParam
 	}
 }
 
-/*SubmitReportParams contains all the parameters to send to the API endpoint
+/*
+SubmitReportParams contains all the parameters to send to the API endpoint
 for the submit report operation typically these are written to a http.Request
 */
 type SubmitReportParams struct {

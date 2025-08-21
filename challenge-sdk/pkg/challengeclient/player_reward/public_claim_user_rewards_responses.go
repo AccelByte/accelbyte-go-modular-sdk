@@ -145,9 +145,10 @@ func NewPublicClaimUserRewardsOK() *PublicClaimUserRewardsOK {
 	return &PublicClaimUserRewardsOK{}
 }
 
-/*PublicClaimUserRewardsOK handles this case with default header values.
+/*
+PublicClaimUserRewardsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicClaimUserRewardsOK struct {
 	Payload []*challengeclientmodels.ModelUserReward
@@ -197,9 +198,10 @@ func NewPublicClaimUserRewardsUnauthorized() *PublicClaimUserRewardsUnauthorized
 	return &PublicClaimUserRewardsUnauthorized{}
 }
 
-/*PublicClaimUserRewardsUnauthorized handles this case with default header values.
+/*
+PublicClaimUserRewardsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicClaimUserRewardsUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -251,9 +253,10 @@ func NewPublicClaimUserRewardsForbidden() *PublicClaimUserRewardsForbidden {
 	return &PublicClaimUserRewardsForbidden{}
 }
 
-/*PublicClaimUserRewardsForbidden handles this case with default header values.
+/*
+PublicClaimUserRewardsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicClaimUserRewardsForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -305,9 +308,10 @@ func NewPublicClaimUserRewardsNotFound() *PublicClaimUserRewardsNotFound {
 	return &PublicClaimUserRewardsNotFound{}
 }
 
-/*PublicClaimUserRewardsNotFound handles this case with default header values.
+/*
+PublicClaimUserRewardsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type PublicClaimUserRewardsNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -359,9 +363,10 @@ func NewPublicClaimUserRewardsUnprocessableEntity() *PublicClaimUserRewardsUnpro
 	return &PublicClaimUserRewardsUnprocessableEntity{}
 }
 
-/*PublicClaimUserRewardsUnprocessableEntity handles this case with default header values.
+/*
+PublicClaimUserRewardsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
 */
 type PublicClaimUserRewardsUnprocessableEntity struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -413,9 +418,10 @@ func NewPublicClaimUserRewardsInternalServerError() *PublicClaimUserRewardsInter
 	return &PublicClaimUserRewardsInternalServerError{}
 }
 
-/*PublicClaimUserRewardsInternalServerError handles this case with default header values.
+/*
+PublicClaimUserRewardsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type PublicClaimUserRewardsInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

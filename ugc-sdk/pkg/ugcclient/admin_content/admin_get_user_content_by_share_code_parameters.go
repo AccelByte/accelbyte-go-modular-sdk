@@ -57,7 +57,8 @@ func NewAdminGetUserContentByShareCodeParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*AdminGetUserContentByShareCodeParams contains all the parameters to send to the API endpoint
+/*
+AdminGetUserContentByShareCodeParams contains all the parameters to send to the API endpoint
 for the admin get user content by share code operation typically these are written to a http.Request
 */
 type AdminGetUserContentByShareCodeParams struct {

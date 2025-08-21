@@ -57,7 +57,8 @@ func NewRevokeItemsV3ParamsWithHTTPClient(client *http.Client) *RevokeItemsV3Par
 	}
 }
 
-/*RevokeItemsV3Params contains all the parameters to send to the API endpoint
+/*
+RevokeItemsV3Params contains all the parameters to send to the API endpoint
 for the revoke items v3 operation typically these are written to a http.Request
 */
 type RevokeItemsV3Params struct {

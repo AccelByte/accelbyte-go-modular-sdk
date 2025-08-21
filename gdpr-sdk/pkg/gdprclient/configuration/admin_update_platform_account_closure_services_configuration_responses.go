@@ -115,9 +115,10 @@ func NewAdminUpdatePlatformAccountClosureServicesConfigurationOK() *AdminUpdateP
 	return &AdminUpdatePlatformAccountClosureServicesConfigurationOK{}
 }
 
-/*AdminUpdatePlatformAccountClosureServicesConfigurationOK handles this case with default header values.
+/*
+AdminUpdatePlatformAccountClosureServicesConfigurationOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdatePlatformAccountClosureServicesConfigurationOK struct {
 	Payload *gdprclientmodels.DTOServiceConfigurationUpdateRequest
@@ -169,9 +170,10 @@ func NewAdminUpdatePlatformAccountClosureServicesConfigurationBadRequest() *Admi
 	return &AdminUpdatePlatformAccountClosureServicesConfigurationBadRequest{}
 }
 
-/*AdminUpdatePlatformAccountClosureServicesConfigurationBadRequest handles this case with default header values.
+/*
+AdminUpdatePlatformAccountClosureServicesConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdatePlatformAccountClosureServicesConfigurationBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminUpdatePlatformAccountClosureServicesConfigurationUnauthorized() *Ad
 	return &AdminUpdatePlatformAccountClosureServicesConfigurationUnauthorized{}
 }
 
-/*AdminUpdatePlatformAccountClosureServicesConfigurationUnauthorized handles this case with default header values.
+/*
+AdminUpdatePlatformAccountClosureServicesConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdatePlatformAccountClosureServicesConfigurationUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminUpdatePlatformAccountClosureServicesConfigurationInternalServerErro
 	return &AdminUpdatePlatformAccountClosureServicesConfigurationInternalServerError{}
 }
 
-/*AdminUpdatePlatformAccountClosureServicesConfigurationInternalServerError handles this case with default header values.
+/*
+AdminUpdatePlatformAccountClosureServicesConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdatePlatformAccountClosureServicesConfigurationInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

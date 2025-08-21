@@ -130,9 +130,10 @@ func NewCreateContentS3Created() *CreateContentS3Created {
 	return &CreateContentS3Created{}
 }
 
-/*CreateContentS3Created handles this case with default header values.
+/*
+CreateContentS3Created handles this case with default header values.
 
-  Content uploaded to S3 bucket
+	Content uploaded to S3 bucket
 */
 type CreateContentS3Created struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponse
@@ -184,9 +185,10 @@ func NewCreateContentS3BadRequest() *CreateContentS3BadRequest {
 	return &CreateContentS3BadRequest{}
 }
 
-/*CreateContentS3BadRequest handles this case with default header values.
+/*
+CreateContentS3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr></table>
 */
 type CreateContentS3BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewCreateContentS3Unauthorized() *CreateContentS3Unauthorized {
 	return &CreateContentS3Unauthorized{}
 }
 
-/*CreateContentS3Unauthorized handles this case with default header values.
+/*
+CreateContentS3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateContentS3Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewCreateContentS3Forbidden() *CreateContentS3Forbidden {
 	return &CreateContentS3Forbidden{}
 }
 
-/*CreateContentS3Forbidden handles this case with default header values.
+/*
+CreateContentS3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770104</td><td>User has been banned to create content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770104</td><td>User has been banned to create content</td></tr></table>
 */
 type CreateContentS3Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewCreateContentS3InternalServerError() *CreateContentS3InternalServerError
 	return &CreateContentS3InternalServerError{}
 }
 
-/*CreateContentS3InternalServerError handles this case with default header values.
+/*
+CreateContentS3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr><tr><td>770105</td><td>Unable to save ugc content: failed generate upload URL</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr><tr><td>770105</td><td>Unable to save ugc content: failed generate upload URL</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
 */
 type CreateContentS3InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

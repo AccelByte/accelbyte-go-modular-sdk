@@ -84,9 +84,10 @@ func NewSelectRecordNoContent() *SelectRecordNoContent {
 	return &SelectRecordNoContent{}
 }
 
-/*SelectRecordNoContent handles this case with default header values.
+/*
+SelectRecordNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type SelectRecordNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewSelectRecordNotFound() *SelectRecordNotFound {
 	return &SelectRecordNotFound{}
 }
 
-/*SelectRecordNotFound handles this case with default header values.
+/*
+SelectRecordNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30041</td><td>Changelog [{changelogId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30041</td><td>Changelog [{changelogId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type SelectRecordNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

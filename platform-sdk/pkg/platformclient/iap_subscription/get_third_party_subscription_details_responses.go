@@ -85,9 +85,10 @@ func NewGetThirdPartySubscriptionDetailsOK() *GetThirdPartySubscriptionDetailsOK
 	return &GetThirdPartySubscriptionDetailsOK{}
 }
 
-/*GetThirdPartySubscriptionDetailsOK handles this case with default header values.
+/*
+GetThirdPartySubscriptionDetailsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetThirdPartySubscriptionDetailsOK struct {
 	Payload *platformclientmodels.ThirdPartySubscriptionTransactionInfo
@@ -139,9 +140,10 @@ func NewGetThirdPartySubscriptionDetailsNotFound() *GetThirdPartySubscriptionDet
 	return &GetThirdPartySubscriptionDetailsNotFound{}
 }
 
-/*GetThirdPartySubscriptionDetailsNotFound handles this case with default header values.
+/*
+GetThirdPartySubscriptionDetailsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39149</td><td>Third Party Subscription [{id}] not found for user [{userId}] in the namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39149</td><td>Third Party Subscription [{id}] not found for user [{userId}] in the namespace [{namespace}].</td></tr></table>
 */
 type GetThirdPartySubscriptionDetailsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -144,9 +144,10 @@ func NewUserCancelFriendRequestNoContent() *UserCancelFriendRequestNoContent {
 	return &UserCancelFriendRequestNoContent{}
 }
 
-/*UserCancelFriendRequestNoContent handles this case with default header values.
+/*
+UserCancelFriendRequestNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UserCancelFriendRequestNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewUserCancelFriendRequestBadRequest() *UserCancelFriendRequestBadRequest {
 	return &UserCancelFriendRequestBadRequest{}
 }
 
-/*UserCancelFriendRequestBadRequest handles this case with default header values.
+/*
+UserCancelFriendRequestBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UserCancelFriendRequestBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -225,9 +227,10 @@ func NewUserCancelFriendRequestUnauthorized() *UserCancelFriendRequestUnauthoriz
 	return &UserCancelFriendRequestUnauthorized{}
 }
 
-/*UserCancelFriendRequestUnauthorized handles this case with default header values.
+/*
+UserCancelFriendRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UserCancelFriendRequestUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -279,9 +282,10 @@ func NewUserCancelFriendRequestForbidden() *UserCancelFriendRequestForbidden {
 	return &UserCancelFriendRequestForbidden{}
 }
 
-/*UserCancelFriendRequestForbidden handles this case with default header values.
+/*
+UserCancelFriendRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UserCancelFriendRequestForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -333,9 +337,10 @@ func NewUserCancelFriendRequestNotFound() *UserCancelFriendRequestNotFound {
 	return &UserCancelFriendRequestNotFound{}
 }
 
-/*UserCancelFriendRequestNotFound handles this case with default header values.
+/*
+UserCancelFriendRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UserCancelFriendRequestNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -387,9 +392,10 @@ func NewUserCancelFriendRequestInternalServerError() *UserCancelFriendRequestInt
 	return &UserCancelFriendRequestInternalServerError{}
 }
 
-/*UserCancelFriendRequestInternalServerError handles this case with default header values.
+/*
+UserCancelFriendRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UserCancelFriendRequestInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

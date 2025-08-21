@@ -145,9 +145,10 @@ func NewPublicListJusticePlatformAccountsV3OK() *PublicListJusticePlatformAccoun
 	return &PublicListJusticePlatformAccountsV3OK{}
 }
 
-/*PublicListJusticePlatformAccountsV3OK handles this case with default header values.
+/*
+PublicListJusticePlatformAccountsV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicListJusticePlatformAccountsV3OK struct {
 	Payload []*iamclientmodels.ModelGetUserMappingV3
@@ -197,9 +198,10 @@ func NewPublicListJusticePlatformAccountsV3BadRequest() *PublicListJusticePlatfo
 	return &PublicListJusticePlatformAccountsV3BadRequest{}
 }
 
-/*PublicListJusticePlatformAccountsV3BadRequest handles this case with default header values.
+/*
+PublicListJusticePlatformAccountsV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20025</td><td>not a publisher user</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20025</td><td>not a publisher user</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicListJusticePlatformAccountsV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -251,9 +253,10 @@ func NewPublicListJusticePlatformAccountsV3Unauthorized() *PublicListJusticePlat
 	return &PublicListJusticePlatformAccountsV3Unauthorized{}
 }
 
-/*PublicListJusticePlatformAccountsV3Unauthorized handles this case with default header values.
+/*
+PublicListJusticePlatformAccountsV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicListJusticePlatformAccountsV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -305,9 +308,10 @@ func NewPublicListJusticePlatformAccountsV3Forbidden() *PublicListJusticePlatfor
 	return &PublicListJusticePlatformAccountsV3Forbidden{}
 }
 
-/*PublicListJusticePlatformAccountsV3Forbidden handles this case with default header values.
+/*
+PublicListJusticePlatformAccountsV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicListJusticePlatformAccountsV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -359,9 +363,10 @@ func NewPublicListJusticePlatformAccountsV3NotFound() *PublicListJusticePlatform
 	return &PublicListJusticePlatformAccountsV3NotFound{}
 }
 
-/*PublicListJusticePlatformAccountsV3NotFound handles this case with default header values.
+/*
+PublicListJusticePlatformAccountsV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicListJusticePlatformAccountsV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -413,9 +418,10 @@ func NewPublicListJusticePlatformAccountsV3InternalServerError() *PublicListJust
 	return &PublicListJusticePlatformAccountsV3InternalServerError{}
 }
 
-/*PublicListJusticePlatformAccountsV3InternalServerError handles this case with default header values.
+/*
+PublicListJusticePlatformAccountsV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicListJusticePlatformAccountsV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

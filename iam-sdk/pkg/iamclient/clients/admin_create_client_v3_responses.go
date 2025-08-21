@@ -130,9 +130,10 @@ func NewAdminCreateClientV3Created() *AdminCreateClientV3Created {
 	return &AdminCreateClientV3Created{}
 }
 
-/*AdminCreateClientV3Created handles this case with default header values.
+/*
+AdminCreateClientV3Created handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateClientV3Created struct {
 	Payload *iamclientmodels.ClientmodelClientV3Response
@@ -184,9 +185,10 @@ func NewAdminCreateClientV3BadRequest() *AdminCreateClientV3BadRequest {
 	return &AdminCreateClientV3BadRequest{}
 }
 
-/*AdminCreateClientV3BadRequest handles this case with default header values.
+/*
+AdminCreateClientV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminCreateClientV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminCreateClientV3Unauthorized() *AdminCreateClientV3Unauthorized {
 	return &AdminCreateClientV3Unauthorized{}
 }
 
-/*AdminCreateClientV3Unauthorized handles this case with default header values.
+/*
+AdminCreateClientV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCreateClientV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminCreateClientV3Forbidden() *AdminCreateClientV3Forbidden {
 	return &AdminCreateClientV3Forbidden{}
 }
 
-/*AdminCreateClientV3Forbidden handles this case with default header values.
+/*
+AdminCreateClientV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminCreateClientV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminCreateClientV3Conflict() *AdminCreateClientV3Conflict {
 	return &AdminCreateClientV3Conflict{}
 }
 
-/*AdminCreateClientV3Conflict handles this case with default header values.
+/*
+AdminCreateClientV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10364</td><td>client exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10364</td><td>client exists</td></tr></table>
 */
 type AdminCreateClientV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse

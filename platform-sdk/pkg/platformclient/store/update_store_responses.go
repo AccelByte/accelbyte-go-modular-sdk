@@ -115,9 +115,10 @@ func NewUpdateStoreOK() *UpdateStoreOK {
 	return &UpdateStoreOK{}
 }
 
-/*UpdateStoreOK handles this case with default header values.
+/*
+UpdateStoreOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateStoreOK struct {
 	Payload *platformclientmodels.StoreInfo
@@ -169,9 +170,10 @@ func NewUpdateStoreNotFound() *UpdateStoreNotFound {
 	return &UpdateStoreNotFound{}
 }
 
-/*UpdateStoreNotFound handles this case with default header values.
+/*
+UpdateStoreNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateStoreNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewUpdateStoreConflict() *UpdateStoreConflict {
 	return &UpdateStoreConflict{}
 }
 
-/*UpdateStoreConflict handles this case with default header values.
+/*
+UpdateStoreConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30171</td><td>Store [{store}] can't change default language to [{language}]</td></tr><tr><td>30172</td><td>Store [{store}] can't change default region to [{region}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30171</td><td>Store [{store}] can't change default language to [{language}]</td></tr><tr><td>30172</td><td>Store [{store}] can't change default region to [{region}]</td></tr></table>
 */
 type UpdateStoreConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewUpdateStoreUnprocessableEntity() *UpdateStoreUnprocessableEntity {
 	return &UpdateStoreUnprocessableEntity{}
 }
 
-/*UpdateStoreUnprocessableEntity handles this case with default header values.
+/*
+UpdateStoreUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateStoreUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

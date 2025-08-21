@@ -144,9 +144,10 @@ func NewDeleteUserStatItems2NoContent() *DeleteUserStatItems2NoContent {
 	return &DeleteUserStatItems2NoContent{}
 }
 
-/*DeleteUserStatItems2NoContent handles this case with default header values.
+/*
+DeleteUserStatItems2NoContent handles this case with default header values.
 
-  delete successfully
+	delete successfully
 */
 type DeleteUserStatItems2NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteUserStatItems2Unauthorized() *DeleteUserStatItems2Unauthorized {
 	return &DeleteUserStatItems2Unauthorized{}
 }
 
-/*DeleteUserStatItems2Unauthorized handles this case with default header values.
+/*
+DeleteUserStatItems2Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteUserStatItems2Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -225,9 +227,10 @@ func NewDeleteUserStatItems2Forbidden() *DeleteUserStatItems2Forbidden {
 	return &DeleteUserStatItems2Forbidden{}
 }
 
-/*DeleteUserStatItems2Forbidden handles this case with default header values.
+/*
+DeleteUserStatItems2Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteUserStatItems2Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -279,9 +282,10 @@ func NewDeleteUserStatItems2NotFound() *DeleteUserStatItems2NotFound {
 	return &DeleteUserStatItems2NotFound{}
 }
 
-/*DeleteUserStatItems2NotFound handles this case with default header values.
+/*
+DeleteUserStatItems2NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12242</td><td>Stat item of [{statCode}] of user [{profileId}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12242</td><td>Stat item of [{statCode}] of user [{profileId}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type DeleteUserStatItems2NotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -333,9 +337,10 @@ func NewDeleteUserStatItems2UnprocessableEntity() *DeleteUserStatItems2Unprocess
 	return &DeleteUserStatItems2UnprocessableEntity{}
 }
 
-/*DeleteUserStatItems2UnprocessableEntity handles this case with default header values.
+/*
+DeleteUserStatItems2UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DeleteUserStatItems2UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -387,9 +392,10 @@ func NewDeleteUserStatItems2InternalServerError() *DeleteUserStatItems2InternalS
 	return &DeleteUserStatItems2InternalServerError{}
 }
 
-/*DeleteUserStatItems2InternalServerError handles this case with default header values.
+/*
+DeleteUserStatItems2InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type DeleteUserStatItems2InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

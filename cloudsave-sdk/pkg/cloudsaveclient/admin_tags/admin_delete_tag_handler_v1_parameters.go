@@ -57,7 +57,8 @@ func NewAdminDeleteTagHandlerV1ParamsWithHTTPClient(client *http.Client) *AdminD
 	}
 }
 
-/*AdminDeleteTagHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+AdminDeleteTagHandlerV1Params contains all the parameters to send to the API endpoint
 for the admin delete tag handler v1 operation typically these are written to a http.Request
 */
 type AdminDeleteTagHandlerV1Params struct {

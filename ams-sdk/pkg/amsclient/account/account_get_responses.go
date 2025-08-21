@@ -130,9 +130,10 @@ func NewAccountGetOK() *AccountGetOK {
 	return &AccountGetOK{}
 }
 
-/*AccountGetOK handles this case with default header values.
+/*
+AccountGetOK handles this case with default header values.
 
-  success
+	success
 */
 type AccountGetOK struct {
 	Payload *amsclientmodels.APIAccountResponse
@@ -184,9 +185,10 @@ func NewAccountGetUnauthorized() *AccountGetUnauthorized {
 	return &AccountGetUnauthorized{}
 }
 
-/*AccountGetUnauthorized handles this case with default header values.
+/*
+AccountGetUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type AccountGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewAccountGetForbidden() *AccountGetForbidden {
 	return &AccountGetForbidden{}
 }
 
-/*AccountGetForbidden handles this case with default header values.
+/*
+AccountGetForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type AccountGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewAccountGetNotFound() *AccountGetNotFound {
 	return &AccountGetNotFound{}
 }
 
-/*AccountGetNotFound handles this case with default header values.
+/*
+AccountGetNotFound handles this case with default header values.
 
-  account not linked
+	account not linked
 */
 type AccountGetNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewAccountGetInternalServerError() *AccountGetInternalServerError {
 	return &AccountGetInternalServerError{}
 }
 
-/*AccountGetInternalServerError handles this case with default header values.
+/*
+AccountGetInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type AccountGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

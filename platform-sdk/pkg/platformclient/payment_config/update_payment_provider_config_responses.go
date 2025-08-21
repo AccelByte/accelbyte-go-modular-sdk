@@ -130,9 +130,10 @@ func NewUpdatePaymentProviderConfigOK() *UpdatePaymentProviderConfigOK {
 	return &UpdatePaymentProviderConfigOK{}
 }
 
-/*UpdatePaymentProviderConfigOK handles this case with default header values.
+/*
+UpdatePaymentProviderConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePaymentProviderConfigOK struct {
 	Payload *platformclientmodels.PaymentProviderConfigInfo
@@ -184,9 +185,10 @@ func NewUpdatePaymentProviderConfigBadRequest() *UpdatePaymentProviderConfigBadR
 	return &UpdatePaymentProviderConfigBadRequest{}
 }
 
-/*UpdatePaymentProviderConfigBadRequest handles this case with default header values.
+/*
+UpdatePaymentProviderConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33221</td><td>TaxJar api token required</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33221</td><td>TaxJar api token required</td></tr></table>
 */
 type UpdatePaymentProviderConfigBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewUpdatePaymentProviderConfigNotFound() *UpdatePaymentProviderConfigNotFou
 	return &UpdatePaymentProviderConfigNotFound{}
 }
 
-/*UpdatePaymentProviderConfigNotFound handles this case with default header values.
+/*
+UpdatePaymentProviderConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33241</td><td>Payment provider config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33241</td><td>Payment provider config [{id}] does not exist</td></tr></table>
 */
 type UpdatePaymentProviderConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewUpdatePaymentProviderConfigConflict() *UpdatePaymentProviderConfigConfli
 	return &UpdatePaymentProviderConfigConflict{}
 }
 
-/*UpdatePaymentProviderConfigConflict handles this case with default header values.
+/*
+UpdatePaymentProviderConfigConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33271</td><td>Payment provider config for namespace [{namespace}] and region [{region}] already exists</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33271</td><td>Payment provider config for namespace [{namespace}] and region [{region}] already exists</td></tr></table>
 */
 type UpdatePaymentProviderConfigConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewUpdatePaymentProviderConfigUnprocessableEntity() *UpdatePaymentProviderC
 	return &UpdatePaymentProviderConfigUnprocessableEntity{}
 }
 
-/*UpdatePaymentProviderConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdatePaymentProviderConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdatePaymentProviderConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

@@ -59,7 +59,8 @@ func NewExportStoreByCSVParamsWithHTTPClient(client *http.Client) *ExportStoreBy
 	}
 }
 
-/*ExportStoreByCSVParams contains all the parameters to send to the API endpoint
+/*
+ExportStoreByCSVParams contains all the parameters to send to the API endpoint
 for the export store by csv operation typically these are written to a http.Request
 */
 type ExportStoreByCSVParams struct {

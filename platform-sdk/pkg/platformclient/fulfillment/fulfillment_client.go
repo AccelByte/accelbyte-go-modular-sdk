@@ -53,7 +53,7 @@ QueryFulfillmentHistoriesShort query fulfillment histories
 Query fulfillment histories in a namespace.
 Other detail info:
 
-  * Returns : query fulfillment history
+  - Returns : query fulfillment history
 */
 func (a *Client) QueryFulfillmentHistoriesShort(params *QueryFulfillmentHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentHistoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -110,7 +110,7 @@ FulfillItemShort fulfill item
 Fulfill item.
 Other detail info:
 
-  * Returns : fulfillment result
+  - Returns : fulfillment result
 */
 func (a *Client) FulfillItemShort(params *FulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -188,7 +188,7 @@ RedeemCodeShort redeem campaign code
 Redeem campaign code.
 Other detail info:
 
-  * Returns : fulfillment result
+  - Returns : fulfillment result
 */
 func (a *Client) RedeemCodeShort(params *RedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*RedeemCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -266,7 +266,7 @@ PreCheckFulfillItemShort pre check fulfillment items
 Retrieve and check fulfillment items based on the provided request.
 Other detail info:
 
-  * Returns : list of fulfillment items
+  - Returns : list of fulfillment items
 */
 func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckFulfillItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -334,10 +334,12 @@ func (a *Client) PreCheckFulfillItemShort(params *PreCheckFulfillItemParams, aut
 
 /*
 FulfillRewardsShort fulfill rewards without content
- [SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
+	[SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
 Other detail info:
 
-  * Returns : fulfillment result
+  - Returns : fulfillment result
 */
 func (a *Client) FulfillRewardsShort(params *FulfillRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsResponse, error) {
 	// TODO: Validate the params before sending
@@ -414,7 +416,7 @@ PublicRedeemCodeShort redeem campaign code
 Redeem campaign code, this api have rate limit, default: only allow request once per user in 2 seconds
 Other detail info:
 
-  * Returns : fulfillment result
+  - Returns : fulfillment result
 */
 func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRedeemCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -496,12 +498,14 @@ func (a *Client) PublicRedeemCodeShort(params *PublicRedeemCodeParams, authInfo 
 
 /*
 QueryFulfillmentsShort query fulfillments
- [Not supported yet in AGS Shared Cloud] Query fulfillments in a namespace.
+
+	[Not supported yet in AGS Shared Cloud] Query fulfillments in a namespace.
+
 Other detail info:
 
-  * Returns : list of fulfillment info:
-    * storeId in items can be ignored
-    * error in successList will always be null
+  - Returns : list of fulfillment info:
+  - storeId in items can be ignored
+  - error in successList will always be null
 */
 func (a *Client) QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryFulfillmentsResponse, error) {
 	// TODO: Validate the params before sending
@@ -555,11 +559,13 @@ func (a *Client) QueryFulfillmentsShort(params *QueryFulfillmentsParams, authInf
 
 /*
 FulfillRewardsV2Short fulfill rewards
- [SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
+	[SERVICE COMMUNICATION ONLY] Fulfill rewards.
+
 Other detail info:
 
-  * Returns : fulfillment result
-  *  rewards Item unsupported Type : SUBSCRIPTION
+  - Returns : fulfillment result
+  - rewards Item unsupported Type : SUBSCRIPTION
 */
 func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillRewardsV2Response, error) {
 	// TODO: Validate the params before sending
@@ -635,19 +641,16 @@ func (a *Client) FulfillRewardsV2Short(params *FulfillRewardsV2Params, authInfo 
 /*
 FulfillItemsShort fulfill items by transactionid
 
-
 ### The endpoint is going to be deprecated
 
 Description: this endpoint is Not supported yet in AGS Shared Cloud and it's used to fulfill items by transaction id.
 
-  *  Request body : storeId, region, language, and entitlementCollectionId can be ignored.
-  *  Returns : fulfillment v2 result, storeId field can be ignored.
-
-
+  - Request body : storeId, region, language, and entitlementCollectionId can be ignored.
+  - Returns : fulfillment v2 result, storeId field can be ignored.
 
 ### Endpoint migration guide
 
-  *  Substitute endpoint: /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId} [PUT]
+  - Substitute endpoint: /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId} [PUT]
 */
 func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -723,16 +726,15 @@ func (a *Client) FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.
 /*
 RetryFulfillItemsShort retry fulfill items by transactionid
 
-
 ### The endpoint is going to be deprecated
 
 [Not supported yet in AGS Shared Cloud] Retry fulfill items by transactionId without sending the original payload.
 Other detail info:
-      * Returns : fulfillment v2 result, storeId field can be ignored.
+  - Returns : fulfillment v2 result, storeId field can be ignored.
 
 ### Endpoint migration guide
 
-      *  Substitute endpoint: /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/retry [PUT]
+  - Substitute endpoint: /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/retry [PUT]
 */
 func (a *Client) RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -801,16 +803,15 @@ func (a *Client) RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInf
 /*
 RevokeItemsShort revoke items by transactionid
 
-
 ### The endpoint is going to be deprecated
 
 [Not supported yet in AGS Shared Cloud] Revoke items by transactionId.
 Other detail info:
-          * Returns : revoke fulfillment v2 result, storeId field can be ignored.
+  - Returns : revoke fulfillment v2 result, storeId field can be ignored.
 
 ### Endpoint migration guide
 
-          *  Substitute endpoint: /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/revoke [PUT]
+  - Substitute endpoint: /v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/{transactionId}/revoke [PUT]
 */
 func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -878,10 +879,12 @@ func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.Cl
 
 /*
 FulfillItemsV3Short fulfill items by transactionid
- [Not supported yet in AGS Shared Cloud] Fulfill items by transactionId.
+
+	[Not supported yet in AGS Shared Cloud] Fulfill items by transactionId.
+
 Other detail info:
-              * Request body : storeId, region, language, and entitlementCollectionId can be ignored.
-              *  Returns : fulfillment v2 result, storeId field can be ignored.
+  - Request body : storeId, region, language, and entitlementCollectionId can be ignored.
+  - Returns : fulfillment v2 result, storeId field can be ignored.
 */
 func (a *Client) FulfillItemsV3Short(params *FulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsV3Response, error) {
 	// TODO: Validate the params before sending
@@ -949,9 +952,11 @@ func (a *Client) FulfillItemsV3Short(params *FulfillItemsV3Params, authInfo runt
 
 /*
 RetryFulfillItemsV3Short retry fulfill items by transactionid
- [Not supported yet in AGS Shared Cloud] Retry fulfill items by transactionId without sending the original payload.
+
+	[Not supported yet in AGS Shared Cloud] Retry fulfill items by transactionId without sending the original payload.
+
 Other detail info:
-              * Returns : fulfillment v2 result, storeId field can be ignored.
+  - Returns : fulfillment v2 result, storeId field can be ignored.
 */
 func (a *Client) RetryFulfillItemsV3Short(params *RetryFulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsV3Response, error) {
 	// TODO: Validate the params before sending
@@ -1012,9 +1017,11 @@ func (a *Client) RetryFulfillItemsV3Short(params *RetryFulfillItemsV3Params, aut
 
 /*
 RevokeItemsV3Short revoke items by transactionid
- [Not supported yet in AGS Shared Cloud] Revoke items by transactionId.
+
+	[Not supported yet in AGS Shared Cloud] Revoke items by transactionId.
+
 Other detail info:
-              * Returns : revoke fulfillment v2 result, storeId field can be ignored.
+  - Returns : revoke fulfillment v2 result, storeId field can be ignored.
 */
 func (a *Client) RevokeItemsV3Short(params *RevokeItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsV3Response, error) {
 	// TODO: Validate the params before sending

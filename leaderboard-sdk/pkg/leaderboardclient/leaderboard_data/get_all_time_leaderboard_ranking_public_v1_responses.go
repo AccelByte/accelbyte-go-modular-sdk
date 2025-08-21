@@ -115,9 +115,10 @@ func NewGetAllTimeLeaderboardRankingPublicV1OK() *GetAllTimeLeaderboardRankingPu
 	return &GetAllTimeLeaderboardRankingPublicV1OK{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV1OK handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV1OK handles this case with default header values.
 
-  All time leaderboard ranking data retrieved
+	All time leaderboard ranking data retrieved
 */
 type GetAllTimeLeaderboardRankingPublicV1OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
@@ -169,9 +170,10 @@ func NewGetAllTimeLeaderboardRankingPublicV1BadRequest() *GetAllTimeLeaderboardR
 	return &GetAllTimeLeaderboardRankingPublicV1BadRequest{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV1BadRequest handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV1BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -223,9 +225,10 @@ func NewGetAllTimeLeaderboardRankingPublicV1NotFound() *GetAllTimeLeaderboardRan
 	return &GetAllTimeLeaderboardRankingPublicV1NotFound{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV1NotFound handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV1NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -277,9 +280,10 @@ func NewGetAllTimeLeaderboardRankingPublicV1InternalServerError() *GetAllTimeLea
 	return &GetAllTimeLeaderboardRankingPublicV1InternalServerError{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV1InternalServerError handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

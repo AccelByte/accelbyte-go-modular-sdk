@@ -57,7 +57,8 @@ func NewPublicRemoveTrustedDeviceV4ParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*PublicRemoveTrustedDeviceV4Params contains all the parameters to send to the API endpoint
+/*
+PublicRemoveTrustedDeviceV4Params contains all the parameters to send to the API endpoint
 for the public remove trusted device v4 operation typically these are written to a http.Request
 */
 type PublicRemoveTrustedDeviceV4Params struct {

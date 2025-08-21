@@ -130,9 +130,10 @@ func NewCreateViewCreated() *CreateViewCreated {
 	return &CreateViewCreated{}
 }
 
-/*CreateViewCreated handles this case with default header values.
+/*
+CreateViewCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateViewCreated struct {
 	Payload *platformclientmodels.FullViewInfo
@@ -184,9 +185,10 @@ func NewCreateViewBadRequest() *CreateViewBadRequest {
 	return &CreateViewBadRequest{}
 }
 
-/*CreateViewBadRequest handles this case with default header values.
+/*
+CreateViewBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr></table>
 */
 type CreateViewBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewCreateViewNotFound() *CreateViewNotFound {
 	return &CreateViewNotFound{}
 }
 
-/*CreateViewNotFound handles this case with default header values.
+/*
+CreateViewNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CreateViewNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewCreateViewConflict() *CreateViewConflict {
 	return &CreateViewConflict{}
 }
 
-/*CreateViewConflict handles this case with default header values.
+/*
+CreateViewConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type CreateViewConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewCreateViewUnprocessableEntity() *CreateViewUnprocessableEntity {
 	return &CreateViewUnprocessableEntity{}
 }
 
-/*CreateViewUnprocessableEntity handles this case with default header values.
+/*
+CreateViewUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateViewUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

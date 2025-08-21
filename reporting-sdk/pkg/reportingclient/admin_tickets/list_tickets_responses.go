@@ -85,10 +85,9 @@ func NewListTicketsOK() *ListTicketsOK {
 	return &ListTicketsOK{}
 }
 
-/*ListTicketsOK handles this case with default header values.
-
-
- */
+/*
+ListTicketsOK handles this case with default header values.
+*/
 type ListTicketsOK struct {
 	Payload *reportingclientmodels.RestapiTicketListResponse
 }
@@ -139,10 +138,9 @@ func NewListTicketsInternalServerError() *ListTicketsInternalServerError {
 	return &ListTicketsInternalServerError{}
 }
 
-/*ListTicketsInternalServerError handles this case with default header values.
-
-
- */
+/*
+ListTicketsInternalServerError handles this case with default header values.
+*/
 type ListTicketsInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

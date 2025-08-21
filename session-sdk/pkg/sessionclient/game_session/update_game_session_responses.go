@@ -160,9 +160,10 @@ func NewUpdateGameSessionOK() *UpdateGameSessionOK {
 	return &UpdateGameSessionOK{}
 }
 
-/*UpdateGameSessionOK handles this case with default header values.
+/*
+UpdateGameSessionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateGameSessionOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -214,9 +215,10 @@ func NewUpdateGameSessionBadRequest() *UpdateGameSessionBadRequest {
 	return &UpdateGameSessionBadRequest{}
 }
 
-/*UpdateGameSessionBadRequest handles this case with default header values.
+/*
+UpdateGameSessionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateGameSessionBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewUpdateGameSessionUnauthorized() *UpdateGameSessionUnauthorized {
 	return &UpdateGameSessionUnauthorized{}
 }
 
-/*UpdateGameSessionUnauthorized handles this case with default header values.
+/*
+UpdateGameSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateGameSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewUpdateGameSessionForbidden() *UpdateGameSessionForbidden {
 	return &UpdateGameSessionForbidden{}
 }
 
-/*UpdateGameSessionForbidden handles this case with default header values.
+/*
+UpdateGameSessionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateGameSessionForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewUpdateGameSessionNotFound() *UpdateGameSessionNotFound {
 	return &UpdateGameSessionNotFound{}
 }
 
-/*UpdateGameSessionNotFound handles this case with default header values.
+/*
+UpdateGameSessionNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UpdateGameSessionNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewUpdateGameSessionConflict() *UpdateGameSessionConflict {
 	return &UpdateGameSessionConflict{}
 }
 
-/*UpdateGameSessionConflict handles this case with default header values.
+/*
+UpdateGameSessionConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type UpdateGameSessionConflict struct {
 	Payload *sessionclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewUpdateGameSessionInternalServerError() *UpdateGameSessionInternalServerE
 	return &UpdateGameSessionInternalServerError{}
 }
 
-/*UpdateGameSessionInternalServerError handles this case with default header values.
+/*
+UpdateGameSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateGameSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

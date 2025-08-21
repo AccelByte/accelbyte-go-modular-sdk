@@ -130,9 +130,10 @@ func NewGetPlayerRecordsBulkHandlerV1OK() *GetPlayerRecordsBulkHandlerV1OK {
 	return &GetPlayerRecordsBulkHandlerV1OK{}
 }
 
-/*GetPlayerRecordsBulkHandlerV1OK handles this case with default header values.
+/*
+GetPlayerRecordsBulkHandlerV1OK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type GetPlayerRecordsBulkHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsBulkGetPlayerRecordResponse
@@ -184,9 +185,10 @@ func NewGetPlayerRecordsBulkHandlerV1BadRequest() *GetPlayerRecordsBulkHandlerV1
 	return &GetPlayerRecordsBulkHandlerV1BadRequest{}
 }
 
-/*GetPlayerRecordsBulkHandlerV1BadRequest handles this case with default header values.
+/*
+GetPlayerRecordsBulkHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18125</td><td>invalid request body</td></tr><tr><td>18126</td><td>request record keys list exceed max size [%d]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18125</td><td>invalid request body</td></tr><tr><td>18126</td><td>request record keys list exceed max size [%d]</td></tr></table>
 */
 type GetPlayerRecordsBulkHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewGetPlayerRecordsBulkHandlerV1Unauthorized() *GetPlayerRecordsBulkHandler
 	return &GetPlayerRecordsBulkHandlerV1Unauthorized{}
 }
 
-/*GetPlayerRecordsBulkHandlerV1Unauthorized handles this case with default header values.
+/*
+GetPlayerRecordsBulkHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetPlayerRecordsBulkHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewGetPlayerRecordsBulkHandlerV1Forbidden() *GetPlayerRecordsBulkHandlerV1F
 	return &GetPlayerRecordsBulkHandlerV1Forbidden{}
 }
 
-/*GetPlayerRecordsBulkHandlerV1Forbidden handles this case with default header values.
+/*
+GetPlayerRecordsBulkHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetPlayerRecordsBulkHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewGetPlayerRecordsBulkHandlerV1InternalServerError() *GetPlayerRecordsBulk
 	return &GetPlayerRecordsBulkHandlerV1InternalServerError{}
 }
 
-/*GetPlayerRecordsBulkHandlerV1InternalServerError handles this case with default header values.
+/*
+GetPlayerRecordsBulkHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18124</td><td>unable to get record</td></tr><tr><td>18006</td><td>unable to decode record</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18124</td><td>unable to get record</td></tr><tr><td>18006</td><td>unable to decode record</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetPlayerRecordsBulkHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

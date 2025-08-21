@@ -130,9 +130,10 @@ func NewPublicTopicListOK() *PublicTopicListOK {
 	return &PublicTopicListOK{}
 }
 
-/*PublicTopicListOK handles this case with default header values.
+/*
+PublicTopicListOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicTopicListOK struct {
 	Payload []*chatclientmodels.ModelsChatMessageResponse
@@ -182,9 +183,10 @@ func NewPublicTopicListBadRequest() *PublicTopicListBadRequest {
 	return &PublicTopicListBadRequest{}
 }
 
-/*PublicTopicListBadRequest handles this case with default header values.
+/*
+PublicTopicListBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicTopicListBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewPublicTopicListUnauthorized() *PublicTopicListUnauthorized {
 	return &PublicTopicListUnauthorized{}
 }
 
-/*PublicTopicListUnauthorized handles this case with default header values.
+/*
+PublicTopicListUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicTopicListUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewPublicTopicListForbidden() *PublicTopicListForbidden {
 	return &PublicTopicListForbidden{}
 }
 
-/*PublicTopicListForbidden handles this case with default header values.
+/*
+PublicTopicListForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicTopicListForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewPublicTopicListInternalServerError() *PublicTopicListInternalServerError
 	return &PublicTopicListInternalServerError{}
 }
 
-/*PublicTopicListInternalServerError handles this case with default header values.
+/*
+PublicTopicListInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicTopicListInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

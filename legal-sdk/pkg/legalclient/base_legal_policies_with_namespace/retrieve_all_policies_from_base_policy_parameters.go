@@ -57,7 +57,8 @@ func NewRetrieveAllPoliciesFromBasePolicyParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*RetrieveAllPoliciesFromBasePolicyParams contains all the parameters to send to the API endpoint
+/*
+RetrieveAllPoliciesFromBasePolicyParams contains all the parameters to send to the API endpoint
 for the retrieve all policies from base policy operation typically these are written to a http.Request
 */
 type RetrieveAllPoliciesFromBasePolicyParams struct {

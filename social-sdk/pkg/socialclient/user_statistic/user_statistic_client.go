@@ -166,7 +166,7 @@ func (a *Client) BulkFetchStatItemsShort(params *BulkFetchStatItemsParams, authI
 BulkIncUserStatItemShort bulk update multiple user's statitems value
 Bulk update multiple user's statitems value.
 Other detail info:
-        *  Returns : bulk updated result
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemShort(params *BulkIncUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -607,7 +607,7 @@ func (a *Client) GetStatItemsShort(params *GetStatItemsParams, authInfo runtime.
 GetUserStatItemsShort list user's statitems
 List user's statItems.
 Other detail info:
-        *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) GetUserStatItemsShort(params *GetUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -691,7 +691,7 @@ func (a *Client) GetUserStatItemsShort(params *GetUserStatItemsParams, authInfo 
 BulkCreateUserStatItemsShort bulk create user's statitems
 Bulk create user's statItems.
 Other detail info:
-        *  Returns : bulk created result
+  - Returns : bulk created result
 */
 func (a *Client) BulkCreateUserStatItemsShort(params *BulkCreateUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkCreateUserStatItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -782,7 +782,7 @@ func (a *Client) BulkCreateUserStatItemsShort(params *BulkCreateUserStatItemsPar
 BulkIncUserStatItem1Short bulk update user's statitems value
 Bulk update user's statitems value.
 Other detail info:
-          *  Returns : bulk updated result
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItem1Short(params *BulkIncUserStatItem1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItem1Response, error) {
 	// TODO: Validate the params before sending
@@ -873,7 +873,7 @@ func (a *Client) BulkIncUserStatItem1Short(params *BulkIncUserStatItem1Params, a
 BulkIncUserStatItemValue1Short bulk update user's statitems value
 Bulk update user's statitems value.
 Other detail info:
-          *  Returns : bulk updated result
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemValue1Short(params *BulkIncUserStatItemValue1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemValue1Response, error) {
 	// TODO: Validate the params before sending
@@ -1055,7 +1055,7 @@ func (a *Client) BulkResetUserStatItem1Short(params *BulkResetUserStatItem1Param
 CreateUserStatItemShort create user's statitem
 Create statItem for a user.
 Other detail info:
-          *  Returns : created user's statItem
+  - Returns : created user's statItem
 */
 func (a *Client) CreateUserStatItemShort(params *CreateUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateUserStatItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -1153,7 +1153,7 @@ DeleteUserStatItemsShort delete user's statitems
 This endpoint is for testing purpose. Use this endpoint for cleaning up after testing.
 Delete user's statItems given stat code.
 Other detail info:
-          *  Returns : no content
+  - Returns : no content
 */
 func (a *Client) DeleteUserStatItemsShort(params *DeleteUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStatItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1243,7 +1243,7 @@ func (a *Client) DeleteUserStatItemsShort(params *DeleteUserStatItemsParams, aut
 IncUserStatItemValueShort update user's statitem value
 Update user's statitem value.
 Other detail info:
-            *  Returns : updated user's statItem
+  - Returns : updated user's statItem
 */
 func (a *Client) IncUserStatItemValueShort(params *IncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*IncUserStatItemValueResponse, error) {
 	// TODO: Validate the params before sending
@@ -1532,7 +1532,7 @@ func (a *Client) BulkFetchStatItems1Short(params *BulkFetchStatItems1Params, aut
 PublicBulkIncUserStatItemShort public bulk update multiple user's statitems value
 Public bulk update multiple user's statitems value.
 Other detail info:
-            *  Returns : bulk updated result
+  - Returns : bulk updated result
 */
 func (a *Client) PublicBulkIncUserStatItemShort(params *PublicBulkIncUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -1623,7 +1623,7 @@ func (a *Client) PublicBulkIncUserStatItemShort(params *PublicBulkIncUserStatIte
 PublicBulkIncUserStatItemValueShort public bulk update multiple user's statitems value
 Public bulk update multiple user's statitems value.
 Other detail info:
-            *  Returns : bulk updated result
+  - Returns : bulk updated result
 */
 func (a *Client) PublicBulkIncUserStatItemValueShort(params *PublicBulkIncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItemValueResponse, error) {
 	// TODO: Validate the params before sending
@@ -1807,7 +1807,7 @@ func (a *Client) BulkResetUserStatItem2Short(params *BulkResetUserStatItem2Param
 PublicListMyStatItemsShort public list user's statitems
 Public list all statItems by pagination.
 Other detail info:
-            *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) PublicListMyStatItemsShort(params *PublicListMyStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1891,10 +1891,11 @@ func (a *Client) PublicListMyStatItemsShort(params *PublicListMyStatItemsParams,
 PublicListAllMyStatItemsShort public list user's statitems
 Public list all statItems of user.
 NOTE:
-          * If stat code does not exist, will ignore this stat code.
-          * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-          *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) PublicListAllMyStatItemsShort(params *PublicListAllMyStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListAllMyStatItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1978,7 +1979,7 @@ func (a *Client) PublicListAllMyStatItemsShort(params *PublicListAllMyStatItemsP
 PublicQueryUserStatItems1Short public list user's statitems
 Public list all statItems by pagination.
 Other detail info:
-          *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItems1Response, error) {
 	// TODO: Validate the params before sending
@@ -2062,7 +2063,7 @@ func (a *Client) PublicQueryUserStatItems1Short(params *PublicQueryUserStatItems
 PublicBulkCreateUserStatItemsShort bulk create user's statitems
 Bulk create statItems.
 Other detail info:
-          *  Returns : bulk created result
+  - Returns : bulk created result
 */
 func (a *Client) PublicBulkCreateUserStatItemsShort(params *PublicBulkCreateUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkCreateUserStatItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -2153,10 +2154,11 @@ func (a *Client) PublicBulkCreateUserStatItemsShort(params *PublicBulkCreateUser
 PublicQueryUserStatItemsShort public list user's statitems
 Public list all statItems of user.
 NOTE:
-        * If stat code does not exist, will ignore this stat code.
-        * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-        *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -2254,7 +2256,7 @@ func (a *Client) PublicQueryUserStatItemsShort(params *PublicQueryUserStatItemsP
 PublicBulkIncUserStatItem1Short public bulk update user's statitems value
 Public bulk update user's statitems value.
 Other detail info:
-        *  Returns : bulk updated result
+  - Returns : bulk updated result
 */
 func (a *Client) PublicBulkIncUserStatItem1Short(params *PublicBulkIncUserStatItem1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkIncUserStatItem1Response, error) {
 	// TODO: Validate the params before sending
@@ -2345,7 +2347,7 @@ func (a *Client) PublicBulkIncUserStatItem1Short(params *PublicBulkIncUserStatIt
 BulkIncUserStatItemValue2Short public bulk update user's statitems value
 Public bulk update user's statitems value.
 Other detail info:
-        *  Returns : bulk updated result
+  - Returns : bulk updated result
 */
 func (a *Client) BulkIncUserStatItemValue2Short(params *BulkIncUserStatItemValue2Params, authInfo runtime.ClientAuthInfoWriter) (*BulkIncUserStatItemValue2Response, error) {
 	// TODO: Validate the params before sending
@@ -2527,7 +2529,7 @@ func (a *Client) BulkResetUserStatItem3Short(params *BulkResetUserStatItem3Param
 PublicCreateUserStatItemShort create user's statitem
 Create user's statItem.
 Other detail info:
-          *  Returns : created user's statItem
+  - Returns : created user's statItem
 */
 func (a *Client) PublicCreateUserStatItemShort(params *PublicCreateUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserStatItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2624,7 +2626,7 @@ func (a *Client) PublicCreateUserStatItemShort(params *PublicCreateUserStatItemP
 DeleteUserStatItems1Short delete user's statitems
 Delete user's statItems given stat code.
 Other detail info:
-          *  Returns : no content
+  - Returns : no content
 */
 func (a *Client) DeleteUserStatItems1Short(params *DeleteUserStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStatItems1Response, error) {
 	// TODO: Validate the params before sending
@@ -2714,7 +2716,7 @@ func (a *Client) DeleteUserStatItems1Short(params *DeleteUserStatItems1Params, a
 PublicIncUserStatItemShort public update user's statitem value
 Public update user's statitem value.
 Other detail info:
-            *  Returns : updated user's statItem
+  - Returns : updated user's statItem
 */
 func (a *Client) PublicIncUserStatItemShort(params *PublicIncUserStatItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicIncUserStatItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2819,7 +2821,7 @@ func (a *Client) PublicIncUserStatItemShort(params *PublicIncUserStatItemParams,
 PublicIncUserStatItemValueShort public update user's statitem value
 Public update user's statitem value.
 Other detail info:
-            *  Returns : updated user's statItem
+  - Returns : updated user's statItem
 */
 func (a *Client) PublicIncUserStatItemValueShort(params *PublicIncUserStatItemValueParams, authInfo runtime.ClientAuthInfoWriter) (*PublicIncUserStatItemValueResponse, error) {
 	// TODO: Validate the params before sending
@@ -3032,37 +3034,15 @@ There are four supported update strategies:
 Other detail info:
 + *Returns*: bulk updated result
 
-
-
-
-
-
 ### â ï¸ Important Note on Bulk Update Behavior
-
-
-
-
 
 To ensure data integrity and avoid inconsistencies or race conditions, it is crucial to make each user/update pair unique per request.
 We strongly advise against including multiple updates for the same `userId` with the same `statCode` and/or `updateStrategy` in a single request,
 as bulk operations are processed concurrently.
 
-
-
-
-
-
 Avoid including multiple entries with the same`userId` and `statCode` but different `updateStrategy` values.
 
-
-
-
-
-
 To apply multiple operations on the same stat, please batch or sequence them in separate requests , according to your business logic.
-
-
-
 
 â Incorrect Example:
 
@@ -3272,10 +3252,11 @@ func (a *Client) BulkFetchOrDefaultStatItems1Short(params *BulkFetchOrDefaultSta
 AdminListUsersStatItemsShort (legacy) admin list user's statitems
 Admin list all statItems of user
 NOTE: Legacy endpoint , please use POST /v2/admin/namespaces/{namespace}/users/{userId}/statitems/value/bulk/getOrDefault
-            * If stat code does not exist, will ignore this stat code.
-            * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-            *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) AdminListUsersStatItemsShort(params *AdminListUsersStatItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListUsersStatItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -3384,37 +3365,15 @@ If provided, user's statitems will be saved with key: *userId_additionalKey*
 Other detail info:
 + *Returns*: bulk updated result
 
-
-
-
-
-
 ### â ï¸ Important Note on Bulk Update Behavior
-
-
-
-
 
 To ensure data integrity and avoid inconsistencies or race conditions, it is crucial to make each stat update unique per request.
 We strongly advise against including multiple updates for the same `statCode` with the same `updateStrategy` in a single request,
 as bulk operations are processed concurrently.
 
-
-
-
-
-
 Avoid including multiple entries with the same`statCode` but different `updateStrategy` values.
 
-
-
-
-
-
 To apply multiple operations on the same stat, please batch or sequence them in separate requests , according to your business logic.
-
-
-
 
 â Incorrect Example:
 
@@ -3717,7 +3676,7 @@ Otherwise, it will delete all stat items related to the user Id.
 
 Delete user's statItems given stat code.
 Other detail info:
-            *  Returns : no content
+  - Returns : no content
 */
 func (a *Client) DeleteUserStatItems2Short(params *DeleteUserStatItems2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserStatItems2Response, error) {
 	// TODO: Validate the params before sending
@@ -3929,37 +3888,15 @@ There are four supported update strategies:
 Other detail info:
 + *Returns*: bulk updated result
 
-
-
-
-
-
 ### â ï¸ Important Note on Bulk Update Behavior
-
-
-
-
 
 To ensure data integrity and avoid inconsistencies or race conditions, it is crucial to make each user/update pair unique per request.
 We strongly advise against including multiple updates for the same `userId` with the same `statCode` and/or `updateStrategy` in a single request,
 as bulk operations are processed concurrently.
 
-
-
-
-
-
 Avoid including multiple entries with the same`userId` and `statCode` but different `updateStrategy` values.
 
-
-
-
-
-
 To apply multiple operations on the same stat, please batch or sequence them in separate requests , according to your business logic.
-
-
-
 
 â Incorrect Example:
 
@@ -4078,10 +4015,11 @@ func (a *Client) BulkUpdateUserStatItem1Short(params *BulkUpdateUserStatItem1Par
 PublicQueryUserStatItems2Short public list user's statitems
 Public list all statItems of user.
 NOTE:
-            * If stat code does not exist, will ignore this stat code.
-            * If stat item does not exist, will return default value
+  - If stat code does not exist, will ignore this stat code.
+  - If stat item does not exist, will return default value
+
 Other detail info:
-            *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) PublicQueryUserStatItems2Short(params *PublicQueryUserStatItems2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserStatItems2Response, error) {
 	// TODO: Validate the params before sending
@@ -4190,37 +4128,15 @@ If provided, user's statitems will be saved with key: *userId_additionalKey*
 Other detail info:
 + *Returns*: bulk updated result
 
-
-
-
-
-
 ### â ï¸ Important Note on Bulk Update Behavior
-
-
-
-
 
 To ensure data integrity and avoid inconsistencies or race conditions, it is crucial to make each stat update unique per request.
 We strongly advise against including multiple updates for the same `statCode` with the same `updateStrategy` in a single request,
 as bulk operations are processed concurrently.
 
-
-
-
-
-
 Avoid including multiple entries with the same`statCode` but different `updateStrategy` values.
 
-
-
-
-
-
 To apply multiple operations on the same stat, please batch or sequence them in separate requests , according to your business logic.
-
-
-
 
 â Incorrect Example:
 

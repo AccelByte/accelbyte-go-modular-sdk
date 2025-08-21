@@ -59,7 +59,8 @@ func NewNotificationWithTemplateByUserIDParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*NotificationWithTemplateByUserIDParams contains all the parameters to send to the API endpoint
+/*
+NotificationWithTemplateByUserIDParams contains all the parameters to send to the API endpoint
 for the notification with template by user id operation typically these are written to a http.Request
 */
 type NotificationWithTemplateByUserIDParams struct {

@@ -145,9 +145,10 @@ func NewGetLeaderboardConfigurationPublicV3OK() *GetLeaderboardConfigurationPubl
 	return &GetLeaderboardConfigurationPublicV3OK{}
 }
 
-/*GetLeaderboardConfigurationPublicV3OK handles this case with default header values.
+/*
+GetLeaderboardConfigurationPublicV3OK handles this case with default header values.
 
-  Leaderboard retrieved
+	Leaderboard retrieved
 */
 type GetLeaderboardConfigurationPublicV3OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardConfigPublicRespV3
@@ -199,9 +200,10 @@ func NewGetLeaderboardConfigurationPublicV3BadRequest() *GetLeaderboardConfigura
 	return &GetLeaderboardConfigurationPublicV3BadRequest{}
 }
 
-/*GetLeaderboardConfigurationPublicV3BadRequest handles this case with default header values.
+/*
+GetLeaderboardConfigurationPublicV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetLeaderboardConfigurationPublicV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetLeaderboardConfigurationPublicV3Unauthorized() *GetLeaderboardConfigu
 	return &GetLeaderboardConfigurationPublicV3Unauthorized{}
 }
 
-/*GetLeaderboardConfigurationPublicV3Unauthorized handles this case with default header values.
+/*
+GetLeaderboardConfigurationPublicV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetLeaderboardConfigurationPublicV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetLeaderboardConfigurationPublicV3Forbidden() *GetLeaderboardConfigurat
 	return &GetLeaderboardConfigurationPublicV3Forbidden{}
 }
 
-/*GetLeaderboardConfigurationPublicV3Forbidden handles this case with default header values.
+/*
+GetLeaderboardConfigurationPublicV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetLeaderboardConfigurationPublicV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetLeaderboardConfigurationPublicV3NotFound() *GetLeaderboardConfigurati
 	return &GetLeaderboardConfigurationPublicV3NotFound{}
 }
 
-/*GetLeaderboardConfigurationPublicV3NotFound handles this case with default header values.
+/*
+GetLeaderboardConfigurationPublicV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
 */
 type GetLeaderboardConfigurationPublicV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetLeaderboardConfigurationPublicV3InternalServerError() *GetLeaderboard
 	return &GetLeaderboardConfigurationPublicV3InternalServerError{}
 }
 
-/*GetLeaderboardConfigurationPublicV3InternalServerError handles this case with default header values.
+/*
+GetLeaderboardConfigurationPublicV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetLeaderboardConfigurationPublicV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

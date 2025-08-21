@@ -99,9 +99,10 @@ func NewEnableUserWalletNoContent() *EnableUserWalletNoContent {
 	return &EnableUserWalletNoContent{}
 }
 
-/*EnableUserWalletNoContent handles this case with default header values.
+/*
+EnableUserWalletNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type EnableUserWalletNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewEnableUserWalletNotFound() *EnableUserWalletNotFound {
 	return &EnableUserWalletNotFound{}
 }
 
-/*EnableUserWalletNotFound handles this case with default header values.
+/*
+EnableUserWalletNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35141</td><td>Wallet [{walletId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35141</td><td>Wallet [{walletId}] does not exist</td></tr></table>
 */
 type EnableUserWalletNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewEnableUserWalletConflict() *EnableUserWalletConflict {
 	return &EnableUserWalletConflict{}
 }
 
-/*EnableUserWalletConflict handles this case with default header values.
+/*
+EnableUserWalletConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type EnableUserWalletConflict struct {
 	Payload *platformclientmodels.ErrorEntity

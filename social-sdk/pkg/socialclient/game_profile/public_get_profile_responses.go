@@ -130,9 +130,10 @@ func NewPublicGetProfileOK() *PublicGetProfileOK {
 	return &PublicGetProfileOK{}
 }
 
-/*PublicGetProfileOK handles this case with default header values.
+/*
+PublicGetProfileOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetProfileOK struct {
 	Payload *socialclientmodels.GameProfileInfo
@@ -184,9 +185,10 @@ func NewPublicGetProfileUnauthorized() *PublicGetProfileUnauthorized {
 	return &PublicGetProfileUnauthorized{}
 }
 
-/*PublicGetProfileUnauthorized handles this case with default header values.
+/*
+PublicGetProfileUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicGetProfileUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewPublicGetProfileForbidden() *PublicGetProfileForbidden {
 	return &PublicGetProfileForbidden{}
 }
 
-/*PublicGetProfileForbidden handles this case with default header values.
+/*
+PublicGetProfileForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGetProfileForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewPublicGetProfileNotFound() *PublicGetProfileNotFound {
 	return &PublicGetProfileNotFound{}
 }
 
-/*PublicGetProfileNotFound handles this case with default header values.
+/*
+PublicGetProfileNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
 */
 type PublicGetProfileNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewPublicGetProfileInternalServerError() *PublicGetProfileInternalServerErr
 	return &PublicGetProfileInternalServerError{}
 }
 
-/*PublicGetProfileInternalServerError handles this case with default header values.
+/*
+PublicGetProfileInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicGetProfileInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

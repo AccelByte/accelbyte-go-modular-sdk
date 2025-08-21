@@ -59,7 +59,8 @@ func NewUpdateUserOrderStatusParamsWithHTTPClient(client *http.Client) *UpdateUs
 	}
 }
 
-/*UpdateUserOrderStatusParams contains all the parameters to send to the API endpoint
+/*
+UpdateUserOrderStatusParams contains all the parameters to send to the API endpoint
 for the update user order status operation typically these are written to a http.Request
 */
 type UpdateUserOrderStatusParams struct {

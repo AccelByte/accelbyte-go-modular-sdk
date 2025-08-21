@@ -129,37 +129,36 @@ func (a *Client) GetLeaderboardConfigurationsAdminV1Short(params *GetLeaderboard
 /*
 CreateLeaderboardConfigurationAdminV1Short create new leaderboard
 
-
- Fields :
-
+	Fields :
 
 
 
-  * LeaderboardConfig code must be lowercase and maximum length is 48 characters. (required).
+
+	 * LeaderboardConfig code must be lowercase and maximum length is 48 characters. (required).
 
 
-  * Maximum length for leaderboard name is 128 characters. (required).
+	 * Maximum length for leaderboard name is 128 characters. (required).
 
 
-  * Start time must be follow RFC3339 standard. e.g. 2020-10-02T15:00:00.05Z (required).
+	 * Start time must be follow RFC3339 standard. e.g. 2020-10-02T15:00:00.05Z (required).
 
 
-  * Season period must be greater than 31 days.
+	 * Season period must be greater than 31 days.
 
 
-  * If seasonPeriod is filled, the LeaderboardConfig would have seasonal leaderboard.
+	 * If seasonPeriod is filled, the LeaderboardConfig would have seasonal leaderboard.
 
 
-  * Reset Date must be a number 1 - 31. Default is '1'.
+	 * Reset Date must be a number 1 - 31. Default is '1'.
 
 
-  * Reset Day must be a number 0 - 6. 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday (day of week). Default is '0'.
+	 * Reset Day must be a number 0 - 6. 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday (day of week). Default is '0'.
 
 
-  * Reset time must be hours:minutes in 24 hours format e.g. 01:30, 10:30, 15:30, 23:15.Default is '00:00'.
+	 * Reset time must be hours:minutes in 24 hours format e.g. 01:30, 10:30, 15:30, 23:15.Default is '00:00'.
 
 
-  * Stat Code is related with statistic code in statistic service. (required).
+	 * Stat Code is related with statistic code in statistic service. (required).
 */
 func (a *Client) CreateLeaderboardConfigurationAdminV1Short(params *CreateLeaderboardConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationAdminV1Response, error) {
 	// TODO: Validate the params before sending
@@ -249,7 +248,6 @@ func (a *Client) CreateLeaderboardConfigurationAdminV1Short(params *CreateLeader
 /*
 DeleteBulkLeaderboardConfigurationAdminV1Short delete bulk leaderboards. response body will contains failed leaderboard with the reason why it's failed to delete
 
-
 This endpoint delete multiple leaderboards configuration in one request
 */
 func (a *Client) DeleteBulkLeaderboardConfigurationAdminV1Short(params *DeleteBulkLeaderboardConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteBulkLeaderboardConfigurationAdminV1Response, error) {
@@ -332,7 +330,6 @@ func (a *Client) DeleteBulkLeaderboardConfigurationAdminV1Short(params *DeleteBu
 
 /*
 GetLeaderboardConfigurationAdminV1Short get leaderboard by leaderboardcode
-
 
 This endpoint returns a leaderboard configuration
 */
@@ -424,33 +421,32 @@ func (a *Client) GetLeaderboardConfigurationAdminV1Short(params *GetLeaderboardC
 /*
 UpdateLeaderboardConfigurationAdminV1Short update leaderboard by leaderboardcode
 
-
- Fields :
-
+	Fields :
 
 
 
 
 
-  * Maximum length for leaderboard name is 128 characters.
+
+	 * Maximum length for leaderboard name is 128 characters.
 
 
-  * Start time must be follow RFC3339 standard. e.g. 2020-10-02T15:00:00.05Z
+	 * Start time must be follow RFC3339 standard. e.g. 2020-10-02T15:00:00.05Z
 
 
-  * Season period must be greater than 31 days.
+	 * Season period must be greater than 31 days.
 
 
-  * If seasonPeriod is filled, the LeaderboardConfig would have seasonal leaderboard.
+	 * If seasonPeriod is filled, the LeaderboardConfig would have seasonal leaderboard.
 
 
-  * Reset Date must be a number 1 - 31. Default is '1'.
+	 * Reset Date must be a number 1 - 31. Default is '1'.
 
 
-  * Reset Day must be a number 0 - 6. 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday (day of week). Default is '0'.
+	 * Reset Day must be a number 0 - 6. 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday (day of week). Default is '0'.
 
 
-  * Reset time must be hours:minutes in 24 hours format e.g. 01:30, 10:30, 15:30, 23:15.
+	 * Reset time must be hours:minutes in 24 hours format e.g. 01:30, 10:30, 15:30, 23:15.
 */
 func (a *Client) UpdateLeaderboardConfigurationAdminV1Short(params *UpdateLeaderboardConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLeaderboardConfigurationAdminV1Response, error) {
 	// TODO: Validate the params before sending
@@ -547,7 +543,6 @@ func (a *Client) UpdateLeaderboardConfigurationAdminV1Short(params *UpdateLeader
 /*
 DeleteLeaderboardConfigurationAdminV1Short delete leaderboard by leaderboardcode
 
-
 This endpoint delete a leaderboard configuration
 */
 func (a *Client) DeleteLeaderboardConfigurationAdminV1Short(params *DeleteLeaderboardConfigurationAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteLeaderboardConfigurationAdminV1Response, error) {
@@ -637,21 +632,11 @@ func (a *Client) DeleteLeaderboardConfigurationAdminV1Short(params *DeleteLeader
 /*
 HardDeleteLeaderboardAdminV1Short hard delete leaderboard config and data by leaderboard code
 
-
- [Test Facility Only]
-
-
-
+	[Test Facility Only]
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD:HARDDELETE [DELETE]'
 
-
-
-
-This endpoint will delete leaderboard configuration and its data
-
-
-
+# This endpoint will delete leaderboard configuration and its data
 
 Note: this endpoint only works on development environment, you might want to use archive endpoint instead hard delete.
 */
@@ -742,7 +727,6 @@ func (a *Client) HardDeleteLeaderboardAdminV1Short(params *HardDeleteLeaderboard
 /*
 GetLeaderboardConfigurationsPublicV1Short list all leaderboards by given namespace
 
-
 This endpoint return all leaderboard configurations
 */
 func (a *Client) GetLeaderboardConfigurationsPublicV1Short(params *GetLeaderboardConfigurationsPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsPublicV1Response, error) {
@@ -827,38 +811,36 @@ func (a *Client) GetLeaderboardConfigurationsPublicV1Short(params *GetLeaderboar
 CreateLeaderboardConfigurationPublicV1Short create new leaderboard
 Public endpoint to create a new leaderboard.
 
-
-
- Fields :
+	Fields :
 
 
 
 
-  * LeaderboardConfig code must be lowercase and maximum length is 48 characters. (required).
+	 * LeaderboardConfig code must be lowercase and maximum length is 48 characters. (required).
 
 
-  * Maximum length for leaderboard name is 128 characters. (required).
+	 * Maximum length for leaderboard name is 128 characters. (required).
 
 
-  * Start time must be follow RFC3339 standard. e.g. 2020-10-02T15:00:00.05Z (required).
+	 * Start time must be follow RFC3339 standard. e.g. 2020-10-02T15:00:00.05Z (required).
 
 
-  * Season period must be greater than 31 days.
+	 * Season period must be greater than 31 days.
 
 
-  * If seasonPeriod is filled, the LeaderboardConfig would have seasonal leaderboard.
+	 * If seasonPeriod is filled, the LeaderboardConfig would have seasonal leaderboard.
 
 
-  * Reset Date must be a number 1 - 31. Default is '1'.
+	 * Reset Date must be a number 1 - 31. Default is '1'.
 
 
-  * Reset Day must be a number 0 - 6. 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday (day of week). Default is '0'.
+	 * Reset Day must be a number 0 - 6. 0 = Sunday, 1 = Monday, 2 = Tuesday, 3 = Wednesday, 4 = Thursday, 5 = Friday, 6 = Saturday (day of week). Default is '0'.
 
 
-  * Reset time must be hours:minutes in 24 hours format e.g. 01:30, 10:30, 15:30, 23:15.Default is '00:00'.
+	 * Reset time must be hours:minutes in 24 hours format e.g. 01:30, 10:30, 15:30, 23:15.Default is '00:00'.
 
 
-  * Stat Code is related with statistic code in statistic service. (required).
+	 * Stat Code is related with statistic code in statistic service. (required).
 */
 func (a *Client) CreateLeaderboardConfigurationPublicV1Short(params *CreateLeaderboardConfigurationPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationPublicV1Response, error) {
 	// TODO: Validate the params before sending

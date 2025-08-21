@@ -130,9 +130,10 @@ func NewBulkFetchStatItems1OK() *BulkFetchStatItems1OK {
 	return &BulkFetchStatItems1OK{}
 }
 
-/*BulkFetchStatItems1OK handles this case with default header values.
+/*
+BulkFetchStatItems1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkFetchStatItems1OK struct {
 	Payload []*socialclientmodels.UserStatItemInfo
@@ -182,9 +183,10 @@ func NewBulkFetchStatItems1Unauthorized() *BulkFetchStatItems1Unauthorized {
 	return &BulkFetchStatItems1Unauthorized{}
 }
 
-/*BulkFetchStatItems1Unauthorized handles this case with default header values.
+/*
+BulkFetchStatItems1Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type BulkFetchStatItems1Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -236,9 +238,10 @@ func NewBulkFetchStatItems1Forbidden() *BulkFetchStatItems1Forbidden {
 	return &BulkFetchStatItems1Forbidden{}
 }
 
-/*BulkFetchStatItems1Forbidden handles this case with default header values.
+/*
+BulkFetchStatItems1Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkFetchStatItems1Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -290,9 +293,10 @@ func NewBulkFetchStatItems1UnprocessableEntity() *BulkFetchStatItems1Unprocessab
 	return &BulkFetchStatItems1UnprocessableEntity{}
 }
 
-/*BulkFetchStatItems1UnprocessableEntity handles this case with default header values.
+/*
+BulkFetchStatItems1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkFetchStatItems1UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -344,9 +348,10 @@ func NewBulkFetchStatItems1InternalServerError() *BulkFetchStatItems1InternalSer
 	return &BulkFetchStatItems1InternalServerError{}
 }
 
-/*BulkFetchStatItems1InternalServerError handles this case with default header values.
+/*
+BulkFetchStatItems1InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type BulkFetchStatItems1InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

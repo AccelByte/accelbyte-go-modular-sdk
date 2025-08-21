@@ -118,9 +118,10 @@ func NewExportStatCycleOK(writer io.Writer) *ExportStatCycleOK {
 	}
 }
 
-/*ExportStatCycleOK handles this case with default header values.
+/*
+ExportStatCycleOK handles this case with default header values.
 
-  successful export of stat cycle configs
+	successful export of stat cycle configs
 */
 type ExportStatCycleOK struct {
 	Payload io.Writer
@@ -170,9 +171,10 @@ func NewExportStatCycleUnauthorized() *ExportStatCycleUnauthorized {
 	return &ExportStatCycleUnauthorized{}
 }
 
-/*ExportStatCycleUnauthorized handles this case with default header values.
+/*
+ExportStatCycleUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type ExportStatCycleUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -224,9 +226,10 @@ func NewExportStatCycleForbidden() *ExportStatCycleForbidden {
 	return &ExportStatCycleForbidden{}
 }
 
-/*ExportStatCycleForbidden handles this case with default header values.
+/*
+ExportStatCycleForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type ExportStatCycleForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -278,9 +281,10 @@ func NewExportStatCycleInternalServerError() *ExportStatCycleInternalServerError
 	return &ExportStatCycleInternalServerError{}
 }
 
-/*ExportStatCycleInternalServerError handles this case with default header values.
+/*
+ExportStatCycleInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type ExportStatCycleInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

@@ -59,7 +59,8 @@ func NewAdminSendVerificationCodeV3ParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminSendVerificationCodeV3Params contains all the parameters to send to the API endpoint
+/*
+AdminSendVerificationCodeV3Params contains all the parameters to send to the API endpoint
 for the admin send verification code v3 operation typically these are written to a http.Request
 */
 type AdminSendVerificationCodeV3Params struct {

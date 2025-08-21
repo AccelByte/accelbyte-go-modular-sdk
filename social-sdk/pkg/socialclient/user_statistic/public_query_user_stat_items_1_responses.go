@@ -130,9 +130,10 @@ func NewPublicQueryUserStatItems1OK() *PublicQueryUserStatItems1OK {
 	return &PublicQueryUserStatItems1OK{}
 }
 
-/*PublicQueryUserStatItems1OK handles this case with default header values.
+/*
+PublicQueryUserStatItems1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicQueryUserStatItems1OK struct {
 	Payload *socialclientmodels.UserStatItemPagingSlicedResult
@@ -184,9 +185,10 @@ func NewPublicQueryUserStatItems1Unauthorized() *PublicQueryUserStatItems1Unauth
 	return &PublicQueryUserStatItems1Unauthorized{}
 }
 
-/*PublicQueryUserStatItems1Unauthorized handles this case with default header values.
+/*
+PublicQueryUserStatItems1Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicQueryUserStatItems1Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewPublicQueryUserStatItems1Forbidden() *PublicQueryUserStatItems1Forbidden
 	return &PublicQueryUserStatItems1Forbidden{}
 }
 
-/*PublicQueryUserStatItems1Forbidden handles this case with default header values.
+/*
+PublicQueryUserStatItems1Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicQueryUserStatItems1Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewPublicQueryUserStatItems1UnprocessableEntity() *PublicQueryUserStatItems
 	return &PublicQueryUserStatItems1UnprocessableEntity{}
 }
 
-/*PublicQueryUserStatItems1UnprocessableEntity handles this case with default header values.
+/*
+PublicQueryUserStatItems1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicQueryUserStatItems1UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -346,9 +350,10 @@ func NewPublicQueryUserStatItems1InternalServerError() *PublicQueryUserStatItems
 	return &PublicQueryUserStatItems1InternalServerError{}
 }
 
-/*PublicQueryUserStatItems1InternalServerError handles this case with default header values.
+/*
+PublicQueryUserStatItems1InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicQueryUserStatItems1InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

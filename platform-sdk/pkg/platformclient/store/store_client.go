@@ -114,7 +114,7 @@ func (a *Client) GetCatalogConfigShort(params *GetCatalogConfigParams, authInfo 
 /*
 UpdateCatalogConfigShort update catalog config
 Update catalog config. Other detail info:
-  * Returns : updated catalog config
+  - Returns : updated catalog config
 */
 func (a *Client) UpdateCatalogConfigShort(params *UpdateCatalogConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCatalogConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -179,7 +179,7 @@ This API is used to list stores in a namespace.
 
 Other detail info:
 
-  * Returns : the list of stores
+  - Returns : the list of stores
 */
 func (a *Client) ListStoresShort(params *ListStoresParams, authInfo runtime.ClientAuthInfoWriter) (*ListStoresResponse, error) {
 	// TODO: Validate the params before sending
@@ -237,7 +237,7 @@ This API is used to create a non published store in a namespace.
 
 Other detail info:
 
-  * Returns : created store data
+  - Returns : created store data
 */
 func (a *Client) CreateStoreShort(params *CreateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStoreResponse, error) {
 	// TODO: Validate the params before sending
@@ -309,7 +309,7 @@ This API is used to get catalog definition for import/export store by CSV
 
 Other detail info:
 
-  * Returns : catalog definition
+  - Returns : catalog definition
 */
 func (a *Client) GetCatalogDefinitionShort(params *GetCatalogDefinitionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCatalogDefinitionResponse, error) {
 	// TODO: Validate the params before sending
@@ -566,7 +566,7 @@ This API is used to get a published store basic info, exclude category and item 
 
 Other detail info:
 
-  * Returns : store data
+  - Returns : store data
 */
 func (a *Client) GetPublishedStoreShort(params *GetPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreResponse, error) {
 	// TODO: Validate the params before sending
@@ -629,7 +629,7 @@ func (a *Client) GetPublishedStoreShort(params *GetPublishedStoreParams, authInf
 DeletePublishedStoreShort delete published store
 This API is used to delete published store including category and items before release to public.
 
- Warning: Please do not use this API once published to public user.
+	Warning: Please do not use this API once published to public user.
 */
 func (a *Client) DeletePublishedStoreShort(params *DeletePublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePublishedStoreResponse, error) {
 	// TODO: Validate the params before sending
@@ -694,7 +694,7 @@ This API is used to get a store's backup.
 
 Other detail info:
 
-  * Returns : store backup info
+  - Returns : store backup info
 */
 func (a *Client) GetPublishedStoreBackupShort(params *GetPublishedStoreBackupParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublishedStoreBackupResponse, error) {
 	// TODO: Validate the params before sending
@@ -759,7 +759,7 @@ This API is used to rollback a published store.
 
 Other detail info:
 
-  * Returns : updated store info
+  - Returns : updated store info
 */
 func (a *Client) RollbackPublishedStoreShort(params *RollbackPublishedStoreParams, authInfo runtime.ClientAuthInfoWriter) (*RollbackPublishedStoreResponse, error) {
 	// TODO: Validate the params before sending
@@ -824,7 +824,7 @@ This API is used to get a store.
 
 Other detail info:
 
-  * Returns : store data
+  - Returns : store data
 */
 func (a *Client) GetStoreShort(params *GetStoreParams, authInfo runtime.ClientAuthInfoWriter) (*GetStoreResponse, error) {
 	// TODO: Validate the params before sending
@@ -889,7 +889,7 @@ This API is used to Update a store basic info.
 
 Other detail info:
 
-  * Returns : updated store data
+  - Returns : updated store data
 */
 func (a *Client) UpdateStoreShort(params *UpdateStoreParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStoreResponse, error) {
 	// TODO: Validate the params before sending
@@ -967,7 +967,7 @@ DeleteStoreShort delete a store
 This API is used to delete a store. Only non published store can be deleted.
 Other detail info:
 
-  * Returns : store
+  - Returns : store
 */
 func (a *Client) DeleteStoreShort(params *DeleteStoreParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStoreResponse, error) {
 	// TODO: Validate the params before sending
@@ -1039,7 +1039,7 @@ This API is used to clone a store. Usually clone a draft store to published stor
 
 Other detail info:
 
-  * Returns : clone store info
+  - Returns : clone store info
 */
 func (a *Client) CloneStoreShort(params *CloneStoreParams, authInfo runtime.ClientAuthInfoWriter) (*CloneStoreResponse, error) {
 	// TODO: Validate the params before sending
@@ -1310,9 +1310,9 @@ This API is used to list all stores in a namespace.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store)
-  *  Returns : the list of stores
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store)
+  - Returns : the list of stores
 */
 func (a *Client) PublicListStoresShort(params *PublicListStoresParams) (*PublicListStoresResponse, error) {
 	// TODO: Validate the params before sending

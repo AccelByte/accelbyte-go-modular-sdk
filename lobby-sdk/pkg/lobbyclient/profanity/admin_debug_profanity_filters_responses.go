@@ -145,9 +145,10 @@ func NewAdminDebugProfanityFiltersOK() *AdminDebugProfanityFiltersOK {
 	return &AdminDebugProfanityFiltersOK{}
 }
 
-/*AdminDebugProfanityFiltersOK handles this case with default header values.
+/*
+AdminDebugProfanityFiltersOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminDebugProfanityFiltersOK struct {
 	Payload []*lobbyclientmodels.ModelsProfanityFilter
@@ -197,9 +198,10 @@ func NewAdminDebugProfanityFiltersBadRequest() *AdminDebugProfanityFiltersBadReq
 	return &AdminDebugProfanityFiltersBadRequest{}
 }
 
-/*AdminDebugProfanityFiltersBadRequest handles this case with default header values.
+/*
+AdminDebugProfanityFiltersBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDebugProfanityFiltersBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -251,9 +253,10 @@ func NewAdminDebugProfanityFiltersUnauthorized() *AdminDebugProfanityFiltersUnau
 	return &AdminDebugProfanityFiltersUnauthorized{}
 }
 
-/*AdminDebugProfanityFiltersUnauthorized handles this case with default header values.
+/*
+AdminDebugProfanityFiltersUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDebugProfanityFiltersUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -305,9 +308,10 @@ func NewAdminDebugProfanityFiltersForbidden() *AdminDebugProfanityFiltersForbidd
 	return &AdminDebugProfanityFiltersForbidden{}
 }
 
-/*AdminDebugProfanityFiltersForbidden handles this case with default header values.
+/*
+AdminDebugProfanityFiltersForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDebugProfanityFiltersForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -359,9 +363,10 @@ func NewAdminDebugProfanityFiltersNotFound() *AdminDebugProfanityFiltersNotFound
 	return &AdminDebugProfanityFiltersNotFound{}
 }
 
-/*AdminDebugProfanityFiltersNotFound handles this case with default header values.
+/*
+AdminDebugProfanityFiltersNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminDebugProfanityFiltersNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -413,9 +418,10 @@ func NewAdminDebugProfanityFiltersInternalServerError() *AdminDebugProfanityFilt
 	return &AdminDebugProfanityFiltersInternalServerError{}
 }
 
-/*AdminDebugProfanityFiltersInternalServerError handles this case with default header values.
+/*
+AdminDebugProfanityFiltersInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDebugProfanityFiltersInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

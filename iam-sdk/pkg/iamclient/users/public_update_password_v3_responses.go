@@ -129,9 +129,10 @@ func NewPublicUpdatePasswordV3NoContent() *PublicUpdatePasswordV3NoContent {
 	return &PublicUpdatePasswordV3NoContent{}
 }
 
-/*PublicUpdatePasswordV3NoContent handles this case with default header values.
+/*
+PublicUpdatePasswordV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicUpdatePasswordV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicUpdatePasswordV3BadRequest() *PublicUpdatePasswordV3BadRequest {
 	return &PublicUpdatePasswordV3BadRequest{}
 }
 
-/*PublicUpdatePasswordV3BadRequest handles this case with default header values.
+/*
+PublicUpdatePasswordV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr><tr><td>10143</td><td>password not match</td></tr><tr><td>10228</td><td>invalid mfa token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr><tr><td>10143</td><td>password not match</td></tr><tr><td>10228</td><td>invalid mfa token</td></tr></table>
 */
 type PublicUpdatePasswordV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,9 +212,10 @@ func NewPublicUpdatePasswordV3Unauthorized() *PublicUpdatePasswordV3Unauthorized
 	return &PublicUpdatePasswordV3Unauthorized{}
 }
 
-/*PublicUpdatePasswordV3Unauthorized handles this case with default header values.
+/*
+PublicUpdatePasswordV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicUpdatePasswordV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +267,10 @@ func NewPublicUpdatePasswordV3TooManyRequests() *PublicUpdatePasswordV3TooManyRe
 	return &PublicUpdatePasswordV3TooManyRequests{}
 }
 
-/*PublicUpdatePasswordV3TooManyRequests handles this case with default header values.
+/*
+PublicUpdatePasswordV3TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type PublicUpdatePasswordV3TooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +322,10 @@ func NewPublicUpdatePasswordV3InternalServerError() *PublicUpdatePasswordV3Inter
 	return &PublicUpdatePasswordV3InternalServerError{}
 }
 
-/*PublicUpdatePasswordV3InternalServerError handles this case with default header values.
+/*
+PublicUpdatePasswordV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicUpdatePasswordV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

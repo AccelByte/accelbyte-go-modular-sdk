@@ -130,10 +130,9 @@ func NewBulkSaveSubscriptionAppNotificationV2OK() *BulkSaveSubscriptionAppNotifi
 	return &BulkSaveSubscriptionAppNotificationV2OK{}
 }
 
-/*BulkSaveSubscriptionAppNotificationV2OK handles this case with default header values.
-
-
- */
+/*
+BulkSaveSubscriptionAppNotificationV2OK handles this case with default header values.
+*/
 type BulkSaveSubscriptionAppNotificationV2OK struct {
 	Payload *csmclientmodels.ApimodelGetNotificationSubscriberListResponse
 }
@@ -184,9 +183,10 @@ func NewBulkSaveSubscriptionAppNotificationV2Unauthorized() *BulkSaveSubscriptio
 	return &BulkSaveSubscriptionAppNotificationV2Unauthorized{}
 }
 
-/*BulkSaveSubscriptionAppNotificationV2Unauthorized handles this case with default header values.
+/*
+BulkSaveSubscriptionAppNotificationV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type BulkSaveSubscriptionAppNotificationV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewBulkSaveSubscriptionAppNotificationV2Forbidden() *BulkSaveSubscriptionAp
 	return &BulkSaveSubscriptionAppNotificationV2Forbidden{}
 }
 
-/*BulkSaveSubscriptionAppNotificationV2Forbidden handles this case with default header values.
+/*
+BulkSaveSubscriptionAppNotificationV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type BulkSaveSubscriptionAppNotificationV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewBulkSaveSubscriptionAppNotificationV2NotFound() *BulkSaveSubscriptionApp
 	return &BulkSaveSubscriptionAppNotificationV2NotFound{}
 }
 
-/*BulkSaveSubscriptionAppNotificationV2NotFound handles this case with default header values.
+/*
+BulkSaveSubscriptionAppNotificationV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type BulkSaveSubscriptionAppNotificationV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewBulkSaveSubscriptionAppNotificationV2InternalServerError() *BulkSaveSubs
 	return &BulkSaveSubscriptionAppNotificationV2InternalServerError{}
 }
 
-/*BulkSaveSubscriptionAppNotificationV2InternalServerError handles this case with default header values.
+/*
+BulkSaveSubscriptionAppNotificationV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type BulkSaveSubscriptionAppNotificationV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

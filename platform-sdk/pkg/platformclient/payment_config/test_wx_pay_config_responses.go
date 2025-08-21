@@ -69,9 +69,10 @@ func NewTestWxPayConfigOK() *TestWxPayConfigOK {
 	return &TestWxPayConfigOK{}
 }
 
-/*TestWxPayConfigOK handles this case with default header values.
+/*
+TestWxPayConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestWxPayConfigOK struct {
 	Payload *platformclientmodels.TestResult

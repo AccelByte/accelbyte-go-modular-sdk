@@ -69,9 +69,10 @@ func NewPublicGetEntitlementOwnershipTokenOK() *PublicGetEntitlementOwnershipTok
 	return &PublicGetEntitlementOwnershipTokenOK{}
 }
 
-/*PublicGetEntitlementOwnershipTokenOK handles this case with default header values.
+/*
+PublicGetEntitlementOwnershipTokenOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetEntitlementOwnershipTokenOK struct {
 	Payload *platformclientmodels.OwnershipToken

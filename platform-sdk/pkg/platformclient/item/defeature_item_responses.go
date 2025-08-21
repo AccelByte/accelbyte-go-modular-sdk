@@ -100,9 +100,10 @@ func NewDefeatureItemOK() *DefeatureItemOK {
 	return &DefeatureItemOK{}
 }
 
-/*DefeatureItemOK handles this case with default header values.
+/*
+DefeatureItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DefeatureItemOK struct {
 	Payload *platformclientmodels.FullItemInfo
@@ -154,9 +155,10 @@ func NewDefeatureItemNotFound() *DefeatureItemNotFound {
 	return &DefeatureItemNotFound{}
 }
 
-/*DefeatureItemNotFound handles this case with default header values.
+/*
+DefeatureItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DefeatureItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewDefeatureItemConflict() *DefeatureItemConflict {
 	return &DefeatureItemConflict{}
 }
 
-/*DefeatureItemConflict handles this case with default header values.
+/*
+DefeatureItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type DefeatureItemConflict struct {
 	Payload *platformclientmodels.ErrorEntity

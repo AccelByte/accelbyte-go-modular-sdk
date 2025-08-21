@@ -130,9 +130,10 @@ func NewGetSingleTemplateLocalizationV1AdminOK() *GetSingleTemplateLocalizationV
 	return &GetSingleTemplateLocalizationV1AdminOK{}
 }
 
-/*GetSingleTemplateLocalizationV1AdminOK handles this case with default header values.
+/*
+GetSingleTemplateLocalizationV1AdminOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetSingleTemplateLocalizationV1AdminOK struct {
 	Payload *lobbyclientmodels.ModelLocalization
@@ -184,9 +185,10 @@ func NewGetSingleTemplateLocalizationV1AdminUnauthorized() *GetSingleTemplateLoc
 	return &GetSingleTemplateLocalizationV1AdminUnauthorized{}
 }
 
-/*GetSingleTemplateLocalizationV1AdminUnauthorized handles this case with default header values.
+/*
+GetSingleTemplateLocalizationV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetSingleTemplateLocalizationV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -238,9 +240,10 @@ func NewGetSingleTemplateLocalizationV1AdminForbidden() *GetSingleTemplateLocali
 	return &GetSingleTemplateLocalizationV1AdminForbidden{}
 }
 
-/*GetSingleTemplateLocalizationV1AdminForbidden handles this case with default header values.
+/*
+GetSingleTemplateLocalizationV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetSingleTemplateLocalizationV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -292,9 +295,10 @@ func NewGetSingleTemplateLocalizationV1AdminNotFound() *GetSingleTemplateLocaliz
 	return &GetSingleTemplateLocalizationV1AdminNotFound{}
 }
 
-/*GetSingleTemplateLocalizationV1AdminNotFound handles this case with default header values.
+/*
+GetSingleTemplateLocalizationV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetSingleTemplateLocalizationV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -346,9 +350,10 @@ func NewGetSingleTemplateLocalizationV1AdminInternalServerError() *GetSingleTemp
 	return &GetSingleTemplateLocalizationV1AdminInternalServerError{}
 }
 
-/*GetSingleTemplateLocalizationV1AdminInternalServerError handles this case with default header values.
+/*
+GetSingleTemplateLocalizationV1AdminInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetSingleTemplateLocalizationV1AdminInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

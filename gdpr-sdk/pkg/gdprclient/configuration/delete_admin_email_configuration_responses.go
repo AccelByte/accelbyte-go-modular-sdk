@@ -144,9 +144,10 @@ func NewDeleteAdminEmailConfigurationNoContent() *DeleteAdminEmailConfigurationN
 	return &DeleteAdminEmailConfigurationNoContent{}
 }
 
-/*DeleteAdminEmailConfigurationNoContent handles this case with default header values.
+/*
+DeleteAdminEmailConfigurationNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteAdminEmailConfigurationNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteAdminEmailConfigurationBadRequest() *DeleteAdminEmailConfiguration
 	return &DeleteAdminEmailConfigurationBadRequest{}
 }
 
-/*DeleteAdminEmailConfigurationBadRequest handles this case with default header values.
+/*
+DeleteAdminEmailConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type DeleteAdminEmailConfigurationBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewDeleteAdminEmailConfigurationUnauthorized() *DeleteAdminEmailConfigurati
 	return &DeleteAdminEmailConfigurationUnauthorized{}
 }
 
-/*DeleteAdminEmailConfigurationUnauthorized handles this case with default header values.
+/*
+DeleteAdminEmailConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteAdminEmailConfigurationUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewDeleteAdminEmailConfigurationForbidden() *DeleteAdminEmailConfigurationF
 	return &DeleteAdminEmailConfigurationForbidden{}
 }
 
-/*DeleteAdminEmailConfigurationForbidden handles this case with default header values.
+/*
+DeleteAdminEmailConfigurationForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteAdminEmailConfigurationForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewDeleteAdminEmailConfigurationNotFound() *DeleteAdminEmailConfigurationNo
 	return &DeleteAdminEmailConfigurationNotFound{}
 }
 
-/*DeleteAdminEmailConfigurationNotFound handles this case with default header values.
+/*
+DeleteAdminEmailConfigurationNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteAdminEmailConfigurationNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewDeleteAdminEmailConfigurationInternalServerError() *DeleteAdminEmailConf
 	return &DeleteAdminEmailConfigurationInternalServerError{}
 }
 
-/*DeleteAdminEmailConfigurationInternalServerError handles this case with default header values.
+/*
+DeleteAdminEmailConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteAdminEmailConfigurationInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

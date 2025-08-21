@@ -85,9 +85,10 @@ func NewAdminGetUserProfilePublicInfoByIdsOK() *AdminGetUserProfilePublicInfoByI
 	return &AdminGetUserProfilePublicInfoByIdsOK{}
 }
 
-/*AdminGetUserProfilePublicInfoByIdsOK handles this case with default header values.
+/*
+AdminGetUserProfilePublicInfoByIdsOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type AdminGetUserProfilePublicInfoByIdsOK struct {
 	Payload []*basicclientmodels.UserProfilePublicInfo
@@ -137,9 +138,10 @@ func NewAdminGetUserProfilePublicInfoByIdsBadRequest() *AdminGetUserProfilePubli
 	return &AdminGetUserProfilePublicInfoByIdsBadRequest{}
 }
 
-/*AdminGetUserProfilePublicInfoByIdsBadRequest handles this case with default header values.
+/*
+AdminGetUserProfilePublicInfoByIdsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetUserProfilePublicInfoByIdsBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity

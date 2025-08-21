@@ -145,9 +145,10 @@ func NewAdminGetCategorySchemaOK() *AdminGetCategorySchemaOK {
 	return &AdminGetCategorySchemaOK{}
 }
 
-/*AdminGetCategorySchemaOK handles this case with default header values.
+/*
+AdminGetCategorySchemaOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetCategorySchemaOK struct {
 	Payload *chatclientmodels.ModelsJSONSchemaType
@@ -199,9 +200,10 @@ func NewAdminGetCategorySchemaBadRequest() *AdminGetCategorySchemaBadRequest {
 	return &AdminGetCategorySchemaBadRequest{}
 }
 
-/*AdminGetCategorySchemaBadRequest handles this case with default header values.
+/*
+AdminGetCategorySchemaBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetCategorySchemaBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetCategorySchemaUnauthorized() *AdminGetCategorySchemaUnauthorized
 	return &AdminGetCategorySchemaUnauthorized{}
 }
 
-/*AdminGetCategorySchemaUnauthorized handles this case with default header values.
+/*
+AdminGetCategorySchemaUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetCategorySchemaUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetCategorySchemaForbidden() *AdminGetCategorySchemaForbidden {
 	return &AdminGetCategorySchemaForbidden{}
 }
 
-/*AdminGetCategorySchemaForbidden handles this case with default header values.
+/*
+AdminGetCategorySchemaForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetCategorySchemaForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetCategorySchemaNotFound() *AdminGetCategorySchemaNotFound {
 	return &AdminGetCategorySchemaNotFound{}
 }
 
-/*AdminGetCategorySchemaNotFound handles this case with default header values.
+/*
+AdminGetCategorySchemaNotFound handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetCategorySchemaNotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetCategorySchemaInternalServerError() *AdminGetCategorySchemaInter
 	return &AdminGetCategorySchemaInternalServerError{}
 }
 
-/*AdminGetCategorySchemaInternalServerError handles this case with default header values.
+/*
+AdminGetCategorySchemaInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetCategorySchemaInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

@@ -144,9 +144,10 @@ func NewAdminDeletePlayerPublicRecordHandlerV1NoContent() *AdminDeletePlayerPubl
 	return &AdminDeletePlayerPublicRecordHandlerV1NoContent{}
 }
 
-/*AdminDeletePlayerPublicRecordHandlerV1NoContent handles this case with default header values.
+/*
+AdminDeletePlayerPublicRecordHandlerV1NoContent handles this case with default header values.
 
-  Record deleted
+	Record deleted
 */
 type AdminDeletePlayerPublicRecordHandlerV1NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeletePlayerPublicRecordHandlerV1BadRequest() *AdminDeletePlayerPub
 	return &AdminDeletePlayerPublicRecordHandlerV1BadRequest{}
 }
 
-/*AdminDeletePlayerPublicRecordHandlerV1BadRequest handles this case with default header values.
+/*
+AdminDeletePlayerPublicRecordHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
 */
 type AdminDeletePlayerPublicRecordHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -225,9 +227,10 @@ func NewAdminDeletePlayerPublicRecordHandlerV1Unauthorized() *AdminDeletePlayerP
 	return &AdminDeletePlayerPublicRecordHandlerV1Unauthorized{}
 }
 
-/*AdminDeletePlayerPublicRecordHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminDeletePlayerPublicRecordHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeletePlayerPublicRecordHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -279,9 +282,10 @@ func NewAdminDeletePlayerPublicRecordHandlerV1Forbidden() *AdminDeletePlayerPubl
 	return &AdminDeletePlayerPublicRecordHandlerV1Forbidden{}
 }
 
-/*AdminDeletePlayerPublicRecordHandlerV1Forbidden handles this case with default header values.
+/*
+AdminDeletePlayerPublicRecordHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminDeletePlayerPublicRecordHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -333,9 +337,10 @@ func NewAdminDeletePlayerPublicRecordHandlerV1NotFound() *AdminDeletePlayerPubli
 	return &AdminDeletePlayerPublicRecordHandlerV1NotFound{}
 }
 
-/*AdminDeletePlayerPublicRecordHandlerV1NotFound handles this case with default header values.
+/*
+AdminDeletePlayerPublicRecordHandlerV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18122</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18122</td><td>record not found</td></tr></table>
 */
 type AdminDeletePlayerPublicRecordHandlerV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -387,9 +392,10 @@ func NewAdminDeletePlayerPublicRecordHandlerV1InternalServerError() *AdminDelete
 	return &AdminDeletePlayerPublicRecordHandlerV1InternalServerError{}
 }
 
-/*AdminDeletePlayerPublicRecordHandlerV1InternalServerError handles this case with default header values.
+/*
+AdminDeletePlayerPublicRecordHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18120</td><td>unable to delete record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18120</td><td>unable to delete record</td></tr></table>
 */
 type AdminDeletePlayerPublicRecordHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

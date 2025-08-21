@@ -130,9 +130,10 @@ func NewPostPlayerPublicRecordHandlerV1Created() *PostPlayerPublicRecordHandlerV
 	return &PostPlayerPublicRecordHandlerV1Created{}
 }
 
-/*PostPlayerPublicRecordHandlerV1Created handles this case with default header values.
+/*
+PostPlayerPublicRecordHandlerV1Created handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type PostPlayerPublicRecordHandlerV1Created struct {
 	Payload *cloudsaveclientmodels.ModelsPlayerRecordResponse
@@ -184,9 +185,10 @@ func NewPostPlayerPublicRecordHandlerV1BadRequest() *PostPlayerPublicRecordHandl
 	return &PostPlayerPublicRecordHandlerV1BadRequest{}
 }
 
-/*PostPlayerPublicRecordHandlerV1BadRequest handles this case with default header values.
+/*
+PostPlayerPublicRecordHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18090</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18090</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PostPlayerPublicRecordHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewPostPlayerPublicRecordHandlerV1Unauthorized() *PostPlayerPublicRecordHan
 	return &PostPlayerPublicRecordHandlerV1Unauthorized{}
 }
 
-/*PostPlayerPublicRecordHandlerV1Unauthorized handles this case with default header values.
+/*
+PostPlayerPublicRecordHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PostPlayerPublicRecordHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewPostPlayerPublicRecordHandlerV1Forbidden() *PostPlayerPublicRecordHandle
 	return &PostPlayerPublicRecordHandlerV1Forbidden{}
 }
 
-/*PostPlayerPublicRecordHandlerV1Forbidden handles this case with default header values.
+/*
+PostPlayerPublicRecordHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PostPlayerPublicRecordHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewPostPlayerPublicRecordHandlerV1InternalServerError() *PostPlayerPublicRe
 	return &PostPlayerPublicRecordHandlerV1InternalServerError{}
 }
 
-/*PostPlayerPublicRecordHandlerV1InternalServerError handles this case with default header values.
+/*
+PostPlayerPublicRecordHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18091</td><td>unable to save record</td></tr><tr><td>18005</td><td>unable to decode record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18091</td><td>unable to save record</td></tr><tr><td>18005</td><td>unable to decode record</td></tr></table>
 */
 type PostPlayerPublicRecordHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

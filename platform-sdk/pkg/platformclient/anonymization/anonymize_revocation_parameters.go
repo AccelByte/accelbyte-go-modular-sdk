@@ -57,7 +57,8 @@ func NewAnonymizeRevocationParamsWithHTTPClient(client *http.Client) *AnonymizeR
 	}
 }
 
-/*AnonymizeRevocationParams contains all the parameters to send to the API endpoint
+/*
+AnonymizeRevocationParams contains all the parameters to send to the API endpoint
 for the anonymize revocation operation typically these are written to a http.Request
 */
 type AnonymizeRevocationParams struct {

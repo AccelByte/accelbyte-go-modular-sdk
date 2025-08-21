@@ -57,7 +57,8 @@ func NewDeleteTiedStatParamsWithHTTPClient(client *http.Client) *DeleteTiedStatP
 	}
 }
 
-/*DeleteTiedStatParams contains all the parameters to send to the API endpoint
+/*
+DeleteTiedStatParams contains all the parameters to send to the API endpoint
 for the delete tied stat operation typically these are written to a http.Request
 */
 type DeleteTiedStatParams struct {

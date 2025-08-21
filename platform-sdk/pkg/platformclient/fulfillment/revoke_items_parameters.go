@@ -57,7 +57,8 @@ func NewRevokeItemsParamsWithHTTPClient(client *http.Client) *RevokeItemsParams 
 	}
 }
 
-/*RevokeItemsParams contains all the parameters to send to the API endpoint
+/*
+RevokeItemsParams contains all the parameters to send to the API endpoint
 for the revoke items operation typically these are written to a http.Request
 */
 type RevokeItemsParams struct {

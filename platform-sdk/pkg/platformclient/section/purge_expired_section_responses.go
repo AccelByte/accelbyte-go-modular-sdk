@@ -84,9 +84,10 @@ func NewPurgeExpiredSectionNoContent() *PurgeExpiredSectionNoContent {
 	return &PurgeExpiredSectionNoContent{}
 }
 
-/*PurgeExpiredSectionNoContent handles this case with default header values.
+/*
+PurgeExpiredSectionNoContent handles this case with default header values.
 
-  purge expired section successfully
+	purge expired section successfully
 */
 type PurgeExpiredSectionNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewPurgeExpiredSectionNotFound() *PurgeExpiredSectionNotFound {
 	return &PurgeExpiredSectionNotFound{}
 }
 
-/*PurgeExpiredSectionNotFound handles this case with default header values.
+/*
+PurgeExpiredSectionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PurgeExpiredSectionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

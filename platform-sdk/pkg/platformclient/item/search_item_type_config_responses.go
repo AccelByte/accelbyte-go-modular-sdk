@@ -85,9 +85,10 @@ func NewSearchItemTypeConfigOK() *SearchItemTypeConfigOK {
 	return &SearchItemTypeConfigOK{}
 }
 
-/*SearchItemTypeConfigOK handles this case with default header values.
+/*
+SearchItemTypeConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SearchItemTypeConfigOK struct {
 	Payload *platformclientmodels.ItemTypeConfigInfo
@@ -139,9 +140,10 @@ func NewSearchItemTypeConfigNotFound() *SearchItemTypeConfigNotFound {
 	return &SearchItemTypeConfigNotFound{}
 }
 
-/*SearchItemTypeConfigNotFound handles this case with default header values.
+/*
+SearchItemTypeConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30541</td><td>Item type config [{id}] doesn't exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30541</td><td>Item type config [{id}] doesn't exist</td></tr></table>
 */
 type SearchItemTypeConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -70,7 +70,8 @@ func NewAdminQueryTopicLogParamsWithHTTPClient(client *http.Client) *AdminQueryT
 	}
 }
 
-/*AdminQueryTopicLogParams contains all the parameters to send to the API endpoint
+/*
+AdminQueryTopicLogParams contains all the parameters to send to the API endpoint
 for the admin query topic log operation typically these are written to a http.Request
 */
 type AdminQueryTopicLogParams struct {

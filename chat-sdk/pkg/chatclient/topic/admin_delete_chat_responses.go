@@ -129,9 +129,10 @@ func NewAdminDeleteChatNoContent() *AdminDeleteChatNoContent {
 	return &AdminDeleteChatNoContent{}
 }
 
-/*AdminDeleteChatNoContent handles this case with default header values.
+/*
+AdminDeleteChatNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteChatNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDeleteChatBadRequest() *AdminDeleteChatBadRequest {
 	return &AdminDeleteChatBadRequest{}
 }
 
-/*AdminDeleteChatBadRequest handles this case with default header values.
+/*
+AdminDeleteChatBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeleteChatBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewAdminDeleteChatUnauthorized() *AdminDeleteChatUnauthorized {
 	return &AdminDeleteChatUnauthorized{}
 }
 
-/*AdminDeleteChatUnauthorized handles this case with default header values.
+/*
+AdminDeleteChatUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeleteChatUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewAdminDeleteChatForbidden() *AdminDeleteChatForbidden {
 	return &AdminDeleteChatForbidden{}
 }
 
-/*AdminDeleteChatForbidden handles this case with default header values.
+/*
+AdminDeleteChatForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeleteChatForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewAdminDeleteChatInternalServerError() *AdminDeleteChatInternalServerError
 	return &AdminDeleteChatInternalServerError{}
 }
 
-/*AdminDeleteChatInternalServerError handles this case with default header values.
+/*
+AdminDeleteChatInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteChatInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

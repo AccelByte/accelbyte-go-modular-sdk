@@ -57,7 +57,8 @@ func NewGetItemReferencesParamsWithHTTPClient(client *http.Client) *GetItemRefer
 	}
 }
 
-/*GetItemReferencesParams contains all the parameters to send to the API endpoint
+/*
+GetItemReferencesParams contains all the parameters to send to the API endpoint
 for the get item references operation typically these are written to a http.Request
 */
 type GetItemReferencesParams struct {

@@ -115,9 +115,10 @@ func NewPublicChangeSubscriptionBillingAccountOK() *PublicChangeSubscriptionBill
 	return &PublicChangeSubscriptionBillingAccountOK{}
 }
 
-/*PublicChangeSubscriptionBillingAccountOK handles this case with default header values.
+/*
+PublicChangeSubscriptionBillingAccountOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicChangeSubscriptionBillingAccountOK struct {
 	Payload *platformclientmodels.SubscriptionInfo
@@ -169,9 +170,10 @@ func NewPublicChangeSubscriptionBillingAccountBadRequest() *PublicChangeSubscrip
 	return &PublicChangeSubscriptionBillingAccountBadRequest{}
 }
 
-/*PublicChangeSubscriptionBillingAccountBadRequest handles this case with default header values.
+/*
+PublicChangeSubscriptionBillingAccountBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40125</td><td>Subscription [{subscriptionId}] has no real currency billing account</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40125</td><td>Subscription [{subscriptionId}] has no real currency billing account</td></tr></table>
 */
 type PublicChangeSubscriptionBillingAccountBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewPublicChangeSubscriptionBillingAccountNotFound() *PublicChangeSubscripti
 	return &PublicChangeSubscriptionBillingAccountNotFound{}
 }
 
-/*PublicChangeSubscriptionBillingAccountNotFound handles this case with default header values.
+/*
+PublicChangeSubscriptionBillingAccountNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
 */
 type PublicChangeSubscriptionBillingAccountNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewPublicChangeSubscriptionBillingAccountConflict() *PublicChangeSubscripti
 	return &PublicChangeSubscriptionBillingAccountConflict{}
 }
 
-/*PublicChangeSubscriptionBillingAccountConflict handles this case with default header values.
+/*
+PublicChangeSubscriptionBillingAccountConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40171</td><td>Subscription [{subscriptionId}] is not active</td></tr><tr><td>40172</td><td>Subscription [{subscriptionId}] is charging, waiting for payment notification</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40171</td><td>Subscription [{subscriptionId}] is not active</td></tr><tr><td>40172</td><td>Subscription [{subscriptionId}] is charging, waiting for payment notification</td></tr></table>
 */
 type PublicChangeSubscriptionBillingAccountConflict struct {
 	Payload *platformclientmodels.ErrorEntity

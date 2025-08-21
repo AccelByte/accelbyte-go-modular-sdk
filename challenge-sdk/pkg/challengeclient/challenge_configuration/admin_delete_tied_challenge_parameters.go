@@ -57,7 +57,8 @@ func NewAdminDeleteTiedChallengeParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminDeleteTiedChallengeParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteTiedChallengeParams contains all the parameters to send to the API endpoint
 for the admin delete tied challenge operation typically these are written to a http.Request
 */
 type AdminDeleteTiedChallengeParams struct {

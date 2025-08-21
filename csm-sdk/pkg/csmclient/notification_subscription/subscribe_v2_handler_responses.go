@@ -129,9 +129,10 @@ func NewSubscribeV2HandlerNoContent() *SubscribeV2HandlerNoContent {
 	return &SubscribeV2HandlerNoContent{}
 }
 
-/*SubscribeV2HandlerNoContent handles this case with default header values.
+/*
+SubscribeV2HandlerNoContent handles this case with default header values.
 
-  successfully submitted request to subcribe from app notification
+	successfully submitted request to subcribe from app notification
 */
 type SubscribeV2HandlerNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewSubscribeV2HandlerUnauthorized() *SubscribeV2HandlerUnauthorized {
 	return &SubscribeV2HandlerUnauthorized{}
 }
 
-/*SubscribeV2HandlerUnauthorized handles this case with default header values.
+/*
+SubscribeV2HandlerUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SubscribeV2HandlerUnauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -210,9 +212,10 @@ func NewSubscribeV2HandlerForbidden() *SubscribeV2HandlerForbidden {
 	return &SubscribeV2HandlerForbidden{}
 }
 
-/*SubscribeV2HandlerForbidden handles this case with default header values.
+/*
+SubscribeV2HandlerForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type SubscribeV2HandlerForbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -264,9 +267,10 @@ func NewSubscribeV2HandlerNotFound() *SubscribeV2HandlerNotFound {
 	return &SubscribeV2HandlerNotFound{}
 }
 
-/*SubscribeV2HandlerNotFound handles this case with default header values.
+/*
+SubscribeV2HandlerNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type SubscribeV2HandlerNotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -318,9 +322,10 @@ func NewSubscribeV2HandlerInternalServerError() *SubscribeV2HandlerInternalServe
 	return &SubscribeV2HandlerInternalServerError{}
 }
 
-/*SubscribeV2HandlerInternalServerError handles this case with default header values.
+/*
+SubscribeV2HandlerInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type SubscribeV2HandlerInternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

@@ -57,7 +57,8 @@ func NewAdminPutUserRolesV2ParamsWithHTTPClient(client *http.Client) *AdminPutUs
 	}
 }
 
-/*AdminPutUserRolesV2Params contains all the parameters to send to the API endpoint
+/*
+AdminPutUserRolesV2Params contains all the parameters to send to the API endpoint
 for the admin put user roles v2 operation typically these are written to a http.Request
 */
 type AdminPutUserRolesV2Params struct {

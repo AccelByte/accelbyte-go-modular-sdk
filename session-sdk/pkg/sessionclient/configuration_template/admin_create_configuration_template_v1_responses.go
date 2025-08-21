@@ -145,9 +145,10 @@ func NewAdminCreateConfigurationTemplateV1Created() *AdminCreateConfigurationTem
 	return &AdminCreateConfigurationTemplateV1Created{}
 }
 
-/*AdminCreateConfigurationTemplateV1Created handles this case with default header values.
+/*
+AdminCreateConfigurationTemplateV1Created handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateConfigurationTemplateV1Created struct {
 	Payload *sessionclientmodels.ApimodelsConfigurationTemplateResponse
@@ -199,9 +200,10 @@ func NewAdminCreateConfigurationTemplateV1BadRequest() *AdminCreateConfiguration
 	return &AdminCreateConfigurationTemplateV1BadRequest{}
 }
 
-/*AdminCreateConfigurationTemplateV1BadRequest handles this case with default header values.
+/*
+AdminCreateConfigurationTemplateV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCreateConfigurationTemplateV1BadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminCreateConfigurationTemplateV1Unauthorized() *AdminCreateConfigurati
 	return &AdminCreateConfigurationTemplateV1Unauthorized{}
 }
 
-/*AdminCreateConfigurationTemplateV1Unauthorized handles this case with default header values.
+/*
+AdminCreateConfigurationTemplateV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminCreateConfigurationTemplateV1Unauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminCreateConfigurationTemplateV1Forbidden() *AdminCreateConfigurationT
 	return &AdminCreateConfigurationTemplateV1Forbidden{}
 }
 
-/*AdminCreateConfigurationTemplateV1Forbidden handles this case with default header values.
+/*
+AdminCreateConfigurationTemplateV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminCreateConfigurationTemplateV1Forbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminCreateConfigurationTemplateV1Conflict() *AdminCreateConfigurationTe
 	return &AdminCreateConfigurationTemplateV1Conflict{}
 }
 
-/*AdminCreateConfigurationTemplateV1Conflict handles this case with default header values.
+/*
+AdminCreateConfigurationTemplateV1Conflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminCreateConfigurationTemplateV1Conflict struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminCreateConfigurationTemplateV1InternalServerError() *AdminCreateConf
 	return &AdminCreateConfigurationTemplateV1InternalServerError{}
 }
 
-/*AdminCreateConfigurationTemplateV1InternalServerError handles this case with default header values.
+/*
+AdminCreateConfigurationTemplateV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCreateConfigurationTemplateV1InternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -145,9 +145,10 @@ func NewAdminGetAllConfigV1OK() *AdminGetAllConfigV1OK {
 	return &AdminGetAllConfigV1OK{}
 }
 
-/*AdminGetAllConfigV1OK handles this case with default header values.
+/*
+AdminGetAllConfigV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetAllConfigV1OK struct {
 	Payload *lobbyclientmodels.ModelsConfigList
@@ -199,9 +200,10 @@ func NewAdminGetAllConfigV1BadRequest() *AdminGetAllConfigV1BadRequest {
 	return &AdminGetAllConfigV1BadRequest{}
 }
 
-/*AdminGetAllConfigV1BadRequest handles this case with default header values.
+/*
+AdminGetAllConfigV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetAllConfigV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetAllConfigV1Unauthorized() *AdminGetAllConfigV1Unauthorized {
 	return &AdminGetAllConfigV1Unauthorized{}
 }
 
-/*AdminGetAllConfigV1Unauthorized handles this case with default header values.
+/*
+AdminGetAllConfigV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetAllConfigV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetAllConfigV1Forbidden() *AdminGetAllConfigV1Forbidden {
 	return &AdminGetAllConfigV1Forbidden{}
 }
 
-/*AdminGetAllConfigV1Forbidden handles this case with default header values.
+/*
+AdminGetAllConfigV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetAllConfigV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetAllConfigV1NotFound() *AdminGetAllConfigV1NotFound {
 	return &AdminGetAllConfigV1NotFound{}
 }
 
-/*AdminGetAllConfigV1NotFound handles this case with default header values.
+/*
+AdminGetAllConfigV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetAllConfigV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetAllConfigV1InternalServerError() *AdminGetAllConfigV1InternalSer
 	return &AdminGetAllConfigV1InternalServerError{}
 }
 
-/*AdminGetAllConfigV1InternalServerError handles this case with default header values.
+/*
+AdminGetAllConfigV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetAllConfigV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

@@ -145,9 +145,10 @@ func NewGetUserFriendsWithPlatformOK() *GetUserFriendsWithPlatformOK {
 	return &GetUserFriendsWithPlatformOK{}
 }
 
-/*GetUserFriendsWithPlatformOK handles this case with default header values.
+/*
+GetUserFriendsWithPlatformOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserFriendsWithPlatformOK struct {
 	Payload *lobbyclientmodels.ModelListBulkUserPlatformsResponse
@@ -199,9 +200,10 @@ func NewGetUserFriendsWithPlatformBadRequest() *GetUserFriendsWithPlatformBadReq
 	return &GetUserFriendsWithPlatformBadRequest{}
 }
 
-/*GetUserFriendsWithPlatformBadRequest handles this case with default header values.
+/*
+GetUserFriendsWithPlatformBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetUserFriendsWithPlatformBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -253,9 +255,10 @@ func NewGetUserFriendsWithPlatformUnauthorized() *GetUserFriendsWithPlatformUnau
 	return &GetUserFriendsWithPlatformUnauthorized{}
 }
 
-/*GetUserFriendsWithPlatformUnauthorized handles this case with default header values.
+/*
+GetUserFriendsWithPlatformUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetUserFriendsWithPlatformUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -307,9 +310,10 @@ func NewGetUserFriendsWithPlatformForbidden() *GetUserFriendsWithPlatformForbidd
 	return &GetUserFriendsWithPlatformForbidden{}
 }
 
-/*GetUserFriendsWithPlatformForbidden handles this case with default header values.
+/*
+GetUserFriendsWithPlatformForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetUserFriendsWithPlatformForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -361,9 +365,10 @@ func NewGetUserFriendsWithPlatformNotFound() *GetUserFriendsWithPlatformNotFound
 	return &GetUserFriendsWithPlatformNotFound{}
 }
 
-/*GetUserFriendsWithPlatformNotFound handles this case with default header values.
+/*
+GetUserFriendsWithPlatformNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetUserFriendsWithPlatformNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -415,9 +420,10 @@ func NewGetUserFriendsWithPlatformInternalServerError() *GetUserFriendsWithPlatf
 	return &GetUserFriendsWithPlatformInternalServerError{}
 }
 
-/*GetUserFriendsWithPlatformInternalServerError handles this case with default header values.
+/*
+GetUserFriendsWithPlatformInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetUserFriendsWithPlatformInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

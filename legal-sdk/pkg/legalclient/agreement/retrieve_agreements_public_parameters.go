@@ -57,7 +57,8 @@ func NewRetrieveAgreementsPublicParamsWithHTTPClient(client *http.Client) *Retri
 	}
 }
 
-/*RetrieveAgreementsPublicParams contains all the parameters to send to the API endpoint
+/*
+RetrieveAgreementsPublicParams contains all the parameters to send to the API endpoint
 for the retrieve agreements public operation typically these are written to a http.Request
 */
 type RetrieveAgreementsPublicParams struct {

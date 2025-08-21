@@ -96,9 +96,10 @@ func NewRevokeItemsOK() *RevokeItemsOK {
 	return &RevokeItemsOK{}
 }
 
-/*RevokeItemsOK handles this case with default header values.
+/*
+RevokeItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RevokeItemsOK struct {
 	Payload *platformclientmodels.RevokeFulfillmentV2Result
@@ -150,9 +151,10 @@ func NewRevokeItemsNotFound() *RevokeItemsNotFound {
 	return &RevokeItemsNotFound{}
 }
 
-/*RevokeItemsNotFound handles this case with default header values.
+/*
+RevokeItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38145</td><td>Fulfillment with transactionId [{transactionId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38145</td><td>Fulfillment with transactionId [{transactionId}] does not exist</td></tr></table>
 */
 type RevokeItemsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -204,9 +206,10 @@ func NewRevokeItemsConflict() *RevokeItemsConflict {
 	return &RevokeItemsConflict{}
 }
 
-/*RevokeItemsConflict handles this case with default header values.
+/*
+RevokeItemsConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr></table>
 */
 type RevokeItemsConflict struct {
 	Payload *platformclientmodels.RevokeFulfillmentV2Result

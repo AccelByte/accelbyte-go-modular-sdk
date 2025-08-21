@@ -53,7 +53,7 @@ This API is used to get root categories.
 
 Other detail info:
 
-  * Returns : root category data
+  - Returns : root category data
 */
 func (a *Client) GetRootCategoriesShort(params *GetRootCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetRootCategoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -111,18 +111,17 @@ This API is used to create category.
 
 A category is a path separated by "/". A category also has localized display names. Example:
 
+	{
 
-    {
+	    "categoryPath": "/games",
 
-        "categoryPath": "/games",
+	    "localizationDisplayNames": {"en" : "Games"}
 
-        "localizationDisplayNames": {"en" : "Games"}
-
-    }
+	}
 
 Other detail info:
 
-  * Returns : created category data
+  - Returns : created category data
 */
 func (a *Client) CreateCategoryShort(params *CreateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCategoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -208,7 +207,7 @@ This API is used to list all categories' basic info of a store ordered by catego
 
 Other detail info:
 
-  * Returns : list of categories' paths
+  - Returns : list of categories' paths
 */
 func (a *Client) ListCategoriesBasicShort(params *ListCategoriesBasicParams, authInfo runtime.ClientAuthInfoWriter) (*ListCategoriesBasicResponse, error) {
 	// TODO: Validate the params before sending
@@ -266,7 +265,7 @@ This API is used to get category by category path.
 
 Other detail info:
 
-  * Returns : category data
+  - Returns : category data
 */
 func (a *Client) GetCategoryShort(params *GetCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCategoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -331,18 +330,17 @@ This API is used to update category.
 
 The category update data is a category object, example as:
 
+	{
 
-    {
+	    "storeId": "store-id",
 
-        "storeId": "store-id",
+	    "localizationDisplayNames": {"en" : "Games"}
 
-        "localizationDisplayNames": {"en" : "Games"}
-
-    }
+	}
 
 Other detail info:
 
-  * Returns : the updated category data
+  - Returns : the updated category data
 */
 func (a *Client) UpdateCategoryShort(params *UpdateCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCategoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -428,7 +426,7 @@ This API is used to delete category by category path.
 
 Other detail info:
 
-  * Returns : the deleted category data
+  - Returns : the deleted category data
 */
 func (a *Client) DeleteCategoryShort(params *DeleteCategoryParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCategoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -500,7 +498,7 @@ This API is used to get child categories by category path.
 
 Other detail info:
 
-  * Returns : list of child categories data
+  - Returns : list of child categories data
 */
 func (a *Client) GetChildCategoriesShort(params *GetChildCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChildCategoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -558,7 +556,7 @@ This API is used to get descendant categories by category path.
 
 Other detail info:
 
-  * Returns : list of descendant categories data
+  - Returns : list of descendant categories data
 */
 func (a *Client) GetDescendantCategoriesShort(params *GetDescendantCategoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetDescendantCategoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -616,9 +614,9 @@ This API is used to get root categories.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
-  *  Returns : root category data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+  - Returns : root category data
 */
 func (a *Client) PublicGetRootCategoriesShort(params *PublicGetRootCategoriesParams) (*PublicGetRootCategoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -675,9 +673,9 @@ This API is used to download store's structured categories.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store content)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store content)
-  *  Returns : structured categories
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store content)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store content)
+  - Returns : structured categories
 */
 func (a *Client) DownloadCategoriesShort(params *DownloadCategoriesParams) (*DownloadCategoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -741,9 +739,9 @@ This API is used to get category by category path.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1 (CREATE)(user with this permission can view draft store category)
-  *  Returns : category data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1 (CREATE)(user with this permission can view draft store category)
+  - Returns : category data
 */
 func (a *Client) PublicGetCategoryShort(params *PublicGetCategoryParams) (*PublicGetCategoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -807,9 +805,9 @@ This API is used to get child categories by category path.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
-  *  Returns : list of child categories data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+  - Returns : list of child categories data
 */
 func (a *Client) PublicGetChildCategoriesShort(params *PublicGetChildCategoriesParams) (*PublicGetChildCategoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -866,9 +864,9 @@ This API is used to get descendant categories by category path.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
-  *  Returns : list of descendant categories data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store category)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store category)
+  - Returns : list of descendant categories data
 */
 func (a *Client) PublicGetDescendantCategoriesShort(params *PublicGetDescendantCategoriesParams) (*PublicGetDescendantCategoriesResponse, error) {
 	// TODO: Validate the params before sending

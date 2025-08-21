@@ -100,9 +100,10 @@ func NewPublishAllOK() *PublishAllOK {
 	return &PublishAllOK{}
 }
 
-/*PublishAllOK handles this case with default header values.
+/*
+PublishAllOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublishAllOK struct {
 	Payload *platformclientmodels.StoreInfo
@@ -154,9 +155,10 @@ func NewPublishAllBadRequest() *PublishAllBadRequest {
 	return &PublishAllBadRequest{}
 }
 
-/*PublishAllBadRequest handles this case with default header values.
+/*
+PublishAllBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30122</td><td>Store's meta mismatch</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30122</td><td>Store's meta mismatch</td></tr></table>
 */
 type PublishAllBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewPublishAllNotFound() *PublishAllNotFound {
 	return &PublishAllNotFound{}
 }
 
-/*PublishAllNotFound handles this case with default header values.
+/*
+PublishAllNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublishAllNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

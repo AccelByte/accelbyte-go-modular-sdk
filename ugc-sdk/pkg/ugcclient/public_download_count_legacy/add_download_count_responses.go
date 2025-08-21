@@ -115,9 +115,10 @@ func NewAddDownloadCountOK() *AddDownloadCountOK {
 	return &AddDownloadCountOK{}
 }
 
-/*AddDownloadCountOK handles this case with default header values.
+/*
+AddDownloadCountOK handles this case with default header values.
 
-  added download count to a content
+	added download count to a content
 */
 type AddDownloadCountOK struct {
 	Payload *ugcclientmodels.ModelsAddDownloadCountResponse
@@ -169,9 +170,10 @@ func NewAddDownloadCountUnauthorized() *AddDownloadCountUnauthorized {
 	return &AddDownloadCountUnauthorized{}
 }
 
-/*AddDownloadCountUnauthorized handles this case with default header values.
+/*
+AddDownloadCountUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AddDownloadCountUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAddDownloadCountNotFound() *AddDownloadCountNotFound {
 	return &AddDownloadCountNotFound{}
 }
 
-/*AddDownloadCountNotFound handles this case with default header values.
+/*
+AddDownloadCountNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772903</td><td>Unable to add content download: content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772903</td><td>Unable to add content download: content not found</td></tr></table>
 */
 type AddDownloadCountNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAddDownloadCountInternalServerError() *AddDownloadCountInternalServerErr
 	return &AddDownloadCountInternalServerError{}
 }
 
-/*AddDownloadCountInternalServerError handles this case with default header values.
+/*
+AddDownloadCountInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772902</td><td>Unable to add content download: database error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772902</td><td>Unable to add content download: database error</td></tr></table>
 */
 type AddDownloadCountInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

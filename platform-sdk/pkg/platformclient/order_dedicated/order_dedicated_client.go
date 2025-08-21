@@ -37,9 +37,11 @@ type ClientService interface {
 
 /*
 SyncOrdersShort sync orders
- [Not supported yet in AGS Shared Cloud] Sync orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
+
+	[Not supported yet in AGS Shared Cloud] Sync orders. If response contains nextEvaluatedKey, please use it as query param in the next call to fetch the next batch, a batch has 1000 elements or less.
+
 Other detail info:
-            * Returns : sync orders
+  - Returns : sync orders
 */
 func (a *Client) SyncOrdersShort(params *SyncOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOrdersResponse, error) {
 	// TODO: Validate the params before sending

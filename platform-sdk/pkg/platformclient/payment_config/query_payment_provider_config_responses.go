@@ -69,9 +69,10 @@ func NewQueryPaymentProviderConfigOK() *QueryPaymentProviderConfigOK {
 	return &QueryPaymentProviderConfigOK{}
 }
 
-/*QueryPaymentProviderConfigOK handles this case with default header values.
+/*
+QueryPaymentProviderConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryPaymentProviderConfigOK struct {
 	Payload *platformclientmodels.PaymentProviderConfigPagingSlicedResult

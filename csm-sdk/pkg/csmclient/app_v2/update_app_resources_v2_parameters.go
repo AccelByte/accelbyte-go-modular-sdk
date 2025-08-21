@@ -59,7 +59,8 @@ func NewUpdateAppResourcesV2ParamsWithHTTPClient(client *http.Client) *UpdateApp
 	}
 }
 
-/*UpdateAppResourcesV2Params contains all the parameters to send to the API endpoint
+/*
+UpdateAppResourcesV2Params contains all the parameters to send to the API endpoint
 for the update app resources v2 operation typically these are written to a http.Request
 */
 type UpdateAppResourcesV2Params struct {

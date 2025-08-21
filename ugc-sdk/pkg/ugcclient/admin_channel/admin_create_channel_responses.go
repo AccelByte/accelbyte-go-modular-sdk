@@ -130,9 +130,10 @@ func NewAdminCreateChannelCreated() *AdminCreateChannelCreated {
 	return &AdminCreateChannelCreated{}
 }
 
-/*AdminCreateChannelCreated handles this case with default header values.
+/*
+AdminCreateChannelCreated handles this case with default header values.
 
-  Channel created
+	Channel created
 */
 type AdminCreateChannelCreated struct {
 	Payload *ugcclientmodels.ModelsChannelResponse
@@ -184,9 +185,10 @@ func NewAdminCreateChannelBadRequest() *AdminCreateChannelBadRequest {
 	return &AdminCreateChannelBadRequest{}
 }
 
-/*AdminCreateChannelBadRequest handles this case with default header values.
+/*
+AdminCreateChannelBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770503</td><td>Invalid channel {ID}: should uuid without hypen</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770503</td><td>Invalid channel {ID}: should uuid without hypen</td></tr></table>
 */
 type AdminCreateChannelBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminCreateChannelUnauthorized() *AdminCreateChannelUnauthorized {
 	return &AdminCreateChannelUnauthorized{}
 }
 
-/*AdminCreateChannelUnauthorized handles this case with default header values.
+/*
+AdminCreateChannelUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCreateChannelUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminCreateChannelConflict() *AdminCreateChannelConflict {
 	return &AdminCreateChannelConflict{}
 }
 
-/*AdminCreateChannelConflict handles this case with default header values.
+/*
+AdminCreateChannelConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770504</td><td>Channel already exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770504</td><td>Channel already exist</td></tr></table>
 */
 type AdminCreateChannelConflict struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminCreateChannelInternalServerError() *AdminCreateChannelInternalServe
 	return &AdminCreateChannelInternalServerError{}
 }
 
-/*AdminCreateChannelInternalServerError handles this case with default header values.
+/*
+AdminCreateChannelInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770502</td><td>Unable to save channel</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770502</td><td>Unable to save channel</td></tr></table>
 */
 type AdminCreateChannelInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

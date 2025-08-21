@@ -145,9 +145,10 @@ func NewUpdatePatchSingleGroupPublicV1OK() *UpdatePatchSingleGroupPublicV1OK {
 	return &UpdatePatchSingleGroupPublicV1OK{}
 }
 
-/*UpdatePatchSingleGroupPublicV1OK handles this case with default header values.
+/*
+UpdatePatchSingleGroupPublicV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdatePatchSingleGroupPublicV1OK struct {
 	Payload *groupclientmodels.ModelsGroupResponseV1
@@ -199,9 +200,10 @@ func NewUpdatePatchSingleGroupPublicV1BadRequest() *UpdatePatchSingleGroupPublic
 	return &UpdatePatchSingleGroupPublicV1BadRequest{}
 }
 
-/*UpdatePatchSingleGroupPublicV1BadRequest handles this case with default header values.
+/*
+UpdatePatchSingleGroupPublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdatePatchSingleGroupPublicV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewUpdatePatchSingleGroupPublicV1Unauthorized() *UpdatePatchSingleGroupPubl
 	return &UpdatePatchSingleGroupPublicV1Unauthorized{}
 }
 
-/*UpdatePatchSingleGroupPublicV1Unauthorized handles this case with default header values.
+/*
+UpdatePatchSingleGroupPublicV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdatePatchSingleGroupPublicV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewUpdatePatchSingleGroupPublicV1Forbidden() *UpdatePatchSingleGroupPublicV
 	return &UpdatePatchSingleGroupPublicV1Forbidden{}
 }
 
-/*UpdatePatchSingleGroupPublicV1Forbidden handles this case with default header values.
+/*
+UpdatePatchSingleGroupPublicV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type UpdatePatchSingleGroupPublicV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewUpdatePatchSingleGroupPublicV1NotFound() *UpdatePatchSingleGroupPublicV1
 	return &UpdatePatchSingleGroupPublicV1NotFound{}
 }
 
-/*UpdatePatchSingleGroupPublicV1NotFound handles this case with default header values.
+/*
+UpdatePatchSingleGroupPublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
 */
 type UpdatePatchSingleGroupPublicV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewUpdatePatchSingleGroupPublicV1InternalServerError() *UpdatePatchSingleGr
 	return &UpdatePatchSingleGroupPublicV1InternalServerError{}
 }
 
-/*UpdatePatchSingleGroupPublicV1InternalServerError handles this case with default header values.
+/*
+UpdatePatchSingleGroupPublicV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdatePatchSingleGroupPublicV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

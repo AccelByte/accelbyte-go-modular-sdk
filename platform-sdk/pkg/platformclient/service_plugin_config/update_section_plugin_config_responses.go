@@ -85,9 +85,10 @@ func NewUpdateSectionPluginConfigOK() *UpdateSectionPluginConfigOK {
 	return &UpdateSectionPluginConfigOK{}
 }
 
-/*UpdateSectionPluginConfigOK handles this case with default header values.
+/*
+UpdateSectionPluginConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateSectionPluginConfigOK struct {
 	Payload *platformclientmodels.SectionPluginConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateSectionPluginConfigUnprocessableEntity() *UpdateSectionPluginConfi
 	return &UpdateSectionPluginConfigUnprocessableEntity{}
 }
 
-/*UpdateSectionPluginConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdateSectionPluginConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateSectionPluginConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

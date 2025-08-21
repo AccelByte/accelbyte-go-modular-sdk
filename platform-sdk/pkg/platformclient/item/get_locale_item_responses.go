@@ -85,9 +85,10 @@ func NewGetLocaleItemOK() *GetLocaleItemOK {
 	return &GetLocaleItemOK{}
 }
 
-/*GetLocaleItemOK handles this case with default header values.
+/*
+GetLocaleItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetLocaleItemOK struct {
 	Payload *platformclientmodels.PopulatedItemInfo
@@ -139,9 +140,10 @@ func NewGetLocaleItemNotFound() *GetLocaleItemNotFound {
 	return &GetLocaleItemNotFound{}
 }
 
-/*GetLocaleItemNotFound handles this case with default header values.
+/*
+GetLocaleItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetLocaleItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

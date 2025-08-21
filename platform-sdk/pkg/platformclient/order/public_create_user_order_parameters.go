@@ -59,7 +59,8 @@ func NewPublicCreateUserOrderParamsWithHTTPClient(client *http.Client) *PublicCr
 	}
 }
 
-/*PublicCreateUserOrderParams contains all the parameters to send to the API endpoint
+/*
+PublicCreateUserOrderParams contains all the parameters to send to the API endpoint
 for the public create user order operation typically these are written to a http.Request
 */
 type PublicCreateUserOrderParams struct {

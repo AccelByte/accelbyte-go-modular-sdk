@@ -129,9 +129,10 @@ func NewBulkUpdateRegionDataNoContent() *BulkUpdateRegionDataNoContent {
 	return &BulkUpdateRegionDataNoContent{}
 }
 
-/*BulkUpdateRegionDataNoContent handles this case with default header values.
+/*
+BulkUpdateRegionDataNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type BulkUpdateRegionDataNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewBulkUpdateRegionDataBadRequest() *BulkUpdateRegionDataBadRequest {
 	return &BulkUpdateRegionDataBadRequest{}
 }
 
-/*BulkUpdateRegionDataBadRequest handles this case with default header values.
+/*
+BulkUpdateRegionDataBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30022</td><td>Default region [{region}] is required</td></tr><tr><td>30321</td><td>Invalid item discount amount</td></tr><tr><td>30327</td><td>Invalid item trial price</td></tr><tr><td>30330</td><td>Invalid item region price currency namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30022</td><td>Default region [{region}] is required</td></tr><tr><td>30321</td><td>Invalid item discount amount</td></tr><tr><td>30327</td><td>Invalid item trial price</td></tr><tr><td>30330</td><td>Invalid item region price currency namespace [{namespace}]</td></tr></table>
 */
 type BulkUpdateRegionDataBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -210,9 +212,10 @@ func NewBulkUpdateRegionDataNotFound() *BulkUpdateRegionDataNotFound {
 	return &BulkUpdateRegionDataNotFound{}
 }
 
-/*BulkUpdateRegionDataNotFound handles this case with default header values.
+/*
+BulkUpdateRegionDataNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{sku}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{sku}] does not exist</td></tr></table>
 */
 type BulkUpdateRegionDataNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -264,9 +267,10 @@ func NewBulkUpdateRegionDataConflict() *BulkUpdateRegionDataConflict {
 	return &BulkUpdateRegionDataConflict{}
 }
 
-/*BulkUpdateRegionDataConflict handles this case with default header values.
+/*
+BulkUpdateRegionDataConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type BulkUpdateRegionDataConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -318,9 +322,10 @@ func NewBulkUpdateRegionDataUnprocessableEntity() *BulkUpdateRegionDataUnprocess
 	return &BulkUpdateRegionDataUnprocessableEntity{}
 }
 
-/*BulkUpdateRegionDataUnprocessableEntity handles this case with default header values.
+/*
+BulkUpdateRegionDataUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkUpdateRegionDataUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

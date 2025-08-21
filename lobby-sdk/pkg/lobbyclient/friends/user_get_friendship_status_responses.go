@@ -130,9 +130,10 @@ func NewUserGetFriendshipStatusOK() *UserGetFriendshipStatusOK {
 	return &UserGetFriendshipStatusOK{}
 }
 
-/*UserGetFriendshipStatusOK handles this case with default header values.
+/*
+UserGetFriendshipStatusOK handles this case with default header values.
 
-  OK
+	OK
 */
 type UserGetFriendshipStatusOK struct {
 	Payload *lobbyclientmodels.ModelUserGetFriendshipStatusResponse
@@ -184,9 +185,10 @@ func NewUserGetFriendshipStatusBadRequest() *UserGetFriendshipStatusBadRequest {
 	return &UserGetFriendshipStatusBadRequest{}
 }
 
-/*UserGetFriendshipStatusBadRequest handles this case with default header values.
+/*
+UserGetFriendshipStatusBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UserGetFriendshipStatusBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -238,9 +240,10 @@ func NewUserGetFriendshipStatusUnauthorized() *UserGetFriendshipStatusUnauthoriz
 	return &UserGetFriendshipStatusUnauthorized{}
 }
 
-/*UserGetFriendshipStatusUnauthorized handles this case with default header values.
+/*
+UserGetFriendshipStatusUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UserGetFriendshipStatusUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -292,9 +295,10 @@ func NewUserGetFriendshipStatusForbidden() *UserGetFriendshipStatusForbidden {
 	return &UserGetFriendshipStatusForbidden{}
 }
 
-/*UserGetFriendshipStatusForbidden handles this case with default header values.
+/*
+UserGetFriendshipStatusForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UserGetFriendshipStatusForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -346,9 +350,10 @@ func NewUserGetFriendshipStatusInternalServerError() *UserGetFriendshipStatusInt
 	return &UserGetFriendshipStatusInternalServerError{}
 }
 
-/*UserGetFriendshipStatusInternalServerError handles this case with default header values.
+/*
+UserGetFriendshipStatusInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UserGetFriendshipStatusInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

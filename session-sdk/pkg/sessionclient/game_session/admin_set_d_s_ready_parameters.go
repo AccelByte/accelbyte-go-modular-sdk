@@ -59,7 +59,8 @@ func NewAdminSetDSReadyParamsWithHTTPClient(client *http.Client) *AdminSetDSRead
 	}
 }
 
-/*AdminSetDSReadyParams contains all the parameters to send to the API endpoint
+/*
+AdminSetDSReadyParams contains all the parameters to send to the API endpoint
 for the admin set ds ready operation typically these are written to a http.Request
 */
 type AdminSetDSReadyParams struct {

@@ -59,7 +59,8 @@ func NewAdminUpdateScreenshotsV2ParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminUpdateScreenshotsV2Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateScreenshotsV2Params contains all the parameters to send to the API endpoint
 for the admin update screenshots v2 operation typically these are written to a http.Request
 */
 type AdminUpdateScreenshotsV2Params struct {

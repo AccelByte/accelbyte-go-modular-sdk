@@ -163,10 +163,7 @@ All request body are required except `preview`, `tags`, `contentType`, `customAt
 Length: 7
 Available characters: abcdefhkpqrstuxyz
 
-
-
-
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) AdminUploadContentS3Short(params *AdminUploadContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadContentS3Response, error) {
 	// TODO: Validate the params before sending
@@ -270,10 +267,7 @@ To update content file, set `updateContentFile` to `true` and upload the file us
 Max length: 7
 Available characters: abcdefhkpqrstuxyz
 
-
-
-
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) SingleAdminUpdateContentS3Short(params *SingleAdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*SingleAdminUpdateContentS3Response, error) {
 	// TODO: Validate the params before sending
@@ -389,7 +383,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) AdminSearchChannelSpecificContentShort(params *AdminSearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchChannelSpecificContentResponse, error) {
 	// TODO: Validate the params before sending
@@ -807,7 +801,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) AdminSearchContentShort(params *AdminSearchContentParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchContentResponse, error) {
 	// TODO: Validate the params before sending
@@ -1117,7 +1111,7 @@ func (a *Client) AdminGetSpecificContentShort(params *AdminGetSpecificContentPar
 AdminDownloadContentPreviewShort get content preview
 Required permission ADMIN:NAMESPACE:{namespace}:USER:*:CONTENT [READ]
 
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) AdminDownloadContentPreviewShort(params *AdminDownloadContentPreviewParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDownloadContentPreviewResponse, error) {
 	// TODO: Validate the params before sending
@@ -1636,10 +1630,7 @@ To update content file, set `updateContentFile` to `true` and upload the file us
 Max length: 7
 Available characters: abcdefhkpqrstuxyz
 
-
-
-
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) AdminUpdateContentS3ByShareCodeShort(params *AdminUpdateContentS3ByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentS3ByShareCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -1750,10 +1741,7 @@ To update content file, set `updateContentFile` to `true` and upload the file us
 Max length: 7
 Available characters: abcdefhkpqrstuxyz
 
-
-
-
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) AdminUpdateContentS3Short(params *AdminUpdateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateContentS3Response, error) {
 	// TODO: Validate the params before sending

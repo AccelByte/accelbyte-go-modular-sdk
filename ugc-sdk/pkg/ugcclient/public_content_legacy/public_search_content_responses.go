@@ -115,9 +115,10 @@ func NewPublicSearchContentOK() *PublicSearchContentOK {
 	return &PublicSearchContentOK{}
 }
 
-/*PublicSearchContentOK handles this case with default header values.
+/*
+PublicSearchContentOK handles this case with default header values.
 
-  Search contents
+	Search contents
 */
 type PublicSearchContentOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponse
@@ -169,9 +170,10 @@ func NewPublicSearchContentBadRequest() *PublicSearchContentBadRequest {
 	return &PublicSearchContentBadRequest{}
 }
 
-/*PublicSearchContentBadRequest handles this case with default header values.
+/*
+PublicSearchContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
 */
 type PublicSearchContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicSearchContentUnauthorized() *PublicSearchContentUnauthorized {
 	return &PublicSearchContentUnauthorized{}
 }
 
-/*PublicSearchContentUnauthorized handles this case with default header values.
+/*
+PublicSearchContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicSearchContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicSearchContentInternalServerError() *PublicSearchContentInternalSer
 	return &PublicSearchContentInternalServerError{}
 }
 
-/*PublicSearchContentInternalServerError handles this case with default header values.
+/*
+PublicSearchContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
 */
 type PublicSearchContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

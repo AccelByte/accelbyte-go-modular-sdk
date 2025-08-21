@@ -115,9 +115,10 @@ func NewSingleAdminGetGroupOK() *SingleAdminGetGroupOK {
 	return &SingleAdminGetGroupOK{}
 }
 
-/*SingleAdminGetGroupOK handles this case with default header values.
+/*
+SingleAdminGetGroupOK handles this case with default header values.
 
-  Get specific group
+	Get specific group
 */
 type SingleAdminGetGroupOK struct {
 	Payload *ugcclientmodels.ModelsCreateGroupResponse
@@ -169,9 +170,10 @@ func NewSingleAdminGetGroupUnauthorized() *SingleAdminGetGroupUnauthorized {
 	return &SingleAdminGetGroupUnauthorized{}
 }
 
-/*SingleAdminGetGroupUnauthorized handles this case with default header values.
+/*
+SingleAdminGetGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SingleAdminGetGroupUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewSingleAdminGetGroupNotFound() *SingleAdminGetGroupNotFound {
 	return &SingleAdminGetGroupNotFound{}
 }
 
-/*SingleAdminGetGroupNotFound handles this case with default header values.
+/*
+SingleAdminGetGroupNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773002</td><td>Group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773002</td><td>Group not found</td></tr></table>
 */
 type SingleAdminGetGroupNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewSingleAdminGetGroupInternalServerError() *SingleAdminGetGroupInternalSer
 	return &SingleAdminGetGroupInternalServerError{}
 }
 
-/*SingleAdminGetGroupInternalServerError handles this case with default header values.
+/*
+SingleAdminGetGroupInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773001</td><td>Unable get group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773001</td><td>Unable get group</td></tr></table>
 */
 type SingleAdminGetGroupInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

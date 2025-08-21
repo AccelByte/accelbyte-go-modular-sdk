@@ -57,7 +57,8 @@ func NewUploadSectionPluginConfigCertParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*UploadSectionPluginConfigCertParams contains all the parameters to send to the API endpoint
+/*
+UploadSectionPluginConfigCertParams contains all the parameters to send to the API endpoint
 for the upload section plugin config cert operation typically these are written to a http.Request
 */
 type UploadSectionPluginConfigCertParams struct {

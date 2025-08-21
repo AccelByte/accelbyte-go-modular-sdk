@@ -130,9 +130,10 @@ func NewAdminGetConfigsOK() *AdminGetConfigsOK {
 	return &AdminGetConfigsOK{}
 }
 
-/*AdminGetConfigsOK handles this case with default header values.
+/*
+AdminGetConfigsOK handles this case with default header values.
 
-  Get configs
+	Get configs
 */
 type AdminGetConfigsOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGetConfigsResponse
@@ -184,9 +185,10 @@ func NewAdminGetConfigsBadRequest() *AdminGetConfigsBadRequest {
 	return &AdminGetConfigsBadRequest{}
 }
 
-/*AdminGetConfigsBadRequest handles this case with default header values.
+/*
+AdminGetConfigsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774204</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774204</td><td>invalid paging parameter</td></tr></table>
 */
 type AdminGetConfigsBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetConfigsUnauthorized() *AdminGetConfigsUnauthorized {
 	return &AdminGetConfigsUnauthorized{}
 }
 
-/*AdminGetConfigsUnauthorized handles this case with default header values.
+/*
+AdminGetConfigsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetConfigsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGetConfigsForbidden() *AdminGetConfigsForbidden {
 	return &AdminGetConfigsForbidden{}
 }
 
-/*AdminGetConfigsForbidden handles this case with default header values.
+/*
+AdminGetConfigsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetConfigsForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetConfigsInternalServerError() *AdminGetConfigsInternalServerError
 	return &AdminGetConfigsInternalServerError{}
 }
 
-/*AdminGetConfigsInternalServerError handles this case with default header values.
+/*
+AdminGetConfigsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774205</td><td>Unable to get configs</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774205</td><td>Unable to get configs</td></tr></table>
 */
 type AdminGetConfigsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewAdminGetGlobalConfigParamsWithHTTPClient(client *http.Client) *AdminGetG
 	}
 }
 
-/*AdminGetGlobalConfigParams contains all the parameters to send to the API endpoint
+/*
+AdminGetGlobalConfigParams contains all the parameters to send to the API endpoint
 for the admin get global config operation typically these are written to a http.Request
 */
 type AdminGetGlobalConfigParams struct {

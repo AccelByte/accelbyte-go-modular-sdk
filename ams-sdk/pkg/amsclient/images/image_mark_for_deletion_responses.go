@@ -144,9 +144,10 @@ func NewImageMarkForDeletionAccepted() *ImageMarkForDeletionAccepted {
 	return &ImageMarkForDeletionAccepted{}
 }
 
-/*ImageMarkForDeletionAccepted handles this case with default header values.
+/*
+ImageMarkForDeletionAccepted handles this case with default header values.
 
-  success
+	success
 */
 type ImageMarkForDeletionAccepted struct {
 }
@@ -171,9 +172,10 @@ func NewImageMarkForDeletionUnauthorized() *ImageMarkForDeletionUnauthorized {
 	return &ImageMarkForDeletionUnauthorized{}
 }
 
-/*ImageMarkForDeletionUnauthorized handles this case with default header values.
+/*
+ImageMarkForDeletionUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type ImageMarkForDeletionUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -225,9 +227,10 @@ func NewImageMarkForDeletionForbidden() *ImageMarkForDeletionForbidden {
 	return &ImageMarkForDeletionForbidden{}
 }
 
-/*ImageMarkForDeletionForbidden handles this case with default header values.
+/*
+ImageMarkForDeletionForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type ImageMarkForDeletionForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -279,9 +282,10 @@ func NewImageMarkForDeletionNotFound() *ImageMarkForDeletionNotFound {
 	return &ImageMarkForDeletionNotFound{}
 }
 
-/*ImageMarkForDeletionNotFound handles this case with default header values.
+/*
+ImageMarkForDeletionNotFound handles this case with default header values.
 
-  image doesn't exist
+	image doesn't exist
 */
 type ImageMarkForDeletionNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -333,9 +337,10 @@ func NewImageMarkForDeletionPreconditionFailed() *ImageMarkForDeletionPreconditi
 	return &ImageMarkForDeletionPreconditionFailed{}
 }
 
-/*ImageMarkForDeletionPreconditionFailed handles this case with default header values.
+/*
+ImageMarkForDeletionPreconditionFailed handles this case with default header values.
 
-  image is being used by 1 or more fleets
+	image is being used by 1 or more fleets
 */
 type ImageMarkForDeletionPreconditionFailed struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -387,9 +392,10 @@ func NewImageMarkForDeletionInternalServerError() *ImageMarkForDeletionInternalS
 	return &ImageMarkForDeletionInternalServerError{}
 }
 
-/*ImageMarkForDeletionInternalServerError handles this case with default header values.
+/*
+ImageMarkForDeletionInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type ImageMarkForDeletionInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

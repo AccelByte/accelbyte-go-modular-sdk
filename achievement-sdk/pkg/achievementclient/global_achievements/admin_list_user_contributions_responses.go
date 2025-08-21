@@ -115,9 +115,10 @@ func NewAdminListUserContributionsOK() *AdminListUserContributionsOK {
 	return &AdminListUserContributionsOK{}
 }
 
-/*AdminListUserContributionsOK handles this case with default header values.
+/*
+AdminListUserContributionsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListUserContributionsOK struct {
 	Payload *achievementclientmodels.ModelsPaginatedUserContributionResponse
@@ -169,9 +170,10 @@ func NewAdminListUserContributionsBadRequest() *AdminListUserContributionsBadReq
 	return &AdminListUserContributionsBadRequest{}
 }
 
-/*AdminListUserContributionsBadRequest handles this case with default header values.
+/*
+AdminListUserContributionsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminListUserContributionsBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminListUserContributionsUnauthorized() *AdminListUserContributionsUnau
 	return &AdminListUserContributionsUnauthorized{}
 }
 
-/*AdminListUserContributionsUnauthorized handles this case with default header values.
+/*
+AdminListUserContributionsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminListUserContributionsUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminListUserContributionsInternalServerError() *AdminListUserContributi
 	return &AdminListUserContributionsInternalServerError{}
 }
 
-/*AdminListUserContributionsInternalServerError handles this case with default header values.
+/*
+AdminListUserContributionsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminListUserContributionsInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

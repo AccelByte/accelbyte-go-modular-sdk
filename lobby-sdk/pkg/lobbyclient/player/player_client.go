@@ -821,7 +821,6 @@ func (a *Client) AdminBulkUnblockPlayersV1Short(params *AdminBulkUnblockPlayersV
 PublicPlayerBlockPlayersV1Short block player by user id
 Required valid user authorization
 
-
 add blocked players in a namespace based on user id
 */
 func (a *Client) PublicPlayerBlockPlayersV1Short(params *PublicPlayerBlockPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlayerBlockPlayersV1Response, error) {
@@ -911,7 +910,6 @@ func (a *Client) PublicPlayerBlockPlayersV1Short(params *PublicPlayerBlockPlayer
 /*
 PublicGetPlayerBlockedPlayersV1Short get blocked players by user id
 Required valid user authorization
-
 
 load blocked players in a namespace based on user id
 
@@ -1005,7 +1003,6 @@ func (a *Client) PublicGetPlayerBlockedPlayersV1Short(params *PublicGetPlayerBlo
 /*
 PublicGetPlayerBlockedByPlayersV1Short get players who blocked this player by user id
 Required valid user authorization
-
 
 load get players who blocked this player in a namespace based on user id
 

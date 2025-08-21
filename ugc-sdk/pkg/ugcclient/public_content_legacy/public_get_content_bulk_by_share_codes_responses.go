@@ -130,9 +130,10 @@ func NewPublicGetContentBulkByShareCodesOK() *PublicGetContentBulkByShareCodesOK
 	return &PublicGetContentBulkByShareCodesOK{}
 }
 
-/*PublicGetContentBulkByShareCodesOK handles this case with default header values.
+/*
+PublicGetContentBulkByShareCodesOK handles this case with default header values.
 
-  Bulk get content by sharecodes
+	Bulk get content by sharecodes
 */
 type PublicGetContentBulkByShareCodesOK struct {
 	Payload []*ugcclientmodels.ModelsContentDownloadResponse
@@ -182,9 +183,10 @@ func NewPublicGetContentBulkByShareCodesBadRequest() *PublicGetContentBulkByShar
 	return &PublicGetContentBulkByShareCodesBadRequest{}
 }
 
-/*PublicGetContentBulkByShareCodesBadRequest handles this case with default header values.
+/*
+PublicGetContentBulkByShareCodesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773900</td><td>Malformed request/Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773900</td><td>Malformed request/Invalid request body</td></tr></table>
 */
 type PublicGetContentBulkByShareCodesBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -236,9 +238,10 @@ func NewPublicGetContentBulkByShareCodesUnauthorized() *PublicGetContentBulkBySh
 	return &PublicGetContentBulkByShareCodesUnauthorized{}
 }
 
-/*PublicGetContentBulkByShareCodesUnauthorized handles this case with default header values.
+/*
+PublicGetContentBulkByShareCodesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetContentBulkByShareCodesUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -290,9 +293,10 @@ func NewPublicGetContentBulkByShareCodesForbidden() *PublicGetContentBulkByShare
 	return &PublicGetContentBulkByShareCodesForbidden{}
 }
 
-/*PublicGetContentBulkByShareCodesForbidden handles this case with default header values.
+/*
+PublicGetContentBulkByShareCodesForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGetContentBulkByShareCodesForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -344,9 +348,10 @@ func NewPublicGetContentBulkByShareCodesInternalServerError() *PublicGetContentB
 	return &PublicGetContentBulkByShareCodesInternalServerError{}
 }
 
-/*PublicGetContentBulkByShareCodesInternalServerError handles this case with default header values.
+/*
+PublicGetContentBulkByShareCodesInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773901</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>773902</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773901</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>773902</td><td>Failed generate download URL</td></tr></table>
 */
 type PublicGetContentBulkByShareCodesInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

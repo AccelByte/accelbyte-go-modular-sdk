@@ -129,9 +129,10 @@ func NewPublicCancelUserPersonalDataRequestNoContent() *PublicCancelUserPersonal
 	return &PublicCancelUserPersonalDataRequestNoContent{}
 }
 
-/*PublicCancelUserPersonalDataRequestNoContent handles this case with default header values.
+/*
+PublicCancelUserPersonalDataRequestNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicCancelUserPersonalDataRequestNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicCancelUserPersonalDataRequestUnauthorized() *PublicCancelUserPerso
 	return &PublicCancelUserPersonalDataRequestUnauthorized{}
 }
 
-/*PublicCancelUserPersonalDataRequestUnauthorized handles this case with default header values.
+/*
+PublicCancelUserPersonalDataRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicCancelUserPersonalDataRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewPublicCancelUserPersonalDataRequestNotFound() *PublicCancelUserPersonalD
 	return &PublicCancelUserPersonalDataRequestNotFound{}
 }
 
-/*PublicCancelUserPersonalDataRequestNotFound handles this case with default header values.
+/*
+PublicCancelUserPersonalDataRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicCancelUserPersonalDataRequestNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewPublicCancelUserPersonalDataRequestConflict() *PublicCancelUserPersonalD
 	return &PublicCancelUserPersonalDataRequestConflict{}
 }
 
-/*PublicCancelUserPersonalDataRequestConflict handles this case with default header values.
+/*
+PublicCancelUserPersonalDataRequestConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type PublicCancelUserPersonalDataRequestConflict struct {
 	Payload *gdprclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewPublicCancelUserPersonalDataRequestInternalServerError() *PublicCancelUs
 	return &PublicCancelUserPersonalDataRequestInternalServerError{}
 }
 
-/*PublicCancelUserPersonalDataRequestInternalServerError handles this case with default header values.
+/*
+PublicCancelUserPersonalDataRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicCancelUserPersonalDataRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewGetTopicByTopicNameParamsWithHTTPClient(client *http.Client) *GetTopicBy
 	}
 }
 
-/*GetTopicByTopicNameParams contains all the parameters to send to the API endpoint
+/*
+GetTopicByTopicNameParams contains all the parameters to send to the API endpoint
 for the get topic by topic name operation typically these are written to a http.Request
 */
 type GetTopicByTopicNameParams struct {

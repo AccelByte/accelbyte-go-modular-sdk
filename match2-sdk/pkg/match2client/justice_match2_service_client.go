@@ -24,6 +24,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/play_feature_flag"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/rule_sets"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/x_ray_config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 )
 
@@ -96,6 +97,7 @@ func New(transport runtime.ClientTransport, runtime *httptransport.Runtime, form
 	cli.MatchTickets = match_tickets.New(transport, formats)
 	cli.PlayFeatureFlag = play_feature_flag.New(transport, formats)
 	cli.RuleSets = rule_sets.New(transport, formats)
+	cli.XRayConfig = x_ray_config.New(transport, formats)
 	cli.Operations = operations.New(transport, formats)
 
 	return cli
@@ -174,6 +176,8 @@ type JusticeMatch2Service struct {
 
 	RuleSets rule_sets.ClientService
 
+	XRayConfig x_ray_config.ClientService
+
 	Operations operations.ClientService
 
 	Runtime   *httptransport.Runtime
@@ -191,5 +195,6 @@ func (c *JusticeMatch2Service) SetTransport(transport runtime.ClientTransport) {
 	c.MatchTickets.SetTransport(transport)
 	c.PlayFeatureFlag.SetTransport(transport)
 	c.RuleSets.SetTransport(transport)
+	c.XRayConfig.SetTransport(transport)
 	c.Operations.SetTransport(transport)
 }

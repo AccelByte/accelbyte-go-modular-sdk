@@ -85,9 +85,10 @@ func NewRetrieveAgreementsPublicOK() *RetrieveAgreementsPublicOK {
 	return &RetrieveAgreementsPublicOK{}
 }
 
-/*RetrieveAgreementsPublicOK handles this case with default header values.
+/*
+RetrieveAgreementsPublicOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveAgreementsPublicOK struct {
 	Payload []*legalclientmodels.RetrieveAcceptedAgreementResponse
@@ -137,9 +138,10 @@ func NewRetrieveAgreementsPublicBadRequest() *RetrieveAgreementsPublicBadRequest
 	return &RetrieveAgreementsPublicBadRequest{}
 }
 
-/*RetrieveAgreementsPublicBadRequest handles this case with default header values.
+/*
+RetrieveAgreementsPublicBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
 */
 type RetrieveAgreementsPublicBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

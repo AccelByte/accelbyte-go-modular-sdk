@@ -69,9 +69,10 @@ func NewGetUserEntitlementHistoriesOK() *GetUserEntitlementHistoriesOK {
 	return &GetUserEntitlementHistoriesOK{}
 }
 
-/*GetUserEntitlementHistoriesOK handles this case with default header values.
+/*
+GetUserEntitlementHistoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserEntitlementHistoriesOK struct {
 	Payload []*platformclientmodels.EntitlementHistoryInfo

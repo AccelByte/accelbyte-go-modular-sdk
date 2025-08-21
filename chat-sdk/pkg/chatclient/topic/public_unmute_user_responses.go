@@ -129,9 +129,10 @@ func NewPublicUnmuteUserNoContent() *PublicUnmuteUserNoContent {
 	return &PublicUnmuteUserNoContent{}
 }
 
-/*PublicUnmuteUserNoContent handles this case with default header values.
+/*
+PublicUnmuteUserNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicUnmuteUserNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicUnmuteUserBadRequest() *PublicUnmuteUserBadRequest {
 	return &PublicUnmuteUserBadRequest{}
 }
 
-/*PublicUnmuteUserBadRequest handles this case with default header values.
+/*
+PublicUnmuteUserBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicUnmuteUserBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewPublicUnmuteUserUnauthorized() *PublicUnmuteUserUnauthorized {
 	return &PublicUnmuteUserUnauthorized{}
 }
 
-/*PublicUnmuteUserUnauthorized handles this case with default header values.
+/*
+PublicUnmuteUserUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicUnmuteUserUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewPublicUnmuteUserForbidden() *PublicUnmuteUserForbidden {
 	return &PublicUnmuteUserForbidden{}
 }
 
-/*PublicUnmuteUserForbidden handles this case with default header values.
+/*
+PublicUnmuteUserForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicUnmuteUserForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewPublicUnmuteUserInternalServerError() *PublicUnmuteUserInternalServerErr
 	return &PublicUnmuteUserInternalServerError{}
 }
 
-/*PublicUnmuteUserInternalServerError handles this case with default header values.
+/*
+PublicUnmuteUserInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicUnmuteUserInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

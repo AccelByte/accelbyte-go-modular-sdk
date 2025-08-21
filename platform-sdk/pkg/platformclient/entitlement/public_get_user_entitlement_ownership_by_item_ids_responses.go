@@ -69,9 +69,10 @@ func NewPublicGetUserEntitlementOwnershipByItemIdsOK() *PublicGetUserEntitlement
 	return &PublicGetUserEntitlementOwnershipByItemIdsOK{}
 }
 
-/*PublicGetUserEntitlementOwnershipByItemIdsOK handles this case with default header values.
+/*
+PublicGetUserEntitlementOwnershipByItemIdsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetUserEntitlementOwnershipByItemIdsOK struct {
 	Payload []*platformclientmodels.EntitlementOwnership

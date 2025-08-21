@@ -69,9 +69,10 @@ func NewTestStripeConfigOK() *TestStripeConfigOK {
 	return &TestStripeConfigOK{}
 }
 
-/*TestStripeConfigOK handles this case with default header values.
+/*
+TestStripeConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestStripeConfigOK struct {
 	Payload *platformclientmodels.TestResult

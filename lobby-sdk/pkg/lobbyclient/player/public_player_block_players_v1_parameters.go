@@ -59,7 +59,8 @@ func NewPublicPlayerBlockPlayersV1ParamsWithHTTPClient(client *http.Client) *Pub
 	}
 }
 
-/*PublicPlayerBlockPlayersV1Params contains all the parameters to send to the API endpoint
+/*
+PublicPlayerBlockPlayersV1Params contains all the parameters to send to the API endpoint
 for the public player block players v1 operation typically these are written to a http.Request
 */
 type PublicPlayerBlockPlayersV1Params struct {

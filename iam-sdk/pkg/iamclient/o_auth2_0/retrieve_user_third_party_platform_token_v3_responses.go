@@ -115,9 +115,10 @@ func NewRetrieveUserThirdPartyPlatformTokenV3OK() *RetrieveUserThirdPartyPlatfor
 	return &RetrieveUserThirdPartyPlatformTokenV3OK{}
 }
 
-/*RetrieveUserThirdPartyPlatformTokenV3OK handles this case with default header values.
+/*
+RetrieveUserThirdPartyPlatformTokenV3OK handles this case with default header values.
 
-  Token returned
+	Token returned
 */
 type RetrieveUserThirdPartyPlatformTokenV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenThirdPartyResponse
@@ -169,9 +170,10 @@ func NewRetrieveUserThirdPartyPlatformTokenV3Unauthorized() *RetrieveUserThirdPa
 	return &RetrieveUserThirdPartyPlatformTokenV3Unauthorized{}
 }
 
-/*RetrieveUserThirdPartyPlatformTokenV3Unauthorized handles this case with default header values.
+/*
+RetrieveUserThirdPartyPlatformTokenV3Unauthorized handles this case with default header values.
 
-  Client authentication failed
+	Client authentication failed
 */
 type RetrieveUserThirdPartyPlatformTokenV3Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -223,9 +225,10 @@ func NewRetrieveUserThirdPartyPlatformTokenV3Forbidden() *RetrieveUserThirdParty
 	return &RetrieveUserThirdPartyPlatformTokenV3Forbidden{}
 }
 
-/*RetrieveUserThirdPartyPlatformTokenV3Forbidden handles this case with default header values.
+/*
+RetrieveUserThirdPartyPlatformTokenV3Forbidden handles this case with default header values.
 
-  Unauthorized access
+	Unauthorized access
 */
 type RetrieveUserThirdPartyPlatformTokenV3Forbidden struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -277,9 +280,10 @@ func NewRetrieveUserThirdPartyPlatformTokenV3NotFound() *RetrieveUserThirdPartyP
 	return &RetrieveUserThirdPartyPlatformTokenV3NotFound{}
 }
 
-/*RetrieveUserThirdPartyPlatformTokenV3NotFound handles this case with default header values.
+/*
+RetrieveUserThirdPartyPlatformTokenV3NotFound handles this case with default header values.
 
-  Platform Token Not Found
+	Platform Token Not Found
 */
 type RetrieveUserThirdPartyPlatformTokenV3NotFound struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

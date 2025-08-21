@@ -69,9 +69,10 @@ func NewQueryUserIAPConsumeHistoryOK() *QueryUserIAPConsumeHistoryOK {
 	return &QueryUserIAPConsumeHistoryOK{}
 }
 
-/*QueryUserIAPConsumeHistoryOK handles this case with default header values.
+/*
+QueryUserIAPConsumeHistoryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryUserIAPConsumeHistoryOK struct {
 	Payload *platformclientmodels.IAPConsumeHistoryPagingSlicedResult

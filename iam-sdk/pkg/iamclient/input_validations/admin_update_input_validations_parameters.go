@@ -59,7 +59,8 @@ func NewAdminUpdateInputValidationsParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminUpdateInputValidationsParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateInputValidationsParams contains all the parameters to send to the API endpoint
 for the admin update input validations operation typically these are written to a http.Request
 */
 type AdminUpdateInputValidationsParams struct {

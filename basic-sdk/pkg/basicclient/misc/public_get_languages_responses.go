@@ -85,9 +85,10 @@ func NewPublicGetLanguagesOK() *PublicGetLanguagesOK {
 	return &PublicGetLanguagesOK{}
 }
 
-/*PublicGetLanguagesOK handles this case with default header values.
+/*
+PublicGetLanguagesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetLanguagesOK struct {
 	Payload map[string]interface{}
@@ -137,9 +138,10 @@ func NewPublicGetLanguagesBadRequest() *PublicGetLanguagesBadRequest {
 	return &PublicGetLanguagesBadRequest{}
 }
 
-/*PublicGetLanguagesBadRequest handles this case with default header values.
+/*
+PublicGetLanguagesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetLanguagesBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity

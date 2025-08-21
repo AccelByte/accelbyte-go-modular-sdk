@@ -125,7 +125,8 @@ func NewQueryOrdersParamsWithHTTPClient(client *http.Client) *QueryOrdersParams 
 	}
 }
 
-/*QueryOrdersParams contains all the parameters to send to the API endpoint
+/*
+QueryOrdersParams contains all the parameters to send to the API endpoint
 for the query orders operation typically these are written to a http.Request
 */
 type QueryOrdersParams struct {

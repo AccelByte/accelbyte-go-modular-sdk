@@ -58,7 +58,8 @@ func NewGetTodayLeaderboardRankingAdminV1ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*GetTodayLeaderboardRankingAdminV1Params contains all the parameters to send to the API endpoint
+/*
+GetTodayLeaderboardRankingAdminV1Params contains all the parameters to send to the API endpoint
 for the get today leaderboard ranking admin v1 operation typically these are written to a http.Request
 */
 type GetTodayLeaderboardRankingAdminV1Params struct {

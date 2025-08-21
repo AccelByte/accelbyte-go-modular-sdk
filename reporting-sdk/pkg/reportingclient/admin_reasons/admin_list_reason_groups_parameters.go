@@ -58,7 +58,8 @@ func NewAdminListReasonGroupsParamsWithHTTPClient(client *http.Client) *AdminLis
 	}
 }
 
-/*AdminListReasonGroupsParams contains all the parameters to send to the API endpoint
+/*
+AdminListReasonGroupsParams contains all the parameters to send to the API endpoint
 for the admin list reason groups operation typically these are written to a http.Request
 */
 type AdminListReasonGroupsParams struct {

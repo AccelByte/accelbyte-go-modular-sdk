@@ -85,9 +85,10 @@ func NewRetrieveEligibilitiesPublicIndirectOK() *RetrieveEligibilitiesPublicIndi
 	return &RetrieveEligibilitiesPublicIndirectOK{}
 }
 
-/*RetrieveEligibilitiesPublicIndirectOK handles this case with default header values.
+/*
+RetrieveEligibilitiesPublicIndirectOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveEligibilitiesPublicIndirectOK struct {
 	Payload *legalclientmodels.RetrieveUserEligibilitiesIndirectResponse
@@ -139,9 +140,10 @@ func NewRetrieveEligibilitiesPublicIndirectBadRequest() *RetrieveEligibilitiesPu
 	return &RetrieveEligibilitiesPublicIndirectBadRequest{}
 }
 
-/*RetrieveEligibilitiesPublicIndirectBadRequest handles this case with default header values.
+/*
+RetrieveEligibilitiesPublicIndirectBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
 */
 type RetrieveEligibilitiesPublicIndirectBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

@@ -78,7 +78,8 @@ func NewGetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetParamsWithHTTPC
 	}
 }
 
-/*GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetParams contains all the parameters to send to the API endpoint
+/*
+GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetParams contains all the parameters to send to the API endpoint
 for the get events game telemetry v1 admin namespaces namespace events get operation typically these are written to a http.Request
 */
 type GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetParams struct {

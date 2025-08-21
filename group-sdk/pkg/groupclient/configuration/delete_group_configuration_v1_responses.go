@@ -144,9 +144,10 @@ func NewDeleteGroupConfigurationV1NoContent() *DeleteGroupConfigurationV1NoConte
 	return &DeleteGroupConfigurationV1NoContent{}
 }
 
-/*DeleteGroupConfigurationV1NoContent handles this case with default header values.
+/*
+DeleteGroupConfigurationV1NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteGroupConfigurationV1NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteGroupConfigurationV1BadRequest() *DeleteGroupConfigurationV1BadReq
 	return &DeleteGroupConfigurationV1BadRequest{}
 }
 
-/*DeleteGroupConfigurationV1BadRequest handles this case with default header values.
+/*
+DeleteGroupConfigurationV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DeleteGroupConfigurationV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -225,9 +227,10 @@ func NewDeleteGroupConfigurationV1Unauthorized() *DeleteGroupConfigurationV1Unau
 	return &DeleteGroupConfigurationV1Unauthorized{}
 }
 
-/*DeleteGroupConfigurationV1Unauthorized handles this case with default header values.
+/*
+DeleteGroupConfigurationV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteGroupConfigurationV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -279,9 +282,10 @@ func NewDeleteGroupConfigurationV1Forbidden() *DeleteGroupConfigurationV1Forbidd
 	return &DeleteGroupConfigurationV1Forbidden{}
 }
 
-/*DeleteGroupConfigurationV1Forbidden handles this case with default header values.
+/*
+DeleteGroupConfigurationV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type DeleteGroupConfigurationV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -333,9 +337,10 @@ func NewDeleteGroupConfigurationV1NotFound() *DeleteGroupConfigurationV1NotFound
 	return &DeleteGroupConfigurationV1NotFound{}
 }
 
-/*DeleteGroupConfigurationV1NotFound handles this case with default header values.
+/*
+DeleteGroupConfigurationV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
 */
 type DeleteGroupConfigurationV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -387,9 +392,10 @@ func NewDeleteGroupConfigurationV1InternalServerError() *DeleteGroupConfiguratio
 	return &DeleteGroupConfigurationV1InternalServerError{}
 }
 
-/*DeleteGroupConfigurationV1InternalServerError handles this case with default header values.
+/*
+DeleteGroupConfigurationV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteGroupConfigurationV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

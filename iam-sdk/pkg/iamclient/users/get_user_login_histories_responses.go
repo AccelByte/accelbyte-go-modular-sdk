@@ -110,9 +110,10 @@ func NewGetUserLoginHistoriesOK() *GetUserLoginHistoriesOK {
 	return &GetUserLoginHistoriesOK{}
 }
 
-/*GetUserLoginHistoriesOK handles this case with default header values.
+/*
+GetUserLoginHistoriesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserLoginHistoriesOK struct {
 	Payload *iamclientmodels.ModelLoginHistoriesResponse
@@ -164,9 +165,10 @@ func NewGetUserLoginHistoriesUnauthorized() *GetUserLoginHistoriesUnauthorized {
 	return &GetUserLoginHistoriesUnauthorized{}
 }
 
-/*GetUserLoginHistoriesUnauthorized handles this case with default header values.
+/*
+GetUserLoginHistoriesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserLoginHistoriesUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -218,9 +220,10 @@ func NewGetUserLoginHistoriesForbidden() *GetUserLoginHistoriesForbidden {
 	return &GetUserLoginHistoriesForbidden{}
 }
 
-/*GetUserLoginHistoriesForbidden handles this case with default header values.
+/*
+GetUserLoginHistoriesForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserLoginHistoriesForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -272,9 +275,10 @@ func NewGetUserLoginHistoriesNotFound() *GetUserLoginHistoriesNotFound {
 	return &GetUserLoginHistoriesNotFound{}
 }
 
-/*GetUserLoginHistoriesNotFound handles this case with default header values.
+/*
+GetUserLoginHistoriesNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type GetUserLoginHistoriesNotFound struct {
 }

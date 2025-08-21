@@ -130,9 +130,10 @@ func NewUpdateMyPrivateCustomAttributesPartiallyOK() *UpdateMyPrivateCustomAttri
 	return &UpdateMyPrivateCustomAttributesPartiallyOK{}
 }
 
-/*UpdateMyPrivateCustomAttributesPartiallyOK handles this case with default header values.
+/*
+UpdateMyPrivateCustomAttributesPartiallyOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateMyPrivateCustomAttributesPartiallyOK struct {
 	Payload map[string]interface{}
@@ -182,9 +183,10 @@ func NewUpdateMyPrivateCustomAttributesPartiallyBadRequest() *UpdateMyPrivateCus
 	return &UpdateMyPrivateCustomAttributesPartiallyBadRequest{}
 }
 
-/*UpdateMyPrivateCustomAttributesPartiallyBadRequest handles this case with default header values.
+/*
+UpdateMyPrivateCustomAttributesPartiallyBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type UpdateMyPrivateCustomAttributesPartiallyBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -236,9 +238,10 @@ func NewUpdateMyPrivateCustomAttributesPartiallyUnauthorized() *UpdateMyPrivateC
 	return &UpdateMyPrivateCustomAttributesPartiallyUnauthorized{}
 }
 
-/*UpdateMyPrivateCustomAttributesPartiallyUnauthorized handles this case with default header values.
+/*
+UpdateMyPrivateCustomAttributesPartiallyUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type UpdateMyPrivateCustomAttributesPartiallyUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -290,9 +293,10 @@ func NewUpdateMyPrivateCustomAttributesPartiallyForbidden() *UpdateMyPrivateCust
 	return &UpdateMyPrivateCustomAttributesPartiallyForbidden{}
 }
 
-/*UpdateMyPrivateCustomAttributesPartiallyForbidden handles this case with default header values.
+/*
+UpdateMyPrivateCustomAttributesPartiallyForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdateMyPrivateCustomAttributesPartiallyForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -344,9 +348,10 @@ func NewUpdateMyPrivateCustomAttributesPartiallyNotFound() *UpdateMyPrivateCusto
 	return &UpdateMyPrivateCustomAttributesPartiallyNotFound{}
 }
 
-/*UpdateMyPrivateCustomAttributesPartiallyNotFound handles this case with default header values.
+/*
+UpdateMyPrivateCustomAttributesPartiallyNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
 */
 type UpdateMyPrivateCustomAttributesPartiallyNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

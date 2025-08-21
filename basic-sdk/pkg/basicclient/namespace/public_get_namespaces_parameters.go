@@ -70,7 +70,8 @@ func NewPublicGetNamespacesParamsWithHTTPClient(client *http.Client) *PublicGetN
 	}
 }
 
-/*PublicGetNamespacesParams contains all the parameters to send to the API endpoint
+/*
+PublicGetNamespacesParams contains all the parameters to send to the API endpoint
 for the public get namespaces operation typically these are written to a http.Request
 */
 type PublicGetNamespacesParams struct {

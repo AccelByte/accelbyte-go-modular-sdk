@@ -88,9 +88,10 @@ func NewExportSeasonOK(writer io.Writer) *ExportSeasonOK {
 	}
 }
 
-/*ExportSeasonOK handles this case with default header values.
+/*
+ExportSeasonOK handles this case with default header values.
 
-  Export data successfully
+	Export data successfully
 */
 type ExportSeasonOK struct {
 	Payload io.Writer
@@ -140,9 +141,10 @@ func NewExportSeasonBadRequest() *ExportSeasonBadRequest {
 	return &ExportSeasonBadRequest{}
 }
 
-/*ExportSeasonBadRequest handles this case with default header values.
+/*
+ExportSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type ExportSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity

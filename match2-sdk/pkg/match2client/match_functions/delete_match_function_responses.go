@@ -129,9 +129,10 @@ func NewDeleteMatchFunctionOK() *DeleteMatchFunctionOK {
 	return &DeleteMatchFunctionOK{}
 }
 
-/*DeleteMatchFunctionOK handles this case with default header values.
+/*
+DeleteMatchFunctionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type DeleteMatchFunctionOK struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteMatchFunctionUnauthorized() *DeleteMatchFunctionUnauthorized {
 	return &DeleteMatchFunctionUnauthorized{}
 }
 
-/*DeleteMatchFunctionUnauthorized handles this case with default header values.
+/*
+DeleteMatchFunctionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteMatchFunctionUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewDeleteMatchFunctionForbidden() *DeleteMatchFunctionForbidden {
 	return &DeleteMatchFunctionForbidden{}
 }
 
-/*DeleteMatchFunctionForbidden handles this case with default header values.
+/*
+DeleteMatchFunctionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteMatchFunctionForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewDeleteMatchFunctionNotFound() *DeleteMatchFunctionNotFound {
 	return &DeleteMatchFunctionNotFound{}
 }
 
-/*DeleteMatchFunctionNotFound handles this case with default header values.
+/*
+DeleteMatchFunctionNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteMatchFunctionNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewDeleteMatchFunctionInternalServerError() *DeleteMatchFunctionInternalSer
 	return &DeleteMatchFunctionInternalServerError{}
 }
 
-/*DeleteMatchFunctionInternalServerError handles this case with default header values.
+/*
+DeleteMatchFunctionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteMatchFunctionInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

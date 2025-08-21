@@ -130,9 +130,10 @@ func NewDebitUserWalletOK() *DebitUserWalletOK {
 	return &DebitUserWalletOK{}
 }
 
-/*DebitUserWalletOK handles this case with default header values.
+/*
+DebitUserWalletOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DebitUserWalletOK struct {
 	Payload *platformclientmodels.WalletInfo
@@ -184,9 +185,10 @@ func NewDebitUserWalletBadRequest() *DebitUserWalletBadRequest {
 	return &DebitUserWalletBadRequest{}
 }
 
-/*DebitUserWalletBadRequest handles this case with default header values.
+/*
+DebitUserWalletBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
 */
 type DebitUserWalletBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewDebitUserWalletNotFound() *DebitUserWalletNotFound {
 	return &DebitUserWalletNotFound{}
 }
 
-/*DebitUserWalletNotFound handles this case with default header values.
+/*
+DebitUserWalletNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35141</td><td>Wallet [{walletId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35141</td><td>Wallet [{walletId}] does not exist</td></tr></table>
 */
 type DebitUserWalletNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewDebitUserWalletConflict() *DebitUserWalletConflict {
 	return &DebitUserWalletConflict{}
 }
 
-/*DebitUserWalletConflict handles this case with default header values.
+/*
+DebitUserWalletConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type DebitUserWalletConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewDebitUserWalletUnprocessableEntity() *DebitUserWalletUnprocessableEntity
 	return &DebitUserWalletUnprocessableEntity{}
 }
 
-/*DebitUserWalletUnprocessableEntity handles this case with default header values.
+/*
+DebitUserWalletUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DebitUserWalletUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

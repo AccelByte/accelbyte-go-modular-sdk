@@ -129,9 +129,10 @@ func NewAdminDeleteConfigurationTemplateV1NoContent() *AdminDeleteConfigurationT
 	return &AdminDeleteConfigurationTemplateV1NoContent{}
 }
 
-/*AdminDeleteConfigurationTemplateV1NoContent handles this case with default header values.
+/*
+AdminDeleteConfigurationTemplateV1NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteConfigurationTemplateV1NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDeleteConfigurationTemplateV1BadRequest() *AdminDeleteConfiguration
 	return &AdminDeleteConfigurationTemplateV1BadRequest{}
 }
 
-/*AdminDeleteConfigurationTemplateV1BadRequest handles this case with default header values.
+/*
+AdminDeleteConfigurationTemplateV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeleteConfigurationTemplateV1BadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewAdminDeleteConfigurationTemplateV1Unauthorized() *AdminDeleteConfigurati
 	return &AdminDeleteConfigurationTemplateV1Unauthorized{}
 }
 
-/*AdminDeleteConfigurationTemplateV1Unauthorized handles this case with default header values.
+/*
+AdminDeleteConfigurationTemplateV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeleteConfigurationTemplateV1Unauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewAdminDeleteConfigurationTemplateV1Forbidden() *AdminDeleteConfigurationT
 	return &AdminDeleteConfigurationTemplateV1Forbidden{}
 }
 
-/*AdminDeleteConfigurationTemplateV1Forbidden handles this case with default header values.
+/*
+AdminDeleteConfigurationTemplateV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeleteConfigurationTemplateV1Forbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewAdminDeleteConfigurationTemplateV1InternalServerError() *AdminDeleteConf
 	return &AdminDeleteConfigurationTemplateV1InternalServerError{}
 }
 
-/*AdminDeleteConfigurationTemplateV1InternalServerError handles this case with default header values.
+/*
+AdminDeleteConfigurationTemplateV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteConfigurationTemplateV1InternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

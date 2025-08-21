@@ -129,9 +129,10 @@ func NewDeleteGameRecordHandlerV1NoContent() *DeleteGameRecordHandlerV1NoContent
 	return &DeleteGameRecordHandlerV1NoContent{}
 }
 
-/*DeleteGameRecordHandlerV1NoContent handles this case with default header values.
+/*
+DeleteGameRecordHandlerV1NoContent handles this case with default header values.
 
-  Record deleted
+	Record deleted
 */
 type DeleteGameRecordHandlerV1NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteGameRecordHandlerV1BadRequest() *DeleteGameRecordHandlerV1BadReque
 	return &DeleteGameRecordHandlerV1BadRequest{}
 }
 
-/*DeleteGameRecordHandlerV1BadRequest handles this case with default header values.
+/*
+DeleteGameRecordHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
 */
 type DeleteGameRecordHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -210,9 +212,10 @@ func NewDeleteGameRecordHandlerV1Unauthorized() *DeleteGameRecordHandlerV1Unauth
 	return &DeleteGameRecordHandlerV1Unauthorized{}
 }
 
-/*DeleteGameRecordHandlerV1Unauthorized handles this case with default header values.
+/*
+DeleteGameRecordHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteGameRecordHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -264,9 +267,10 @@ func NewDeleteGameRecordHandlerV1Forbidden() *DeleteGameRecordHandlerV1Forbidden
 	return &DeleteGameRecordHandlerV1Forbidden{}
 }
 
-/*DeleteGameRecordHandlerV1Forbidden handles this case with default header values.
+/*
+DeleteGameRecordHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteGameRecordHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -318,9 +322,10 @@ func NewDeleteGameRecordHandlerV1InternalServerError() *DeleteGameRecordHandlerV
 	return &DeleteGameRecordHandlerV1InternalServerError{}
 }
 
-/*DeleteGameRecordHandlerV1InternalServerError handles this case with default header values.
+/*
+DeleteGameRecordHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18040</td><td>unable to delete record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18040</td><td>unable to delete record</td></tr></table>
 */
 type DeleteGameRecordHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

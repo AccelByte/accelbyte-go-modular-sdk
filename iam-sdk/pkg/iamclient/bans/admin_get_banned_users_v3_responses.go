@@ -115,9 +115,10 @@ func NewAdminGetBannedUsersV3OK() *AdminGetBannedUsersV3OK {
 	return &AdminGetBannedUsersV3OK{}
 }
 
-/*AdminGetBannedUsersV3OK handles this case with default header values.
+/*
+AdminGetBannedUsersV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetBannedUsersV3OK struct {
 	Payload *iamclientmodels.ModelGetUserBanV3Response
@@ -169,9 +170,10 @@ func NewAdminGetBannedUsersV3Unauthorized() *AdminGetBannedUsersV3Unauthorized {
 	return &AdminGetBannedUsersV3Unauthorized{}
 }
 
-/*AdminGetBannedUsersV3Unauthorized handles this case with default header values.
+/*
+AdminGetBannedUsersV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetBannedUsersV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetBannedUsersV3Forbidden() *AdminGetBannedUsersV3Forbidden {
 	return &AdminGetBannedUsersV3Forbidden{}
 }
 
-/*AdminGetBannedUsersV3Forbidden handles this case with default header values.
+/*
+AdminGetBannedUsersV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetBannedUsersV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetBannedUsersV3InternalServerError() *AdminGetBannedUsersV3Interna
 	return &AdminGetBannedUsersV3InternalServerError{}
 }
 
-/*AdminGetBannedUsersV3InternalServerError handles this case with default header values.
+/*
+AdminGetBannedUsersV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetBannedUsersV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

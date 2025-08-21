@@ -129,9 +129,10 @@ func NewCreateTemplateNoContent() *CreateTemplateNoContent {
 	return &CreateTemplateNoContent{}
 }
 
-/*CreateTemplateNoContent handles this case with default header values.
+/*
+CreateTemplateNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type CreateTemplateNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewCreateTemplateBadRequest() *CreateTemplateBadRequest {
 	return &CreateTemplateBadRequest{}
 }
 
-/*CreateTemplateBadRequest handles this case with default header values.
+/*
+CreateTemplateBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateTemplateBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewCreateTemplateUnauthorized() *CreateTemplateUnauthorized {
 	return &CreateTemplateUnauthorized{}
 }
 
-/*CreateTemplateUnauthorized handles this case with default header values.
+/*
+CreateTemplateUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateTemplateUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewCreateTemplateForbidden() *CreateTemplateForbidden {
 	return &CreateTemplateForbidden{}
 }
 
-/*CreateTemplateForbidden handles this case with default header values.
+/*
+CreateTemplateForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateTemplateForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewCreateTemplateNotFound() *CreateTemplateNotFound {
 	return &CreateTemplateNotFound{}
 }
 
-/*CreateTemplateNotFound handles this case with default header values.
+/*
+CreateTemplateNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type CreateTemplateNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

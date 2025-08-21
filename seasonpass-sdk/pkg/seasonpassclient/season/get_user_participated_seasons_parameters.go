@@ -78,7 +78,8 @@ func NewGetUserParticipatedSeasonsParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*GetUserParticipatedSeasonsParams contains all the parameters to send to the API endpoint
+/*
+GetUserParticipatedSeasonsParams contains all the parameters to send to the API endpoint
 for the get user participated seasons operation typically these are written to a http.Request
 */
 type GetUserParticipatedSeasonsParams struct {

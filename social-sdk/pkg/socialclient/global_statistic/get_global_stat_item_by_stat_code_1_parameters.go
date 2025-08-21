@@ -57,7 +57,8 @@ func NewGetGlobalStatItemByStatCode1ParamsWithHTTPClient(client *http.Client) *G
 	}
 }
 
-/*GetGlobalStatItemByStatCode1Params contains all the parameters to send to the API endpoint
+/*
+GetGlobalStatItemByStatCode1Params contains all the parameters to send to the API endpoint
 for the get global stat item by stat code 1 operation typically these are written to a http.Request
 */
 type GetGlobalStatItemByStatCode1Params struct {

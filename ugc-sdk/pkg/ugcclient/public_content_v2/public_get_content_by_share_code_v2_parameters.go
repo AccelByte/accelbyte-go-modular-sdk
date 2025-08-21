@@ -57,7 +57,8 @@ func NewPublicGetContentByShareCodeV2ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicGetContentByShareCodeV2Params contains all the parameters to send to the API endpoint
+/*
+PublicGetContentByShareCodeV2Params contains all the parameters to send to the API endpoint
 for the public get content by share code v2 operation typically these are written to a http.Request
 */
 type PublicGetContentByShareCodeV2Params struct {

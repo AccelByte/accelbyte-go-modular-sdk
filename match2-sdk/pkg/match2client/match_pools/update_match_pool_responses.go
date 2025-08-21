@@ -145,9 +145,10 @@ func NewUpdateMatchPoolOK() *UpdateMatchPoolOK {
 	return &UpdateMatchPoolOK{}
 }
 
-/*UpdateMatchPoolOK handles this case with default header values.
+/*
+UpdateMatchPoolOK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateMatchPoolOK struct {
 	Payload *match2clientmodels.APIMatchPool
@@ -199,9 +200,10 @@ func NewUpdateMatchPoolBadRequest() *UpdateMatchPoolBadRequest {
 	return &UpdateMatchPoolBadRequest{}
 }
 
-/*UpdateMatchPoolBadRequest handles this case with default header values.
+/*
+UpdateMatchPoolBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateMatchPoolBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewUpdateMatchPoolUnauthorized() *UpdateMatchPoolUnauthorized {
 	return &UpdateMatchPoolUnauthorized{}
 }
 
-/*UpdateMatchPoolUnauthorized handles this case with default header values.
+/*
+UpdateMatchPoolUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateMatchPoolUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewUpdateMatchPoolForbidden() *UpdateMatchPoolForbidden {
 	return &UpdateMatchPoolForbidden{}
 }
 
-/*UpdateMatchPoolForbidden handles this case with default header values.
+/*
+UpdateMatchPoolForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateMatchPoolForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewUpdateMatchPoolNotFound() *UpdateMatchPoolNotFound {
 	return &UpdateMatchPoolNotFound{}
 }
 
-/*UpdateMatchPoolNotFound handles this case with default header values.
+/*
+UpdateMatchPoolNotFound handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateMatchPoolNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewUpdateMatchPoolInternalServerError() *UpdateMatchPoolInternalServerError
 	return &UpdateMatchPoolInternalServerError{}
 }
 
-/*UpdateMatchPoolInternalServerError handles this case with default header values.
+/*
+UpdateMatchPoolInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateMatchPoolInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

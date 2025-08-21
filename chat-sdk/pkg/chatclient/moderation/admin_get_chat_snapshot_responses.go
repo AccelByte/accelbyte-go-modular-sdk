@@ -145,9 +145,10 @@ func NewAdminGetChatSnapshotOK() *AdminGetChatSnapshotOK {
 	return &AdminGetChatSnapshotOK{}
 }
 
-/*AdminGetChatSnapshotOK handles this case with default header values.
+/*
+AdminGetChatSnapshotOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetChatSnapshotOK struct {
 	Payload *chatclientmodels.ModelsChatSnapshots
@@ -199,9 +200,10 @@ func NewAdminGetChatSnapshotBadRequest() *AdminGetChatSnapshotBadRequest {
 	return &AdminGetChatSnapshotBadRequest{}
 }
 
-/*AdminGetChatSnapshotBadRequest handles this case with default header values.
+/*
+AdminGetChatSnapshotBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetChatSnapshotBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetChatSnapshotUnauthorized() *AdminGetChatSnapshotUnauthorized {
 	return &AdminGetChatSnapshotUnauthorized{}
 }
 
-/*AdminGetChatSnapshotUnauthorized handles this case with default header values.
+/*
+AdminGetChatSnapshotUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetChatSnapshotUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetChatSnapshotForbidden() *AdminGetChatSnapshotForbidden {
 	return &AdminGetChatSnapshotForbidden{}
 }
 
-/*AdminGetChatSnapshotForbidden handles this case with default header values.
+/*
+AdminGetChatSnapshotForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetChatSnapshotForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetChatSnapshotNotFound() *AdminGetChatSnapshotNotFound {
 	return &AdminGetChatSnapshotNotFound{}
 }
 
-/*AdminGetChatSnapshotNotFound handles this case with default header values.
+/*
+AdminGetChatSnapshotNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetChatSnapshotNotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetChatSnapshotInternalServerError() *AdminGetChatSnapshotInternalS
 	return &AdminGetChatSnapshotInternalServerError{}
 }
 
-/*AdminGetChatSnapshotInternalServerError handles this case with default header values.
+/*
+AdminGetChatSnapshotInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetChatSnapshotInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

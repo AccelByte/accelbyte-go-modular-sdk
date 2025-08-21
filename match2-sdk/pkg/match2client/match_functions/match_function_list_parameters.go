@@ -78,7 +78,8 @@ func NewMatchFunctionListParamsWithHTTPClient(client *http.Client) *MatchFunctio
 	}
 }
 
-/*MatchFunctionListParams contains all the parameters to send to the API endpoint
+/*
+MatchFunctionListParams contains all the parameters to send to the API endpoint
 for the match function list operation typically these are written to a http.Request
 */
 type MatchFunctionListParams struct {

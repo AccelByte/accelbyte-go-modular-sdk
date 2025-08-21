@@ -63,7 +63,7 @@ This API is used to query seasons, seasons only located in non-publisher namespa
 
 Other detail info:
 
-  * Returns : the list of season basic info
+  - Returns : the list of season basic info
 */
 func (a *Client) QuerySeasonsShort(params *QuerySeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySeasonsResponse, error) {
 	// TODO: Validate the params before sending
@@ -128,7 +128,7 @@ This API is used to create a season, season only allowed in non-publisher namesp
 
 Other detail info:
 
-  * Returns : created season
+  - Returns : created season
 */
 func (a *Client) CreateSeasonShort(params *CreateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -207,7 +207,7 @@ GetCurrentSeasonShort get current published season summary
 
 Other detail info:
 
-  * Returns : season summary data
+  - Returns : season summary data
 */
 func (a *Client) GetCurrentSeasonShort(params *GetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -279,7 +279,7 @@ This API is used to bulk get user current season progression, season only locate
 
 Other detail info:
 
-  * Returns : user season progression
+  - Returns : user season progression
 */
 func (a *Client) BulkGetUserSeasonProgressionShort(params *BulkGetUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetUserSeasonProgressionResponse, error) {
 	// TODO: Validate the params before sending
@@ -351,7 +351,7 @@ This API is used to get a season, season only located in non-publisher namespace
 
 Other detail info:
 
-  * Returns : season data
+  - Returns : season data
 */
 func (a *Client) GetSeasonShort(params *GetSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -497,7 +497,7 @@ This API is used to update a season. Only draft season can be updated.
 
 Other detail info:
 
-  * Returns : updated season
+  - Returns : updated season
 */
 func (a *Client) UpdateSeasonShort(params *UpdateSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -583,7 +583,7 @@ This API is used to clone a season.
 
 Other detail info:
 
-  * Returns : cloned season info
+  - Returns : cloned season info
 */
 func (a *Client) CloneSeasonShort(params *CloneSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*CloneSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -662,7 +662,7 @@ This API is used to get a season full content, season only located in non-publis
 
 Other detail info:
 
-  * Returns : season data
+  - Returns : season data
 */
 func (a *Client) GetFullSeasonShort(params *GetFullSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetFullSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -734,7 +734,7 @@ This API is used to publish a draft season, only one published season allowed at
 
 Other detail info:
 
-  * Returns : published season
+  - Returns : published season
 */
 func (a *Client) PublishSeasonShort(params *PublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -813,7 +813,7 @@ This API is used to retire a published season, if the season has not ended it wi
 
 Other detail info:
 
-  * Returns : season info
+  - Returns : season info
 */
 func (a *Client) RetireSeasonShort(params *RetireSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*RetireSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -892,7 +892,7 @@ This API is used to unpublish a published season, if the season already started 
 
 Other detail info:
 
-  * Returns : season info
+  - Returns : season info
 */
 func (a *Client) UnpublishSeasonShort(params *UnpublishSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*UnpublishSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -971,7 +971,7 @@ This API is used to get user participated season data, season only located in no
 
 Other detail info:
 
-  * Returns : user participated season data
+  - Returns : user participated season data
 */
 func (a *Client) GetUserParticipatedSeasonsShort(params *GetUserParticipatedSeasonsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserParticipatedSeasonsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1036,7 +1036,7 @@ ExistsAnyPassByPassCodesShort get ownership for any pass codes
 
 Other detail info:
 
-  * Returns : ownership
+  - Returns : ownership
 */
 func (a *Client) ExistsAnyPassByPassCodesShort(params *ExistsAnyPassByPassCodesParams, authInfo runtime.ClientAuthInfoWriter) (*ExistsAnyPassByPassCodesResponse, error) {
 	// TODO: Validate the params before sending
@@ -1101,7 +1101,7 @@ This API is used to get current user season progression, season only located in 
 
 Other detail info:
 
-  * Returns : user season progression
+  - Returns : user season progression
 */
 func (a *Client) GetCurrentUserSeasonProgressionShort(params *GetCurrentUserSeasonProgressionParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentUserSeasonProgressionResponse, error) {
 	// TODO: Validate the params before sending
@@ -1243,7 +1243,8 @@ func (a *Client) CheckSeasonPurchasableShort(params *CheckSeasonPurchasableParam
 
 /*
 ResetUserSeasonShort reset user data in current season
- [TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset user data in current season, it will not revoke the rewarded entitlements.
+
+	[TEST FACILITY ONLY] Forbidden in live environment. This API is used to reset user data in current season, it will not revoke the rewarded entitlements.
 */
 func (a *Client) ResetUserSeasonShort(params *ResetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*ResetUserSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -1307,8 +1308,8 @@ This API is used to get user exp acquisition history, season only located in non
 
 Other detail info:
 
-  * default will query from current active season
-  *  Returns : paginated grant history
+  - default will query from current active season
+  - Returns : paginated grant history
 */
 func (a *Client) QueryUserExpGrantHistoryShort(params *QueryUserExpGrantHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -1373,8 +1374,8 @@ This API is used to get user exp acquisition history's tag list.
 
 Other detail info:
 
-  * default will query from current active season
-  *  Returns : exp grant history tags list
+  - default will query from current active season
+  - Returns : exp grant history tags list
 */
 func (a *Client) QueryUserExpGrantHistoryTagShort(params *QueryUserExpGrantHistoryTagParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserExpGrantHistoryTagResponse, error) {
 	// TODO: Validate the params before sending
@@ -1439,7 +1440,7 @@ This API is used to get user season data, season only located in non-publisher n
 
 Other detail info:
 
-  * Returns : user season data
+  - Returns : user season data
 */
 func (a *Client) GetUserSeasonShort(params *GetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -1511,7 +1512,7 @@ This API is used to get current published season, season only located in non-pub
 
 Other detail info:
 
-  * Returns : localized season data
+  - Returns : localized season data
 */
 func (a *Client) PublicGetCurrentSeasonShort(params *PublicGetCurrentSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -1590,7 +1591,7 @@ This API is used to get current user season data, it will auto enroll if there's
 
 Other detail info:
 
-  * Returns : user season data
+  - Returns : user season data
 */
 func (a *Client) PublicGetCurrentUserSeasonShort(params *PublicGetCurrentUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCurrentUserSeasonResponse, error) {
 	// TODO: Validate the params before sending
@@ -1662,7 +1663,7 @@ This API is used to get user season data, season only located in non-publisher n
 
 Other detail info:
 
-  * Returns : user season data
+  - Returns : user season data
 */
 func (a *Client) PublicGetUserSeasonShort(params *PublicGetUserSeasonParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserSeasonResponse, error) {
 	// TODO: Validate the params before sending

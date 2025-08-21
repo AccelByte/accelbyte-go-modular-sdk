@@ -57,7 +57,8 @@ func NewAdminGenerateReportV4ParamsWithHTTPClient(client *http.Client) *AdminGen
 	}
 }
 
-/*AdminGenerateReportV4Params contains all the parameters to send to the API endpoint
+/*
+AdminGenerateReportV4Params contains all the parameters to send to the API endpoint
 for the admin generate report v4 operation typically these are written to a http.Request
 */
 type AdminGenerateReportV4Params struct {

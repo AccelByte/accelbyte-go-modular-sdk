@@ -84,7 +84,8 @@ func NewGetThirdPartyPlatformSubscriptionOwnershipByGroupIDParamsWithHTTPClient(
 	}
 }
 
-/*GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams contains all the parameters to send to the API endpoint
+/*
+GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams contains all the parameters to send to the API endpoint
 for the get third party platform subscription ownership by group id operation typically these are written to a http.Request
 */
 type GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams struct {

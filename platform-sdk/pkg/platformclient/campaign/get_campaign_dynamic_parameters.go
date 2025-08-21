@@ -57,7 +57,8 @@ func NewGetCampaignDynamicParamsWithHTTPClient(client *http.Client) *GetCampaign
 	}
 }
 
-/*GetCampaignDynamicParams contains all the parameters to send to the API endpoint
+/*
+GetCampaignDynamicParams contains all the parameters to send to the API endpoint
 for the get campaign dynamic operation typically these are written to a http.Request
 */
 type GetCampaignDynamicParams struct {

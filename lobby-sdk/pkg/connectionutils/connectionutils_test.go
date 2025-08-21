@@ -16,6 +16,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
@@ -69,11 +70,11 @@ func TestConnectionUtils(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
 	configRepo.BaseUrl = baseUrl
 
-	conn, err := connectionutils.NewWSConnection(
+	conn, err := wsm.NewWSConnection(
 		configRepo, tokenRepo,
-		connectionutils.WithScheme("ws"),
-		connectionutils.WithMessageHandler(onMessage),
-		connectionutils.WithEnableAutoReconnect(),
+		wsm.WithScheme("ws"),
+		wsm.WithMessageHandler(onMessage),
+		wsm.WithEnableAutoReconnect(),
 	)
 
 	assert.Nil(t, err, "err should be nil")
@@ -85,11 +86,11 @@ func TestConnectionUtils_ShouldReconnect(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
 	configRepo.BaseUrl = baseUrl
 
-	conn, err := connectionutils.NewWSConnection(
+	conn, err := wsm.NewWSConnection(
 		configRepo, tokenRepo,
-		connectionutils.WithScheme("ws"),
-		connectionutils.WithMessageHandler(onMessage),
-		connectionutils.WithEnableAutoReconnect(),
+		wsm.WithScheme("ws"),
+		wsm.WithMessageHandler(onMessage),
+		wsm.WithEnableAutoReconnect(),
 	)
 
 	assert.Nil(t, err, "err should be nil")
@@ -108,11 +109,11 @@ func TestConnectionUtils_ReconnectDelay(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
 	configRepo.BaseUrl = baseUrl
 
-	conn, err := connectionutils.NewWSConnection(
+	conn, err := wsm.NewWSConnection(
 		configRepo, tokenRepo,
-		connectionutils.WithScheme("ws"),
-		connectionutils.WithMessageHandler(onMessage),
-		connectionutils.WithEnableAutoReconnect(),
+		wsm.WithScheme("ws"),
+		wsm.WithMessageHandler(onMessage),
+		wsm.WithEnableAutoReconnect(),
 	)
 
 	assert.Nil(t, err, "err should be nil")
@@ -128,11 +129,11 @@ func TestConnectionUtils_DataManagement(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
 	configRepo.BaseUrl = baseUrl
 
-	conn, err := connectionutils.NewWSConnection(
+	conn, err := wsm.NewWSConnection(
 		configRepo, tokenRepo,
-		connectionutils.WithScheme("ws"),
-		connectionutils.WithMessageHandler(onMessage),
-		connectionutils.WithEnableAutoReconnect(),
+		wsm.WithScheme("ws"),
+		wsm.WithMessageHandler(onMessage),
+		wsm.WithEnableAutoReconnect(),
 	)
 
 	assert.Nil(t, err, "err should be nil")
@@ -159,12 +160,12 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 	logrus.SetLevel(logrus.DebugLevel)
 
 	// 1. Connecting to mock server
-	conn, err := connectionutils.NewWSConnection(
+	conn, err := wsm.NewWSConnection(
 		configRepo, tokenRepo,
-		connectionutils.WithScheme("ws"),
-		connectionutils.WithStatusHandler(onStatus),
-		connectionutils.WithMessageHandler(onMessage),
-		connectionutils.WithEnableAutoReconnect(),
+		wsm.WithScheme("ws"),
+		wsm.WithStatusHandler(onStatus),
+		wsm.WithMessageHandler(onMessage),
+		wsm.WithEnableAutoReconnect(),
 	)
 
 	assert.Nil(t, err, "err should be nil")
@@ -214,12 +215,12 @@ func TestWebSocketReconnect_Case2(t *testing.T) {
 	logrus.SetLevel(logrus.DebugLevel)
 
 	// 1. Connecting to mock server
-	conn, err := connectionutils.NewWSConnection(
+	conn, err := wsm.NewWSConnection(
 		configRepo, tokenRepo,
-		connectionutils.WithScheme("ws"),
-		connectionutils.WithStatusHandler(onStatus),
-		connectionutils.WithMessageHandler(onMessage),
-		connectionutils.WithEnableAutoReconnect(),
+		wsm.WithScheme("ws"),
+		wsm.WithStatusHandler(onStatus),
+		wsm.WithMessageHandler(onMessage),
+		wsm.WithEnableAutoReconnect(),
 	)
 
 	assert.Nil(t, err, "err should be nil")

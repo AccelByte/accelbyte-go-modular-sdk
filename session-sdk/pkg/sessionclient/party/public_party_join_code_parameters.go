@@ -59,7 +59,8 @@ func NewPublicPartyJoinCodeParamsWithHTTPClient(client *http.Client) *PublicPart
 	}
 }
 
-/*PublicPartyJoinCodeParams contains all the parameters to send to the API endpoint
+/*
+PublicPartyJoinCodeParams contains all the parameters to send to the API endpoint
 for the public party join code operation typically these are written to a http.Request
 */
 type PublicPartyJoinCodeParams struct {

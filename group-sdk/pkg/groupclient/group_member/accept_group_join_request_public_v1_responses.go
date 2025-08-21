@@ -160,9 +160,10 @@ func NewAcceptGroupJoinRequestPublicV1OK() *AcceptGroupJoinRequestPublicV1OK {
 	return &AcceptGroupJoinRequestPublicV1OK{}
 }
 
-/*AcceptGroupJoinRequestPublicV1OK handles this case with default header values.
+/*
+AcceptGroupJoinRequestPublicV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AcceptGroupJoinRequestPublicV1OK struct {
 	Payload *groupclientmodels.ModelsMemberRequestGroupResponseV1
@@ -214,9 +215,10 @@ func NewAcceptGroupJoinRequestPublicV1BadRequest() *AcceptGroupJoinRequestPublic
 	return &AcceptGroupJoinRequestPublicV1BadRequest{}
 }
 
-/*AcceptGroupJoinRequestPublicV1BadRequest handles this case with default header values.
+/*
+AcceptGroupJoinRequestPublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AcceptGroupJoinRequestPublicV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -268,9 +270,10 @@ func NewAcceptGroupJoinRequestPublicV1Unauthorized() *AcceptGroupJoinRequestPubl
 	return &AcceptGroupJoinRequestPublicV1Unauthorized{}
 }
 
-/*AcceptGroupJoinRequestPublicV1Unauthorized handles this case with default header values.
+/*
+AcceptGroupJoinRequestPublicV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AcceptGroupJoinRequestPublicV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -322,9 +325,10 @@ func NewAcceptGroupJoinRequestPublicV1Forbidden() *AcceptGroupJoinRequestPublicV
 	return &AcceptGroupJoinRequestPublicV1Forbidden{}
 }
 
-/*AcceptGroupJoinRequestPublicV1Forbidden handles this case with default header values.
+/*
+AcceptGroupJoinRequestPublicV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type AcceptGroupJoinRequestPublicV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -376,9 +380,10 @@ func NewAcceptGroupJoinRequestPublicV1NotFound() *AcceptGroupJoinRequestPublicV1
 	return &AcceptGroupJoinRequestPublicV1NotFound{}
 }
 
-/*AcceptGroupJoinRequestPublicV1NotFound handles this case with default header values.
+/*
+AcceptGroupJoinRequestPublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73443</td><td>member request not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73443</td><td>member request not found</td></tr></table>
 */
 type AcceptGroupJoinRequestPublicV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -430,9 +435,10 @@ func NewAcceptGroupJoinRequestPublicV1Conflict() *AcceptGroupJoinRequestPublicV1
 	return &AcceptGroupJoinRequestPublicV1Conflict{}
 }
 
-/*AcceptGroupJoinRequestPublicV1Conflict handles this case with default header values.
+/*
+AcceptGroupJoinRequestPublicV1Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73442</td><td>user already joined in another group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73442</td><td>user already joined in another group</td></tr></table>
 */
 type AcceptGroupJoinRequestPublicV1Conflict struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -484,9 +490,10 @@ func NewAcceptGroupJoinRequestPublicV1InternalServerError() *AcceptGroupJoinRequ
 	return &AcceptGroupJoinRequestPublicV1InternalServerError{}
 }
 
-/*AcceptGroupJoinRequestPublicV1InternalServerError handles this case with default header values.
+/*
+AcceptGroupJoinRequestPublicV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AcceptGroupJoinRequestPublicV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

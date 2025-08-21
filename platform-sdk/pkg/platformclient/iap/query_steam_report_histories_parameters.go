@@ -93,7 +93,8 @@ func NewQuerySteamReportHistoriesParamsWithHTTPClient(client *http.Client) *Quer
 	}
 }
 
-/*QuerySteamReportHistoriesParams contains all the parameters to send to the API endpoint
+/*
+QuerySteamReportHistoriesParams contains all the parameters to send to the API endpoint
 for the query steam report histories operation typically these are written to a http.Request
 */
 type QuerySteamReportHistoriesParams struct {

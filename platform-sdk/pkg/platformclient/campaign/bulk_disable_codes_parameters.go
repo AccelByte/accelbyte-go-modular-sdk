@@ -58,7 +58,8 @@ func NewBulkDisableCodesParamsWithHTTPClient(client *http.Client) *BulkDisableCo
 	}
 }
 
-/*BulkDisableCodesParams contains all the parameters to send to the API endpoint
+/*
+BulkDisableCodesParams contains all the parameters to send to the API endpoint
 for the bulk disable codes operation typically these are written to a http.Request
 */
 type BulkDisableCodesParams struct {

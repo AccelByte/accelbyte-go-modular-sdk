@@ -129,9 +129,10 @@ func NewDeleteUserRankingAdminV3NoContent() *DeleteUserRankingAdminV3NoContent {
 	return &DeleteUserRankingAdminV3NoContent{}
 }
 
-/*DeleteUserRankingAdminV3NoContent handles this case with default header values.
+/*
+DeleteUserRankingAdminV3NoContent handles this case with default header values.
 
-  User ranking deleted
+	User ranking deleted
 */
 type DeleteUserRankingAdminV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteUserRankingAdminV3Unauthorized() *DeleteUserRankingAdminV3Unauthor
 	return &DeleteUserRankingAdminV3Unauthorized{}
 }
 
-/*DeleteUserRankingAdminV3Unauthorized handles this case with default header values.
+/*
+DeleteUserRankingAdminV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteUserRankingAdminV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -210,9 +212,10 @@ func NewDeleteUserRankingAdminV3Forbidden() *DeleteUserRankingAdminV3Forbidden {
 	return &DeleteUserRankingAdminV3Forbidden{}
 }
 
-/*DeleteUserRankingAdminV3Forbidden handles this case with default header values.
+/*
+DeleteUserRankingAdminV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteUserRankingAdminV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -264,9 +267,10 @@ func NewDeleteUserRankingAdminV3NotFound() *DeleteUserRankingAdminV3NotFound {
 	return &DeleteUserRankingAdminV3NotFound{}
 }
 
-/*DeleteUserRankingAdminV3NotFound handles this case with default header values.
+/*
+DeleteUserRankingAdminV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71233</td><td>user ranking data not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71233</td><td>user ranking data not found</td></tr></table>
 */
 type DeleteUserRankingAdminV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -318,9 +322,10 @@ func NewDeleteUserRankingAdminV3InternalServerError() *DeleteUserRankingAdminV3I
 	return &DeleteUserRankingAdminV3InternalServerError{}
 }
 
-/*DeleteUserRankingAdminV3InternalServerError handles this case with default header values.
+/*
+DeleteUserRankingAdminV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DeleteUserRankingAdminV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

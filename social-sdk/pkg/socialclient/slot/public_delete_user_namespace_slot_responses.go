@@ -84,9 +84,10 @@ func NewPublicDeleteUserNamespaceSlotNoContent() *PublicDeleteUserNamespaceSlotN
 	return &PublicDeleteUserNamespaceSlotNoContent{}
 }
 
-/*PublicDeleteUserNamespaceSlotNoContent handles this case with default header values.
+/*
+PublicDeleteUserNamespaceSlotNoContent handles this case with default header values.
 
-  Successful delete of a slot
+	Successful delete of a slot
 */
 type PublicDeleteUserNamespaceSlotNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewPublicDeleteUserNamespaceSlotNotFound() *PublicDeleteUserNamespaceSlotNo
 	return &PublicDeleteUserNamespaceSlotNotFound{}
 }
 
-/*PublicDeleteUserNamespaceSlotNotFound handles this case with default header values.
+/*
+PublicDeleteUserNamespaceSlotNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12141</td><td>Slot [{slotId}] not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12141</td><td>Slot [{slotId}] not found in namespace [{namespace}]</td></tr></table>
 */
 type PublicDeleteUserNamespaceSlotNotFound struct {
 	Payload *socialclientmodels.ErrorEntity

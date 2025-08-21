@@ -145,9 +145,10 @@ func NewGetGameRecordsBulkOK() *GetGameRecordsBulkOK {
 	return &GetGameRecordsBulkOK{}
 }
 
-/*GetGameRecordsBulkOK handles this case with default header values.
+/*
+GetGameRecordsBulkOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetGameRecordsBulkOK struct {
 	Payload *cloudsaveclientmodels.ModelsBulkGetGameRecordResponse
@@ -199,9 +200,10 @@ func NewGetGameRecordsBulkBadRequest() *GetGameRecordsBulkBadRequest {
 	return &GetGameRecordsBulkBadRequest{}
 }
 
-/*GetGameRecordsBulkBadRequest handles this case with default header values.
+/*
+GetGameRecordsBulkBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18128</td><td>invalid request body</td></tr><tr><td>18129</td><td>request record keys list exceed max size [%d]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18128</td><td>invalid request body</td></tr><tr><td>18129</td><td>request record keys list exceed max size [%d]</td></tr></table>
 */
 type GetGameRecordsBulkBadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewGetGameRecordsBulkUnauthorized() *GetGameRecordsBulkUnauthorized {
 	return &GetGameRecordsBulkUnauthorized{}
 }
 
-/*GetGameRecordsBulkUnauthorized handles this case with default header values.
+/*
+GetGameRecordsBulkUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetGameRecordsBulkUnauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewGetGameRecordsBulkForbidden() *GetGameRecordsBulkForbidden {
 	return &GetGameRecordsBulkForbidden{}
 }
 
-/*GetGameRecordsBulkForbidden handles this case with default header values.
+/*
+GetGameRecordsBulkForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetGameRecordsBulkForbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewGetGameRecordsBulkNotFound() *GetGameRecordsBulkNotFound {
 	return &GetGameRecordsBulkNotFound{}
 }
 
-/*GetGameRecordsBulkNotFound handles this case with default header values.
+/*
+GetGameRecordsBulkNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18133</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18133</td><td>record not found</td></tr></table>
 */
 type GetGameRecordsBulkNotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewGetGameRecordsBulkInternalServerError() *GetGameRecordsBulkInternalServe
 	return &GetGameRecordsBulkInternalServerError{}
 }
 
-/*GetGameRecordsBulkInternalServerError handles this case with default header values.
+/*
+GetGameRecordsBulkInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18130</td><td>unable to get record</td></tr><tr><td>18131</td><td>unable to decode record</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18130</td><td>unable to get record</td></tr><tr><td>18131</td><td>unable to decode record</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetGameRecordsBulkInternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

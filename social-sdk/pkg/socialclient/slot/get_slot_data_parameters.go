@@ -57,7 +57,8 @@ func NewGetSlotDataParamsWithHTTPClient(client *http.Client) *GetSlotDataParams 
 	}
 }
 
-/*GetSlotDataParams contains all the parameters to send to the API endpoint
+/*
+GetSlotDataParams contains all the parameters to send to the API endpoint
 for the get slot data operation typically these are written to a http.Request
 */
 type GetSlotDataParams struct {

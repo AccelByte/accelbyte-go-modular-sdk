@@ -70,7 +70,8 @@ func NewRetrieveAcceptedAgreements1ParamsWithHTTPClient(client *http.Client) *Re
 	}
 }
 
-/*RetrieveAcceptedAgreements1Params contains all the parameters to send to the API endpoint
+/*
+RetrieveAcceptedAgreements1Params contains all the parameters to send to the API endpoint
 for the retrieve accepted agreements 1 operation typically these are written to a http.Request
 */
 type RetrieveAcceptedAgreements1Params struct {

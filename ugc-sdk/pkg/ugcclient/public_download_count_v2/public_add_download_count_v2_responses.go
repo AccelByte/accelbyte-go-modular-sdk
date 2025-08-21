@@ -130,9 +130,10 @@ func NewPublicAddDownloadCountV2OK() *PublicAddDownloadCountV2OK {
 	return &PublicAddDownloadCountV2OK{}
 }
 
-/*PublicAddDownloadCountV2OK handles this case with default header values.
+/*
+PublicAddDownloadCountV2OK handles this case with default header values.
 
-  Added download count to a content
+	Added download count to a content
 */
 type PublicAddDownloadCountV2OK struct {
 	Payload *ugcclientmodels.ModelsAddDownloadCountResponse
@@ -184,9 +185,10 @@ func NewPublicAddDownloadCountV2Unauthorized() *PublicAddDownloadCountV2Unauthor
 	return &PublicAddDownloadCountV2Unauthorized{}
 }
 
-/*PublicAddDownloadCountV2Unauthorized handles this case with default header values.
+/*
+PublicAddDownloadCountV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicAddDownloadCountV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicAddDownloadCountV2NotFound() *PublicAddDownloadCountV2NotFound {
 	return &PublicAddDownloadCountV2NotFound{}
 }
 
-/*PublicAddDownloadCountV2NotFound handles this case with default header values.
+/*
+PublicAddDownloadCountV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772903</td><td>Unable to add content download: content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772903</td><td>Unable to add content download: content not found</td></tr></table>
 */
 type PublicAddDownloadCountV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicAddDownloadCountV2TooManyRequests() *PublicAddDownloadCountV2TooMa
 	return &PublicAddDownloadCountV2TooManyRequests{}
 }
 
-/*PublicAddDownloadCountV2TooManyRequests handles this case with default header values.
+/*
+PublicAddDownloadCountV2TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772906</td><td>Unable to add content download: too many request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772906</td><td>Unable to add content download: too many request</td></tr></table>
 */
 type PublicAddDownloadCountV2TooManyRequests struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicAddDownloadCountV2InternalServerError() *PublicAddDownloadCountV2I
 	return &PublicAddDownloadCountV2InternalServerError{}
 }
 
-/*PublicAddDownloadCountV2InternalServerError handles this case with default header values.
+/*
+PublicAddDownloadCountV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772902</td><td>Unable to add content download: database error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772902</td><td>Unable to add content download: database error</td></tr></table>
 */
 type PublicAddDownloadCountV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

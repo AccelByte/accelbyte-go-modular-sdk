@@ -145,9 +145,10 @@ func NewLeaveGroupPublicV2OK() *LeaveGroupPublicV2OK {
 	return &LeaveGroupPublicV2OK{}
 }
 
-/*LeaveGroupPublicV2OK handles this case with default header values.
+/*
+LeaveGroupPublicV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type LeaveGroupPublicV2OK struct {
 	Payload *groupclientmodels.ModelsLeaveGroupResponseV1
@@ -199,9 +200,10 @@ func NewLeaveGroupPublicV2BadRequest() *LeaveGroupPublicV2BadRequest {
 	return &LeaveGroupPublicV2BadRequest{}
 }
 
-/*LeaveGroupPublicV2BadRequest handles this case with default header values.
+/*
+LeaveGroupPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>73440</td><td>group admin cannot leave group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>73440</td><td>group admin cannot leave group</td></tr></table>
 */
 type LeaveGroupPublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewLeaveGroupPublicV2Unauthorized() *LeaveGroupPublicV2Unauthorized {
 	return &LeaveGroupPublicV2Unauthorized{}
 }
 
-/*LeaveGroupPublicV2Unauthorized handles this case with default header values.
+/*
+LeaveGroupPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type LeaveGroupPublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewLeaveGroupPublicV2Forbidden() *LeaveGroupPublicV2Forbidden {
 	return &LeaveGroupPublicV2Forbidden{}
 }
 
-/*LeaveGroupPublicV2Forbidden handles this case with default header values.
+/*
+LeaveGroupPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type LeaveGroupPublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewLeaveGroupPublicV2NotFound() *LeaveGroupPublicV2NotFound {
 	return &LeaveGroupPublicV2NotFound{}
 }
 
-/*LeaveGroupPublicV2NotFound handles this case with default header values.
+/*
+LeaveGroupPublicV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
 */
 type LeaveGroupPublicV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewLeaveGroupPublicV2InternalServerError() *LeaveGroupPublicV2InternalServe
 	return &LeaveGroupPublicV2InternalServerError{}
 }
 
-/*LeaveGroupPublicV2InternalServerError handles this case with default header values.
+/*
+LeaveGroupPublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type LeaveGroupPublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

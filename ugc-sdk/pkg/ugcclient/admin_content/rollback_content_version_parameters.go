@@ -57,7 +57,8 @@ func NewRollbackContentVersionParamsWithHTTPClient(client *http.Client) *Rollbac
 	}
 }
 
-/*RollbackContentVersionParams contains all the parameters to send to the API endpoint
+/*
+RollbackContentVersionParams contains all the parameters to send to the API endpoint
 for the rollback content version operation typically these are written to a http.Request
 */
 type RollbackContentVersionParams struct {

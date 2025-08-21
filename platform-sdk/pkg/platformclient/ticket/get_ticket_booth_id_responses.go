@@ -85,9 +85,10 @@ func NewGetTicketBoothIDOK() *GetTicketBoothIDOK {
 	return &GetTicketBoothIDOK{}
 }
 
-/*GetTicketBoothIDOK handles this case with default header values.
+/*
+GetTicketBoothIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetTicketBoothIDOK struct {
 	Payload *platformclientmodels.TicketBoothID
@@ -139,9 +140,10 @@ func NewGetTicketBoothIDNotFound() *GetTicketBoothIDNotFound {
 	return &GetTicketBoothIDNotFound{}
 }
 
-/*GetTicketBoothIDNotFound handles this case with default header values.
+/*
+GetTicketBoothIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetTicketBoothIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

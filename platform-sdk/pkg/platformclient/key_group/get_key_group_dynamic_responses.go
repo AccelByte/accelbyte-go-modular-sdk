@@ -85,9 +85,10 @@ func NewGetKeyGroupDynamicOK() *GetKeyGroupDynamicOK {
 	return &GetKeyGroupDynamicOK{}
 }
 
-/*GetKeyGroupDynamicOK handles this case with default header values.
+/*
+GetKeyGroupDynamicOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetKeyGroupDynamicOK struct {
 	Payload *platformclientmodels.KeyGroupDynamicInfo
@@ -139,9 +140,10 @@ func NewGetKeyGroupDynamicNotFound() *GetKeyGroupDynamicNotFound {
 	return &GetKeyGroupDynamicNotFound{}
 }
 
-/*GetKeyGroupDynamicNotFound handles this case with default header values.
+/*
+GetKeyGroupDynamicNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37241</td><td>Key group [{keyGroupId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37241</td><td>Key group [{keyGroupId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetKeyGroupDynamicNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

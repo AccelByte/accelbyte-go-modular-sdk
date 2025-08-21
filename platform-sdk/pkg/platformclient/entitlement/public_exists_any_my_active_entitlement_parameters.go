@@ -58,7 +58,8 @@ func NewPublicExistsAnyMyActiveEntitlementParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*PublicExistsAnyMyActiveEntitlementParams contains all the parameters to send to the API endpoint
+/*
+PublicExistsAnyMyActiveEntitlementParams contains all the parameters to send to the API endpoint
 for the public exists any my active entitlement operation typically these are written to a http.Request
 */
 type PublicExistsAnyMyActiveEntitlementParams struct {

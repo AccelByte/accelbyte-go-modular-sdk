@@ -130,9 +130,10 @@ func NewRetrievePlayerRecordsOK() *RetrievePlayerRecordsOK {
 	return &RetrievePlayerRecordsOK{}
 }
 
-/*RetrievePlayerRecordsOK handles this case with default header values.
+/*
+RetrievePlayerRecordsOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type RetrievePlayerRecordsOK struct {
 	Payload *cloudsaveclientmodels.ModelsListPlayerRecordKeysResponse
@@ -184,9 +185,10 @@ func NewRetrievePlayerRecordsBadRequest() *RetrievePlayerRecordsBadRequest {
 	return &RetrievePlayerRecordsBadRequest{}
 }
 
-/*RetrievePlayerRecordsBadRequest handles this case with default header values.
+/*
+RetrievePlayerRecordsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18113</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18113</td><td>invalid request body</td></tr></table>
 */
 type RetrievePlayerRecordsBadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewRetrievePlayerRecordsUnauthorized() *RetrievePlayerRecordsUnauthorized {
 	return &RetrievePlayerRecordsUnauthorized{}
 }
 
-/*RetrievePlayerRecordsUnauthorized handles this case with default header values.
+/*
+RetrievePlayerRecordsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type RetrievePlayerRecordsUnauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewRetrievePlayerRecordsForbidden() *RetrievePlayerRecordsForbidden {
 	return &RetrievePlayerRecordsForbidden{}
 }
 
-/*RetrievePlayerRecordsForbidden handles this case with default header values.
+/*
+RetrievePlayerRecordsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type RetrievePlayerRecordsForbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewRetrievePlayerRecordsInternalServerError() *RetrievePlayerRecordsInterna
 	return &RetrievePlayerRecordsInternalServerError{}
 }
 
-/*RetrievePlayerRecordsInternalServerError handles this case with default header values.
+/*
+RetrievePlayerRecordsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18114</td><td>unable to retrieve list of key records</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18114</td><td>unable to retrieve list of key records</td></tr></table>
 */
 type RetrievePlayerRecordsInternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

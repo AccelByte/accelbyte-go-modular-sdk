@@ -159,9 +159,10 @@ func NewAdminRemoveUserRoleV4NoContent() *AdminRemoveUserRoleV4NoContent {
 	return &AdminRemoveUserRoleV4NoContent{}
 }
 
-/*AdminRemoveUserRoleV4NoContent handles this case with default header values.
+/*
+AdminRemoveUserRoleV4NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminRemoveUserRoleV4NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewAdminRemoveUserRoleV4BadRequest() *AdminRemoveUserRoleV4BadRequest {
 	return &AdminRemoveUserRoleV4BadRequest{}
 }
 
-/*AdminRemoveUserRoleV4BadRequest handles this case with default header values.
+/*
+AdminRemoveUserRoleV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminRemoveUserRoleV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewAdminRemoveUserRoleV4Unauthorized() *AdminRemoveUserRoleV4Unauthorized {
 	return &AdminRemoveUserRoleV4Unauthorized{}
 }
 
-/*AdminRemoveUserRoleV4Unauthorized handles this case with default header values.
+/*
+AdminRemoveUserRoleV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminRemoveUserRoleV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewAdminRemoveUserRoleV4Forbidden() *AdminRemoveUserRoleV4Forbidden {
 	return &AdminRemoveUserRoleV4Forbidden{}
 }
 
-/*AdminRemoveUserRoleV4Forbidden handles this case with default header values.
+/*
+AdminRemoveUserRoleV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminRemoveUserRoleV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewAdminRemoveUserRoleV4NotFound() *AdminRemoveUserRoleV4NotFound {
 	return &AdminRemoveUserRoleV4NotFound{}
 }
 
-/*AdminRemoveUserRoleV4NotFound handles this case with default header values.
+/*
+AdminRemoveUserRoleV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminRemoveUserRoleV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewAdminRemoveUserRoleV4UnprocessableEntity() *AdminRemoveUserRoleV4Unproce
 	return &AdminRemoveUserRoleV4UnprocessableEntity{}
 }
 
-/*AdminRemoveUserRoleV4UnprocessableEntity handles this case with default header values.
+/*
+AdminRemoveUserRoleV4UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10183</td><td>unprocessable entity</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10183</td><td>unprocessable entity</td></tr></table>
 */
 type AdminRemoveUserRoleV4UnprocessableEntity struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewAdminRemoveUserRoleV4InternalServerError() *AdminRemoveUserRoleV4Interna
 	return &AdminRemoveUserRoleV4InternalServerError{}
 }
 
-/*AdminRemoveUserRoleV4InternalServerError handles this case with default header values.
+/*
+AdminRemoveUserRoleV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminRemoveUserRoleV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

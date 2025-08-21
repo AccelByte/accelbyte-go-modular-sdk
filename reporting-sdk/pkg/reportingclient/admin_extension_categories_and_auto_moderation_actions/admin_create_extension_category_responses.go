@@ -100,10 +100,9 @@ func NewAdminCreateExtensionCategoryCreated() *AdminCreateExtensionCategoryCreat
 	return &AdminCreateExtensionCategoryCreated{}
 }
 
-/*AdminCreateExtensionCategoryCreated handles this case with default header values.
-
-
- */
+/*
+AdminCreateExtensionCategoryCreated handles this case with default header values.
+*/
 type AdminCreateExtensionCategoryCreated struct {
 	Payload *reportingclientmodels.RestapiExtensionCategoryAPIResponse
 }
@@ -154,10 +153,9 @@ func NewAdminCreateExtensionCategoryBadRequest() *AdminCreateExtensionCategoryBa
 	return &AdminCreateExtensionCategoryBadRequest{}
 }
 
-/*AdminCreateExtensionCategoryBadRequest handles this case with default header values.
-
-
- */
+/*
+AdminCreateExtensionCategoryBadRequest handles this case with default header values.
+*/
 type AdminCreateExtensionCategoryBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -208,10 +206,9 @@ func NewAdminCreateExtensionCategoryInternalServerError() *AdminCreateExtensionC
 	return &AdminCreateExtensionCategoryInternalServerError{}
 }
 
-/*AdminCreateExtensionCategoryInternalServerError handles this case with default header values.
-
-
- */
+/*
+AdminCreateExtensionCategoryInternalServerError handles this case with default header values.
+*/
 type AdminCreateExtensionCategoryInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

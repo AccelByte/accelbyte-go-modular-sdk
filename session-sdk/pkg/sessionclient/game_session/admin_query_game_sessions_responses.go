@@ -130,9 +130,10 @@ func NewAdminQueryGameSessionsOK() *AdminQueryGameSessionsOK {
 	return &AdminQueryGameSessionsOK{}
 }
 
-/*AdminQueryGameSessionsOK handles this case with default header values.
+/*
+AdminQueryGameSessionsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminQueryGameSessionsOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionQueryResponse
@@ -184,9 +185,10 @@ func NewAdminQueryGameSessionsBadRequest() *AdminQueryGameSessionsBadRequest {
 	return &AdminQueryGameSessionsBadRequest{}
 }
 
-/*AdminQueryGameSessionsBadRequest handles this case with default header values.
+/*
+AdminQueryGameSessionsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminQueryGameSessionsBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminQueryGameSessionsUnauthorized() *AdminQueryGameSessionsUnauthorized
 	return &AdminQueryGameSessionsUnauthorized{}
 }
 
-/*AdminQueryGameSessionsUnauthorized handles this case with default header values.
+/*
+AdminQueryGameSessionsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminQueryGameSessionsUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminQueryGameSessionsForbidden() *AdminQueryGameSessionsForbidden {
 	return &AdminQueryGameSessionsForbidden{}
 }
 
-/*AdminQueryGameSessionsForbidden handles this case with default header values.
+/*
+AdminQueryGameSessionsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminQueryGameSessionsForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminQueryGameSessionsInternalServerError() *AdminQueryGameSessionsInter
 	return &AdminQueryGameSessionsInternalServerError{}
 }
 
-/*AdminQueryGameSessionsInternalServerError handles this case with default header values.
+/*
+AdminQueryGameSessionsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminQueryGameSessionsInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

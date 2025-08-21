@@ -100,9 +100,10 @@ func NewGetAdminInvitationV3OK() *GetAdminInvitationV3OK {
 	return &GetAdminInvitationV3OK{}
 }
 
-/*GetAdminInvitationV3OK handles this case with default header values.
+/*
+GetAdminInvitationV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetAdminInvitationV3OK struct {
 	Payload *iamclientmodels.ModelUserInvitationV3
@@ -154,9 +155,10 @@ func NewGetAdminInvitationV3NotFound() *GetAdminInvitationV3NotFound {
 	return &GetAdminInvitationV3NotFound{}
 }
 
-/*GetAdminInvitationV3NotFound handles this case with default header values.
+/*
+GetAdminInvitationV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10180</td><td>admin invitation not found or expired</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10180</td><td>admin invitation not found or expired</td></tr></table>
 */
 type GetAdminInvitationV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -208,9 +210,10 @@ func NewGetAdminInvitationV3InternalServerError() *GetAdminInvitationV3InternalS
 	return &GetAdminInvitationV3InternalServerError{}
 }
 
-/*GetAdminInvitationV3InternalServerError handles this case with default header values.
+/*
+GetAdminInvitationV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetAdminInvitationV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

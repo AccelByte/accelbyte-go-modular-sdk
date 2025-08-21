@@ -66,9 +66,10 @@ func NewLocalWatchdogConnectOK() *LocalWatchdogConnectOK {
 	return &LocalWatchdogConnectOK{}
 }
 
-/*LocalWatchdogConnectOK handles this case with default header values.
+/*
+LocalWatchdogConnectOK handles this case with default header values.
 
-  OK
+	OK
 */
 type LocalWatchdogConnectOK struct {
 }

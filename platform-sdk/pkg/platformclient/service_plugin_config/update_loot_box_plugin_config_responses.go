@@ -85,9 +85,10 @@ func NewUpdateLootBoxPluginConfigOK() *UpdateLootBoxPluginConfigOK {
 	return &UpdateLootBoxPluginConfigOK{}
 }
 
-/*UpdateLootBoxPluginConfigOK handles this case with default header values.
+/*
+UpdateLootBoxPluginConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateLootBoxPluginConfigOK struct {
 	Payload *platformclientmodels.LootBoxPluginConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateLootBoxPluginConfigUnprocessableEntity() *UpdateLootBoxPluginConfi
 	return &UpdateLootBoxPluginConfigUnprocessableEntity{}
 }
 
-/*UpdateLootBoxPluginConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdateLootBoxPluginConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateLootBoxPluginConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

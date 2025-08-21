@@ -46,9 +46,11 @@ type ClientService interface {
 
 /*
 GetPaymentCustomizationShort get payment provider customization
- [Not supported yet in AGS Shared Cloud] Get payment provider customization, at current only Adyen provide customization. This api has been deprecated, pls use /public/namespaces/{namespace}/payment/publicconfig to get adyen config
+
+	[Not supported yet in AGS Shared Cloud] Get payment provider customization, at current only Adyen provide customization. This api has been deprecated, pls use /public/namespaces/{namespace}/payment/publicconfig to get adyen config
+
 Other detail info:
-            * Returns : customization
+  - Returns : customization
 */
 func (a *Client) GetPaymentCustomizationShort(params *GetPaymentCustomizationParams) (*GetPaymentCustomizationResponse, error) {
 	// TODO: Validate the params before sending
@@ -101,10 +103,12 @@ func (a *Client) GetPaymentCustomizationShort(params *GetPaymentCustomizationPar
 
 /*
 PublicGetPaymentURLShort get payment url
- [Not supported yet in AGS Shared Cloud] Get payment url.
+
+	[Not supported yet in AGS Shared Cloud] Get payment url.
+
 Other detail info:
-            * For Neon Pay payment provider, the 'neonPayConfig' field can be used to provide success and cancel URL. If 'neonPayConfig' field is not present, the 'returnUrl' will be used for both success and cancel URL.
-            *  Returns : Get payment link
+  - For Neon Pay payment provider, the 'neonPayConfig' field can be used to provide success and cancel URL. If 'neonPayConfig' field is not present, the 'returnUrl' will be used for both success and cancel URL.
+  - Returns : Get payment link
 */
 func (a *Client) PublicGetPaymentURLShort(params *PublicGetPaymentURLParams) (*PublicGetPaymentURLResponse, error) {
 	// TODO: Validate the params before sending
@@ -178,9 +182,11 @@ func (a *Client) PublicGetPaymentURLShort(params *PublicGetPaymentURLParams) (*P
 
 /*
 PublicGetPaymentMethodsShort get payment methods
- [Not supported yet in AGS Shared Cloud] Get payment methods.
+
+	[Not supported yet in AGS Shared Cloud] Get payment methods.
+
 Other detail info:
-            * Returns : Payment method list
+  - Returns : Payment method list
 */
 func (a *Client) PublicGetPaymentMethodsShort(params *PublicGetPaymentMethodsParams) (*PublicGetPaymentMethodsResponse, error) {
 	// TODO: Validate the params before sending
@@ -240,9 +246,11 @@ func (a *Client) PublicGetPaymentMethodsShort(params *PublicGetPaymentMethodsPar
 
 /*
 PublicGetUnpaidPaymentOrderShort get payment order info
- [Not supported yet in AGS Shared Cloud] Get payment order info.
+
+	[Not supported yet in AGS Shared Cloud] Get payment order info.
+
 Other detail info:
-            * Returns : Payment order details
+  - Returns : Payment order details
 */
 func (a *Client) PublicGetUnpaidPaymentOrderShort(params *PublicGetUnpaidPaymentOrderParams) (*PublicGetUnpaidPaymentOrderResponse, error) {
 	// TODO: Validate the params before sending
@@ -309,9 +317,11 @@ func (a *Client) PublicGetUnpaidPaymentOrderShort(params *PublicGetUnpaidPayment
 
 /*
 PayShort do payment
- [Not supported yet in AGS Shared Cloud] Do payment(For now, this only support checkout.com).
+
+	[Not supported yet in AGS Shared Cloud] Do payment(For now, this only support checkout.com).
+
 Other detail info:
-            * Returns : Payment process result
+  - Returns : Payment process result
 */
 func (a *Client) PayShort(params *PayParams) (*PayResponse, error) {
 	// TODO: Validate the params before sending
@@ -385,9 +395,11 @@ func (a *Client) PayShort(params *PayParams) (*PayResponse, error) {
 
 /*
 PublicCheckPaymentOrderPaidStatusShort check payment order paid status
- [Not supported yet in AGS Shared Cloud] Check payment order paid status.
+
+	[Not supported yet in AGS Shared Cloud] Check payment order paid status.
+
 Other detail info:
-            * Returns : Payment order paid result
+  - Returns : Payment order paid result
 */
 func (a *Client) PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPaymentOrderPaidStatusParams) (*PublicCheckPaymentOrderPaidStatusResponse, error) {
 	// TODO: Validate the params before sending
@@ -447,9 +459,11 @@ func (a *Client) PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPayme
 
 /*
 GetPaymentPublicConfigShort get payment provider public config
- [Not supported yet in AGS Shared Cloud] Get payment provider public config, at current only Strip provide public config.
+
+	[Not supported yet in AGS Shared Cloud] Get payment provider public config, at current only Strip provide public config.
+
 Other detail info:
-            * Returns : Public config
+  - Returns : Public config
 */
 func (a *Client) GetPaymentPublicConfigShort(params *GetPaymentPublicConfigParams) (*GetPaymentPublicConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -502,9 +516,11 @@ func (a *Client) GetPaymentPublicConfigShort(params *GetPaymentPublicConfigParam
 
 /*
 PublicGetQRCodeShort get qrcode
- [Not supported yet in AGS Shared Cloud] Get qrcode.
+
+	[Not supported yet in AGS Shared Cloud] Get qrcode.
+
 Other detail info:
-            * Returns : QRCode image stream
+  - Returns : QRCode image stream
 */
 func (a *Client) PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGetQRCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -557,24 +573,27 @@ func (a *Client) PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGet
 
 /*
 PublicNormalizePaymentReturnURLShort normalize payment return url
- [Not supported yet in AGS Shared Cloud] Normalize payment return url for payment provider
+
+	[Not supported yet in AGS Shared Cloud] Normalize payment return url for payment provider
+
 Field                                                                                                                                                                  | Type   | Required | Description
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|----------|-----------------------
 orderNo                                                                                                                                                                | String | Yes      | order no
 paymentStatus                                                                                                                                                          | String | Yes      |
-            * DONE: The payment was successfully completed.
-            * CANCELLED: The payment was cancelled by the shopper before completion, or the shopper returned to the merchant's site before completing the transaction.
-            * PENDING: Inform the shopper that you've received their order, and are waiting for the payment to be completed.
+  - DONE: The payment was successfully completed.
+  - CANCELLED: The payment was cancelled by the shopper before completion, or the shopper returned to the merchant's site before completing the transaction.
+  - PENDING: Inform the shopper that you've received their order, and are waiting for the payment to be completed.
 
 When the shopper has completed the payment you will receive a successful AUTHORISATION.
-            * RECEIVED: Inform the shopper that you've received their order, and are waiting for the payment to clear.
-            * UNKNOWN: An error occurred during the payment processing.
-            * FAILED: Shopper paid failed because of various reasons.
+  - RECEIVED: Inform the shopper that you've received their order, and are waiting for the payment to clear.
+  - UNKNOWN: An error occurred during the payment processing.
+  - FAILED: Shopper paid failed because of various reasons.
+
 reason                                                                                                                                                                 | String | No       | payment status reason
 
 Other detail info:
-            * xsolla : parameters 'user_id', 'foreinginvoice', 'invoice_id' and 'status' will be automatically added to the link
-            *  adyen : https://docs.adyen.com/developers/checkout/web-sdk
+  - xsolla : parameters 'user_id', 'foreinginvoice', 'invoice_id' and 'status' will be automatically added to the link
+  - adyen : https://docs.adyen.com/developers/checkout/web-sdk
 */
 func (a *Client) PublicNormalizePaymentReturnURLShort(params *PublicNormalizePaymentReturnURLParams) (*PublicNormalizePaymentReturnURLResponse, error) {
 	// TODO: Validate the params before sending
@@ -633,9 +652,11 @@ func (a *Client) PublicNormalizePaymentReturnURLShort(params *PublicNormalizePay
 
 /*
 GetPaymentTaxValueShort get tax result of a payment order
- [Not supported yet in AGS Shared Cloud] Check and get a payment order's should pay tax.
+
+	[Not supported yet in AGS Shared Cloud] Check and get a payment order's should pay tax.
+
 Other detail info:
-            * Returns : tax result
+  - Returns : tax result
 */
 func (a *Client) GetPaymentTaxValueShort(params *GetPaymentTaxValueParams) (*GetPaymentTaxValueResponse, error) {
 	// TODO: Validate the params before sending

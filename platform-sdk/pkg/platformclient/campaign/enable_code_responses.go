@@ -85,9 +85,10 @@ func NewEnableCodeOK() *EnableCodeOK {
 	return &EnableCodeOK{}
 }
 
-/*EnableCodeOK handles this case with default header values.
+/*
+EnableCodeOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type EnableCodeOK struct {
 	Payload *platformclientmodels.CodeInfo
@@ -139,9 +140,10 @@ func NewEnableCodeNotFound() *EnableCodeNotFound {
 	return &EnableCodeNotFound{}
 }
 
-/*EnableCodeNotFound handles this case with default header values.
+/*
+EnableCodeNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type EnableCodeNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

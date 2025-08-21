@@ -100,9 +100,10 @@ func NewGetCountriesOK() *GetCountriesOK {
 	return &GetCountriesOK{}
 }
 
-/*GetCountriesOK handles this case with default header values.
+/*
+GetCountriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCountriesOK struct {
 	Payload []*basicclientmodels.CountryObject
@@ -152,9 +153,10 @@ func NewGetCountriesBadRequest() *GetCountriesBadRequest {
 	return &GetCountriesBadRequest{}
 }
 
-/*GetCountriesBadRequest handles this case with default header values.
+/*
+GetCountriesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetCountriesBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -206,9 +208,10 @@ func NewGetCountriesUnauthorized() *GetCountriesUnauthorized {
 	return &GetCountriesUnauthorized{}
 }
 
-/*GetCountriesUnauthorized handles this case with default header values.
+/*
+GetCountriesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetCountriesUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity

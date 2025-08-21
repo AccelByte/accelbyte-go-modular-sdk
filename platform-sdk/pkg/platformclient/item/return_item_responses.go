@@ -99,9 +99,10 @@ func NewReturnItemNoContent() *ReturnItemNoContent {
 	return &ReturnItemNoContent{}
 }
 
-/*ReturnItemNoContent handles this case with default header values.
+/*
+ReturnItemNoContent handles this case with default header values.
 
-  Return item successfully
+	Return item successfully
 */
 type ReturnItemNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewReturnItemNotFound() *ReturnItemNotFound {
 	return &ReturnItemNotFound{}
 }
 
-/*ReturnItemNotFound handles this case with default header values.
+/*
+ReturnItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type ReturnItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewReturnItemUnprocessableEntity() *ReturnItemUnprocessableEntity {
 	return &ReturnItemUnprocessableEntity{}
 }
 
-/*ReturnItemUnprocessableEntity handles this case with default header values.
+/*
+ReturnItemUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type ReturnItemUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

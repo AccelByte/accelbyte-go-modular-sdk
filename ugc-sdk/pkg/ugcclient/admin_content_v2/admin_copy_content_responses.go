@@ -145,9 +145,10 @@ func NewAdminCopyContentCreated() *AdminCopyContentCreated {
 	return &AdminCopyContentCreated{}
 }
 
-/*AdminCopyContentCreated handles this case with default header values.
+/*
+AdminCopyContentCreated handles this case with default header values.
 
-  contents copied
+	contents copied
 */
 type AdminCopyContentCreated struct {
 	Payload *ugcclientmodels.ModelsContentDownloadResponseV2
@@ -199,10 +200,9 @@ func NewAdminCopyContentBadRequest() *AdminCopyContentBadRequest {
 	return &AdminCopyContentBadRequest{}
 }
 
-/*AdminCopyContentBadRequest handles this case with default header values.
-
-
- */
+/*
+AdminCopyContentBadRequest handles this case with default header values.
+*/
 type AdminCopyContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
 }
@@ -253,9 +253,10 @@ func NewAdminCopyContentUnauthorized() *AdminCopyContentUnauthorized {
 	return &AdminCopyContentUnauthorized{}
 }
 
-/*AdminCopyContentUnauthorized handles this case with default header values.
+/*
+AdminCopyContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCopyContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +308,10 @@ func NewAdminCopyContentForbidden() *AdminCopyContentForbidden {
 	return &AdminCopyContentForbidden{}
 }
 
-/*AdminCopyContentForbidden handles this case with default header values.
+/*
+AdminCopyContentForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminCopyContentForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,10 +363,9 @@ func NewAdminCopyContentNotFound() *AdminCopyContentNotFound {
 	return &AdminCopyContentNotFound{}
 }
 
-/*AdminCopyContentNotFound handles this case with default header values.
-
-
- */
+/*
+AdminCopyContentNotFound handles this case with default header values.
+*/
 type AdminCopyContentNotFound struct {
 	Payload *ugcclientmodels.ResponseError
 }
@@ -415,10 +416,9 @@ func NewAdminCopyContentInternalServerError() *AdminCopyContentInternalServerErr
 	return &AdminCopyContentInternalServerError{}
 }
 
-/*AdminCopyContentInternalServerError handles this case with default header values.
-
-
- */
+/*
+AdminCopyContentInternalServerError handles this case with default header values.
+*/
 type AdminCopyContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError
 }

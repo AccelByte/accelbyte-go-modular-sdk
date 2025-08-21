@@ -57,7 +57,8 @@ func NewAdminGetPlayerAttributesParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminGetPlayerAttributesParams contains all the parameters to send to the API endpoint
+/*
+AdminGetPlayerAttributesParams contains all the parameters to send to the API endpoint
 for the admin get player attributes operation typically these are written to a http.Request
 */
 type AdminGetPlayerAttributesParams struct {

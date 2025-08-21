@@ -107,7 +107,7 @@ func (a *Client) GetLootBoxPluginConfigShort(params *GetLootBoxPluginConfigParam
 /*
 UpdateLootBoxPluginConfigShort update lootbox plugin config
 Update lootbox plugin config. Other detail info:
-  * Returns : updated service plugin config
+  - Returns : updated service plugin config
 */
 func (a *Client) UpdateLootBoxPluginConfigShort(params *UpdateLootBoxPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateLootBoxPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -222,7 +222,7 @@ func (a *Client) DeleteLootBoxPluginConfigShort(params *DeleteLootBoxPluginConfi
 /*
 UplodLootBoxPluginConfigCertShort upload lootbox plugin custom config tls cert
 Upload lootbox plugin custom config tls cert.Other detail info:
-  * Returns : updated service plugin config
+  - Returns : updated service plugin config
 */
 func (a *Client) UplodLootBoxPluginConfigCertShort(params *UplodLootBoxPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UplodLootBoxPluginConfigCertResponse, error) {
 	// TODO: Validate the params before sending
@@ -392,7 +392,7 @@ func (a *Client) GetSectionPluginConfigShort(params *GetSectionPluginConfigParam
 /*
 UpdateSectionPluginConfigShort update section plugin config
 Update section config. Other detail info:
-  * Returns : updated service plugin config
+  - Returns : updated service plugin config
 */
 func (a *Client) UpdateSectionPluginConfigShort(params *UpdateSectionPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSectionPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -507,7 +507,7 @@ func (a *Client) DeleteSectionPluginConfigShort(params *DeleteSectionPluginConfi
 /*
 UploadSectionPluginConfigCertShort upload section plugin custom config tls cert
 Upload section plugin custom config tls cert.Other detail info:
-  * Returns : updated service plugin config
+  - Returns : updated service plugin config
 */
 func (a *Client) UploadSectionPluginConfigCertShort(params *UploadSectionPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadSectionPluginConfigCertResponse, error) {
 	// TODO: Validate the params before sending
@@ -623,7 +623,7 @@ func (a *Client) GetServicePluginConfigShort(params *GetServicePluginConfigParam
 /*
 UpdateServicePluginConfigShort update service plugin config service
 Update catalog config. Other detail info:
-  * Returns : updated service plugin config
+  - Returns : updated service plugin config
 */
 func (a *Client) UpdateServicePluginConfigShort(params *UpdateServicePluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateServicePluginConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -792,7 +792,7 @@ func (a *Client) GetRevocationPluginConfigShort(params *GetRevocationPluginConfi
 /*
 UpdateRevocationPluginConfigShort update revocation plugin config
 Update revocation plugin config. Other detail info:
-  * Returns : updated service plugin config
+  - Returns : updated service plugin config
 */
 func (a *Client) UpdateRevocationPluginConfigShort(params *UpdateRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRevocationPluginConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -907,7 +907,7 @@ func (a *Client) DeleteRevocationPluginConfigShort(params *DeleteRevocationPlugi
 /*
 UploadRevocationPluginConfigCertShort upload revocation plugin custom config tls cert
 Upload revocation plugin custom config tls cert.Other detail info:
-  * Returns : updated service plugin config
+  - Returns : updated service plugin config
 */
 func (a *Client) UploadRevocationPluginConfigCertShort(params *UploadRevocationPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadRevocationPluginConfigCertResponse, error) {
 	// TODO: Validate the params before sending

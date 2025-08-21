@@ -57,7 +57,8 @@ func NewAdminDeleteProfanityListParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminDeleteProfanityListParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteProfanityListParams contains all the parameters to send to the API endpoint
 for the admin delete profanity list operation typically these are written to a http.Request
 */
 type AdminDeleteProfanityListParams struct {

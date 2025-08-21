@@ -151,9 +151,10 @@ func NewAdminPutAdminPlayerRecordConcurrentHandlerV1OK() *AdminPutAdminPlayerRec
 	return &AdminPutAdminPlayerRecordConcurrentHandlerV1OK{}
 }
 
-/*AdminPutAdminPlayerRecordConcurrentHandlerV1OK handles this case with default header values.
+/*
+AdminPutAdminPlayerRecordConcurrentHandlerV1OK handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type AdminPutAdminPlayerRecordConcurrentHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsPlayerRecordConcurrentUpdateResponse
@@ -205,9 +206,10 @@ func NewAdminPutAdminPlayerRecordConcurrentHandlerV1NoContent() *AdminPutAdminPl
 	return &AdminPutAdminPlayerRecordConcurrentHandlerV1NoContent{}
 }
 
-/*AdminPutAdminPlayerRecordConcurrentHandlerV1NoContent handles this case with default header values.
+/*
+AdminPutAdminPlayerRecordConcurrentHandlerV1NoContent handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type AdminPutAdminPlayerRecordConcurrentHandlerV1NoContent struct {
 }
@@ -232,9 +234,10 @@ func NewAdminPutAdminPlayerRecordConcurrentHandlerV1BadRequest() *AdminPutAdminP
 	return &AdminPutAdminPlayerRecordConcurrentHandlerV1BadRequest{}
 }
 
-/*AdminPutAdminPlayerRecordConcurrentHandlerV1BadRequest handles this case with default header values.
+/*
+AdminPutAdminPlayerRecordConcurrentHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18156</td><td>invalid request body</td></tr><tr><td>18181</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18156</td><td>invalid request body</td></tr><tr><td>18181</td><td>validation error</td></tr></table>
 */
 type AdminPutAdminPlayerRecordConcurrentHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -286,9 +289,10 @@ func NewAdminPutAdminPlayerRecordConcurrentHandlerV1Unauthorized() *AdminPutAdmi
 	return &AdminPutAdminPlayerRecordConcurrentHandlerV1Unauthorized{}
 }
 
-/*AdminPutAdminPlayerRecordConcurrentHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminPutAdminPlayerRecordConcurrentHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPutAdminPlayerRecordConcurrentHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -340,9 +344,10 @@ func NewAdminPutAdminPlayerRecordConcurrentHandlerV1Forbidden() *AdminPutAdminPl
 	return &AdminPutAdminPlayerRecordConcurrentHandlerV1Forbidden{}
 }
 
-/*AdminPutAdminPlayerRecordConcurrentHandlerV1Forbidden handles this case with default header values.
+/*
+AdminPutAdminPlayerRecordConcurrentHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminPutAdminPlayerRecordConcurrentHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -394,9 +399,10 @@ func NewAdminPutAdminPlayerRecordConcurrentHandlerV1PreconditionFailed() *AdminP
 	return &AdminPutAdminPlayerRecordConcurrentHandlerV1PreconditionFailed{}
 }
 
-/*AdminPutAdminPlayerRecordConcurrentHandlerV1PreconditionFailed handles this case with default header values.
+/*
+AdminPutAdminPlayerRecordConcurrentHandlerV1PreconditionFailed handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18183</td><td>precondition failed: record has changed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18183</td><td>precondition failed: record has changed</td></tr></table>
 */
 type AdminPutAdminPlayerRecordConcurrentHandlerV1PreconditionFailed struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -448,9 +454,10 @@ func NewAdminPutAdminPlayerRecordConcurrentHandlerV1InternalServerError() *Admin
 	return &AdminPutAdminPlayerRecordConcurrentHandlerV1InternalServerError{}
 }
 
-/*AdminPutAdminPlayerRecordConcurrentHandlerV1InternalServerError handles this case with default header values.
+/*
+AdminPutAdminPlayerRecordConcurrentHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18182</td><td>unable to update record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18182</td><td>unable to update record</td></tr></table>
 */
 type AdminPutAdminPlayerRecordConcurrentHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

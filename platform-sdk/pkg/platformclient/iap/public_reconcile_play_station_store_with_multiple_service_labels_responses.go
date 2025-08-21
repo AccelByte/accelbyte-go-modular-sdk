@@ -100,9 +100,10 @@ func NewPublicReconcilePlayStationStoreWithMultipleServiceLabelsOK() *PublicReco
 	return &PublicReconcilePlayStationStoreWithMultipleServiceLabelsOK{}
 }
 
-/*PublicReconcilePlayStationStoreWithMultipleServiceLabelsOK handles this case with default header values.
+/*
+PublicReconcilePlayStationStoreWithMultipleServiceLabelsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicReconcilePlayStationStoreWithMultipleServiceLabelsOK struct {
 	Payload []*platformclientmodels.PlayStationReconcileResult
@@ -152,9 +153,10 @@ func NewPublicReconcilePlayStationStoreWithMultipleServiceLabelsBadRequest() *Pu
 	return &PublicReconcilePlayStationStoreWithMultipleServiceLabelsBadRequest{}
 }
 
-/*PublicReconcilePlayStationStoreWithMultipleServiceLabelsBadRequest handles this case with default header values.
+/*
+PublicReconcilePlayStationStoreWithMultipleServiceLabelsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39127</td><td>Invalid service label [{serviceLabel}]</td></tr><tr><td>39132</td><td>Bad request for playstation under namespace [{namespace}], reason: [{reason}].</td></tr>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39127</td><td>Invalid service label [{serviceLabel}]</td></tr><tr><td>39132</td><td>Bad request for playstation under namespace [{namespace}], reason: [{reason}].</td></tr>
 */
 type PublicReconcilePlayStationStoreWithMultipleServiceLabelsBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewPublicReconcilePlayStationStoreWithMultipleServiceLabelsNotFound() *Publ
 	return &PublicReconcilePlayStationStoreWithMultipleServiceLabelsNotFound{}
 }
 
-/*PublicReconcilePlayStationStoreWithMultipleServiceLabelsNotFound handles this case with default header values.
+/*
+PublicReconcilePlayStationStoreWithMultipleServiceLabelsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39143</td><td>PlayStation IAP config not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39143</td><td>PlayStation IAP config not found in namespace [{namespace}]</td></tr></table>
 */
 type PublicReconcilePlayStationStoreWithMultipleServiceLabelsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

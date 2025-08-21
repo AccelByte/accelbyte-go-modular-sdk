@@ -69,9 +69,10 @@ func NewGetRevocationPluginConfigOK() *GetRevocationPluginConfigOK {
 	return &GetRevocationPluginConfigOK{}
 }
 
-/*GetRevocationPluginConfigOK handles this case with default header values.
+/*
+GetRevocationPluginConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetRevocationPluginConfigOK struct {
 	Payload *platformclientmodels.RevocationPluginConfigInfo

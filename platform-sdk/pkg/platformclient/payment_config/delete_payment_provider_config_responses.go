@@ -84,9 +84,10 @@ func NewDeletePaymentProviderConfigNoContent() *DeletePaymentProviderConfigNoCon
 	return &DeletePaymentProviderConfigNoContent{}
 }
 
-/*DeletePaymentProviderConfigNoContent handles this case with default header values.
+/*
+DeletePaymentProviderConfigNoContent handles this case with default header values.
 
-  Delete successfully
+	Delete successfully
 */
 type DeletePaymentProviderConfigNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewDeletePaymentProviderConfigNotFound() *DeletePaymentProviderConfigNotFou
 	return &DeletePaymentProviderConfigNotFound{}
 }
 
-/*DeletePaymentProviderConfigNotFound handles this case with default header values.
+/*
+DeletePaymentProviderConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33241</td><td>Payment provider config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33241</td><td>Payment provider config [{id}] does not exist</td></tr></table>
 */
 type DeletePaymentProviderConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

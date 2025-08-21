@@ -100,9 +100,10 @@ func NewAdminCreateInventoryCreated() *AdminCreateInventoryCreated {
 	return &AdminCreateInventoryCreated{}
 }
 
-/*AdminCreateInventoryCreated handles this case with default header values.
+/*
+AdminCreateInventoryCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateInventoryCreated struct {
 	Payload *inventoryclientmodels.ApimodelsInventoryResp
@@ -154,9 +155,10 @@ func NewAdminCreateInventoryBadRequest() *AdminCreateInventoryBadRequest {
 	return &AdminCreateInventoryBadRequest{}
 }
 
-/*AdminCreateInventoryBadRequest handles this case with default header values.
+/*
+AdminCreateInventoryBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCreateInventoryBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -208,9 +210,10 @@ func NewAdminCreateInventoryInternalServerError() *AdminCreateInventoryInternalS
 	return &AdminCreateInventoryInternalServerError{}
 }
 
-/*AdminCreateInventoryInternalServerError handles this case with default header values.
+/*
+AdminCreateInventoryInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCreateInventoryInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

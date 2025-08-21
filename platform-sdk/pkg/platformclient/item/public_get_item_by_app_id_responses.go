@@ -85,9 +85,10 @@ func NewPublicGetItemByAppIDOK() *PublicGetItemByAppIDOK {
 	return &PublicGetItemByAppIDOK{}
 }
 
-/*PublicGetItemByAppIDOK handles this case with default header values.
+/*
+PublicGetItemByAppIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetItemByAppIDOK struct {
 	Payload *platformclientmodels.ItemInfo
@@ -139,9 +140,10 @@ func NewPublicGetItemByAppIDNotFound() *PublicGetItemByAppIDNotFound {
 	return &PublicGetItemByAppIDNotFound{}
 }
 
-/*PublicGetItemByAppIDNotFound handles this case with default header values.
+/*
+PublicGetItemByAppIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30342</td><td>Item of appId [{appId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30342</td><td>Item of appId [{appId}] does not exist</td></tr></table>
 */
 type PublicGetItemByAppIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

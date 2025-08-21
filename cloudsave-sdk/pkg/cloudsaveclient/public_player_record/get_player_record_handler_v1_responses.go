@@ -145,9 +145,10 @@ func NewGetPlayerRecordHandlerV1OK() *GetPlayerRecordHandlerV1OK {
 	return &GetPlayerRecordHandlerV1OK{}
 }
 
-/*GetPlayerRecordHandlerV1OK handles this case with default header values.
+/*
+GetPlayerRecordHandlerV1OK handles this case with default header values.
 
-  Record retrieved
+	Record retrieved
 */
 type GetPlayerRecordHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsPlayerRecordResponse
@@ -199,9 +200,10 @@ func NewGetPlayerRecordHandlerV1BadRequest() *GetPlayerRecordHandlerV1BadRequest
 	return &GetPlayerRecordHandlerV1BadRequest{}
 }
 
-/*GetPlayerRecordHandlerV1BadRequest handles this case with default header values.
+/*
+GetPlayerRecordHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetPlayerRecordHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewGetPlayerRecordHandlerV1Unauthorized() *GetPlayerRecordHandlerV1Unauthor
 	return &GetPlayerRecordHandlerV1Unauthorized{}
 }
 
-/*GetPlayerRecordHandlerV1Unauthorized handles this case with default header values.
+/*
+GetPlayerRecordHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetPlayerRecordHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewGetPlayerRecordHandlerV1Forbidden() *GetPlayerRecordHandlerV1Forbidden {
 	return &GetPlayerRecordHandlerV1Forbidden{}
 }
 
-/*GetPlayerRecordHandlerV1Forbidden handles this case with default header values.
+/*
+GetPlayerRecordHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18023</td><td>get action is forbidden on other user's record</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18023</td><td>get action is forbidden on other user's record</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetPlayerRecordHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewGetPlayerRecordHandlerV1NotFound() *GetPlayerRecordHandlerV1NotFound {
 	return &GetPlayerRecordHandlerV1NotFound{}
 }
 
-/*GetPlayerRecordHandlerV1NotFound handles this case with default header values.
+/*
+GetPlayerRecordHandlerV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18022</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18022</td><td>record not found</td></tr></table>
 */
 type GetPlayerRecordHandlerV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewGetPlayerRecordHandlerV1InternalServerError() *GetPlayerRecordHandlerV1I
 	return &GetPlayerRecordHandlerV1InternalServerError{}
 }
 
-/*GetPlayerRecordHandlerV1InternalServerError handles this case with default header values.
+/*
+GetPlayerRecordHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18020</td><td>unable to get record</td></tr><tr><td>18006</td><td>unable to decode record</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18020</td><td>unable to get record</td></tr><tr><td>18006</td><td>unable to decode record</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetPlayerRecordHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

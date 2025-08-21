@@ -130,9 +130,10 @@ func NewAdminListAssignedUsersV4OK() *AdminListAssignedUsersV4OK {
 	return &AdminListAssignedUsersV4OK{}
 }
 
-/*AdminListAssignedUsersV4OK handles this case with default header values.
+/*
+AdminListAssignedUsersV4OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListAssignedUsersV4OK struct {
 	Payload *iamclientmodels.ModelListAssignedUsersV4Response
@@ -184,9 +185,10 @@ func NewAdminListAssignedUsersV4BadRequest() *AdminListAssignedUsersV4BadRequest
 	return &AdminListAssignedUsersV4BadRequest{}
 }
 
-/*AdminListAssignedUsersV4BadRequest handles this case with default header values.
+/*
+AdminListAssignedUsersV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminListAssignedUsersV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminListAssignedUsersV4Unauthorized() *AdminListAssignedUsersV4Unauthor
 	return &AdminListAssignedUsersV4Unauthorized{}
 }
 
-/*AdminListAssignedUsersV4Unauthorized handles this case with default header values.
+/*
+AdminListAssignedUsersV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListAssignedUsersV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminListAssignedUsersV4Forbidden() *AdminListAssignedUsersV4Forbidden {
 	return &AdminListAssignedUsersV4Forbidden{}
 }
 
-/*AdminListAssignedUsersV4Forbidden handles this case with default header values.
+/*
+AdminListAssignedUsersV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminListAssignedUsersV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminListAssignedUsersV4NotFound() *AdminListAssignedUsersV4NotFound {
 	return &AdminListAssignedUsersV4NotFound{}
 }
 
-/*AdminListAssignedUsersV4NotFound handles this case with default header values.
+/*
+AdminListAssignedUsersV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminListAssignedUsersV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

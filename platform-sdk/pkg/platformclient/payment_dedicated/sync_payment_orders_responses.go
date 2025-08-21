@@ -69,9 +69,10 @@ func NewSyncPaymentOrdersOK() *SyncPaymentOrdersOK {
 	return &SyncPaymentOrdersOK{}
 }
 
-/*SyncPaymentOrdersOK handles this case with default header values.
+/*
+SyncPaymentOrdersOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SyncPaymentOrdersOK struct {
 	Payload *platformclientmodels.PaymentOrderSyncResult

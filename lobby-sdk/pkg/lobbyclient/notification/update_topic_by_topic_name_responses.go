@@ -129,9 +129,10 @@ func NewUpdateTopicByTopicNameNoContent() *UpdateTopicByTopicNameNoContent {
 	return &UpdateTopicByTopicNameNoContent{}
 }
 
-/*UpdateTopicByTopicNameNoContent handles this case with default header values.
+/*
+UpdateTopicByTopicNameNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UpdateTopicByTopicNameNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewUpdateTopicByTopicNameUnauthorized() *UpdateTopicByTopicNameUnauthorized
 	return &UpdateTopicByTopicNameUnauthorized{}
 }
 
-/*UpdateTopicByTopicNameUnauthorized handles this case with default header values.
+/*
+UpdateTopicByTopicNameUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateTopicByTopicNameUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewUpdateTopicByTopicNameForbidden() *UpdateTopicByTopicNameForbidden {
 	return &UpdateTopicByTopicNameForbidden{}
 }
 
-/*UpdateTopicByTopicNameForbidden handles this case with default header values.
+/*
+UpdateTopicByTopicNameForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateTopicByTopicNameForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewUpdateTopicByTopicNameNotFound() *UpdateTopicByTopicNameNotFound {
 	return &UpdateTopicByTopicNameNotFound{}
 }
 
-/*UpdateTopicByTopicNameNotFound handles this case with default header values.
+/*
+UpdateTopicByTopicNameNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UpdateTopicByTopicNameNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewUpdateTopicByTopicNameInternalServerError() *UpdateTopicByTopicNameInter
 	return &UpdateTopicByTopicNameInternalServerError{}
 }
 
-/*UpdateTopicByTopicNameInternalServerError handles this case with default header values.
+/*
+UpdateTopicByTopicNameInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateTopicByTopicNameInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

@@ -78,7 +78,8 @@ func NewGetUserFriendsWithPlatformParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*GetUserFriendsWithPlatformParams contains all the parameters to send to the API endpoint
+/*
+GetUserFriendsWithPlatformParams contains all the parameters to send to the API endpoint
 for the get user friends with platform operation typically these are written to a http.Request
 */
 type GetUserFriendsWithPlatformParams struct {

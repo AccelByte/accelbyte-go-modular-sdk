@@ -85,9 +85,10 @@ func NewPublicGetTimeZonesOK() *PublicGetTimeZonesOK {
 	return &PublicGetTimeZonesOK{}
 }
 
-/*PublicGetTimeZonesOK handles this case with default header values.
+/*
+PublicGetTimeZonesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetTimeZonesOK struct {
 	Payload []string
@@ -137,9 +138,10 @@ func NewPublicGetTimeZonesBadRequest() *PublicGetTimeZonesBadRequest {
 	return &PublicGetTimeZonesBadRequest{}
 }
 
-/*PublicGetTimeZonesBadRequest handles this case with default header values.
+/*
+PublicGetTimeZonesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetTimeZonesBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity

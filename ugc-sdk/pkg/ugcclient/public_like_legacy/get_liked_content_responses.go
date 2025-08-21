@@ -115,9 +115,10 @@ func NewGetLikedContentOK() *GetLikedContentOK {
 	return &GetLikedContentOK{}
 }
 
-/*GetLikedContentOK handles this case with default header values.
+/*
+GetLikedContentOK handles this case with default header values.
 
-  Get liked contents
+	Get liked contents
 */
 type GetLikedContentOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponse
@@ -169,9 +170,10 @@ func NewGetLikedContentBadRequest() *GetLikedContentBadRequest {
 	return &GetLikedContentBadRequest{}
 }
 
-/*GetLikedContentBadRequest handles this case with default header values.
+/*
+GetLikedContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771100</td><td>unable to parse isofficial param</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771100</td><td>unable to parse isofficial param</td></tr></table>
 */
 type GetLikedContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewGetLikedContentUnauthorized() *GetLikedContentUnauthorized {
 	return &GetLikedContentUnauthorized{}
 }
 
-/*GetLikedContentUnauthorized handles this case with default header values.
+/*
+GetLikedContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetLikedContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewGetLikedContentInternalServerError() *GetLikedContentInternalServerError
 	return &GetLikedContentInternalServerError{}
 }
 
-/*GetLikedContentInternalServerError handles this case with default header values.
+/*
+GetLikedContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771101</td><td>Unable to get ugc content: database error</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771101</td><td>Unable to get ugc content: database error</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
 */
 type GetLikedContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

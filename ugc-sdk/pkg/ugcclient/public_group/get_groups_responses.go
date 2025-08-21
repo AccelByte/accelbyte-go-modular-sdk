@@ -115,9 +115,10 @@ func NewGetGroupsOK() *GetGroupsOK {
 	return &GetGroupsOK{}
 }
 
-/*GetGroupsOK handles this case with default header values.
+/*
+GetGroupsOK handles this case with default header values.
 
-  Get all user group
+	Get all user group
 */
 type GetGroupsOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGroupResponse
@@ -169,9 +170,10 @@ func NewGetGroupsBadRequest() *GetGroupsBadRequest {
 	return &GetGroupsBadRequest{}
 }
 
-/*GetGroupsBadRequest handles this case with default header values.
+/*
+GetGroupsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772301</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772301</td><td>invalid paging parameter</td></tr></table>
 */
 type GetGroupsBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewGetGroupsUnauthorized() *GetGroupsUnauthorized {
 	return &GetGroupsUnauthorized{}
 }
 
-/*GetGroupsUnauthorized handles this case with default header values.
+/*
+GetGroupsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetGroupsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewGetGroupsInternalServerError() *GetGroupsInternalServerError {
 	return &GetGroupsInternalServerError{}
 }
 
-/*GetGroupsInternalServerError handles this case with default header values.
+/*
+GetGroupsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772302</td><td>Unable get groups</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772302</td><td>Unable get groups</td></tr></table>
 */
 type GetGroupsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

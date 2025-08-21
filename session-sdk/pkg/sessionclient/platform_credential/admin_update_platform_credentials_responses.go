@@ -145,9 +145,10 @@ func NewAdminUpdatePlatformCredentialsOK() *AdminUpdatePlatformCredentialsOK {
 	return &AdminUpdatePlatformCredentialsOK{}
 }
 
-/*AdminUpdatePlatformCredentialsOK handles this case with default header values.
+/*
+AdminUpdatePlatformCredentialsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdatePlatformCredentialsOK struct {
 	Payload *sessionclientmodels.ModelsPlatformCredentials
@@ -199,9 +200,10 @@ func NewAdminUpdatePlatformCredentialsBadRequest() *AdminUpdatePlatformCredentia
 	return &AdminUpdatePlatformCredentialsBadRequest{}
 }
 
-/*AdminUpdatePlatformCredentialsBadRequest handles this case with default header values.
+/*
+AdminUpdatePlatformCredentialsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdatePlatformCredentialsBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUpdatePlatformCredentialsUnauthorized() *AdminUpdatePlatformCredent
 	return &AdminUpdatePlatformCredentialsUnauthorized{}
 }
 
-/*AdminUpdatePlatformCredentialsUnauthorized handles this case with default header values.
+/*
+AdminUpdatePlatformCredentialsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdatePlatformCredentialsUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUpdatePlatformCredentialsForbidden() *AdminUpdatePlatformCredential
 	return &AdminUpdatePlatformCredentialsForbidden{}
 }
 
-/*AdminUpdatePlatformCredentialsForbidden handles this case with default header values.
+/*
+AdminUpdatePlatformCredentialsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdatePlatformCredentialsForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUpdatePlatformCredentialsNotFound() *AdminUpdatePlatformCredentials
 	return &AdminUpdatePlatformCredentialsNotFound{}
 }
 
-/*AdminUpdatePlatformCredentialsNotFound handles this case with default header values.
+/*
+AdminUpdatePlatformCredentialsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdatePlatformCredentialsNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUpdatePlatformCredentialsInternalServerError() *AdminUpdatePlatform
 	return &AdminUpdatePlatformCredentialsInternalServerError{}
 }
 
-/*AdminUpdatePlatformCredentialsInternalServerError handles this case with default header values.
+/*
+AdminUpdatePlatformCredentialsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdatePlatformCredentialsInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

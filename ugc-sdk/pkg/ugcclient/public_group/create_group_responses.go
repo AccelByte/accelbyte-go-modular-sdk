@@ -115,9 +115,10 @@ func NewCreateGroupCreated() *CreateGroupCreated {
 	return &CreateGroupCreated{}
 }
 
-/*CreateGroupCreated handles this case with default header values.
+/*
+CreateGroupCreated handles this case with default header values.
 
-  Group Created
+	Group Created
 */
 type CreateGroupCreated struct {
 	Payload *ugcclientmodels.ModelsCreateGroupResponse
@@ -169,9 +170,10 @@ func NewCreateGroupBadRequest() *CreateGroupBadRequest {
 	return &CreateGroupBadRequest{}
 }
 
-/*CreateGroupBadRequest handles this case with default header values.
+/*
+CreateGroupBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772101</td><td>Malformed request/Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772101</td><td>Malformed request/Invalid request body</td></tr></table>
 */
 type CreateGroupBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewCreateGroupUnauthorized() *CreateGroupUnauthorized {
 	return &CreateGroupUnauthorized{}
 }
 
-/*CreateGroupUnauthorized handles this case with default header values.
+/*
+CreateGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateGroupUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewCreateGroupInternalServerError() *CreateGroupInternalServerError {
 	return &CreateGroupInternalServerError{}
 }
 
-/*CreateGroupInternalServerError handles this case with default header values.
+/*
+CreateGroupInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772102</td><td>Unable to create group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772102</td><td>Unable to create group</td></tr></table>
 */
 type CreateGroupInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

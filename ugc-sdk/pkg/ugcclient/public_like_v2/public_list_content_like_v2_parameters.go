@@ -86,7 +86,8 @@ func NewPublicListContentLikeV2ParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicListContentLikeV2Params contains all the parameters to send to the API endpoint
+/*
+PublicListContentLikeV2Params contains all the parameters to send to the API endpoint
 for the public list content like v2 operation typically these are written to a http.Request
 */
 type PublicListContentLikeV2Params struct {

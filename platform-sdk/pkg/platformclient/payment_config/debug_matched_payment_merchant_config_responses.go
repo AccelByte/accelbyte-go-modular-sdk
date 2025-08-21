@@ -85,9 +85,10 @@ func NewDebugMatchedPaymentMerchantConfigOK() *DebugMatchedPaymentMerchantConfig
 	return &DebugMatchedPaymentMerchantConfigOK{}
 }
 
-/*DebugMatchedPaymentMerchantConfigOK handles this case with default header values.
+/*
+DebugMatchedPaymentMerchantConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DebugMatchedPaymentMerchantConfigOK struct {
 	Payload *platformclientmodels.PaymentMerchantConfigInfo
@@ -139,9 +140,10 @@ func NewDebugMatchedPaymentMerchantConfigNotFound() *DebugMatchedPaymentMerchant
 	return &DebugMatchedPaymentMerchantConfigNotFound{}
 }
 
-/*DebugMatchedPaymentMerchantConfigNotFound handles this case with default header values.
+/*
+DebugMatchedPaymentMerchantConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
 */
 type DebugMatchedPaymentMerchantConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

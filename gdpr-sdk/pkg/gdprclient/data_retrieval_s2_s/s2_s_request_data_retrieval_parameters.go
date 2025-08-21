@@ -57,7 +57,8 @@ func NewS2SRequestDataRetrievalParamsWithHTTPClient(client *http.Client) *S2SReq
 	}
 }
 
-/*S2SRequestDataRetrievalParams contains all the parameters to send to the API endpoint
+/*
+S2SRequestDataRetrievalParams contains all the parameters to send to the API endpoint
 for the s2s request data retrieval operation typically these are written to a http.Request
 */
 type S2SRequestDataRetrievalParams struct {

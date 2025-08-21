@@ -69,9 +69,10 @@ func NewGetUserOrderHistoriesOK() *GetUserOrderHistoriesOK {
 	return &GetUserOrderHistoriesOK{}
 }
 
-/*GetUserOrderHistoriesOK handles this case with default header values.
+/*
+GetUserOrderHistoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserOrderHistoriesOK struct {
 	Payload []*platformclientmodels.OrderHistoryInfo

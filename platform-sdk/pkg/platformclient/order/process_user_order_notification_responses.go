@@ -77,9 +77,10 @@ func NewProcessUserOrderNotificationNoContent() *ProcessUserOrderNotificationNoC
 	return &ProcessUserOrderNotificationNoContent{}
 }
 
-/*ProcessUserOrderNotificationNoContent handles this case with default header values.
+/*
+ProcessUserOrderNotificationNoContent handles this case with default header values.
 
-  process successfully
+	process successfully
 */
 type ProcessUserOrderNotificationNoContent struct {
 }
@@ -104,9 +105,10 @@ func NewProcessUserOrderNotificationBadRequest() *ProcessUserOrderNotificationBa
 	return &ProcessUserOrderNotificationBadRequest{}
 }
 
-/*ProcessUserOrderNotificationBadRequest handles this case with default header values.
+/*
+ProcessUserOrderNotificationBadRequest handles this case with default header values.
 
-  process failed
+	process failed
 */
 type ProcessUserOrderNotificationBadRequest struct {
 }

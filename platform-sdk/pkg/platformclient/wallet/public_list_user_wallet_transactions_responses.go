@@ -69,9 +69,10 @@ func NewPublicListUserWalletTransactionsOK() *PublicListUserWalletTransactionsOK
 	return &PublicListUserWalletTransactionsOK{}
 }
 
-/*PublicListUserWalletTransactionsOK handles this case with default header values.
+/*
+PublicListUserWalletTransactionsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicListUserWalletTransactionsOK struct {
 	Payload *platformclientmodels.WalletTransactionPagingSlicedResult

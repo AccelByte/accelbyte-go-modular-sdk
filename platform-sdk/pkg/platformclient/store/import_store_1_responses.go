@@ -100,9 +100,10 @@ func NewImportStore1OK() *ImportStore1OK {
 	return &ImportStore1OK{}
 }
 
-/*ImportStore1OK handles this case with default header values.
+/*
+ImportStore1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ImportStore1OK struct {
 	Payload *platformclientmodels.ImportStoreResult
@@ -154,9 +155,10 @@ func NewImportStore1BadRequest() *ImportStore1BadRequest {
 	return &ImportStore1BadRequest{}
 }
 
-/*ImportStore1BadRequest handles this case with default header values.
+/*
+ImportStore1BadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30121</td><td>Store data is invalid</td></tr><tr><td>30122</td><td>Store's meta mismatch</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30121</td><td>Store data is invalid</td></tr><tr><td>30122</td><td>Store's meta mismatch</td></tr></table>
 */
 type ImportStore1BadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewImportStore1NotFound() *ImportStore1NotFound {
 	return &ImportStore1NotFound{}
 }
 
-/*ImportStore1NotFound handles this case with default header values.
+/*
+ImportStore1NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type ImportStore1NotFound struct {
 	Payload *platformclientmodels.ErrorEntity

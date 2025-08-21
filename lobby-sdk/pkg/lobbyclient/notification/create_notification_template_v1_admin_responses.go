@@ -144,9 +144,10 @@ func NewCreateNotificationTemplateV1AdminNoContent() *CreateNotificationTemplate
 	return &CreateNotificationTemplateV1AdminNoContent{}
 }
 
-/*CreateNotificationTemplateV1AdminNoContent handles this case with default header values.
+/*
+CreateNotificationTemplateV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type CreateNotificationTemplateV1AdminNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewCreateNotificationTemplateV1AdminBadRequest() *CreateNotificationTemplat
 	return &CreateNotificationTemplateV1AdminBadRequest{}
 }
 
-/*CreateNotificationTemplateV1AdminBadRequest handles this case with default header values.
+/*
+CreateNotificationTemplateV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateNotificationTemplateV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -225,9 +227,10 @@ func NewCreateNotificationTemplateV1AdminUnauthorized() *CreateNotificationTempl
 	return &CreateNotificationTemplateV1AdminUnauthorized{}
 }
 
-/*CreateNotificationTemplateV1AdminUnauthorized handles this case with default header values.
+/*
+CreateNotificationTemplateV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateNotificationTemplateV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -279,9 +282,10 @@ func NewCreateNotificationTemplateV1AdminForbidden() *CreateNotificationTemplate
 	return &CreateNotificationTemplateV1AdminForbidden{}
 }
 
-/*CreateNotificationTemplateV1AdminForbidden handles this case with default header values.
+/*
+CreateNotificationTemplateV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateNotificationTemplateV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -333,9 +337,10 @@ func NewCreateNotificationTemplateV1AdminNotFound() *CreateNotificationTemplateV
 	return &CreateNotificationTemplateV1AdminNotFound{}
 }
 
-/*CreateNotificationTemplateV1AdminNotFound handles this case with default header values.
+/*
+CreateNotificationTemplateV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type CreateNotificationTemplateV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -387,9 +392,10 @@ func NewCreateNotificationTemplateV1AdminConflict() *CreateNotificationTemplateV
 	return &CreateNotificationTemplateV1AdminConflict{}
 }
 
-/*CreateNotificationTemplateV1AdminConflict handles this case with default header values.
+/*
+CreateNotificationTemplateV1AdminConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateNotificationTemplateV1AdminConflict struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

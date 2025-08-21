@@ -69,9 +69,10 @@ func NewQueryAbnormalTransactionsOK() *QueryAbnormalTransactionsOK {
 	return &QueryAbnormalTransactionsOK{}
 }
 
-/*QueryAbnormalTransactionsOK handles this case with default header values.
+/*
+QueryAbnormalTransactionsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryAbnormalTransactionsOK struct {
 	Payload *platformclientmodels.SteamAbnormalTransactionPagingSlicedResult

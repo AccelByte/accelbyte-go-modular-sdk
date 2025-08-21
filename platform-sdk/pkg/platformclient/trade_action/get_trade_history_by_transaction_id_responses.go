@@ -69,9 +69,10 @@ func NewGetTradeHistoryByTransactionIDOK() *GetTradeHistoryByTransactionIDOK {
 	return &GetTradeHistoryByTransactionIDOK{}
 }
 
-/*GetTradeHistoryByTransactionIDOK handles this case with default header values.
+/*
+GetTradeHistoryByTransactionIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetTradeHistoryByTransactionIDOK struct {
 	Payload *platformclientmodels.TradeChainActionHistoryInfo

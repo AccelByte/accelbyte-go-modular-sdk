@@ -130,9 +130,10 @@ func NewAdminSaveInboxMessageOK() *AdminSaveInboxMessageOK {
 	return &AdminSaveInboxMessageOK{}
 }
 
-/*AdminSaveInboxMessageOK handles this case with default header values.
+/*
+AdminSaveInboxMessageOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminSaveInboxMessageOK struct {
 	Payload *chatclientmodels.ModelsSaveInboxMessageResponse
@@ -184,9 +185,10 @@ func NewAdminSaveInboxMessageBadRequest() *AdminSaveInboxMessageBadRequest {
 	return &AdminSaveInboxMessageBadRequest{}
 }
 
-/*AdminSaveInboxMessageBadRequest handles this case with default header values.
+/*
+AdminSaveInboxMessageBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminSaveInboxMessageBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminSaveInboxMessageUnauthorized() *AdminSaveInboxMessageUnauthorized {
 	return &AdminSaveInboxMessageUnauthorized{}
 }
 
-/*AdminSaveInboxMessageUnauthorized handles this case with default header values.
+/*
+AdminSaveInboxMessageUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminSaveInboxMessageUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminSaveInboxMessageForbidden() *AdminSaveInboxMessageForbidden {
 	return &AdminSaveInboxMessageForbidden{}
 }
 
-/*AdminSaveInboxMessageForbidden handles this case with default header values.
+/*
+AdminSaveInboxMessageForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminSaveInboxMessageForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminSaveInboxMessageInternalServerError() *AdminSaveInboxMessageInterna
 	return &AdminSaveInboxMessageInternalServerError{}
 }
 
-/*AdminSaveInboxMessageInternalServerError handles this case with default header values.
+/*
+AdminSaveInboxMessageInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSaveInboxMessageInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

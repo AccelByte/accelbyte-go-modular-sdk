@@ -59,7 +59,8 @@ func NewAdminUpdateInboxCategoryParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminUpdateInboxCategoryParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateInboxCategoryParams contains all the parameters to send to the API endpoint
 for the admin update inbox category operation typically these are written to a http.Request
 */
 type AdminUpdateInboxCategoryParams struct {

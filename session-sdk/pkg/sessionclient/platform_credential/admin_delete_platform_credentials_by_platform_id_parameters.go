@@ -70,7 +70,8 @@ func NewAdminDeletePlatformCredentialsByPlatformIDParamsWithHTTPClient(client *h
 	}
 }
 
-/*AdminDeletePlatformCredentialsByPlatformIDParams contains all the parameters to send to the API endpoint
+/*
+AdminDeletePlatformCredentialsByPlatformIDParams contains all the parameters to send to the API endpoint
 for the admin delete platform credentials by platform id operation typically these are written to a http.Request
 */
 type AdminDeletePlatformCredentialsByPlatformIDParams struct {

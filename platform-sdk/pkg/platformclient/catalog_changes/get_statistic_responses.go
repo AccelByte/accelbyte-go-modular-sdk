@@ -69,9 +69,10 @@ func NewGetStatisticOK() *GetStatisticOK {
 	return &GetStatisticOK{}
 }
 
-/*GetStatisticOK handles this case with default header values.
+/*
+GetStatisticOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetStatisticOK struct {
 	Payload *platformclientmodels.CatalogChangeStatistics

@@ -76,7 +76,8 @@ func NewGetUserDLCByPlatformParamsWithHTTPClient(client *http.Client) *GetUserDL
 	}
 }
 
-/*GetUserDLCByPlatformParams contains all the parameters to send to the API endpoint
+/*
+GetUserDLCByPlatformParams contains all the parameters to send to the API endpoint
 for the get user dlc by platform operation typically these are written to a http.Request
 */
 type GetUserDLCByPlatformParams struct {

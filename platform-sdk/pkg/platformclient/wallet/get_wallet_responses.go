@@ -85,9 +85,10 @@ func NewGetWalletOK() *GetWalletOK {
 	return &GetWalletOK{}
 }
 
-/*GetWalletOK handles this case with default header values.
+/*
+GetWalletOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetWalletOK struct {
 	Payload *platformclientmodels.WalletInfo
@@ -139,9 +140,10 @@ func NewGetWalletNotFound() *GetWalletNotFound {
 	return &GetWalletNotFound{}
 }
 
-/*GetWalletNotFound handles this case with default header values.
+/*
+GetWalletNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35141</td><td>Wallet [{walletId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35141</td><td>Wallet [{walletId}] does not exist</td></tr></table>
 */
 type GetWalletNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

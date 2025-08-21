@@ -69,9 +69,10 @@ func NewGetTradeHistoryByCriteriaOK() *GetTradeHistoryByCriteriaOK {
 	return &GetTradeHistoryByCriteriaOK{}
 }
 
-/*GetTradeHistoryByCriteriaOK handles this case with default header values.
+/*
+GetTradeHistoryByCriteriaOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetTradeHistoryByCriteriaOK struct {
 	Payload *platformclientmodels.TradeActionPagingSlicedResult

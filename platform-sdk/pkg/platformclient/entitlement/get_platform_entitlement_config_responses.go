@@ -69,9 +69,10 @@ func NewGetPlatformEntitlementConfigOK() *GetPlatformEntitlementConfigOK {
 	return &GetPlatformEntitlementConfigOK{}
 }
 
-/*GetPlatformEntitlementConfigOK handles this case with default header values.
+/*
+GetPlatformEntitlementConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPlatformEntitlementConfigOK struct {
 	Payload *platformclientmodels.EntitlementPlatformConfigInfo

@@ -69,9 +69,10 @@ func NewCheckReadinessOK() *CheckReadinessOK {
 	return &CheckReadinessOK{}
 }
 
-/*CheckReadinessOK handles this case with default header values.
+/*
+CheckReadinessOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CheckReadinessOK struct {
 	Payload *legalclientmodels.LegalReadinessStatusResponse

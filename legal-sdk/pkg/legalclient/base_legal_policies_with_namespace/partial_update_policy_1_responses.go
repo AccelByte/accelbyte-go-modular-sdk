@@ -85,9 +85,10 @@ func NewPartialUpdatePolicy1OK() *PartialUpdatePolicy1OK {
 	return &PartialUpdatePolicy1OK{}
 }
 
-/*PartialUpdatePolicy1OK handles this case with default header values.
+/*
+PartialUpdatePolicy1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PartialUpdatePolicy1OK struct {
 	Payload *legalclientmodels.UpdateBasePolicyResponse
@@ -139,9 +140,10 @@ func NewPartialUpdatePolicy1BadRequest() *PartialUpdatePolicy1BadRequest {
 	return &PartialUpdatePolicy1BadRequest{}
 }
 
-/*PartialUpdatePolicy1BadRequest handles this case with default header values.
+/*
+PartialUpdatePolicy1BadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40032</td><td>errors.net.accelbyte.platform.legal.invalid_base_policy</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40032</td><td>errors.net.accelbyte.platform.legal.invalid_base_policy</td></tr></table>
 */
 type PartialUpdatePolicy1BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

@@ -115,9 +115,10 @@ func NewPublicListContentLikeV2OK() *PublicListContentLikeV2OK {
 	return &PublicListContentLikeV2OK{}
 }
 
-/*PublicListContentLikeV2OK handles this case with default header values.
+/*
+PublicListContentLikeV2OK handles this case with default header values.
 
-  Retrieve list of user liked content
+	Retrieve list of user liked content
 */
 type PublicListContentLikeV2OK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentLikersResponse
@@ -169,9 +170,10 @@ func NewPublicListContentLikeV2BadRequest() *PublicListContentLikeV2BadRequest {
 	return &PublicListContentLikeV2BadRequest{}
 }
 
-/*PublicListContentLikeV2BadRequest handles this case with default header values.
+/*
+PublicListContentLikeV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771004</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771004</td><td>invalid paging parameter</td></tr></table>
 */
 type PublicListContentLikeV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicListContentLikeV2Unauthorized() *PublicListContentLikeV2Unauthoriz
 	return &PublicListContentLikeV2Unauthorized{}
 }
 
-/*PublicListContentLikeV2Unauthorized handles this case with default header values.
+/*
+PublicListContentLikeV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicListContentLikeV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicListContentLikeV2InternalServerError() *PublicListContentLikeV2Int
 	return &PublicListContentLikeV2InternalServerError{}
 }
 
-/*PublicListContentLikeV2InternalServerError handles this case with default header values.
+/*
+PublicListContentLikeV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771006</td><td>unable to get list of content like: database error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771006</td><td>unable to get list of content like: database error</td></tr></table>
 */
 type PublicListContentLikeV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

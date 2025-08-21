@@ -69,9 +69,10 @@ func NewPublicQueryUserEntitlementsOK() *PublicQueryUserEntitlementsOK {
 	return &PublicQueryUserEntitlementsOK{}
 }
 
-/*PublicQueryUserEntitlementsOK handles this case with default header values.
+/*
+PublicQueryUserEntitlementsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicQueryUserEntitlementsOK struct {
 	Payload *platformclientmodels.EntitlementPagingSlicedResult

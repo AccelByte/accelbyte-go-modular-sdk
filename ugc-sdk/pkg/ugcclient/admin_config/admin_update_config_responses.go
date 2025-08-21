@@ -129,9 +129,10 @@ func NewAdminUpdateConfigCreated() *AdminUpdateConfigCreated {
 	return &AdminUpdateConfigCreated{}
 }
 
-/*AdminUpdateConfigCreated handles this case with default header values.
+/*
+AdminUpdateConfigCreated handles this case with default header values.
 
-  Config updated
+	Config updated
 */
 type AdminUpdateConfigCreated struct {
 }
@@ -156,9 +157,10 @@ func NewAdminUpdateConfigBadRequest() *AdminUpdateConfigBadRequest {
 	return &AdminUpdateConfigBadRequest{}
 }
 
-/*AdminUpdateConfigBadRequest handles this case with default header values.
+/*
+AdminUpdateConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774201</td><td>Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774201</td><td>Invalid request body</td></tr></table>
 */
 type AdminUpdateConfigBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewAdminUpdateConfigUnauthorized() *AdminUpdateConfigUnauthorized {
 	return &AdminUpdateConfigUnauthorized{}
 }
 
-/*AdminUpdateConfigUnauthorized handles this case with default header values.
+/*
+AdminUpdateConfigUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateConfigUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewAdminUpdateConfigForbidden() *AdminUpdateConfigForbidden {
 	return &AdminUpdateConfigForbidden{}
 }
 
-/*AdminUpdateConfigForbidden handles this case with default header values.
+/*
+AdminUpdateConfigForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminUpdateConfigForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewAdminUpdateConfigInternalServerError() *AdminUpdateConfigInternalServerE
 	return &AdminUpdateConfigInternalServerError{}
 }
 
-/*AdminUpdateConfigInternalServerError handles this case with default header values.
+/*
+AdminUpdateConfigInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774202</td><td>Unable to save config</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774202</td><td>Unable to save config</td></tr></table>
 */
 type AdminUpdateConfigInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

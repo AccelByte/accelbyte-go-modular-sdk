@@ -57,7 +57,8 @@ func NewDeleteUserRoleParamsWithHTTPClient(client *http.Client) *DeleteUserRoleP
 	}
 }
 
-/*DeleteUserRoleParams contains all the parameters to send to the API endpoint
+/*
+DeleteUserRoleParams contains all the parameters to send to the API endpoint
 for the delete user role operation typically these are written to a http.Request
 */
 type DeleteUserRoleParams struct {

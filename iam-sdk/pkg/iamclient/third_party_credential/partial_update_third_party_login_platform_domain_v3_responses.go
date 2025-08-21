@@ -145,9 +145,10 @@ func NewPartialUpdateThirdPartyLoginPlatformDomainV3OK() *PartialUpdateThirdPart
 	return &PartialUpdateThirdPartyLoginPlatformDomainV3OK{}
 }
 
-/*PartialUpdateThirdPartyLoginPlatformDomainV3OK handles this case with default header values.
+/*
+PartialUpdateThirdPartyLoginPlatformDomainV3OK handles this case with default header values.
 
-  Domain config partial updated
+	Domain config partial updated
 */
 type PartialUpdateThirdPartyLoginPlatformDomainV3OK struct {
 	Payload *iamclientmodels.ModelPlatformDomainResponse
@@ -199,9 +200,10 @@ func NewPartialUpdateThirdPartyLoginPlatformDomainV3BadRequest() *PartialUpdateT
 	return &PartialUpdateThirdPartyLoginPlatformDomainV3BadRequest{}
 }
 
-/*PartialUpdateThirdPartyLoginPlatformDomainV3BadRequest handles this case with default header values.
+/*
+PartialUpdateThirdPartyLoginPlatformDomainV3BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PartialUpdateThirdPartyLoginPlatformDomainV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewPartialUpdateThirdPartyLoginPlatformDomainV3Unauthorized() *PartialUpdat
 	return &PartialUpdateThirdPartyLoginPlatformDomainV3Unauthorized{}
 }
 
-/*PartialUpdateThirdPartyLoginPlatformDomainV3Unauthorized handles this case with default header values.
+/*
+PartialUpdateThirdPartyLoginPlatformDomainV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PartialUpdateThirdPartyLoginPlatformDomainV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewPartialUpdateThirdPartyLoginPlatformDomainV3Forbidden() *PartialUpdateTh
 	return &PartialUpdateThirdPartyLoginPlatformDomainV3Forbidden{}
 }
 
-/*PartialUpdateThirdPartyLoginPlatformDomainV3Forbidden handles this case with default header values.
+/*
+PartialUpdateThirdPartyLoginPlatformDomainV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PartialUpdateThirdPartyLoginPlatformDomainV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewPartialUpdateThirdPartyLoginPlatformDomainV3NotFound() *PartialUpdateThi
 	return &PartialUpdateThirdPartyLoginPlatformDomainV3NotFound{}
 }
 
-/*PartialUpdateThirdPartyLoginPlatformDomainV3NotFound handles this case with default header values.
+/*
+PartialUpdateThirdPartyLoginPlatformDomainV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
 */
 type PartialUpdateThirdPartyLoginPlatformDomainV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewPartialUpdateThirdPartyLoginPlatformDomainV3InternalServerError() *Parti
 	return &PartialUpdateThirdPartyLoginPlatformDomainV3InternalServerError{}
 }
 
-/*PartialUpdateThirdPartyLoginPlatformDomainV3InternalServerError handles this case with default header values.
+/*
+PartialUpdateThirdPartyLoginPlatformDomainV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PartialUpdateThirdPartyLoginPlatformDomainV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

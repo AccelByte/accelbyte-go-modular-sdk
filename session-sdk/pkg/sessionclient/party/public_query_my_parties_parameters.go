@@ -57,7 +57,8 @@ func NewPublicQueryMyPartiesParamsWithHTTPClient(client *http.Client) *PublicQue
 	}
 }
 
-/*PublicQueryMyPartiesParams contains all the parameters to send to the API endpoint
+/*
+PublicQueryMyPartiesParams contains all the parameters to send to the API endpoint
 for the public query my parties operation typically these are written to a http.Request
 */
 type PublicQueryMyPartiesParams struct {

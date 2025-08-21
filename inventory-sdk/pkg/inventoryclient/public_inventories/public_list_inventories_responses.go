@@ -100,9 +100,10 @@ func NewPublicListInventoriesOK() *PublicListInventoriesOK {
 	return &PublicListInventoriesOK{}
 }
 
-/*PublicListInventoriesOK handles this case with default header values.
+/*
+PublicListInventoriesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicListInventoriesOK struct {
 	Payload *inventoryclientmodels.ApimodelsListInventoryResp
@@ -154,9 +155,10 @@ func NewPublicListInventoriesBadRequest() *PublicListInventoriesBadRequest {
 	return &PublicListInventoriesBadRequest{}
 }
 
-/*PublicListInventoriesBadRequest handles this case with default header values.
+/*
+PublicListInventoriesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicListInventoriesBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -208,9 +210,10 @@ func NewPublicListInventoriesInternalServerError() *PublicListInventoriesInterna
 	return &PublicListInventoriesInternalServerError{}
 }
 
-/*PublicListInventoriesInternalServerError handles this case with default header values.
+/*
+PublicListInventoriesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicListInventoriesInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

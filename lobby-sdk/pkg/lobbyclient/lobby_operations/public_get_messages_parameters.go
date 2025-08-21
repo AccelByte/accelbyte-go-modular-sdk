@@ -57,7 +57,8 @@ func NewPublicGetMessagesParamsWithHTTPClient(client *http.Client) *PublicGetMes
 	}
 }
 
-/*PublicGetMessagesParams contains all the parameters to send to the API endpoint
+/*
+PublicGetMessagesParams contains all the parameters to send to the API endpoint
 for the public get messages operation typically these are written to a http.Request
 */
 type PublicGetMessagesParams struct {

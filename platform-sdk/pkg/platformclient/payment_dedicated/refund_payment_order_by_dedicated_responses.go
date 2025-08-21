@@ -121,9 +121,10 @@ func NewRefundPaymentOrderByDedicatedOK() *RefundPaymentOrderByDedicatedOK {
 	return &RefundPaymentOrderByDedicatedOK{}
 }
 
-/*RefundPaymentOrderByDedicatedOK handles this case with default header values.
+/*
+RefundPaymentOrderByDedicatedOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RefundPaymentOrderByDedicatedOK struct {
 	Payload *platformclientmodels.PaymentOrderRefundResult
@@ -175,9 +176,10 @@ func NewRefundPaymentOrderByDedicatedNoContent() *RefundPaymentOrderByDedicatedN
 	return &RefundPaymentOrderByDedicatedNoContent{}
 }
 
-/*RefundPaymentOrderByDedicatedNoContent handles this case with default header values.
+/*
+RefundPaymentOrderByDedicatedNoContent handles this case with default header values.
 
-  Refund successfully
+	Refund successfully
 */
 type RefundPaymentOrderByDedicatedNoContent struct {
 }
@@ -202,9 +204,10 @@ func NewRefundPaymentOrderByDedicatedNotFound() *RefundPaymentOrderByDedicatedNo
 	return &RefundPaymentOrderByDedicatedNotFound{}
 }
 
-/*RefundPaymentOrderByDedicatedNotFound handles this case with default header values.
+/*
+RefundPaymentOrderByDedicatedNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
 */
 type RefundPaymentOrderByDedicatedNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -256,9 +259,10 @@ func NewRefundPaymentOrderByDedicatedConflict() *RefundPaymentOrderByDedicatedCo
 	return &RefundPaymentOrderByDedicatedConflict{}
 }
 
-/*RefundPaymentOrderByDedicatedConflict handles this case with default header values.
+/*
+RefundPaymentOrderByDedicatedConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33172</td><td>Payment order [{paymentOrderNo}] is not refundable</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33172</td><td>Payment order [{paymentOrderNo}] is not refundable</td></tr></table>
 */
 type RefundPaymentOrderByDedicatedConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -310,9 +314,10 @@ func NewRefundPaymentOrderByDedicatedUnprocessableEntity() *RefundPaymentOrderBy
 	return &RefundPaymentOrderByDedicatedUnprocessableEntity{}
 }
 
-/*RefundPaymentOrderByDedicatedUnprocessableEntity handles this case with default header values.
+/*
+RefundPaymentOrderByDedicatedUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type RefundPaymentOrderByDedicatedUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

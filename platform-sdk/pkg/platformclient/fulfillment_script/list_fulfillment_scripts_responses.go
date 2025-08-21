@@ -69,9 +69,10 @@ func NewListFulfillmentScriptsOK() *ListFulfillmentScriptsOK {
 	return &ListFulfillmentScriptsOK{}
 }
 
-/*ListFulfillmentScriptsOK handles this case with default header values.
+/*
+ListFulfillmentScriptsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ListFulfillmentScriptsOK struct {
 	Payload []*platformclientmodels.FulfillmentScriptInfo

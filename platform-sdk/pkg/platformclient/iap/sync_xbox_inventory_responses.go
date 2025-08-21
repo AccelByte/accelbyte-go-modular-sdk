@@ -100,9 +100,10 @@ func NewSyncXboxInventoryOK() *SyncXboxInventoryOK {
 	return &SyncXboxInventoryOK{}
 }
 
-/*SyncXboxInventoryOK handles this case with default header values.
+/*
+SyncXboxInventoryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SyncXboxInventoryOK struct {
 	Payload []*platformclientmodels.XblReconcileResult
@@ -152,9 +153,10 @@ func NewSyncXboxInventoryBadRequest() *SyncXboxInventoryBadRequest {
 	return &SyncXboxInventoryBadRequest{}
 }
 
-/*SyncXboxInventoryBadRequest handles this case with default header values.
+/*
+SyncXboxInventoryBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39221</td><td>Invalid Xbox Business Partner Certificate or password: [{message}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39221</td><td>Invalid Xbox Business Partner Certificate or password: [{message}]</td></tr></table>
 */
 type SyncXboxInventoryBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewSyncXboxInventoryNotFound() *SyncXboxInventoryNotFound {
 	return &SyncXboxInventoryNotFound{}
 }
 
-/*SyncXboxInventoryNotFound handles this case with default header values.
+/*
+SyncXboxInventoryNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39145</td><td>XBox IAP config not found in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39145</td><td>XBox IAP config not found in namespace [{namespace}].</td></tr></table>
 */
 type SyncXboxInventoryNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

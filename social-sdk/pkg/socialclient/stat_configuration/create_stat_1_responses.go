@@ -175,9 +175,10 @@ func NewCreateStat1Created() *CreateStat1Created {
 	return &CreateStat1Created{}
 }
 
-/*CreateStat1Created handles this case with default header values.
+/*
+CreateStat1Created handles this case with default header values.
 
-  Create stat successfully
+	Create stat successfully
 */
 type CreateStat1Created struct {
 	Payload *socialclientmodels.StatInfo
@@ -229,9 +230,10 @@ func NewCreateStat1BadRequest() *CreateStat1BadRequest {
 	return &CreateStat1BadRequest{}
 }
 
-/*CreateStat1BadRequest handles this case with default header values.
+/*
+CreateStat1BadRequest handles this case with default header values.
 
-  Bad request
+	Bad request
 */
 type CreateStat1BadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -283,9 +285,10 @@ func NewCreateStat1Unauthorized() *CreateStat1Unauthorized {
 	return &CreateStat1Unauthorized{}
 }
 
-/*CreateStat1Unauthorized handles this case with default header values.
+/*
+CreateStat1Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type CreateStat1Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -337,9 +340,10 @@ func NewCreateStat1Forbidden() *CreateStat1Forbidden {
 	return &CreateStat1Forbidden{}
 }
 
-/*CreateStat1Forbidden handles this case with default header values.
+/*
+CreateStat1Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type CreateStat1Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -391,9 +395,10 @@ func NewCreateStat1NotFound() *CreateStat1NotFound {
 	return &CreateStat1NotFound{}
 }
 
-/*CreateStat1NotFound handles this case with default header values.
+/*
+CreateStat1NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type CreateStat1NotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -445,9 +450,10 @@ func NewCreateStat1Conflict() *CreateStat1Conflict {
 	return &CreateStat1Conflict{}
 }
 
-/*CreateStat1Conflict handles this case with default header values.
+/*
+CreateStat1Conflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12271</td><td>Stat template with code [{statCode}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12271</td><td>Stat template with code [{statCode}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type CreateStat1Conflict struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -499,9 +505,10 @@ func NewCreateStat1UnprocessableEntity() *CreateStat1UnprocessableEntity {
 	return &CreateStat1UnprocessableEntity{}
 }
 
-/*CreateStat1UnprocessableEntity handles this case with default header values.
+/*
+CreateStat1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateStat1UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -553,9 +560,10 @@ func NewCreateStat1InternalServerError() *CreateStat1InternalServerError {
 	return &CreateStat1InternalServerError{}
 }
 
-/*CreateStat1InternalServerError handles this case with default header values.
+/*
+CreateStat1InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type CreateStat1InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

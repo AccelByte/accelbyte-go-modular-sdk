@@ -58,7 +58,8 @@ func NewGetListOfSecretsV2ParamsWithHTTPClient(client *http.Client) *GetListOfSe
 	}
 }
 
-/*GetListOfSecretsV2Params contains all the parameters to send to the API endpoint
+/*
+GetListOfSecretsV2Params contains all the parameters to send to the API endpoint
 for the get list of secrets v2 operation typically these are written to a http.Request
 */
 type GetListOfSecretsV2Params struct {

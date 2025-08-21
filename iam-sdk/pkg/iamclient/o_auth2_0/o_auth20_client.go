@@ -745,7 +745,6 @@ The third party platform and platform group covered for this is:
 - twitch
 - live
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */

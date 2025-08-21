@@ -130,9 +130,10 @@ func NewGetMyGroupJoinRequestV2OK() *GetMyGroupJoinRequestV2OK {
 	return &GetMyGroupJoinRequestV2OK{}
 }
 
-/*GetMyGroupJoinRequestV2OK handles this case with default header values.
+/*
+GetMyGroupJoinRequestV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetMyGroupJoinRequestV2OK struct {
 	Payload *groupclientmodels.ModelsGetMemberRequestsListResponseV1
@@ -184,9 +185,10 @@ func NewGetMyGroupJoinRequestV2BadRequest() *GetMyGroupJoinRequestV2BadRequest {
 	return &GetMyGroupJoinRequestV2BadRequest{}
 }
 
-/*GetMyGroupJoinRequestV2BadRequest handles this case with default header values.
+/*
+GetMyGroupJoinRequestV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetMyGroupJoinRequestV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetMyGroupJoinRequestV2Unauthorized() *GetMyGroupJoinRequestV2Unauthoriz
 	return &GetMyGroupJoinRequestV2Unauthorized{}
 }
 
-/*GetMyGroupJoinRequestV2Unauthorized handles this case with default header values.
+/*
+GetMyGroupJoinRequestV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetMyGroupJoinRequestV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetMyGroupJoinRequestV2Forbidden() *GetMyGroupJoinRequestV2Forbidden {
 	return &GetMyGroupJoinRequestV2Forbidden{}
 }
 
-/*GetMyGroupJoinRequestV2Forbidden handles this case with default header values.
+/*
+GetMyGroupJoinRequestV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type GetMyGroupJoinRequestV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetMyGroupJoinRequestV2InternalServerError() *GetMyGroupJoinRequestV2Int
 	return &GetMyGroupJoinRequestV2InternalServerError{}
 }
 
-/*GetMyGroupJoinRequestV2InternalServerError handles this case with default header values.
+/*
+GetMyGroupJoinRequestV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetMyGroupJoinRequestV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

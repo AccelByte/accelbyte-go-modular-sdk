@@ -84,9 +84,10 @@ func NewSelectAllRecordsByCriteriaNoContent() *SelectAllRecordsByCriteriaNoConte
 	return &SelectAllRecordsByCriteriaNoContent{}
 }
 
-/*SelectAllRecordsByCriteriaNoContent handles this case with default header values.
+/*
+SelectAllRecordsByCriteriaNoContent handles this case with default header values.
 
-  Select all changes by criteria successfully
+	Select all changes by criteria successfully
 */
 type SelectAllRecordsByCriteriaNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewSelectAllRecordsByCriteriaNotFound() *SelectAllRecordsByCriteriaNotFound
 	return &SelectAllRecordsByCriteriaNotFound{}
 }
 
-/*SelectAllRecordsByCriteriaNotFound handles this case with default header values.
+/*
+SelectAllRecordsByCriteriaNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type SelectAllRecordsByCriteriaNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

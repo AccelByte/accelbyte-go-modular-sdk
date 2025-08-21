@@ -59,7 +59,8 @@ func NewFreeFormNotificationParamsWithHTTPClient(client *http.Client) *FreeFormN
 	}
 }
 
-/*FreeFormNotificationParams contains all the parameters to send to the API endpoint
+/*
+FreeFormNotificationParams contains all the parameters to send to the API endpoint
 for the free form notification operation typically these are written to a http.Request
 */
 type FreeFormNotificationParams struct {

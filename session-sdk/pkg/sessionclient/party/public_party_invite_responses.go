@@ -136,9 +136,10 @@ func NewPublicPartyInviteCreated() *PublicPartyInviteCreated {
 	return &PublicPartyInviteCreated{}
 }
 
-/*PublicPartyInviteCreated handles this case with default header values.
+/*
+PublicPartyInviteCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicPartyInviteCreated struct {
 	Payload *sessionclientmodels.ApimodelsSessionInviteResponse
@@ -190,9 +191,10 @@ func NewPublicPartyInviteNoContent() *PublicPartyInviteNoContent {
 	return &PublicPartyInviteNoContent{}
 }
 
-/*PublicPartyInviteNoContent handles this case with default header values.
+/*
+PublicPartyInviteNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicPartyInviteNoContent struct {
 }
@@ -217,9 +219,10 @@ func NewPublicPartyInviteBadRequest() *PublicPartyInviteBadRequest {
 	return &PublicPartyInviteBadRequest{}
 }
 
-/*PublicPartyInviteBadRequest handles this case with default header values.
+/*
+PublicPartyInviteBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPartyInviteBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -271,9 +274,10 @@ func NewPublicPartyInviteUnauthorized() *PublicPartyInviteUnauthorized {
 	return &PublicPartyInviteUnauthorized{}
 }
 
-/*PublicPartyInviteUnauthorized handles this case with default header values.
+/*
+PublicPartyInviteUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPartyInviteUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -325,9 +329,10 @@ func NewPublicPartyInviteNotFound() *PublicPartyInviteNotFound {
 	return &PublicPartyInviteNotFound{}
 }
 
-/*PublicPartyInviteNotFound handles this case with default header values.
+/*
+PublicPartyInviteNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPartyInviteNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -379,9 +384,10 @@ func NewPublicPartyInviteInternalServerError() *PublicPartyInviteInternalServerE
 	return &PublicPartyInviteInternalServerError{}
 }
 
-/*PublicPartyInviteInternalServerError handles this case with default header values.
+/*
+PublicPartyInviteInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPartyInviteInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

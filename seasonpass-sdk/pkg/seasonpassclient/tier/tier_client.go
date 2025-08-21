@@ -47,7 +47,7 @@ This API is used to query paginated tiers for a season.
 
 Other detail info:
 
-  * Returns : the list of passes
+  - Returns : the list of passes
 */
 func (a *Client) QueryTiersShort(params *QueryTiersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryTiersResponse, error) {
 	// TODO: Validate the params before sending
@@ -439,7 +439,7 @@ This API is used to grant exp to user, it will auto enroll if there's no user se
 
 Other detail info:
 
-  * Returns : user season data
+  - Returns : user season data
 */
 func (a *Client) GrantUserExpShort(params *GrantUserExpParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserExpResponse, error) {
 	// TODO: Validate the params before sending
@@ -504,7 +504,7 @@ This API is used to grant tier to user, it will auto enroll if there's no user s
 
 Other detail info:
 
-  * Returns : user season data
+  - Returns : user season data
 */
 func (a *Client) GrantUserTierShort(params *GrantUserTierParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserTierResponse, error) {
 	// TODO: Validate the params before sending

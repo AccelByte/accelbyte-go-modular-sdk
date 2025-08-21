@@ -78,7 +78,8 @@ func NewPublicGetUserContentParamsWithHTTPClient(client *http.Client) *PublicGet
 	}
 }
 
-/*PublicGetUserContentParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserContentParams contains all the parameters to send to the API endpoint
 for the public get user content operation typically these are written to a http.Request
 */
 type PublicGetUserContentParams struct {

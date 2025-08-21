@@ -85,9 +85,10 @@ func NewUpdateWxPayConfigCertOK() *UpdateWxPayConfigCertOK {
 	return &UpdateWxPayConfigCertOK{}
 }
 
-/*UpdateWxPayConfigCertOK handles this case with default header values.
+/*
+UpdateWxPayConfigCertOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateWxPayConfigCertOK struct {
 	Payload *platformclientmodels.PaymentMerchantConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateWxPayConfigCertNotFound() *UpdateWxPayConfigCertNotFound {
 	return &UpdateWxPayConfigCertNotFound{}
 }
 
-/*UpdateWxPayConfigCertNotFound handles this case with default header values.
+/*
+UpdateWxPayConfigCertNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
 */
 type UpdateWxPayConfigCertNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

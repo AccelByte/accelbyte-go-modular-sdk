@@ -59,7 +59,8 @@ func NewSendUsersTemplatedNotificationV1AdminParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*SendUsersTemplatedNotificationV1AdminParams contains all the parameters to send to the API endpoint
+/*
+SendUsersTemplatedNotificationV1AdminParams contains all the parameters to send to the API endpoint
 for the send users templated notification v1 admin operation typically these are written to a http.Request
 */
 type SendUsersTemplatedNotificationV1AdminParams struct {

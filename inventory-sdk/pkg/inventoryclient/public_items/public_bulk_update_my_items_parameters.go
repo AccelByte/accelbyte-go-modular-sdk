@@ -59,7 +59,8 @@ func NewPublicBulkUpdateMyItemsParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicBulkUpdateMyItemsParams contains all the parameters to send to the API endpoint
+/*
+PublicBulkUpdateMyItemsParams contains all the parameters to send to the API endpoint
 for the public bulk update my items operation typically these are written to a http.Request
 */
 type PublicBulkUpdateMyItemsParams struct {

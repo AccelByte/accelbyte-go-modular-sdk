@@ -69,9 +69,10 @@ func NewRevokeAllEntitlementsOK() *RevokeAllEntitlementsOK {
 	return &RevokeAllEntitlementsOK{}
 }
 
-/*RevokeAllEntitlementsOK handles this case with default header values.
+/*
+RevokeAllEntitlementsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RevokeAllEntitlementsOK struct {
 	Payload *platformclientmodels.BulkOperationResult

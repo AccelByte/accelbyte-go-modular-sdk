@@ -124,9 +124,10 @@ func NewUpdateClientSecretNoContent() *UpdateClientSecretNoContent {
 	return &UpdateClientSecretNoContent{}
 }
 
-/*UpdateClientSecretNoContent handles this case with default header values.
+/*
+UpdateClientSecretNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type UpdateClientSecretNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewUpdateClientSecretBadRequest() *UpdateClientSecretBadRequest {
 	return &UpdateClientSecretBadRequest{}
 }
 
-/*UpdateClientSecretBadRequest handles this case with default header values.
+/*
+UpdateClientSecretBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type UpdateClientSecretBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewUpdateClientSecretUnauthorized() *UpdateClientSecretUnauthorized {
 	return &UpdateClientSecretUnauthorized{}
 }
 
-/*UpdateClientSecretUnauthorized handles this case with default header values.
+/*
+UpdateClientSecretUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateClientSecretUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewUpdateClientSecretForbidden() *UpdateClientSecretForbidden {
 	return &UpdateClientSecretForbidden{}
 }
 
-/*UpdateClientSecretForbidden handles this case with default header values.
+/*
+UpdateClientSecretForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateClientSecretForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewUpdateClientSecretNotFound() *UpdateClientSecretNotFound {
 	return &UpdateClientSecretNotFound{}
 }
 
-/*UpdateClientSecretNotFound handles this case with default header values.
+/*
+UpdateClientSecretNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type UpdateClientSecretNotFound struct {
 }

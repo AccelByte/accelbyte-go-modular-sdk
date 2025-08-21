@@ -59,7 +59,8 @@ func NewPublicGetPaymentURLParamsWithHTTPClient(client *http.Client) *PublicGetP
 	}
 }
 
-/*PublicGetPaymentURLParams contains all the parameters to send to the API endpoint
+/*
+PublicGetPaymentURLParams contains all the parameters to send to the API endpoint
 for the public get payment url operation typically these are written to a http.Request
 */
 type PublicGetPaymentURLParams struct {

@@ -130,9 +130,10 @@ func NewAdminGetContentBulkOK() *AdminGetContentBulkOK {
 	return &AdminGetContentBulkOK{}
 }
 
-/*AdminGetContentBulkOK handles this case with default header values.
+/*
+AdminGetContentBulkOK handles this case with default header values.
 
-  Bulk get content by content IDs
+	Bulk get content by content IDs
 */
 type AdminGetContentBulkOK struct {
 	Payload []*ugcclientmodels.ModelsContentDownloadResponse
@@ -182,9 +183,10 @@ func NewAdminGetContentBulkBadRequest() *AdminGetContentBulkBadRequest {
 	return &AdminGetContentBulkBadRequest{}
 }
 
-/*AdminGetContentBulkBadRequest handles this case with default header values.
+/*
+AdminGetContentBulkBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773900</td><td>Malformed request/Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773900</td><td>Malformed request/Invalid request body</td></tr></table>
 */
 type AdminGetContentBulkBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -236,9 +238,10 @@ func NewAdminGetContentBulkUnauthorized() *AdminGetContentBulkUnauthorized {
 	return &AdminGetContentBulkUnauthorized{}
 }
 
-/*AdminGetContentBulkUnauthorized handles this case with default header values.
+/*
+AdminGetContentBulkUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetContentBulkUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -290,9 +293,10 @@ func NewAdminGetContentBulkForbidden() *AdminGetContentBulkForbidden {
 	return &AdminGetContentBulkForbidden{}
 }
 
-/*AdminGetContentBulkForbidden handles this case with default header values.
+/*
+AdminGetContentBulkForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetContentBulkForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -344,9 +348,10 @@ func NewAdminGetContentBulkInternalServerError() *AdminGetContentBulkInternalSer
 	return &AdminGetContentBulkInternalServerError{}
 }
 
-/*AdminGetContentBulkInternalServerError handles this case with default header values.
+/*
+AdminGetContentBulkInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773901</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>773902</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773901</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>773902</td><td>Failed generate download URL</td></tr></table>
 */
 type AdminGetContentBulkInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

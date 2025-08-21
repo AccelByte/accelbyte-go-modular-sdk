@@ -130,9 +130,10 @@ func NewUpdateCategoryOK() *UpdateCategoryOK {
 	return &UpdateCategoryOK{}
 }
 
-/*UpdateCategoryOK handles this case with default header values.
+/*
+UpdateCategoryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateCategoryOK struct {
 	Payload *platformclientmodels.FullCategoryInfo
@@ -184,9 +185,10 @@ func NewUpdateCategoryBadRequest() *UpdateCategoryBadRequest {
 	return &UpdateCategoryBadRequest{}
 }
 
-/*UpdateCategoryBadRequest handles this case with default header values.
+/*
+UpdateCategoryBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr></table>
 */
 type UpdateCategoryBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewUpdateCategoryNotFound() *UpdateCategoryNotFound {
 	return &UpdateCategoryNotFound{}
 }
 
-/*UpdateCategoryNotFound handles this case with default header values.
+/*
+UpdateCategoryNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateCategoryNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewUpdateCategoryConflict() *UpdateCategoryConflict {
 	return &UpdateCategoryConflict{}
 }
 
-/*UpdateCategoryConflict handles this case with default header values.
+/*
+UpdateCategoryConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type UpdateCategoryConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewUpdateCategoryUnprocessableEntity() *UpdateCategoryUnprocessableEntity {
 	return &UpdateCategoryUnprocessableEntity{}
 }
 
-/*UpdateCategoryUnprocessableEntity handles this case with default header values.
+/*
+UpdateCategoryUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateCategoryUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

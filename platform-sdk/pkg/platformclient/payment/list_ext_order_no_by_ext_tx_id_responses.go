@@ -69,9 +69,10 @@ func NewListExtOrderNoByExtTxIDOK() *ListExtOrderNoByExtTxIDOK {
 	return &ListExtOrderNoByExtTxIDOK{}
 }
 
-/*ListExtOrderNoByExtTxIDOK handles this case with default header values.
+/*
+ListExtOrderNoByExtTxIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ListExtOrderNoByExtTxIDOK struct {
 	Payload []string

@@ -115,9 +115,10 @@ func NewAdminGetPlayFeatureFlagOK() *AdminGetPlayFeatureFlagOK {
 	return &AdminGetPlayFeatureFlagOK{}
 }
 
-/*AdminGetPlayFeatureFlagOK handles this case with default header values.
+/*
+AdminGetPlayFeatureFlagOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetPlayFeatureFlagOK struct {
 	Payload *match2clientmodels.ModelsPlayFeatureFlag
@@ -169,9 +170,10 @@ func NewAdminGetPlayFeatureFlagUnauthorized() *AdminGetPlayFeatureFlagUnauthoriz
 	return &AdminGetPlayFeatureFlagUnauthorized{}
 }
 
-/*AdminGetPlayFeatureFlagUnauthorized handles this case with default header values.
+/*
+AdminGetPlayFeatureFlagUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetPlayFeatureFlagUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetPlayFeatureFlagForbidden() *AdminGetPlayFeatureFlagForbidden {
 	return &AdminGetPlayFeatureFlagForbidden{}
 }
 
-/*AdminGetPlayFeatureFlagForbidden handles this case with default header values.
+/*
+AdminGetPlayFeatureFlagForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetPlayFeatureFlagForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetPlayFeatureFlagInternalServerError() *AdminGetPlayFeatureFlagInt
 	return &AdminGetPlayFeatureFlagInternalServerError{}
 }
 
-/*AdminGetPlayFeatureFlagInternalServerError handles this case with default header values.
+/*
+AdminGetPlayFeatureFlagInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetPlayFeatureFlagInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

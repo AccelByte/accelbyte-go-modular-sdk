@@ -57,7 +57,8 @@ func NewPublicGameSessionCancelParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicGameSessionCancelParams contains all the parameters to send to the API endpoint
+/*
+PublicGameSessionCancelParams contains all the parameters to send to the API endpoint
 for the public game session cancel operation typically these are written to a http.Request
 */
 type PublicGameSessionCancelParams struct {

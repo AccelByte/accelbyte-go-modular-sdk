@@ -159,9 +159,10 @@ func NewPublicEnableMyEmailV4NoContent() *PublicEnableMyEmailV4NoContent {
 	return &PublicEnableMyEmailV4NoContent{}
 }
 
-/*PublicEnableMyEmailV4NoContent handles this case with default header values.
+/*
+PublicEnableMyEmailV4NoContent handles this case with default header values.
 
-  email enabled
+	email enabled
 */
 type PublicEnableMyEmailV4NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewPublicEnableMyEmailV4BadRequest() *PublicEnableMyEmailV4BadRequest {
 	return &PublicEnableMyEmailV4BadRequest{}
 }
 
-/*PublicEnableMyEmailV4BadRequest handles this case with default header values.
+/*
+PublicEnableMyEmailV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type PublicEnableMyEmailV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewPublicEnableMyEmailV4Unauthorized() *PublicEnableMyEmailV4Unauthorized {
 	return &PublicEnableMyEmailV4Unauthorized{}
 }
 
-/*PublicEnableMyEmailV4Unauthorized handles this case with default header values.
+/*
+PublicEnableMyEmailV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicEnableMyEmailV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewPublicEnableMyEmailV4Forbidden() *PublicEnableMyEmailV4Forbidden {
 	return &PublicEnableMyEmailV4Forbidden{}
 }
 
-/*PublicEnableMyEmailV4Forbidden handles this case with default header values.
+/*
+PublicEnableMyEmailV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr></table>
 */
 type PublicEnableMyEmailV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewPublicEnableMyEmailV4NotFound() *PublicEnableMyEmailV4NotFound {
 	return &PublicEnableMyEmailV4NotFound{}
 }
 
-/*PublicEnableMyEmailV4NotFound handles this case with default header values.
+/*
+PublicEnableMyEmailV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicEnableMyEmailV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewPublicEnableMyEmailV4Conflict() *PublicEnableMyEmailV4Conflict {
 	return &PublicEnableMyEmailV4Conflict{}
 }
 
-/*PublicEnableMyEmailV4Conflict handles this case with default header values.
+/*
+PublicEnableMyEmailV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10194</td><td>factor already enabled</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10194</td><td>factor already enabled</td></tr></table>
 */
 type PublicEnableMyEmailV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewPublicEnableMyEmailV4InternalServerError() *PublicEnableMyEmailV4Interna
 	return &PublicEnableMyEmailV4InternalServerError{}
 }
 
-/*PublicEnableMyEmailV4InternalServerError handles this case with default header values.
+/*
+PublicEnableMyEmailV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicEnableMyEmailV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

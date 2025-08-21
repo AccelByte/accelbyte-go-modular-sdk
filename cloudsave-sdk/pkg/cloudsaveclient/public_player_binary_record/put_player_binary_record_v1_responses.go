@@ -145,9 +145,10 @@ func NewPutPlayerBinaryRecordV1OK() *PutPlayerBinaryRecordV1OK {
 	return &PutPlayerBinaryRecordV1OK{}
 }
 
-/*PutPlayerBinaryRecordV1OK handles this case with default header values.
+/*
+PutPlayerBinaryRecordV1OK handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type PutPlayerBinaryRecordV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsPlayerBinaryRecordResponse
@@ -199,9 +200,10 @@ func NewPutPlayerBinaryRecordV1BadRequest() *PutPlayerBinaryRecordV1BadRequest {
 	return &PutPlayerBinaryRecordV1BadRequest{}
 }
 
-/*PutPlayerBinaryRecordV1BadRequest handles this case with default header values.
+/*
+PutPlayerBinaryRecordV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18332</td><td>invalid request body</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18332</td><td>invalid request body</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
 */
 type PutPlayerBinaryRecordV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewPutPlayerBinaryRecordV1Unauthorized() *PutPlayerBinaryRecordV1Unauthoriz
 	return &PutPlayerBinaryRecordV1Unauthorized{}
 }
 
-/*PutPlayerBinaryRecordV1Unauthorized handles this case with default header values.
+/*
+PutPlayerBinaryRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PutPlayerBinaryRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewPutPlayerBinaryRecordV1Forbidden() *PutPlayerBinaryRecordV1Forbidden {
 	return &PutPlayerBinaryRecordV1Forbidden{}
 }
 
-/*PutPlayerBinaryRecordV1Forbidden handles this case with default header values.
+/*
+PutPlayerBinaryRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PutPlayerBinaryRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewPutPlayerBinaryRecordV1NotFound() *PutPlayerBinaryRecordV1NotFound {
 	return &PutPlayerBinaryRecordV1NotFound{}
 }
 
-/*PutPlayerBinaryRecordV1NotFound handles this case with default header values.
+/*
+PutPlayerBinaryRecordV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18333</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18333</td><td>record not found</td></tr></table>
 */
 type PutPlayerBinaryRecordV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewPutPlayerBinaryRecordV1InternalServerError() *PutPlayerBinaryRecordV1Int
 	return &PutPlayerBinaryRecordV1InternalServerError{}
 }
 
-/*PutPlayerBinaryRecordV1InternalServerError handles this case with default header values.
+/*
+PutPlayerBinaryRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18334</td><td>unable to update record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18334</td><td>unable to update record</td></tr></table>
 */
 type PutPlayerBinaryRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

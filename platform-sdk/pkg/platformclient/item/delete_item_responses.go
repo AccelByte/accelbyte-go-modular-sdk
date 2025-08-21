@@ -99,9 +99,10 @@ func NewDeleteItemNoContent() *DeleteItemNoContent {
 	return &DeleteItemNoContent{}
 }
 
-/*DeleteItemNoContent handles this case with default header values.
+/*
+DeleteItemNoContent handles this case with default header values.
 
-  Delete item successfully
+	Delete item successfully
 */
 type DeleteItemNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewDeleteItemNotFound() *DeleteItemNotFound {
 	return &DeleteItemNotFound{}
 }
 
-/*DeleteItemNotFound handles this case with default header values.
+/*
+DeleteItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30335</td><td>Item [{itemId}] can't be deleted in non-forced mode if item has been published</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30335</td><td>Item [{itemId}] can't be deleted in non-forced mode if item has been published</td></tr></table>
 */
 type DeleteItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewDeleteItemConflict() *DeleteItemConflict {
 	return &DeleteItemConflict{}
 }
 
-/*DeleteItemConflict handles this case with default header values.
+/*
+DeleteItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30386</td><td>The item [{itemId}] is currently associated and cannot be deleted in namespace [{namespace}], Feature {featureName}, Module {moduleName}, and Reference ID {referenceId} are using this item ID</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30386</td><td>The item [{itemId}] is currently associated and cannot be deleted in namespace [{namespace}], Feature {featureName}, Module {moduleName}, and Reference ID {referenceId} are using this item ID</td></tr></table>
 */
 type DeleteItemConflict struct {
 	Payload *platformclientmodels.ErrorEntity

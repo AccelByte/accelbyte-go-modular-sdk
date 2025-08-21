@@ -38,7 +38,6 @@ type ClientService interface {
 /*
 GetUserLeaderboardRankingsAdminV3Short get user rankings
 
-
 Get user leaderboard rankings
 */
 func (a *Client) GetUserLeaderboardRankingsAdminV3Short(params *GetUserLeaderboardRankingsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserLeaderboardRankingsAdminV3Response, error) {

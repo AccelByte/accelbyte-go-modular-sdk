@@ -144,9 +144,10 @@ func NewAdminAddRolePermissionsV3NoContent() *AdminAddRolePermissionsV3NoContent
 	return &AdminAddRolePermissionsV3NoContent{}
 }
 
-/*AdminAddRolePermissionsV3NoContent handles this case with default header values.
+/*
+AdminAddRolePermissionsV3NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminAddRolePermissionsV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminAddRolePermissionsV3BadRequest() *AdminAddRolePermissionsV3BadReque
 	return &AdminAddRolePermissionsV3BadRequest{}
 }
 
-/*AdminAddRolePermissionsV3BadRequest handles this case with default header values.
+/*
+AdminAddRolePermissionsV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminAddRolePermissionsV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminAddRolePermissionsV3Unauthorized() *AdminAddRolePermissionsV3Unauth
 	return &AdminAddRolePermissionsV3Unauthorized{}
 }
 
-/*AdminAddRolePermissionsV3Unauthorized handles this case with default header values.
+/*
+AdminAddRolePermissionsV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminAddRolePermissionsV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminAddRolePermissionsV3Forbidden() *AdminAddRolePermissionsV3Forbidden
 	return &AdminAddRolePermissionsV3Forbidden{}
 }
 
-/*AdminAddRolePermissionsV3Forbidden handles this case with default header values.
+/*
+AdminAddRolePermissionsV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminAddRolePermissionsV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminAddRolePermissionsV3NotFound() *AdminAddRolePermissionsV3NotFound {
 	return &AdminAddRolePermissionsV3NotFound{}
 }
 
-/*AdminAddRolePermissionsV3NotFound handles this case with default header values.
+/*
+AdminAddRolePermissionsV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminAddRolePermissionsV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminAddRolePermissionsV3InternalServerError() *AdminAddRolePermissionsV
 	return &AdminAddRolePermissionsV3InternalServerError{}
 }
 
-/*AdminAddRolePermissionsV3InternalServerError handles this case with default header values.
+/*
+AdminAddRolePermissionsV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminAddRolePermissionsV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

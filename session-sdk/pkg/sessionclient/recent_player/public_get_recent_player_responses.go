@@ -130,9 +130,10 @@ func NewPublicGetRecentPlayerOK() *PublicGetRecentPlayerOK {
 	return &PublicGetRecentPlayerOK{}
 }
 
-/*PublicGetRecentPlayerOK handles this case with default header values.
+/*
+PublicGetRecentPlayerOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetRecentPlayerOK struct {
 	Payload *sessionclientmodels.ModelsRecentPlayerQueryResponse
@@ -184,9 +185,10 @@ func NewPublicGetRecentPlayerBadRequest() *PublicGetRecentPlayerBadRequest {
 	return &PublicGetRecentPlayerBadRequest{}
 }
 
-/*PublicGetRecentPlayerBadRequest handles this case with default header values.
+/*
+PublicGetRecentPlayerBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetRecentPlayerBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicGetRecentPlayerUnauthorized() *PublicGetRecentPlayerUnauthorized {
 	return &PublicGetRecentPlayerUnauthorized{}
 }
 
-/*PublicGetRecentPlayerUnauthorized handles this case with default header values.
+/*
+PublicGetRecentPlayerUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetRecentPlayerUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicGetRecentPlayerNotFound() *PublicGetRecentPlayerNotFound {
 	return &PublicGetRecentPlayerNotFound{}
 }
 
-/*PublicGetRecentPlayerNotFound handles this case with default header values.
+/*
+PublicGetRecentPlayerNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetRecentPlayerNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicGetRecentPlayerInternalServerError() *PublicGetRecentPlayerInterna
 	return &PublicGetRecentPlayerInternalServerError{}
 }
 
-/*PublicGetRecentPlayerInternalServerError handles this case with default header values.
+/*
+PublicGetRecentPlayerInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetRecentPlayerInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

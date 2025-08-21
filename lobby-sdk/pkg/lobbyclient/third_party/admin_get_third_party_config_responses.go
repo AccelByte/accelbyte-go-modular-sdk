@@ -130,9 +130,10 @@ func NewAdminGetThirdPartyConfigOK() *AdminGetThirdPartyConfigOK {
 	return &AdminGetThirdPartyConfigOK{}
 }
 
-/*AdminGetThirdPartyConfigOK handles this case with default header values.
+/*
+AdminGetThirdPartyConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetThirdPartyConfigOK struct {
 	Payload *lobbyclientmodels.ModelsGetConfigResponse
@@ -184,9 +185,10 @@ func NewAdminGetThirdPartyConfigBadRequest() *AdminGetThirdPartyConfigBadRequest
 	return &AdminGetThirdPartyConfigBadRequest{}
 }
 
-/*AdminGetThirdPartyConfigBadRequest handles this case with default header values.
+/*
+AdminGetThirdPartyConfigBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetThirdPartyConfigBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -238,9 +240,10 @@ func NewAdminGetThirdPartyConfigUnauthorized() *AdminGetThirdPartyConfigUnauthor
 	return &AdminGetThirdPartyConfigUnauthorized{}
 }
 
-/*AdminGetThirdPartyConfigUnauthorized handles this case with default header values.
+/*
+AdminGetThirdPartyConfigUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetThirdPartyConfigUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -292,9 +295,10 @@ func NewAdminGetThirdPartyConfigForbidden() *AdminGetThirdPartyConfigForbidden {
 	return &AdminGetThirdPartyConfigForbidden{}
 }
 
-/*AdminGetThirdPartyConfigForbidden handles this case with default header values.
+/*
+AdminGetThirdPartyConfigForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetThirdPartyConfigForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -346,9 +350,10 @@ func NewAdminGetThirdPartyConfigInternalServerError() *AdminGetThirdPartyConfigI
 	return &AdminGetThirdPartyConfigInternalServerError{}
 }
 
-/*AdminGetThirdPartyConfigInternalServerError handles this case with default header values.
+/*
+AdminGetThirdPartyConfigInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetThirdPartyConfigInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

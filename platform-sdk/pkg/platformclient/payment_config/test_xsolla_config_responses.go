@@ -69,9 +69,10 @@ func NewTestXsollaConfigOK() *TestXsollaConfigOK {
 	return &TestXsollaConfigOK{}
 }
 
-/*TestXsollaConfigOK handles this case with default header values.
+/*
+TestXsollaConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestXsollaConfigOK struct {
 	Payload *platformclientmodels.TestResult

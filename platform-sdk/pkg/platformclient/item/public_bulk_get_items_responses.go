@@ -85,9 +85,10 @@ func NewPublicBulkGetItemsOK() *PublicBulkGetItemsOK {
 	return &PublicBulkGetItemsOK{}
 }
 
-/*PublicBulkGetItemsOK handles this case with default header values.
+/*
+PublicBulkGetItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicBulkGetItemsOK struct {
 	Payload []*platformclientmodels.ItemInfo
@@ -137,9 +138,10 @@ func NewPublicBulkGetItemsNotFound() *PublicBulkGetItemsNotFound {
 	return &PublicBulkGetItemsNotFound{}
 }
 
-/*PublicBulkGetItemsNotFound handles this case with default header values.
+/*
+PublicBulkGetItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicBulkGetItemsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

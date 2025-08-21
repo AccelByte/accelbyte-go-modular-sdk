@@ -130,9 +130,10 @@ func NewAdminDeleteBulkPartiesOK() *AdminDeleteBulkPartiesOK {
 	return &AdminDeleteBulkPartiesOK{}
 }
 
-/*AdminDeleteBulkPartiesOK handles this case with default header values.
+/*
+AdminDeleteBulkPartiesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminDeleteBulkPartiesOK struct {
 	Payload *sessionclientmodels.ApimodelsDeleteBulkPartySessionsAPIResponse
@@ -184,9 +185,10 @@ func NewAdminDeleteBulkPartiesBadRequest() *AdminDeleteBulkPartiesBadRequest {
 	return &AdminDeleteBulkPartiesBadRequest{}
 }
 
-/*AdminDeleteBulkPartiesBadRequest handles this case with default header values.
+/*
+AdminDeleteBulkPartiesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeleteBulkPartiesBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminDeleteBulkPartiesUnauthorized() *AdminDeleteBulkPartiesUnauthorized
 	return &AdminDeleteBulkPartiesUnauthorized{}
 }
 
-/*AdminDeleteBulkPartiesUnauthorized handles this case with default header values.
+/*
+AdminDeleteBulkPartiesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeleteBulkPartiesUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminDeleteBulkPartiesForbidden() *AdminDeleteBulkPartiesForbidden {
 	return &AdminDeleteBulkPartiesForbidden{}
 }
 
-/*AdminDeleteBulkPartiesForbidden handles this case with default header values.
+/*
+AdminDeleteBulkPartiesForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeleteBulkPartiesForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminDeleteBulkPartiesInternalServerError() *AdminDeleteBulkPartiesInter
 	return &AdminDeleteBulkPartiesInternalServerError{}
 }
 
-/*AdminDeleteBulkPartiesInternalServerError handles this case with default header values.
+/*
+AdminDeleteBulkPartiesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteBulkPartiesInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

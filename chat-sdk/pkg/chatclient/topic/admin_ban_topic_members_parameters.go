@@ -59,7 +59,8 @@ func NewAdminBanTopicMembersParamsWithHTTPClient(client *http.Client) *AdminBanT
 	}
 }
 
-/*AdminBanTopicMembersParams contains all the parameters to send to the API endpoint
+/*
+AdminBanTopicMembersParams contains all the parameters to send to the API endpoint
 for the admin ban topic members operation typically these are written to a http.Request
 */
 type AdminBanTopicMembersParams struct {

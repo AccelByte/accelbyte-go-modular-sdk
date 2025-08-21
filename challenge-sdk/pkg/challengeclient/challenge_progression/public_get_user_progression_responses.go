@@ -160,9 +160,10 @@ func NewPublicGetUserProgressionOK() *PublicGetUserProgressionOK {
 	return &PublicGetUserProgressionOK{}
 }
 
-/*PublicGetUserProgressionOK handles this case with default header values.
+/*
+PublicGetUserProgressionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetUserProgressionOK struct {
 	Payload *challengeclientmodels.ModelUserProgressionResponse
@@ -214,9 +215,10 @@ func NewPublicGetUserProgressionBadRequest() *PublicGetUserProgressionBadRequest
 	return &PublicGetUserProgressionBadRequest{}
 }
 
-/*PublicGetUserProgressionBadRequest handles this case with default header values.
+/*
+PublicGetUserProgressionBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type PublicGetUserProgressionBadRequest struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -268,9 +270,10 @@ func NewPublicGetUserProgressionUnauthorized() *PublicGetUserProgressionUnauthor
 	return &PublicGetUserProgressionUnauthorized{}
 }
 
-/*PublicGetUserProgressionUnauthorized handles this case with default header values.
+/*
+PublicGetUserProgressionUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetUserProgressionUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -322,9 +325,10 @@ func NewPublicGetUserProgressionForbidden() *PublicGetUserProgressionForbidden {
 	return &PublicGetUserProgressionForbidden{}
 }
 
-/*PublicGetUserProgressionForbidden handles this case with default header values.
+/*
+PublicGetUserProgressionForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGetUserProgressionForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -376,9 +380,10 @@ func NewPublicGetUserProgressionNotFound() *PublicGetUserProgressionNotFound {
 	return &PublicGetUserProgressionNotFound{}
 }
 
-/*PublicGetUserProgressionNotFound handles this case with default header values.
+/*
+PublicGetUserProgressionNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type PublicGetUserProgressionNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -430,9 +435,10 @@ func NewPublicGetUserProgressionUnprocessableEntity() *PublicGetUserProgressionU
 	return &PublicGetUserProgressionUnprocessableEntity{}
 }
 
-/*PublicGetUserProgressionUnprocessableEntity handles this case with default header values.
+/*
+PublicGetUserProgressionUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
 */
 type PublicGetUserProgressionUnprocessableEntity struct {
 	Payload *challengeclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewPublicGetUserProgressionInternalServerError() *PublicGetUserProgressionI
 	return &PublicGetUserProgressionInternalServerError{}
 }
 
-/*PublicGetUserProgressionInternalServerError handles this case with default header values.
+/*
+PublicGetUserProgressionInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type PublicGetUserProgressionInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

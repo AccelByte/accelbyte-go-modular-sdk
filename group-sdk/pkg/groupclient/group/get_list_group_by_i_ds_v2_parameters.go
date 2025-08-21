@@ -59,7 +59,8 @@ func NewGetListGroupByIDsV2ParamsWithHTTPClient(client *http.Client) *GetListGro
 	}
 }
 
-/*GetListGroupByIDsV2Params contains all the parameters to send to the API endpoint
+/*
+GetListGroupByIDsV2Params contains all the parameters to send to the API endpoint
 for the get list group by i ds v2 operation typically these are written to a http.Request
 */
 type GetListGroupByIDsV2Params struct {

@@ -221,7 +221,6 @@ func (a *Client) AdminGetUserPartyV1Short(params *AdminGetUserPartyV1Params, aut
 PublicGetPartyDataV1Short get party data by party id
 Required valid user authorization
 
-
 load personal party data in a namespace based on Party ID
 
 Action Code: 50101
@@ -314,7 +313,6 @@ func (a *Client) PublicGetPartyDataV1Short(params *PublicGetPartyDataV1Params, a
 /*
 PublicUpdatePartyAttributesV1Short update party attributes
 Required valid user authorization
-
 
 update party attributes in a namespace.
 */
@@ -413,7 +411,6 @@ func (a *Client) PublicUpdatePartyAttributesV1Short(params *PublicUpdatePartyAtt
 /*
 PublicSetPartyLimitV1Short set party limit
 Required valid user authorization
-
 
 Set party limit, only party leader can call this endpoint.
 */

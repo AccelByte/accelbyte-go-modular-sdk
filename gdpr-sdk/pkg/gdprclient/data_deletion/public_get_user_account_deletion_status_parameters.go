@@ -57,7 +57,8 @@ func NewPublicGetUserAccountDeletionStatusParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*PublicGetUserAccountDeletionStatusParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserAccountDeletionStatusParams contains all the parameters to send to the API endpoint
 for the public get user account deletion status operation typically these are written to a http.Request
 */
 type PublicGetUserAccountDeletionStatusParams struct {

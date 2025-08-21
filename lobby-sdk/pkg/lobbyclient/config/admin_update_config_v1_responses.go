@@ -160,9 +160,10 @@ func NewAdminUpdateConfigV1OK() *AdminUpdateConfigV1OK {
 	return &AdminUpdateConfigV1OK{}
 }
 
-/*AdminUpdateConfigV1OK handles this case with default header values.
+/*
+AdminUpdateConfigV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateConfigV1OK struct {
 	Payload *lobbyclientmodels.ModelsConfigReq
@@ -214,9 +215,10 @@ func NewAdminUpdateConfigV1BadRequest() *AdminUpdateConfigV1BadRequest {
 	return &AdminUpdateConfigV1BadRequest{}
 }
 
-/*AdminUpdateConfigV1BadRequest handles this case with default header values.
+/*
+AdminUpdateConfigV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateConfigV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -268,9 +270,10 @@ func NewAdminUpdateConfigV1Unauthorized() *AdminUpdateConfigV1Unauthorized {
 	return &AdminUpdateConfigV1Unauthorized{}
 }
 
-/*AdminUpdateConfigV1Unauthorized handles this case with default header values.
+/*
+AdminUpdateConfigV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdateConfigV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -322,9 +325,10 @@ func NewAdminUpdateConfigV1Forbidden() *AdminUpdateConfigV1Forbidden {
 	return &AdminUpdateConfigV1Forbidden{}
 }
 
-/*AdminUpdateConfigV1Forbidden handles this case with default header values.
+/*
+AdminUpdateConfigV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdateConfigV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -376,9 +380,10 @@ func NewAdminUpdateConfigV1NotFound() *AdminUpdateConfigV1NotFound {
 	return &AdminUpdateConfigV1NotFound{}
 }
 
-/*AdminUpdateConfigV1NotFound handles this case with default header values.
+/*
+AdminUpdateConfigV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateConfigV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -430,9 +435,10 @@ func NewAdminUpdateConfigV1PreconditionFailed() *AdminUpdateConfigV1Precondition
 	return &AdminUpdateConfigV1PreconditionFailed{}
 }
 
-/*AdminUpdateConfigV1PreconditionFailed handles this case with default header values.
+/*
+AdminUpdateConfigV1PreconditionFailed handles this case with default header values.
 
-  Precondition Failed
+	Precondition Failed
 */
 type AdminUpdateConfigV1PreconditionFailed struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -484,9 +490,10 @@ func NewAdminUpdateConfigV1InternalServerError() *AdminUpdateConfigV1InternalSer
 	return &AdminUpdateConfigV1InternalServerError{}
 }
 
-/*AdminUpdateConfigV1InternalServerError handles this case with default header values.
+/*
+AdminUpdateConfigV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateConfigV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

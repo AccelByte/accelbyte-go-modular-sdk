@@ -130,9 +130,10 @@ func NewAdminGetRecentPlayerOK() *AdminGetRecentPlayerOK {
 	return &AdminGetRecentPlayerOK{}
 }
 
-/*AdminGetRecentPlayerOK handles this case with default header values.
+/*
+AdminGetRecentPlayerOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetRecentPlayerOK struct {
 	Payload *sessionclientmodels.ModelsRecentPlayerQueryResponse
@@ -184,9 +185,10 @@ func NewAdminGetRecentPlayerBadRequest() *AdminGetRecentPlayerBadRequest {
 	return &AdminGetRecentPlayerBadRequest{}
 }
 
-/*AdminGetRecentPlayerBadRequest handles this case with default header values.
+/*
+AdminGetRecentPlayerBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetRecentPlayerBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetRecentPlayerUnauthorized() *AdminGetRecentPlayerUnauthorized {
 	return &AdminGetRecentPlayerUnauthorized{}
 }
 
-/*AdminGetRecentPlayerUnauthorized handles this case with default header values.
+/*
+AdminGetRecentPlayerUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetRecentPlayerUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGetRecentPlayerNotFound() *AdminGetRecentPlayerNotFound {
 	return &AdminGetRecentPlayerNotFound{}
 }
 
-/*AdminGetRecentPlayerNotFound handles this case with default header values.
+/*
+AdminGetRecentPlayerNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetRecentPlayerNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetRecentPlayerInternalServerError() *AdminGetRecentPlayerInternalS
 	return &AdminGetRecentPlayerInternalServerError{}
 }
 
-/*AdminGetRecentPlayerInternalServerError handles this case with default header values.
+/*
+AdminGetRecentPlayerInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetRecentPlayerInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

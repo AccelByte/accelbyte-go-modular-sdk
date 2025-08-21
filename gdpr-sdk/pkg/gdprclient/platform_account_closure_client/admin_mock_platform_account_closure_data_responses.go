@@ -129,9 +129,10 @@ func NewAdminMockPlatformAccountClosureDataNoContent() *AdminMockPlatformAccount
 	return &AdminMockPlatformAccountClosureDataNoContent{}
 }
 
-/*AdminMockPlatformAccountClosureDataNoContent handles this case with default header values.
+/*
+AdminMockPlatformAccountClosureDataNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminMockPlatformAccountClosureDataNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminMockPlatformAccountClosureDataBadRequest() *AdminMockPlatformAccoun
 	return &AdminMockPlatformAccountClosureDataBadRequest{}
 }
 
-/*AdminMockPlatformAccountClosureDataBadRequest handles this case with default header values.
+/*
+AdminMockPlatformAccountClosureDataBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminMockPlatformAccountClosureDataBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewAdminMockPlatformAccountClosureDataUnauthorized() *AdminMockPlatformAcco
 	return &AdminMockPlatformAccountClosureDataUnauthorized{}
 }
 
-/*AdminMockPlatformAccountClosureDataUnauthorized handles this case with default header values.
+/*
+AdminMockPlatformAccountClosureDataUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminMockPlatformAccountClosureDataUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewAdminMockPlatformAccountClosureDataForbidden() *AdminMockPlatformAccount
 	return &AdminMockPlatformAccountClosureDataForbidden{}
 }
 
-/*AdminMockPlatformAccountClosureDataForbidden handles this case with default header values.
+/*
+AdminMockPlatformAccountClosureDataForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminMockPlatformAccountClosureDataForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewAdminMockPlatformAccountClosureDataInternalServerError() *AdminMockPlatf
 	return &AdminMockPlatformAccountClosureDataInternalServerError{}
 }
 
-/*AdminMockPlatformAccountClosureDataInternalServerError handles this case with default header values.
+/*
+AdminMockPlatformAccountClosureDataInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminMockPlatformAccountClosureDataInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

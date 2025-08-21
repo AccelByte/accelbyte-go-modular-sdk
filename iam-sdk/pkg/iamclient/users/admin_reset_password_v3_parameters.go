@@ -59,7 +59,8 @@ func NewAdminResetPasswordV3ParamsWithHTTPClient(client *http.Client) *AdminRese
 	}
 }
 
-/*AdminResetPasswordV3Params contains all the parameters to send to the API endpoint
+/*
+AdminResetPasswordV3Params contains all the parameters to send to the API endpoint
 for the admin reset password v3 operation typically these are written to a http.Request
 */
 type AdminResetPasswordV3Params struct {

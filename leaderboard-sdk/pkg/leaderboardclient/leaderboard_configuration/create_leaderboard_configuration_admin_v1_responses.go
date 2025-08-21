@@ -145,9 +145,10 @@ func NewCreateLeaderboardConfigurationAdminV1Created() *CreateLeaderboardConfigu
 	return &CreateLeaderboardConfigurationAdminV1Created{}
 }
 
-/*CreateLeaderboardConfigurationAdminV1Created handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV1Created handles this case with default header values.
 
-  Leaderboard created
+	Leaderboard created
 */
 type CreateLeaderboardConfigurationAdminV1Created struct {
 	Payload *leaderboardclientmodels.ModelsLeaderboardConfigReq
@@ -199,9 +200,10 @@ func NewCreateLeaderboardConfigurationAdminV1BadRequest() *CreateLeaderboardConf
 	return &CreateLeaderboardConfigurationAdminV1BadRequest{}
 }
 
-/*CreateLeaderboardConfigurationAdminV1BadRequest handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>71242</td><td>stat code not found in namespace</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>71242</td><td>stat code not found in namespace</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV1BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewCreateLeaderboardConfigurationAdminV1Unauthorized() *CreateLeaderboardCo
 	return &CreateLeaderboardConfigurationAdminV1Unauthorized{}
 }
 
-/*CreateLeaderboardConfigurationAdminV1Unauthorized handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV1Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewCreateLeaderboardConfigurationAdminV1Forbidden() *CreateLeaderboardConfi
 	return &CreateLeaderboardConfigurationAdminV1Forbidden{}
 }
 
-/*CreateLeaderboardConfigurationAdminV1Forbidden handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV1Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewCreateLeaderboardConfigurationAdminV1Conflict() *CreateLeaderboardConfig
 	return &CreateLeaderboardConfigurationAdminV1Conflict{}
 }
 
-/*CreateLeaderboardConfigurationAdminV1Conflict handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV1Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71132</td><td>leaderboard configuration already exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71132</td><td>leaderboard configuration already exist</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV1Conflict struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewCreateLeaderboardConfigurationAdminV1InternalServerError() *CreateLeader
 	return &CreateLeaderboardConfigurationAdminV1InternalServerError{}
 }
 
-/*CreateLeaderboardConfigurationAdminV1InternalServerError handles this case with default header values.
+/*
+CreateLeaderboardConfigurationAdminV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type CreateLeaderboardConfigurationAdminV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

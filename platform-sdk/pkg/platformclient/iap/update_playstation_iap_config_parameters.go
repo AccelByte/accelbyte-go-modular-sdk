@@ -59,7 +59,8 @@ func NewUpdatePlaystationIAPConfigParamsWithHTTPClient(client *http.Client) *Upd
 	}
 }
 
-/*UpdatePlaystationIAPConfigParams contains all the parameters to send to the API endpoint
+/*
+UpdatePlaystationIAPConfigParams contains all the parameters to send to the API endpoint
 for the update playstation iap config operation typically these are written to a http.Request
 */
 type UpdatePlaystationIAPConfigParams struct {

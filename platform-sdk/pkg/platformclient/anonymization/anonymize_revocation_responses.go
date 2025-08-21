@@ -66,9 +66,10 @@ func NewAnonymizeRevocationNoContent() *AnonymizeRevocationNoContent {
 	return &AnonymizeRevocationNoContent{}
 }
 
-/*AnonymizeRevocationNoContent handles this case with default header values.
+/*
+AnonymizeRevocationNoContent handles this case with default header values.
 
-  Anonymize successfully
+	Anonymize successfully
 */
 type AnonymizeRevocationNoContent struct {
 }

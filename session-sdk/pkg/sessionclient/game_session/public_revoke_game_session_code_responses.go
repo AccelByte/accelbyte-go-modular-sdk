@@ -144,9 +144,10 @@ func NewPublicRevokeGameSessionCodeNoContent() *PublicRevokeGameSessionCodeNoCon
 	return &PublicRevokeGameSessionCodeNoContent{}
 }
 
-/*PublicRevokeGameSessionCodeNoContent handles this case with default header values.
+/*
+PublicRevokeGameSessionCodeNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicRevokeGameSessionCodeNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicRevokeGameSessionCodeBadRequest() *PublicRevokeGameSessionCodeBadR
 	return &PublicRevokeGameSessionCodeBadRequest{}
 }
 
-/*PublicRevokeGameSessionCodeBadRequest handles this case with default header values.
+/*
+PublicRevokeGameSessionCodeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicRevokeGameSessionCodeBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewPublicRevokeGameSessionCodeUnauthorized() *PublicRevokeGameSessionCodeUn
 	return &PublicRevokeGameSessionCodeUnauthorized{}
 }
 
-/*PublicRevokeGameSessionCodeUnauthorized handles this case with default header values.
+/*
+PublicRevokeGameSessionCodeUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicRevokeGameSessionCodeUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewPublicRevokeGameSessionCodeForbidden() *PublicRevokeGameSessionCodeForbi
 	return &PublicRevokeGameSessionCodeForbidden{}
 }
 
-/*PublicRevokeGameSessionCodeForbidden handles this case with default header values.
+/*
+PublicRevokeGameSessionCodeForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicRevokeGameSessionCodeForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewPublicRevokeGameSessionCodeNotFound() *PublicRevokeGameSessionCodeNotFou
 	return &PublicRevokeGameSessionCodeNotFound{}
 }
 
-/*PublicRevokeGameSessionCodeNotFound handles this case with default header values.
+/*
+PublicRevokeGameSessionCodeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicRevokeGameSessionCodeNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewPublicRevokeGameSessionCodeInternalServerError() *PublicRevokeGameSessio
 	return &PublicRevokeGameSessionCodeInternalServerError{}
 }
 
-/*PublicRevokeGameSessionCodeInternalServerError handles this case with default header values.
+/*
+PublicRevokeGameSessionCodeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicRevokeGameSessionCodeInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

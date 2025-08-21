@@ -69,9 +69,10 @@ func NewQueryUserEntitlementsOK() *QueryUserEntitlementsOK {
 	return &QueryUserEntitlementsOK{}
 }
 
-/*QueryUserEntitlementsOK handles this case with default header values.
+/*
+QueryUserEntitlementsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryUserEntitlementsOK struct {
 	Payload *platformclientmodels.EntitlementPagingSlicedResult

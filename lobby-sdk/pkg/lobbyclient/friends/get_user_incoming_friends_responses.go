@@ -145,9 +145,10 @@ func NewGetUserIncomingFriendsOK() *GetUserIncomingFriendsOK {
 	return &GetUserIncomingFriendsOK{}
 }
 
-/*GetUserIncomingFriendsOK handles this case with default header values.
+/*
+GetUserIncomingFriendsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserIncomingFriendsOK struct {
 	Payload []*lobbyclientmodels.ModelGetUserIncomingFriendsResponse
@@ -197,9 +198,10 @@ func NewGetUserIncomingFriendsBadRequest() *GetUserIncomingFriendsBadRequest {
 	return &GetUserIncomingFriendsBadRequest{}
 }
 
-/*GetUserIncomingFriendsBadRequest handles this case with default header values.
+/*
+GetUserIncomingFriendsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetUserIncomingFriendsBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -251,9 +253,10 @@ func NewGetUserIncomingFriendsUnauthorized() *GetUserIncomingFriendsUnauthorized
 	return &GetUserIncomingFriendsUnauthorized{}
 }
 
-/*GetUserIncomingFriendsUnauthorized handles this case with default header values.
+/*
+GetUserIncomingFriendsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetUserIncomingFriendsUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -305,9 +308,10 @@ func NewGetUserIncomingFriendsForbidden() *GetUserIncomingFriendsForbidden {
 	return &GetUserIncomingFriendsForbidden{}
 }
 
-/*GetUserIncomingFriendsForbidden handles this case with default header values.
+/*
+GetUserIncomingFriendsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetUserIncomingFriendsForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -359,9 +363,10 @@ func NewGetUserIncomingFriendsNotFound() *GetUserIncomingFriendsNotFound {
 	return &GetUserIncomingFriendsNotFound{}
 }
 
-/*GetUserIncomingFriendsNotFound handles this case with default header values.
+/*
+GetUserIncomingFriendsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetUserIncomingFriendsNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -413,9 +418,10 @@ func NewGetUserIncomingFriendsInternalServerError() *GetUserIncomingFriendsInter
 	return &GetUserIncomingFriendsInternalServerError{}
 }
 
-/*GetUserIncomingFriendsInternalServerError handles this case with default header values.
+/*
+GetUserIncomingFriendsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetUserIncomingFriendsInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

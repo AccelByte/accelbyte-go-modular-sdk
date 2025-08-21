@@ -144,9 +144,10 @@ func NewAdminUnlockAchievementNoContent() *AdminUnlockAchievementNoContent {
 	return &AdminUnlockAchievementNoContent{}
 }
 
-/*AdminUnlockAchievementNoContent handles this case with default header values.
+/*
+AdminUnlockAchievementNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminUnlockAchievementNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminUnlockAchievementBadRequest() *AdminUnlockAchievementBadRequest {
 	return &AdminUnlockAchievementBadRequest{}
 }
 
-/*AdminUnlockAchievementBadRequest handles this case with default header values.
+/*
+AdminUnlockAchievementBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUnlockAchievementBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewAdminUnlockAchievementUnauthorized() *AdminUnlockAchievementUnauthorized
 	return &AdminUnlockAchievementUnauthorized{}
 }
 
-/*AdminUnlockAchievementUnauthorized handles this case with default header values.
+/*
+AdminUnlockAchievementUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUnlockAchievementUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewAdminUnlockAchievementNotFound() *AdminUnlockAchievementNotFound {
 	return &AdminUnlockAchievementNotFound{}
 }
 
-/*AdminUnlockAchievementNotFound handles this case with default header values.
+/*
+AdminUnlockAchievementNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUnlockAchievementNotFound struct {
 	Payload *achievementclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewAdminUnlockAchievementUnprocessableEntity() *AdminUnlockAchievementUnpro
 	return &AdminUnlockAchievementUnprocessableEntity{}
 }
 
-/*AdminUnlockAchievementUnprocessableEntity handles this case with default header values.
+/*
+AdminUnlockAchievementUnprocessableEntity handles this case with default header values.
 
-  Unprocessable Entity
+	Unprocessable Entity
 */
 type AdminUnlockAchievementUnprocessableEntity struct {
 	Payload *achievementclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewAdminUnlockAchievementInternalServerError() *AdminUnlockAchievementInter
 	return &AdminUnlockAchievementInternalServerError{}
 }
 
-/*AdminUnlockAchievementInternalServerError handles this case with default header values.
+/*
+AdminUnlockAchievementInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUnlockAchievementInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

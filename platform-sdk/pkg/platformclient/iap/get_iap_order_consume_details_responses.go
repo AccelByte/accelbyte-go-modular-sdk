@@ -69,9 +69,10 @@ func NewGetIAPOrderConsumeDetailsOK() *GetIAPOrderConsumeDetailsOK {
 	return &GetIAPOrderConsumeDetailsOK{}
 }
 
-/*GetIAPOrderConsumeDetailsOK handles this case with default header values.
+/*
+GetIAPOrderConsumeDetailsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetIAPOrderConsumeDetailsOK struct {
 	Payload []*platformclientmodels.IAPOrderConsumeDetailInfo

@@ -69,9 +69,10 @@ func NewUpdateAppleIAPConfigOK() *UpdateAppleIAPConfigOK {
 	return &UpdateAppleIAPConfigOK{}
 }
 
-/*UpdateAppleIAPConfigOK handles this case with default header values.
+/*
+UpdateAppleIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateAppleIAPConfigOK struct {
 	Payload *platformclientmodels.AppleIAPConfigInfo

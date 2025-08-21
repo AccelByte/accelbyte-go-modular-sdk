@@ -57,7 +57,8 @@ func NewLeaveGroupPublicV1ParamsWithHTTPClient(client *http.Client) *LeaveGroupP
 	}
 }
 
-/*LeaveGroupPublicV1Params contains all the parameters to send to the API endpoint
+/*
+LeaveGroupPublicV1Params contains all the parameters to send to the API endpoint
 for the leave group public v1 operation typically these are written to a http.Request
 */
 type LeaveGroupPublicV1Params struct {

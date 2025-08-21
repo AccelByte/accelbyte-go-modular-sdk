@@ -78,7 +78,8 @@ func NewGetPublicFollowersParamsWithHTTPClient(client *http.Client) *GetPublicFo
 	}
 }
 
-/*GetPublicFollowersParams contains all the parameters to send to the API endpoint
+/*
+GetPublicFollowersParams contains all the parameters to send to the API endpoint
 for the get public followers operation typically these are written to a http.Request
 */
 type GetPublicFollowersParams struct {

@@ -129,9 +129,10 @@ func NewDeleteNotificationTopicV1AdminNoContent() *DeleteNotificationTopicV1Admi
 	return &DeleteNotificationTopicV1AdminNoContent{}
 }
 
-/*DeleteNotificationTopicV1AdminNoContent handles this case with default header values.
+/*
+DeleteNotificationTopicV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteNotificationTopicV1AdminNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteNotificationTopicV1AdminUnauthorized() *DeleteNotificationTopicV1A
 	return &DeleteNotificationTopicV1AdminUnauthorized{}
 }
 
-/*DeleteNotificationTopicV1AdminUnauthorized handles this case with default header values.
+/*
+DeleteNotificationTopicV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteNotificationTopicV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -210,9 +212,10 @@ func NewDeleteNotificationTopicV1AdminForbidden() *DeleteNotificationTopicV1Admi
 	return &DeleteNotificationTopicV1AdminForbidden{}
 }
 
-/*DeleteNotificationTopicV1AdminForbidden handles this case with default header values.
+/*
+DeleteNotificationTopicV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteNotificationTopicV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -264,9 +267,10 @@ func NewDeleteNotificationTopicV1AdminNotFound() *DeleteNotificationTopicV1Admin
 	return &DeleteNotificationTopicV1AdminNotFound{}
 }
 
-/*DeleteNotificationTopicV1AdminNotFound handles this case with default header values.
+/*
+DeleteNotificationTopicV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteNotificationTopicV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -318,9 +322,10 @@ func NewDeleteNotificationTopicV1AdminInternalServerError() *DeleteNotificationT
 	return &DeleteNotificationTopicV1AdminInternalServerError{}
 }
 
-/*DeleteNotificationTopicV1AdminInternalServerError handles this case with default header values.
+/*
+DeleteNotificationTopicV1AdminInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteNotificationTopicV1AdminInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

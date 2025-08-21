@@ -70,7 +70,8 @@ func NewListUserStagingContentsParamsWithHTTPClient(client *http.Client) *ListUs
 	}
 }
 
-/*ListUserStagingContentsParams contains all the parameters to send to the API endpoint
+/*
+ListUserStagingContentsParams contains all the parameters to send to the API endpoint
 for the list user staging contents operation typically these are written to a http.Request
 */
 type ListUserStagingContentsParams struct {

@@ -115,9 +115,10 @@ func NewAdminGetContentByContentIDV2OK() *AdminGetContentByContentIDV2OK {
 	return &AdminGetContentByContentIDV2OK{}
 }
 
-/*AdminGetContentByContentIDV2OK handles this case with default header values.
+/*
+AdminGetContentByContentIDV2OK handles this case with default header values.
 
-  Get content by content ID
+	Get content by content ID
 */
 type AdminGetContentByContentIDV2OK struct {
 	Payload *ugcclientmodels.ModelsContentDownloadResponseV2
@@ -169,9 +170,10 @@ func NewAdminGetContentByContentIDV2Unauthorized() *AdminGetContentByContentIDV2
 	return &AdminGetContentByContentIDV2Unauthorized{}
 }
 
-/*AdminGetContentByContentIDV2Unauthorized handles this case with default header values.
+/*
+AdminGetContentByContentIDV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetContentByContentIDV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetContentByContentIDV2NotFound() *AdminGetContentByContentIDV2NotF
 	return &AdminGetContentByContentIDV2NotFound{}
 }
 
-/*AdminGetContentByContentIDV2NotFound handles this case with default header values.
+/*
+AdminGetContentByContentIDV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773200</td><td>ugc content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773200</td><td>ugc content not found</td></tr></table>
 */
 type AdminGetContentByContentIDV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetContentByContentIDV2InternalServerError() *AdminGetContentByCont
 	return &AdminGetContentByContentIDV2InternalServerError{}
 }
 
-/*AdminGetContentByContentIDV2InternalServerError handles this case with default header values.
+/*
+AdminGetContentByContentIDV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773201</td><td>Unable to get ugc content/Unable to get creator/Unable to get included group</td></tr><tr><td>770301</td><td>Unable to get ugc content/Unable to get creator</td></tr><tr><td>773203</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773201</td><td>Unable to get ugc content/Unable to get creator/Unable to get included group</td></tr><tr><td>770301</td><td>Unable to get ugc content/Unable to get creator</td></tr><tr><td>773203</td><td>Failed generate download URL</td></tr></table>
 */
 type AdminGetContentByContentIDV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

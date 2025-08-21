@@ -90,7 +90,8 @@ func NewAdminQueryTopicParamsWithHTTPClient(client *http.Client) *AdminQueryTopi
 	}
 }
 
-/*AdminQueryTopicParams contains all the parameters to send to the API endpoint
+/*
+AdminQueryTopicParams contains all the parameters to send to the API endpoint
 for the admin query topic operation typically these are written to a http.Request
 */
 type AdminQueryTopicParams struct {

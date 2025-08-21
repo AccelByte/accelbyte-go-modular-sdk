@@ -85,9 +85,10 @@ func NewRevokeUseCountOK() *RevokeUseCountOK {
 	return &RevokeUseCountOK{}
 }
 
-/*RevokeUseCountOK handles this case with default header values.
+/*
+RevokeUseCountOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RevokeUseCountOK struct {
 	Payload *platformclientmodels.EntitlementInfo
@@ -139,9 +140,10 @@ func NewRevokeUseCountNotFound() *RevokeUseCountNotFound {
 	return &RevokeUseCountNotFound{}
 }
 
-/*RevokeUseCountNotFound handles this case with default header values.
+/*
+RevokeUseCountNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type RevokeUseCountNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

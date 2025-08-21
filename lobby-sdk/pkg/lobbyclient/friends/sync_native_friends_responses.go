@@ -130,10 +130,9 @@ func NewSyncNativeFriendsOK() *SyncNativeFriendsOK {
 	return &SyncNativeFriendsOK{}
 }
 
-/*SyncNativeFriendsOK handles this case with default header values.
-
-
- */
+/*
+SyncNativeFriendsOK handles this case with default header values.
+*/
 type SyncNativeFriendsOK struct {
 	Payload []*lobbyclientmodels.ModelNativeFriendSyncResponse
 }
@@ -182,9 +181,10 @@ func NewSyncNativeFriendsBadRequest() *SyncNativeFriendsBadRequest {
 	return &SyncNativeFriendsBadRequest{}
 }
 
-/*SyncNativeFriendsBadRequest handles this case with default header values.
+/*
+SyncNativeFriendsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type SyncNativeFriendsBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -236,9 +236,10 @@ func NewSyncNativeFriendsUnauthorized() *SyncNativeFriendsUnauthorized {
 	return &SyncNativeFriendsUnauthorized{}
 }
 
-/*SyncNativeFriendsUnauthorized handles this case with default header values.
+/*
+SyncNativeFriendsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SyncNativeFriendsUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -290,9 +291,10 @@ func NewSyncNativeFriendsForbidden() *SyncNativeFriendsForbidden {
 	return &SyncNativeFriendsForbidden{}
 }
 
-/*SyncNativeFriendsForbidden handles this case with default header values.
+/*
+SyncNativeFriendsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type SyncNativeFriendsForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -344,9 +346,10 @@ func NewSyncNativeFriendsInternalServerError() *SyncNativeFriendsInternalServerE
 	return &SyncNativeFriendsInternalServerError{}
 }
 
-/*SyncNativeFriendsInternalServerError handles this case with default header values.
+/*
+SyncNativeFriendsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type SyncNativeFriendsInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

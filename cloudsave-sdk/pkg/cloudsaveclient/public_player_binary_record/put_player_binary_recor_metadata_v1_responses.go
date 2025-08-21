@@ -145,9 +145,10 @@ func NewPutPlayerBinaryRecorMetadataV1OK() *PutPlayerBinaryRecorMetadataV1OK {
 	return &PutPlayerBinaryRecorMetadataV1OK{}
 }
 
-/*PutPlayerBinaryRecorMetadataV1OK handles this case with default header values.
+/*
+PutPlayerBinaryRecorMetadataV1OK handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type PutPlayerBinaryRecorMetadataV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsPlayerBinaryRecordResponse
@@ -199,9 +200,10 @@ func NewPutPlayerBinaryRecorMetadataV1BadRequest() *PutPlayerBinaryRecorMetadata
 	return &PutPlayerBinaryRecorMetadataV1BadRequest{}
 }
 
-/*PutPlayerBinaryRecorMetadataV1BadRequest handles this case with default header values.
+/*
+PutPlayerBinaryRecorMetadataV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18332</td><td>invalid request body</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18332</td><td>invalid request body</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
 */
 type PutPlayerBinaryRecorMetadataV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewPutPlayerBinaryRecorMetadataV1Unauthorized() *PutPlayerBinaryRecorMetada
 	return &PutPlayerBinaryRecorMetadataV1Unauthorized{}
 }
 
-/*PutPlayerBinaryRecorMetadataV1Unauthorized handles this case with default header values.
+/*
+PutPlayerBinaryRecorMetadataV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PutPlayerBinaryRecorMetadataV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewPutPlayerBinaryRecorMetadataV1Forbidden() *PutPlayerBinaryRecorMetadataV
 	return &PutPlayerBinaryRecorMetadataV1Forbidden{}
 }
 
-/*PutPlayerBinaryRecorMetadataV1Forbidden handles this case with default header values.
+/*
+PutPlayerBinaryRecorMetadataV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PutPlayerBinaryRecorMetadataV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewPutPlayerBinaryRecorMetadataV1NotFound() *PutPlayerBinaryRecorMetadataV1
 	return &PutPlayerBinaryRecorMetadataV1NotFound{}
 }
 
-/*PutPlayerBinaryRecorMetadataV1NotFound handles this case with default header values.
+/*
+PutPlayerBinaryRecorMetadataV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18333</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18333</td><td>record not found</td></tr></table>
 */
 type PutPlayerBinaryRecorMetadataV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewPutPlayerBinaryRecorMetadataV1InternalServerError() *PutPlayerBinaryReco
 	return &PutPlayerBinaryRecorMetadataV1InternalServerError{}
 }
 
-/*PutPlayerBinaryRecorMetadataV1InternalServerError handles this case with default header values.
+/*
+PutPlayerBinaryRecorMetadataV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18334</td><td>unable to update record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18334</td><td>unable to update record</td></tr></table>
 */
 type PutPlayerBinaryRecorMetadataV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

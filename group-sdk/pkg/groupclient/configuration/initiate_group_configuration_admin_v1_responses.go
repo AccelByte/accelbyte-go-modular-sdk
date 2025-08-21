@@ -130,9 +130,10 @@ func NewInitiateGroupConfigurationAdminV1Created() *InitiateGroupConfigurationAd
 	return &InitiateGroupConfigurationAdminV1Created{}
 }
 
-/*InitiateGroupConfigurationAdminV1Created handles this case with default header values.
+/*
+InitiateGroupConfigurationAdminV1Created handles this case with default header values.
 
-  Created
+	Created
 */
 type InitiateGroupConfigurationAdminV1Created struct {
 	Payload *groupclientmodels.ModelsCreateGroupConfigurationResponseV1
@@ -184,9 +185,10 @@ func NewInitiateGroupConfigurationAdminV1Unauthorized() *InitiateGroupConfigurat
 	return &InitiateGroupConfigurationAdminV1Unauthorized{}
 }
 
-/*InitiateGroupConfigurationAdminV1Unauthorized handles this case with default header values.
+/*
+InitiateGroupConfigurationAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type InitiateGroupConfigurationAdminV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewInitiateGroupConfigurationAdminV1Forbidden() *InitiateGroupConfiguration
 	return &InitiateGroupConfigurationAdminV1Forbidden{}
 }
 
-/*InitiateGroupConfigurationAdminV1Forbidden handles this case with default header values.
+/*
+InitiateGroupConfigurationAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type InitiateGroupConfigurationAdminV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewInitiateGroupConfigurationAdminV1Conflict() *InitiateGroupConfigurationA
 	return &InitiateGroupConfigurationAdminV1Conflict{}
 }
 
-/*InitiateGroupConfigurationAdminV1Conflict handles this case with default header values.
+/*
+InitiateGroupConfigurationAdminV1Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73130</td><td>global configuration already exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73130</td><td>global configuration already exist</td></tr></table>
 */
 type InitiateGroupConfigurationAdminV1Conflict struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewInitiateGroupConfigurationAdminV1InternalServerError() *InitiateGroupCon
 	return &InitiateGroupConfigurationAdminV1InternalServerError{}
 }
 
-/*InitiateGroupConfigurationAdminV1InternalServerError handles this case with default header values.
+/*
+InitiateGroupConfigurationAdminV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type InitiateGroupConfigurationAdminV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

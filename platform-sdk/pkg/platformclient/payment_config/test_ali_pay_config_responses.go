@@ -69,9 +69,10 @@ func NewTestAliPayConfigOK() *TestAliPayConfigOK {
 	return &TestAliPayConfigOK{}
 }
 
-/*TestAliPayConfigOK handles this case with default header values.
+/*
+TestAliPayConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestAliPayConfigOK struct {
 	Payload *platformclientmodels.TestResult

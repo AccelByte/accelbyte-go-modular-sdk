@@ -114,9 +114,10 @@ func NewCreateNotificationTopicV1AdminNoContent() *CreateNotificationTopicV1Admi
 	return &CreateNotificationTopicV1AdminNoContent{}
 }
 
-/*CreateNotificationTopicV1AdminNoContent handles this case with default header values.
+/*
+CreateNotificationTopicV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type CreateNotificationTopicV1AdminNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewCreateNotificationTopicV1AdminBadRequest() *CreateNotificationTopicV1Adm
 	return &CreateNotificationTopicV1AdminBadRequest{}
 }
 
-/*CreateNotificationTopicV1AdminBadRequest handles this case with default header values.
+/*
+CreateNotificationTopicV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateNotificationTopicV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -195,9 +197,10 @@ func NewCreateNotificationTopicV1AdminUnauthorized() *CreateNotificationTopicV1A
 	return &CreateNotificationTopicV1AdminUnauthorized{}
 }
 
-/*CreateNotificationTopicV1AdminUnauthorized handles this case with default header values.
+/*
+CreateNotificationTopicV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateNotificationTopicV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -249,9 +252,10 @@ func NewCreateNotificationTopicV1AdminForbidden() *CreateNotificationTopicV1Admi
 	return &CreateNotificationTopicV1AdminForbidden{}
 }
 
-/*CreateNotificationTopicV1AdminForbidden handles this case with default header values.
+/*
+CreateNotificationTopicV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateNotificationTopicV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

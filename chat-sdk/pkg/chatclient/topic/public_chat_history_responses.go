@@ -130,9 +130,10 @@ func NewPublicChatHistoryOK() *PublicChatHistoryOK {
 	return &PublicChatHistoryOK{}
 }
 
-/*PublicChatHistoryOK handles this case with default header values.
+/*
+PublicChatHistoryOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicChatHistoryOK struct {
 	Payload []*chatclientmodels.ModelsChatMessageResponse
@@ -182,9 +183,10 @@ func NewPublicChatHistoryBadRequest() *PublicChatHistoryBadRequest {
 	return &PublicChatHistoryBadRequest{}
 }
 
-/*PublicChatHistoryBadRequest handles this case with default header values.
+/*
+PublicChatHistoryBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicChatHistoryBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewPublicChatHistoryUnauthorized() *PublicChatHistoryUnauthorized {
 	return &PublicChatHistoryUnauthorized{}
 }
 
-/*PublicChatHistoryUnauthorized handles this case with default header values.
+/*
+PublicChatHistoryUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicChatHistoryUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewPublicChatHistoryForbidden() *PublicChatHistoryForbidden {
 	return &PublicChatHistoryForbidden{}
 }
 
-/*PublicChatHistoryForbidden handles this case with default header values.
+/*
+PublicChatHistoryForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicChatHistoryForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewPublicChatHistoryInternalServerError() *PublicChatHistoryInternalServerE
 	return &PublicChatHistoryInternalServerError{}
 }
 
-/*PublicChatHistoryInternalServerError handles this case with default header values.
+/*
+PublicChatHistoryInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicChatHistoryInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

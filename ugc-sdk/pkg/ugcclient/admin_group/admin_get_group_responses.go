@@ -115,9 +115,10 @@ func NewAdminGetGroupOK() *AdminGetGroupOK {
 	return &AdminGetGroupOK{}
 }
 
-/*AdminGetGroupOK handles this case with default header values.
+/*
+AdminGetGroupOK handles this case with default header values.
 
-  Get specific user group
+	Get specific user group
 */
 type AdminGetGroupOK struct {
 	Payload *ugcclientmodels.ModelsCreateGroupResponse
@@ -169,9 +170,10 @@ func NewAdminGetGroupUnauthorized() *AdminGetGroupUnauthorized {
 	return &AdminGetGroupUnauthorized{}
 }
 
-/*AdminGetGroupUnauthorized handles this case with default header values.
+/*
+AdminGetGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetGroupUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetGroupNotFound() *AdminGetGroupNotFound {
 	return &AdminGetGroupNotFound{}
 }
 
-/*AdminGetGroupNotFound handles this case with default header values.
+/*
+AdminGetGroupNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773002</td><td>Group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773002</td><td>Group not found</td></tr></table>
 */
 type AdminGetGroupNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetGroupInternalServerError() *AdminGetGroupInternalServerError {
 	return &AdminGetGroupInternalServerError{}
 }
 
-/*AdminGetGroupInternalServerError handles this case with default header values.
+/*
+AdminGetGroupInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773001</td><td>Unable get group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773001</td><td>Unable get group</td></tr></table>
 */
 type AdminGetGroupInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

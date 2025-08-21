@@ -85,9 +85,10 @@ func NewUpdatePaymentDomainWhitelistConfigOK() *UpdatePaymentDomainWhitelistConf
 	return &UpdatePaymentDomainWhitelistConfigOK{}
 }
 
-/*UpdatePaymentDomainWhitelistConfigOK handles this case with default header values.
+/*
+UpdatePaymentDomainWhitelistConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePaymentDomainWhitelistConfigOK struct {
 	Payload *platformclientmodels.PaymentDomainWhitelistConfigInfo
@@ -139,9 +140,10 @@ func NewUpdatePaymentDomainWhitelistConfigUnprocessableEntity() *UpdatePaymentDo
 	return &UpdatePaymentDomainWhitelistConfigUnprocessableEntity{}
 }
 
-/*UpdatePaymentDomainWhitelistConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdatePaymentDomainWhitelistConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdatePaymentDomainWhitelistConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

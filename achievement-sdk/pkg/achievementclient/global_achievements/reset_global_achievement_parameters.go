@@ -57,7 +57,8 @@ func NewResetGlobalAchievementParamsWithHTTPClient(client *http.Client) *ResetGl
 	}
 }
 
-/*ResetGlobalAchievementParams contains all the parameters to send to the API endpoint
+/*
+ResetGlobalAchievementParams contains all the parameters to send to the API endpoint
 for the reset global achievement operation typically these are written to a http.Request
 */
 type ResetGlobalAchievementParams struct {

@@ -85,9 +85,10 @@ func NewUploadSectionPluginConfigCertOK() *UploadSectionPluginConfigCertOK {
 	return &UploadSectionPluginConfigCertOK{}
 }
 
-/*UploadSectionPluginConfigCertOK handles this case with default header values.
+/*
+UploadSectionPluginConfigCertOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UploadSectionPluginConfigCertOK struct {
 	Payload *platformclientmodels.SectionPluginConfigInfo
@@ -139,9 +140,10 @@ func NewUploadSectionPluginConfigCertUnprocessableEntity() *UploadSectionPluginC
 	return &UploadSectionPluginConfigCertUnprocessableEntity{}
 }
 
-/*UploadSectionPluginConfigCertUnprocessableEntity handles this case with default header values.
+/*
+UploadSectionPluginConfigCertUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UploadSectionPluginConfigCertUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

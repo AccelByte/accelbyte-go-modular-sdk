@@ -69,10 +69,9 @@ func NewAdminPatchUpdateLogConfigOK() *AdminPatchUpdateLogConfigOK {
 	return &AdminPatchUpdateLogConfigOK{}
 }
 
-/*AdminPatchUpdateLogConfigOK handles this case with default header values.
-
-
- */
+/*
+AdminPatchUpdateLogConfigOK handles this case with default header values.
+*/
 type AdminPatchUpdateLogConfigOK struct {
 	Payload *chatclientmodels.LogconfigConfiguration
 }

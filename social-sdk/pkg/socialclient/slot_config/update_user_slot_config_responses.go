@@ -69,9 +69,10 @@ func NewUpdateUserSlotConfigOK() *UpdateUserSlotConfigOK {
 	return &UpdateUserSlotConfigOK{}
 }
 
-/*UpdateUserSlotConfigOK handles this case with default header values.
+/*
+UpdateUserSlotConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateUserSlotConfigOK struct {
 	Payload *socialclientmodels.UserSlotConfigInfo

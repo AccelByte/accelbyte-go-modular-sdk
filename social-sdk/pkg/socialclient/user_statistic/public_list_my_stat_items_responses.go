@@ -130,9 +130,10 @@ func NewPublicListMyStatItemsOK() *PublicListMyStatItemsOK {
 	return &PublicListMyStatItemsOK{}
 }
 
-/*PublicListMyStatItemsOK handles this case with default header values.
+/*
+PublicListMyStatItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicListMyStatItemsOK struct {
 	Payload *socialclientmodels.UserStatItemPagingSlicedResult
@@ -184,9 +185,10 @@ func NewPublicListMyStatItemsUnauthorized() *PublicListMyStatItemsUnauthorized {
 	return &PublicListMyStatItemsUnauthorized{}
 }
 
-/*PublicListMyStatItemsUnauthorized handles this case with default header values.
+/*
+PublicListMyStatItemsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicListMyStatItemsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewPublicListMyStatItemsForbidden() *PublicListMyStatItemsForbidden {
 	return &PublicListMyStatItemsForbidden{}
 }
 
-/*PublicListMyStatItemsForbidden handles this case with default header values.
+/*
+PublicListMyStatItemsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicListMyStatItemsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewPublicListMyStatItemsUnprocessableEntity() *PublicListMyStatItemsUnproce
 	return &PublicListMyStatItemsUnprocessableEntity{}
 }
 
-/*PublicListMyStatItemsUnprocessableEntity handles this case with default header values.
+/*
+PublicListMyStatItemsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicListMyStatItemsUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -346,9 +350,10 @@ func NewPublicListMyStatItemsInternalServerError() *PublicListMyStatItemsInterna
 	return &PublicListMyStatItemsInternalServerError{}
 }
 
-/*PublicListMyStatItemsInternalServerError handles this case with default header values.
+/*
+PublicListMyStatItemsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicListMyStatItemsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

@@ -60,7 +60,8 @@ func NewAdminFilterChatMessageParamsWithHTTPClient(client *http.Client) *AdminFi
 	}
 }
 
-/*AdminFilterChatMessageParams contains all the parameters to send to the API endpoint
+/*
+AdminFilterChatMessageParams contains all the parameters to send to the API endpoint
 for the admin filter chat message operation typically these are written to a http.Request
 */
 type AdminFilterChatMessageParams struct {

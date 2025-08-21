@@ -115,10 +115,9 @@ func NewAdminSubmitReportCreated() *AdminSubmitReportCreated {
 	return &AdminSubmitReportCreated{}
 }
 
-/*AdminSubmitReportCreated handles this case with default header values.
-
-
- */
+/*
+AdminSubmitReportCreated handles this case with default header values.
+*/
 type AdminSubmitReportCreated struct {
 	Payload *reportingclientmodels.RestapiSubmitReportResponse
 }
@@ -169,10 +168,9 @@ func NewAdminSubmitReportBadRequest() *AdminSubmitReportBadRequest {
 	return &AdminSubmitReportBadRequest{}
 }
 
-/*AdminSubmitReportBadRequest handles this case with default header values.
-
-
- */
+/*
+AdminSubmitReportBadRequest handles this case with default header values.
+*/
 type AdminSubmitReportBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -223,10 +221,9 @@ func NewAdminSubmitReportConflict() *AdminSubmitReportConflict {
 	return &AdminSubmitReportConflict{}
 }
 
-/*AdminSubmitReportConflict handles this case with default header values.
-
-
- */
+/*
+AdminSubmitReportConflict handles this case with default header values.
+*/
 type AdminSubmitReportConflict struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -277,10 +274,9 @@ func NewAdminSubmitReportInternalServerError() *AdminSubmitReportInternalServerE
 	return &AdminSubmitReportInternalServerError{}
 }
 
-/*AdminSubmitReportInternalServerError handles this case with default header values.
-
-
- */
+/*
+AdminSubmitReportInternalServerError handles this case with default header values.
+*/
 type AdminSubmitReportInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

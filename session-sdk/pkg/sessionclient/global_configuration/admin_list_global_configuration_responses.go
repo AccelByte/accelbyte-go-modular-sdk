@@ -100,9 +100,10 @@ func NewAdminListGlobalConfigurationOK() *AdminListGlobalConfigurationOK {
 	return &AdminListGlobalConfigurationOK{}
 }
 
-/*AdminListGlobalConfigurationOK handles this case with default header values.
+/*
+AdminListGlobalConfigurationOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListGlobalConfigurationOK struct {
 	Payload *sessionclientmodels.ApimodelsGlobalConfigurationResponse
@@ -154,9 +155,10 @@ func NewAdminListGlobalConfigurationUnauthorized() *AdminListGlobalConfiguration
 	return &AdminListGlobalConfigurationUnauthorized{}
 }
 
-/*AdminListGlobalConfigurationUnauthorized handles this case with default header values.
+/*
+AdminListGlobalConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminListGlobalConfigurationUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -208,9 +210,10 @@ func NewAdminListGlobalConfigurationForbidden() *AdminListGlobalConfigurationFor
 	return &AdminListGlobalConfigurationForbidden{}
 }
 
-/*AdminListGlobalConfigurationForbidden handles this case with default header values.
+/*
+AdminListGlobalConfigurationForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminListGlobalConfigurationForbidden struct {
 	Payload *sessionclientmodels.ResponseError

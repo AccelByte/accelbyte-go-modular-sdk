@@ -135,7 +135,6 @@ Other detail info:
 3. spaces are not allowed
 4. separators must not appears twice in a row
 
-
 Supported file types: jpeg, jpg, png, bmp, gif, mp3, webp, and bin.
 */
 func (a *Client) AdminPostPlayerBinaryRecordV1Short(params *AdminPostPlayerBinaryRecordV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPostPlayerBinaryRecordV1Response, error) {

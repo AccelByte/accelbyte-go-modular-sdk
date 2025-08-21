@@ -59,7 +59,8 @@ func NewAdminSendChatParamsWithHTTPClient(client *http.Client) *AdminSendChatPar
 	}
 }
 
-/*AdminSendChatParams contains all the parameters to send to the API endpoint
+/*
+AdminSendChatParams contains all the parameters to send to the API endpoint
 for the admin send chat operation typically these are written to a http.Request
 */
 type AdminSendChatParams struct {

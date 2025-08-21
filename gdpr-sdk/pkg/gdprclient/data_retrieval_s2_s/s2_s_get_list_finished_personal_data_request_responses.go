@@ -130,9 +130,10 @@ func NewS2SGetListFinishedPersonalDataRequestOK() *S2SGetListFinishedPersonalDat
 	return &S2SGetListFinishedPersonalDataRequestOK{}
 }
 
-/*S2SGetListFinishedPersonalDataRequestOK handles this case with default header values.
+/*
+S2SGetListFinishedPersonalDataRequestOK handles this case with default header values.
 
-  OK
+	OK
 */
 type S2SGetListFinishedPersonalDataRequestOK struct {
 	Payload *gdprclientmodels.DTOListFinishedDataRequests
@@ -184,9 +185,10 @@ func NewS2SGetListFinishedPersonalDataRequestBadRequest() *S2SGetListFinishedPer
 	return &S2SGetListFinishedPersonalDataRequestBadRequest{}
 }
 
-/*S2SGetListFinishedPersonalDataRequestBadRequest handles this case with default header values.
+/*
+S2SGetListFinishedPersonalDataRequestBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type S2SGetListFinishedPersonalDataRequestBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewS2SGetListFinishedPersonalDataRequestUnauthorized() *S2SGetListFinishedP
 	return &S2SGetListFinishedPersonalDataRequestUnauthorized{}
 }
 
-/*S2SGetListFinishedPersonalDataRequestUnauthorized handles this case with default header values.
+/*
+S2SGetListFinishedPersonalDataRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type S2SGetListFinishedPersonalDataRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewS2SGetListFinishedPersonalDataRequestForbidden() *S2SGetListFinishedPers
 	return &S2SGetListFinishedPersonalDataRequestForbidden{}
 }
 
-/*S2SGetListFinishedPersonalDataRequestForbidden handles this case with default header values.
+/*
+S2SGetListFinishedPersonalDataRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type S2SGetListFinishedPersonalDataRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewS2SGetListFinishedPersonalDataRequestInternalServerError() *S2SGetListFi
 	return &S2SGetListFinishedPersonalDataRequestInternalServerError{}
 }
 
-/*S2SGetListFinishedPersonalDataRequestInternalServerError handles this case with default header values.
+/*
+S2SGetListFinishedPersonalDataRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type S2SGetListFinishedPersonalDataRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

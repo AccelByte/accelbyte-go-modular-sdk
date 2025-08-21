@@ -100,9 +100,10 @@ func NewGrantUserEntitlementCreated() *GrantUserEntitlementCreated {
 	return &GrantUserEntitlementCreated{}
 }
 
-/*GrantUserEntitlementCreated handles this case with default header values.
+/*
+GrantUserEntitlementCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GrantUserEntitlementCreated struct {
 	Payload []*platformclientmodels.StackableEntitlementInfo
@@ -152,9 +153,10 @@ func NewGrantUserEntitlementNotFound() *GrantUserEntitlementNotFound {
 	return &GrantUserEntitlementNotFound{}
 }
 
-/*GrantUserEntitlementNotFound handles this case with default header values.
+/*
+GrantUserEntitlementNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GrantUserEntitlementNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewGrantUserEntitlementUnprocessableEntity() *GrantUserEntitlementUnprocess
 	return &GrantUserEntitlementUnprocessableEntity{}
 }
 
-/*GrantUserEntitlementUnprocessableEntity handles this case with default header values.
+/*
+GrantUserEntitlementUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GrantUserEntitlementUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

@@ -57,7 +57,8 @@ func NewAdminSyncNativeSessionParamsWithHTTPClient(client *http.Client) *AdminSy
 	}
 }
 
-/*AdminSyncNativeSessionParams contains all the parameters to send to the API endpoint
+/*
+AdminSyncNativeSessionParams contains all the parameters to send to the API endpoint
 for the admin sync native session operation typically these are written to a http.Request
 */
 type AdminSyncNativeSessionParams struct {

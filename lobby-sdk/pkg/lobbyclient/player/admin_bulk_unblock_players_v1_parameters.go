@@ -59,7 +59,8 @@ func NewAdminBulkUnblockPlayersV1ParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminBulkUnblockPlayersV1Params contains all the parameters to send to the API endpoint
+/*
+AdminBulkUnblockPlayersV1Params contains all the parameters to send to the API endpoint
 for the admin bulk unblock players v1 operation typically these are written to a http.Request
 */
 type AdminBulkUnblockPlayersV1Params struct {

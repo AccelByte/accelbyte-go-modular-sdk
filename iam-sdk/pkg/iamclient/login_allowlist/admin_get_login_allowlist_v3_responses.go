@@ -115,9 +115,10 @@ func NewAdminGetLoginAllowlistV3OK() *AdminGetLoginAllowlistV3OK {
 	return &AdminGetLoginAllowlistV3OK{}
 }
 
-/*AdminGetLoginAllowlistV3OK handles this case with default header values.
+/*
+AdminGetLoginAllowlistV3OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminGetLoginAllowlistV3OK struct {
 	Payload *iamclientmodels.ModelLoginAllowlistResponse
@@ -169,9 +170,10 @@ func NewAdminGetLoginAllowlistV3Unauthorized() *AdminGetLoginAllowlistV3Unauthor
 	return &AdminGetLoginAllowlistV3Unauthorized{}
 }
 
-/*AdminGetLoginAllowlistV3Unauthorized handles this case with default header values.
+/*
+AdminGetLoginAllowlistV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetLoginAllowlistV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetLoginAllowlistV3Forbidden() *AdminGetLoginAllowlistV3Forbidden {
 	return &AdminGetLoginAllowlistV3Forbidden{}
 }
 
-/*AdminGetLoginAllowlistV3Forbidden handles this case with default header values.
+/*
+AdminGetLoginAllowlistV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetLoginAllowlistV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetLoginAllowlistV3InternalServerError() *AdminGetLoginAllowlistV3I
 	return &AdminGetLoginAllowlistV3InternalServerError{}
 }
 
-/*AdminGetLoginAllowlistV3InternalServerError handles this case with default header values.
+/*
+AdminGetLoginAllowlistV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetLoginAllowlistV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

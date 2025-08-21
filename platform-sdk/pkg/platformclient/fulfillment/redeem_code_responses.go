@@ -115,9 +115,10 @@ func NewRedeemCodeOK() *RedeemCodeOK {
 	return &RedeemCodeOK{}
 }
 
-/*RedeemCodeOK handles this case with default header values.
+/*
+RedeemCodeOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RedeemCodeOK struct {
 	Payload *platformclientmodels.FulfillmentResult
@@ -169,9 +170,10 @@ func NewRedeemCodeBadRequest() *RedeemCodeBadRequest {
 	return &RedeemCodeBadRequest{}
 }
 
-/*RedeemCodeBadRequest handles this case with default header values.
+/*
+RedeemCodeBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr></table>
 */
 type RedeemCodeBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewRedeemCodeNotFound() *RedeemCodeNotFound {
 	return &RedeemCodeNotFound{}
 }
 
-/*RedeemCodeNotFound handles this case with default header values.
+/*
+RedeemCodeNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type RedeemCodeNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewRedeemCodeConflict() *RedeemCodeConflict {
 	return &RedeemCodeConflict{}
 }
 
-/*RedeemCodeConflict handles this case with default header values.
+/*
+RedeemCodeConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37172</td><td>Campaign [{campaignId}] is inactive in namespace [{namespace}]</td></tr><tr><td>37173</td><td>Code [{code}] is inactive in namespace [{namespace}]</td></tr><tr><td>37174</td><td>Exceeded max redeem count per code [{maxCount}]</td></tr><tr><td>37175</td><td>Exceeded max redeem count per code per user [{maxCount}]</td></tr><tr><td>37177</td><td>Code redemption not started</td></tr><tr><td>37178</td><td>Code redemption already ended</td></tr><tr><td>20006</td><td>optimistic lock</td></tr><tr><td>31177</td><td>Permanent item already owned</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37172</td><td>Campaign [{campaignId}] is inactive in namespace [{namespace}]</td></tr><tr><td>37173</td><td>Code [{code}] is inactive in namespace [{namespace}]</td></tr><tr><td>37174</td><td>Exceeded max redeem count per code [{maxCount}]</td></tr><tr><td>37175</td><td>Exceeded max redeem count per code per user [{maxCount}]</td></tr><tr><td>37177</td><td>Code redemption not started</td></tr><tr><td>37178</td><td>Code redemption already ended</td></tr><tr><td>20006</td><td>optimistic lock</td></tr><tr><td>31177</td><td>Permanent item already owned</td></tr></table>
 */
 type RedeemCodeConflict struct {
 	Payload *platformclientmodels.ErrorEntity

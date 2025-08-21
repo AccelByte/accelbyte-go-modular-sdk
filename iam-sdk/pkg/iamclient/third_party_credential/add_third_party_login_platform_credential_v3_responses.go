@@ -130,9 +130,10 @@ func NewAddThirdPartyLoginPlatformCredentialV3Created() *AddThirdPartyLoginPlatf
 	return &AddThirdPartyLoginPlatformCredentialV3Created{}
 }
 
-/*AddThirdPartyLoginPlatformCredentialV3Created handles this case with default header values.
+/*
+AddThirdPartyLoginPlatformCredentialV3Created handles this case with default header values.
 
-  Third Party Credential Created
+	Third Party Credential Created
 */
 type AddThirdPartyLoginPlatformCredentialV3Created struct {
 	Payload *iamclientmodels.ModelThirdPartyLoginPlatformCredentialResponse
@@ -184,9 +185,10 @@ func NewAddThirdPartyLoginPlatformCredentialV3BadRequest() *AddThirdPartyLoginPl
 	return &AddThirdPartyLoginPlatformCredentialV3BadRequest{}
 }
 
-/*AddThirdPartyLoginPlatformCredentialV3BadRequest handles this case with default header values.
+/*
+AddThirdPartyLoginPlatformCredentialV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AddThirdPartyLoginPlatformCredentialV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAddThirdPartyLoginPlatformCredentialV3Unauthorized() *AddThirdPartyLogin
 	return &AddThirdPartyLoginPlatformCredentialV3Unauthorized{}
 }
 
-/*AddThirdPartyLoginPlatformCredentialV3Unauthorized handles this case with default header values.
+/*
+AddThirdPartyLoginPlatformCredentialV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AddThirdPartyLoginPlatformCredentialV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAddThirdPartyLoginPlatformCredentialV3Forbidden() *AddThirdPartyLoginPla
 	return &AddThirdPartyLoginPlatformCredentialV3Forbidden{}
 }
 
-/*AddThirdPartyLoginPlatformCredentialV3Forbidden handles this case with default header values.
+/*
+AddThirdPartyLoginPlatformCredentialV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AddThirdPartyLoginPlatformCredentialV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAddThirdPartyLoginPlatformCredentialV3InternalServerError() *AddThirdPar
 	return &AddThirdPartyLoginPlatformCredentialV3InternalServerError{}
 }
 
-/*AddThirdPartyLoginPlatformCredentialV3InternalServerError handles this case with default header values.
+/*
+AddThirdPartyLoginPlatformCredentialV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AddThirdPartyLoginPlatformCredentialV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

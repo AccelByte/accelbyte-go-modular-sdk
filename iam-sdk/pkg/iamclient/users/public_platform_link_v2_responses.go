@@ -139,9 +139,10 @@ func NewPublicPlatformLinkV2NoContent() *PublicPlatformLinkV2NoContent {
 	return &PublicPlatformLinkV2NoContent{}
 }
 
-/*PublicPlatformLinkV2NoContent handles this case with default header values.
+/*
+PublicPlatformLinkV2NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicPlatformLinkV2NoContent struct {
 }
@@ -166,9 +167,10 @@ func NewPublicPlatformLinkV2BadRequest() *PublicPlatformLinkV2BadRequest {
 	return &PublicPlatformLinkV2BadRequest{}
 }
 
-/*PublicPlatformLinkV2BadRequest handles this case with default header values.
+/*
+PublicPlatformLinkV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicPlatformLinkV2BadRequest struct {
 }
@@ -193,9 +195,10 @@ func NewPublicPlatformLinkV2Unauthorized() *PublicPlatformLinkV2Unauthorized {
 	return &PublicPlatformLinkV2Unauthorized{}
 }
 
-/*PublicPlatformLinkV2Unauthorized handles this case with default header values.
+/*
+PublicPlatformLinkV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicPlatformLinkV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -247,9 +250,10 @@ func NewPublicPlatformLinkV2Forbidden() *PublicPlatformLinkV2Forbidden {
 	return &PublicPlatformLinkV2Forbidden{}
 }
 
-/*PublicPlatformLinkV2Forbidden handles this case with default header values.
+/*
+PublicPlatformLinkV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicPlatformLinkV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -301,9 +305,10 @@ func NewPublicPlatformLinkV2NotFound() *PublicPlatformLinkV2NotFound {
 	return &PublicPlatformLinkV2NotFound{}
 }
 
-/*PublicPlatformLinkV2NotFound handles this case with default header values.
+/*
+PublicPlatformLinkV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicPlatformLinkV2NotFound struct {
 }
@@ -328,9 +333,10 @@ func NewPublicPlatformLinkV2Conflict() *PublicPlatformLinkV2Conflict {
 	return &PublicPlatformLinkV2Conflict{}
 }
 
-/*PublicPlatformLinkV2Conflict handles this case with default header values.
+/*
+PublicPlatformLinkV2Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr></table>
 */
 type PublicPlatformLinkV2Conflict struct {
 }
@@ -355,9 +361,10 @@ func NewPublicPlatformLinkV2InternalServerError() *PublicPlatformLinkV2InternalS
 	return &PublicPlatformLinkV2InternalServerError{}
 }
 
-/*PublicPlatformLinkV2InternalServerError handles this case with default header values.
+/*
+PublicPlatformLinkV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicPlatformLinkV2InternalServerError struct {
 }

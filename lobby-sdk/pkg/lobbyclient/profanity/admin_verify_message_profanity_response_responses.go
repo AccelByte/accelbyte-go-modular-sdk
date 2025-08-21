@@ -145,9 +145,10 @@ func NewAdminVerifyMessageProfanityResponseOK() *AdminVerifyMessageProfanityResp
 	return &AdminVerifyMessageProfanityResponseOK{}
 }
 
-/*AdminVerifyMessageProfanityResponseOK handles this case with default header values.
+/*
+AdminVerifyMessageProfanityResponseOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminVerifyMessageProfanityResponseOK struct {
 	Payload *lobbyclientmodels.ModelsAdminVerifyMessageProfanityResponse
@@ -199,9 +200,10 @@ func NewAdminVerifyMessageProfanityResponseBadRequest() *AdminVerifyMessageProfa
 	return &AdminVerifyMessageProfanityResponseBadRequest{}
 }
 
-/*AdminVerifyMessageProfanityResponseBadRequest handles this case with default header values.
+/*
+AdminVerifyMessageProfanityResponseBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminVerifyMessageProfanityResponseBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminVerifyMessageProfanityResponseUnauthorized() *AdminVerifyMessagePro
 	return &AdminVerifyMessageProfanityResponseUnauthorized{}
 }
 
-/*AdminVerifyMessageProfanityResponseUnauthorized handles this case with default header values.
+/*
+AdminVerifyMessageProfanityResponseUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminVerifyMessageProfanityResponseUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminVerifyMessageProfanityResponseForbidden() *AdminVerifyMessageProfan
 	return &AdminVerifyMessageProfanityResponseForbidden{}
 }
 
-/*AdminVerifyMessageProfanityResponseForbidden handles this case with default header values.
+/*
+AdminVerifyMessageProfanityResponseForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminVerifyMessageProfanityResponseForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminVerifyMessageProfanityResponseNotFound() *AdminVerifyMessageProfani
 	return &AdminVerifyMessageProfanityResponseNotFound{}
 }
 
-/*AdminVerifyMessageProfanityResponseNotFound handles this case with default header values.
+/*
+AdminVerifyMessageProfanityResponseNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminVerifyMessageProfanityResponseNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminVerifyMessageProfanityResponseInternalServerError() *AdminVerifyMes
 	return &AdminVerifyMessageProfanityResponseInternalServerError{}
 }
 
-/*AdminVerifyMessageProfanityResponseInternalServerError handles this case with default header values.
+/*
+AdminVerifyMessageProfanityResponseInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminVerifyMessageProfanityResponseInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

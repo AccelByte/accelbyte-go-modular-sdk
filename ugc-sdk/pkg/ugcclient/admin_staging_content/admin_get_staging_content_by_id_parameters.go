@@ -57,7 +57,8 @@ func NewAdminGetStagingContentByIDParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminGetStagingContentByIDParams contains all the parameters to send to the API endpoint
+/*
+AdminGetStagingContentByIDParams contains all the parameters to send to the API endpoint
 for the admin get staging content by id operation typically these are written to a http.Request
 */
 type AdminGetStagingContentByIDParams struct {

@@ -145,9 +145,10 @@ func NewAdminGetBulkUserBanV3OK() *AdminGetBulkUserBanV3OK {
 	return &AdminGetBulkUserBanV3OK{}
 }
 
-/*AdminGetBulkUserBanV3OK handles this case with default header values.
+/*
+AdminGetBulkUserBanV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetBulkUserBanV3OK struct {
 	Payload *iamclientmodels.ModelGetUserBanV3Response
@@ -199,9 +200,10 @@ func NewAdminGetBulkUserBanV3BadRequest() *AdminGetBulkUserBanV3BadRequest {
 	return &AdminGetBulkUserBanV3BadRequest{}
 }
 
-/*AdminGetBulkUserBanV3BadRequest handles this case with default header values.
+/*
+AdminGetBulkUserBanV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetBulkUserBanV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewAdminGetBulkUserBanV3Unauthorized() *AdminGetBulkUserBanV3Unauthorized {
 	return &AdminGetBulkUserBanV3Unauthorized{}
 }
 
-/*AdminGetBulkUserBanV3Unauthorized handles this case with default header values.
+/*
+AdminGetBulkUserBanV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetBulkUserBanV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewAdminGetBulkUserBanV3Forbidden() *AdminGetBulkUserBanV3Forbidden {
 	return &AdminGetBulkUserBanV3Forbidden{}
 }
 
-/*AdminGetBulkUserBanV3Forbidden handles this case with default header values.
+/*
+AdminGetBulkUserBanV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetBulkUserBanV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewAdminGetBulkUserBanV3NotFound() *AdminGetBulkUserBanV3NotFound {
 	return &AdminGetBulkUserBanV3NotFound{}
 }
 
-/*AdminGetBulkUserBanV3NotFound handles this case with default header values.
+/*
+AdminGetBulkUserBanV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type AdminGetBulkUserBanV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewAdminGetBulkUserBanV3InternalServerError() *AdminGetBulkUserBanV3Interna
 	return &AdminGetBulkUserBanV3InternalServerError{}
 }
 
-/*AdminGetBulkUserBanV3InternalServerError handles this case with default header values.
+/*
+AdminGetBulkUserBanV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetBulkUserBanV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -115,9 +115,10 @@ func NewCreateCampaignCreated() *CreateCampaignCreated {
 	return &CreateCampaignCreated{}
 }
 
-/*CreateCampaignCreated handles this case with default header values.
+/*
+CreateCampaignCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateCampaignCreated struct {
 	Payload *platformclientmodels.CampaignInfo
@@ -169,9 +170,10 @@ func NewCreateCampaignBadRequest() *CreateCampaignBadRequest {
 	return &CreateCampaignBadRequest{}
 }
 
-/*CreateCampaignBadRequest handles this case with default header values.
+/*
+CreateCampaignBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37121</td><td>Invalid currency namespace [{namespace}] in discount config: {tips}</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37121</td><td>Invalid currency namespace [{namespace}] in discount config: {tips}</td></tr></table>
 */
 type CreateCampaignBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewCreateCampaignConflict() *CreateCampaignConflict {
 	return &CreateCampaignConflict{}
 }
 
-/*CreateCampaignConflict handles this case with default header values.
+/*
+CreateCampaignConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37171</td><td>Campaign [{name}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37171</td><td>Campaign [{name}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type CreateCampaignConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewCreateCampaignUnprocessableEntity() *CreateCampaignUnprocessableEntity {
 	return &CreateCampaignUnprocessableEntity{}
 }
 
-/*CreateCampaignUnprocessableEntity handles this case with default header values.
+/*
+CreateCampaignUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateCampaignUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

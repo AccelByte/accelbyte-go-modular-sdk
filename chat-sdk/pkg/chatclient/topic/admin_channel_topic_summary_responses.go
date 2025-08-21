@@ -130,9 +130,10 @@ func NewAdminChannelTopicSummaryOK() *AdminChannelTopicSummaryOK {
 	return &AdminChannelTopicSummaryOK{}
 }
 
-/*AdminChannelTopicSummaryOK handles this case with default header values.
+/*
+AdminChannelTopicSummaryOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminChannelTopicSummaryOK struct {
 	Payload *chatclientmodels.ModelsChannelTopicSummaryResponse
@@ -184,9 +185,10 @@ func NewAdminChannelTopicSummaryBadRequest() *AdminChannelTopicSummaryBadRequest
 	return &AdminChannelTopicSummaryBadRequest{}
 }
 
-/*AdminChannelTopicSummaryBadRequest handles this case with default header values.
+/*
+AdminChannelTopicSummaryBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminChannelTopicSummaryBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminChannelTopicSummaryUnauthorized() *AdminChannelTopicSummaryUnauthor
 	return &AdminChannelTopicSummaryUnauthorized{}
 }
 
-/*AdminChannelTopicSummaryUnauthorized handles this case with default header values.
+/*
+AdminChannelTopicSummaryUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminChannelTopicSummaryUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminChannelTopicSummaryForbidden() *AdminChannelTopicSummaryForbidden {
 	return &AdminChannelTopicSummaryForbidden{}
 }
 
-/*AdminChannelTopicSummaryForbidden handles this case with default header values.
+/*
+AdminChannelTopicSummaryForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminChannelTopicSummaryForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminChannelTopicSummaryInternalServerError() *AdminChannelTopicSummaryI
 	return &AdminChannelTopicSummaryInternalServerError{}
 }
 
-/*AdminChannelTopicSummaryInternalServerError handles this case with default header values.
+/*
+AdminChannelTopicSummaryInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminChannelTopicSummaryInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

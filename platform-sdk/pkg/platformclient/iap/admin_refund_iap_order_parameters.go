@@ -57,7 +57,8 @@ func NewAdminRefundIAPOrderParamsWithHTTPClient(client *http.Client) *AdminRefun
 	}
 }
 
-/*AdminRefundIAPOrderParams contains all the parameters to send to the API endpoint
+/*
+AdminRefundIAPOrderParams contains all the parameters to send to the API endpoint
 for the admin refund iap order operation typically these are written to a http.Request
 */
 type AdminRefundIAPOrderParams struct {

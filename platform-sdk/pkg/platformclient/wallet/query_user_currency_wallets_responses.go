@@ -69,9 +69,10 @@ func NewQueryUserCurrencyWalletsOK() *QueryUserCurrencyWalletsOK {
 	return &QueryUserCurrencyWalletsOK{}
 }
 
-/*QueryUserCurrencyWalletsOK handles this case with default header values.
+/*
+QueryUserCurrencyWalletsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryUserCurrencyWalletsOK struct {
 	Payload []*platformclientmodels.CurrencyWallet

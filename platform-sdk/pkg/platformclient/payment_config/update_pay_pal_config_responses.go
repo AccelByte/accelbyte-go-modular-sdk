@@ -85,9 +85,10 @@ func NewUpdatePayPalConfigOK() *UpdatePayPalConfigOK {
 	return &UpdatePayPalConfigOK{}
 }
 
-/*UpdatePayPalConfigOK handles this case with default header values.
+/*
+UpdatePayPalConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePayPalConfigOK struct {
 	Payload *platformclientmodels.PaymentMerchantConfigInfo
@@ -139,9 +140,10 @@ func NewUpdatePayPalConfigNotFound() *UpdatePayPalConfigNotFound {
 	return &UpdatePayPalConfigNotFound{}
 }
 
-/*UpdatePayPalConfigNotFound handles this case with default header values.
+/*
+UpdatePayPalConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr><tr><td>33221</td><td>Update [{paymentProvider}] config in payment merchant config [{id}] failed with message [{errMsg}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr><tr><td>33221</td><td>Update [{paymentProvider}] config in payment merchant config [{id}] failed with message [{errMsg}]</td></tr></table>
 */
 type UpdatePayPalConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

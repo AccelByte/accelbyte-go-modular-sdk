@@ -114,9 +114,10 @@ func NewDeleteTierNoContent() *DeleteTierNoContent {
 	return &DeleteTierNoContent{}
 }
 
-/*DeleteTierNoContent handles this case with default header values.
+/*
+DeleteTierNoContent handles this case with default header values.
 
-  Delete tier successfully
+	Delete tier successfully
 */
 type DeleteTierNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteTierBadRequest() *DeleteTierBadRequest {
 	return &DeleteTierBadRequest{}
 }
 
-/*DeleteTierBadRequest handles this case with default header values.
+/*
+DeleteTierBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type DeleteTierBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -195,9 +197,10 @@ func NewDeleteTierNotFound() *DeleteTierNotFound {
 	return &DeleteTierNotFound{}
 }
 
-/*DeleteTierNotFound handles this case with default header values.
+/*
+DeleteTierNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DeleteTierNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -249,9 +252,10 @@ func NewDeleteTierConflict() *DeleteTierConflict {
 	return &DeleteTierConflict{}
 }
 
-/*DeleteTierConflict handles this case with default header values.
+/*
+DeleteTierConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
 */
 type DeleteTierConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity

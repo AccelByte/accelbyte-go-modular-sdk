@@ -145,9 +145,10 @@ func NewUpdateThirdPartyLoginPlatformDomainV3OK() *UpdateThirdPartyLoginPlatform
 	return &UpdateThirdPartyLoginPlatformDomainV3OK{}
 }
 
-/*UpdateThirdPartyLoginPlatformDomainV3OK handles this case with default header values.
+/*
+UpdateThirdPartyLoginPlatformDomainV3OK handles this case with default header values.
 
-  Domain config updated
+	Domain config updated
 */
 type UpdateThirdPartyLoginPlatformDomainV3OK struct {
 	Payload *iamclientmodels.ModelPlatformDomainResponse
@@ -199,9 +200,10 @@ func NewUpdateThirdPartyLoginPlatformDomainV3BadRequest() *UpdateThirdPartyLogin
 	return &UpdateThirdPartyLoginPlatformDomainV3BadRequest{}
 }
 
-/*UpdateThirdPartyLoginPlatformDomainV3BadRequest handles this case with default header values.
+/*
+UpdateThirdPartyLoginPlatformDomainV3BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateThirdPartyLoginPlatformDomainV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewUpdateThirdPartyLoginPlatformDomainV3Unauthorized() *UpdateThirdPartyLog
 	return &UpdateThirdPartyLoginPlatformDomainV3Unauthorized{}
 }
 
-/*UpdateThirdPartyLoginPlatformDomainV3Unauthorized handles this case with default header values.
+/*
+UpdateThirdPartyLoginPlatformDomainV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateThirdPartyLoginPlatformDomainV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewUpdateThirdPartyLoginPlatformDomainV3Forbidden() *UpdateThirdPartyLoginP
 	return &UpdateThirdPartyLoginPlatformDomainV3Forbidden{}
 }
 
-/*UpdateThirdPartyLoginPlatformDomainV3Forbidden handles this case with default header values.
+/*
+UpdateThirdPartyLoginPlatformDomainV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateThirdPartyLoginPlatformDomainV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewUpdateThirdPartyLoginPlatformDomainV3NotFound() *UpdateThirdPartyLoginPl
 	return &UpdateThirdPartyLoginPlatformDomainV3NotFound{}
 }
 
-/*UpdateThirdPartyLoginPlatformDomainV3NotFound handles this case with default header values.
+/*
+UpdateThirdPartyLoginPlatformDomainV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
 */
 type UpdateThirdPartyLoginPlatformDomainV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewUpdateThirdPartyLoginPlatformDomainV3InternalServerError() *UpdateThirdP
 	return &UpdateThirdPartyLoginPlatformDomainV3InternalServerError{}
 }
 
-/*UpdateThirdPartyLoginPlatformDomainV3InternalServerError handles this case with default header values.
+/*
+UpdateThirdPartyLoginPlatformDomainV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type UpdateThirdPartyLoginPlatformDomainV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

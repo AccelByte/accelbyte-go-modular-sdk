@@ -69,9 +69,10 @@ func NewGetOculusIAPConfigOK() *GetOculusIAPConfigOK {
 	return &GetOculusIAPConfigOK{}
 }
 
-/*GetOculusIAPConfigOK handles this case with default header values.
+/*
+GetOculusIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetOculusIAPConfigOK struct {
 	Payload *platformclientmodels.OculusIAPConfigInfo

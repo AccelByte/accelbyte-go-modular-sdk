@@ -130,9 +130,10 @@ func NewAdminTopicShardsOK() *AdminTopicShardsOK {
 	return &AdminTopicShardsOK{}
 }
 
-/*AdminTopicShardsOK handles this case with default header values.
+/*
+AdminTopicShardsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminTopicShardsOK struct {
 	Payload []string
@@ -182,9 +183,10 @@ func NewAdminTopicShardsBadRequest() *AdminTopicShardsBadRequest {
 	return &AdminTopicShardsBadRequest{}
 }
 
-/*AdminTopicShardsBadRequest handles this case with default header values.
+/*
+AdminTopicShardsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminTopicShardsBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewAdminTopicShardsUnauthorized() *AdminTopicShardsUnauthorized {
 	return &AdminTopicShardsUnauthorized{}
 }
 
-/*AdminTopicShardsUnauthorized handles this case with default header values.
+/*
+AdminTopicShardsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminTopicShardsUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewAdminTopicShardsForbidden() *AdminTopicShardsForbidden {
 	return &AdminTopicShardsForbidden{}
 }
 
-/*AdminTopicShardsForbidden handles this case with default header values.
+/*
+AdminTopicShardsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminTopicShardsForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewAdminTopicShardsInternalServerError() *AdminTopicShardsInternalServerErr
 	return &AdminTopicShardsInternalServerError{}
 }
 
-/*AdminTopicShardsInternalServerError handles this case with default header values.
+/*
+AdminTopicShardsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminTopicShardsInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

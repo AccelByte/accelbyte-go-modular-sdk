@@ -59,7 +59,8 @@ func NewAdminUpdateTagV3ParamsWithHTTPClient(client *http.Client) *AdminUpdateTa
 	}
 }
 
-/*AdminUpdateTagV3Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateTagV3Params contains all the parameters to send to the API endpoint
 for the admin update tag v3 operation typically these are written to a http.Request
 */
 type AdminUpdateTagV3Params struct {

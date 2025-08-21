@@ -115,9 +115,10 @@ func NewGetCurrentWeekLeaderboardRankingPublicV1OK() *GetCurrentWeekLeaderboardR
 	return &GetCurrentWeekLeaderboardRankingPublicV1OK{}
 }
 
-/*GetCurrentWeekLeaderboardRankingPublicV1OK handles this case with default header values.
+/*
+GetCurrentWeekLeaderboardRankingPublicV1OK handles this case with default header values.
 
-  Current week leaderboard retrieved
+	Current week leaderboard retrieved
 */
 type GetCurrentWeekLeaderboardRankingPublicV1OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
@@ -169,9 +170,10 @@ func NewGetCurrentWeekLeaderboardRankingPublicV1BadRequest() *GetCurrentWeekLead
 	return &GetCurrentWeekLeaderboardRankingPublicV1BadRequest{}
 }
 
-/*GetCurrentWeekLeaderboardRankingPublicV1BadRequest handles this case with default header values.
+/*
+GetCurrentWeekLeaderboardRankingPublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetCurrentWeekLeaderboardRankingPublicV1BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -223,9 +225,10 @@ func NewGetCurrentWeekLeaderboardRankingPublicV1NotFound() *GetCurrentWeekLeader
 	return &GetCurrentWeekLeaderboardRankingPublicV1NotFound{}
 }
 
-/*GetCurrentWeekLeaderboardRankingPublicV1NotFound handles this case with default header values.
+/*
+GetCurrentWeekLeaderboardRankingPublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
 */
 type GetCurrentWeekLeaderboardRankingPublicV1NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -277,9 +280,10 @@ func NewGetCurrentWeekLeaderboardRankingPublicV1InternalServerError() *GetCurren
 	return &GetCurrentWeekLeaderboardRankingPublicV1InternalServerError{}
 }
 
-/*GetCurrentWeekLeaderboardRankingPublicV1InternalServerError handles this case with default header values.
+/*
+GetCurrentWeekLeaderboardRankingPublicV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
 */
 type GetCurrentWeekLeaderboardRankingPublicV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

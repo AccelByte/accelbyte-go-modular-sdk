@@ -57,7 +57,8 @@ func NewGetFulfillmentScriptParamsWithHTTPClient(client *http.Client) *GetFulfil
 	}
 }
 
-/*GetFulfillmentScriptParams contains all the parameters to send to the API endpoint
+/*
+GetFulfillmentScriptParams contains all the parameters to send to the API endpoint
 for the get fulfillment script operation typically these are written to a http.Request
 */
 type GetFulfillmentScriptParams struct {

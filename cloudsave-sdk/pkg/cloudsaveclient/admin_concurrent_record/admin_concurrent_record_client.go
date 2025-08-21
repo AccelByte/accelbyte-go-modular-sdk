@@ -61,15 +61,12 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Recommended Request Body Size
 
@@ -78,7 +75,6 @@ To ensure optimal performance and efficient resource utilization, it is recommen
 ## Exceeding the recommended limit
 
 While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
-
 
 ## Parameters Notes
 1. updatedAt (required: true)
@@ -208,15 +204,12 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Recommended Request Body Size
 
@@ -225,7 +218,6 @@ To ensure optimal performance and efficient resource utilization, it is recommen
 ## Exceeding the recommended limit
 
 While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
-
 
 ## Parameters Notes
 1. set_by (default: CLIENT, type: string)
@@ -360,15 +352,12 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Recommended Request Body Size
 
@@ -377,7 +366,6 @@ To ensure optimal performance and efficient resource utilization, it is recommen
 ## Exceeding the recommended limit
 
 While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
-
 
 ## Parameters Notes
 1. updatedAt (required: true)
@@ -515,15 +503,12 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Recommended Request Body Size
 
@@ -532,7 +517,6 @@ To ensure optimal performance and efficient resource utilization, it is recommen
 ## Exceeding the recommended limit
 
 While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
-
 
 ## Parameters Notes
 1. set_by (default: CLIENT, type: string)
@@ -675,15 +659,12 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Recommended Request Body Size
 
@@ -692,7 +673,6 @@ To ensure optimal performance and efficient resource utilization, it is recommen
 ## Exceeding the recommended limit
 
 While it's possible to handle larger request, exceeding this limit may lead to increased processing time, potential performance degradation, and potential timeout issues.
-
 
 ## Parameters Notes
 1. set_by (default: CLIENT, type: string)

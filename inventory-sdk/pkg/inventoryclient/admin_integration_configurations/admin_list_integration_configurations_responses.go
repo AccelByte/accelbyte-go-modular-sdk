@@ -100,9 +100,10 @@ func NewAdminListIntegrationConfigurationsOK() *AdminListIntegrationConfiguratio
 	return &AdminListIntegrationConfigurationsOK{}
 }
 
-/*AdminListIntegrationConfigurationsOK handles this case with default header values.
+/*
+AdminListIntegrationConfigurationsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListIntegrationConfigurationsOK struct {
 	Payload *inventoryclientmodels.ApimodelsListIntegrationConfigurationsResp
@@ -154,9 +155,10 @@ func NewAdminListIntegrationConfigurationsBadRequest() *AdminListIntegrationConf
 	return &AdminListIntegrationConfigurationsBadRequest{}
 }
 
-/*AdminListIntegrationConfigurationsBadRequest handles this case with default header values.
+/*
+AdminListIntegrationConfigurationsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminListIntegrationConfigurationsBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -208,9 +210,10 @@ func NewAdminListIntegrationConfigurationsInternalServerError() *AdminListIntegr
 	return &AdminListIntegrationConfigurationsInternalServerError{}
 }
 
-/*AdminListIntegrationConfigurationsInternalServerError handles this case with default header values.
+/*
+AdminListIntegrationConfigurationsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminListIntegrationConfigurationsInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

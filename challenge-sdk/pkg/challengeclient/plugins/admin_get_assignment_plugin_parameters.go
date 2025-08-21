@@ -57,7 +57,8 @@ func NewAdminGetAssignmentPluginParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminGetAssignmentPluginParams contains all the parameters to send to the API endpoint
+/*
+AdminGetAssignmentPluginParams contains all the parameters to send to the API endpoint
 for the admin get assignment plugin operation typically these are written to a http.Request
 */
 type AdminGetAssignmentPluginParams struct {

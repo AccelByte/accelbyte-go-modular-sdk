@@ -130,9 +130,10 @@ func NewPublicListTagsOK() *PublicListTagsOK {
 	return &PublicListTagsOK{}
 }
 
-/*PublicListTagsOK handles this case with default header values.
+/*
+PublicListTagsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicListTagsOK struct {
 	Payload *achievementclientmodels.ModelsPaginatedTagResponse
@@ -184,9 +185,10 @@ func NewPublicListTagsBadRequest() *PublicListTagsBadRequest {
 	return &PublicListTagsBadRequest{}
 }
 
-/*PublicListTagsBadRequest handles this case with default header values.
+/*
+PublicListTagsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicListTagsBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicListTagsUnauthorized() *PublicListTagsUnauthorized {
 	return &PublicListTagsUnauthorized{}
 }
 
-/*PublicListTagsUnauthorized handles this case with default header values.
+/*
+PublicListTagsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicListTagsUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicListTagsNotFound() *PublicListTagsNotFound {
 	return &PublicListTagsNotFound{}
 }
 
-/*PublicListTagsNotFound handles this case with default header values.
+/*
+PublicListTagsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicListTagsNotFound struct {
 	Payload *achievementclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicListTagsInternalServerError() *PublicListTagsInternalServerError {
 	return &PublicListTagsInternalServerError{}
 }
 
-/*PublicListTagsInternalServerError handles this case with default header values.
+/*
+PublicListTagsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicListTagsInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewPublicListStoresParamsWithHTTPClient(client *http.Client) *PublicListSto
 	}
 }
 
-/*PublicListStoresParams contains all the parameters to send to the API endpoint
+/*
+PublicListStoresParams contains all the parameters to send to the API endpoint
 for the public list stores operation typically these are written to a http.Request
 */
 type PublicListStoresParams struct {

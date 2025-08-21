@@ -59,7 +59,8 @@ func NewAdminConsumeUserItemParamsWithHTTPClient(client *http.Client) *AdminCons
 	}
 }
 
-/*AdminConsumeUserItemParams contains all the parameters to send to the API endpoint
+/*
+AdminConsumeUserItemParams contains all the parameters to send to the API endpoint
 for the admin consume user item operation typically these are written to a http.Request
 */
 type AdminConsumeUserItemParams struct {

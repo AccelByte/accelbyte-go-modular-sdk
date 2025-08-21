@@ -85,10 +85,9 @@ func NewAdminListReasonGroupsOK() *AdminListReasonGroupsOK {
 	return &AdminListReasonGroupsOK{}
 }
 
-/*AdminListReasonGroupsOK handles this case with default header values.
-
-
- */
+/*
+AdminListReasonGroupsOK handles this case with default header values.
+*/
 type AdminListReasonGroupsOK struct {
 	Payload *reportingclientmodels.RestapiReasonGroupListResponse
 }
@@ -139,10 +138,9 @@ func NewAdminListReasonGroupsInternalServerError() *AdminListReasonGroupsInterna
 	return &AdminListReasonGroupsInternalServerError{}
 }
 
-/*AdminListReasonGroupsInternalServerError handles this case with default header values.
-
-
- */
+/*
+AdminListReasonGroupsInternalServerError handles this case with default header values.
+*/
 type AdminListReasonGroupsInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

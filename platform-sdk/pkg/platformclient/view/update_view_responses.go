@@ -130,9 +130,10 @@ func NewUpdateViewOK() *UpdateViewOK {
 	return &UpdateViewOK{}
 }
 
-/*UpdateViewOK handles this case with default header values.
+/*
+UpdateViewOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateViewOK struct {
 	Payload *platformclientmodels.FullViewInfo
@@ -184,9 +185,10 @@ func NewUpdateViewBadRequest() *UpdateViewBadRequest {
 	return &UpdateViewBadRequest{}
 }
 
-/*UpdateViewBadRequest handles this case with default header values.
+/*
+UpdateViewBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr></table>
 */
 type UpdateViewBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewUpdateViewNotFound() *UpdateViewNotFound {
 	return &UpdateViewNotFound{}
 }
 
-/*UpdateViewNotFound handles this case with default header values.
+/*
+UpdateViewNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30641</td><td>View [{viewId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30641</td><td>View [{viewId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateViewNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewUpdateViewConflict() *UpdateViewConflict {
 	return &UpdateViewConflict{}
 }
 
-/*UpdateViewConflict handles this case with default header values.
+/*
+UpdateViewConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type UpdateViewConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewUpdateViewUnprocessableEntity() *UpdateViewUnprocessableEntity {
 	return &UpdateViewUnprocessableEntity{}
 }
 
-/*UpdateViewUnprocessableEntity handles this case with default header values.
+/*
+UpdateViewUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateViewUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

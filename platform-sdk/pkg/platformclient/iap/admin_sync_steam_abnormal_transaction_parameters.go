@@ -57,7 +57,8 @@ func NewAdminSyncSteamAbnormalTransactionParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*AdminSyncSteamAbnormalTransactionParams contains all the parameters to send to the API endpoint
+/*
+AdminSyncSteamAbnormalTransactionParams contains all the parameters to send to the API endpoint
 for the admin sync steam abnormal transaction operation typically these are written to a http.Request
 */
 type AdminSyncSteamAbnormalTransactionParams struct {

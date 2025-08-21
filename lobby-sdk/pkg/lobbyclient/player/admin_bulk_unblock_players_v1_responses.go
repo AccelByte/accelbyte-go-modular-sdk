@@ -129,9 +129,10 @@ func NewAdminBulkUnblockPlayersV1NoContent() *AdminBulkUnblockPlayersV1NoContent
 	return &AdminBulkUnblockPlayersV1NoContent{}
 }
 
-/*AdminBulkUnblockPlayersV1NoContent handles this case with default header values.
+/*
+AdminBulkUnblockPlayersV1NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminBulkUnblockPlayersV1NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminBulkUnblockPlayersV1BadRequest() *AdminBulkUnblockPlayersV1BadReque
 	return &AdminBulkUnblockPlayersV1BadRequest{}
 }
 
-/*AdminBulkUnblockPlayersV1BadRequest handles this case with default header values.
+/*
+AdminBulkUnblockPlayersV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminBulkUnblockPlayersV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewAdminBulkUnblockPlayersV1Unauthorized() *AdminBulkUnblockPlayersV1Unauth
 	return &AdminBulkUnblockPlayersV1Unauthorized{}
 }
 
-/*AdminBulkUnblockPlayersV1Unauthorized handles this case with default header values.
+/*
+AdminBulkUnblockPlayersV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminBulkUnblockPlayersV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewAdminBulkUnblockPlayersV1Forbidden() *AdminBulkUnblockPlayersV1Forbidden
 	return &AdminBulkUnblockPlayersV1Forbidden{}
 }
 
-/*AdminBulkUnblockPlayersV1Forbidden handles this case with default header values.
+/*
+AdminBulkUnblockPlayersV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminBulkUnblockPlayersV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewAdminBulkUnblockPlayersV1InternalServerError() *AdminBulkUnblockPlayersV
 	return &AdminBulkUnblockPlayersV1InternalServerError{}
 }
 
-/*AdminBulkUnblockPlayersV1InternalServerError handles this case with default header values.
+/*
+AdminBulkUnblockPlayersV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminBulkUnblockPlayersV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

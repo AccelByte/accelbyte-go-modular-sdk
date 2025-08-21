@@ -59,7 +59,8 @@ func NewPublicUpdateContentByShareCodeParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*PublicUpdateContentByShareCodeParams contains all the parameters to send to the API endpoint
+/*
+PublicUpdateContentByShareCodeParams contains all the parameters to send to the API endpoint
 for the public update content by share code operation typically these are written to a http.Request
 */
 type PublicUpdateContentByShareCodeParams struct {

@@ -144,9 +144,10 @@ func NewPublicRevokePartyCodeNoContent() *PublicRevokePartyCodeNoContent {
 	return &PublicRevokePartyCodeNoContent{}
 }
 
-/*PublicRevokePartyCodeNoContent handles this case with default header values.
+/*
+PublicRevokePartyCodeNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicRevokePartyCodeNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicRevokePartyCodeBadRequest() *PublicRevokePartyCodeBadRequest {
 	return &PublicRevokePartyCodeBadRequest{}
 }
 
-/*PublicRevokePartyCodeBadRequest handles this case with default header values.
+/*
+PublicRevokePartyCodeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicRevokePartyCodeBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewPublicRevokePartyCodeUnauthorized() *PublicRevokePartyCodeUnauthorized {
 	return &PublicRevokePartyCodeUnauthorized{}
 }
 
-/*PublicRevokePartyCodeUnauthorized handles this case with default header values.
+/*
+PublicRevokePartyCodeUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicRevokePartyCodeUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewPublicRevokePartyCodeForbidden() *PublicRevokePartyCodeForbidden {
 	return &PublicRevokePartyCodeForbidden{}
 }
 
-/*PublicRevokePartyCodeForbidden handles this case with default header values.
+/*
+PublicRevokePartyCodeForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicRevokePartyCodeForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewPublicRevokePartyCodeNotFound() *PublicRevokePartyCodeNotFound {
 	return &PublicRevokePartyCodeNotFound{}
 }
 
-/*PublicRevokePartyCodeNotFound handles this case with default header values.
+/*
+PublicRevokePartyCodeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicRevokePartyCodeNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewPublicRevokePartyCodeInternalServerError() *PublicRevokePartyCodeInterna
 	return &PublicRevokePartyCodeInternalServerError{}
 }
 
-/*PublicRevokePartyCodeInternalServerError handles this case with default header values.
+/*
+PublicRevokePartyCodeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicRevokePartyCodeInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

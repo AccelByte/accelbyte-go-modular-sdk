@@ -125,9 +125,10 @@ func NewUpgradeHeadlessAccountWithVerificationCodeOK() *UpgradeHeadlessAccountWi
 	return &UpgradeHeadlessAccountWithVerificationCodeOK{}
 }
 
-/*UpgradeHeadlessAccountWithVerificationCodeOK handles this case with default header values.
+/*
+UpgradeHeadlessAccountWithVerificationCodeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpgradeHeadlessAccountWithVerificationCodeOK struct {
 	Payload *iamclientmodels.ModelUserResponse
@@ -179,9 +180,10 @@ func NewUpgradeHeadlessAccountWithVerificationCodeBadRequest() *UpgradeHeadlessA
 	return &UpgradeHeadlessAccountWithVerificationCodeBadRequest{}
 }
 
-/*UpgradeHeadlessAccountWithVerificationCodeBadRequest handles this case with default header values.
+/*
+UpgradeHeadlessAccountWithVerificationCodeBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type UpgradeHeadlessAccountWithVerificationCodeBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -233,9 +235,10 @@ func NewUpgradeHeadlessAccountWithVerificationCodeUnauthorized() *UpgradeHeadles
 	return &UpgradeHeadlessAccountWithVerificationCodeUnauthorized{}
 }
 
-/*UpgradeHeadlessAccountWithVerificationCodeUnauthorized handles this case with default header values.
+/*
+UpgradeHeadlessAccountWithVerificationCodeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpgradeHeadlessAccountWithVerificationCodeUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -287,9 +290,10 @@ func NewUpgradeHeadlessAccountWithVerificationCodeForbidden() *UpgradeHeadlessAc
 	return &UpgradeHeadlessAccountWithVerificationCodeForbidden{}
 }
 
-/*UpgradeHeadlessAccountWithVerificationCodeForbidden handles this case with default header values.
+/*
+UpgradeHeadlessAccountWithVerificationCodeForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpgradeHeadlessAccountWithVerificationCodeForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -341,9 +345,10 @@ func NewUpgradeHeadlessAccountWithVerificationCodeConflict() *UpgradeHeadlessAcc
 	return &UpgradeHeadlessAccountWithVerificationCodeConflict{}
 }
 
-/*UpgradeHeadlessAccountWithVerificationCodeConflict handles this case with default header values.
+/*
+UpgradeHeadlessAccountWithVerificationCodeConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type UpgradeHeadlessAccountWithVerificationCodeConflict struct {
 }

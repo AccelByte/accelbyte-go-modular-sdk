@@ -57,7 +57,8 @@ func NewPublicGetUserNamespaceSlotsParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*PublicGetUserNamespaceSlotsParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserNamespaceSlotsParams contains all the parameters to send to the API endpoint
 for the public get user namespace slots operation typically these are written to a http.Request
 */
 type PublicGetUserNamespaceSlotsParams struct {

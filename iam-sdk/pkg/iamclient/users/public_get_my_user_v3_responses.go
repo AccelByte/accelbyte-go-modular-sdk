@@ -100,9 +100,10 @@ func NewPublicGetMyUserV3OK() *PublicGetMyUserV3OK {
 	return &PublicGetMyUserV3OK{}
 }
 
-/*PublicGetMyUserV3OK handles this case with default header values.
+/*
+PublicGetMyUserV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetMyUserV3OK struct {
 	Payload *iamclientmodels.ModelUserResponseV3
@@ -154,9 +155,10 @@ func NewPublicGetMyUserV3Unauthorized() *PublicGetMyUserV3Unauthorized {
 	return &PublicGetMyUserV3Unauthorized{}
 }
 
-/*PublicGetMyUserV3Unauthorized handles this case with default header values.
+/*
+PublicGetMyUserV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicGetMyUserV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -208,9 +210,10 @@ func NewPublicGetMyUserV3InternalServerError() *PublicGetMyUserV3InternalServerE
 	return &PublicGetMyUserV3InternalServerError{}
 }
 
-/*PublicGetMyUserV3InternalServerError handles this case with default header values.
+/*
+PublicGetMyUserV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetMyUserV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

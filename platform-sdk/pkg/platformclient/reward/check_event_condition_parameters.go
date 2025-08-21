@@ -59,7 +59,8 @@ func NewCheckEventConditionParamsWithHTTPClient(client *http.Client) *CheckEvent
 	}
 }
 
-/*CheckEventConditionParams contains all the parameters to send to the API endpoint
+/*
+CheckEventConditionParams contains all the parameters to send to the API endpoint
 for the check event condition operation typically these are written to a http.Request
 */
 type CheckEventConditionParams struct {

@@ -59,7 +59,8 @@ func NewAdminUpdateStatusIntegrationConfigurationParamsWithHTTPClient(client *ht
 	}
 }
 
-/*AdminUpdateStatusIntegrationConfigurationParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateStatusIntegrationConfigurationParams contains all the parameters to send to the API endpoint
 for the admin update status integration configuration operation typically these are written to a http.Request
 */
 type AdminUpdateStatusIntegrationConfigurationParams struct {

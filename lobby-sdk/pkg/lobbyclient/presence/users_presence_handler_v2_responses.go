@@ -115,9 +115,10 @@ func NewUsersPresenceHandlerV2OK() *UsersPresenceHandlerV2OK {
 	return &UsersPresenceHandlerV2OK{}
 }
 
-/*UsersPresenceHandlerV2OK handles this case with default header values.
+/*
+UsersPresenceHandlerV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UsersPresenceHandlerV2OK struct {
 	Payload *lobbyclientmodels.HandlersGetUsersPresenceResponse
@@ -169,9 +170,10 @@ func NewUsersPresenceHandlerV2BadRequest() *UsersPresenceHandlerV2BadRequest {
 	return &UsersPresenceHandlerV2BadRequest{}
 }
 
-/*UsersPresenceHandlerV2BadRequest handles this case with default header values.
+/*
+UsersPresenceHandlerV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UsersPresenceHandlerV2BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -223,9 +225,10 @@ func NewUsersPresenceHandlerV2Unauthorized() *UsersPresenceHandlerV2Unauthorized
 	return &UsersPresenceHandlerV2Unauthorized{}
 }
 
-/*UsersPresenceHandlerV2Unauthorized handles this case with default header values.
+/*
+UsersPresenceHandlerV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UsersPresenceHandlerV2Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -277,9 +280,10 @@ func NewUsersPresenceHandlerV2InternalServerError() *UsersPresenceHandlerV2Inter
 	return &UsersPresenceHandlerV2InternalServerError{}
 }
 
-/*UsersPresenceHandlerV2InternalServerError handles this case with default header values.
+/*
+UsersPresenceHandlerV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UsersPresenceHandlerV2InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

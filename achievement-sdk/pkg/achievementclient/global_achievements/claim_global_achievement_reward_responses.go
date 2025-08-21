@@ -114,9 +114,10 @@ func NewClaimGlobalAchievementRewardAccepted() *ClaimGlobalAchievementRewardAcce
 	return &ClaimGlobalAchievementRewardAccepted{}
 }
 
-/*ClaimGlobalAchievementRewardAccepted handles this case with default header values.
+/*
+ClaimGlobalAchievementRewardAccepted handles this case with default header values.
 
-  Accepted
+	Accepted
 */
 type ClaimGlobalAchievementRewardAccepted struct {
 }
@@ -141,9 +142,10 @@ func NewClaimGlobalAchievementRewardBadRequest() *ClaimGlobalAchievementRewardBa
 	return &ClaimGlobalAchievementRewardBadRequest{}
 }
 
-/*ClaimGlobalAchievementRewardBadRequest handles this case with default header values.
+/*
+ClaimGlobalAchievementRewardBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type ClaimGlobalAchievementRewardBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewClaimGlobalAchievementRewardUnauthorized() *ClaimGlobalAchievementReward
 	return &ClaimGlobalAchievementRewardUnauthorized{}
 }
 
-/*ClaimGlobalAchievementRewardUnauthorized handles this case with default header values.
+/*
+ClaimGlobalAchievementRewardUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type ClaimGlobalAchievementRewardUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewClaimGlobalAchievementRewardInternalServerError() *ClaimGlobalAchievemen
 	return &ClaimGlobalAchievementRewardInternalServerError{}
 }
 
-/*ClaimGlobalAchievementRewardInternalServerError handles this case with default header values.
+/*
+ClaimGlobalAchievementRewardInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ClaimGlobalAchievementRewardInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

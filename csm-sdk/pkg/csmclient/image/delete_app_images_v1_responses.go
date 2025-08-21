@@ -129,10 +129,9 @@ func NewDeleteAppImagesV1NoContent() *DeleteAppImagesV1NoContent {
 	return &DeleteAppImagesV1NoContent{}
 }
 
-/*DeleteAppImagesV1NoContent handles this case with default header values.
-
-
- */
+/*
+DeleteAppImagesV1NoContent handles this case with default header values.
+*/
 type DeleteAppImagesV1NoContent struct {
 }
 
@@ -156,9 +155,10 @@ func NewDeleteAppImagesV1Unauthorized() *DeleteAppImagesV1Unauthorized {
 	return &DeleteAppImagesV1Unauthorized{}
 }
 
-/*DeleteAppImagesV1Unauthorized handles this case with default header values.
+/*
+DeleteAppImagesV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteAppImagesV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -210,9 +210,10 @@ func NewDeleteAppImagesV1Forbidden() *DeleteAppImagesV1Forbidden {
 	return &DeleteAppImagesV1Forbidden{}
 }
 
-/*DeleteAppImagesV1Forbidden handles this case with default header values.
+/*
+DeleteAppImagesV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteAppImagesV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -264,9 +265,10 @@ func NewDeleteAppImagesV1NotFound() *DeleteAppImagesV1NotFound {
 	return &DeleteAppImagesV1NotFound{}
 }
 
-/*DeleteAppImagesV1NotFound handles this case with default header values.
+/*
+DeleteAppImagesV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteAppImagesV1NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -318,9 +320,10 @@ func NewDeleteAppImagesV1InternalServerError() *DeleteAppImagesV1InternalServerE
 	return &DeleteAppImagesV1InternalServerError{}
 }
 
-/*DeleteAppImagesV1InternalServerError handles this case with default header values.
+/*
+DeleteAppImagesV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteAppImagesV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

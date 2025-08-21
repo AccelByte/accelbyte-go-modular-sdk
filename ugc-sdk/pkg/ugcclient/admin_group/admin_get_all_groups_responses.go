@@ -115,9 +115,10 @@ func NewAdminGetAllGroupsOK() *AdminGetAllGroupsOK {
 	return &AdminGetAllGroupsOK{}
 }
 
-/*AdminGetAllGroupsOK handles this case with default header values.
+/*
+AdminGetAllGroupsOK handles this case with default header values.
 
-  Get all user groups
+	Get all user groups
 */
 type AdminGetAllGroupsOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGroupResponse
@@ -169,9 +170,10 @@ func NewAdminGetAllGroupsBadRequest() *AdminGetAllGroupsBadRequest {
 	return &AdminGetAllGroupsBadRequest{}
 }
 
-/*AdminGetAllGroupsBadRequest handles this case with default header values.
+/*
+AdminGetAllGroupsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772301</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772301</td><td>invalid paging parameter</td></tr></table>
 */
 type AdminGetAllGroupsBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetAllGroupsUnauthorized() *AdminGetAllGroupsUnauthorized {
 	return &AdminGetAllGroupsUnauthorized{}
 }
 
-/*AdminGetAllGroupsUnauthorized handles this case with default header values.
+/*
+AdminGetAllGroupsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetAllGroupsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetAllGroupsInternalServerError() *AdminGetAllGroupsInternalServerE
 	return &AdminGetAllGroupsInternalServerError{}
 }
 
-/*AdminGetAllGroupsInternalServerError handles this case with default header values.
+/*
+AdminGetAllGroupsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772302</td><td>Unable get groups</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772302</td><td>Unable get groups</td></tr></table>
 */
 type AdminGetAllGroupsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

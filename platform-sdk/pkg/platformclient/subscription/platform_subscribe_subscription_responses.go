@@ -121,9 +121,10 @@ func NewPlatformSubscribeSubscriptionOK() *PlatformSubscribeSubscriptionOK {
 	return &PlatformSubscribeSubscriptionOK{}
 }
 
-/*PlatformSubscribeSubscriptionOK handles this case with default header values.
+/*
+PlatformSubscribeSubscriptionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PlatformSubscribeSubscriptionOK struct {
 	Payload *platformclientmodels.SubscriptionInfo
@@ -175,9 +176,10 @@ func NewPlatformSubscribeSubscriptionCreated() *PlatformSubscribeSubscriptionCre
 	return &PlatformSubscribeSubscriptionCreated{}
 }
 
-/*PlatformSubscribeSubscriptionCreated handles this case with default header values.
+/*
+PlatformSubscribeSubscriptionCreated handles this case with default header values.
 
-  platform subscribe request processed
+	platform subscribe request processed
 */
 type PlatformSubscribeSubscriptionCreated struct {
 }
@@ -202,9 +204,10 @@ func NewPlatformSubscribeSubscriptionBadRequest() *PlatformSubscribeSubscription
 	return &PlatformSubscribeSubscriptionBadRequest{}
 }
 
-/*PlatformSubscribeSubscriptionBadRequest handles this case with default header values.
+/*
+PlatformSubscribeSubscriptionBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40121</td><td>Item type [{itemType}] does not support</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40121</td><td>Item type [{itemType}] does not support</td></tr></table>
 */
 type PlatformSubscribeSubscriptionBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -256,9 +259,10 @@ func NewPlatformSubscribeSubscriptionNotFound() *PlatformSubscribeSubscriptionNo
 	return &PlatformSubscribeSubscriptionNotFound{}
 }
 
-/*PlatformSubscribeSubscriptionNotFound handles this case with default header values.
+/*
+PlatformSubscribeSubscriptionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PlatformSubscribeSubscriptionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -310,9 +314,10 @@ func NewPlatformSubscribeSubscriptionUnprocessableEntity() *PlatformSubscribeSub
 	return &PlatformSubscribeSubscriptionUnprocessableEntity{}
 }
 
-/*PlatformSubscribeSubscriptionUnprocessableEntity handles this case with default header values.
+/*
+PlatformSubscribeSubscriptionUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PlatformSubscribeSubscriptionUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

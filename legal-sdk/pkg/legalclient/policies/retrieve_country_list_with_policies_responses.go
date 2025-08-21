@@ -69,9 +69,10 @@ func NewRetrieveCountryListWithPoliciesOK() *RetrieveCountryListWithPoliciesOK {
 	return &RetrieveCountryListWithPoliciesOK{}
 }
 
-/*RetrieveCountryListWithPoliciesOK handles this case with default header values.
+/*
+RetrieveCountryListWithPoliciesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveCountryListWithPoliciesOK struct {
 	Payload []string

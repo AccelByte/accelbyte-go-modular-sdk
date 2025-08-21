@@ -59,7 +59,8 @@ func NewPlatformSubscribeSubscriptionParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PlatformSubscribeSubscriptionParams contains all the parameters to send to the API endpoint
+/*
+PlatformSubscribeSubscriptionParams contains all the parameters to send to the API endpoint
 for the platform subscribe subscription operation typically these are written to a http.Request
 */
 type PlatformSubscribeSubscriptionParams struct {

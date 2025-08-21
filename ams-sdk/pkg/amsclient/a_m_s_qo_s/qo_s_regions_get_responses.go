@@ -130,9 +130,10 @@ func NewQoSRegionsGetOK() *QoSRegionsGetOK {
 	return &QoSRegionsGetOK{}
 }
 
-/*QoSRegionsGetOK handles this case with default header values.
+/*
+QoSRegionsGetOK handles this case with default header values.
 
-  success
+	success
 */
 type QoSRegionsGetOK struct {
 	Payload *amsclientmodels.APIQoSEndpointResponse
@@ -184,9 +185,10 @@ func NewQoSRegionsGetBadRequest() *QoSRegionsGetBadRequest {
 	return &QoSRegionsGetBadRequest{}
 }
 
-/*QoSRegionsGetBadRequest handles this case with default header values.
+/*
+QoSRegionsGetBadRequest handles this case with default header values.
 
-  bad request
+	bad request
 */
 type QoSRegionsGetBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewQoSRegionsGetUnauthorized() *QoSRegionsGetUnauthorized {
 	return &QoSRegionsGetUnauthorized{}
 }
 
-/*QoSRegionsGetUnauthorized handles this case with default header values.
+/*
+QoSRegionsGetUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type QoSRegionsGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewQoSRegionsGetForbidden() *QoSRegionsGetForbidden {
 	return &QoSRegionsGetForbidden{}
 }
 
-/*QoSRegionsGetForbidden handles this case with default header values.
+/*
+QoSRegionsGetForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type QoSRegionsGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewQoSRegionsGetInternalServerError() *QoSRegionsGetInternalServerError {
 	return &QoSRegionsGetInternalServerError{}
 }
 
-/*QoSRegionsGetInternalServerError handles this case with default header values.
+/*
+QoSRegionsGetInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type QoSRegionsGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

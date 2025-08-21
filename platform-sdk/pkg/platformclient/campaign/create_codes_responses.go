@@ -115,9 +115,10 @@ func NewCreateCodesCreated() *CreateCodesCreated {
 	return &CreateCodesCreated{}
 }
 
-/*CreateCodesCreated handles this case with default header values.
+/*
+CreateCodesCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateCodesCreated struct {
 	Payload *platformclientmodels.CodeCreateResult
@@ -169,9 +170,10 @@ func NewCreateCodesNotFound() *CreateCodesNotFound {
 	return &CreateCodesNotFound{}
 }
 
-/*CreateCodesNotFound handles this case with default header values.
+/*
+CreateCodesNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CreateCodesNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewCreateCodesConflict() *CreateCodesConflict {
 	return &CreateCodesConflict{}
 }
 
-/*CreateCodesConflict handles this case with default header values.
+/*
+CreateCodesConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37180</td><td>Code [{code}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37180</td><td>Code [{code}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type CreateCodesConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewCreateCodesUnprocessableEntity() *CreateCodesUnprocessableEntity {
 	return &CreateCodesUnprocessableEntity{}
 }
 
-/*CreateCodesUnprocessableEntity handles this case with default header values.
+/*
+CreateCodesUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateCodesUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

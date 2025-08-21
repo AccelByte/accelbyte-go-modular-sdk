@@ -69,9 +69,10 @@ func NewPublicGetMyDLCContentOK() *PublicGetMyDLCContentOK {
 	return &PublicGetMyDLCContentOK{}
 }
 
-/*PublicGetMyDLCContentOK handles this case with default header values.
+/*
+PublicGetMyDLCContentOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetMyDLCContentOK struct {
 	Payload *platformclientmodels.SimpleUserDLCRewardContentsResponse

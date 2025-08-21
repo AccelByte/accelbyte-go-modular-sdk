@@ -57,7 +57,8 @@ func NewKickGroupMemberPublicV2ParamsWithHTTPClient(client *http.Client) *KickGr
 	}
 }
 
-/*KickGroupMemberPublicV2Params contains all the parameters to send to the API endpoint
+/*
+KickGroupMemberPublicV2Params contains all the parameters to send to the API endpoint
 for the kick group member public v2 operation typically these are written to a http.Request
 */
 type KickGroupMemberPublicV2Params struct {

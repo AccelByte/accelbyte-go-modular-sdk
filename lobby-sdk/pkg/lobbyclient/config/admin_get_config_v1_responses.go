@@ -145,9 +145,10 @@ func NewAdminGetConfigV1OK() *AdminGetConfigV1OK {
 	return &AdminGetConfigV1OK{}
 }
 
-/*AdminGetConfigV1OK handles this case with default header values.
+/*
+AdminGetConfigV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetConfigV1OK struct {
 	Payload *lobbyclientmodels.ModelsConfigReq
@@ -199,9 +200,10 @@ func NewAdminGetConfigV1BadRequest() *AdminGetConfigV1BadRequest {
 	return &AdminGetConfigV1BadRequest{}
 }
 
-/*AdminGetConfigV1BadRequest handles this case with default header values.
+/*
+AdminGetConfigV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetConfigV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetConfigV1Unauthorized() *AdminGetConfigV1Unauthorized {
 	return &AdminGetConfigV1Unauthorized{}
 }
 
-/*AdminGetConfigV1Unauthorized handles this case with default header values.
+/*
+AdminGetConfigV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetConfigV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetConfigV1Forbidden() *AdminGetConfigV1Forbidden {
 	return &AdminGetConfigV1Forbidden{}
 }
 
-/*AdminGetConfigV1Forbidden handles this case with default header values.
+/*
+AdminGetConfigV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetConfigV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetConfigV1NotFound() *AdminGetConfigV1NotFound {
 	return &AdminGetConfigV1NotFound{}
 }
 
-/*AdminGetConfigV1NotFound handles this case with default header values.
+/*
+AdminGetConfigV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetConfigV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetConfigV1InternalServerError() *AdminGetConfigV1InternalServerErr
 	return &AdminGetConfigV1InternalServerError{}
 }
 
-/*AdminGetConfigV1InternalServerError handles this case with default header values.
+/*
+AdminGetConfigV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetConfigV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

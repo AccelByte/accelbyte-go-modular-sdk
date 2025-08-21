@@ -331,15 +331,17 @@ For more details, see [repository](samples/cli/pkg/repository) for the interface
 ### Interacting with AccelByte Gaming Services WebSocket Endpoints
 
 To interact with AccelByte Gaming Services services which use WebSocket endpoints e.g. AccelByte Gaming Services Lobby
-Service, use an existing Initialisation code or implement custom `connectionutils/ConnectionManager` interface.
+Service, use an existing Initialisation code or implement custom `wsm/ConnectionManager` interface.
 `ConnectionManager` manages WebSocket connection that save, get and close the WebSocket connection. In other words,
 client should maintain WebSocket connection using `ConnectionManager`.
 
 ```go
-connMgr = &integration.ConnectionManagerImpl{}
-conn, err := connectionutils.NewWSConnection(
-oAuth20Service.ConfigRepository, oAuth20Service.TokenRepository,
-connectionutils.WithEnableAutoReconnect(), connectionutils.WithMessageHandler(lobbyMessageHandler), // do optionals
+connMgr = &wsm.DefaultConnectionManagerImpl{}
+conn, err := wsm.NewWSConnection(
+    oAuth20Service.ConfigRepository,
+	oAuth20Service.TokenRepository,
+    wsm.WithEnableAutoReconnect(),
+	wsm.WithMessageHandler(lobbyMessageHandler), // do optionals
 )
 if err != nil {
 // error
@@ -361,7 +363,7 @@ err = notificationService.GetNotificationMessage()
 ```
 
 For reference, see [connectionutils_test.go](lobby-sdk/pkg/connectionutils/connectionutils_test.go)
-or [samples/cli/pkg/utils/connectionManager.go](samples/cli/pkg/utils/connectionManager.go).
+or [services-api/pkg/wsm/connection.go](services-api/pkg/wsm/connection.go).
 
 ### Refresh Token
 ```go

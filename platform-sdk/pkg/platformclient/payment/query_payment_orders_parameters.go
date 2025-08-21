@@ -126,7 +126,8 @@ func NewQueryPaymentOrdersParamsWithHTTPClient(client *http.Client) *QueryPaymen
 	}
 }
 
-/*QueryPaymentOrdersParams contains all the parameters to send to the API endpoint
+/*
+QueryPaymentOrdersParams contains all the parameters to send to the API endpoint
 for the query payment orders operation typically these are written to a http.Request
 */
 type QueryPaymentOrdersParams struct {

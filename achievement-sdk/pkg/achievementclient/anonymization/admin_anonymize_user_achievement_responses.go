@@ -99,9 +99,10 @@ func NewAdminAnonymizeUserAchievementNoContent() *AdminAnonymizeUserAchievementN
 	return &AdminAnonymizeUserAchievementNoContent{}
 }
 
-/*AdminAnonymizeUserAchievementNoContent handles this case with default header values.
+/*
+AdminAnonymizeUserAchievementNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminAnonymizeUserAchievementNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewAdminAnonymizeUserAchievementUnauthorized() *AdminAnonymizeUserAchieveme
 	return &AdminAnonymizeUserAchievementUnauthorized{}
 }
 
-/*AdminAnonymizeUserAchievementUnauthorized handles this case with default header values.
+/*
+AdminAnonymizeUserAchievementUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminAnonymizeUserAchievementUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -180,9 +182,10 @@ func NewAdminAnonymizeUserAchievementInternalServerError() *AdminAnonymizeUserAc
 	return &AdminAnonymizeUserAchievementInternalServerError{}
 }
 
-/*AdminAnonymizeUserAchievementInternalServerError handles this case with default header values.
+/*
+AdminAnonymizeUserAchievementInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminAnonymizeUserAchievementInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

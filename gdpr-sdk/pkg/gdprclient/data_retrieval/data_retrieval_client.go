@@ -387,11 +387,7 @@ func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUser
 /*
 AdminGeneratePersonalDataURLShort generate personal data download url
 
-
 Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope `account`
-
-
-
 
 If admin request data for themselves, password is need to be set
 */

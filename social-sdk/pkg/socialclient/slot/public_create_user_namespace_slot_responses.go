@@ -99,9 +99,10 @@ func NewPublicCreateUserNamespaceSlotCreated() *PublicCreateUserNamespaceSlotCre
 	return &PublicCreateUserNamespaceSlotCreated{}
 }
 
-/*PublicCreateUserNamespaceSlotCreated handles this case with default header values.
+/*
+PublicCreateUserNamespaceSlotCreated handles this case with default header values.
 
-  Successful create of a slot
+	Successful create of a slot
 */
 type PublicCreateUserNamespaceSlotCreated struct {
 }
@@ -126,9 +127,10 @@ func NewPublicCreateUserNamespaceSlotBadRequest() *PublicCreateUserNamespaceSlot
 	return &PublicCreateUserNamespaceSlotBadRequest{}
 }
 
-/*PublicCreateUserNamespaceSlotBadRequest handles this case with default header values.
+/*
+PublicCreateUserNamespaceSlotBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12121</td><td>Checksum mismatch for [{filename}]</td></tr><tr><td>12122</td><td>[{filename}] exceeds the upload limit size of [{sizeLimit}] bytes</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12121</td><td>Checksum mismatch for [{filename}]</td></tr><tr><td>12122</td><td>[{filename}] exceeds the upload limit size of [{sizeLimit}] bytes</td></tr></table>
 */
 type PublicCreateUserNamespaceSlotBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewPublicCreateUserNamespaceSlotConflict() *PublicCreateUserNamespaceSlotCo
 	return &PublicCreateUserNamespaceSlotConflict{}
 }
 
-/*PublicCreateUserNamespaceSlotConflict handles this case with default header values.
+/*
+PublicCreateUserNamespaceSlotConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12171</td><td>User [{userId}] exceed max slot count [{maxCount}] in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12171</td><td>User [{userId}] exceed max slot count [{maxCount}] in namespace [{namespace}]</td></tr></table>
 */
 type PublicCreateUserNamespaceSlotConflict struct {
 	Payload *socialclientmodels.ErrorEntity

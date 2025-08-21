@@ -130,10 +130,9 @@ func NewGetSubscriptionV2HandlerOK() *GetSubscriptionV2HandlerOK {
 	return &GetSubscriptionV2HandlerOK{}
 }
 
-/*GetSubscriptionV2HandlerOK handles this case with default header values.
-
-
- */
+/*
+GetSubscriptionV2HandlerOK handles this case with default header values.
+*/
 type GetSubscriptionV2HandlerOK struct {
 	Payload *csmclientmodels.ApimodelGetNotificationSubscriberStatusResponse
 }
@@ -184,9 +183,10 @@ func NewGetSubscriptionV2HandlerUnauthorized() *GetSubscriptionV2HandlerUnauthor
 	return &GetSubscriptionV2HandlerUnauthorized{}
 }
 
-/*GetSubscriptionV2HandlerUnauthorized handles this case with default header values.
+/*
+GetSubscriptionV2HandlerUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetSubscriptionV2HandlerUnauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewGetSubscriptionV2HandlerForbidden() *GetSubscriptionV2HandlerForbidden {
 	return &GetSubscriptionV2HandlerForbidden{}
 }
 
-/*GetSubscriptionV2HandlerForbidden handles this case with default header values.
+/*
+GetSubscriptionV2HandlerForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetSubscriptionV2HandlerForbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewGetSubscriptionV2HandlerNotFound() *GetSubscriptionV2HandlerNotFound {
 	return &GetSubscriptionV2HandlerNotFound{}
 }
 
-/*GetSubscriptionV2HandlerNotFound handles this case with default header values.
+/*
+GetSubscriptionV2HandlerNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetSubscriptionV2HandlerNotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewGetSubscriptionV2HandlerInternalServerError() *GetSubscriptionV2HandlerI
 	return &GetSubscriptionV2HandlerInternalServerError{}
 }
 
-/*GetSubscriptionV2HandlerInternalServerError handles this case with default header values.
+/*
+GetSubscriptionV2HandlerInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetSubscriptionV2HandlerInternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

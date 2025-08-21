@@ -69,9 +69,10 @@ func NewQueryPaymentOrdersOK() *QueryPaymentOrdersOK {
 	return &QueryPaymentOrdersOK{}
 }
 
-/*QueryPaymentOrdersOK handles this case with default header values.
+/*
+QueryPaymentOrdersOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryPaymentOrdersOK struct {
 	Payload *platformclientmodels.PaymentOrderPagingSlicedResult

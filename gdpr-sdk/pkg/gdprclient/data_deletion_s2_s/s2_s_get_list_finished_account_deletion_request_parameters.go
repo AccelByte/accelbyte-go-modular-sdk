@@ -57,7 +57,8 @@ func NewS2SGetListFinishedAccountDeletionRequestParamsWithHTTPClient(client *htt
 	}
 }
 
-/*S2SGetListFinishedAccountDeletionRequestParams contains all the parameters to send to the API endpoint
+/*
+S2SGetListFinishedAccountDeletionRequestParams contains all the parameters to send to the API endpoint
 for the s2s get list finished account deletion request operation typically these are written to a http.Request
 */
 type S2SGetListFinishedAccountDeletionRequestParams struct {

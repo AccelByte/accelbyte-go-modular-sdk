@@ -130,9 +130,10 @@ func NewPublicListAllMyStatItemsOK() *PublicListAllMyStatItemsOK {
 	return &PublicListAllMyStatItemsOK{}
 }
 
-/*PublicListAllMyStatItemsOK handles this case with default header values.
+/*
+PublicListAllMyStatItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicListAllMyStatItemsOK struct {
 	Payload []*socialclientmodels.ADTOObjectForUserStatItemValue
@@ -182,9 +183,10 @@ func NewPublicListAllMyStatItemsBadRequest() *PublicListAllMyStatItemsBadRequest
 	return &PublicListAllMyStatItemsBadRequest{}
 }
 
-/*PublicListAllMyStatItemsBadRequest handles this case with default header values.
+/*
+PublicListAllMyStatItemsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12223</td><td>Invalid stat codes in namespace [{namespace}]: [{statCodes}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12223</td><td>Invalid stat codes in namespace [{namespace}]: [{statCodes}]</td></tr></table>
 */
 type PublicListAllMyStatItemsBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -236,9 +238,10 @@ func NewPublicListAllMyStatItemsForbidden() *PublicListAllMyStatItemsForbidden {
 	return &PublicListAllMyStatItemsForbidden{}
 }
 
-/*PublicListAllMyStatItemsForbidden handles this case with default header values.
+/*
+PublicListAllMyStatItemsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicListAllMyStatItemsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -290,9 +293,10 @@ func NewPublicListAllMyStatItemsNotFound() *PublicListAllMyStatItemsNotFound {
 	return &PublicListAllMyStatItemsNotFound{}
 }
 
-/*PublicListAllMyStatItemsNotFound handles this case with default header values.
+/*
+PublicListAllMyStatItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12243</td><td>Stats cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12243</td><td>Stats cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type PublicListAllMyStatItemsNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -344,9 +348,10 @@ func NewPublicListAllMyStatItemsUnprocessableEntity() *PublicListAllMyStatItemsU
 	return &PublicListAllMyStatItemsUnprocessableEntity{}
 }
 
-/*PublicListAllMyStatItemsUnprocessableEntity handles this case with default header values.
+/*
+PublicListAllMyStatItemsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicListAllMyStatItemsUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity

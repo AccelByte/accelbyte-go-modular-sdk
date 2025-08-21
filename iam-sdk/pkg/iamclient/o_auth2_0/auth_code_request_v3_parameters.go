@@ -57,7 +57,8 @@ func NewAuthCodeRequestV3ParamsWithHTTPClient(client *http.Client) *AuthCodeRequ
 	}
 }
 
-/*AuthCodeRequestV3Params contains all the parameters to send to the API endpoint
+/*
+AuthCodeRequestV3Params contains all the parameters to send to the API endpoint
 for the auth code request v3 operation typically these are written to a http.Request
 */
 type AuthCodeRequestV3Params struct {

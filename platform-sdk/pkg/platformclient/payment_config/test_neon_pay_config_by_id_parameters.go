@@ -70,7 +70,8 @@ func NewTestNeonPayConfigByIDParamsWithHTTPClient(client *http.Client) *TestNeon
 	}
 }
 
-/*TestNeonPayConfigByIDParams contains all the parameters to send to the API endpoint
+/*
+TestNeonPayConfigByIDParams contains all the parameters to send to the API endpoint
 for the test neon pay config by id operation typically these are written to a http.Request
 */
 type TestNeonPayConfigByIDParams struct {

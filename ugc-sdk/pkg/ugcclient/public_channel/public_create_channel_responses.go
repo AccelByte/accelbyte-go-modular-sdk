@@ -115,9 +115,10 @@ func NewPublicCreateChannelCreated() *PublicCreateChannelCreated {
 	return &PublicCreateChannelCreated{}
 }
 
-/*PublicCreateChannelCreated handles this case with default header values.
+/*
+PublicCreateChannelCreated handles this case with default header values.
 
-  channel created
+	channel created
 */
 type PublicCreateChannelCreated struct {
 	Payload *ugcclientmodels.ModelsChannelResponse
@@ -169,9 +170,10 @@ func NewPublicCreateChannelBadRequest() *PublicCreateChannelBadRequest {
 	return &PublicCreateChannelBadRequest{}
 }
 
-/*PublicCreateChannelBadRequest handles this case with default header values.
+/*
+PublicCreateChannelBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770500</td><td>Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770500</td><td>Invalid request body</td></tr></table>
 */
 type PublicCreateChannelBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicCreateChannelUnauthorized() *PublicCreateChannelUnauthorized {
 	return &PublicCreateChannelUnauthorized{}
 }
 
-/*PublicCreateChannelUnauthorized handles this case with default header values.
+/*
+PublicCreateChannelUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicCreateChannelUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicCreateChannelInternalServerError() *PublicCreateChannelInternalSer
 	return &PublicCreateChannelInternalServerError{}
 }
 
-/*PublicCreateChannelInternalServerError handles this case with default header values.
+/*
+PublicCreateChannelInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770502</td><td>Unable to save channel</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770502</td><td>Unable to save channel</td></tr></table>
 */
 type PublicCreateChannelInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

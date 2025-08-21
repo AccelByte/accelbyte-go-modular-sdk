@@ -115,9 +115,10 @@ func NewFulfillUserOrderOK() *FulfillUserOrderOK {
 	return &FulfillUserOrderOK{}
 }
 
-/*FulfillUserOrderOK handles this case with default header values.
+/*
+FulfillUserOrderOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type FulfillUserOrderOK struct {
 	Payload *platformclientmodels.OrderInfo
@@ -169,9 +170,10 @@ func NewFulfillUserOrderBadRequest() *FulfillUserOrderBadRequest {
 	return &FulfillUserOrderBadRequest{}
 }
 
-/*FulfillUserOrderBadRequest handles this case with default header values.
+/*
+FulfillUserOrderBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr></table>
 */
 type FulfillUserOrderBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewFulfillUserOrderNotFound() *FulfillUserOrderNotFound {
 	return &FulfillUserOrderNotFound{}
 }
 
-/*FulfillUserOrderNotFound handles this case with default header values.
+/*
+FulfillUserOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
 */
 type FulfillUserOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewFulfillUserOrderConflict() *FulfillUserOrderConflict {
 	return &FulfillUserOrderConflict{}
 }
 
-/*FulfillUserOrderConflict handles this case with default header values.
+/*
+FulfillUserOrderConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32172</td><td>Invalid order status [{status}] for order [{orderNo}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32172</td><td>Invalid order status [{status}] for order [{orderNo}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type FulfillUserOrderConflict struct {
 	Payload *platformclientmodels.ErrorEntity

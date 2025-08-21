@@ -66,9 +66,10 @@ func NewVersionCheckHandlerOK() *VersionCheckHandlerOK {
 	return &VersionCheckHandlerOK{}
 }
 
-/*VersionCheckHandlerOK handles this case with default header values.
+/*
+VersionCheckHandlerOK handles this case with default header values.
 
-  OK
+	OK
 */
 type VersionCheckHandlerOK struct {
 }

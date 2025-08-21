@@ -144,9 +144,10 @@ func NewAdminDeletePlatformCredentialsByPlatformIDNoContent() *AdminDeletePlatfo
 	return &AdminDeletePlatformCredentialsByPlatformIDNoContent{}
 }
 
-/*AdminDeletePlatformCredentialsByPlatformIDNoContent handles this case with default header values.
+/*
+AdminDeletePlatformCredentialsByPlatformIDNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeletePlatformCredentialsByPlatformIDNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeletePlatformCredentialsByPlatformIDBadRequest() *AdminDeletePlatf
 	return &AdminDeletePlatformCredentialsByPlatformIDBadRequest{}
 }
 
-/*AdminDeletePlatformCredentialsByPlatformIDBadRequest handles this case with default header values.
+/*
+AdminDeletePlatformCredentialsByPlatformIDBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeletePlatformCredentialsByPlatformIDBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewAdminDeletePlatformCredentialsByPlatformIDUnauthorized() *AdminDeletePla
 	return &AdminDeletePlatformCredentialsByPlatformIDUnauthorized{}
 }
 
-/*AdminDeletePlatformCredentialsByPlatformIDUnauthorized handles this case with default header values.
+/*
+AdminDeletePlatformCredentialsByPlatformIDUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeletePlatformCredentialsByPlatformIDUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewAdminDeletePlatformCredentialsByPlatformIDForbidden() *AdminDeletePlatfo
 	return &AdminDeletePlatformCredentialsByPlatformIDForbidden{}
 }
 
-/*AdminDeletePlatformCredentialsByPlatformIDForbidden handles this case with default header values.
+/*
+AdminDeletePlatformCredentialsByPlatformIDForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeletePlatformCredentialsByPlatformIDForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewAdminDeletePlatformCredentialsByPlatformIDNotFound() *AdminDeletePlatfor
 	return &AdminDeletePlatformCredentialsByPlatformIDNotFound{}
 }
 
-/*AdminDeletePlatformCredentialsByPlatformIDNotFound handles this case with default header values.
+/*
+AdminDeletePlatformCredentialsByPlatformIDNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminDeletePlatformCredentialsByPlatformIDNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewAdminDeletePlatformCredentialsByPlatformIDInternalServerError() *AdminDe
 	return &AdminDeletePlatformCredentialsByPlatformIDInternalServerError{}
 }
 
-/*AdminDeletePlatformCredentialsByPlatformIDInternalServerError handles this case with default header values.
+/*
+AdminDeletePlatformCredentialsByPlatformIDInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeletePlatformCredentialsByPlatformIDInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

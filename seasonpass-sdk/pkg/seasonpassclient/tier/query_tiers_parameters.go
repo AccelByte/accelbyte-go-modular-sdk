@@ -78,7 +78,8 @@ func NewQueryTiersParamsWithHTTPClient(client *http.Client) *QueryTiersParams {
 	}
 }
 
-/*QueryTiersParams contains all the parameters to send to the API endpoint
+/*
+QueryTiersParams contains all the parameters to send to the API endpoint
 for the query tiers operation typically these are written to a http.Request
 */
 type QueryTiersParams struct {

@@ -144,9 +144,10 @@ func NewStartAppV2Accepted() *StartAppV2Accepted {
 	return &StartAppV2Accepted{}
 }
 
-/*StartAppV2Accepted handles this case with default header values.
+/*
+StartAppV2Accepted handles this case with default header values.
 
-  This means the request to start the application is accepted, and it will be processed in the background.
+	This means the request to start the application is accepted, and it will be processed in the background.
 */
 type StartAppV2Accepted struct {
 }
@@ -171,9 +172,10 @@ func NewStartAppV2BadRequest() *StartAppV2BadRequest {
 	return &StartAppV2BadRequest{}
 }
 
-/*StartAppV2BadRequest handles this case with default header values.
+/*
+StartAppV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type StartAppV2BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -225,9 +227,10 @@ func NewStartAppV2Unauthorized() *StartAppV2Unauthorized {
 	return &StartAppV2Unauthorized{}
 }
 
-/*StartAppV2Unauthorized handles this case with default header values.
+/*
+StartAppV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type StartAppV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -279,9 +282,10 @@ func NewStartAppV2Forbidden() *StartAppV2Forbidden {
 	return &StartAppV2Forbidden{}
 }
 
-/*StartAppV2Forbidden handles this case with default header values.
+/*
+StartAppV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type StartAppV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -333,9 +337,10 @@ func NewStartAppV2NotFound() *StartAppV2NotFound {
 	return &StartAppV2NotFound{}
 }
 
-/*StartAppV2NotFound handles this case with default header values.
+/*
+StartAppV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type StartAppV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -387,9 +392,10 @@ func NewStartAppV2InternalServerError() *StartAppV2InternalServerError {
 	return &StartAppV2InternalServerError{}
 }
 
-/*StartAppV2InternalServerError handles this case with default header values.
+/*
+StartAppV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type StartAppV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

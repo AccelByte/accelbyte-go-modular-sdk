@@ -57,7 +57,8 @@ func NewRetrieveLatestPoliciesByNamespaceAndCountryPublic1ParamsWithHTTPClient(c
 	}
 }
 
-/*RetrieveLatestPoliciesByNamespaceAndCountryPublic1Params contains all the parameters to send to the API endpoint
+/*
+RetrieveLatestPoliciesByNamespaceAndCountryPublic1Params contains all the parameters to send to the API endpoint
 for the retrieve latest policies by namespace and country public 1 operation typically these are written to a http.Request
 */
 type RetrieveLatestPoliciesByNamespaceAndCountryPublic1Params struct {

@@ -115,9 +115,10 @@ func NewSyncSteamIAPByTransactionOK() *SyncSteamIAPByTransactionOK {
 	return &SyncSteamIAPByTransactionOK{}
 }
 
-/*SyncSteamIAPByTransactionOK handles this case with default header values.
+/*
+SyncSteamIAPByTransactionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SyncSteamIAPByTransactionOK struct {
 	Payload *platformclientmodels.IAPOrderShortInfo
@@ -169,9 +170,10 @@ func NewSyncSteamIAPByTransactionBadRequest() *SyncSteamIAPByTransactionBadReque
 	return &SyncSteamIAPByTransactionBadRequest{}
 }
 
-/*SyncSteamIAPByTransactionBadRequest handles this case with default header values.
+/*
+SyncSteamIAPByTransactionBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39124</td><td>IAP request platform [{platformId}] user id is not linked with current user</td></tr><tr><td>39621</td><td>Steam api common exception with status code [statusCode] details: [details]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39124</td><td>IAP request platform [{platformId}] user id is not linked with current user</td></tr><tr><td>39621</td><td>Steam api common exception with status code [statusCode] details: [details]</td></tr></table>
 */
 type SyncSteamIAPByTransactionBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewSyncSteamIAPByTransactionNotFound() *SyncSteamIAPByTransactionNotFound {
 	return &SyncSteamIAPByTransactionNotFound{}
 }
 
-/*SyncSteamIAPByTransactionNotFound handles this case with default header values.
+/*
+SyncSteamIAPByTransactionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39144</td><td>Steam IAP config not found in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39144</td><td>Steam IAP config not found in namespace [{namespace}].</td></tr></table>
 */
 type SyncSteamIAPByTransactionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewSyncSteamIAPByTransactionConflict() *SyncSteamIAPByTransactionConflict {
 	return &SyncSteamIAPByTransactionConflict{}
 }
 
-/*SyncSteamIAPByTransactionConflict handles this case with default header values.
+/*
+SyncSteamIAPByTransactionConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39183</td><td>Steam transaction [{orderId}] is still pending or failed, status [{status}], please try it later</td></tr><tr><td>39184</td><td>Steam api exception with error code [{errorCode}] and error message [{message}]</td></tr><tr><td>39185</td><td>This endpoint only works on sync mode [{workSyncMode}], but current steam iap config sync mode is [{currentSyncMode}] under namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39183</td><td>Steam transaction [{orderId}] is still pending or failed, status [{status}], please try it later</td></tr><tr><td>39184</td><td>Steam api exception with error code [{errorCode}] and error message [{message}]</td></tr><tr><td>39185</td><td>This endpoint only works on sync mode [{workSyncMode}], but current steam iap config sync mode is [{currentSyncMode}] under namespace [{namespace}]</td></tr></table>
 */
 type SyncSteamIAPByTransactionConflict struct {
 	Payload *platformclientmodels.ErrorEntity

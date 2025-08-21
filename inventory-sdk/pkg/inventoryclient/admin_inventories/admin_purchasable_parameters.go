@@ -59,7 +59,8 @@ func NewAdminPurchasableParamsWithHTTPClient(client *http.Client) *AdminPurchasa
 	}
 }
 
-/*AdminPurchasableParams contains all the parameters to send to the API endpoint
+/*
+AdminPurchasableParams contains all the parameters to send to the API endpoint
 for the admin purchasable operation typically these are written to a http.Request
 */
 type AdminPurchasableParams struct {

@@ -144,9 +144,10 @@ func NewUserUnfriendRequestNoContent() *UserUnfriendRequestNoContent {
 	return &UserUnfriendRequestNoContent{}
 }
 
-/*UserUnfriendRequestNoContent handles this case with default header values.
+/*
+UserUnfriendRequestNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UserUnfriendRequestNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewUserUnfriendRequestBadRequest() *UserUnfriendRequestBadRequest {
 	return &UserUnfriendRequestBadRequest{}
 }
 
-/*UserUnfriendRequestBadRequest handles this case with default header values.
+/*
+UserUnfriendRequestBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UserUnfriendRequestBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -225,9 +227,10 @@ func NewUserUnfriendRequestUnauthorized() *UserUnfriendRequestUnauthorized {
 	return &UserUnfriendRequestUnauthorized{}
 }
 
-/*UserUnfriendRequestUnauthorized handles this case with default header values.
+/*
+UserUnfriendRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UserUnfriendRequestUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -279,9 +282,10 @@ func NewUserUnfriendRequestForbidden() *UserUnfriendRequestForbidden {
 	return &UserUnfriendRequestForbidden{}
 }
 
-/*UserUnfriendRequestForbidden handles this case with default header values.
+/*
+UserUnfriendRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UserUnfriendRequestForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -333,9 +337,10 @@ func NewUserUnfriendRequestNotFound() *UserUnfriendRequestNotFound {
 	return &UserUnfriendRequestNotFound{}
 }
 
-/*UserUnfriendRequestNotFound handles this case with default header values.
+/*
+UserUnfriendRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UserUnfriendRequestNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -387,9 +392,10 @@ func NewUserUnfriendRequestInternalServerError() *UserUnfriendRequestInternalSer
 	return &UserUnfriendRequestInternalServerError{}
 }
 
-/*UserUnfriendRequestInternalServerError handles this case with default header values.
+/*
+UserUnfriendRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UserUnfriendRequestInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

@@ -69,9 +69,10 @@ func NewQueryIAPClawbackHistoryOK() *QueryIAPClawbackHistoryOK {
 	return &QueryIAPClawbackHistoryOK{}
 }
 
-/*QueryIAPClawbackHistoryOK handles this case with default header values.
+/*
+QueryIAPClawbackHistoryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryIAPClawbackHistoryOK struct {
 	Payload *platformclientmodels.IAPClawbackPagingSlicedResult

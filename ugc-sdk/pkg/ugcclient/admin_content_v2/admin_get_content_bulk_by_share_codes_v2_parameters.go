@@ -59,7 +59,8 @@ func NewAdminGetContentBulkByShareCodesV2ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*AdminGetContentBulkByShareCodesV2Params contains all the parameters to send to the API endpoint
+/*
+AdminGetContentBulkByShareCodesV2Params contains all the parameters to send to the API endpoint
 for the admin get content bulk by share codes v2 operation typically these are written to a http.Request
 */
 type AdminGetContentBulkByShareCodesV2Params struct {

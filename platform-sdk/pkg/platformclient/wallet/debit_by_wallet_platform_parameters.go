@@ -59,7 +59,8 @@ func NewDebitByWalletPlatformParamsWithHTTPClient(client *http.Client) *DebitByW
 	}
 }
 
-/*DebitByWalletPlatformParams contains all the parameters to send to the API endpoint
+/*
+DebitByWalletPlatformParams contains all the parameters to send to the API endpoint
 for the debit by wallet platform operation typically these are written to a http.Request
 */
 type DebitByWalletPlatformParams struct {

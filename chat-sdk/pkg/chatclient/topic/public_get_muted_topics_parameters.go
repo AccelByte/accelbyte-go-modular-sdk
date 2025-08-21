@@ -57,7 +57,8 @@ func NewPublicGetMutedTopicsParamsWithHTTPClient(client *http.Client) *PublicGet
 	}
 }
 
-/*PublicGetMutedTopicsParams contains all the parameters to send to the API endpoint
+/*
+PublicGetMutedTopicsParams contains all the parameters to send to the API endpoint
 for the public get muted topics operation typically these are written to a http.Request
 */
 type PublicGetMutedTopicsParams struct {

@@ -100,9 +100,10 @@ func NewGetSeasonOK() *GetSeasonOK {
 	return &GetSeasonOK{}
 }
 
-/*GetSeasonOK handles this case with default header values.
+/*
+GetSeasonOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetSeasonOK struct {
 	Payload *seasonpassclientmodels.SeasonInfo
@@ -154,9 +155,10 @@ func NewGetSeasonBadRequest() *GetSeasonBadRequest {
 	return &GetSeasonBadRequest{}
 }
 
-/*GetSeasonBadRequest handles this case with default header values.
+/*
+GetSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type GetSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewGetSeasonNotFound() *GetSeasonNotFound {
 	return &GetSeasonNotFound{}
 }
 
-/*GetSeasonNotFound handles this case with default header values.
+/*
+GetSeasonNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetSeasonNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewAdminDeleteTagV3ParamsWithHTTPClient(client *http.Client) *AdminDeleteTa
 	}
 }
 
-/*AdminDeleteTagV3Params contains all the parameters to send to the API endpoint
+/*
+AdminDeleteTagV3Params contains all the parameters to send to the API endpoint
 for the admin delete tag v3 operation typically these are written to a http.Request
 */
 type AdminDeleteTagV3Params struct {

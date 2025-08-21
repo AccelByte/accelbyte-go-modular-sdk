@@ -144,10 +144,9 @@ func NewDeleteAppV2NoContent() *DeleteAppV2NoContent {
 	return &DeleteAppV2NoContent{}
 }
 
-/*DeleteAppV2NoContent handles this case with default header values.
-
-
- */
+/*
+DeleteAppV2NoContent handles this case with default header values.
+*/
 type DeleteAppV2NoContent struct {
 }
 
@@ -171,9 +170,10 @@ func NewDeleteAppV2BadRequest() *DeleteAppV2BadRequest {
 	return &DeleteAppV2BadRequest{}
 }
 
-/*DeleteAppV2BadRequest handles this case with default header values.
+/*
+DeleteAppV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type DeleteAppV2BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -225,9 +225,10 @@ func NewDeleteAppV2Unauthorized() *DeleteAppV2Unauthorized {
 	return &DeleteAppV2Unauthorized{}
 }
 
-/*DeleteAppV2Unauthorized handles this case with default header values.
+/*
+DeleteAppV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteAppV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -279,9 +280,10 @@ func NewDeleteAppV2Forbidden() *DeleteAppV2Forbidden {
 	return &DeleteAppV2Forbidden{}
 }
 
-/*DeleteAppV2Forbidden handles this case with default header values.
+/*
+DeleteAppV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteAppV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -333,9 +335,10 @@ func NewDeleteAppV2NotFound() *DeleteAppV2NotFound {
 	return &DeleteAppV2NotFound{}
 }
 
-/*DeleteAppV2NotFound handles this case with default header values.
+/*
+DeleteAppV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteAppV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -387,9 +390,10 @@ func NewDeleteAppV2InternalServerError() *DeleteAppV2InternalServerError {
 	return &DeleteAppV2InternalServerError{}
 }
 
-/*DeleteAppV2InternalServerError handles this case with default header values.
+/*
+DeleteAppV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteAppV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

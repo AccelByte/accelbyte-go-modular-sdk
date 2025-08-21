@@ -114,9 +114,10 @@ func NewDeleteAllUserStatesNoContent() *DeleteAllUserStatesNoContent {
 	return &DeleteAllUserStatesNoContent{}
 }
 
-/*DeleteAllUserStatesNoContent handles this case with default header values.
+/*
+DeleteAllUserStatesNoContent handles this case with default header values.
 
-  User stats deleted
+	User stats deleted
 */
 type DeleteAllUserStatesNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteAllUserStatesBadRequest() *DeleteAllUserStatesBadRequest {
 	return &DeleteAllUserStatesBadRequest{}
 }
 
-/*DeleteAllUserStatesBadRequest handles this case with default header values.
+/*
+DeleteAllUserStatesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773602</td><td>user states are not found: content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773602</td><td>user states are not found: content not found</td></tr></table>
 */
 type DeleteAllUserStatesBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewDeleteAllUserStatesUnauthorized() *DeleteAllUserStatesUnauthorized {
 	return &DeleteAllUserStatesUnauthorized{}
 }
 
-/*DeleteAllUserStatesUnauthorized handles this case with default header values.
+/*
+DeleteAllUserStatesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteAllUserStatesUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewDeleteAllUserStatesInternalServerError() *DeleteAllUserStatesInternalSer
 	return &DeleteAllUserStatesInternalServerError{}
 }
 
-/*DeleteAllUserStatesInternalServerError handles this case with default header values.
+/*
+DeleteAllUserStatesInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773601</td><td>Unable to get all user contents/Unable to delete user states</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773601</td><td>Unable to get all user contents/Unable to delete user states</td></tr></table>
 */
 type DeleteAllUserStatesInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

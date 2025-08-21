@@ -130,9 +130,10 @@ func NewGetGroupJoinRequestPublicV1OK() *GetGroupJoinRequestPublicV1OK {
 	return &GetGroupJoinRequestPublicV1OK{}
 }
 
-/*GetGroupJoinRequestPublicV1OK handles this case with default header values.
+/*
+GetGroupJoinRequestPublicV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetGroupJoinRequestPublicV1OK struct {
 	Payload *groupclientmodels.ModelsGetMemberRequestsListResponseV1
@@ -184,9 +185,10 @@ func NewGetGroupJoinRequestPublicV1BadRequest() *GetGroupJoinRequestPublicV1BadR
 	return &GetGroupJoinRequestPublicV1BadRequest{}
 }
 
-/*GetGroupJoinRequestPublicV1BadRequest handles this case with default header values.
+/*
+GetGroupJoinRequestPublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetGroupJoinRequestPublicV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetGroupJoinRequestPublicV1Unauthorized() *GetGroupJoinRequestPublicV1Un
 	return &GetGroupJoinRequestPublicV1Unauthorized{}
 }
 
-/*GetGroupJoinRequestPublicV1Unauthorized handles this case with default header values.
+/*
+GetGroupJoinRequestPublicV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetGroupJoinRequestPublicV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetGroupJoinRequestPublicV1Forbidden() *GetGroupJoinRequestPublicV1Forbi
 	return &GetGroupJoinRequestPublicV1Forbidden{}
 }
 
-/*GetGroupJoinRequestPublicV1Forbidden handles this case with default header values.
+/*
+GetGroupJoinRequestPublicV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type GetGroupJoinRequestPublicV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetGroupJoinRequestPublicV1InternalServerError() *GetGroupJoinRequestPub
 	return &GetGroupJoinRequestPublicV1InternalServerError{}
 }
 
-/*GetGroupJoinRequestPublicV1InternalServerError handles this case with default header values.
+/*
+GetGroupJoinRequestPublicV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetGroupJoinRequestPublicV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

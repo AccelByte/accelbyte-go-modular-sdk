@@ -115,9 +115,10 @@ func NewGetCurrentMonthLeaderboardRankingPublicV1OK() *GetCurrentMonthLeaderboar
 	return &GetCurrentMonthLeaderboardRankingPublicV1OK{}
 }
 
-/*GetCurrentMonthLeaderboardRankingPublicV1OK handles this case with default header values.
+/*
+GetCurrentMonthLeaderboardRankingPublicV1OK handles this case with default header values.
 
-  Current month leaderboard retrieved
+	Current month leaderboard retrieved
 */
 type GetCurrentMonthLeaderboardRankingPublicV1OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
@@ -169,9 +170,10 @@ func NewGetCurrentMonthLeaderboardRankingPublicV1BadRequest() *GetCurrentMonthLe
 	return &GetCurrentMonthLeaderboardRankingPublicV1BadRequest{}
 }
 
-/*GetCurrentMonthLeaderboardRankingPublicV1BadRequest handles this case with default header values.
+/*
+GetCurrentMonthLeaderboardRankingPublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetCurrentMonthLeaderboardRankingPublicV1BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -223,9 +225,10 @@ func NewGetCurrentMonthLeaderboardRankingPublicV1NotFound() *GetCurrentMonthLead
 	return &GetCurrentMonthLeaderboardRankingPublicV1NotFound{}
 }
 
-/*GetCurrentMonthLeaderboardRankingPublicV1NotFound handles this case with default header values.
+/*
+GetCurrentMonthLeaderboardRankingPublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
 */
 type GetCurrentMonthLeaderboardRankingPublicV1NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -277,9 +280,10 @@ func NewGetCurrentMonthLeaderboardRankingPublicV1InternalServerError() *GetCurre
 	return &GetCurrentMonthLeaderboardRankingPublicV1InternalServerError{}
 }
 
-/*GetCurrentMonthLeaderboardRankingPublicV1InternalServerError handles this case with default header values.
+/*
+GetCurrentMonthLeaderboardRankingPublicV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
 */
 type GetCurrentMonthLeaderboardRankingPublicV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

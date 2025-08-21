@@ -115,9 +115,10 @@ func NewCreateRoleCreated() *CreateRoleCreated {
 	return &CreateRoleCreated{}
 }
 
-/*CreateRoleCreated handles this case with default header values.
+/*
+CreateRoleCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateRoleCreated struct {
 	Payload *iamclientmodels.AccountcommonRole
@@ -169,9 +170,10 @@ func NewCreateRoleBadRequest() *CreateRoleBadRequest {
 	return &CreateRoleBadRequest{}
 }
 
-/*CreateRoleBadRequest handles this case with default header values.
+/*
+CreateRoleBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type CreateRoleBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewCreateRoleUnauthorized() *CreateRoleUnauthorized {
 	return &CreateRoleUnauthorized{}
 }
 
-/*CreateRoleUnauthorized handles this case with default header values.
+/*
+CreateRoleUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateRoleUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewCreateRoleForbidden() *CreateRoleForbidden {
 	return &CreateRoleForbidden{}
 }
 
-/*CreateRoleForbidden handles this case with default header values.
+/*
+CreateRoleForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type CreateRoleForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

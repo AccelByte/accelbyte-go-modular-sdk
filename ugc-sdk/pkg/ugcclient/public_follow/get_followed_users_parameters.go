@@ -78,7 +78,8 @@ func NewGetFollowedUsersParamsWithHTTPClient(client *http.Client) *GetFollowedUs
 	}
 }
 
-/*GetFollowedUsersParams contains all the parameters to send to the API endpoint
+/*
+GetFollowedUsersParams contains all the parameters to send to the API endpoint
 for the get followed users operation typically these are written to a http.Request
 */
 type GetFollowedUsersParams struct {

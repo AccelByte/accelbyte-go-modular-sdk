@@ -69,9 +69,10 @@ func NewListCategoriesBasicOK() *ListCategoriesBasicOK {
 	return &ListCategoriesBasicOK{}
 }
 
-/*ListCategoriesBasicOK handles this case with default header values.
+/*
+ListCategoriesBasicOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ListCategoriesBasicOK struct {
 	Payload []*platformclientmodels.BasicCategoryInfo

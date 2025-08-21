@@ -59,7 +59,8 @@ func NewRefundOrderParamsWithHTTPClient(client *http.Client) *RefundOrderParams 
 	}
 }
 
-/*RefundOrderParams contains all the parameters to send to the API endpoint
+/*
+RefundOrderParams contains all the parameters to send to the API endpoint
 for the refund order operation typically these are written to a http.Request
 */
 type RefundOrderParams struct {

@@ -130,9 +130,10 @@ func NewSaveVariableV2OK() *SaveVariableV2OK {
 	return &SaveVariableV2OK{}
 }
 
-/*SaveVariableV2OK handles this case with default header values.
+/*
+SaveVariableV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type SaveVariableV2OK struct {
 	Payload *csmclientmodels.ApimodelSaveConfigurationV2Response
@@ -184,9 +185,10 @@ func NewSaveVariableV2BadRequest() *SaveVariableV2BadRequest {
 	return &SaveVariableV2BadRequest{}
 }
 
-/*SaveVariableV2BadRequest handles this case with default header values.
+/*
+SaveVariableV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type SaveVariableV2BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewSaveVariableV2Unauthorized() *SaveVariableV2Unauthorized {
 	return &SaveVariableV2Unauthorized{}
 }
 
-/*SaveVariableV2Unauthorized handles this case with default header values.
+/*
+SaveVariableV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SaveVariableV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewSaveVariableV2Forbidden() *SaveVariableV2Forbidden {
 	return &SaveVariableV2Forbidden{}
 }
 
-/*SaveVariableV2Forbidden handles this case with default header values.
+/*
+SaveVariableV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type SaveVariableV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewSaveVariableV2InternalServerError() *SaveVariableV2InternalServerError {
 	return &SaveVariableV2InternalServerError{}
 }
 
-/*SaveVariableV2InternalServerError handles this case with default header values.
+/*
+SaveVariableV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type SaveVariableV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

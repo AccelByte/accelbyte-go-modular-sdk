@@ -57,7 +57,8 @@ func NewDevelopmentServerConfigurationGetParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*DevelopmentServerConfigurationGetParams contains all the parameters to send to the API endpoint
+/*
+DevelopmentServerConfigurationGetParams contains all the parameters to send to the API endpoint
 for the development server configuration get operation typically these are written to a http.Request
 */
 type DevelopmentServerConfigurationGetParams struct {

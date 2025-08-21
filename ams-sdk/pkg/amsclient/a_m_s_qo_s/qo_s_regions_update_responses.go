@@ -144,9 +144,10 @@ func NewQoSRegionsUpdateNoContent() *QoSRegionsUpdateNoContent {
 	return &QoSRegionsUpdateNoContent{}
 }
 
-/*QoSRegionsUpdateNoContent handles this case with default header values.
+/*
+QoSRegionsUpdateNoContent handles this case with default header values.
 
-  record updated
+	record updated
 */
 type QoSRegionsUpdateNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewQoSRegionsUpdateBadRequest() *QoSRegionsUpdateBadRequest {
 	return &QoSRegionsUpdateBadRequest{}
 }
 
-/*QoSRegionsUpdateBadRequest handles this case with default header values.
+/*
+QoSRegionsUpdateBadRequest handles this case with default header values.
 
-  malformed request
+	malformed request
 */
 type QoSRegionsUpdateBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -225,9 +227,10 @@ func NewQoSRegionsUpdateUnauthorized() *QoSRegionsUpdateUnauthorized {
 	return &QoSRegionsUpdateUnauthorized{}
 }
 
-/*QoSRegionsUpdateUnauthorized handles this case with default header values.
+/*
+QoSRegionsUpdateUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type QoSRegionsUpdateUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -279,9 +282,10 @@ func NewQoSRegionsUpdateForbidden() *QoSRegionsUpdateForbidden {
 	return &QoSRegionsUpdateForbidden{}
 }
 
-/*QoSRegionsUpdateForbidden handles this case with default header values.
+/*
+QoSRegionsUpdateForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type QoSRegionsUpdateForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -333,9 +337,10 @@ func NewQoSRegionsUpdateNotFound() *QoSRegionsUpdateNotFound {
 	return &QoSRegionsUpdateNotFound{}
 }
 
-/*QoSRegionsUpdateNotFound handles this case with default header values.
+/*
+QoSRegionsUpdateNotFound handles this case with default header values.
 
-  regionial QoS record not found
+	regionial QoS record not found
 */
 type QoSRegionsUpdateNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -387,9 +392,10 @@ func NewQoSRegionsUpdateInternalServerError() *QoSRegionsUpdateInternalServerErr
 	return &QoSRegionsUpdateInternalServerError{}
 }
 
-/*QoSRegionsUpdateInternalServerError handles this case with default header values.
+/*
+QoSRegionsUpdateInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type QoSRegionsUpdateInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

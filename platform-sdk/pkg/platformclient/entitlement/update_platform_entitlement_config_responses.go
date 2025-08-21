@@ -85,9 +85,10 @@ func NewUpdatePlatformEntitlementConfigOK() *UpdatePlatformEntitlementConfigOK {
 	return &UpdatePlatformEntitlementConfigOK{}
 }
 
-/*UpdatePlatformEntitlementConfigOK handles this case with default header values.
+/*
+UpdatePlatformEntitlementConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePlatformEntitlementConfigOK struct {
 	Payload *platformclientmodels.EntitlementPlatformConfigInfo
@@ -139,9 +140,10 @@ func NewUpdatePlatformEntitlementConfigNotFound() *UpdatePlatformEntitlementConf
 	return &UpdatePlatformEntitlementConfigNotFound{}
 }
 
-/*UpdatePlatformEntitlementConfigNotFound handles this case with default header values.
+/*
+UpdatePlatformEntitlementConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31147</td><td>Origin [Steam] and System need exist in allowPlatformOrigin</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31147</td><td>Origin [Steam] and System need exist in allowPlatformOrigin</td></tr></table>
 */
 type UpdatePlatformEntitlementConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -130,10 +130,9 @@ func NewSubscribeAppNotificationV2OK() *SubscribeAppNotificationV2OK {
 	return &SubscribeAppNotificationV2OK{}
 }
 
-/*SubscribeAppNotificationV2OK handles this case with default header values.
-
-
- */
+/*
+SubscribeAppNotificationV2OK handles this case with default header values.
+*/
 type SubscribeAppNotificationV2OK struct {
 	Payload *csmclientmodels.ApimodelSubscribeNotificationResponse
 }
@@ -184,9 +183,10 @@ func NewSubscribeAppNotificationV2Unauthorized() *SubscribeAppNotificationV2Unau
 	return &SubscribeAppNotificationV2Unauthorized{}
 }
 
-/*SubscribeAppNotificationV2Unauthorized handles this case with default header values.
+/*
+SubscribeAppNotificationV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SubscribeAppNotificationV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewSubscribeAppNotificationV2Forbidden() *SubscribeAppNotificationV2Forbidd
 	return &SubscribeAppNotificationV2Forbidden{}
 }
 
-/*SubscribeAppNotificationV2Forbidden handles this case with default header values.
+/*
+SubscribeAppNotificationV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type SubscribeAppNotificationV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewSubscribeAppNotificationV2NotFound() *SubscribeAppNotificationV2NotFound
 	return &SubscribeAppNotificationV2NotFound{}
 }
 
-/*SubscribeAppNotificationV2NotFound handles this case with default header values.
+/*
+SubscribeAppNotificationV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type SubscribeAppNotificationV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewSubscribeAppNotificationV2InternalServerError() *SubscribeAppNotificatio
 	return &SubscribeAppNotificationV2InternalServerError{}
 }
 
-/*SubscribeAppNotificationV2InternalServerError handles this case with default header values.
+/*
+SubscribeAppNotificationV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type SubscribeAppNotificationV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

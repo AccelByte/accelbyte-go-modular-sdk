@@ -58,7 +58,8 @@ func NewAdminGetUserPlatformAccountClosureHistoriesParamsWithHTTPClient(client *
 	}
 }
 
-/*AdminGetUserPlatformAccountClosureHistoriesParams contains all the parameters to send to the API endpoint
+/*
+AdminGetUserPlatformAccountClosureHistoriesParams contains all the parameters to send to the API endpoint
 for the admin get user platform account closure histories operation typically these are written to a http.Request
 */
 type AdminGetUserPlatformAccountClosureHistoriesParams struct {

@@ -85,9 +85,10 @@ func NewRetrieveAllPoliciesFromBasePolicyOK() *RetrieveAllPoliciesFromBasePolicy
 	return &RetrieveAllPoliciesFromBasePolicyOK{}
 }
 
-/*RetrieveAllPoliciesFromBasePolicyOK handles this case with default header values.
+/*
+RetrieveAllPoliciesFromBasePolicyOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveAllPoliciesFromBasePolicyOK struct {
 	Payload []*legalclientmodels.RetrievePoliciesFromBasePolicyResponse
@@ -137,9 +138,10 @@ func NewRetrieveAllPoliciesFromBasePolicyNotFound() *RetrieveAllPoliciesFromBase
 	return &RetrieveAllPoliciesFromBasePolicyNotFound{}
 }
 
-/*RetrieveAllPoliciesFromBasePolicyNotFound handles this case with default header values.
+/*
+RetrieveAllPoliciesFromBasePolicyNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40041</td><td>errors.net.accelbyte.platform.legal.policy_not_found</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40041</td><td>errors.net.accelbyte.platform.legal.policy_not_found</td></tr></table>
 */
 type RetrieveAllPoliciesFromBasePolicyNotFound struct {
 	Payload *legalclientmodels.ErrorEntity

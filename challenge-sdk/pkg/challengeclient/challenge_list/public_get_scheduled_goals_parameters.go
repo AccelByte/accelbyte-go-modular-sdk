@@ -99,7 +99,8 @@ func NewPublicGetScheduledGoalsParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicGetScheduledGoalsParams contains all the parameters to send to the API endpoint
+/*
+PublicGetScheduledGoalsParams contains all the parameters to send to the API endpoint
 for the public get scheduled goals operation typically these are written to a http.Request
 */
 type PublicGetScheduledGoalsParams struct {

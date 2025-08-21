@@ -78,7 +78,8 @@ func NewPublicSearchContentParamsWithHTTPClient(client *http.Client) *PublicSear
 	}
 }
 
-/*PublicSearchContentParams contains all the parameters to send to the API endpoint
+/*
+PublicSearchContentParams contains all the parameters to send to the API endpoint
 for the public search content operation typically these are written to a http.Request
 */
 type PublicSearchContentParams struct {

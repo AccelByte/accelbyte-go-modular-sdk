@@ -69,9 +69,10 @@ func NewGetUserPlatformAccountClosureHistoriesOK() *GetUserPlatformAccountClosur
 	return &GetUserPlatformAccountClosureHistoriesOK{}
 }
 
-/*GetUserPlatformAccountClosureHistoriesOK handles this case with default header values.
+/*
+GetUserPlatformAccountClosureHistoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserPlatformAccountClosureHistoriesOK struct {
 	Payload []*platformclientmodels.PlatformAccountClosureHistoryInfo

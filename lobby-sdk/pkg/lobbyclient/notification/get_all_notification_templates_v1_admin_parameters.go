@@ -57,7 +57,8 @@ func NewGetAllNotificationTemplatesV1AdminParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*GetAllNotificationTemplatesV1AdminParams contains all the parameters to send to the API endpoint
+/*
+GetAllNotificationTemplatesV1AdminParams contains all the parameters to send to the API endpoint
 for the get all notification templates v1 admin operation typically these are written to a http.Request
 */
 type GetAllNotificationTemplatesV1AdminParams struct {

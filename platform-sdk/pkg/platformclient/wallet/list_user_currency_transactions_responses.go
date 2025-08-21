@@ -85,9 +85,10 @@ func NewListUserCurrencyTransactionsOK() *ListUserCurrencyTransactionsOK {
 	return &ListUserCurrencyTransactionsOK{}
 }
 
-/*ListUserCurrencyTransactionsOK handles this case with default header values.
+/*
+ListUserCurrencyTransactionsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ListUserCurrencyTransactionsOK struct {
 	Payload *platformclientmodels.WalletTransactionPagingSlicedResult
@@ -139,9 +140,10 @@ func NewListUserCurrencyTransactionsNotFound() *ListUserCurrencyTransactionsNotF
 	return &ListUserCurrencyTransactionsNotFound{}
 }
 
-/*ListUserCurrencyTransactionsNotFound handles this case with default header values.
+/*
+ListUserCurrencyTransactionsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35141</td><td>Wallet [{walletId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35141</td><td>Wallet [{walletId}] does not exist</td></tr></table>
 */
 type ListUserCurrencyTransactionsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -145,9 +145,10 @@ func NewPublicSessionJoinCodeOK() *PublicSessionJoinCodeOK {
 	return &PublicSessionJoinCodeOK{}
 }
 
-/*PublicSessionJoinCodeOK handles this case with default header values.
+/*
+PublicSessionJoinCodeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicSessionJoinCodeOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -199,9 +200,10 @@ func NewPublicSessionJoinCodeBadRequest() *PublicSessionJoinCodeBadRequest {
 	return &PublicSessionJoinCodeBadRequest{}
 }
 
-/*PublicSessionJoinCodeBadRequest handles this case with default header values.
+/*
+PublicSessionJoinCodeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicSessionJoinCodeBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewPublicSessionJoinCodeUnauthorized() *PublicSessionJoinCodeUnauthorized {
 	return &PublicSessionJoinCodeUnauthorized{}
 }
 
-/*PublicSessionJoinCodeUnauthorized handles this case with default header values.
+/*
+PublicSessionJoinCodeUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicSessionJoinCodeUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewPublicSessionJoinCodeForbidden() *PublicSessionJoinCodeForbidden {
 	return &PublicSessionJoinCodeForbidden{}
 }
 
-/*PublicSessionJoinCodeForbidden handles this case with default header values.
+/*
+PublicSessionJoinCodeForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicSessionJoinCodeForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewPublicSessionJoinCodeNotFound() *PublicSessionJoinCodeNotFound {
 	return &PublicSessionJoinCodeNotFound{}
 }
 
-/*PublicSessionJoinCodeNotFound handles this case with default header values.
+/*
+PublicSessionJoinCodeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicSessionJoinCodeNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicSessionJoinCodeInternalServerError() *PublicSessionJoinCodeInterna
 	return &PublicSessionJoinCodeInternalServerError{}
 }
 
-/*PublicSessionJoinCodeInternalServerError handles this case with default header values.
+/*
+PublicSessionJoinCodeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicSessionJoinCodeInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

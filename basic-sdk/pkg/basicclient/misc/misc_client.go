@@ -50,8 +50,8 @@ GetCountriesShort list countries
 List countries.
 Other detail info:
 
-  * Action code : 11204
-  *  Returns : country code list
+  - Action code : 11204
+  - Returns : country code list
 */
 func (a *Client) GetCountriesShort(params *GetCountriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -122,8 +122,8 @@ GetCountryGroupsShort list country groups
 List country groups. Will return all available country groups if the query param is not specified
 Other detail info:
 
-  * Action code : 11203
-  *  Returns : list of country groups
+  - Action code : 11203
+  - Returns : list of country groups
 */
 func (a *Client) GetCountryGroupsShort(params *GetCountryGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*GetCountryGroupsResponse, error) {
 	// TODO: Validate the params before sending
@@ -209,8 +209,8 @@ Add a country groups
 Country code must follow ISO3166-1 alpha-2.
 Other detail info:
 
-  * Action code : 11201
-  *  Returns : newly created country group
+  - Action code : 11201
+  - Returns : newly created country group
 */
 func (a *Client) AddCountryGroupShort(params *AddCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AddCountryGroupResponse, error) {
 	// TODO: Validate the params before sending
@@ -298,8 +298,8 @@ Valid update behaviour :
 - To update countries only, do not include countryGroupName key or just specify it with blank value.
 Other detail info:
 
-  * Action code : 11202
-  *  Returns : updated country group
+  - Action code : 11202
+  - Returns : updated country group
 */
 func (a *Client) UpdateCountryGroupShort(params *UpdateCountryGroupParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCountryGroupResponse, error) {
 	// TODO: Validate the params before sending
@@ -465,8 +465,8 @@ GetLanguagesShort list languages.
 List languages.
 Other detail info:
 
-  * Action code : 11206
-  *  Returns : language list
+  - Action code : 11206
+  - Returns : language list
 */
 func (a *Client) GetLanguagesShort(params *GetLanguagesParams, authInfo runtime.ClientAuthInfoWriter) (*GetLanguagesResponse, error) {
 	// TODO: Validate the params before sending
@@ -537,8 +537,8 @@ GetTimeZonesShort list time zones
 List time zones.
 Other detail info:
 
-  * Action code : 11205
-  *  Returns : time zones
+  - Action code : 11205
+  - Returns : time zones
 */
 func (a *Client) GetTimeZonesShort(params *GetTimeZonesParams, authInfo runtime.ClientAuthInfoWriter) (*GetTimeZonesResponse, error) {
 	// TODO: Validate the params before sending
@@ -662,7 +662,7 @@ PublicGetCountriesShort list countries
 List countries.
 Other detail info:
 
-  * Returns : country code list
+  - Returns : country code list
 */
 func (a *Client) PublicGetCountriesShort(params *PublicGetCountriesParams) (*PublicGetCountriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -725,7 +725,7 @@ PublicGetLanguagesShort list languages.
 List languages.
 Other detail info:
 
-  * Returns : language list
+  - Returns : language list
 */
 func (a *Client) PublicGetLanguagesShort(params *PublicGetLanguagesParams) (*PublicGetLanguagesResponse, error) {
 	// TODO: Validate the params before sending
@@ -788,7 +788,7 @@ PublicGetTimeZonesShort list time zones
 List time zones.
 Other detail info:
 
-  * Returns : time zones
+  - Returns : time zones
 */
 func (a *Client) PublicGetTimeZonesShort(params *PublicGetTimeZonesParams) (*PublicGetTimeZonesResponse, error) {
 	// TODO: Validate the params before sending

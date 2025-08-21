@@ -160,9 +160,10 @@ func NewPublicUpdatePartyOK() *PublicUpdatePartyOK {
 	return &PublicUpdatePartyOK{}
 }
 
-/*PublicUpdatePartyOK handles this case with default header values.
+/*
+PublicUpdatePartyOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicUpdatePartyOK struct {
 	Payload *sessionclientmodels.ApimodelsPartySessionResponse
@@ -214,9 +215,10 @@ func NewPublicUpdatePartyBadRequest() *PublicUpdatePartyBadRequest {
 	return &PublicUpdatePartyBadRequest{}
 }
 
-/*PublicUpdatePartyBadRequest handles this case with default header values.
+/*
+PublicUpdatePartyBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicUpdatePartyBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewPublicUpdatePartyUnauthorized() *PublicUpdatePartyUnauthorized {
 	return &PublicUpdatePartyUnauthorized{}
 }
 
-/*PublicUpdatePartyUnauthorized handles this case with default header values.
+/*
+PublicUpdatePartyUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicUpdatePartyUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewPublicUpdatePartyForbidden() *PublicUpdatePartyForbidden {
 	return &PublicUpdatePartyForbidden{}
 }
 
-/*PublicUpdatePartyForbidden handles this case with default header values.
+/*
+PublicUpdatePartyForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicUpdatePartyForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewPublicUpdatePartyNotFound() *PublicUpdatePartyNotFound {
 	return &PublicUpdatePartyNotFound{}
 }
 
-/*PublicUpdatePartyNotFound handles this case with default header values.
+/*
+PublicUpdatePartyNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicUpdatePartyNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewPublicUpdatePartyConflict() *PublicUpdatePartyConflict {
 	return &PublicUpdatePartyConflict{}
 }
 
-/*PublicUpdatePartyConflict handles this case with default header values.
+/*
+PublicUpdatePartyConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type PublicUpdatePartyConflict struct {
 	Payload *sessionclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewPublicUpdatePartyInternalServerError() *PublicUpdatePartyInternalServerE
 	return &PublicUpdatePartyInternalServerError{}
 }
 
-/*PublicUpdatePartyInternalServerError handles this case with default header values.
+/*
+PublicUpdatePartyInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicUpdatePartyInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

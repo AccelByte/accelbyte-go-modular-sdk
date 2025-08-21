@@ -57,7 +57,8 @@ func NewGetAppV2ParamsWithHTTPClient(client *http.Client) *GetAppV2Params {
 	}
 }
 
-/*GetAppV2Params contains all the parameters to send to the API endpoint
+/*
+GetAppV2Params contains all the parameters to send to the API endpoint
 for the get app v2 operation typically these are written to a http.Request
 */
 type GetAppV2Params struct {

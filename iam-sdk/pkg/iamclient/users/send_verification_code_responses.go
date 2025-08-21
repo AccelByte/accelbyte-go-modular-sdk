@@ -144,9 +144,10 @@ func NewSendVerificationCodeNoContent() *SendVerificationCodeNoContent {
 	return &SendVerificationCodeNoContent{}
 }
 
-/*SendVerificationCodeNoContent handles this case with default header values.
+/*
+SendVerificationCodeNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type SendVerificationCodeNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewSendVerificationCodeBadRequest() *SendVerificationCodeBadRequest {
 	return &SendVerificationCodeBadRequest{}
 }
 
-/*SendVerificationCodeBadRequest handles this case with default header values.
+/*
+SendVerificationCodeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type SendVerificationCodeBadRequest struct {
 }
@@ -198,9 +200,10 @@ func NewSendVerificationCodeUnauthorized() *SendVerificationCodeUnauthorized {
 	return &SendVerificationCodeUnauthorized{}
 }
 
-/*SendVerificationCodeUnauthorized handles this case with default header values.
+/*
+SendVerificationCodeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SendVerificationCodeUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -252,9 +255,10 @@ func NewSendVerificationCodeForbidden() *SendVerificationCodeForbidden {
 	return &SendVerificationCodeForbidden{}
 }
 
-/*SendVerificationCodeForbidden handles this case with default header values.
+/*
+SendVerificationCodeForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10146</td><td>userID not match</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10146</td><td>userID not match</td></tr></table>
 */
 type SendVerificationCodeForbidden struct {
 }
@@ -279,9 +283,10 @@ func NewSendVerificationCodeNotFound() *SendVerificationCodeNotFound {
 	return &SendVerificationCodeNotFound{}
 }
 
-/*SendVerificationCodeNotFound handles this case with default header values.
+/*
+SendVerificationCodeNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type SendVerificationCodeNotFound struct {
 }
@@ -306,9 +311,10 @@ func NewSendVerificationCodeConflict() *SendVerificationCodeConflict {
 	return &SendVerificationCodeConflict{}
 }
 
-/*SendVerificationCodeConflict handles this case with default header values.
+/*
+SendVerificationCodeConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10140</td><td>user verified</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10140</td><td>user verified</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type SendVerificationCodeConflict struct {
 }
@@ -333,9 +339,10 @@ func NewSendVerificationCodeTooManyRequests() *SendVerificationCodeTooManyReques
 	return &SendVerificationCodeTooManyRequests{}
 }
 
-/*SendVerificationCodeTooManyRequests handles this case with default header values.
+/*
+SendVerificationCodeTooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type SendVerificationCodeTooManyRequests struct {
 }
@@ -360,9 +367,10 @@ func NewSendVerificationCodeInternalServerError() *SendVerificationCodeInternalS
 	return &SendVerificationCodeInternalServerError{}
 }
 
-/*SendVerificationCodeInternalServerError handles this case with default header values.
+/*
+SendVerificationCodeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type SendVerificationCodeInternalServerError struct {
 }

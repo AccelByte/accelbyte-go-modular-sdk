@@ -60,7 +60,8 @@ func NewCreateGameSessionParamsWithHTTPClient(client *http.Client) *CreateGameSe
 	}
 }
 
-/*CreateGameSessionParams contains all the parameters to send to the API endpoint
+/*
+CreateGameSessionParams contains all the parameters to send to the API endpoint
 for the create game session operation typically these are written to a http.Request
 */
 type CreateGameSessionParams struct {

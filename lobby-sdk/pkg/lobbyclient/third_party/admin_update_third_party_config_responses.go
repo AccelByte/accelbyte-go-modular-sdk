@@ -130,9 +130,10 @@ func NewAdminUpdateThirdPartyConfigOK() *AdminUpdateThirdPartyConfigOK {
 	return &AdminUpdateThirdPartyConfigOK{}
 }
 
-/*AdminUpdateThirdPartyConfigOK handles this case with default header values.
+/*
+AdminUpdateThirdPartyConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateThirdPartyConfigOK struct {
 	Payload *lobbyclientmodels.ModelsUpdateConfigResponse
@@ -184,9 +185,10 @@ func NewAdminUpdateThirdPartyConfigBadRequest() *AdminUpdateThirdPartyConfigBadR
 	return &AdminUpdateThirdPartyConfigBadRequest{}
 }
 
-/*AdminUpdateThirdPartyConfigBadRequest handles this case with default header values.
+/*
+AdminUpdateThirdPartyConfigBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateThirdPartyConfigBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -238,9 +240,10 @@ func NewAdminUpdateThirdPartyConfigUnauthorized() *AdminUpdateThirdPartyConfigUn
 	return &AdminUpdateThirdPartyConfigUnauthorized{}
 }
 
-/*AdminUpdateThirdPartyConfigUnauthorized handles this case with default header values.
+/*
+AdminUpdateThirdPartyConfigUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdateThirdPartyConfigUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -292,9 +295,10 @@ func NewAdminUpdateThirdPartyConfigForbidden() *AdminUpdateThirdPartyConfigForbi
 	return &AdminUpdateThirdPartyConfigForbidden{}
 }
 
-/*AdminUpdateThirdPartyConfigForbidden handles this case with default header values.
+/*
+AdminUpdateThirdPartyConfigForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdateThirdPartyConfigForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -346,9 +350,10 @@ func NewAdminUpdateThirdPartyConfigInternalServerError() *AdminUpdateThirdPartyC
 	return &AdminUpdateThirdPartyConfigInternalServerError{}
 }
 
-/*AdminUpdateThirdPartyConfigInternalServerError handles this case with default header values.
+/*
+AdminUpdateThirdPartyConfigInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateThirdPartyConfigInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

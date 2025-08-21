@@ -70,7 +70,8 @@ func NewTestAdyenConfigByIDParamsWithHTTPClient(client *http.Client) *TestAdyenC
 	}
 }
 
-/*TestAdyenConfigByIDParams contains all the parameters to send to the API endpoint
+/*
+TestAdyenConfigByIDParams contains all the parameters to send to the API endpoint
 for the test adyen config by id operation typically these are written to a http.Request
 */
 type TestAdyenConfigByIDParams struct {

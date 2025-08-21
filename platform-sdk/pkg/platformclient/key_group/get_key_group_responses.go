@@ -85,9 +85,10 @@ func NewGetKeyGroupOK() *GetKeyGroupOK {
 	return &GetKeyGroupOK{}
 }
 
-/*GetKeyGroupOK handles this case with default header values.
+/*
+GetKeyGroupOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetKeyGroupOK struct {
 	Payload *platformclientmodels.KeyGroupInfo
@@ -139,9 +140,10 @@ func NewGetKeyGroupNotFound() *GetKeyGroupNotFound {
 	return &GetKeyGroupNotFound{}
 }
 
-/*GetKeyGroupNotFound handles this case with default header values.
+/*
+GetKeyGroupNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37241</td><td>Key group [{keyGroupId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37241</td><td>Key group [{keyGroupId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetKeyGroupNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

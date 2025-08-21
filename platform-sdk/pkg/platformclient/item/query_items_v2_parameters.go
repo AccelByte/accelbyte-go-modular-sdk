@@ -196,7 +196,8 @@ func NewQueryItemsV2ParamsWithHTTPClient(client *http.Client) *QueryItemsV2Param
 	}
 }
 
-/*QueryItemsV2Params contains all the parameters to send to the API endpoint
+/*
+QueryItemsV2Params contains all the parameters to send to the API endpoint
 for the query items v2 operation typically these are written to a http.Request
 */
 type QueryItemsV2Params struct {

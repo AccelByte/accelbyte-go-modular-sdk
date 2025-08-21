@@ -130,9 +130,10 @@ func NewAdminQueryPlayerAttributesOK() *AdminQueryPlayerAttributesOK {
 	return &AdminQueryPlayerAttributesOK{}
 }
 
-/*AdminQueryPlayerAttributesOK handles this case with default header values.
+/*
+AdminQueryPlayerAttributesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminQueryPlayerAttributesOK struct {
 	Payload []*sessionclientmodels.ApimodelsPlayerAttributesResponseBody
@@ -182,9 +183,10 @@ func NewAdminQueryPlayerAttributesBadRequest() *AdminQueryPlayerAttributesBadReq
 	return &AdminQueryPlayerAttributesBadRequest{}
 }
 
-/*AdminQueryPlayerAttributesBadRequest handles this case with default header values.
+/*
+AdminQueryPlayerAttributesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminQueryPlayerAttributesBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -236,9 +238,10 @@ func NewAdminQueryPlayerAttributesUnauthorized() *AdminQueryPlayerAttributesUnau
 	return &AdminQueryPlayerAttributesUnauthorized{}
 }
 
-/*AdminQueryPlayerAttributesUnauthorized handles this case with default header values.
+/*
+AdminQueryPlayerAttributesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminQueryPlayerAttributesUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -290,9 +293,10 @@ func NewAdminQueryPlayerAttributesNotFound() *AdminQueryPlayerAttributesNotFound
 	return &AdminQueryPlayerAttributesNotFound{}
 }
 
-/*AdminQueryPlayerAttributesNotFound handles this case with default header values.
+/*
+AdminQueryPlayerAttributesNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminQueryPlayerAttributesNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -344,9 +348,10 @@ func NewAdminQueryPlayerAttributesInternalServerError() *AdminQueryPlayerAttribu
 	return &AdminQueryPlayerAttributesInternalServerError{}
 }
 
-/*AdminQueryPlayerAttributesInternalServerError handles this case with default header values.
+/*
+AdminQueryPlayerAttributesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminQueryPlayerAttributesInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -130,9 +130,10 @@ func NewImagesStorageOK() *ImagesStorageOK {
 	return &ImagesStorageOK{}
 }
 
-/*ImagesStorageOK handles this case with default header values.
+/*
+ImagesStorageOK handles this case with default header values.
 
-  success
+	success
 */
 type ImagesStorageOK struct {
 	Payload *amsclientmodels.APIImageStorage
@@ -184,9 +185,10 @@ func NewImagesStorageUnauthorized() *ImagesStorageUnauthorized {
 	return &ImagesStorageUnauthorized{}
 }
 
-/*ImagesStorageUnauthorized handles this case with default header values.
+/*
+ImagesStorageUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type ImagesStorageUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewImagesStorageForbidden() *ImagesStorageForbidden {
 	return &ImagesStorageForbidden{}
 }
 
-/*ImagesStorageForbidden handles this case with default header values.
+/*
+ImagesStorageForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type ImagesStorageForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewImagesStorageNotFound() *ImagesStorageNotFound {
 	return &ImagesStorageNotFound{}
 }
 
-/*ImagesStorageNotFound handles this case with default header values.
+/*
+ImagesStorageNotFound handles this case with default header values.
 
-  account not linked
+	account not linked
 */
 type ImagesStorageNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewImagesStorageInternalServerError() *ImagesStorageInternalServerError {
 	return &ImagesStorageInternalServerError{}
 }
 
-/*ImagesStorageInternalServerError handles this case with default header values.
+/*
+ImagesStorageInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type ImagesStorageInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

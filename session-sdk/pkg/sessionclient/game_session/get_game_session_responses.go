@@ -145,9 +145,10 @@ func NewGetGameSessionOK() *GetGameSessionOK {
 	return &GetGameSessionOK{}
 }
 
-/*GetGameSessionOK handles this case with default header values.
+/*
+GetGameSessionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetGameSessionOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -199,9 +200,10 @@ func NewGetGameSessionBadRequest() *GetGameSessionBadRequest {
 	return &GetGameSessionBadRequest{}
 }
 
-/*GetGameSessionBadRequest handles this case with default header values.
+/*
+GetGameSessionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetGameSessionBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewGetGameSessionUnauthorized() *GetGameSessionUnauthorized {
 	return &GetGameSessionUnauthorized{}
 }
 
-/*GetGameSessionUnauthorized handles this case with default header values.
+/*
+GetGameSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetGameSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewGetGameSessionForbidden() *GetGameSessionForbidden {
 	return &GetGameSessionForbidden{}
 }
 
-/*GetGameSessionForbidden handles this case with default header values.
+/*
+GetGameSessionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetGameSessionForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewGetGameSessionNotFound() *GetGameSessionNotFound {
 	return &GetGameSessionNotFound{}
 }
 
-/*GetGameSessionNotFound handles this case with default header values.
+/*
+GetGameSessionNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetGameSessionNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewGetGameSessionInternalServerError() *GetGameSessionInternalServerError {
 	return &GetGameSessionInternalServerError{}
 }
 
-/*GetGameSessionInternalServerError handles this case with default header values.
+/*
+GetGameSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetGameSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

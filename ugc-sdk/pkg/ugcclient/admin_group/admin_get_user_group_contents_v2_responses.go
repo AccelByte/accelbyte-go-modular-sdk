@@ -130,9 +130,10 @@ func NewAdminGetUserGroupContentsV2OK() *AdminGetUserGroupContentsV2OK {
 	return &AdminGetUserGroupContentsV2OK{}
 }
 
-/*AdminGetUserGroupContentsV2OK handles this case with default header values.
+/*
+AdminGetUserGroupContentsV2OK handles this case with default header values.
 
-  Get contents belong to a group
+	Get contents belong to a group
 */
 type AdminGetUserGroupContentsV2OK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponseV2
@@ -184,9 +185,10 @@ func NewAdminGetUserGroupContentsV2BadRequest() *AdminGetUserGroupContentsV2BadR
 	return &AdminGetUserGroupContentsV2BadRequest{}
 }
 
-/*AdminGetUserGroupContentsV2BadRequest handles this case with default header values.
+/*
+AdminGetUserGroupContentsV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773101</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773101</td><td>invalid paging parameter</td></tr></table>
 */
 type AdminGetUserGroupContentsV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetUserGroupContentsV2Unauthorized() *AdminGetUserGroupContentsV2Un
 	return &AdminGetUserGroupContentsV2Unauthorized{}
 }
 
-/*AdminGetUserGroupContentsV2Unauthorized handles this case with default header values.
+/*
+AdminGetUserGroupContentsV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserGroupContentsV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGetUserGroupContentsV2NotFound() *AdminGetUserGroupContentsV2NotFou
 	return &AdminGetUserGroupContentsV2NotFound{}
 }
 
-/*AdminGetUserGroupContentsV2NotFound handles this case with default header values.
+/*
+AdminGetUserGroupContentsV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773103</td><td>No group content was found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773103</td><td>No group content was found</td></tr></table>
 */
 type AdminGetUserGroupContentsV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetUserGroupContentsV2InternalServerError() *AdminGetUserGroupConte
 	return &AdminGetUserGroupContentsV2InternalServerError{}
 }
 
-/*AdminGetUserGroupContentsV2InternalServerError handles this case with default header values.
+/*
+AdminGetUserGroupContentsV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773102</td><td>Unable to get ugc content: database error</td></tr><tr><td>770901</td><td>Unable to get ugc content: database error/Unable to get creator</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770903</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773102</td><td>Unable to get ugc content: database error</td></tr><tr><td>770901</td><td>Unable to get ugc content: database error/Unable to get creator</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770903</td><td>Failed generate download URL</td></tr></table>
 */
 type AdminGetUserGroupContentsV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

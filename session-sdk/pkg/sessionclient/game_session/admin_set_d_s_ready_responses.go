@@ -129,9 +129,10 @@ func NewAdminSetDSReadyNoContent() *AdminSetDSReadyNoContent {
 	return &AdminSetDSReadyNoContent{}
 }
 
-/*AdminSetDSReadyNoContent handles this case with default header values.
+/*
+AdminSetDSReadyNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminSetDSReadyNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminSetDSReadyBadRequest() *AdminSetDSReadyBadRequest {
 	return &AdminSetDSReadyBadRequest{}
 }
 
-/*AdminSetDSReadyBadRequest handles this case with default header values.
+/*
+AdminSetDSReadyBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminSetDSReadyBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewAdminSetDSReadyUnauthorized() *AdminSetDSReadyUnauthorized {
 	return &AdminSetDSReadyUnauthorized{}
 }
 
-/*AdminSetDSReadyUnauthorized handles this case with default header values.
+/*
+AdminSetDSReadyUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminSetDSReadyUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewAdminSetDSReadyForbidden() *AdminSetDSReadyForbidden {
 	return &AdminSetDSReadyForbidden{}
 }
 
-/*AdminSetDSReadyForbidden handles this case with default header values.
+/*
+AdminSetDSReadyForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminSetDSReadyForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewAdminSetDSReadyInternalServerError() *AdminSetDSReadyInternalServerError
 	return &AdminSetDSReadyInternalServerError{}
 }
 
-/*AdminSetDSReadyInternalServerError handles this case with default header values.
+/*
+AdminSetDSReadyInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSetDSReadyInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

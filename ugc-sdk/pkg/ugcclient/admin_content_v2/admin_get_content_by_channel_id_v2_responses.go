@@ -115,9 +115,10 @@ func NewAdminGetContentByChannelIDV2OK() *AdminGetContentByChannelIDV2OK {
 	return &AdminGetContentByChannelIDV2OK{}
 }
 
-/*AdminGetContentByChannelIDV2OK handles this case with default header values.
+/*
+AdminGetContentByChannelIDV2OK handles this case with default header values.
 
-  List contents specific to a channel
+	List contents specific to a channel
 */
 type AdminGetContentByChannelIDV2OK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponseV2
@@ -169,9 +170,10 @@ func NewAdminGetContentByChannelIDV2BadRequest() *AdminGetContentByChannelIDV2Ba
 	return &AdminGetContentByChannelIDV2BadRequest{}
 }
 
-/*AdminGetContentByChannelIDV2BadRequest handles this case with default header values.
+/*
+AdminGetContentByChannelIDV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770804</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770804</td><td>invalid paging parameter</td></tr></table>
 */
 type AdminGetContentByChannelIDV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetContentByChannelIDV2Unauthorized() *AdminGetContentByChannelIDV2
 	return &AdminGetContentByChannelIDV2Unauthorized{}
 }
 
-/*AdminGetContentByChannelIDV2Unauthorized handles this case with default header values.
+/*
+AdminGetContentByChannelIDV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetContentByChannelIDV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetContentByChannelIDV2InternalServerError() *AdminGetContentByChan
 	return &AdminGetContentByChannelIDV2InternalServerError{}
 }
 
-/*AdminGetContentByChannelIDV2InternalServerError handles this case with default header values.
+/*
+AdminGetContentByChannelIDV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770805</td><td>Unable to get ugc content: database error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770805</td><td>Unable to get ugc content: database error</td></tr></table>
 */
 type AdminGetContentByChannelIDV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

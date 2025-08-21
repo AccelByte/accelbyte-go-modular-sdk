@@ -85,9 +85,10 @@ func NewQueryUserExpGrantHistoryTagOK() *QueryUserExpGrantHistoryTagOK {
 	return &QueryUserExpGrantHistoryTagOK{}
 }
 
-/*QueryUserExpGrantHistoryTagOK handles this case with default header values.
+/*
+QueryUserExpGrantHistoryTagOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryUserExpGrantHistoryTagOK struct {
 	Payload *seasonpassclientmodels.ReasonTagsResult
@@ -139,9 +140,10 @@ func NewQueryUserExpGrantHistoryTagBadRequest() *QueryUserExpGrantHistoryTagBadR
 	return &QueryUserExpGrantHistoryTagBadRequest{}
 }
 
-/*QueryUserExpGrantHistoryTagBadRequest handles this case with default header values.
+/*
+QueryUserExpGrantHistoryTagBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type QueryUserExpGrantHistoryTagBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity

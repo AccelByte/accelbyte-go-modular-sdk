@@ -130,9 +130,10 @@ func NewGetSlugTemplateOK() *GetSlugTemplateOK {
 	return &GetSlugTemplateOK{}
 }
 
-/*GetSlugTemplateOK handles this case with default header values.
+/*
+GetSlugTemplateOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetSlugTemplateOK struct {
 	Payload *lobbyclientmodels.ModelTemplateLocalizationResponse
@@ -184,9 +185,10 @@ func NewGetSlugTemplateBadRequest() *GetSlugTemplateBadRequest {
 	return &GetSlugTemplateBadRequest{}
 }
 
-/*GetSlugTemplateBadRequest handles this case with default header values.
+/*
+GetSlugTemplateBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetSlugTemplateBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewGetSlugTemplateUnauthorized() *GetSlugTemplateUnauthorized {
 	return &GetSlugTemplateUnauthorized{}
 }
 
-/*GetSlugTemplateUnauthorized handles this case with default header values.
+/*
+GetSlugTemplateUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetSlugTemplateUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewGetSlugTemplateForbidden() *GetSlugTemplateForbidden {
 	return &GetSlugTemplateForbidden{}
 }
 
-/*GetSlugTemplateForbidden handles this case with default header values.
+/*
+GetSlugTemplateForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetSlugTemplateForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewGetSlugTemplateNotFound() *GetSlugTemplateNotFound {
 	return &GetSlugTemplateNotFound{}
 }
 
-/*GetSlugTemplateNotFound handles this case with default header values.
+/*
+GetSlugTemplateNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetSlugTemplateNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

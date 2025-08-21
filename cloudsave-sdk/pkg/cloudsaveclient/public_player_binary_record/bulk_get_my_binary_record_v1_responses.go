@@ -130,9 +130,10 @@ func NewBulkGetMyBinaryRecordV1OK() *BulkGetMyBinaryRecordV1OK {
 	return &BulkGetMyBinaryRecordV1OK{}
 }
 
-/*BulkGetMyBinaryRecordV1OK handles this case with default header values.
+/*
+BulkGetMyBinaryRecordV1OK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type BulkGetMyBinaryRecordV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsBulkGetPlayerBinaryRecordResponse
@@ -184,9 +185,10 @@ func NewBulkGetMyBinaryRecordV1BadRequest() *BulkGetMyBinaryRecordV1BadRequest {
 	return &BulkGetMyBinaryRecordV1BadRequest{}
 }
 
-/*BulkGetMyBinaryRecordV1BadRequest handles this case with default header values.
+/*
+BulkGetMyBinaryRecordV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18125</td><td>invalid request body</td></tr><tr><td>18126</td><td>request record keys list exceed max size [%d]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18125</td><td>invalid request body</td></tr><tr><td>18126</td><td>request record keys list exceed max size [%d]</td></tr></table>
 */
 type BulkGetMyBinaryRecordV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewBulkGetMyBinaryRecordV1Unauthorized() *BulkGetMyBinaryRecordV1Unauthoriz
 	return &BulkGetMyBinaryRecordV1Unauthorized{}
 }
 
-/*BulkGetMyBinaryRecordV1Unauthorized handles this case with default header values.
+/*
+BulkGetMyBinaryRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type BulkGetMyBinaryRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewBulkGetMyBinaryRecordV1Forbidden() *BulkGetMyBinaryRecordV1Forbidden {
 	return &BulkGetMyBinaryRecordV1Forbidden{}
 }
 
-/*BulkGetMyBinaryRecordV1Forbidden handles this case with default header values.
+/*
+BulkGetMyBinaryRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkGetMyBinaryRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewBulkGetMyBinaryRecordV1InternalServerError() *BulkGetMyBinaryRecordV1Int
 	return &BulkGetMyBinaryRecordV1InternalServerError{}
 }
 
-/*BulkGetMyBinaryRecordV1InternalServerError handles this case with default header values.
+/*
+BulkGetMyBinaryRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18343</td><td>unable to get record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18343</td><td>unable to get record</td></tr></table>
 */
 type BulkGetMyBinaryRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

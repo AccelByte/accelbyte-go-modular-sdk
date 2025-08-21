@@ -85,9 +85,10 @@ func NewUpdateLocalizedPolicyVersion1OK() *UpdateLocalizedPolicyVersion1OK {
 	return &UpdateLocalizedPolicyVersion1OK{}
 }
 
-/*UpdateLocalizedPolicyVersion1OK handles this case with default header values.
+/*
+UpdateLocalizedPolicyVersion1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateLocalizedPolicyVersion1OK struct {
 	Payload *legalclientmodels.UpdateLocalizedPolicyVersionResponse
@@ -139,9 +140,10 @@ func NewUpdateLocalizedPolicyVersion1BadRequest() *UpdateLocalizedPolicyVersion1
 	return &UpdateLocalizedPolicyVersion1BadRequest{}
 }
 
-/*UpdateLocalizedPolicyVersion1BadRequest handles this case with default header values.
+/*
+UpdateLocalizedPolicyVersion1BadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr></table>
 */
 type UpdateLocalizedPolicyVersion1BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewDeleteVariableV2ParamsWithHTTPClient(client *http.Client) *DeleteVariabl
 	}
 }
 
-/*DeleteVariableV2Params contains all the parameters to send to the API endpoint
+/*
+DeleteVariableV2Params contains all the parameters to send to the API endpoint
 for the delete variable v2 operation typically these are written to a http.Request
 */
 type DeleteVariableV2Params struct {

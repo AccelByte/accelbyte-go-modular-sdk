@@ -85,9 +85,10 @@ func NewRetrieveAllUsersByPolicyVersionOK() *RetrieveAllUsersByPolicyVersionOK {
 	return &RetrieveAllUsersByPolicyVersionOK{}
 }
 
-/*RetrieveAllUsersByPolicyVersionOK handles this case with default header values.
+/*
+RetrieveAllUsersByPolicyVersionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveAllUsersByPolicyVersionOK struct {
 	Payload *legalclientmodels.PagedRetrieveUserAcceptedAgreementResponse
@@ -139,9 +140,10 @@ func NewRetrieveAllUsersByPolicyVersionNotFound() *RetrieveAllUsersByPolicyVersi
 	return &RetrieveAllUsersByPolicyVersionNotFound{}
 }
 
-/*RetrieveAllUsersByPolicyVersionNotFound handles this case with default header values.
+/*
+RetrieveAllUsersByPolicyVersionNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.policy_version_not_found</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.policy_version_not_found</td></tr></table>
 */
 type RetrieveAllUsersByPolicyVersionNotFound struct {
 	Payload *legalclientmodels.ErrorEntity

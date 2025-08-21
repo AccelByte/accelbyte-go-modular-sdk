@@ -115,9 +115,10 @@ func NewGetCurrentSeasonLeaderboardRankingPublicV1OK() *GetCurrentSeasonLeaderbo
 	return &GetCurrentSeasonLeaderboardRankingPublicV1OK{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingPublicV1OK handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingPublicV1OK handles this case with default header values.
 
-  Current season leaderboard retrieved
+	Current season leaderboard retrieved
 */
 type GetCurrentSeasonLeaderboardRankingPublicV1OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
@@ -169,9 +170,10 @@ func NewGetCurrentSeasonLeaderboardRankingPublicV1BadRequest() *GetCurrentSeason
 	return &GetCurrentSeasonLeaderboardRankingPublicV1BadRequest{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingPublicV1BadRequest handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingPublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetCurrentSeasonLeaderboardRankingPublicV1BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -223,9 +225,10 @@ func NewGetCurrentSeasonLeaderboardRankingPublicV1NotFound() *GetCurrentSeasonLe
 	return &GetCurrentSeasonLeaderboardRankingPublicV1NotFound{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingPublicV1NotFound handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingPublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
 */
 type GetCurrentSeasonLeaderboardRankingPublicV1NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -277,9 +280,10 @@ func NewGetCurrentSeasonLeaderboardRankingPublicV1InternalServerError() *GetCurr
 	return &GetCurrentSeasonLeaderboardRankingPublicV1InternalServerError{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingPublicV1InternalServerError handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingPublicV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
 */
 type GetCurrentSeasonLeaderboardRankingPublicV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

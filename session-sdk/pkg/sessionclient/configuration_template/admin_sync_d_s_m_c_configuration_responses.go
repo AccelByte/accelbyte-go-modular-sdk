@@ -145,9 +145,10 @@ func NewAdminSyncDSMCConfigurationOK() *AdminSyncDSMCConfigurationOK {
 	return &AdminSyncDSMCConfigurationOK{}
 }
 
-/*AdminSyncDSMCConfigurationOK handles this case with default header values.
+/*
+AdminSyncDSMCConfigurationOK handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminSyncDSMCConfigurationOK struct {
 	Payload *sessionclientmodels.ModelsDSMConfigRecord
@@ -199,9 +200,10 @@ func NewAdminSyncDSMCConfigurationBadRequest() *AdminSyncDSMCConfigurationBadReq
 	return &AdminSyncDSMCConfigurationBadRequest{}
 }
 
-/*AdminSyncDSMCConfigurationBadRequest handles this case with default header values.
+/*
+AdminSyncDSMCConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminSyncDSMCConfigurationBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminSyncDSMCConfigurationUnauthorized() *AdminSyncDSMCConfigurationUnau
 	return &AdminSyncDSMCConfigurationUnauthorized{}
 }
 
-/*AdminSyncDSMCConfigurationUnauthorized handles this case with default header values.
+/*
+AdminSyncDSMCConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminSyncDSMCConfigurationUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminSyncDSMCConfigurationForbidden() *AdminSyncDSMCConfigurationForbidd
 	return &AdminSyncDSMCConfigurationForbidden{}
 }
 
-/*AdminSyncDSMCConfigurationForbidden handles this case with default header values.
+/*
+AdminSyncDSMCConfigurationForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminSyncDSMCConfigurationForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminSyncDSMCConfigurationNotFound() *AdminSyncDSMCConfigurationNotFound
 	return &AdminSyncDSMCConfigurationNotFound{}
 }
 
-/*AdminSyncDSMCConfigurationNotFound handles this case with default header values.
+/*
+AdminSyncDSMCConfigurationNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminSyncDSMCConfigurationNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminSyncDSMCConfigurationInternalServerError() *AdminSyncDSMCConfigurat
 	return &AdminSyncDSMCConfigurationInternalServerError{}
 }
 
-/*AdminSyncDSMCConfigurationInternalServerError handles this case with default header values.
+/*
+AdminSyncDSMCConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSyncDSMCConfigurationInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

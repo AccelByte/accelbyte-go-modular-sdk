@@ -59,7 +59,8 @@ func NewAdminValidateXboxBPCertFileParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminValidateXboxBPCertFileParams contains all the parameters to send to the API endpoint
+/*
+AdminValidateXboxBPCertFileParams contains all the parameters to send to the API endpoint
 for the admin validate xbox bp cert file operation typically these are written to a http.Request
 */
 type AdminValidateXboxBPCertFileParams struct {

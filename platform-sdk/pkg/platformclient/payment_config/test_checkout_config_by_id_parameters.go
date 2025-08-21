@@ -70,7 +70,8 @@ func NewTestCheckoutConfigByIDParamsWithHTTPClient(client *http.Client) *TestChe
 	}
 }
 
-/*TestCheckoutConfigByIDParams contains all the parameters to send to the API endpoint
+/*
+TestCheckoutConfigByIDParams contains all the parameters to send to the API endpoint
 for the test checkout config by id operation typically these are written to a http.Request
 */
 type TestCheckoutConfigByIDParams struct {

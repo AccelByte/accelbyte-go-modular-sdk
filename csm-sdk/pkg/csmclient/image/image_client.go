@@ -40,7 +40,7 @@ type ClientService interface {
 GetAppImageListV1Short get a list of container images
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:IMAGE [READ]`
 
-Get a list of container images
+# Get a list of container images
 
 Default 'cached' parameter is 'true'
 */

@@ -59,7 +59,8 @@ func NewPutPlayerBinaryRecorMetadataV1ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*PutPlayerBinaryRecorMetadataV1Params contains all the parameters to send to the API endpoint
+/*
+PutPlayerBinaryRecorMetadataV1Params contains all the parameters to send to the API endpoint
 for the put player binary recor metadata v1 operation typically these are written to a http.Request
 */
 type PutPlayerBinaryRecorMetadataV1Params struct {

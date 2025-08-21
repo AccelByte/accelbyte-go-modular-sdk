@@ -59,7 +59,8 @@ func NewAddRoleMembersParamsWithHTTPClient(client *http.Client) *AddRoleMembersP
 	}
 }
 
-/*AddRoleMembersParams contains all the parameters to send to the API endpoint
+/*
+AddRoleMembersParams contains all the parameters to send to the API endpoint
 for the add role members operation typically these are written to a http.Request
 */
 type AddRoleMembersParams struct {

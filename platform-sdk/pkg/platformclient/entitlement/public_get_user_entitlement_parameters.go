@@ -57,7 +57,8 @@ func NewPublicGetUserEntitlementParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*PublicGetUserEntitlementParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserEntitlementParams contains all the parameters to send to the API endpoint
 for the public get user entitlement operation typically these are written to a http.Request
 */
 type PublicGetUserEntitlementParams struct {

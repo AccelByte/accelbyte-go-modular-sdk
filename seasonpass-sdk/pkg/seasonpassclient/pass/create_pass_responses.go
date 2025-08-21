@@ -130,9 +130,10 @@ func NewCreatePassCreated() *CreatePassCreated {
 	return &CreatePassCreated{}
 }
 
-/*CreatePassCreated handles this case with default header values.
+/*
+CreatePassCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreatePassCreated struct {
 	Payload *seasonpassclientmodels.PassInfo
@@ -184,9 +185,10 @@ func NewCreatePassBadRequest() *CreatePassBadRequest {
 	return &CreatePassBadRequest{}
 }
 
-/*CreatePassBadRequest handles this case with default header values.
+/*
+CreatePassBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49121</td><td>Default language [{language}] required in localizations</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49121</td><td>Default language [{language}] required in localizations</td></tr></table>
 */
 type CreatePassBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewCreatePassNotFound() *CreatePassNotFound {
 	return &CreatePassNotFound{}
 }
 
-/*CreatePassNotFound handles this case with default header values.
+/*
+CreatePassNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49142</td><td>Pass item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49142</td><td>Pass item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CreatePassNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewCreatePassConflict() *CreatePassConflict {
 	return &CreatePassConflict{}
 }
 
-/*CreatePassConflict handles this case with default header values.
+/*
+CreatePassConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49174</td><td>Pass [{code}] already exists in the season</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49174</td><td>Pass [{code}] already exists in the season</td></tr></table>
 */
 type CreatePassConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewCreatePassUnprocessableEntity() *CreatePassUnprocessableEntity {
 	return &CreatePassUnprocessableEntity{}
 }
 
-/*CreatePassUnprocessableEntity handles this case with default header values.
+/*
+CreatePassUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreatePassUnprocessableEntity struct {
 	Payload *seasonpassclientmodels.ValidationErrorEntity

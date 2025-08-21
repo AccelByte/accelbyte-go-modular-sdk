@@ -57,7 +57,8 @@ func NewAdminGetUserAccountDeletionRequestParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*AdminGetUserAccountDeletionRequestParams contains all the parameters to send to the API endpoint
+/*
+AdminGetUserAccountDeletionRequestParams contains all the parameters to send to the API endpoint
 for the admin get user account deletion request operation typically these are written to a http.Request
 */
 type AdminGetUserAccountDeletionRequestParams struct {

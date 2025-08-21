@@ -59,7 +59,8 @@ func NewCreateNotificationTopicV1AdminParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*CreateNotificationTopicV1AdminParams contains all the parameters to send to the API endpoint
+/*
+CreateNotificationTopicV1AdminParams contains all the parameters to send to the API endpoint
 for the create notification topic v1 admin operation typically these are written to a http.Request
 */
 type CreateNotificationTopicV1AdminParams struct {

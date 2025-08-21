@@ -114,9 +114,10 @@ func NewDeleteGroupNoContent() *DeleteGroupNoContent {
 	return &DeleteGroupNoContent{}
 }
 
-/*DeleteGroupNoContent handles this case with default header values.
+/*
+DeleteGroupNoContent handles this case with default header values.
 
-  Group deleted
+	Group deleted
 */
 type DeleteGroupNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteGroupUnauthorized() *DeleteGroupUnauthorized {
 	return &DeleteGroupUnauthorized{}
 }
 
-/*DeleteGroupUnauthorized handles this case with default header values.
+/*
+DeleteGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteGroupUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewDeleteGroupNotFound() *DeleteGroupNotFound {
 	return &DeleteGroupNotFound{}
 }
 
-/*DeleteGroupNotFound handles this case with default header values.
+/*
+DeleteGroupNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772403</td><td>Group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772403</td><td>Group not found</td></tr></table>
 */
 type DeleteGroupNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewDeleteGroupInternalServerError() *DeleteGroupInternalServerError {
 	return &DeleteGroupInternalServerError{}
 }
 
-/*DeleteGroupInternalServerError handles this case with default header values.
+/*
+DeleteGroupInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772402</td><td>Unable delete groups</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772402</td><td>Unable delete groups</td></tr></table>
 */
 type DeleteGroupInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

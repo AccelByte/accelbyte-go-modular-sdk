@@ -85,9 +85,10 @@ func NewPublicGetItemBySkuOK() *PublicGetItemBySkuOK {
 	return &PublicGetItemBySkuOK{}
 }
 
-/*PublicGetItemBySkuOK handles this case with default header values.
+/*
+PublicGetItemBySkuOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetItemBySkuOK struct {
 	Payload *platformclientmodels.ItemInfo
@@ -139,9 +140,10 @@ func NewPublicGetItemBySkuNotFound() *PublicGetItemBySkuNotFound {
 	return &PublicGetItemBySkuNotFound{}
 }
 
-/*PublicGetItemBySkuNotFound handles this case with default header values.
+/*
+PublicGetItemBySkuNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{sku}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{sku}] does not exist</td></tr></table>
 */
 type PublicGetItemBySkuNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

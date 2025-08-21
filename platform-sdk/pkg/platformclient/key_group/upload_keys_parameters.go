@@ -57,7 +57,8 @@ func NewUploadKeysParamsWithHTTPClient(client *http.Client) *UploadKeysParams {
 	}
 }
 
-/*UploadKeysParams contains all the parameters to send to the API endpoint
+/*
+UploadKeysParams contains all the parameters to send to the API endpoint
 for the upload keys operation typically these are written to a http.Request
 */
 type UploadKeysParams struct {

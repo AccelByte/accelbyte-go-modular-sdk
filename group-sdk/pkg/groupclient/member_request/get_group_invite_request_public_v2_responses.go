@@ -130,9 +130,10 @@ func NewGetGroupInviteRequestPublicV2OK() *GetGroupInviteRequestPublicV2OK {
 	return &GetGroupInviteRequestPublicV2OK{}
 }
 
-/*GetGroupInviteRequestPublicV2OK handles this case with default header values.
+/*
+GetGroupInviteRequestPublicV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetGroupInviteRequestPublicV2OK struct {
 	Payload *groupclientmodels.ModelsGetMemberRequestsListResponseV1
@@ -184,9 +185,10 @@ func NewGetGroupInviteRequestPublicV2BadRequest() *GetGroupInviteRequestPublicV2
 	return &GetGroupInviteRequestPublicV2BadRequest{}
 }
 
-/*GetGroupInviteRequestPublicV2BadRequest handles this case with default header values.
+/*
+GetGroupInviteRequestPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetGroupInviteRequestPublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetGroupInviteRequestPublicV2Unauthorized() *GetGroupInviteRequestPublic
 	return &GetGroupInviteRequestPublicV2Unauthorized{}
 }
 
-/*GetGroupInviteRequestPublicV2Unauthorized handles this case with default header values.
+/*
+GetGroupInviteRequestPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetGroupInviteRequestPublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetGroupInviteRequestPublicV2Forbidden() *GetGroupInviteRequestPublicV2F
 	return &GetGroupInviteRequestPublicV2Forbidden{}
 }
 
-/*GetGroupInviteRequestPublicV2Forbidden handles this case with default header values.
+/*
+GetGroupInviteRequestPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type GetGroupInviteRequestPublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetGroupInviteRequestPublicV2InternalServerError() *GetGroupInviteReques
 	return &GetGroupInviteRequestPublicV2InternalServerError{}
 }
 
-/*GetGroupInviteRequestPublicV2InternalServerError handles this case with default header values.
+/*
+GetGroupInviteRequestPublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetGroupInviteRequestPublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

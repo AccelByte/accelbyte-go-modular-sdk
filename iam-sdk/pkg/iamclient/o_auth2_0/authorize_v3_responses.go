@@ -68,9 +68,10 @@ func NewAuthorizeV3Found() *AuthorizeV3Found {
 	return &AuthorizeV3Found{}
 }
 
-/*AuthorizeV3Found handles this case with default header values.
+/*
+AuthorizeV3Found handles this case with default header values.
 
-  Found. Redirected to login page with either request_id or error.
+	Found. Redirected to login page with either request_id or error.
 */
 type AuthorizeV3Found struct {
 	Location string

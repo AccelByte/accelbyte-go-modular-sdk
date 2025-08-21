@@ -59,7 +59,8 @@ func NewUpdateContentLikeStatusParamsWithHTTPClient(client *http.Client) *Update
 	}
 }
 
-/*UpdateContentLikeStatusParams contains all the parameters to send to the API endpoint
+/*
+UpdateContentLikeStatusParams contains all the parameters to send to the API endpoint
 for the update content like status operation typically these are written to a http.Request
 */
 type UpdateContentLikeStatusParams struct {

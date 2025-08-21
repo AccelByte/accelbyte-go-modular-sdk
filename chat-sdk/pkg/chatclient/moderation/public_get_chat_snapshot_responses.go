@@ -145,9 +145,10 @@ func NewPublicGetChatSnapshotOK() *PublicGetChatSnapshotOK {
 	return &PublicGetChatSnapshotOK{}
 }
 
-/*PublicGetChatSnapshotOK handles this case with default header values.
+/*
+PublicGetChatSnapshotOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetChatSnapshotOK struct {
 	Payload *chatclientmodels.ModelsChatSnapshots
@@ -199,9 +200,10 @@ func NewPublicGetChatSnapshotBadRequest() *PublicGetChatSnapshotBadRequest {
 	return &PublicGetChatSnapshotBadRequest{}
 }
 
-/*PublicGetChatSnapshotBadRequest handles this case with default header values.
+/*
+PublicGetChatSnapshotBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetChatSnapshotBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewPublicGetChatSnapshotUnauthorized() *PublicGetChatSnapshotUnauthorized {
 	return &PublicGetChatSnapshotUnauthorized{}
 }
 
-/*PublicGetChatSnapshotUnauthorized handles this case with default header values.
+/*
+PublicGetChatSnapshotUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetChatSnapshotUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewPublicGetChatSnapshotForbidden() *PublicGetChatSnapshotForbidden {
 	return &PublicGetChatSnapshotForbidden{}
 }
 
-/*PublicGetChatSnapshotForbidden handles this case with default header values.
+/*
+PublicGetChatSnapshotForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicGetChatSnapshotForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewPublicGetChatSnapshotNotFound() *PublicGetChatSnapshotNotFound {
 	return &PublicGetChatSnapshotNotFound{}
 }
 
-/*PublicGetChatSnapshotNotFound handles this case with default header values.
+/*
+PublicGetChatSnapshotNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetChatSnapshotNotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewPublicGetChatSnapshotInternalServerError() *PublicGetChatSnapshotInterna
 	return &PublicGetChatSnapshotInternalServerError{}
 }
 
-/*PublicGetChatSnapshotInternalServerError handles this case with default header values.
+/*
+PublicGetChatSnapshotInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetChatSnapshotInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

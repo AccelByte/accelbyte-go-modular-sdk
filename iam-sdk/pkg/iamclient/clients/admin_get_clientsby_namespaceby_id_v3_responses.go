@@ -130,9 +130,10 @@ func NewAdminGetClientsbyNamespacebyIDV3OK() *AdminGetClientsbyNamespacebyIDV3OK
 	return &AdminGetClientsbyNamespacebyIDV3OK{}
 }
 
-/*AdminGetClientsbyNamespacebyIDV3OK handles this case with default header values.
+/*
+AdminGetClientsbyNamespacebyIDV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetClientsbyNamespacebyIDV3OK struct {
 	Payload *iamclientmodels.ClientmodelClientV3Response
@@ -184,9 +185,10 @@ func NewAdminGetClientsbyNamespacebyIDV3BadRequest() *AdminGetClientsbyNamespace
 	return &AdminGetClientsbyNamespacebyIDV3BadRequest{}
 }
 
-/*AdminGetClientsbyNamespacebyIDV3BadRequest handles this case with default header values.
+/*
+AdminGetClientsbyNamespacebyIDV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetClientsbyNamespacebyIDV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminGetClientsbyNamespacebyIDV3Unauthorized() *AdminGetClientsbyNamespa
 	return &AdminGetClientsbyNamespacebyIDV3Unauthorized{}
 }
 
-/*AdminGetClientsbyNamespacebyIDV3Unauthorized handles this case with default header values.
+/*
+AdminGetClientsbyNamespacebyIDV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetClientsbyNamespacebyIDV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetClientsbyNamespacebyIDV3Forbidden() *AdminGetClientsbyNamespaceb
 	return &AdminGetClientsbyNamespacebyIDV3Forbidden{}
 }
 
-/*AdminGetClientsbyNamespacebyIDV3Forbidden handles this case with default header values.
+/*
+AdminGetClientsbyNamespacebyIDV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetClientsbyNamespacebyIDV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetClientsbyNamespacebyIDV3NotFound() *AdminGetClientsbyNamespaceby
 	return &AdminGetClientsbyNamespacebyIDV3NotFound{}
 }
 
-/*AdminGetClientsbyNamespacebyIDV3NotFound handles this case with default header values.
+/*
+AdminGetClientsbyNamespacebyIDV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr></table>
 */
 type AdminGetClientsbyNamespacebyIDV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

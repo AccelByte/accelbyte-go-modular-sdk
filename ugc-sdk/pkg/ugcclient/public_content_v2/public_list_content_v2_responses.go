@@ -115,9 +115,10 @@ func NewPublicListContentV2OK() *PublicListContentV2OK {
 	return &PublicListContentV2OK{}
 }
 
-/*PublicListContentV2OK handles this case with default header values.
+/*
+PublicListContentV2OK handles this case with default header values.
 
-  list content's
+	list content's
 */
 type PublicListContentV2OK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponseV2
@@ -169,9 +170,10 @@ func NewPublicListContentV2BadRequest() *PublicListContentV2BadRequest {
 	return &PublicListContentV2BadRequest{}
 }
 
-/*PublicListContentV2BadRequest handles this case with default header values.
+/*
+PublicListContentV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
 */
 type PublicListContentV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicListContentV2Unauthorized() *PublicListContentV2Unauthorized {
 	return &PublicListContentV2Unauthorized{}
 }
 
-/*PublicListContentV2Unauthorized handles this case with default header values.
+/*
+PublicListContentV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicListContentV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicListContentV2InternalServerError() *PublicListContentV2InternalSer
 	return &PublicListContentV2InternalServerError{}
 }
 
-/*PublicListContentV2InternalServerError handles this case with default header values.
+/*
+PublicListContentV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
 */
 type PublicListContentV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

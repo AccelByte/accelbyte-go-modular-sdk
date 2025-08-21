@@ -57,7 +57,8 @@ func NewGetPrivateCustomAttributesInfoParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*GetPrivateCustomAttributesInfoParams contains all the parameters to send to the API endpoint
+/*
+GetPrivateCustomAttributesInfoParams contains all the parameters to send to the API endpoint
 for the get private custom attributes info operation typically these are written to a http.Request
 */
 type GetPrivateCustomAttributesInfoParams struct {

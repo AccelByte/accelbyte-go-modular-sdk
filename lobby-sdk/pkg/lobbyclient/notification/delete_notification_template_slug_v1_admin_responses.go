@@ -129,9 +129,10 @@ func NewDeleteNotificationTemplateSlugV1AdminNoContent() *DeleteNotificationTemp
 	return &DeleteNotificationTemplateSlugV1AdminNoContent{}
 }
 
-/*DeleteNotificationTemplateSlugV1AdminNoContent handles this case with default header values.
+/*
+DeleteNotificationTemplateSlugV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteNotificationTemplateSlugV1AdminNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteNotificationTemplateSlugV1AdminBadRequest() *DeleteNotificationTem
 	return &DeleteNotificationTemplateSlugV1AdminBadRequest{}
 }
 
-/*DeleteNotificationTemplateSlugV1AdminBadRequest handles this case with default header values.
+/*
+DeleteNotificationTemplateSlugV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type DeleteNotificationTemplateSlugV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -210,9 +212,10 @@ func NewDeleteNotificationTemplateSlugV1AdminUnauthorized() *DeleteNotificationT
 	return &DeleteNotificationTemplateSlugV1AdminUnauthorized{}
 }
 
-/*DeleteNotificationTemplateSlugV1AdminUnauthorized handles this case with default header values.
+/*
+DeleteNotificationTemplateSlugV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteNotificationTemplateSlugV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -264,9 +267,10 @@ func NewDeleteNotificationTemplateSlugV1AdminForbidden() *DeleteNotificationTemp
 	return &DeleteNotificationTemplateSlugV1AdminForbidden{}
 }
 
-/*DeleteNotificationTemplateSlugV1AdminForbidden handles this case with default header values.
+/*
+DeleteNotificationTemplateSlugV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteNotificationTemplateSlugV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -318,9 +322,10 @@ func NewDeleteNotificationTemplateSlugV1AdminNotFound() *DeleteNotificationTempl
 	return &DeleteNotificationTemplateSlugV1AdminNotFound{}
 }
 
-/*DeleteNotificationTemplateSlugV1AdminNotFound handles this case with default header values.
+/*
+DeleteNotificationTemplateSlugV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteNotificationTemplateSlugV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

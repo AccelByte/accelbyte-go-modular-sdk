@@ -145,9 +145,10 @@ func NewAdminGetListDeletionDataRequestOK() *AdminGetListDeletionDataRequestOK {
 	return &AdminGetListDeletionDataRequestOK{}
 }
 
-/*AdminGetListDeletionDataRequestOK handles this case with default header values.
+/*
+AdminGetListDeletionDataRequestOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetListDeletionDataRequestOK struct {
 	Payload *gdprclientmodels.ModelsListDeletionDataResponse
@@ -199,9 +200,10 @@ func NewAdminGetListDeletionDataRequestBadRequest() *AdminGetListDeletionDataReq
 	return &AdminGetListDeletionDataRequestBadRequest{}
 }
 
-/*AdminGetListDeletionDataRequestBadRequest handles this case with default header values.
+/*
+AdminGetListDeletionDataRequestBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetListDeletionDataRequestBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminGetListDeletionDataRequestUnauthorized() *AdminGetListDeletionDataR
 	return &AdminGetListDeletionDataRequestUnauthorized{}
 }
 
-/*AdminGetListDeletionDataRequestUnauthorized handles this case with default header values.
+/*
+AdminGetListDeletionDataRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetListDeletionDataRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminGetListDeletionDataRequestForbidden() *AdminGetListDeletionDataRequ
 	return &AdminGetListDeletionDataRequestForbidden{}
 }
 
-/*AdminGetListDeletionDataRequestForbidden handles this case with default header values.
+/*
+AdminGetListDeletionDataRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetListDeletionDataRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminGetListDeletionDataRequestNotFound() *AdminGetListDeletionDataReque
 	return &AdminGetListDeletionDataRequestNotFound{}
 }
 
-/*AdminGetListDeletionDataRequestNotFound handles this case with default header values.
+/*
+AdminGetListDeletionDataRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetListDeletionDataRequestNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminGetListDeletionDataRequestInternalServerError() *AdminGetListDeleti
 	return &AdminGetListDeletionDataRequestInternalServerError{}
 }
 
-/*AdminGetListDeletionDataRequestInternalServerError handles this case with default header values.
+/*
+AdminGetListDeletionDataRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetListDeletionDataRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

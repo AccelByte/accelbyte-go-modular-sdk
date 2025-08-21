@@ -130,9 +130,10 @@ func NewAdminGenerateOfficialContentUploadURLV2OK() *AdminGenerateOfficialConten
 	return &AdminGenerateOfficialContentUploadURLV2OK{}
 }
 
-/*AdminGenerateOfficialContentUploadURLV2OK handles this case with default header values.
+/*
+AdminGenerateOfficialContentUploadURLV2OK handles this case with default header values.
 
-  official content upload URL generated
+	official content upload URL generated
 */
 type AdminGenerateOfficialContentUploadURLV2OK struct {
 	Payload *ugcclientmodels.ModelsGenerateContentUploadURLResponse
@@ -184,9 +185,10 @@ func NewAdminGenerateOfficialContentUploadURLV2BadRequest() *AdminGenerateOffici
 	return &AdminGenerateOfficialContentUploadURLV2BadRequest{}
 }
 
-/*AdminGenerateOfficialContentUploadURLV2BadRequest handles this case with default header values.
+/*
+AdminGenerateOfficialContentUploadURLV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
 */
 type AdminGenerateOfficialContentUploadURLV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGenerateOfficialContentUploadURLV2Unauthorized() *AdminGenerateOffi
 	return &AdminGenerateOfficialContentUploadURLV2Unauthorized{}
 }
 
-/*AdminGenerateOfficialContentUploadURLV2Unauthorized handles this case with default header values.
+/*
+AdminGenerateOfficialContentUploadURLV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGenerateOfficialContentUploadURLV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGenerateOfficialContentUploadURLV2NotFound() *AdminGenerateOfficial
 	return &AdminGenerateOfficialContentUploadURLV2NotFound{}
 }
 
-/*AdminGenerateOfficialContentUploadURLV2NotFound handles this case with default header values.
+/*
+AdminGenerateOfficialContentUploadURLV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
 */
 type AdminGenerateOfficialContentUploadURLV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGenerateOfficialContentUploadURLV2InternalServerError() *AdminGener
 	return &AdminGenerateOfficialContentUploadURLV2InternalServerError{}
 }
 
-/*AdminGenerateOfficialContentUploadURLV2InternalServerError handles this case with default header values.
+/*
+AdminGenerateOfficialContentUploadURLV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
 */
 type AdminGenerateOfficialContentUploadURLV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

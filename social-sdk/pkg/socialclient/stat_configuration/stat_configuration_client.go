@@ -49,7 +49,7 @@ type ClientService interface {
 GetStatsShort list stats
 List stats by pagination.
 Other detail info:
-            *  Returns : stats
+  - Returns : stats
 */
 func (a *Client) GetStatsShort(params *GetStatsParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatsResponse, error) {
 	// TODO: Validate the params before sending
@@ -126,10 +126,10 @@ func (a *Client) GetStatsShort(params *GetStatsParams, authInfo runtime.ClientAu
 CreateStatShort create stat
 Create stat.
 Other detail info:
-            *  Returns : created stat template
-            * default minimum value is 0
-            * default maximum value is 1.7976931348623157e+308
-            * Field globalAggregationMethod will be ignored when setAsGlobal field is false
+  - Returns : created stat template
+  - default minimum value is 0
+  - default maximum value is 1.7976931348623157e+308
+  - Field globalAggregationMethod will be ignored when setAsGlobal field is false
 */
 func (a *Client) CreateStatShort(params *CreateStatParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatResponse, error) {
 	// TODO: Validate the params before sending
@@ -391,7 +391,7 @@ func (a *Client) ImportStatsShort(params *ImportStatsParams, authInfo runtime.Cl
 QueryStatsShort query stats by keyword
 Query stats by keyword.
 Other detail info:
-            *  Returns : stats
+  - Returns : stats
 */
 func (a *Client) QueryStatsShort(params *QueryStatsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryStatsResponse, error) {
 	// TODO: Validate the params before sending
@@ -468,7 +468,7 @@ func (a *Client) QueryStatsShort(params *QueryStatsParams, authInfo runtime.Clie
 GetStatShort get stat by statcode
 Get stat by statCode.
 Other detail info:
-            *  Returns : stat info
+  - Returns : stat info
 */
 func (a *Client) GetStatShort(params *GetStatParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatResponse, error) {
 	// TODO: Validate the params before sending
@@ -633,10 +633,10 @@ func (a *Client) DeleteStatShort(params *DeleteStatParams, authInfo runtime.Clie
 UpdateStatShort update stat
 Update stat.
 Other detail info:
-            *  Returns : updated stat
-            *  Field globalAggregationMethod will be ignored when the stat is not set as global
-            *  Field globalAggregationMethod is not updatable when the stat status is TIED
-            *  Field visibility is not updatable when the stat status is TIED
+  - Returns : updated stat
+  - Field globalAggregationMethod will be ignored when the stat is not set as global
+  - Field globalAggregationMethod is not updatable when the stat status is TIED
+  - Field visibility is not updatable when the stat status is TIED
 */
 func (a *Client) UpdateStatShort(params *UpdateStatParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatResponse, error) {
 	// TODO: Validate the params before sending
@@ -822,10 +822,10 @@ func (a *Client) DeleteTiedStatShort(params *DeleteTiedStatParams, authInfo runt
 CreateStat1Short create stat
 Create stat.
 Other detail info:
-            *  Returns : created stat template
-            * default minimum value is 0
-            * default maximum value is 1.7976931348623157e+308
-            * Field globalAggregationMethod will be ignored when setAsGlobal field is false
+  - Returns : created stat template
+  - default minimum value is 0
+  - default maximum value is 1.7976931348623157e+308
+  - Field globalAggregationMethod will be ignored when setAsGlobal field is false
 */
 func (a *Client) CreateStat1Short(params *CreateStat1Params, authInfo runtime.ClientAuthInfoWriter) (*CreateStat1Response, error) {
 	// TODO: Validate the params before sending

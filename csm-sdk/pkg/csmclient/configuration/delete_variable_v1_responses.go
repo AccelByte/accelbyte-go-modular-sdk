@@ -129,10 +129,9 @@ func NewDeleteVariableV1NoContent() *DeleteVariableV1NoContent {
 	return &DeleteVariableV1NoContent{}
 }
 
-/*DeleteVariableV1NoContent handles this case with default header values.
-
-
- */
+/*
+DeleteVariableV1NoContent handles this case with default header values.
+*/
 type DeleteVariableV1NoContent struct {
 }
 
@@ -156,9 +155,10 @@ func NewDeleteVariableV1Unauthorized() *DeleteVariableV1Unauthorized {
 	return &DeleteVariableV1Unauthorized{}
 }
 
-/*DeleteVariableV1Unauthorized handles this case with default header values.
+/*
+DeleteVariableV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteVariableV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -210,9 +210,10 @@ func NewDeleteVariableV1Forbidden() *DeleteVariableV1Forbidden {
 	return &DeleteVariableV1Forbidden{}
 }
 
-/*DeleteVariableV1Forbidden handles this case with default header values.
+/*
+DeleteVariableV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteVariableV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -264,9 +265,10 @@ func NewDeleteVariableV1NotFound() *DeleteVariableV1NotFound {
 	return &DeleteVariableV1NotFound{}
 }
 
-/*DeleteVariableV1NotFound handles this case with default header values.
+/*
+DeleteVariableV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteVariableV1NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -318,9 +320,10 @@ func NewDeleteVariableV1InternalServerError() *DeleteVariableV1InternalServerErr
 	return &DeleteVariableV1InternalServerError{}
 }
 
-/*DeleteVariableV1InternalServerError handles this case with default header values.
+/*
+DeleteVariableV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteVariableV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

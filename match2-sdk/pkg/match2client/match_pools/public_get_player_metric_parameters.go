@@ -57,7 +57,8 @@ func NewPublicGetPlayerMetricParamsWithHTTPClient(client *http.Client) *PublicGe
 	}
 }
 
-/*PublicGetPlayerMetricParams contains all the parameters to send to the API endpoint
+/*
+PublicGetPlayerMetricParams contains all the parameters to send to the API endpoint
 for the public get player metric operation typically these are written to a http.Request
 */
 type PublicGetPlayerMetricParams struct {

@@ -107,9 +107,10 @@ func NewPublicResetPasswordV2NoContent() *PublicResetPasswordV2NoContent {
 	return &PublicResetPasswordV2NoContent{}
 }
 
-/*PublicResetPasswordV2NoContent handles this case with default header values.
+/*
+PublicResetPasswordV2NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicResetPasswordV2NoContent struct {
 }
@@ -134,9 +135,10 @@ func NewPublicResetPasswordV2BadRequest() *PublicResetPasswordV2BadRequest {
 	return &PublicResetPasswordV2BadRequest{}
 }
 
-/*PublicResetPasswordV2BadRequest handles this case with default header values.
+/*
+PublicResetPasswordV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr></table>
 */
 type PublicResetPasswordV2BadRequest struct {
 }
@@ -161,9 +163,10 @@ func NewPublicResetPasswordV2Forbidden() *PublicResetPasswordV2Forbidden {
 	return &PublicResetPasswordV2Forbidden{}
 }
 
-/*PublicResetPasswordV2Forbidden handles this case with default header values.
+/*
+PublicResetPasswordV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10152</td><td>verification code not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10152</td><td>verification code not found</td></tr></table>
 */
 type PublicResetPasswordV2Forbidden struct {
 }
@@ -188,9 +191,10 @@ func NewPublicResetPasswordV2NotFound() *PublicResetPasswordV2NotFound {
 	return &PublicResetPasswordV2NotFound{}
 }
 
-/*PublicResetPasswordV2NotFound handles this case with default header values.
+/*
+PublicResetPasswordV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicResetPasswordV2NotFound struct {
 }
@@ -215,9 +219,10 @@ func NewPublicResetPasswordV2InternalServerError() *PublicResetPasswordV2Interna
 	return &PublicResetPasswordV2InternalServerError{}
 }
 
-/*PublicResetPasswordV2InternalServerError handles this case with default header values.
+/*
+PublicResetPasswordV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicResetPasswordV2InternalServerError struct {
 }

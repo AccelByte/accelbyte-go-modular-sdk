@@ -99,7 +99,8 @@ func NewPublicListItemsParamsWithHTTPClient(client *http.Client) *PublicListItem
 	}
 }
 
-/*PublicListItemsParams contains all the parameters to send to the API endpoint
+/*
+PublicListItemsParams contains all the parameters to send to the API endpoint
 for the public list items operation typically these are written to a http.Request
 */
 type PublicListItemsParams struct {

@@ -85,9 +85,10 @@ func NewTestXsollaConfigByIDOK() *TestXsollaConfigByIDOK {
 	return &TestXsollaConfigByIDOK{}
 }
 
-/*TestXsollaConfigByIDOK handles this case with default header values.
+/*
+TestXsollaConfigByIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestXsollaConfigByIDOK struct {
 	Payload *platformclientmodels.TestResult
@@ -139,9 +140,10 @@ func NewTestXsollaConfigByIDNotFound() *TestXsollaConfigByIDNotFound {
 	return &TestXsollaConfigByIDNotFound{}
 }
 
-/*TestXsollaConfigByIDNotFound handles this case with default header values.
+/*
+TestXsollaConfigByIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
 */
 type TestXsollaConfigByIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

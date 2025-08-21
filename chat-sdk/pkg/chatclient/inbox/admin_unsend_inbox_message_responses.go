@@ -130,9 +130,10 @@ func NewAdminUnsendInboxMessageOK() *AdminUnsendInboxMessageOK {
 	return &AdminUnsendInboxMessageOK{}
 }
 
-/*AdminUnsendInboxMessageOK handles this case with default header values.
+/*
+AdminUnsendInboxMessageOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUnsendInboxMessageOK struct {
 	Payload *chatclientmodels.ModelsUnsendInboxMessageResponse
@@ -184,9 +185,10 @@ func NewAdminUnsendInboxMessageBadRequest() *AdminUnsendInboxMessageBadRequest {
 	return &AdminUnsendInboxMessageBadRequest{}
 }
 
-/*AdminUnsendInboxMessageBadRequest handles this case with default header values.
+/*
+AdminUnsendInboxMessageBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUnsendInboxMessageBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminUnsendInboxMessageUnauthorized() *AdminUnsendInboxMessageUnauthoriz
 	return &AdminUnsendInboxMessageUnauthorized{}
 }
 
-/*AdminUnsendInboxMessageUnauthorized handles this case with default header values.
+/*
+AdminUnsendInboxMessageUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUnsendInboxMessageUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminUnsendInboxMessageForbidden() *AdminUnsendInboxMessageForbidden {
 	return &AdminUnsendInboxMessageForbidden{}
 }
 
-/*AdminUnsendInboxMessageForbidden handles this case with default header values.
+/*
+AdminUnsendInboxMessageForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUnsendInboxMessageForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminUnsendInboxMessageInternalServerError() *AdminUnsendInboxMessageInt
 	return &AdminUnsendInboxMessageInternalServerError{}
 }
 
-/*AdminUnsendInboxMessageInternalServerError handles this case with default header values.
+/*
+AdminUnsendInboxMessageInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUnsendInboxMessageInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

@@ -121,9 +121,10 @@ func NewAdminRefundIAPOrderOK() *AdminRefundIAPOrderOK {
 	return &AdminRefundIAPOrderOK{}
 }
 
-/*AdminRefundIAPOrderOK handles this case with default header values.
+/*
+AdminRefundIAPOrderOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AdminRefundIAPOrderOK struct {
 	Payload *platformclientmodels.IAPOrderInfo
@@ -175,9 +176,10 @@ func NewAdminRefundIAPOrderNoContent() *AdminRefundIAPOrderNoContent {
 	return &AdminRefundIAPOrderNoContent{}
 }
 
-/*AdminRefundIAPOrderNoContent handles this case with default header values.
+/*
+AdminRefundIAPOrderNoContent handles this case with default header values.
 
-  Refund IAP Order successfully
+	Refund IAP Order successfully
 */
 type AdminRefundIAPOrderNoContent struct {
 }
@@ -202,9 +204,10 @@ func NewAdminRefundIAPOrderBadRequest() *AdminRefundIAPOrderBadRequest {
 	return &AdminRefundIAPOrderBadRequest{}
 }
 
-/*AdminRefundIAPOrderBadRequest handles this case with default header values.
+/*
+AdminRefundIAPOrderBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39124</td><td>IAP request platform [{platformId}] user id is not linked with current user</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39124</td><td>IAP request platform [{platformId}] user id is not linked with current user</td></tr></table>
 */
 type AdminRefundIAPOrderBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -256,9 +259,10 @@ func NewAdminRefundIAPOrderNotFound() *AdminRefundIAPOrderNotFound {
 	return &AdminRefundIAPOrderNotFound{}
 }
 
-/*AdminRefundIAPOrderNotFound handles this case with default header values.
+/*
+AdminRefundIAPOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39144</td><td>Steam IAP config not found in namespace [{namespace}].</td></tr><tr><td>39151</td><td>IAP order no [{iapOrderNo}] not found in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39144</td><td>Steam IAP config not found in namespace [{namespace}].</td></tr><tr><td>39151</td><td>IAP order no [{iapOrderNo}] not found in namespace [{namespace}].</td></tr></table>
 */
 type AdminRefundIAPOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -310,9 +314,10 @@ func NewAdminRefundIAPOrderConflict() *AdminRefundIAPOrderConflict {
 	return &AdminRefundIAPOrderConflict{}
 }
 
-/*AdminRefundIAPOrderConflict handles this case with default header values.
+/*
+AdminRefundIAPOrderConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39184</td><td>Steam api exception with status code [{statusCode}] and error message [{message}]</td></tr><tr><td>39185</td><td>This endpoint only works on sync mode [{workSyncMode}], but current steam iap config sync mode is [{currentSyncMode}] under namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39184</td><td>Steam api exception with status code [{statusCode}] and error message [{message}]</td></tr><tr><td>39185</td><td>This endpoint only works on sync mode [{workSyncMode}], but current steam iap config sync mode is [{currentSyncMode}] under namespace [{namespace}]</td></tr></table>
 */
 type AdminRefundIAPOrderConflict struct {
 	Payload *platformclientmodels.ErrorEntity

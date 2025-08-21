@@ -115,9 +115,10 @@ func NewGetFollowedUsersOK() *GetFollowedUsersOK {
 	return &GetFollowedUsersOK{}
 }
 
-/*GetFollowedUsersOK handles this case with default header values.
+/*
+GetFollowedUsersOK handles this case with default header values.
 
-  Get followed creators
+	Get followed creators
 */
 type GetFollowedUsersOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedCreatorOverviewResponse
@@ -169,9 +170,10 @@ func NewGetFollowedUsersBadRequest() *GetFollowedUsersBadRequest {
 	return &GetFollowedUsersBadRequest{}
 }
 
-/*GetFollowedUsersBadRequest handles this case with default header values.
+/*
+GetFollowedUsersBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771304</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771304</td><td>invalid paging parameter</td></tr></table>
 */
 type GetFollowedUsersBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewGetFollowedUsersUnauthorized() *GetFollowedUsersUnauthorized {
 	return &GetFollowedUsersUnauthorized{}
 }
 
-/*GetFollowedUsersUnauthorized handles this case with default header values.
+/*
+GetFollowedUsersUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetFollowedUsersUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewGetFollowedUsersInternalServerError() *GetFollowedUsersInternalServerErr
 	return &GetFollowedUsersInternalServerError{}
 }
 
-/*GetFollowedUsersInternalServerError handles this case with default header values.
+/*
+GetFollowedUsersInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771300</td><td>Unable to get creators: database error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771300</td><td>Unable to get creators: database error</td></tr></table>
 */
 type GetFollowedUsersInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

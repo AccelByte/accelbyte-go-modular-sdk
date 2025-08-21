@@ -130,9 +130,10 @@ func NewAdminChatHistoryOK() *AdminChatHistoryOK {
 	return &AdminChatHistoryOK{}
 }
 
-/*AdminChatHistoryOK handles this case with default header values.
+/*
+AdminChatHistoryOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminChatHistoryOK struct {
 	Payload *chatclientmodels.ModelsChatMessageWithPaginationResponse
@@ -184,9 +185,10 @@ func NewAdminChatHistoryBadRequest() *AdminChatHistoryBadRequest {
 	return &AdminChatHistoryBadRequest{}
 }
 
-/*AdminChatHistoryBadRequest handles this case with default header values.
+/*
+AdminChatHistoryBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminChatHistoryBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminChatHistoryUnauthorized() *AdminChatHistoryUnauthorized {
 	return &AdminChatHistoryUnauthorized{}
 }
 
-/*AdminChatHistoryUnauthorized handles this case with default header values.
+/*
+AdminChatHistoryUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminChatHistoryUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminChatHistoryForbidden() *AdminChatHistoryForbidden {
 	return &AdminChatHistoryForbidden{}
 }
 
-/*AdminChatHistoryForbidden handles this case with default header values.
+/*
+AdminChatHistoryForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminChatHistoryForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminChatHistoryInternalServerError() *AdminChatHistoryInternalServerErr
 	return &AdminChatHistoryInternalServerError{}
 }
 
-/*AdminChatHistoryInternalServerError handles this case with default header values.
+/*
+AdminChatHistoryInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminChatHistoryInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

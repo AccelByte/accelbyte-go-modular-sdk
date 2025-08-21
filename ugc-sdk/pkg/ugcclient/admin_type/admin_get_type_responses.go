@@ -115,9 +115,10 @@ func NewAdminGetTypeOK() *AdminGetTypeOK {
 	return &AdminGetTypeOK{}
 }
 
-/*AdminGetTypeOK handles this case with default header values.
+/*
+AdminGetTypeOK handles this case with default header values.
 
-  Get types
+	Get types
 */
 type AdminGetTypeOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGetTypeResponse
@@ -169,9 +170,10 @@ func NewAdminGetTypeBadRequest() *AdminGetTypeBadRequest {
 	return &AdminGetTypeBadRequest{}
 }
 
-/*AdminGetTypeBadRequest handles this case with default header values.
+/*
+AdminGetTypeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771801</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771801</td><td>invalid paging parameter</td></tr></table>
 */
 type AdminGetTypeBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetTypeUnauthorized() *AdminGetTypeUnauthorized {
 	return &AdminGetTypeUnauthorized{}
 }
 
-/*AdminGetTypeUnauthorized handles this case with default header values.
+/*
+AdminGetTypeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetTypeUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetTypeInternalServerError() *AdminGetTypeInternalServerError {
 	return &AdminGetTypeInternalServerError{}
 }
 
-/*AdminGetTypeInternalServerError handles this case with default header values.
+/*
+AdminGetTypeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771802</td><td>Unable get types</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771802</td><td>Unable get types</td></tr></table>
 */
 type AdminGetTypeInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

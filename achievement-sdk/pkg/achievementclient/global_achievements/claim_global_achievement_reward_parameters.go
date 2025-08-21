@@ -57,7 +57,8 @@ func NewClaimGlobalAchievementRewardParamsWithHTTPClient(client *http.Client) *C
 	}
 }
 
-/*ClaimGlobalAchievementRewardParams contains all the parameters to send to the API endpoint
+/*
+ClaimGlobalAchievementRewardParams contains all the parameters to send to the API endpoint
 for the claim global achievement reward operation typically these are written to a http.Request
 */
 type ClaimGlobalAchievementRewardParams struct {

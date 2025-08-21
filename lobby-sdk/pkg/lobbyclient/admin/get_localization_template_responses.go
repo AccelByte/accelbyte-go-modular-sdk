@@ -130,9 +130,10 @@ func NewGetLocalizationTemplateOK() *GetLocalizationTemplateOK {
 	return &GetLocalizationTemplateOK{}
 }
 
-/*GetLocalizationTemplateOK handles this case with default header values.
+/*
+GetLocalizationTemplateOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetLocalizationTemplateOK struct {
 	Payload *lobbyclientmodels.ModelTemplateLocalization
@@ -184,9 +185,10 @@ func NewGetLocalizationTemplateBadRequest() *GetLocalizationTemplateBadRequest {
 	return &GetLocalizationTemplateBadRequest{}
 }
 
-/*GetLocalizationTemplateBadRequest handles this case with default header values.
+/*
+GetLocalizationTemplateBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetLocalizationTemplateBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewGetLocalizationTemplateUnauthorized() *GetLocalizationTemplateUnauthoriz
 	return &GetLocalizationTemplateUnauthorized{}
 }
 
-/*GetLocalizationTemplateUnauthorized handles this case with default header values.
+/*
+GetLocalizationTemplateUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetLocalizationTemplateUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewGetLocalizationTemplateForbidden() *GetLocalizationTemplateForbidden {
 	return &GetLocalizationTemplateForbidden{}
 }
 
-/*GetLocalizationTemplateForbidden handles this case with default header values.
+/*
+GetLocalizationTemplateForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetLocalizationTemplateForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewGetLocalizationTemplateNotFound() *GetLocalizationTemplateNotFound {
 	return &GetLocalizationTemplateNotFound{}
 }
 
-/*GetLocalizationTemplateNotFound handles this case with default header values.
+/*
+GetLocalizationTemplateNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetLocalizationTemplateNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

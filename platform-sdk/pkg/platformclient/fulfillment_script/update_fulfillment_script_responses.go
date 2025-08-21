@@ -85,9 +85,10 @@ func NewUpdateFulfillmentScriptOK() *UpdateFulfillmentScriptOK {
 	return &UpdateFulfillmentScriptOK{}
 }
 
-/*UpdateFulfillmentScriptOK handles this case with default header values.
+/*
+UpdateFulfillmentScriptOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateFulfillmentScriptOK struct {
 	Payload *platformclientmodels.FulfillmentScriptInfo
@@ -139,9 +140,10 @@ func NewUpdateFulfillmentScriptBadRequest() *UpdateFulfillmentScriptBadRequest {
 	return &UpdateFulfillmentScriptBadRequest{}
 }
 
-/*UpdateFulfillmentScriptBadRequest handles this case with default header values.
+/*
+UpdateFulfillmentScriptBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38141</td><td>Fulfillment script does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38141</td><td>Fulfillment script does not exist</td></tr></table>
 */
 type UpdateFulfillmentScriptBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewDeleteGameBinaryRecordTTLConfigParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*DeleteGameBinaryRecordTTLConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteGameBinaryRecordTTLConfigParams contains all the parameters to send to the API endpoint
 for the delete game binary record ttl config operation typically these are written to a http.Request
 */
 type DeleteGameBinaryRecordTTLConfigParams struct {

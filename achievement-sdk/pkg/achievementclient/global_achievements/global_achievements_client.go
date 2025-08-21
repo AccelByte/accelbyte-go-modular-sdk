@@ -45,17 +45,10 @@ type ClientService interface {
 /*
 AdminListGlobalAchievementsShort admin query global achievements [include achieved and in-progress]
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
-
-
-
 
 Global achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
 */
@@ -132,7 +125,6 @@ func (a *Client) AdminListGlobalAchievementsShort(params *AdminListGlobalAchieve
 
 /*
 AdminListGlobalAchievementContributorsShort admin list contributors of global achievement
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
@@ -211,11 +203,7 @@ func (a *Client) AdminListGlobalAchievementContributorsShort(params *AdminListGl
 /*
 ResetGlobalAchievementShort reset global achievement
 
-
 [TEST FACILITY ONLY]
-
-
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:ACHIEVEMENT [DELETE]` and scope `social`
@@ -292,7 +280,6 @@ func (a *Client) ResetGlobalAchievementShort(params *ResetGlobalAchievementParam
 
 /*
 AdminListUserContributionsShort admin list of global achievements that has been contributed by the user
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
@@ -371,17 +358,10 @@ func (a *Client) AdminListUserContributionsShort(params *AdminListUserContributi
 /*
 PublicListGlobalAchievementsShort query global achievements [include achieved and in-progress]
 
-
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
-
-
-
 
 Global achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
 */
@@ -458,7 +438,6 @@ func (a *Client) PublicListGlobalAchievementsShort(params *PublicListGlobalAchie
 
 /*
 ListGlobalAchievementContributorsShort list contributors of global achievement
-
 
 Required permission
 `NAMESPACE:{namespace}:ACHIEVEMENT [READ]` and scope `social`
@@ -537,7 +516,6 @@ func (a *Client) ListGlobalAchievementContributorsShort(params *ListGlobalAchiev
 /*
 ListUserContributionsShort list of global achievements that has been contributed by the user
 
-
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 */
@@ -615,17 +593,10 @@ func (a *Client) ListUserContributionsShort(params *ListUserContributionsParams,
 /*
 ClaimGlobalAchievementRewardShort claim global achievement reward
 
-
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`
 
-
-
-
 Note:
-
-
-
 
 Global achievement should be unlocked to claim the reward. Only contributor of global achievement are eligible for rewards
 */

@@ -239,15 +239,12 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Recommended Request Body Size
 
@@ -355,7 +352,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -369,14 +365,12 @@ Example 2
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
 
-
 ## Reserved Word
 
 Reserved Word List: **__META**
 
 The reserved word cannot be used as a field in record value,
 If still defining the field when creating or updating the record, it will be ignored.
-
 
 ## Recommended Request Body Size
 

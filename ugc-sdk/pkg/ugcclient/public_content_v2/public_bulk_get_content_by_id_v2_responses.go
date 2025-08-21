@@ -115,9 +115,10 @@ func NewPublicBulkGetContentByIDV2OK() *PublicBulkGetContentByIDV2OK {
 	return &PublicBulkGetContentByIDV2OK{}
 }
 
-/*PublicBulkGetContentByIDV2OK handles this case with default header values.
+/*
+PublicBulkGetContentByIDV2OK handles this case with default header values.
 
-  Get contents by content Ids
+	Get contents by content Ids
 */
 type PublicBulkGetContentByIDV2OK struct {
 	Payload []*ugcclientmodels.ModelsContentDownloadResponseV2
@@ -167,9 +168,10 @@ func NewPublicBulkGetContentByIDV2BadRequest() *PublicBulkGetContentByIDV2BadReq
 	return &PublicBulkGetContentByIDV2BadRequest{}
 }
 
-/*PublicBulkGetContentByIDV2BadRequest handles this case with default header values.
+/*
+PublicBulkGetContentByIDV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773900</td><td>Malformed request/Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773900</td><td>Malformed request/Invalid request body</td></tr></table>
 */
 type PublicBulkGetContentByIDV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -221,9 +223,10 @@ func NewPublicBulkGetContentByIDV2Unauthorized() *PublicBulkGetContentByIDV2Unau
 	return &PublicBulkGetContentByIDV2Unauthorized{}
 }
 
-/*PublicBulkGetContentByIDV2Unauthorized handles this case with default header values.
+/*
+PublicBulkGetContentByIDV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicBulkGetContentByIDV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -275,9 +278,10 @@ func NewPublicBulkGetContentByIDV2InternalServerError() *PublicBulkGetContentByI
 	return &PublicBulkGetContentByIDV2InternalServerError{}
 }
 
-/*PublicBulkGetContentByIDV2InternalServerError handles this case with default header values.
+/*
+PublicBulkGetContentByIDV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>773902</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>773902</td><td>Failed generate download URL</td></tr></table>
 */
 type PublicBulkGetContentByIDV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

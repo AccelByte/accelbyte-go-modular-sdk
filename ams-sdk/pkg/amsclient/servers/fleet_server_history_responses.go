@@ -130,9 +130,10 @@ func NewFleetServerHistoryOK() *FleetServerHistoryOK {
 	return &FleetServerHistoryOK{}
 }
 
-/*FleetServerHistoryOK handles this case with default header values.
+/*
+FleetServerHistoryOK handles this case with default header values.
 
-  success
+	success
 */
 type FleetServerHistoryOK struct {
 	Payload *amsclientmodels.APIDSHistoryList
@@ -184,9 +185,10 @@ func NewFleetServerHistoryBadRequest() *FleetServerHistoryBadRequest {
 	return &FleetServerHistoryBadRequest{}
 }
 
-/*FleetServerHistoryBadRequest handles this case with default header values.
+/*
+FleetServerHistoryBadRequest handles this case with default header values.
 
-  bad request
+	bad request
 */
 type FleetServerHistoryBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewFleetServerHistoryUnauthorized() *FleetServerHistoryUnauthorized {
 	return &FleetServerHistoryUnauthorized{}
 }
 
-/*FleetServerHistoryUnauthorized handles this case with default header values.
+/*
+FleetServerHistoryUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type FleetServerHistoryUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewFleetServerHistoryForbidden() *FleetServerHistoryForbidden {
 	return &FleetServerHistoryForbidden{}
 }
 
-/*FleetServerHistoryForbidden handles this case with default header values.
+/*
+FleetServerHistoryForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type FleetServerHistoryForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewFleetServerHistoryInternalServerError() *FleetServerHistoryInternalServe
 	return &FleetServerHistoryInternalServerError{}
 }
 
-/*FleetServerHistoryInternalServerError handles this case with default header values.
+/*
+FleetServerHistoryInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type FleetServerHistoryInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

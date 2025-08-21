@@ -102,10 +102,8 @@ CreatePolicy1Short create a base legal policy
 Create a legal policy.
 Note:
 
-
-  *  countryType field only accept COUNTRY or COUNTRY_GROUP.
-  * COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
-
+  - countryType field only accept COUNTRY or COUNTRY_GROUP.
+  - COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
 
 * policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */
@@ -245,9 +243,8 @@ func (a *Client) RetrieveSinglePolicy1Short(params *RetrieveSinglePolicy1Params,
 DeleteBasePolicyShort delete base legal policy
 Delete base legal policy.Can only be deleted if match these criteria:
 
-
-  * Base policy don't have published policy version
-  * Policy version under base policy has never been accepted by any user
+  - Base policy don't have published policy version
+  - Policy version under base policy has never been accepted by any user
 */
 func (a *Client) DeleteBasePolicyShort(params *DeleteBasePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteBasePolicyResponse, error) {
 	// TODO: Validate the params before sending
@@ -310,10 +307,8 @@ PartialUpdatePolicy1Short update base legal policy
 Update an existing base policy.
 Note:
 
-
-  *  countryType field only accept COUNTRY or COUNTRY_GROUP.
-  * COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
-
+  - countryType field only accept COUNTRY or COUNTRY_GROUP.
+  - COUNTRY_GROUP countryType requires the countryGroupName and affectedCountries fields to be provided.
 
 * policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */
@@ -501,10 +496,8 @@ CreatePolicyUnderBasePolicyShort create policy under base policy
 Create policy under base policy.
 Note:
 
-
-  *  countryType field only accept COUNTRY or COUNTRY_GROUP.
-  * COUNTRY_GROUP policy requires the countryGroupName and countries fields to be provided.
-
+  - countryType field only accept COUNTRY or COUNTRY_GROUP.
+  - COUNTRY_GROUP policy requires the countryGroupName and countries fields to be provided.
 
 * policy with COUNTRY_GROUP type include multiple countries and apply the same policy across the entire list of countries
 */

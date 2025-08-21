@@ -84,9 +84,10 @@ func NewDeletePolicyVersionNoContent() *DeletePolicyVersionNoContent {
 	return &DeletePolicyVersionNoContent{}
 }
 
-/*DeletePolicyVersionNoContent handles this case with default header values.
+/*
+DeletePolicyVersionNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type DeletePolicyVersionNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewDeletePolicyVersionBadRequest() *DeletePolicyVersionBadRequest {
 	return &DeletePolicyVersionBadRequest{}
 }
 
-/*DeletePolicyVersionBadRequest handles this case with default header values.
+/*
+DeletePolicyVersionBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr><tr><td>40070</td><td>errors.net.accelbyte.platform.legal.policy_version_is_published_and_already_accepted_by_user</td></tr><tr><td>40071</td><td>errors.net.accelbyte.platform.legal.policy_version_is_active</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr><tr><td>40070</td><td>errors.net.accelbyte.platform.legal.policy_version_is_published_and_already_accepted_by_user</td></tr><tr><td>40071</td><td>errors.net.accelbyte.platform.legal.policy_version_is_active</td></tr></table>
 */
 type DeletePolicyVersionBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

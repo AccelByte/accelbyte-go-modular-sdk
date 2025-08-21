@@ -58,7 +58,8 @@ func NewGetCurrentCycleLeaderboardRankingAdminV3ParamsWithHTTPClient(client *htt
 	}
 }
 
-/*GetCurrentCycleLeaderboardRankingAdminV3Params contains all the parameters to send to the API endpoint
+/*
+GetCurrentCycleLeaderboardRankingAdminV3Params contains all the parameters to send to the API endpoint
 for the get current cycle leaderboard ranking admin v3 operation typically these are written to a http.Request
 */
 type GetCurrentCycleLeaderboardRankingAdminV3Params struct {

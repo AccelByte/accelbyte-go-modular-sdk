@@ -59,7 +59,8 @@ func NewUpdateTopicByTopicNameParamsWithHTTPClient(client *http.Client) *UpdateT
 	}
 }
 
-/*UpdateTopicByTopicNameParams contains all the parameters to send to the API endpoint
+/*
+UpdateTopicByTopicNameParams contains all the parameters to send to the API endpoint
 for the update topic by topic name operation typically these are written to a http.Request
 */
 type UpdateTopicByTopicNameParams struct {

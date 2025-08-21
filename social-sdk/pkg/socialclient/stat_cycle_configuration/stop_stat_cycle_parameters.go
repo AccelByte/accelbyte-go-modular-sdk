@@ -57,7 +57,8 @@ func NewStopStatCycleParamsWithHTTPClient(client *http.Client) *StopStatCyclePar
 	}
 }
 
-/*StopStatCycleParams contains all the parameters to send to the API endpoint
+/*
+StopStatCycleParams contains all the parameters to send to the API endpoint
 for the stop stat cycle operation typically these are written to a http.Request
 */
 type StopStatCycleParams struct {

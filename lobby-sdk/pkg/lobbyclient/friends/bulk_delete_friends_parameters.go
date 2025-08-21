@@ -59,7 +59,8 @@ func NewBulkDeleteFriendsParamsWithHTTPClient(client *http.Client) *BulkDeleteFr
 	}
 }
 
-/*BulkDeleteFriendsParams contains all the parameters to send to the API endpoint
+/*
+BulkDeleteFriendsParams contains all the parameters to send to the API endpoint
 for the bulk delete friends operation typically these are written to a http.Request
 */
 type BulkDeleteFriendsParams struct {

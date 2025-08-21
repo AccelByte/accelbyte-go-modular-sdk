@@ -70,7 +70,8 @@ func NewPublicGetRecentTeamPlayerParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*PublicGetRecentTeamPlayerParams contains all the parameters to send to the API endpoint
+/*
+PublicGetRecentTeamPlayerParams contains all the parameters to send to the API endpoint
 for the public get recent team player operation typically these are written to a http.Request
 */
 type PublicGetRecentTeamPlayerParams struct {

@@ -59,7 +59,8 @@ func NewUpdateLeaderboardConfigurationAdminV3ParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*UpdateLeaderboardConfigurationAdminV3Params contains all the parameters to send to the API endpoint
+/*
+UpdateLeaderboardConfigurationAdminV3Params contains all the parameters to send to the API endpoint
 for the update leaderboard configuration admin v3 operation typically these are written to a http.Request
 */
 type UpdateLeaderboardConfigurationAdminV3Params struct {

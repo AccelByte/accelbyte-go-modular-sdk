@@ -59,7 +59,8 @@ func NewAdminUpdateTiedChallengeScheduleParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*AdminUpdateTiedChallengeScheduleParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateTiedChallengeScheduleParams contains all the parameters to send to the API endpoint
 for the admin update tied challenge schedule operation typically these are written to a http.Request
 */
 type AdminUpdateTiedChallengeScheduleParams struct {

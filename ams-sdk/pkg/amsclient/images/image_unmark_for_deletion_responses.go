@@ -144,9 +144,10 @@ func NewImageUnmarkForDeletionAccepted() *ImageUnmarkForDeletionAccepted {
 	return &ImageUnmarkForDeletionAccepted{}
 }
 
-/*ImageUnmarkForDeletionAccepted handles this case with default header values.
+/*
+ImageUnmarkForDeletionAccepted handles this case with default header values.
 
-  success
+	success
 */
 type ImageUnmarkForDeletionAccepted struct {
 }
@@ -171,9 +172,10 @@ func NewImageUnmarkForDeletionUnauthorized() *ImageUnmarkForDeletionUnauthorized
 	return &ImageUnmarkForDeletionUnauthorized{}
 }
 
-/*ImageUnmarkForDeletionUnauthorized handles this case with default header values.
+/*
+ImageUnmarkForDeletionUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type ImageUnmarkForDeletionUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -225,9 +227,10 @@ func NewImageUnmarkForDeletionForbidden() *ImageUnmarkForDeletionForbidden {
 	return &ImageUnmarkForDeletionForbidden{}
 }
 
-/*ImageUnmarkForDeletionForbidden handles this case with default header values.
+/*
+ImageUnmarkForDeletionForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type ImageUnmarkForDeletionForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -279,9 +282,10 @@ func NewImageUnmarkForDeletionNotFound() *ImageUnmarkForDeletionNotFound {
 	return &ImageUnmarkForDeletionNotFound{}
 }
 
-/*ImageUnmarkForDeletionNotFound handles this case with default header values.
+/*
+ImageUnmarkForDeletionNotFound handles this case with default header values.
 
-  image doesn't exist
+	image doesn't exist
 */
 type ImageUnmarkForDeletionNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -333,9 +337,10 @@ func NewImageUnmarkForDeletionPreconditionFailed() *ImageUnmarkForDeletionPrecon
 	return &ImageUnmarkForDeletionPreconditionFailed{}
 }
 
-/*ImageUnmarkForDeletionPreconditionFailed handles this case with default header values.
+/*
+ImageUnmarkForDeletionPreconditionFailed handles this case with default header values.
 
-  image wasn't marked for deletion
+	image wasn't marked for deletion
 */
 type ImageUnmarkForDeletionPreconditionFailed struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -387,9 +392,10 @@ func NewImageUnmarkForDeletionInternalServerError() *ImageUnmarkForDeletionInter
 	return &ImageUnmarkForDeletionInternalServerError{}
 }
 
-/*ImageUnmarkForDeletionInternalServerError handles this case with default header values.
+/*
+ImageUnmarkForDeletionInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type ImageUnmarkForDeletionInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

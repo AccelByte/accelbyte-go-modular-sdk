@@ -59,7 +59,8 @@ func NewRejectBackfillParamsWithHTTPClient(client *http.Client) *RejectBackfillP
 	}
 }
 
-/*RejectBackfillParams contains all the parameters to send to the API endpoint
+/*
+RejectBackfillParams contains all the parameters to send to the API endpoint
 for the reject backfill operation typically these are written to a http.Request
 */
 type RejectBackfillParams struct {

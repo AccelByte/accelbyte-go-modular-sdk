@@ -145,9 +145,10 @@ func NewCancelInvitationGroupMemberV2OK() *CancelInvitationGroupMemberV2OK {
 	return &CancelInvitationGroupMemberV2OK{}
 }
 
-/*CancelInvitationGroupMemberV2OK handles this case with default header values.
+/*
+CancelInvitationGroupMemberV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type CancelInvitationGroupMemberV2OK struct {
 	Payload *groupclientmodels.ModelsCancelInvitationGroupResponseV2
@@ -199,9 +200,10 @@ func NewCancelInvitationGroupMemberV2BadRequest() *CancelInvitationGroupMemberV2
 	return &CancelInvitationGroupMemberV2BadRequest{}
 }
 
-/*CancelInvitationGroupMemberV2BadRequest handles this case with default header values.
+/*
+CancelInvitationGroupMemberV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CancelInvitationGroupMemberV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewCancelInvitationGroupMemberV2Unauthorized() *CancelInvitationGroupMember
 	return &CancelInvitationGroupMemberV2Unauthorized{}
 }
 
-/*CancelInvitationGroupMemberV2Unauthorized handles this case with default header values.
+/*
+CancelInvitationGroupMemberV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CancelInvitationGroupMemberV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewCancelInvitationGroupMemberV2Forbidden() *CancelInvitationGroupMemberV2F
 	return &CancelInvitationGroupMemberV2Forbidden{}
 }
 
-/*CancelInvitationGroupMemberV2Forbidden handles this case with default header values.
+/*
+CancelInvitationGroupMemberV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type CancelInvitationGroupMemberV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewCancelInvitationGroupMemberV2NotFound() *CancelInvitationGroupMemberV2No
 	return &CancelInvitationGroupMemberV2NotFound{}
 }
 
-/*CancelInvitationGroupMemberV2NotFound handles this case with default header values.
+/*
+CancelInvitationGroupMemberV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73433</td><td>member group not found</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73433</td><td>member group not found</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
 */
 type CancelInvitationGroupMemberV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewCancelInvitationGroupMemberV2InternalServerError() *CancelInvitationGrou
 	return &CancelInvitationGroupMemberV2InternalServerError{}
 }
 
-/*CancelInvitationGroupMemberV2InternalServerError handles this case with default header values.
+/*
+CancelInvitationGroupMemberV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CancelInvitationGroupMemberV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

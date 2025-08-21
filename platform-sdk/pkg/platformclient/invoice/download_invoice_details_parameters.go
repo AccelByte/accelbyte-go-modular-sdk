@@ -88,7 +88,8 @@ func NewDownloadInvoiceDetailsParamsWithHTTPClient(client *http.Client) *Downloa
 	}
 }
 
-/*DownloadInvoiceDetailsParams contains all the parameters to send to the API endpoint
+/*
+DownloadInvoiceDetailsParams contains all the parameters to send to the API endpoint
 for the download invoice details operation typically these are written to a http.Request
 */
 type DownloadInvoiceDetailsParams struct {

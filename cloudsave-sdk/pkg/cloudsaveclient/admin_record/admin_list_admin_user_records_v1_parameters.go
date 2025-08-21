@@ -78,7 +78,8 @@ func NewAdminListAdminUserRecordsV1ParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminListAdminUserRecordsV1Params contains all the parameters to send to the API endpoint
+/*
+AdminListAdminUserRecordsV1Params contains all the parameters to send to the API endpoint
 for the admin list admin user records v1 operation typically these are written to a http.Request
 */
 type AdminListAdminUserRecordsV1Params struct {

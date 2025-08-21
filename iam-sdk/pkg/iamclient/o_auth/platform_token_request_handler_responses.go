@@ -100,9 +100,10 @@ func NewPlatformTokenRequestHandlerOK() *PlatformTokenRequestHandlerOK {
 	return &PlatformTokenRequestHandlerOK{}
 }
 
-/*PlatformTokenRequestHandlerOK handles this case with default header values.
+/*
+PlatformTokenRequestHandlerOK handles this case with default header values.
 
-  Access Token returned
+	Access Token returned
 */
 type PlatformTokenRequestHandlerOK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponse
@@ -154,9 +155,10 @@ func NewPlatformTokenRequestHandlerBadRequest() *PlatformTokenRequestHandlerBadR
 	return &PlatformTokenRequestHandlerBadRequest{}
 }
 
-/*PlatformTokenRequestHandlerBadRequest handles this case with default header values.
+/*
+PlatformTokenRequestHandlerBadRequest handles this case with default header values.
 
-  General request error
+	General request error
 */
 type PlatformTokenRequestHandlerBadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -208,9 +210,10 @@ func NewPlatformTokenRequestHandlerUnauthorized() *PlatformTokenRequestHandlerUn
 	return &PlatformTokenRequestHandlerUnauthorized{}
 }
 
-/*PlatformTokenRequestHandlerUnauthorized handles this case with default header values.
+/*
+PlatformTokenRequestHandlerUnauthorized handles this case with default header values.
 
-  Client authentication failed
+	Client authentication failed
 */
 type PlatformTokenRequestHandlerUnauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

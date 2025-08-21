@@ -99,9 +99,10 @@ func NewImportRewardsOK() *ImportRewardsOK {
 	return &ImportRewardsOK{}
 }
 
-/*ImportRewardsOK handles this case with default header values.
+/*
+ImportRewardsOK handles this case with default header values.
 
-  successful import of reward configs
+	successful import of reward configs
 */
 type ImportRewardsOK struct {
 }
@@ -126,9 +127,10 @@ func NewImportRewardsBadRequest() *ImportRewardsBadRequest {
 	return &ImportRewardsBadRequest{}
 }
 
-/*ImportRewardsBadRequest handles this case with default header values.
+/*
+ImportRewardsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34021</td><td>Reward data for namespace [{namespace}] is invalid</td></tr><tr><td>34023</td><td>Reward Item [{itemId}] with item type [{itemType}] is not supported for duration or endDate</td></tr><tr><td>34027</td><td>Reward Item [{sku}] with item type [{itemType}] is not supported for duration or endDate</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34021</td><td>Reward data for namespace [{namespace}] is invalid</td></tr><tr><td>34023</td><td>Reward Item [{itemId}] with item type [{itemType}] is not supported for duration or endDate</td></tr><tr><td>34027</td><td>Reward Item [{sku}] with item type [{itemType}] is not supported for duration or endDate</td></tr></table>
 */
 type ImportRewardsBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewImportRewardsConflict() *ImportRewardsConflict {
 	return &ImportRewardsConflict{}
 }
 
-/*ImportRewardsConflict handles this case with default header values.
+/*
+ImportRewardsConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34074</td><td>Reward Item [{itemId}] duration and end date can’t be set at the same time</td></tr><tr><td>34076</td><td>Reward Item [{sku}] duration and end date can’t be set at the same time</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34074</td><td>Reward Item [{itemId}] duration and end date can’t be set at the same time</td></tr><tr><td>34076</td><td>Reward Item [{sku}] duration and end date can’t be set at the same time</td></tr></table>
 */
 type ImportRewardsConflict struct {
 	Payload *platformclientmodels.ErrorEntity

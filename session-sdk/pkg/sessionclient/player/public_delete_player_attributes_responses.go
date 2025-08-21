@@ -129,9 +129,10 @@ func NewPublicDeletePlayerAttributesNoContent() *PublicDeletePlayerAttributesNoC
 	return &PublicDeletePlayerAttributesNoContent{}
 }
 
-/*PublicDeletePlayerAttributesNoContent handles this case with default header values.
+/*
+PublicDeletePlayerAttributesNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicDeletePlayerAttributesNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicDeletePlayerAttributesBadRequest() *PublicDeletePlayerAttributesBa
 	return &PublicDeletePlayerAttributesBadRequest{}
 }
 
-/*PublicDeletePlayerAttributesBadRequest handles this case with default header values.
+/*
+PublicDeletePlayerAttributesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicDeletePlayerAttributesBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewPublicDeletePlayerAttributesUnauthorized() *PublicDeletePlayerAttributes
 	return &PublicDeletePlayerAttributesUnauthorized{}
 }
 
-/*PublicDeletePlayerAttributesUnauthorized handles this case with default header values.
+/*
+PublicDeletePlayerAttributesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicDeletePlayerAttributesUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewPublicDeletePlayerAttributesNotFound() *PublicDeletePlayerAttributesNotF
 	return &PublicDeletePlayerAttributesNotFound{}
 }
 
-/*PublicDeletePlayerAttributesNotFound handles this case with default header values.
+/*
+PublicDeletePlayerAttributesNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicDeletePlayerAttributesNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewPublicDeletePlayerAttributesInternalServerError() *PublicDeletePlayerAtt
 	return &PublicDeletePlayerAttributesInternalServerError{}
 }
 
-/*PublicDeletePlayerAttributesInternalServerError handles this case with default header values.
+/*
+PublicDeletePlayerAttributesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicDeletePlayerAttributesInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -130,9 +130,10 @@ func NewAdminAccountLinkTokenGetOK() *AdminAccountLinkTokenGetOK {
 	return &AdminAccountLinkTokenGetOK{}
 }
 
-/*AdminAccountLinkTokenGetOK handles this case with default header values.
+/*
+AdminAccountLinkTokenGetOK handles this case with default header values.
 
-  success
+	success
 */
 type AdminAccountLinkTokenGetOK struct {
 	Payload *amsclientmodels.APIAccountLinkTokenResponse
@@ -184,9 +185,10 @@ func NewAdminAccountLinkTokenGetUnauthorized() *AdminAccountLinkTokenGetUnauthor
 	return &AdminAccountLinkTokenGetUnauthorized{}
 }
 
-/*AdminAccountLinkTokenGetUnauthorized handles this case with default header values.
+/*
+AdminAccountLinkTokenGetUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type AdminAccountLinkTokenGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewAdminAccountLinkTokenGetForbidden() *AdminAccountLinkTokenGetForbidden {
 	return &AdminAccountLinkTokenGetForbidden{}
 }
 
-/*AdminAccountLinkTokenGetForbidden handles this case with default header values.
+/*
+AdminAccountLinkTokenGetForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type AdminAccountLinkTokenGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewAdminAccountLinkTokenGetNotFound() *AdminAccountLinkTokenGetNotFound {
 	return &AdminAccountLinkTokenGetNotFound{}
 }
 
-/*AdminAccountLinkTokenGetNotFound handles this case with default header values.
+/*
+AdminAccountLinkTokenGetNotFound handles this case with default header values.
 
-  account not linked
+	account not linked
 */
 type AdminAccountLinkTokenGetNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewAdminAccountLinkTokenGetInternalServerError() *AdminAccountLinkTokenGetI
 	return &AdminAccountLinkTokenGetInternalServerError{}
 }
 
-/*AdminAccountLinkTokenGetInternalServerError handles this case with default header values.
+/*
+AdminAccountLinkTokenGetInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type AdminAccountLinkTokenGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

@@ -159,9 +159,10 @@ func NewCreateUserStatItemCreated() *CreateUserStatItemCreated {
 	return &CreateUserStatItemCreated{}
 }
 
-/*CreateUserStatItemCreated handles this case with default header values.
+/*
+CreateUserStatItemCreated handles this case with default header values.
 
-  Create user statItem successfully
+	Create user statItem successfully
 */
 type CreateUserStatItemCreated struct {
 }
@@ -186,9 +187,10 @@ func NewCreateUserStatItemUnauthorized() *CreateUserStatItemUnauthorized {
 	return &CreateUserStatItemUnauthorized{}
 }
 
-/*CreateUserStatItemUnauthorized handles this case with default header values.
+/*
+CreateUserStatItemUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type CreateUserStatItemUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -240,9 +242,10 @@ func NewCreateUserStatItemForbidden() *CreateUserStatItemForbidden {
 	return &CreateUserStatItemForbidden{}
 }
 
-/*CreateUserStatItemForbidden handles this case with default header values.
+/*
+CreateUserStatItemForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type CreateUserStatItemForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -294,9 +297,10 @@ func NewCreateUserStatItemNotFound() *CreateUserStatItemNotFound {
 	return &CreateUserStatItemNotFound{}
 }
 
-/*CreateUserStatItemNotFound handles this case with default header values.
+/*
+CreateUserStatItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type CreateUserStatItemNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -348,9 +352,10 @@ func NewCreateUserStatItemConflict() *CreateUserStatItemConflict {
 	return &CreateUserStatItemConflict{}
 }
 
-/*CreateUserStatItemConflict handles this case with default header values.
+/*
+CreateUserStatItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12274</td><td>Stat item with code [{statCode}] of user [{profileId}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12274</td><td>Stat item with code [{statCode}] of user [{profileId}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type CreateUserStatItemConflict struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -402,9 +407,10 @@ func NewCreateUserStatItemUnprocessableEntity() *CreateUserStatItemUnprocessable
 	return &CreateUserStatItemUnprocessableEntity{}
 }
 
-/*CreateUserStatItemUnprocessableEntity handles this case with default header values.
+/*
+CreateUserStatItemUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateUserStatItemUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -456,9 +462,10 @@ func NewCreateUserStatItemInternalServerError() *CreateUserStatItemInternalServe
 	return &CreateUserStatItemInternalServerError{}
 }
 
-/*CreateUserStatItemInternalServerError handles this case with default header values.
+/*
+CreateUserStatItemInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type CreateUserStatItemInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

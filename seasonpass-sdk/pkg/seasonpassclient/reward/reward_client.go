@@ -47,7 +47,7 @@ This API is used to query rewards for a season.
 
 Other detail info:
 
-  * Returns : the list of rewards
+  - Returns : the list of rewards
 */
 func (a *Client) QueryRewardsShort(params *QueryRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRewardsResponse, error) {
 	// TODO: Validate the params before sending
@@ -119,7 +119,7 @@ This API is used to create a reward for a draft season.
 
 Other detail info:
 
-  * Returns : created reward
+  - Returns : created reward
 */
 func (a *Client) CreateRewardShort(params *CreateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*CreateRewardResponse, error) {
 	// TODO: Validate the params before sending
@@ -205,7 +205,7 @@ This API is used to get a reward for a season.
 
 Other detail info:
 
-  * Returns : reward data
+  - Returns : reward data
 */
 func (a *Client) GetRewardShort(params *GetRewardParams, authInfo runtime.ClientAuthInfoWriter) (*GetRewardResponse, error) {
 	// TODO: Validate the params before sending
@@ -353,7 +353,7 @@ This API is used to update a reward. Only draft season reward can be updated.
 
 Other detail info:
 
-  * Returns : updated reward
+  - Returns : updated reward
 */
 func (a *Client) UpdateRewardShort(params *UpdateRewardParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRewardResponse, error) {
 	// TODO: Validate the params before sending
@@ -439,7 +439,7 @@ This API is used to claim reward, season only located in non-publisher namespace
 
 Other detail info:
 
-  * Returns : user season data
+  - Returns : user season data
 */
 func (a *Client) PublicClaimUserRewardShort(params *PublicClaimUserRewardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicClaimUserRewardResponse, error) {
 	// TODO: Validate the params before sending
@@ -518,7 +518,7 @@ This API is used to bulk claim all remained rewards, season only located in non-
 
 Other detail info:
 
-  * Returns : user season data
+  - Returns : user season data
 */
 func (a *Client) PublicBulkClaimUserRewardsShort(params *PublicBulkClaimUserRewardsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkClaimUserRewardsResponse, error) {
 	// TODO: Validate the params before sending

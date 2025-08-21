@@ -69,9 +69,10 @@ func NewGetGoogleIAPConfigOK() *GetGoogleIAPConfigOK {
 	return &GetGoogleIAPConfigOK{}
 }
 
-/*GetGoogleIAPConfigOK handles this case with default header values.
+/*
+GetGoogleIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetGoogleIAPConfigOK struct {
 	Payload *platformclientmodels.GoogleIAPConfigInfo

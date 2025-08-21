@@ -85,9 +85,10 @@ func NewUpdateServicePluginConfigOK() *UpdateServicePluginConfigOK {
 	return &UpdateServicePluginConfigOK{}
 }
 
-/*UpdateServicePluginConfigOK handles this case with default header values.
+/*
+UpdateServicePluginConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateServicePluginConfigOK struct {
 	Payload *platformclientmodels.ServicePluginConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateServicePluginConfigUnprocessableEntity() *UpdateServicePluginConfi
 	return &UpdateServicePluginConfigUnprocessableEntity{}
 }
 
-/*UpdateServicePluginConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdateServicePluginConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateServicePluginConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

@@ -145,9 +145,10 @@ func NewAdminGetArchivedLeaderboardRankingDataV1HandlerOK() *AdminGetArchivedLea
 	return &AdminGetArchivedLeaderboardRankingDataV1HandlerOK{}
 }
 
-/*AdminGetArchivedLeaderboardRankingDataV1HandlerOK handles this case with default header values.
+/*
+AdminGetArchivedLeaderboardRankingDataV1HandlerOK handles this case with default header values.
 
-  leaderboard archive retrieved
+	leaderboard archive retrieved
 */
 type AdminGetArchivedLeaderboardRankingDataV1HandlerOK struct {
 	Payload []*leaderboardclientmodels.ModelsArchiveLeaderboardSignedURLResponse
@@ -197,9 +198,10 @@ func NewAdminGetArchivedLeaderboardRankingDataV1HandlerBadRequest() *AdminGetArc
 	return &AdminGetArchivedLeaderboardRankingDataV1HandlerBadRequest{}
 }
 
-/*AdminGetArchivedLeaderboardRankingDataV1HandlerBadRequest handles this case with default header values.
+/*
+AdminGetArchivedLeaderboardRankingDataV1HandlerBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>71239</td><td>leaderboard is not archived</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>71239</td><td>leaderboard is not archived</td></tr></table>
 */
 type AdminGetArchivedLeaderboardRankingDataV1HandlerBadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -251,9 +253,10 @@ func NewAdminGetArchivedLeaderboardRankingDataV1HandlerUnauthorized() *AdminGetA
 	return &AdminGetArchivedLeaderboardRankingDataV1HandlerUnauthorized{}
 }
 
-/*AdminGetArchivedLeaderboardRankingDataV1HandlerUnauthorized handles this case with default header values.
+/*
+AdminGetArchivedLeaderboardRankingDataV1HandlerUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetArchivedLeaderboardRankingDataV1HandlerUnauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -305,9 +308,10 @@ func NewAdminGetArchivedLeaderboardRankingDataV1HandlerForbidden() *AdminGetArch
 	return &AdminGetArchivedLeaderboardRankingDataV1HandlerForbidden{}
 }
 
-/*AdminGetArchivedLeaderboardRankingDataV1HandlerForbidden handles this case with default header values.
+/*
+AdminGetArchivedLeaderboardRankingDataV1HandlerForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetArchivedLeaderboardRankingDataV1HandlerForbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -359,9 +363,10 @@ func NewAdminGetArchivedLeaderboardRankingDataV1HandlerNotFound() *AdminGetArchi
 	return &AdminGetArchivedLeaderboardRankingDataV1HandlerNotFound{}
 }
 
-/*AdminGetArchivedLeaderboardRankingDataV1HandlerNotFound handles this case with default header values.
+/*
+AdminGetArchivedLeaderboardRankingDataV1HandlerNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr></table>
 */
 type AdminGetArchivedLeaderboardRankingDataV1HandlerNotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -413,9 +418,10 @@ func NewAdminGetArchivedLeaderboardRankingDataV1HandlerInternalServerError() *Ad
 	return &AdminGetArchivedLeaderboardRankingDataV1HandlerInternalServerError{}
 }
 
-/*AdminGetArchivedLeaderboardRankingDataV1HandlerInternalServerError handles this case with default header values.
+/*
+AdminGetArchivedLeaderboardRankingDataV1HandlerInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetArchivedLeaderboardRankingDataV1HandlerInternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

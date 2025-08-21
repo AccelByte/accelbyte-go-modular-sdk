@@ -69,9 +69,10 @@ func NewGetAggregatePaymentProvidersOK() *GetAggregatePaymentProvidersOK {
 	return &GetAggregatePaymentProvidersOK{}
 }
 
-/*GetAggregatePaymentProvidersOK handles this case with default header values.
+/*
+GetAggregatePaymentProvidersOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetAggregatePaymentProvidersOK struct {
 	Payload []string

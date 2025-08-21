@@ -69,9 +69,10 @@ func NewPublicCheckUserSubscriptionSubscribableByItemIDOK() *PublicCheckUserSubs
 	return &PublicCheckUserSubscriptionSubscribableByItemIDOK{}
 }
 
-/*PublicCheckUserSubscriptionSubscribableByItemIDOK handles this case with default header values.
+/*
+PublicCheckUserSubscriptionSubscribableByItemIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicCheckUserSubscriptionSubscribableByItemIDOK struct {
 	Payload *platformclientmodels.Subscribable

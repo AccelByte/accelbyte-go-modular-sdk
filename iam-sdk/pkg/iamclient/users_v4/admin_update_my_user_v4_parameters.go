@@ -59,7 +59,8 @@ func NewAdminUpdateMyUserV4ParamsWithHTTPClient(client *http.Client) *AdminUpdat
 	}
 }
 
-/*AdminUpdateMyUserV4Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateMyUserV4Params contains all the parameters to send to the API endpoint
 for the admin update my user v4 operation typically these are written to a http.Request
 */
 type AdminUpdateMyUserV4Params struct {

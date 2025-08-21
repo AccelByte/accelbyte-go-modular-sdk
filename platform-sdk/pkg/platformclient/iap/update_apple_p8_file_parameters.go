@@ -57,7 +57,8 @@ func NewUpdateAppleP8FileParamsWithHTTPClient(client *http.Client) *UpdateAppleP
 	}
 }
 
-/*UpdateAppleP8FileParams contains all the parameters to send to the API endpoint
+/*
+UpdateAppleP8FileParams contains all the parameters to send to the API endpoint
 for the update apple p8 file operation typically these are written to a http.Request
 */
 type UpdateAppleP8FileParams struct {

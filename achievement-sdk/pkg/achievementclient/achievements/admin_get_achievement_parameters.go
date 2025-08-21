@@ -57,7 +57,8 @@ func NewAdminGetAchievementParamsWithHTTPClient(client *http.Client) *AdminGetAc
 	}
 }
 
-/*AdminGetAchievementParams contains all the parameters to send to the API endpoint
+/*
+AdminGetAchievementParams contains all the parameters to send to the API endpoint
 for the admin get achievement operation typically these are written to a http.Request
 */
 type AdminGetAchievementParams struct {

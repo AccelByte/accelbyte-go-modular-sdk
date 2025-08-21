@@ -85,9 +85,10 @@ func NewDebugMatchedPaymentProviderConfigOK() *DebugMatchedPaymentProviderConfig
 	return &DebugMatchedPaymentProviderConfigOK{}
 }
 
-/*DebugMatchedPaymentProviderConfigOK handles this case with default header values.
+/*
+DebugMatchedPaymentProviderConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DebugMatchedPaymentProviderConfigOK struct {
 	Payload *platformclientmodels.PaymentProviderConfigInfo
@@ -139,9 +140,10 @@ func NewDebugMatchedPaymentProviderConfigNotFound() *DebugMatchedPaymentProvider
 	return &DebugMatchedPaymentProviderConfigNotFound{}
 }
 
-/*DebugMatchedPaymentProviderConfigNotFound handles this case with default header values.
+/*
+DebugMatchedPaymentProviderConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33241</td><td>Payment provider config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33241</td><td>Payment provider config [{id}] does not exist</td></tr></table>
 */
 type DebugMatchedPaymentProviderConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

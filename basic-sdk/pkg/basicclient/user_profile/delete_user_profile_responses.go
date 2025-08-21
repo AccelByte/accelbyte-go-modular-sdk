@@ -130,9 +130,10 @@ func NewDeleteUserProfileOK() *DeleteUserProfileOK {
 	return &DeleteUserProfileOK{}
 }
 
-/*DeleteUserProfileOK handles this case with default header values.
+/*
+DeleteUserProfileOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DeleteUserProfileOK struct {
 	Payload *basicclientmodels.UserProfilePrivateInfo
@@ -184,9 +185,10 @@ func NewDeleteUserProfileBadRequest() *DeleteUserProfileBadRequest {
 	return &DeleteUserProfileBadRequest{}
 }
 
-/*DeleteUserProfileBadRequest handles this case with default header values.
+/*
+DeleteUserProfileBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DeleteUserProfileBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -238,9 +240,10 @@ func NewDeleteUserProfileUnauthorized() *DeleteUserProfileUnauthorized {
 	return &DeleteUserProfileUnauthorized{}
 }
 
-/*DeleteUserProfileUnauthorized handles this case with default header values.
+/*
+DeleteUserProfileUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type DeleteUserProfileUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewDeleteUserProfileForbidden() *DeleteUserProfileForbidden {
 	return &DeleteUserProfileForbidden{}
 }
 
-/*DeleteUserProfileForbidden handles this case with default header values.
+/*
+DeleteUserProfileForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteUserProfileForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewDeleteUserProfileNotFound() *DeleteUserProfileNotFound {
 	return &DeleteUserProfileNotFound{}
 }
 
-/*DeleteUserProfileNotFound handles this case with default header values.
+/*
+DeleteUserProfileNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
 */
 type DeleteUserProfileNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

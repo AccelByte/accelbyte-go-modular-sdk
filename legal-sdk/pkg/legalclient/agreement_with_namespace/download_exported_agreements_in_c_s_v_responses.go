@@ -85,9 +85,10 @@ func NewDownloadExportedAgreementsInCSVOK() *DownloadExportedAgreementsInCSVOK {
 	return &DownloadExportedAgreementsInCSVOK{}
 }
 
-/*DownloadExportedAgreementsInCSVOK handles this case with default header values.
+/*
+DownloadExportedAgreementsInCSVOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DownloadExportedAgreementsInCSVOK struct {
 	Payload *legalclientmodels.DownloadExportedAgreementsInCSVResponse
@@ -139,9 +140,10 @@ func NewDownloadExportedAgreementsInCSVNotFound() *DownloadExportedAgreementsInC
 	return &DownloadExportedAgreementsInCSVNotFound{}
 }
 
-/*DownloadExportedAgreementsInCSVNotFound handles this case with default header values.
+/*
+DownloadExportedAgreementsInCSVNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40047</td><td>Exported agreements for exportId [{exportId}] not found</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40047</td><td>Exported agreements for exportId [{exportId}] not found</td></tr></table>
 */
 type DownloadExportedAgreementsInCSVNotFound struct {
 	Payload *legalclientmodels.ErrorEntity

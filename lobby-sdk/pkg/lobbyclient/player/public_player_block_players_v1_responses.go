@@ -144,9 +144,10 @@ func NewPublicPlayerBlockPlayersV1Created() *PublicPlayerBlockPlayersV1Created {
 	return &PublicPlayerBlockPlayersV1Created{}
 }
 
-/*PublicPlayerBlockPlayersV1Created handles this case with default header values.
+/*
+PublicPlayerBlockPlayersV1Created handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicPlayerBlockPlayersV1Created struct {
 }
@@ -171,9 +172,10 @@ func NewPublicPlayerBlockPlayersV1BadRequest() *PublicPlayerBlockPlayersV1BadReq
 	return &PublicPlayerBlockPlayersV1BadRequest{}
 }
 
-/*PublicPlayerBlockPlayersV1BadRequest handles this case with default header values.
+/*
+PublicPlayerBlockPlayersV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPlayerBlockPlayersV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -225,9 +227,10 @@ func NewPublicPlayerBlockPlayersV1Unauthorized() *PublicPlayerBlockPlayersV1Unau
 	return &PublicPlayerBlockPlayersV1Unauthorized{}
 }
 
-/*PublicPlayerBlockPlayersV1Unauthorized handles this case with default header values.
+/*
+PublicPlayerBlockPlayersV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPlayerBlockPlayersV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -279,9 +282,10 @@ func NewPublicPlayerBlockPlayersV1Forbidden() *PublicPlayerBlockPlayersV1Forbidd
 	return &PublicPlayerBlockPlayersV1Forbidden{}
 }
 
-/*PublicPlayerBlockPlayersV1Forbidden handles this case with default header values.
+/*
+PublicPlayerBlockPlayersV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicPlayerBlockPlayersV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -333,9 +337,10 @@ func NewPublicPlayerBlockPlayersV1NotFound() *PublicPlayerBlockPlayersV1NotFound
 	return &PublicPlayerBlockPlayersV1NotFound{}
 }
 
-/*PublicPlayerBlockPlayersV1NotFound handles this case with default header values.
+/*
+PublicPlayerBlockPlayersV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPlayerBlockPlayersV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -387,9 +392,10 @@ func NewPublicPlayerBlockPlayersV1InternalServerError() *PublicPlayerBlockPlayer
 	return &PublicPlayerBlockPlayersV1InternalServerError{}
 }
 
-/*PublicPlayerBlockPlayersV1InternalServerError handles this case with default header values.
+/*
+PublicPlayerBlockPlayersV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPlayerBlockPlayersV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

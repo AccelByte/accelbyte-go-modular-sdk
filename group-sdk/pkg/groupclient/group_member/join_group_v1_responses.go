@@ -145,9 +145,10 @@ func NewJoinGroupV1Created() *JoinGroupV1Created {
 	return &JoinGroupV1Created{}
 }
 
-/*JoinGroupV1Created handles this case with default header values.
+/*
+JoinGroupV1Created handles this case with default header values.
 
-  Created
+	Created
 */
 type JoinGroupV1Created struct {
 	Payload *groupclientmodels.ModelsJoinGroupResponseV1
@@ -199,9 +200,10 @@ func NewJoinGroupV1BadRequest() *JoinGroupV1BadRequest {
 	return &JoinGroupV1BadRequest{}
 }
 
-/*JoinGroupV1BadRequest handles this case with default header values.
+/*
+JoinGroupV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type JoinGroupV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewJoinGroupV1Unauthorized() *JoinGroupV1Unauthorized {
 	return &JoinGroupV1Unauthorized{}
 }
 
-/*JoinGroupV1Unauthorized handles this case with default header values.
+/*
+JoinGroupV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type JoinGroupV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewJoinGroupV1Forbidden() *JoinGroupV1Forbidden {
 	return &JoinGroupV1Forbidden{}
 }
 
-/*JoinGroupV1Forbidden handles this case with default header values.
+/*
+JoinGroupV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type JoinGroupV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewJoinGroupV1Conflict() *JoinGroupV1Conflict {
 	return &JoinGroupV1Conflict{}
 }
 
-/*JoinGroupV1Conflict handles this case with default header values.
+/*
+JoinGroupV1Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73442</td><td>user already joined in another group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73442</td><td>user already joined in another group</td></tr></table>
 */
 type JoinGroupV1Conflict struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewJoinGroupV1InternalServerError() *JoinGroupV1InternalServerError {
 	return &JoinGroupV1InternalServerError{}
 }
 
-/*JoinGroupV1InternalServerError handles this case with default header values.
+/*
+JoinGroupV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type JoinGroupV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

@@ -57,7 +57,8 @@ func NewSyncUserInfoParamsWithHTTPClient(client *http.Client) *SyncUserInfoParam
 	}
 }
 
-/*SyncUserInfoParams contains all the parameters to send to the API endpoint
+/*
+SyncUserInfoParams contains all the parameters to send to the API endpoint
 for the sync user info operation typically these are written to a http.Request
 */
 type SyncUserInfoParams struct {

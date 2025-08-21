@@ -57,7 +57,8 @@ func NewDeleteLocalizedPolicyParamsWithHTTPClient(client *http.Client) *DeleteLo
 	}
 }
 
-/*DeleteLocalizedPolicyParams contains all the parameters to send to the API endpoint
+/*
+DeleteLocalizedPolicyParams contains all the parameters to send to the API endpoint
 for the delete localized policy operation typically these are written to a http.Request
 */
 type DeleteLocalizedPolicyParams struct {

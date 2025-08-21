@@ -160,9 +160,10 @@ func NewPublicUpdateAttributeOK() *PublicUpdateAttributeOK {
 	return &PublicUpdateAttributeOK{}
 }
 
-/*PublicUpdateAttributeOK handles this case with default header values.
+/*
+PublicUpdateAttributeOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicUpdateAttributeOK struct {
 	Payload *socialclientmodels.GameProfileInfo
@@ -214,9 +215,10 @@ func NewPublicUpdateAttributeBadRequest() *PublicUpdateAttributeBadRequest {
 	return &PublicUpdateAttributeBadRequest{}
 }
 
-/*PublicUpdateAttributeBadRequest handles this case with default header values.
+/*
+PublicUpdateAttributeBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12022</td><td>Game profile attribute name [{attrName1}] passed in request url mismatch the name [{attrName2}] in body</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12022</td><td>Game profile attribute name [{attrName1}] passed in request url mismatch the name [{attrName2}] in body</td></tr></table>
 */
 type PublicUpdateAttributeBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -268,9 +270,10 @@ func NewPublicUpdateAttributeUnauthorized() *PublicUpdateAttributeUnauthorized {
 	return &PublicUpdateAttributeUnauthorized{}
 }
 
-/*PublicUpdateAttributeUnauthorized handles this case with default header values.
+/*
+PublicUpdateAttributeUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicUpdateAttributeUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -322,9 +325,10 @@ func NewPublicUpdateAttributeForbidden() *PublicUpdateAttributeForbidden {
 	return &PublicUpdateAttributeForbidden{}
 }
 
-/*PublicUpdateAttributeForbidden handles this case with default header values.
+/*
+PublicUpdateAttributeForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicUpdateAttributeForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -376,9 +380,10 @@ func NewPublicUpdateAttributeNotFound() *PublicUpdateAttributeNotFound {
 	return &PublicUpdateAttributeNotFound{}
 }
 
-/*PublicUpdateAttributeNotFound handles this case with default header values.
+/*
+PublicUpdateAttributeNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
 */
 type PublicUpdateAttributeNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -430,9 +435,10 @@ func NewPublicUpdateAttributeUnprocessableEntity() *PublicUpdateAttributeUnproce
 	return &PublicUpdateAttributeUnprocessableEntity{}
 }
 
-/*PublicUpdateAttributeUnprocessableEntity handles this case with default header values.
+/*
+PublicUpdateAttributeUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicUpdateAttributeUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -484,9 +490,10 @@ func NewPublicUpdateAttributeInternalServerError() *PublicUpdateAttributeInterna
 	return &PublicUpdateAttributeInternalServerError{}
 }
 
-/*PublicUpdateAttributeInternalServerError handles this case with default header values.
+/*
+PublicUpdateAttributeInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicUpdateAttributeInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

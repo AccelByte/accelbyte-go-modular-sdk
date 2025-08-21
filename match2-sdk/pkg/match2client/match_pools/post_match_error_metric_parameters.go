@@ -59,7 +59,8 @@ func NewPostMatchErrorMetricParamsWithHTTPClient(client *http.Client) *PostMatch
 	}
 }
 
-/*PostMatchErrorMetricParams contains all the parameters to send to the API endpoint
+/*
+PostMatchErrorMetricParams contains all the parameters to send to the API endpoint
 for the post match error metric operation typically these are written to a http.Request
 */
 type PostMatchErrorMetricParams struct {

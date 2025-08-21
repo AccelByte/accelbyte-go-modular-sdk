@@ -100,9 +100,10 @@ func NewAdminGetReasonOK() *AdminGetReasonOK {
 	return &AdminGetReasonOK{}
 }
 
-/*AdminGetReasonOK handles this case with default header values.
+/*
+AdminGetReasonOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetReasonOK struct {
 	Payload *reportingclientmodels.RestapiAdminReasonResponse
@@ -154,10 +155,9 @@ func NewAdminGetReasonNotFound() *AdminGetReasonNotFound {
 	return &AdminGetReasonNotFound{}
 }
 
-/*AdminGetReasonNotFound handles this case with default header values.
-
-
- */
+/*
+AdminGetReasonNotFound handles this case with default header values.
+*/
 type AdminGetReasonNotFound struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -208,10 +208,9 @@ func NewAdminGetReasonInternalServerError() *AdminGetReasonInternalServerError {
 	return &AdminGetReasonInternalServerError{}
 }
 
-/*AdminGetReasonInternalServerError handles this case with default header values.
-
-
- */
+/*
+AdminGetReasonInternalServerError handles this case with default header values.
+*/
 type AdminGetReasonInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

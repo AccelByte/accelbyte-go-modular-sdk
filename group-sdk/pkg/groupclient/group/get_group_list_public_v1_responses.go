@@ -130,9 +130,10 @@ func NewGetGroupListPublicV1OK() *GetGroupListPublicV1OK {
 	return &GetGroupListPublicV1OK{}
 }
 
-/*GetGroupListPublicV1OK handles this case with default header values.
+/*
+GetGroupListPublicV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetGroupListPublicV1OK struct {
 	Payload *groupclientmodels.ModelsGetGroupsListResponseV1
@@ -184,9 +185,10 @@ func NewGetGroupListPublicV1BadRequest() *GetGroupListPublicV1BadRequest {
 	return &GetGroupListPublicV1BadRequest{}
 }
 
-/*GetGroupListPublicV1BadRequest handles this case with default header values.
+/*
+GetGroupListPublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetGroupListPublicV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetGroupListPublicV1Unauthorized() *GetGroupListPublicV1Unauthorized {
 	return &GetGroupListPublicV1Unauthorized{}
 }
 
-/*GetGroupListPublicV1Unauthorized handles this case with default header values.
+/*
+GetGroupListPublicV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetGroupListPublicV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetGroupListPublicV1Forbidden() *GetGroupListPublicV1Forbidden {
 	return &GetGroupListPublicV1Forbidden{}
 }
 
-/*GetGroupListPublicV1Forbidden handles this case with default header values.
+/*
+GetGroupListPublicV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type GetGroupListPublicV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetGroupListPublicV1InternalServerError() *GetGroupListPublicV1InternalS
 	return &GetGroupListPublicV1InternalServerError{}
 }
 
-/*GetGroupListPublicV1InternalServerError handles this case with default header values.
+/*
+GetGroupListPublicV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetGroupListPublicV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

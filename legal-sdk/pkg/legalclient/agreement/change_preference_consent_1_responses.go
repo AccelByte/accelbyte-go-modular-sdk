@@ -84,9 +84,10 @@ func NewChangePreferenceConsent1OK() *ChangePreferenceConsent1OK {
 	return &ChangePreferenceConsent1OK{}
 }
 
-/*ChangePreferenceConsent1OK handles this case with default header values.
+/*
+ChangePreferenceConsent1OK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type ChangePreferenceConsent1OK struct {
 }
@@ -111,9 +112,10 @@ func NewChangePreferenceConsent1BadRequest() *ChangePreferenceConsent1BadRequest
 	return &ChangePreferenceConsent1BadRequest{}
 }
 
-/*ChangePreferenceConsent1BadRequest handles this case with default header values.
+/*
+ChangePreferenceConsent1BadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40017</td><td>Policy with id : [{policyId}] is not marketing preference</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40017</td><td>Policy with id : [{policyId}] is not marketing preference</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
 */
 type ChangePreferenceConsent1BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

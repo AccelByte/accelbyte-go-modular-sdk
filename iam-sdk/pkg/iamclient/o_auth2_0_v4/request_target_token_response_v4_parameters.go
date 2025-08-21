@@ -57,7 +57,8 @@ func NewRequestTargetTokenResponseV4ParamsWithHTTPClient(client *http.Client) *R
 	}
 }
 
-/*RequestTargetTokenResponseV4Params contains all the parameters to send to the API endpoint
+/*
+RequestTargetTokenResponseV4Params contains all the parameters to send to the API endpoint
 for the request target token response v4 operation typically these are written to a http.Request
 */
 type RequestTargetTokenResponseV4Params struct {

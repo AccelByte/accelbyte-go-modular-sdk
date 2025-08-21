@@ -111,9 +111,10 @@ func NewFulfillItemsOK() *FulfillItemsOK {
 	return &FulfillItemsOK{}
 }
 
-/*FulfillItemsOK handles this case with default header values.
+/*
+FulfillItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type FulfillItemsOK struct {
 	Payload *platformclientmodels.FulfillmentV2Result
@@ -165,9 +166,10 @@ func NewFulfillItemsBadRequest() *FulfillItemsBadRequest {
 	return &FulfillItemsBadRequest{}
 }
 
-/*FulfillItemsBadRequest handles this case with default header values.
+/*
+FulfillItemsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>38122</td><td>Subscription endDate required</td></tr><tr><td>38128</td><td>Cannot retry fulfillment with different payload. Please check the items list.</td></tr><tr><td>38129</td><td>Cannot combine same item [{itemId}] with different [{fieldName}] value</td></tr><tr><td>38130</td><td>Cannot fulfill item with type [{itemType}] in item [{itemIdentity}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>38122</td><td>Subscription endDate required</td></tr><tr><td>38128</td><td>Cannot retry fulfillment with different payload. Please check the items list.</td></tr><tr><td>38129</td><td>Cannot combine same item [{itemId}] with different [{fieldName}] value</td></tr><tr><td>38130</td><td>Cannot fulfill item with type [{itemType}] in item [{itemIdentity}]</td></tr></table>
 */
 type FulfillItemsBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -219,9 +221,10 @@ func NewFulfillItemsNotFound() *FulfillItemsNotFound {
 	return &FulfillItemsNotFound{}
 }
 
-/*FulfillItemsNotFound handles this case with default header values.
+/*
+FulfillItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{sku}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{sku}] does not exist</td></tr></table>
 */
 type FulfillItemsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -273,9 +276,10 @@ func NewFulfillItemsConflict() *FulfillItemsConflict {
 	return &FulfillItemsConflict{}
 }
 
-/*FulfillItemsConflict handles this case with default header values.
+/*
+FulfillItemsConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr></table>
 */
 type FulfillItemsConflict struct {
 	Payload *platformclientmodels.FulfillmentV2Result

@@ -85,9 +85,10 @@ func NewPublicValidateUserInputOK() *PublicValidateUserInputOK {
 	return &PublicValidateUserInputOK{}
 }
 
-/*PublicValidateUserInputOK handles this case with default header values.
+/*
+PublicValidateUserInputOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicValidateUserInputOK struct {
 	Payload *iamclientmodels.ModelUserInputValidationResponse
@@ -139,9 +140,10 @@ func NewPublicValidateUserInputInternalServerError() *PublicValidateUserInputInt
 	return &PublicValidateUserInputInternalServerError{}
 }
 
-/*PublicValidateUserInputInternalServerError handles this case with default header values.
+/*
+PublicValidateUserInputInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicValidateUserInputInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

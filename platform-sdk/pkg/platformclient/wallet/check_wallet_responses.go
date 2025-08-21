@@ -114,9 +114,10 @@ func NewCheckWalletNoContent() *CheckWalletNoContent {
 	return &CheckWalletNoContent{}
 }
 
-/*CheckWalletNoContent handles this case with default header values.
+/*
+CheckWalletNoContent handles this case with default header values.
 
-  check successfully
+	check successfully
 */
 type CheckWalletNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewCheckWalletBadRequest() *CheckWalletBadRequest {
 	return &CheckWalletBadRequest{}
 }
 
-/*CheckWalletBadRequest handles this case with default header values.
+/*
+CheckWalletBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr></table>
 */
 type CheckWalletBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -195,9 +197,10 @@ func NewCheckWalletConflict() *CheckWalletConflict {
 	return &CheckWalletConflict{}
 }
 
-/*CheckWalletConflict handles this case with default header values.
+/*
+CheckWalletConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type CheckWalletConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -249,9 +252,10 @@ func NewCheckWalletUnprocessableEntity() *CheckWalletUnprocessableEntity {
 	return &CheckWalletUnprocessableEntity{}
 }
 
-/*CheckWalletUnprocessableEntity handles this case with default header values.
+/*
+CheckWalletUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CheckWalletUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

@@ -59,7 +59,8 @@ func NewAdminBulkGetContentByIDsV2ParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminBulkGetContentByIDsV2Params contains all the parameters to send to the API endpoint
+/*
+AdminBulkGetContentByIDsV2Params contains all the parameters to send to the API endpoint
 for the admin bulk get content by i ds v2 operation typically these are written to a http.Request
 */
 type AdminBulkGetContentByIDsV2Params struct {

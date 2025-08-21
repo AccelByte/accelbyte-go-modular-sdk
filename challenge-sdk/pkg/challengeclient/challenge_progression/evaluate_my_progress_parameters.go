@@ -57,7 +57,8 @@ func NewEvaluateMyProgressParamsWithHTTPClient(client *http.Client) *EvaluateMyP
 	}
 }
 
-/*EvaluateMyProgressParams contains all the parameters to send to the API endpoint
+/*
+EvaluateMyProgressParams contains all the parameters to send to the API endpoint
 for the evaluate my progress operation typically these are written to a http.Request
 */
 type EvaluateMyProgressParams struct {

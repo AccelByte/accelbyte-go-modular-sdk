@@ -57,7 +57,8 @@ func NewRetrievePoliciesParamsWithHTTPClient(client *http.Client) *RetrievePolic
 	}
 }
 
-/*RetrievePoliciesParams contains all the parameters to send to the API endpoint
+/*
+RetrievePoliciesParams contains all the parameters to send to the API endpoint
 for the retrieve policies operation typically these are written to a http.Request
 */
 type RetrievePoliciesParams struct {

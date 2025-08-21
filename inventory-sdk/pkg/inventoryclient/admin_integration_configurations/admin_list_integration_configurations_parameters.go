@@ -93,7 +93,8 @@ func NewAdminListIntegrationConfigurationsParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*AdminListIntegrationConfigurationsParams contains all the parameters to send to the API endpoint
+/*
+AdminListIntegrationConfigurationsParams contains all the parameters to send to the API endpoint
 for the admin list integration configurations operation typically these are written to a http.Request
 */
 type AdminListIntegrationConfigurationsParams struct {

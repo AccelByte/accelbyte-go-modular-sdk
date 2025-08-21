@@ -145,9 +145,10 @@ func NewAdminUpdateTiedChallengeScheduleOK() *AdminUpdateTiedChallengeScheduleOK
 	return &AdminUpdateTiedChallengeScheduleOK{}
 }
 
-/*AdminUpdateTiedChallengeScheduleOK handles this case with default header values.
+/*
+AdminUpdateTiedChallengeScheduleOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateTiedChallengeScheduleOK struct {
 	Payload *challengeclientmodels.ModelChallengeResponse
@@ -199,9 +200,10 @@ func NewAdminUpdateTiedChallengeScheduleBadRequest() *AdminUpdateTiedChallengeSc
 	return &AdminUpdateTiedChallengeScheduleBadRequest{}
 }
 
-/*AdminUpdateTiedChallengeScheduleBadRequest handles this case with default header values.
+/*
+AdminUpdateTiedChallengeScheduleBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminUpdateTiedChallengeScheduleBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUpdateTiedChallengeScheduleUnauthorized() *AdminUpdateTiedChallenge
 	return &AdminUpdateTiedChallengeScheduleUnauthorized{}
 }
 
-/*AdminUpdateTiedChallengeScheduleUnauthorized handles this case with default header values.
+/*
+AdminUpdateTiedChallengeScheduleUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdateTiedChallengeScheduleUnauthorized struct {
 	Payload *challengeclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUpdateTiedChallengeScheduleForbidden() *AdminUpdateTiedChallengeSch
 	return &AdminUpdateTiedChallengeScheduleForbidden{}
 }
 
-/*AdminUpdateTiedChallengeScheduleForbidden handles this case with default header values.
+/*
+AdminUpdateTiedChallengeScheduleForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdateTiedChallengeScheduleForbidden struct {
 	Payload *challengeclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUpdateTiedChallengeScheduleNotFound() *AdminUpdateTiedChallengeSche
 	return &AdminUpdateTiedChallengeScheduleNotFound{}
 }
 
-/*AdminUpdateTiedChallengeScheduleNotFound handles this case with default header values.
+/*
+AdminUpdateTiedChallengeScheduleNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateTiedChallengeScheduleNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUpdateTiedChallengeScheduleInternalServerError() *AdminUpdateTiedCh
 	return &AdminUpdateTiedChallengeScheduleInternalServerError{}
 }
 
-/*AdminUpdateTiedChallengeScheduleInternalServerError handles this case with default header values.
+/*
+AdminUpdateTiedChallengeScheduleInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateTiedChallengeScheduleInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

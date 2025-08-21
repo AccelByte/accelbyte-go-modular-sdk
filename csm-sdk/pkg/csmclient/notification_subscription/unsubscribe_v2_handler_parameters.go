@@ -57,7 +57,8 @@ func NewUnsubscribeV2HandlerParamsWithHTTPClient(client *http.Client) *Unsubscri
 	}
 }
 
-/*UnsubscribeV2HandlerParams contains all the parameters to send to the API endpoint
+/*
+UnsubscribeV2HandlerParams contains all the parameters to send to the API endpoint
 for the unsubscribe v2 handler operation typically these are written to a http.Request
 */
 type UnsubscribeV2HandlerParams struct {

@@ -124,9 +124,10 @@ func NewListCrossNamespaceAccountLinkOK() *ListCrossNamespaceAccountLinkOK {
 	return &ListCrossNamespaceAccountLinkOK{}
 }
 
-/*ListCrossNamespaceAccountLinkOK handles this case with default header values.
+/*
+ListCrossNamespaceAccountLinkOK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type ListCrossNamespaceAccountLinkOK struct {
 }
@@ -151,9 +152,10 @@ func NewListCrossNamespaceAccountLinkBadRequest() *ListCrossNamespaceAccountLink
 	return &ListCrossNamespaceAccountLinkBadRequest{}
 }
 
-/*ListCrossNamespaceAccountLinkBadRequest handles this case with default header values.
+/*
+ListCrossNamespaceAccountLinkBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type ListCrossNamespaceAccountLinkBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewListCrossNamespaceAccountLinkUnauthorized() *ListCrossNamespaceAccountLi
 	return &ListCrossNamespaceAccountLinkUnauthorized{}
 }
 
-/*ListCrossNamespaceAccountLinkUnauthorized handles this case with default header values.
+/*
+ListCrossNamespaceAccountLinkUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type ListCrossNamespaceAccountLinkUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewListCrossNamespaceAccountLinkForbidden() *ListCrossNamespaceAccountLinkF
 	return &ListCrossNamespaceAccountLinkForbidden{}
 }
 
-/*ListCrossNamespaceAccountLinkForbidden handles this case with default header values.
+/*
+ListCrossNamespaceAccountLinkForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type ListCrossNamespaceAccountLinkForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewListCrossNamespaceAccountLinkNotFound() *ListCrossNamespaceAccountLinkNo
 	return &ListCrossNamespaceAccountLinkNotFound{}
 }
 
-/*ListCrossNamespaceAccountLinkNotFound handles this case with default header values.
+/*
+ListCrossNamespaceAccountLinkNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type ListCrossNamespaceAccountLinkNotFound struct {
 }

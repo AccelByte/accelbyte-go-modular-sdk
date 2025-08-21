@@ -115,9 +115,10 @@ func NewPublicQueryMyPartiesOK() *PublicQueryMyPartiesOK {
 	return &PublicQueryMyPartiesOK{}
 }
 
-/*PublicQueryMyPartiesOK handles this case with default header values.
+/*
+PublicQueryMyPartiesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicQueryMyPartiesOK struct {
 	Payload *sessionclientmodels.ApimodelsPartyQueryResponse
@@ -169,9 +170,10 @@ func NewPublicQueryMyPartiesBadRequest() *PublicQueryMyPartiesBadRequest {
 	return &PublicQueryMyPartiesBadRequest{}
 }
 
-/*PublicQueryMyPartiesBadRequest handles this case with default header values.
+/*
+PublicQueryMyPartiesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicQueryMyPartiesBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicQueryMyPartiesUnauthorized() *PublicQueryMyPartiesUnauthorized {
 	return &PublicQueryMyPartiesUnauthorized{}
 }
 
-/*PublicQueryMyPartiesUnauthorized handles this case with default header values.
+/*
+PublicQueryMyPartiesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicQueryMyPartiesUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicQueryMyPartiesInternalServerError() *PublicQueryMyPartiesInternalS
 	return &PublicQueryMyPartiesInternalServerError{}
 }
 
-/*PublicQueryMyPartiesInternalServerError handles this case with default header values.
+/*
+PublicQueryMyPartiesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicQueryMyPartiesInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

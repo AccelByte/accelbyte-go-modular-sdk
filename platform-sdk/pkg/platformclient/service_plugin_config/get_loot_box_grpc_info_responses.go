@@ -69,9 +69,10 @@ func NewGetLootBoxGrpcInfoOK() *GetLootBoxGrpcInfoOK {
 	return &GetLootBoxGrpcInfoOK{}
 }
 
-/*GetLootBoxGrpcInfoOK handles this case with default header values.
+/*
+GetLootBoxGrpcInfoOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetLootBoxGrpcInfoOK struct {
 	Payload *platformclientmodels.GrpcServerInfo

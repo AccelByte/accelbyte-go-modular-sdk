@@ -70,7 +70,8 @@ func NewGetChildNamespacesParamsWithHTTPClient(client *http.Client) *GetChildNam
 	}
 }
 
-/*GetChildNamespacesParams contains all the parameters to send to the API endpoint
+/*
+GetChildNamespacesParams contains all the parameters to send to the API endpoint
 for the get child namespaces operation typically these are written to a http.Request
 */
 type GetChildNamespacesParams struct {

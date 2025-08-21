@@ -115,9 +115,10 @@ func NewAdminPatchConfigV1OK() *AdminPatchConfigV1OK {
 	return &AdminPatchConfigV1OK{}
 }
 
-/*AdminPatchConfigV1OK handles this case with default header values.
+/*
+AdminPatchConfigV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminPatchConfigV1OK struct {
 	Payload *match2clientmodels.ConfigmodelsNamespaceConfig
@@ -169,9 +170,10 @@ func NewAdminPatchConfigV1Unauthorized() *AdminPatchConfigV1Unauthorized {
 	return &AdminPatchConfigV1Unauthorized{}
 }
 
-/*AdminPatchConfigV1Unauthorized handles this case with default header values.
+/*
+AdminPatchConfigV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminPatchConfigV1Unauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminPatchConfigV1Forbidden() *AdminPatchConfigV1Forbidden {
 	return &AdminPatchConfigV1Forbidden{}
 }
 
-/*AdminPatchConfigV1Forbidden handles this case with default header values.
+/*
+AdminPatchConfigV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminPatchConfigV1Forbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminPatchConfigV1InternalServerError() *AdminPatchConfigV1InternalServe
 	return &AdminPatchConfigV1InternalServerError{}
 }
 
-/*AdminPatchConfigV1InternalServerError handles this case with default header values.
+/*
+AdminPatchConfigV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminPatchConfigV1InternalServerError struct {
 	Payload *match2clientmodels.ResponseError

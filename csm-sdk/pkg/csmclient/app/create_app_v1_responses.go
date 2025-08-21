@@ -160,9 +160,10 @@ func NewCreateAppV1OK() *CreateAppV1OK {
 	return &CreateAppV1OK{}
 }
 
-/*CreateAppV1OK handles this case with default header values.
+/*
+CreateAppV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type CreateAppV1OK struct {
 	Payload *csmclientmodels.GeneratedCreateAppV1Response
@@ -214,9 +215,10 @@ func NewCreateAppV1BadRequest() *CreateAppV1BadRequest {
 	return &CreateAppV1BadRequest{}
 }
 
-/*CreateAppV1BadRequest handles this case with default header values.
+/*
+CreateAppV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateAppV1BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -268,9 +270,10 @@ func NewCreateAppV1Unauthorized() *CreateAppV1Unauthorized {
 	return &CreateAppV1Unauthorized{}
 }
 
-/*CreateAppV1Unauthorized handles this case with default header values.
+/*
+CreateAppV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateAppV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -322,9 +325,10 @@ func NewCreateAppV1Forbidden() *CreateAppV1Forbidden {
 	return &CreateAppV1Forbidden{}
 }
 
-/*CreateAppV1Forbidden handles this case with default header values.
+/*
+CreateAppV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateAppV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -376,9 +380,10 @@ func NewCreateAppV1NotFound() *CreateAppV1NotFound {
 	return &CreateAppV1NotFound{}
 }
 
-/*CreateAppV1NotFound handles this case with default header values.
+/*
+CreateAppV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type CreateAppV1NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -430,9 +435,10 @@ func NewCreateAppV1Conflict() *CreateAppV1Conflict {
 	return &CreateAppV1Conflict{}
 }
 
-/*CreateAppV1Conflict handles this case with default header values.
+/*
+CreateAppV1Conflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateAppV1Conflict struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -484,9 +490,10 @@ func NewCreateAppV1InternalServerError() *CreateAppV1InternalServerError {
 	return &CreateAppV1InternalServerError{}
 }
 
-/*CreateAppV1InternalServerError handles this case with default header values.
+/*
+CreateAppV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateAppV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

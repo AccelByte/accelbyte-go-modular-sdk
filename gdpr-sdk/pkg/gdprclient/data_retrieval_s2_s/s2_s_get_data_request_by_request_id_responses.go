@@ -115,9 +115,10 @@ func NewS2SGetDataRequestByRequestIDOK() *S2SGetDataRequestByRequestIDOK {
 	return &S2SGetDataRequestByRequestIDOK{}
 }
 
-/*S2SGetDataRequestByRequestIDOK handles this case with default header values.
+/*
+S2SGetDataRequestByRequestIDOK handles this case with default header values.
 
-  OK
+	OK
 */
 type S2SGetDataRequestByRequestIDOK struct {
 	Payload *gdprclientmodels.DTOS2SDataRequestSummary
@@ -169,9 +170,10 @@ func NewS2SGetDataRequestByRequestIDUnauthorized() *S2SGetDataRequestByRequestID
 	return &S2SGetDataRequestByRequestIDUnauthorized{}
 }
 
-/*S2SGetDataRequestByRequestIDUnauthorized handles this case with default header values.
+/*
+S2SGetDataRequestByRequestIDUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type S2SGetDataRequestByRequestIDUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewS2SGetDataRequestByRequestIDNotFound() *S2SGetDataRequestByRequestIDNotF
 	return &S2SGetDataRequestByRequestIDNotFound{}
 }
 
-/*S2SGetDataRequestByRequestIDNotFound handles this case with default header values.
+/*
+S2SGetDataRequestByRequestIDNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type S2SGetDataRequestByRequestIDNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewS2SGetDataRequestByRequestIDInternalServerError() *S2SGetDataRequestByRe
 	return &S2SGetDataRequestByRequestIDInternalServerError{}
 }
 
-/*S2SGetDataRequestByRequestIDInternalServerError handles this case with default header values.
+/*
+S2SGetDataRequestByRequestIDInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type S2SGetDataRequestByRequestIDInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

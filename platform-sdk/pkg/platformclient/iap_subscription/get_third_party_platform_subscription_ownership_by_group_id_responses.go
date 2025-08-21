@@ -69,9 +69,10 @@ func NewGetThirdPartyPlatformSubscriptionOwnershipByGroupIDOK() *GetThirdPartyPl
 	return &GetThirdPartyPlatformSubscriptionOwnershipByGroupIDOK{}
 }
 
-/*GetThirdPartyPlatformSubscriptionOwnershipByGroupIDOK handles this case with default header values.
+/*
+GetThirdPartyPlatformSubscriptionOwnershipByGroupIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetThirdPartyPlatformSubscriptionOwnershipByGroupIDOK struct {
 	Payload *platformclientmodels.ThirdPartySubscriptionOwnership

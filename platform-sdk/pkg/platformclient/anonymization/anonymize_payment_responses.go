@@ -66,9 +66,10 @@ func NewAnonymizePaymentNoContent() *AnonymizePaymentNoContent {
 	return &AnonymizePaymentNoContent{}
 }
 
-/*AnonymizePaymentNoContent handles this case with default header values.
+/*
+AnonymizePaymentNoContent handles this case with default header values.
 
-  Anonymize successfully
+	Anonymize successfully
 */
 type AnonymizePaymentNoContent struct {
 }

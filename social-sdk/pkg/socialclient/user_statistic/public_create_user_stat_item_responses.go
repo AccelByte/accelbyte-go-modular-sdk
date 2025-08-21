@@ -159,9 +159,10 @@ func NewPublicCreateUserStatItemCreated() *PublicCreateUserStatItemCreated {
 	return &PublicCreateUserStatItemCreated{}
 }
 
-/*PublicCreateUserStatItemCreated handles this case with default header values.
+/*
+PublicCreateUserStatItemCreated handles this case with default header values.
 
-  Create user statItem successfully
+	Create user statItem successfully
 */
 type PublicCreateUserStatItemCreated struct {
 }
@@ -186,9 +187,10 @@ func NewPublicCreateUserStatItemUnauthorized() *PublicCreateUserStatItemUnauthor
 	return &PublicCreateUserStatItemUnauthorized{}
 }
 
-/*PublicCreateUserStatItemUnauthorized handles this case with default header values.
+/*
+PublicCreateUserStatItemUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicCreateUserStatItemUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -240,9 +242,10 @@ func NewPublicCreateUserStatItemForbidden() *PublicCreateUserStatItemForbidden {
 	return &PublicCreateUserStatItemForbidden{}
 }
 
-/*PublicCreateUserStatItemForbidden handles this case with default header values.
+/*
+PublicCreateUserStatItemForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicCreateUserStatItemForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -294,9 +297,10 @@ func NewPublicCreateUserStatItemNotFound() *PublicCreateUserStatItemNotFound {
 	return &PublicCreateUserStatItemNotFound{}
 }
 
-/*PublicCreateUserStatItemNotFound handles this case with default header values.
+/*
+PublicCreateUserStatItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type PublicCreateUserStatItemNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -348,9 +352,10 @@ func NewPublicCreateUserStatItemConflict() *PublicCreateUserStatItemConflict {
 	return &PublicCreateUserStatItemConflict{}
 }
 
-/*PublicCreateUserStatItemConflict handles this case with default header values.
+/*
+PublicCreateUserStatItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12274</td><td>Stat item with code [{statCode}] of user [{profileId}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12274</td><td>Stat item with code [{statCode}] of user [{profileId}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type PublicCreateUserStatItemConflict struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -402,9 +407,10 @@ func NewPublicCreateUserStatItemUnprocessableEntity() *PublicCreateUserStatItemU
 	return &PublicCreateUserStatItemUnprocessableEntity{}
 }
 
-/*PublicCreateUserStatItemUnprocessableEntity handles this case with default header values.
+/*
+PublicCreateUserStatItemUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicCreateUserStatItemUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -456,9 +462,10 @@ func NewPublicCreateUserStatItemInternalServerError() *PublicCreateUserStatItemI
 	return &PublicCreateUserStatItemInternalServerError{}
 }
 
-/*PublicCreateUserStatItemInternalServerError handles this case with default header values.
+/*
+PublicCreateUserStatItemInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicCreateUserStatItemInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

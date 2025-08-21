@@ -129,9 +129,10 @@ func NewSendPartyFreeformNotificationV1AdminNoContent() *SendPartyFreeformNotifi
 	return &SendPartyFreeformNotificationV1AdminNoContent{}
 }
 
-/*SendPartyFreeformNotificationV1AdminNoContent handles this case with default header values.
+/*
+SendPartyFreeformNotificationV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type SendPartyFreeformNotificationV1AdminNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewSendPartyFreeformNotificationV1AdminBadRequest() *SendPartyFreeformNotif
 	return &SendPartyFreeformNotificationV1AdminBadRequest{}
 }
 
-/*SendPartyFreeformNotificationV1AdminBadRequest handles this case with default header values.
+/*
+SendPartyFreeformNotificationV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type SendPartyFreeformNotificationV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -210,9 +212,10 @@ func NewSendPartyFreeformNotificationV1AdminUnauthorized() *SendPartyFreeformNot
 	return &SendPartyFreeformNotificationV1AdminUnauthorized{}
 }
 
-/*SendPartyFreeformNotificationV1AdminUnauthorized handles this case with default header values.
+/*
+SendPartyFreeformNotificationV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SendPartyFreeformNotificationV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -264,9 +267,10 @@ func NewSendPartyFreeformNotificationV1AdminForbidden() *SendPartyFreeformNotifi
 	return &SendPartyFreeformNotificationV1AdminForbidden{}
 }
 
-/*SendPartyFreeformNotificationV1AdminForbidden handles this case with default header values.
+/*
+SendPartyFreeformNotificationV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type SendPartyFreeformNotificationV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -318,9 +322,10 @@ func NewSendPartyFreeformNotificationV1AdminNotFound() *SendPartyFreeformNotific
 	return &SendPartyFreeformNotificationV1AdminNotFound{}
 }
 
-/*SendPartyFreeformNotificationV1AdminNotFound handles this case with default header values.
+/*
+SendPartyFreeformNotificationV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type SendPartyFreeformNotificationV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

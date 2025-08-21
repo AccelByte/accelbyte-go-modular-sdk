@@ -145,9 +145,10 @@ func NewPublicUpdateInsertSessionStorageOK() *PublicUpdateInsertSessionStorageOK
 	return &PublicUpdateInsertSessionStorageOK{}
 }
 
-/*PublicUpdateInsertSessionStorageOK handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicUpdateInsertSessionStorageOK struct {
 	Payload map[string]interface{}
@@ -197,9 +198,10 @@ func NewPublicUpdateInsertSessionStorageBadRequest() *PublicUpdateInsertSessionS
 	return &PublicUpdateInsertSessionStorageBadRequest{}
 }
 
-/*PublicUpdateInsertSessionStorageBadRequest handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicUpdateInsertSessionStorageBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -251,9 +253,10 @@ func NewPublicUpdateInsertSessionStorageUnauthorized() *PublicUpdateInsertSessio
 	return &PublicUpdateInsertSessionStorageUnauthorized{}
 }
 
-/*PublicUpdateInsertSessionStorageUnauthorized handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicUpdateInsertSessionStorageUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -305,9 +308,10 @@ func NewPublicUpdateInsertSessionStorageForbidden() *PublicUpdateInsertSessionSt
 	return &PublicUpdateInsertSessionStorageForbidden{}
 }
 
-/*PublicUpdateInsertSessionStorageForbidden handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicUpdateInsertSessionStorageForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -359,9 +363,10 @@ func NewPublicUpdateInsertSessionStorageNotFound() *PublicUpdateInsertSessionSto
 	return &PublicUpdateInsertSessionStorageNotFound{}
 }
 
-/*PublicUpdateInsertSessionStorageNotFound handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicUpdateInsertSessionStorageNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -413,9 +418,10 @@ func NewPublicUpdateInsertSessionStorageInternalServerError() *PublicUpdateInser
 	return &PublicUpdateInsertSessionStorageInternalServerError{}
 }
 
-/*PublicUpdateInsertSessionStorageInternalServerError handles this case with default header values.
+/*
+PublicUpdateInsertSessionStorageInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicUpdateInsertSessionStorageInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -130,9 +130,10 @@ func NewGetPluginConfigOK() *GetPluginConfigOK {
 	return &GetPluginConfigOK{}
 }
 
-/*GetPluginConfigOK handles this case with default header values.
+/*
+GetPluginConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetPluginConfigOK struct {
 	Payload *cloudsaveclientmodels.ModelsPluginResponse
@@ -184,9 +185,10 @@ func NewGetPluginConfigUnauthorized() *GetPluginConfigUnauthorized {
 	return &GetPluginConfigUnauthorized{}
 }
 
-/*GetPluginConfigUnauthorized handles this case with default header values.
+/*
+GetPluginConfigUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetPluginConfigUnauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewGetPluginConfigForbidden() *GetPluginConfigForbidden {
 	return &GetPluginConfigForbidden{}
 }
 
-/*GetPluginConfigForbidden handles this case with default header values.
+/*
+GetPluginConfigForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetPluginConfigForbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewGetPluginConfigNotFound() *GetPluginConfigNotFound {
 	return &GetPluginConfigNotFound{}
 }
 
-/*GetPluginConfigNotFound handles this case with default header values.
+/*
+GetPluginConfigNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18404</td><td>plugins not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18404</td><td>plugins not found</td></tr></table>
 */
 type GetPluginConfigNotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewGetPluginConfigInternalServerError() *GetPluginConfigInternalServerError
 	return &GetPluginConfigInternalServerError{}
 }
 
-/*GetPluginConfigInternalServerError handles this case with default header values.
+/*
+GetPluginConfigInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetPluginConfigInternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

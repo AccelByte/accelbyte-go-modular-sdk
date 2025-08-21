@@ -57,7 +57,8 @@ func NewPublicKickGameSessionMemberParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*PublicKickGameSessionMemberParams contains all the parameters to send to the API endpoint
+/*
+PublicKickGameSessionMemberParams contains all the parameters to send to the API endpoint
 for the public kick game session member operation typically these are written to a http.Request
 */
 type PublicKickGameSessionMemberParams struct {

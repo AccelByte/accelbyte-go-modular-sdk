@@ -66,9 +66,10 @@ func NewPortalHealthCheckOK() *PortalHealthCheckOK {
 	return &PortalHealthCheckOK{}
 }
 
-/*PortalHealthCheckOK handles this case with default header values.
+/*
+PortalHealthCheckOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PortalHealthCheckOK struct {
 }

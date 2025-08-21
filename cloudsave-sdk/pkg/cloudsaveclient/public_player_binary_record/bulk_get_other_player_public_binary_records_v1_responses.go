@@ -130,9 +130,10 @@ func NewBulkGetOtherPlayerPublicBinaryRecordsV1OK() *BulkGetOtherPlayerPublicBin
 	return &BulkGetOtherPlayerPublicBinaryRecordsV1OK{}
 }
 
-/*BulkGetOtherPlayerPublicBinaryRecordsV1OK handles this case with default header values.
+/*
+BulkGetOtherPlayerPublicBinaryRecordsV1OK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type BulkGetOtherPlayerPublicBinaryRecordsV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsBulkGetPlayerBinaryRecordResponse
@@ -184,9 +185,10 @@ func NewBulkGetOtherPlayerPublicBinaryRecordsV1BadRequest() *BulkGetOtherPlayerP
 	return &BulkGetOtherPlayerPublicBinaryRecordsV1BadRequest{}
 }
 
-/*BulkGetOtherPlayerPublicBinaryRecordsV1BadRequest handles this case with default header values.
+/*
+BulkGetOtherPlayerPublicBinaryRecordsV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18342</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18342</td><td>invalid request body</td></tr></table>
 */
 type BulkGetOtherPlayerPublicBinaryRecordsV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewBulkGetOtherPlayerPublicBinaryRecordsV1Unauthorized() *BulkGetOtherPlaye
 	return &BulkGetOtherPlayerPublicBinaryRecordsV1Unauthorized{}
 }
 
-/*BulkGetOtherPlayerPublicBinaryRecordsV1Unauthorized handles this case with default header values.
+/*
+BulkGetOtherPlayerPublicBinaryRecordsV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type BulkGetOtherPlayerPublicBinaryRecordsV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewBulkGetOtherPlayerPublicBinaryRecordsV1Forbidden() *BulkGetOtherPlayerPu
 	return &BulkGetOtherPlayerPublicBinaryRecordsV1Forbidden{}
 }
 
-/*BulkGetOtherPlayerPublicBinaryRecordsV1Forbidden handles this case with default header values.
+/*
+BulkGetOtherPlayerPublicBinaryRecordsV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkGetOtherPlayerPublicBinaryRecordsV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewBulkGetOtherPlayerPublicBinaryRecordsV1InternalServerError() *BulkGetOth
 	return &BulkGetOtherPlayerPublicBinaryRecordsV1InternalServerError{}
 }
 
-/*BulkGetOtherPlayerPublicBinaryRecordsV1InternalServerError handles this case with default header values.
+/*
+BulkGetOtherPlayerPublicBinaryRecordsV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18343</td><td>unable to get record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18343</td><td>unable to get record</td></tr></table>
 */
 type BulkGetOtherPlayerPublicBinaryRecordsV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

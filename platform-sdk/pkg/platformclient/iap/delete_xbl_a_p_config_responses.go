@@ -66,9 +66,10 @@ func NewDeleteXblAPConfigNoContent() *DeleteXblAPConfigNoContent {
 	return &DeleteXblAPConfigNoContent{}
 }
 
-/*DeleteXblAPConfigNoContent handles this case with default header values.
+/*
+DeleteXblAPConfigNoContent handles this case with default header values.
 
-  Delete successfully
+	Delete successfully
 */
 type DeleteXblAPConfigNoContent struct {
 }

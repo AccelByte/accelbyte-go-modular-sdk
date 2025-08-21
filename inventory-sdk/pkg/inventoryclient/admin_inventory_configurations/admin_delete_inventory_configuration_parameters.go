@@ -57,7 +57,8 @@ func NewAdminDeleteInventoryConfigurationParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*AdminDeleteInventoryConfigurationParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteInventoryConfigurationParams contains all the parameters to send to the API endpoint
 for the admin delete inventory configuration operation typically these are written to a http.Request
 */
 type AdminDeleteInventoryConfigurationParams struct {

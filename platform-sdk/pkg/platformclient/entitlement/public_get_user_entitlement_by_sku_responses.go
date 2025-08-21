@@ -85,9 +85,10 @@ func NewPublicGetUserEntitlementBySkuOK() *PublicGetUserEntitlementBySkuOK {
 	return &PublicGetUserEntitlementBySkuOK{}
 }
 
-/*PublicGetUserEntitlementBySkuOK handles this case with default header values.
+/*
+PublicGetUserEntitlementBySkuOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetUserEntitlementBySkuOK struct {
 	Payload *platformclientmodels.EntitlementInfo
@@ -139,9 +140,10 @@ func NewPublicGetUserEntitlementBySkuNotFound() *PublicGetUserEntitlementBySkuNo
 	return &PublicGetUserEntitlementBySkuNotFound{}
 }
 
-/*PublicGetUserEntitlementBySkuNotFound handles this case with default header values.
+/*
+PublicGetUserEntitlementBySkuNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31143</td><td>Entitlement with sku [{sku}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31143</td><td>Entitlement with sku [{sku}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicGetUserEntitlementBySkuNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

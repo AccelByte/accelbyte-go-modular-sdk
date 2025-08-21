@@ -144,9 +144,10 @@ func NewPublicPartyRejectNoContent() *PublicPartyRejectNoContent {
 	return &PublicPartyRejectNoContent{}
 }
 
-/*PublicPartyRejectNoContent handles this case with default header values.
+/*
+PublicPartyRejectNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicPartyRejectNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicPartyRejectBadRequest() *PublicPartyRejectBadRequest {
 	return &PublicPartyRejectBadRequest{}
 }
 
-/*PublicPartyRejectBadRequest handles this case with default header values.
+/*
+PublicPartyRejectBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPartyRejectBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewPublicPartyRejectUnauthorized() *PublicPartyRejectUnauthorized {
 	return &PublicPartyRejectUnauthorized{}
 }
 
-/*PublicPartyRejectUnauthorized handles this case with default header values.
+/*
+PublicPartyRejectUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPartyRejectUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewPublicPartyRejectForbidden() *PublicPartyRejectForbidden {
 	return &PublicPartyRejectForbidden{}
 }
 
-/*PublicPartyRejectForbidden handles this case with default header values.
+/*
+PublicPartyRejectForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicPartyRejectForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewPublicPartyRejectNotFound() *PublicPartyRejectNotFound {
 	return &PublicPartyRejectNotFound{}
 }
 
-/*PublicPartyRejectNotFound handles this case with default header values.
+/*
+PublicPartyRejectNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPartyRejectNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewPublicPartyRejectInternalServerError() *PublicPartyRejectInternalServerE
 	return &PublicPartyRejectInternalServerError{}
 }
 
-/*PublicPartyRejectInternalServerError handles this case with default header values.
+/*
+PublicPartyRejectInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPartyRejectInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

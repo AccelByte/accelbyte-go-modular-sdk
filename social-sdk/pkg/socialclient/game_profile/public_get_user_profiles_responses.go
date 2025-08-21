@@ -115,9 +115,10 @@ func NewPublicGetUserProfilesOK() *PublicGetUserProfilesOK {
 	return &PublicGetUserProfilesOK{}
 }
 
-/*PublicGetUserProfilesOK handles this case with default header values.
+/*
+PublicGetUserProfilesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetUserProfilesOK struct {
 	Payload []*socialclientmodels.GameProfileHeader
@@ -167,9 +168,10 @@ func NewPublicGetUserProfilesUnauthorized() *PublicGetUserProfilesUnauthorized {
 	return &PublicGetUserProfilesUnauthorized{}
 }
 
-/*PublicGetUserProfilesUnauthorized handles this case with default header values.
+/*
+PublicGetUserProfilesUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicGetUserProfilesUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -221,9 +223,10 @@ func NewPublicGetUserProfilesForbidden() *PublicGetUserProfilesForbidden {
 	return &PublicGetUserProfilesForbidden{}
 }
 
-/*PublicGetUserProfilesForbidden handles this case with default header values.
+/*
+PublicGetUserProfilesForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGetUserProfilesForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -275,9 +278,10 @@ func NewPublicGetUserProfilesInternalServerError() *PublicGetUserProfilesInterna
 	return &PublicGetUserProfilesInternalServerError{}
 }
 
-/*PublicGetUserProfilesInternalServerError handles this case with default header values.
+/*
+PublicGetUserProfilesInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicGetUserProfilesInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

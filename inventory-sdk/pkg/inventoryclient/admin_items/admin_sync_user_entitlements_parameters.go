@@ -57,7 +57,8 @@ func NewAdminSyncUserEntitlementsParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminSyncUserEntitlementsParams contains all the parameters to send to the API endpoint
+/*
+AdminSyncUserEntitlementsParams contains all the parameters to send to the API endpoint
 for the admin sync user entitlements operation typically these are written to a http.Request
 */
 type AdminSyncUserEntitlementsParams struct {

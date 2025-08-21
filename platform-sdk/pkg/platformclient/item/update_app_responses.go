@@ -115,9 +115,10 @@ func NewUpdateAppOK() *UpdateAppOK {
 	return &UpdateAppOK{}
 }
 
-/*UpdateAppOK handles this case with default header values.
+/*
+UpdateAppOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateAppOK struct {
 	Payload *platformclientmodels.FullAppInfo
@@ -169,9 +170,10 @@ func NewUpdateAppNotFound() *UpdateAppNotFound {
 	return &UpdateAppNotFound{}
 }
 
-/*UpdateAppNotFound handles this case with default header values.
+/*
+UpdateAppNotFound handles this case with default header values.
 
-  <table><tr><tdErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><tdErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateAppNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewUpdateAppConflict() *UpdateAppConflict {
 	return &UpdateAppConflict{}
 }
 
-/*UpdateAppConflict handles this case with default header values.
+/*
+UpdateAppConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type UpdateAppConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewUpdateAppUnprocessableEntity() *UpdateAppUnprocessableEntity {
 	return &UpdateAppUnprocessableEntity{}
 }
 
-/*UpdateAppUnprocessableEntity handles this case with default header values.
+/*
+UpdateAppUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateAppUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

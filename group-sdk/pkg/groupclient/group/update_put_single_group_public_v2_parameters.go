@@ -59,7 +59,8 @@ func NewUpdatePutSingleGroupPublicV2ParamsWithHTTPClient(client *http.Client) *U
 	}
 }
 
-/*UpdatePutSingleGroupPublicV2Params contains all the parameters to send to the API endpoint
+/*
+UpdatePutSingleGroupPublicV2Params contains all the parameters to send to the API endpoint
 for the update put single group public v2 operation typically these are written to a http.Request
 */
 type UpdatePutSingleGroupPublicV2Params struct {

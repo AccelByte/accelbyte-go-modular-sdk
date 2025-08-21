@@ -59,7 +59,8 @@ func NewPublicSplitUserEntitlementParamsWithHTTPClient(client *http.Client) *Pub
 	}
 }
 
-/*PublicSplitUserEntitlementParams contains all the parameters to send to the API endpoint
+/*
+PublicSplitUserEntitlementParams contains all the parameters to send to the API endpoint
 for the public split user entitlement operation typically these are written to a http.Request
 */
 type PublicSplitUserEntitlementParams struct {

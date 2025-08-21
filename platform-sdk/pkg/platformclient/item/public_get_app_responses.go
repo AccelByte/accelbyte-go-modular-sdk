@@ -85,9 +85,10 @@ func NewPublicGetAppOK() *PublicGetAppOK {
 	return &PublicGetAppOK{}
 }
 
-/*PublicGetAppOK handles this case with default header values.
+/*
+PublicGetAppOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetAppOK struct {
 	Payload *platformclientmodels.AppInfo
@@ -139,9 +140,10 @@ func NewPublicGetAppNotFound() *PublicGetAppNotFound {
 	return &PublicGetAppNotFound{}
 }
 
-/*PublicGetAppNotFound handles this case with default header values.
+/*
+PublicGetAppNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicGetAppNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

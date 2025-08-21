@@ -114,9 +114,10 @@ func NewDeleteContentByShareCodeNoContent() *DeleteContentByShareCodeNoContent {
 	return &DeleteContentByShareCodeNoContent{}
 }
 
-/*DeleteContentByShareCodeNoContent handles this case with default header values.
+/*
+DeleteContentByShareCodeNoContent handles this case with default header values.
 
-  Delete content by share code
+	Delete content by share code
 */
 type DeleteContentByShareCodeNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteContentByShareCodeUnauthorized() *DeleteContentByShareCodeUnauthor
 	return &DeleteContentByShareCodeUnauthorized{}
 }
 
-/*DeleteContentByShareCodeUnauthorized handles this case with default header values.
+/*
+DeleteContentByShareCodeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteContentByShareCodeUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewDeleteContentByShareCodeNotFound() *DeleteContentByShareCodeNotFound {
 	return &DeleteContentByShareCodeNotFound{}
 }
 
-/*DeleteContentByShareCodeNotFound handles this case with default header values.
+/*
+DeleteContentByShareCodeNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772702</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772702</td><td>Content not found</td></tr></table>
 */
 type DeleteContentByShareCodeNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewDeleteContentByShareCodeInternalServerError() *DeleteContentByShareCodeI
 	return &DeleteContentByShareCodeInternalServerError{}
 }
 
-/*DeleteContentByShareCodeInternalServerError handles this case with default header values.
+/*
+DeleteContentByShareCodeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772701</td><td>Unable to delete content/Unable to update user liked count/Unable to delete like state/Unable to delete like state</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772701</td><td>Unable to delete content/Unable to update user liked count/Unable to delete like state/Unable to delete like state</td></tr></table>
 */
 type DeleteContentByShareCodeInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

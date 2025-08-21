@@ -57,7 +57,8 @@ func NewDeleteSectionParamsWithHTTPClient(client *http.Client) *DeleteSectionPar
 	}
 }
 
-/*DeleteSectionParams contains all the parameters to send to the API endpoint
+/*
+DeleteSectionParams contains all the parameters to send to the API endpoint
 for the delete section operation typically these are written to a http.Request
 */
 type DeleteSectionParams struct {

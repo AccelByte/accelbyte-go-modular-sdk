@@ -85,9 +85,10 @@ func NewGetCampaignOK() *GetCampaignOK {
 	return &GetCampaignOK{}
 }
 
-/*GetCampaignOK handles this case with default header values.
+/*
+GetCampaignOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCampaignOK struct {
 	Payload *platformclientmodels.CampaignInfo
@@ -139,9 +140,10 @@ func NewGetCampaignNotFound() *GetCampaignNotFound {
 	return &GetCampaignNotFound{}
 }
 
-/*GetCampaignNotFound handles this case with default header values.
+/*
+GetCampaignNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetCampaignNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

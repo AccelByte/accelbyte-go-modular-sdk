@@ -57,7 +57,8 @@ func NewVerifyTokenParamsWithHTTPClient(client *http.Client) *VerifyTokenParams 
 	}
 }
 
-/*VerifyTokenParams contains all the parameters to send to the API endpoint
+/*
+VerifyTokenParams contains all the parameters to send to the API endpoint
 for the verify token operation typically these are written to a http.Request
 */
 type VerifyTokenParams struct {

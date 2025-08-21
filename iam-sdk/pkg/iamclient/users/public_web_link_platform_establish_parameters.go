@@ -57,7 +57,8 @@ func NewPublicWebLinkPlatformEstablishParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*PublicWebLinkPlatformEstablishParams contains all the parameters to send to the API endpoint
+/*
+PublicWebLinkPlatformEstablishParams contains all the parameters to send to the API endpoint
 for the public web link platform establish operation typically these are written to a http.Request
 */
 type PublicWebLinkPlatformEstablishParams struct {

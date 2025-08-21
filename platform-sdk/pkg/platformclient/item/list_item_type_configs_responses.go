@@ -69,9 +69,10 @@ func NewListItemTypeConfigsOK() *ListItemTypeConfigsOK {
 	return &ListItemTypeConfigsOK{}
 }
 
-/*ListItemTypeConfigsOK handles this case with default header values.
+/*
+ListItemTypeConfigsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ListItemTypeConfigsOK struct {
 	Payload []*platformclientmodels.ItemTypeConfigInfo

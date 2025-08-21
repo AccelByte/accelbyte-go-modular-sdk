@@ -160,9 +160,10 @@ func NewPublicUpdateProfileOK() *PublicUpdateProfileOK {
 	return &PublicUpdateProfileOK{}
 }
 
-/*PublicUpdateProfileOK handles this case with default header values.
+/*
+PublicUpdateProfileOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicUpdateProfileOK struct {
 	Payload *socialclientmodels.GameProfileInfo
@@ -214,9 +215,10 @@ func NewPublicUpdateProfileBadRequest() *PublicUpdateProfileBadRequest {
 	return &PublicUpdateProfileBadRequest{}
 }
 
-/*PublicUpdateProfileBadRequest handles this case with default header values.
+/*
+PublicUpdateProfileBadRequest handles this case with default header values.
 
-  Bad request
+	Bad request
 */
 type PublicUpdateProfileBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -268,9 +270,10 @@ func NewPublicUpdateProfileUnauthorized() *PublicUpdateProfileUnauthorized {
 	return &PublicUpdateProfileUnauthorized{}
 }
 
-/*PublicUpdateProfileUnauthorized handles this case with default header values.
+/*
+PublicUpdateProfileUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicUpdateProfileUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -322,9 +325,10 @@ func NewPublicUpdateProfileForbidden() *PublicUpdateProfileForbidden {
 	return &PublicUpdateProfileForbidden{}
 }
 
-/*PublicUpdateProfileForbidden handles this case with default header values.
+/*
+PublicUpdateProfileForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicUpdateProfileForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -376,9 +380,10 @@ func NewPublicUpdateProfileNotFound() *PublicUpdateProfileNotFound {
 	return &PublicUpdateProfileNotFound{}
 }
 
-/*PublicUpdateProfileNotFound handles this case with default header values.
+/*
+PublicUpdateProfileNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
 */
 type PublicUpdateProfileNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -430,9 +435,10 @@ func NewPublicUpdateProfileUnprocessableEntity() *PublicUpdateProfileUnprocessab
 	return &PublicUpdateProfileUnprocessableEntity{}
 }
 
-/*PublicUpdateProfileUnprocessableEntity handles this case with default header values.
+/*
+PublicUpdateProfileUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicUpdateProfileUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -484,9 +490,10 @@ func NewPublicUpdateProfileInternalServerError() *PublicUpdateProfileInternalSer
 	return &PublicUpdateProfileInternalServerError{}
 }
 
-/*PublicUpdateProfileInternalServerError handles this case with default header values.
+/*
+PublicUpdateProfileInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicUpdateProfileInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

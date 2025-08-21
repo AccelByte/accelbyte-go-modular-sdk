@@ -145,9 +145,10 @@ func NewAdminGetListPersonalDataRequestOK() *AdminGetListPersonalDataRequestOK {
 	return &AdminGetListPersonalDataRequestOK{}
 }
 
-/*AdminGetListPersonalDataRequestOK handles this case with default header values.
+/*
+AdminGetListPersonalDataRequestOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetListPersonalDataRequestOK struct {
 	Payload *gdprclientmodels.ModelsListPersonalDataResponse
@@ -199,9 +200,10 @@ func NewAdminGetListPersonalDataRequestBadRequest() *AdminGetListPersonalDataReq
 	return &AdminGetListPersonalDataRequestBadRequest{}
 }
 
-/*AdminGetListPersonalDataRequestBadRequest handles this case with default header values.
+/*
+AdminGetListPersonalDataRequestBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetListPersonalDataRequestBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminGetListPersonalDataRequestUnauthorized() *AdminGetListPersonalDataR
 	return &AdminGetListPersonalDataRequestUnauthorized{}
 }
 
-/*AdminGetListPersonalDataRequestUnauthorized handles this case with default header values.
+/*
+AdminGetListPersonalDataRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetListPersonalDataRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminGetListPersonalDataRequestForbidden() *AdminGetListPersonalDataRequ
 	return &AdminGetListPersonalDataRequestForbidden{}
 }
 
-/*AdminGetListPersonalDataRequestForbidden handles this case with default header values.
+/*
+AdminGetListPersonalDataRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetListPersonalDataRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminGetListPersonalDataRequestNotFound() *AdminGetListPersonalDataReque
 	return &AdminGetListPersonalDataRequestNotFound{}
 }
 
-/*AdminGetListPersonalDataRequestNotFound handles this case with default header values.
+/*
+AdminGetListPersonalDataRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetListPersonalDataRequestNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminGetListPersonalDataRequestInternalServerError() *AdminGetListPerson
 	return &AdminGetListPersonalDataRequestInternalServerError{}
 }
 
-/*AdminGetListPersonalDataRequestInternalServerError handles this case with default header values.
+/*
+AdminGetListPersonalDataRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetListPersonalDataRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

@@ -59,7 +59,8 @@ func NewUpdatePaymentDomainWhitelistConfigParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*UpdatePaymentDomainWhitelistConfigParams contains all the parameters to send to the API endpoint
+/*
+UpdatePaymentDomainWhitelistConfigParams contains all the parameters to send to the API endpoint
 for the update payment domain whitelist config operation typically these are written to a http.Request
 */
 type UpdatePaymentDomainWhitelistConfigParams struct {

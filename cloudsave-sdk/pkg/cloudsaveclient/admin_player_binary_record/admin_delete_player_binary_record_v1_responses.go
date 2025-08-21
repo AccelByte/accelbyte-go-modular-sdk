@@ -129,9 +129,10 @@ func NewAdminDeletePlayerBinaryRecordV1NoContent() *AdminDeletePlayerBinaryRecor
 	return &AdminDeletePlayerBinaryRecordV1NoContent{}
 }
 
-/*AdminDeletePlayerBinaryRecordV1NoContent handles this case with default header values.
+/*
+AdminDeletePlayerBinaryRecordV1NoContent handles this case with default header values.
 
-  Record deleted
+	Record deleted
 */
 type AdminDeletePlayerBinaryRecordV1NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDeletePlayerBinaryRecordV1Unauthorized() *AdminDeletePlayerBinaryRe
 	return &AdminDeletePlayerBinaryRecordV1Unauthorized{}
 }
 
-/*AdminDeletePlayerBinaryRecordV1Unauthorized handles this case with default header values.
+/*
+AdminDeletePlayerBinaryRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeletePlayerBinaryRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -210,9 +212,10 @@ func NewAdminDeletePlayerBinaryRecordV1Forbidden() *AdminDeletePlayerBinaryRecor
 	return &AdminDeletePlayerBinaryRecordV1Forbidden{}
 }
 
-/*AdminDeletePlayerBinaryRecordV1Forbidden handles this case with default header values.
+/*
+AdminDeletePlayerBinaryRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminDeletePlayerBinaryRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -264,9 +267,10 @@ func NewAdminDeletePlayerBinaryRecordV1NotFound() *AdminDeletePlayerBinaryRecord
 	return &AdminDeletePlayerBinaryRecordV1NotFound{}
 }
 
-/*AdminDeletePlayerBinaryRecordV1NotFound handles this case with default header values.
+/*
+AdminDeletePlayerBinaryRecordV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18338</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18338</td><td>record not found</td></tr></table>
 */
 type AdminDeletePlayerBinaryRecordV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -318,9 +322,10 @@ func NewAdminDeletePlayerBinaryRecordV1InternalServerError() *AdminDeletePlayerB
 	return &AdminDeletePlayerBinaryRecordV1InternalServerError{}
 }
 
-/*AdminDeletePlayerBinaryRecordV1InternalServerError handles this case with default header values.
+/*
+AdminDeletePlayerBinaryRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18336</td><td>unable to delete record</td></tr><tr><td>18338</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18336</td><td>unable to delete record</td></tr><tr><td>18338</td><td>record not found</td></tr></table>
 */
 type AdminDeletePlayerBinaryRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

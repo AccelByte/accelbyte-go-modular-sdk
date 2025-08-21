@@ -130,9 +130,10 @@ func NewPublicCreateContentV2Created() *PublicCreateContentV2Created {
 	return &PublicCreateContentV2Created{}
 }
 
-/*PublicCreateContentV2Created handles this case with default header values.
+/*
+PublicCreateContentV2Created handles this case with default header values.
 
-  Content created
+	Content created
 */
 type PublicCreateContentV2Created struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponseV2
@@ -184,9 +185,10 @@ func NewPublicCreateContentV2BadRequest() *PublicCreateContentV2BadRequest {
 	return &PublicCreateContentV2BadRequest{}
 }
 
-/*PublicCreateContentV2BadRequest handles this case with default header values.
+/*
+PublicCreateContentV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr></table>
 */
 type PublicCreateContentV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicCreateContentV2Unauthorized() *PublicCreateContentV2Unauthorized {
 	return &PublicCreateContentV2Unauthorized{}
 }
 
-/*PublicCreateContentV2Unauthorized handles this case with default header values.
+/*
+PublicCreateContentV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicCreateContentV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicCreateContentV2NotFound() *PublicCreateContentV2NotFound {
 	return &PublicCreateContentV2NotFound{}
 }
 
-/*PublicCreateContentV2NotFound handles this case with default header values.
+/*
+PublicCreateContentV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770106</td><td>channel doesn't exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770106</td><td>channel doesn't exist</td></tr></table>
 */
 type PublicCreateContentV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicCreateContentV2InternalServerError() *PublicCreateContentV2Interna
 	return &PublicCreateContentV2InternalServerError{}
 }
 
-/*PublicCreateContentV2InternalServerError handles this case with default header values.
+/*
+PublicCreateContentV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr><tr><td>770105</td><td>Unable to save ugc content: failed generate upload URL</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr><tr><td>770105</td><td>Unable to save ugc content: failed generate upload URL</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
 */
 type PublicCreateContentV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

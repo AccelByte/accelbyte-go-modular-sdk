@@ -105,7 +105,8 @@ func NewQueryUserThirdPartySubscriptionTransactionsParamsWithHTTPClient(client *
 	}
 }
 
-/*QueryUserThirdPartySubscriptionTransactionsParams contains all the parameters to send to the API endpoint
+/*
+QueryUserThirdPartySubscriptionTransactionsParams contains all the parameters to send to the API endpoint
 for the query user third party subscription transactions operation typically these are written to a http.Request
 */
 type QueryUserThirdPartySubscriptionTransactionsParams struct {

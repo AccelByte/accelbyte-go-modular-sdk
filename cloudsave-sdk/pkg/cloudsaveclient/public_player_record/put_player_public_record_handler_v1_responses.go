@@ -130,9 +130,10 @@ func NewPutPlayerPublicRecordHandlerV1OK() *PutPlayerPublicRecordHandlerV1OK {
 	return &PutPlayerPublicRecordHandlerV1OK{}
 }
 
-/*PutPlayerPublicRecordHandlerV1OK handles this case with default header values.
+/*
+PutPlayerPublicRecordHandlerV1OK handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type PutPlayerPublicRecordHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsPlayerRecordResponse
@@ -184,9 +185,10 @@ func NewPutPlayerPublicRecordHandlerV1BadRequest() *PutPlayerPublicRecordHandler
 	return &PutPlayerPublicRecordHandlerV1BadRequest{}
 }
 
-/*PutPlayerPublicRecordHandlerV1BadRequest handles this case with default header values.
+/*
+PutPlayerPublicRecordHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18100</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18100</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PutPlayerPublicRecordHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewPutPlayerPublicRecordHandlerV1Unauthorized() *PutPlayerPublicRecordHandl
 	return &PutPlayerPublicRecordHandlerV1Unauthorized{}
 }
 
-/*PutPlayerPublicRecordHandlerV1Unauthorized handles this case with default header values.
+/*
+PutPlayerPublicRecordHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PutPlayerPublicRecordHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewPutPlayerPublicRecordHandlerV1Forbidden() *PutPlayerPublicRecordHandlerV
 	return &PutPlayerPublicRecordHandlerV1Forbidden{}
 }
 
-/*PutPlayerPublicRecordHandlerV1Forbidden handles this case with default header values.
+/*
+PutPlayerPublicRecordHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PutPlayerPublicRecordHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewPutPlayerPublicRecordHandlerV1InternalServerError() *PutPlayerPublicReco
 	return &PutPlayerPublicRecordHandlerV1InternalServerError{}
 }
 
-/*PutPlayerPublicRecordHandlerV1InternalServerError handles this case with default header values.
+/*
+PutPlayerPublicRecordHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18101</td><td>unable to update record</td></tr><tr><td>18005</td><td>unable to decode record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18101</td><td>unable to update record</td></tr><tr><td>18005</td><td>unable to decode record</td></tr></table>
 */
 type PutPlayerPublicRecordHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

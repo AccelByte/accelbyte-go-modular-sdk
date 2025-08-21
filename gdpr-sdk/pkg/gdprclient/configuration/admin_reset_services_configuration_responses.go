@@ -99,9 +99,10 @@ func NewAdminResetServicesConfigurationNoContent() *AdminResetServicesConfigurat
 	return &AdminResetServicesConfigurationNoContent{}
 }
 
-/*AdminResetServicesConfigurationNoContent handles this case with default header values.
+/*
+AdminResetServicesConfigurationNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminResetServicesConfigurationNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewAdminResetServicesConfigurationUnauthorized() *AdminResetServicesConfigu
 	return &AdminResetServicesConfigurationUnauthorized{}
 }
 
-/*AdminResetServicesConfigurationUnauthorized handles this case with default header values.
+/*
+AdminResetServicesConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminResetServicesConfigurationUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -180,9 +182,10 @@ func NewAdminResetServicesConfigurationInternalServerError() *AdminResetServices
 	return &AdminResetServicesConfigurationInternalServerError{}
 }
 
-/*AdminResetServicesConfigurationInternalServerError handles this case with default header values.
+/*
+AdminResetServicesConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminResetServicesConfigurationInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

@@ -115,9 +115,10 @@ func NewCreatePolicy1Created() *CreatePolicy1Created {
 	return &CreatePolicy1Created{}
 }
 
-/*CreatePolicy1Created handles this case with default header values.
+/*
+CreatePolicy1Created handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreatePolicy1Created struct {
 	Payload *legalclientmodels.CreateBasePolicyResponse
@@ -169,9 +170,10 @@ func NewCreatePolicy1BadRequest() *CreatePolicy1BadRequest {
 	return &CreatePolicy1BadRequest{}
 }
 
-/*CreatePolicy1BadRequest handles this case with default header values.
+/*
+CreatePolicy1BadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40032</td><td>errors.net.accelbyte.platform.legal.base_policy_namespace_not_match</td></tr><tr><td>40026</td><td>errors.net.accelbyte.platform.legal.not_allow_create_studio_policy</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40032</td><td>errors.net.accelbyte.platform.legal.base_policy_namespace_not_match</td></tr><tr><td>40026</td><td>errors.net.accelbyte.platform.legal.not_allow_create_studio_policy</td></tr></table>
 */
 type CreatePolicy1BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewCreatePolicy1Conflict() *CreatePolicy1Conflict {
 	return &CreatePolicy1Conflict{}
 }
 
-/*CreatePolicy1Conflict handles this case with default header values.
+/*
+CreatePolicy1Conflict handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40030</td><td>errors.net.accelbyte.platform.legal.invalid_policy_type</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40030</td><td>errors.net.accelbyte.platform.legal.invalid_policy_type</td></tr></table>
 */
 type CreatePolicy1Conflict struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewCreatePolicy1UnprocessableEntity() *CreatePolicy1UnprocessableEntity {
 	return &CreatePolicy1UnprocessableEntity{}
 }
 
-/*CreatePolicy1UnprocessableEntity handles this case with default header values.
+/*
+CreatePolicy1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreatePolicy1UnprocessableEntity struct {
 	Payload *legalclientmodels.ValidationErrorEntity

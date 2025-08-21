@@ -145,9 +145,10 @@ func NewAdminPostPlayerBinaryPresignedURLV1Created() *AdminPostPlayerBinaryPresi
 	return &AdminPostPlayerBinaryPresignedURLV1Created{}
 }
 
-/*AdminPostPlayerBinaryPresignedURLV1Created handles this case with default header values.
+/*
+AdminPostPlayerBinaryPresignedURLV1Created handles this case with default header values.
 
-  Successful Operation
+	Successful Operation
 */
 type AdminPostPlayerBinaryPresignedURLV1Created struct {
 	Payload *cloudsaveclientmodels.ModelsUploadBinaryRecordResponse
@@ -199,9 +200,10 @@ func NewAdminPostPlayerBinaryPresignedURLV1BadRequest() *AdminPostPlayerBinaryPr
 	return &AdminPostPlayerBinaryPresignedURLV1BadRequest{}
 }
 
-/*AdminPostPlayerBinaryPresignedURLV1BadRequest handles this case with default header values.
+/*
+AdminPostPlayerBinaryPresignedURLV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18311</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18311</td><td>invalid request body</td></tr></table>
 */
 type AdminPostPlayerBinaryPresignedURLV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewAdminPostPlayerBinaryPresignedURLV1Unauthorized() *AdminPostPlayerBinary
 	return &AdminPostPlayerBinaryPresignedURLV1Unauthorized{}
 }
 
-/*AdminPostPlayerBinaryPresignedURLV1Unauthorized handles this case with default header values.
+/*
+AdminPostPlayerBinaryPresignedURLV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPostPlayerBinaryPresignedURLV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewAdminPostPlayerBinaryPresignedURLV1Forbidden() *AdminPostPlayerBinaryPre
 	return &AdminPostPlayerBinaryPresignedURLV1Forbidden{}
 }
 
-/*AdminPostPlayerBinaryPresignedURLV1Forbidden handles this case with default header values.
+/*
+AdminPostPlayerBinaryPresignedURLV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminPostPlayerBinaryPresignedURLV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewAdminPostPlayerBinaryPresignedURLV1NotFound() *AdminPostPlayerBinaryPres
 	return &AdminPostPlayerBinaryPresignedURLV1NotFound{}
 }
 
-/*AdminPostPlayerBinaryPresignedURLV1NotFound handles this case with default header values.
+/*
+AdminPostPlayerBinaryPresignedURLV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18313</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18313</td><td>record not found</td></tr></table>
 */
 type AdminPostPlayerBinaryPresignedURLV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewAdminPostPlayerBinaryPresignedURLV1InternalServerError() *AdminPostPlaye
 	return &AdminPostPlayerBinaryPresignedURLV1InternalServerError{}
 }
 
-/*AdminPostPlayerBinaryPresignedURLV1InternalServerError handles this case with default header values.
+/*
+AdminPostPlayerBinaryPresignedURLV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18312</td><td>unable to get record</td></tr><tr><td>18314</td><td>unable to get presigned URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18312</td><td>unable to get record</td></tr><tr><td>18314</td><td>unable to get presigned URL</td></tr></table>
 */
 type AdminPostPlayerBinaryPresignedURLV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

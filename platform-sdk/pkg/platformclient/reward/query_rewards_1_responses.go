@@ -85,9 +85,10 @@ func NewQueryRewards1OK() *QueryRewards1OK {
 	return &QueryRewards1OK{}
 }
 
-/*QueryRewards1OK handles this case with default header values.
+/*
+QueryRewards1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryRewards1OK struct {
 	Payload *platformclientmodels.RewardPagingSlicedResult
@@ -139,9 +140,10 @@ func NewQueryRewards1UnprocessableEntity() *QueryRewards1UnprocessableEntity {
 	return &QueryRewards1UnprocessableEntity{}
 }
 
-/*QueryRewards1UnprocessableEntity handles this case with default header values.
+/*
+QueryRewards1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type QueryRewards1UnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

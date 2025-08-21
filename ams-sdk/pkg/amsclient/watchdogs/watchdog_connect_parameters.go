@@ -57,7 +57,8 @@ func NewWatchdogConnectParamsWithHTTPClient(client *http.Client) *WatchdogConnec
 	}
 }
 
-/*WatchdogConnectParams contains all the parameters to send to the API endpoint
+/*
+WatchdogConnectParams contains all the parameters to send to the API endpoint
 for the watchdog connect operation typically these are written to a http.Request
 */
 type WatchdogConnectParams struct {

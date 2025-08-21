@@ -145,9 +145,10 @@ func NewAdminGetPlatformCredentialsOK() *AdminGetPlatformCredentialsOK {
 	return &AdminGetPlatformCredentialsOK{}
 }
 
-/*AdminGetPlatformCredentialsOK handles this case with default header values.
+/*
+AdminGetPlatformCredentialsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetPlatformCredentialsOK struct {
 	Payload *sessionclientmodels.ModelsPlatformCredentials
@@ -199,9 +200,10 @@ func NewAdminGetPlatformCredentialsBadRequest() *AdminGetPlatformCredentialsBadR
 	return &AdminGetPlatformCredentialsBadRequest{}
 }
 
-/*AdminGetPlatformCredentialsBadRequest handles this case with default header values.
+/*
+AdminGetPlatformCredentialsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetPlatformCredentialsBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminGetPlatformCredentialsUnauthorized() *AdminGetPlatformCredentialsUn
 	return &AdminGetPlatformCredentialsUnauthorized{}
 }
 
-/*AdminGetPlatformCredentialsUnauthorized handles this case with default header values.
+/*
+AdminGetPlatformCredentialsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetPlatformCredentialsUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminGetPlatformCredentialsForbidden() *AdminGetPlatformCredentialsForbi
 	return &AdminGetPlatformCredentialsForbidden{}
 }
 
-/*AdminGetPlatformCredentialsForbidden handles this case with default header values.
+/*
+AdminGetPlatformCredentialsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetPlatformCredentialsForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminGetPlatformCredentialsNotFound() *AdminGetPlatformCredentialsNotFou
 	return &AdminGetPlatformCredentialsNotFound{}
 }
 
-/*AdminGetPlatformCredentialsNotFound handles this case with default header values.
+/*
+AdminGetPlatformCredentialsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetPlatformCredentialsNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminGetPlatformCredentialsInternalServerError() *AdminGetPlatformCreden
 	return &AdminGetPlatformCredentialsInternalServerError{}
 }
 
-/*AdminGetPlatformCredentialsInternalServerError handles this case with default header values.
+/*
+AdminGetPlatformCredentialsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetPlatformCredentialsInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -100,9 +100,10 @@ func NewGetCodeOK() *GetCodeOK {
 	return &GetCodeOK{}
 }
 
-/*GetCodeOK handles this case with default header values.
+/*
+GetCodeOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCodeOK struct {
 	Payload *platformclientmodels.CodeInfo
@@ -154,9 +155,10 @@ func NewGetCodeNotFound() *GetCodeNotFound {
 	return &GetCodeNotFound{}
 }
 
-/*GetCodeNotFound handles this case with default header values.
+/*
+GetCodeNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr><tr><td>37144</td><td>Campaign batch name does not exist for batch number [{batchNo}] campaign [{campaignId}] in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr><tr><td>37144</td><td>Campaign batch name does not exist for batch number [{batchNo}] campaign [{campaignId}] in namespace [{namespace}].</td></tr></table>
 */
 type GetCodeNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewGetCodeConflict() *GetCodeConflict {
 	return &GetCodeConflict{}
 }
 
-/*GetCodeConflict handles this case with default header values.
+/*
+GetCodeConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37172</td><td>Campaign [{campaignId}] is inactive in namespace [{namespace}]</td></tr><tr><td>37173</td><td>Code [{code}] is inactive in namespace [{namespace}]</td></tr><tr><td>37174</td><td>Exceeded max redeem count per code [{maxCount}]</td></tr><tr><td>37177</td><td>Code redemption not started</td></tr><tr><td>37178</td><td>Code redemption already ended</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37172</td><td>Campaign [{campaignId}] is inactive in namespace [{namespace}]</td></tr><tr><td>37173</td><td>Code [{code}] is inactive in namespace [{namespace}]</td></tr><tr><td>37174</td><td>Exceeded max redeem count per code [{maxCount}]</td></tr><tr><td>37177</td><td>Code redemption not started</td></tr><tr><td>37178</td><td>Code redemption already ended</td></tr></table>
 */
 type GetCodeConflict struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -159,9 +159,10 @@ func NewDeleteMemberRolePublicV1NoContent() *DeleteMemberRolePublicV1NoContent {
 	return &DeleteMemberRolePublicV1NoContent{}
 }
 
-/*DeleteMemberRolePublicV1NoContent handles this case with default header values.
+/*
+DeleteMemberRolePublicV1NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteMemberRolePublicV1NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewDeleteMemberRolePublicV1BadRequest() *DeleteMemberRolePublicV1BadRequest
 	return &DeleteMemberRolePublicV1BadRequest{}
 }
 
-/*DeleteMemberRolePublicV1BadRequest handles this case with default header values.
+/*
+DeleteMemberRolePublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type DeleteMemberRolePublicV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -240,9 +242,10 @@ func NewDeleteMemberRolePublicV1Unauthorized() *DeleteMemberRolePublicV1Unauthor
 	return &DeleteMemberRolePublicV1Unauthorized{}
 }
 
-/*DeleteMemberRolePublicV1Unauthorized handles this case with default header values.
+/*
+DeleteMemberRolePublicV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteMemberRolePublicV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -294,9 +297,10 @@ func NewDeleteMemberRolePublicV1Forbidden() *DeleteMemberRolePublicV1Forbidden {
 	return &DeleteMemberRolePublicV1Forbidden{}
 }
 
-/*DeleteMemberRolePublicV1Forbidden handles this case with default header values.
+/*
+DeleteMemberRolePublicV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteMemberRolePublicV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -348,9 +352,10 @@ func NewDeleteMemberRolePublicV1NotFound() *DeleteMemberRolePublicV1NotFound {
 	return &DeleteMemberRolePublicV1NotFound{}
 }
 
-/*DeleteMemberRolePublicV1NotFound handles this case with default header values.
+/*
+DeleteMemberRolePublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73232</td><td>member role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73232</td><td>member role not found</td></tr></table>
 */
 type DeleteMemberRolePublicV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -402,9 +407,10 @@ func NewDeleteMemberRolePublicV1UnprocessableEntity() *DeleteMemberRolePublicV1U
 	return &DeleteMemberRolePublicV1UnprocessableEntity{}
 }
 
-/*DeleteMemberRolePublicV1UnprocessableEntity handles this case with default header values.
+/*
+DeleteMemberRolePublicV1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73444</td><td>member must have role</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73444</td><td>member must have role</td></tr></table>
 */
 type DeleteMemberRolePublicV1UnprocessableEntity struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -456,9 +462,10 @@ func NewDeleteMemberRolePublicV1InternalServerError() *DeleteMemberRolePublicV1I
 	return &DeleteMemberRolePublicV1InternalServerError{}
 }
 
-/*DeleteMemberRolePublicV1InternalServerError handles this case with default header values.
+/*
+DeleteMemberRolePublicV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteMemberRolePublicV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

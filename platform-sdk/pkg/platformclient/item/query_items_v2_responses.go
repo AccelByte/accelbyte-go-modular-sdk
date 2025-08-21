@@ -100,9 +100,10 @@ func NewQueryItemsV2OK() *QueryItemsV2OK {
 	return &QueryItemsV2OK{}
 }
 
-/*QueryItemsV2OK handles this case with default header values.
+/*
+QueryItemsV2OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryItemsV2OK struct {
 	Payload *platformclientmodels.FullItemPagingResult
@@ -154,9 +155,10 @@ func NewQueryItemsV2NotFound() *QueryItemsV2NotFound {
 	return &QueryItemsV2NotFound{}
 }
 
-/*QueryItemsV2NotFound handles this case with default header values.
+/*
+QueryItemsV2NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
 */
 type QueryItemsV2NotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewQueryItemsV2UnprocessableEntity() *QueryItemsV2UnprocessableEntity {
 	return &QueryItemsV2UnprocessableEntity{}
 }
 
-/*QueryItemsV2UnprocessableEntity handles this case with default header values.
+/*
+QueryItemsV2UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type QueryItemsV2UnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

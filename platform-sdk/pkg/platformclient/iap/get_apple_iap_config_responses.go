@@ -69,9 +69,10 @@ func NewGetAppleIAPConfigOK() *GetAppleIAPConfigOK {
 	return &GetAppleIAPConfigOK{}
 }
 
-/*GetAppleIAPConfigOK handles this case with default header values.
+/*
+GetAppleIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetAppleIAPConfigOK struct {
 	Payload *platformclientmodels.AppleIAPConfigInfo

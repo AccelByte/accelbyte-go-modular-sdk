@@ -57,7 +57,8 @@ func NewAdminDecryptDeviceV4ParamsWithHTTPClient(client *http.Client) *AdminDecr
 	}
 }
 
-/*AdminDecryptDeviceV4Params contains all the parameters to send to the API endpoint
+/*
+AdminDecryptDeviceV4Params contains all the parameters to send to the API endpoint
 for the admin decrypt device v4 operation typically these are written to a http.Request
 */
 type AdminDecryptDeviceV4Params struct {

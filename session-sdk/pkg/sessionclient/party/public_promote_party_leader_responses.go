@@ -145,9 +145,10 @@ func NewPublicPromotePartyLeaderOK() *PublicPromotePartyLeaderOK {
 	return &PublicPromotePartyLeaderOK{}
 }
 
-/*PublicPromotePartyLeaderOK handles this case with default header values.
+/*
+PublicPromotePartyLeaderOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicPromotePartyLeaderOK struct {
 	Payload *sessionclientmodels.ApimodelsPartySessionResponse
@@ -199,9 +200,10 @@ func NewPublicPromotePartyLeaderBadRequest() *PublicPromotePartyLeaderBadRequest
 	return &PublicPromotePartyLeaderBadRequest{}
 }
 
-/*PublicPromotePartyLeaderBadRequest handles this case with default header values.
+/*
+PublicPromotePartyLeaderBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPromotePartyLeaderBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewPublicPromotePartyLeaderUnauthorized() *PublicPromotePartyLeaderUnauthor
 	return &PublicPromotePartyLeaderUnauthorized{}
 }
 
-/*PublicPromotePartyLeaderUnauthorized handles this case with default header values.
+/*
+PublicPromotePartyLeaderUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPromotePartyLeaderUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewPublicPromotePartyLeaderForbidden() *PublicPromotePartyLeaderForbidden {
 	return &PublicPromotePartyLeaderForbidden{}
 }
 
-/*PublicPromotePartyLeaderForbidden handles this case with default header values.
+/*
+PublicPromotePartyLeaderForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicPromotePartyLeaderForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewPublicPromotePartyLeaderNotFound() *PublicPromotePartyLeaderNotFound {
 	return &PublicPromotePartyLeaderNotFound{}
 }
 
-/*PublicPromotePartyLeaderNotFound handles this case with default header values.
+/*
+PublicPromotePartyLeaderNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPromotePartyLeaderNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicPromotePartyLeaderInternalServerError() *PublicPromotePartyLeaderI
 	return &PublicPromotePartyLeaderInternalServerError{}
 }
 
-/*PublicPromotePartyLeaderInternalServerError handles this case with default header values.
+/*
+PublicPromotePartyLeaderInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPromotePartyLeaderInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

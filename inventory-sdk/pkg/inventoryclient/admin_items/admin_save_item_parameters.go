@@ -59,7 +59,8 @@ func NewAdminSaveItemParamsWithHTTPClient(client *http.Client) *AdminSaveItemPar
 	}
 }
 
-/*AdminSaveItemParams contains all the parameters to send to the API endpoint
+/*
+AdminSaveItemParams contains all the parameters to send to the API endpoint
 for the admin save item operation typically these are written to a http.Request
 */
 type AdminSaveItemParams struct {

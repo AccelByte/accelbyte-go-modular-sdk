@@ -57,7 +57,8 @@ func NewSyncOculusConsumableEntitlementsParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*SyncOculusConsumableEntitlementsParams contains all the parameters to send to the API endpoint
+/*
+SyncOculusConsumableEntitlementsParams contains all the parameters to send to the API endpoint
 for the sync oculus consumable entitlements operation typically these are written to a http.Request
 */
 type SyncOculusConsumableEntitlementsParams struct {

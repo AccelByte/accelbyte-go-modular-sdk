@@ -115,9 +115,10 @@ func NewUpdateCampaignOK() *UpdateCampaignOK {
 	return &UpdateCampaignOK{}
 }
 
-/*UpdateCampaignOK handles this case with default header values.
+/*
+UpdateCampaignOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateCampaignOK struct {
 	Payload *platformclientmodels.CampaignInfo
@@ -169,9 +170,10 @@ func NewUpdateCampaignNotFound() *UpdateCampaignNotFound {
 	return &UpdateCampaignNotFound{}
 }
 
-/*UpdateCampaignNotFound handles this case with default header values.
+/*
+UpdateCampaignNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateCampaignNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewUpdateCampaignConflict() *UpdateCampaignConflict {
 	return &UpdateCampaignConflict{}
 }
 
-/*UpdateCampaignConflict handles this case with default header values.
+/*
+UpdateCampaignConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37171</td><td>Campaign [{name}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37171</td><td>Campaign [{name}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type UpdateCampaignConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewUpdateCampaignUnprocessableEntity() *UpdateCampaignUnprocessableEntity {
 	return &UpdateCampaignUnprocessableEntity{}
 }
 
-/*UpdateCampaignUnprocessableEntity handles this case with default header values.
+/*
+UpdateCampaignUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateCampaignUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

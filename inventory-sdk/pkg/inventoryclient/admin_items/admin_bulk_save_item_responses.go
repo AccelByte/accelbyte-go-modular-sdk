@@ -160,9 +160,10 @@ func NewAdminBulkSaveItemOK() *AdminBulkSaveItemOK {
 	return &AdminBulkSaveItemOK{}
 }
 
-/*AdminBulkSaveItemOK handles this case with default header values.
+/*
+AdminBulkSaveItemOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminBulkSaveItemOK struct {
 	Payload []*inventoryclientmodels.ApimodelsBulkSaveItemResp
@@ -212,9 +213,10 @@ func NewAdminBulkSaveItemBadRequest() *AdminBulkSaveItemBadRequest {
 	return &AdminBulkSaveItemBadRequest{}
 }
 
-/*AdminBulkSaveItemBadRequest handles this case with default header values.
+/*
+AdminBulkSaveItemBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminBulkSaveItemBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -266,9 +268,10 @@ func NewAdminBulkSaveItemUnauthorized() *AdminBulkSaveItemUnauthorized {
 	return &AdminBulkSaveItemUnauthorized{}
 }
 
-/*AdminBulkSaveItemUnauthorized handles this case with default header values.
+/*
+AdminBulkSaveItemUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminBulkSaveItemUnauthorized struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -320,9 +323,10 @@ func NewAdminBulkSaveItemForbidden() *AdminBulkSaveItemForbidden {
 	return &AdminBulkSaveItemForbidden{}
 }
 
-/*AdminBulkSaveItemForbidden handles this case with default header values.
+/*
+AdminBulkSaveItemForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminBulkSaveItemForbidden struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -374,9 +378,10 @@ func NewAdminBulkSaveItemNotFound() *AdminBulkSaveItemNotFound {
 	return &AdminBulkSaveItemNotFound{}
 }
 
-/*AdminBulkSaveItemNotFound handles this case with default header values.
+/*
+AdminBulkSaveItemNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminBulkSaveItemNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -428,9 +433,10 @@ func NewAdminBulkSaveItemUnprocessableEntity() *AdminBulkSaveItemUnprocessableEn
 	return &AdminBulkSaveItemUnprocessableEntity{}
 }
 
-/*AdminBulkSaveItemUnprocessableEntity handles this case with default header values.
+/*
+AdminBulkSaveItemUnprocessableEntity handles this case with default header values.
 
-  Unprocessable Entity
+	Unprocessable Entity
 */
 type AdminBulkSaveItemUnprocessableEntity struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -482,9 +488,10 @@ func NewAdminBulkSaveItemInternalServerError() *AdminBulkSaveItemInternalServerE
 	return &AdminBulkSaveItemInternalServerError{}
 }
 
-/*AdminBulkSaveItemInternalServerError handles this case with default header values.
+/*
+AdminBulkSaveItemInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminBulkSaveItemInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

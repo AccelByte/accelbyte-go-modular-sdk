@@ -115,9 +115,10 @@ func NewPayOK() *PayOK {
 	return &PayOK{}
 }
 
-/*PayOK handles this case with default header values.
+/*
+PayOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PayOK struct {
 	Payload *platformclientmodels.PaymentProcessResult
@@ -169,9 +170,10 @@ func NewPayBadRequest() *PayBadRequest {
 	return &PayBadRequest{}
 }
 
-/*PayBadRequest handles this case with default header values.
+/*
+PayBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33322</td><td>Payment provider [{paymentProvider}] not supported</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33322</td><td>Payment provider [{paymentProvider}] not supported</td></tr></table>
 */
 type PayBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewPayNotFound() *PayNotFound {
 	return &PayNotFound{}
 }
 
-/*PayNotFound handles this case with default header values.
+/*
+PayNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
 */
 type PayNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewPayConflict() *PayConflict {
 	return &PayConflict{}
 }
 
-/*PayConflict handles this case with default header values.
+/*
+PayConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33171</td><td>Invalid payment order status [{status}] for payment order [{paymentOrderNo}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33171</td><td>Invalid payment order status [{status}] for payment order [{paymentOrderNo}]</td></tr></table>
 */
 type PayConflict struct {
 	Payload *platformclientmodels.ErrorEntity

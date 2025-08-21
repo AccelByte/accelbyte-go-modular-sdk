@@ -100,9 +100,10 @@ func NewCreateLocalizedPolicyVersion1Created() *CreateLocalizedPolicyVersion1Cre
 	return &CreateLocalizedPolicyVersion1Created{}
 }
 
-/*CreateLocalizedPolicyVersion1Created handles this case with default header values.
+/*
+CreateLocalizedPolicyVersion1Created handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateLocalizedPolicyVersion1Created struct {
 	Payload *legalclientmodels.CreateLocalizedPolicyVersionResponse
@@ -154,9 +155,10 @@ func NewCreateLocalizedPolicyVersion1BadRequest() *CreateLocalizedPolicyVersion1
 	return &CreateLocalizedPolicyVersion1BadRequest{}
 }
 
-/*CreateLocalizedPolicyVersion1BadRequest handles this case with default header values.
+/*
+CreateLocalizedPolicyVersion1BadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr></table>
 */
 type CreateLocalizedPolicyVersion1BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewCreateLocalizedPolicyVersion1Conflict() *CreateLocalizedPolicyVersion1Co
 	return &CreateLocalizedPolicyVersion1Conflict{}
 }
 
-/*CreateLocalizedPolicyVersion1Conflict handles this case with default header values.
+/*
+CreateLocalizedPolicyVersion1Conflict handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40044</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_exist</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40044</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_exist</td></tr></table>
 */
 type CreateLocalizedPolicyVersion1Conflict struct {
 	Payload *legalclientmodels.ErrorEntity

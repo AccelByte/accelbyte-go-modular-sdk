@@ -57,7 +57,8 @@ func NewHardDeleteLeaderboardAdminV3ParamsWithHTTPClient(client *http.Client) *H
 	}
 }
 
-/*HardDeleteLeaderboardAdminV3Params contains all the parameters to send to the API endpoint
+/*
+HardDeleteLeaderboardAdminV3Params contains all the parameters to send to the API endpoint
 for the hard delete leaderboard admin v3 operation typically these are written to a http.Request
 */
 type HardDeleteLeaderboardAdminV3Params struct {

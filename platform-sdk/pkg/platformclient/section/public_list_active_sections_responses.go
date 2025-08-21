@@ -85,9 +85,10 @@ func NewPublicListActiveSectionsOK() *PublicListActiveSectionsOK {
 	return &PublicListActiveSectionsOK{}
 }
 
-/*PublicListActiveSectionsOK handles this case with default header values.
+/*
+PublicListActiveSectionsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicListActiveSectionsOK struct {
 	Payload []*platformclientmodels.SectionInfo
@@ -137,9 +138,10 @@ func NewPublicListActiveSectionsNotFound() *PublicListActiveSectionsNotFound {
 	return &PublicListActiveSectionsNotFound{}
 }
 
-/*PublicListActiveSectionsNotFound handles this case with default header values.
+/*
+PublicListActiveSectionsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicListActiveSectionsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

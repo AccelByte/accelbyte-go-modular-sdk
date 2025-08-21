@@ -47,9 +47,8 @@ DeleteLocalizedPolicyShort delete localized policy
 Delete localized version policy.
 Can only be deleted if match these criteria:
 
-
-  * Policy Version that this localized policy version belongs to is not active
-  * Has never been accepted by any user
+  - Policy Version that this localized policy version belongs to is not active
+  - Has never been accepted by any user
 */
 func (a *Client) DeleteLocalizedPolicyShort(params *DeleteLocalizedPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteLocalizedPolicyResponse, error) {
 	// TODO: Validate the params before sending

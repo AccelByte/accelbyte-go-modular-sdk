@@ -59,7 +59,8 @@ func NewSyncNativeBlockedUserParamsWithHTTPClient(client *http.Client) *SyncNati
 	}
 }
 
-/*SyncNativeBlockedUserParams contains all the parameters to send to the API endpoint
+/*
+SyncNativeBlockedUserParams contains all the parameters to send to the API endpoint
 for the sync native blocked user operation typically these are written to a http.Request
 */
 type SyncNativeBlockedUserParams struct {

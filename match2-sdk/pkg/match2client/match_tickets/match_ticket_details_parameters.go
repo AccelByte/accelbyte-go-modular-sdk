@@ -57,7 +57,8 @@ func NewMatchTicketDetailsParamsWithHTTPClient(client *http.Client) *MatchTicket
 	}
 }
 
-/*MatchTicketDetailsParams contains all the parameters to send to the API endpoint
+/*
+MatchTicketDetailsParams contains all the parameters to send to the API endpoint
 for the match ticket details operation typically these are written to a http.Request
 */
 type MatchTicketDetailsParams struct {

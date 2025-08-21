@@ -130,9 +130,10 @@ func NewAdminDeleteBulkGameSessionsOK() *AdminDeleteBulkGameSessionsOK {
 	return &AdminDeleteBulkGameSessionsOK{}
 }
 
-/*AdminDeleteBulkGameSessionsOK handles this case with default header values.
+/*
+AdminDeleteBulkGameSessionsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminDeleteBulkGameSessionsOK struct {
 	Payload *sessionclientmodels.ApimodelsDeleteBulkGameSessionsAPIResponse
@@ -184,9 +185,10 @@ func NewAdminDeleteBulkGameSessionsBadRequest() *AdminDeleteBulkGameSessionsBadR
 	return &AdminDeleteBulkGameSessionsBadRequest{}
 }
 
-/*AdminDeleteBulkGameSessionsBadRequest handles this case with default header values.
+/*
+AdminDeleteBulkGameSessionsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeleteBulkGameSessionsBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminDeleteBulkGameSessionsUnauthorized() *AdminDeleteBulkGameSessionsUn
 	return &AdminDeleteBulkGameSessionsUnauthorized{}
 }
 
-/*AdminDeleteBulkGameSessionsUnauthorized handles this case with default header values.
+/*
+AdminDeleteBulkGameSessionsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeleteBulkGameSessionsUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminDeleteBulkGameSessionsForbidden() *AdminDeleteBulkGameSessionsForbi
 	return &AdminDeleteBulkGameSessionsForbidden{}
 }
 
-/*AdminDeleteBulkGameSessionsForbidden handles this case with default header values.
+/*
+AdminDeleteBulkGameSessionsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeleteBulkGameSessionsForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminDeleteBulkGameSessionsInternalServerError() *AdminDeleteBulkGameSes
 	return &AdminDeleteBulkGameSessionsInternalServerError{}
 }
 
-/*AdminDeleteBulkGameSessionsInternalServerError handles this case with default header values.
+/*
+AdminDeleteBulkGameSessionsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteBulkGameSessionsInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -145,9 +145,10 @@ func NewAdminUploadContentScreenshotV2Created() *AdminUploadContentScreenshotV2C
 	return &AdminUploadContentScreenshotV2Created{}
 }
 
-/*AdminUploadContentScreenshotV2Created handles this case with default header values.
+/*
+AdminUploadContentScreenshotV2Created handles this case with default header values.
 
-  Screenshot uploaded
+	Screenshot uploaded
 */
 type AdminUploadContentScreenshotV2Created struct {
 	Payload *ugcclientmodels.ModelsCreateScreenshotResponse
@@ -199,9 +200,10 @@ func NewAdminUploadContentScreenshotV2BadRequest() *AdminUploadContentScreenshot
 	return &AdminUploadContentScreenshotV2BadRequest{}
 }
 
-/*AdminUploadContentScreenshotV2BadRequest handles this case with default header values.
+/*
+AdminUploadContentScreenshotV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
 */
 type AdminUploadContentScreenshotV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUploadContentScreenshotV2Unauthorized() *AdminUploadContentScreensh
 	return &AdminUploadContentScreenshotV2Unauthorized{}
 }
 
-/*AdminUploadContentScreenshotV2Unauthorized handles this case with default header values.
+/*
+AdminUploadContentScreenshotV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUploadContentScreenshotV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUploadContentScreenshotV2Forbidden() *AdminUploadContentScreenshotV
 	return &AdminUploadContentScreenshotV2Forbidden{}
 }
 
-/*AdminUploadContentScreenshotV2Forbidden handles this case with default header values.
+/*
+AdminUploadContentScreenshotV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type AdminUploadContentScreenshotV2Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUploadContentScreenshotV2NotFound() *AdminUploadContentScreenshotV2
 	return &AdminUploadContentScreenshotV2NotFound{}
 }
 
-/*AdminUploadContentScreenshotV2NotFound handles this case with default header values.
+/*
+AdminUploadContentScreenshotV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
 */
 type AdminUploadContentScreenshotV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUploadContentScreenshotV2InternalServerError() *AdminUploadContentS
 	return &AdminUploadContentScreenshotV2InternalServerError{}
 }
 
-/*AdminUploadContentScreenshotV2InternalServerError handles this case with default header values.
+/*
+AdminUploadContentScreenshotV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
 */
 type AdminUploadContentScreenshotV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

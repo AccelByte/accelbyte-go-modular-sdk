@@ -85,9 +85,10 @@ func NewAdminQueryTagV3OK() *AdminQueryTagV3OK {
 	return &AdminQueryTagV3OK{}
 }
 
-/*AdminQueryTagV3OK handles this case with default header values.
+/*
+AdminQueryTagV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminQueryTagV3OK struct {
 	Payload *iamclientmodels.AccountcommonTagsGetResponseV3
@@ -139,9 +140,10 @@ func NewAdminQueryTagV3InternalServerError() *AdminQueryTagV3InternalServerError
 	return &AdminQueryTagV3InternalServerError{}
 }
 
-/*AdminQueryTagV3InternalServerError handles this case with default header values.
+/*
+AdminQueryTagV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminQueryTagV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

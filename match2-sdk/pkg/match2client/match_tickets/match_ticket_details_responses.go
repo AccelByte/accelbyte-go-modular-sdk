@@ -130,9 +130,10 @@ func NewMatchTicketDetailsOK() *MatchTicketDetailsOK {
 	return &MatchTicketDetailsOK{}
 }
 
-/*MatchTicketDetailsOK handles this case with default header values.
+/*
+MatchTicketDetailsOK handles this case with default header values.
 
-  Created
+	Created
 */
 type MatchTicketDetailsOK struct {
 	Payload *match2clientmodels.APIMatchTicketStatus
@@ -184,9 +185,10 @@ func NewMatchTicketDetailsUnauthorized() *MatchTicketDetailsUnauthorized {
 	return &MatchTicketDetailsUnauthorized{}
 }
 
-/*MatchTicketDetailsUnauthorized handles this case with default header values.
+/*
+MatchTicketDetailsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type MatchTicketDetailsUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewMatchTicketDetailsForbidden() *MatchTicketDetailsForbidden {
 	return &MatchTicketDetailsForbidden{}
 }
 
-/*MatchTicketDetailsForbidden handles this case with default header values.
+/*
+MatchTicketDetailsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type MatchTicketDetailsForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewMatchTicketDetailsNotFound() *MatchTicketDetailsNotFound {
 	return &MatchTicketDetailsNotFound{}
 }
 
-/*MatchTicketDetailsNotFound handles this case with default header values.
+/*
+MatchTicketDetailsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type MatchTicketDetailsNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewMatchTicketDetailsInternalServerError() *MatchTicketDetailsInternalServe
 	return &MatchTicketDetailsInternalServerError{}
 }
 
-/*MatchTicketDetailsInternalServerError handles this case with default header values.
+/*
+MatchTicketDetailsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type MatchTicketDetailsInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

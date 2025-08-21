@@ -145,9 +145,10 @@ func NewUpdatePluginConfigOK() *UpdatePluginConfigOK {
 	return &UpdatePluginConfigOK{}
 }
 
-/*UpdatePluginConfigOK handles this case with default header values.
+/*
+UpdatePluginConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdatePluginConfigOK struct {
 	Payload *cloudsaveclientmodels.ModelsPluginResponse
@@ -199,9 +200,10 @@ func NewUpdatePluginConfigBadRequest() *UpdatePluginConfigBadRequest {
 	return &UpdatePluginConfigBadRequest{}
 }
 
-/*UpdatePluginConfigBadRequest handles this case with default header values.
+/*
+UpdatePluginConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18408</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18408</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdatePluginConfigBadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewUpdatePluginConfigUnauthorized() *UpdatePluginConfigUnauthorized {
 	return &UpdatePluginConfigUnauthorized{}
 }
 
-/*UpdatePluginConfigUnauthorized handles this case with default header values.
+/*
+UpdatePluginConfigUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdatePluginConfigUnauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewUpdatePluginConfigForbidden() *UpdatePluginConfigForbidden {
 	return &UpdatePluginConfigForbidden{}
 }
 
-/*UpdatePluginConfigForbidden handles this case with default header values.
+/*
+UpdatePluginConfigForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdatePluginConfigForbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewUpdatePluginConfigNotFound() *UpdatePluginConfigNotFound {
 	return &UpdatePluginConfigNotFound{}
 }
 
-/*UpdatePluginConfigNotFound handles this case with default header values.
+/*
+UpdatePluginConfigNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18409</td><td>plugins config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18409</td><td>plugins config not found</td></tr></table>
 */
 type UpdatePluginConfigNotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewUpdatePluginConfigInternalServerError() *UpdatePluginConfigInternalServe
 	return &UpdatePluginConfigInternalServerError{}
 }
 
-/*UpdatePluginConfigInternalServerError handles this case with default header values.
+/*
+UpdatePluginConfigInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type UpdatePluginConfigInternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

@@ -85,9 +85,10 @@ func NewUpdatePlatformDLCConfigOK() *UpdatePlatformDLCConfigOK {
 	return &UpdatePlatformDLCConfigOK{}
 }
 
-/*UpdatePlatformDLCConfigOK handles this case with default header values.
+/*
+UpdatePlatformDLCConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePlatformDLCConfigOK struct {
 	Payload *platformclientmodels.PlatformDLCConfigInfo
@@ -139,9 +140,10 @@ func NewUpdatePlatformDLCConfigUnprocessableEntity() *UpdatePlatformDLCConfigUnp
 	return &UpdatePlatformDLCConfigUnprocessableEntity{}
 }
 
-/*UpdatePlatformDLCConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdatePlatformDLCConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdatePlatformDLCConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

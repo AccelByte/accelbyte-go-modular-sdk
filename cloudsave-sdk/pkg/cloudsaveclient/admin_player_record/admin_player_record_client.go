@@ -221,7 +221,6 @@ This endpoints will create new player record or replace the existing player reco
 Maximum number of user ids per request is 10.
 Maximum total size of the request payload is 5 MB.
 
-
 ## Recommended Request Body Size
 
 To ensure optimal performance and efficient resource utilization, it is recommended that the request body for this endpoint does not exceed 10 update request or 250 KB of whole request body.
@@ -478,7 +477,6 @@ AdminPutPlayerRecordsHandlerV1Short bulk update player records
 This endpoints will create new player record or replace the existing player record in bulk.
 Maximum bulk key limit per request 10.
 Maximum total size of the request payload is 5 MB.
-
 
 ## Recommended Request Body Size
 
@@ -753,8 +751,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Record Metadata
 
 Metadata allows user to define the behaviour of the record.
@@ -891,7 +887,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -904,7 +899,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
 
 ## Record Metadata
 
@@ -1199,8 +1193,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Warning: This endpoint is going to deprecate
 
 This endpoint is going to deprecate in the future please don't use it.
@@ -1309,7 +1301,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -1322,7 +1313,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
 
 ## Warning: This endpoint is going to deprecate
 
@@ -1414,7 +1404,6 @@ func (a *Client) AdminPostPlayerPublicRecordHandlerV1Short(params *AdminPostPlay
 /*
 AdminDeletePlayerPublicRecordHandlerV1Short delete player public record
 Delete player public record.
-
 
 ## Warning: This endpoint is going to deprecate
 

@@ -159,9 +159,10 @@ func NewAdminSendVerificationCodeV3NoContent() *AdminSendVerificationCodeV3NoCon
 	return &AdminSendVerificationCodeV3NoContent{}
 }
 
-/*AdminSendVerificationCodeV3NoContent handles this case with default header values.
+/*
+AdminSendVerificationCodeV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminSendVerificationCodeV3NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewAdminSendVerificationCodeV3BadRequest() *AdminSendVerificationCodeV3BadR
 	return &AdminSendVerificationCodeV3BadRequest{}
 }
 
-/*AdminSendVerificationCodeV3BadRequest handles this case with default header values.
+/*
+AdminSendVerificationCodeV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminSendVerificationCodeV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewAdminSendVerificationCodeV3Unauthorized() *AdminSendVerificationCodeV3Un
 	return &AdminSendVerificationCodeV3Unauthorized{}
 }
 
-/*AdminSendVerificationCodeV3Unauthorized handles this case with default header values.
+/*
+AdminSendVerificationCodeV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminSendVerificationCodeV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewAdminSendVerificationCodeV3Forbidden() *AdminSendVerificationCodeV3Forbi
 	return &AdminSendVerificationCodeV3Forbidden{}
 }
 
-/*AdminSendVerificationCodeV3Forbidden handles this case with default header values.
+/*
+AdminSendVerificationCodeV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10146</td><td>userID not match</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10146</td><td>userID not match</td></tr></table>
 */
 type AdminSendVerificationCodeV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewAdminSendVerificationCodeV3NotFound() *AdminSendVerificationCodeV3NotFou
 	return &AdminSendVerificationCodeV3NotFound{}
 }
 
-/*AdminSendVerificationCodeV3NotFound handles this case with default header values.
+/*
+AdminSendVerificationCodeV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type AdminSendVerificationCodeV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewAdminSendVerificationCodeV3Conflict() *AdminSendVerificationCodeV3Confli
 	return &AdminSendVerificationCodeV3Conflict{}
 }
 
-/*AdminSendVerificationCodeV3Conflict handles this case with default header values.
+/*
+AdminSendVerificationCodeV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10140</td><td>user verified</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10140</td><td>user verified</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type AdminSendVerificationCodeV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewAdminSendVerificationCodeV3TooManyRequests() *AdminSendVerificationCodeV
 	return &AdminSendVerificationCodeV3TooManyRequests{}
 }
 
-/*AdminSendVerificationCodeV3TooManyRequests handles this case with default header values.
+/*
+AdminSendVerificationCodeV3TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type AdminSendVerificationCodeV3TooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse

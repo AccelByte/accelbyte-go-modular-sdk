@@ -66,9 +66,10 @@ func NewInvalidateUserInfoCacheNoContent() *InvalidateUserInfoCacheNoContent {
 	return &InvalidateUserInfoCacheNoContent{}
 }
 
-/*InvalidateUserInfoCacheNoContent handles this case with default header values.
+/*
+InvalidateUserInfoCacheNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type InvalidateUserInfoCacheNoContent struct {
 }

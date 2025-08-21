@@ -57,7 +57,8 @@ func NewAdminJoinPartyV1ParamsWithHTTPClient(client *http.Client) *AdminJoinPart
 	}
 }
 
-/*AdminJoinPartyV1Params contains all the parameters to send to the API endpoint
+/*
+AdminJoinPartyV1Params contains all the parameters to send to the API endpoint
 for the admin join party v1 operation typically these are written to a http.Request
 */
 type AdminJoinPartyV1Params struct {

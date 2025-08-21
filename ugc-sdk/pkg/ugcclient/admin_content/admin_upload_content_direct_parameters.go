@@ -59,7 +59,8 @@ func NewAdminUploadContentDirectParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminUploadContentDirectParams contains all the parameters to send to the API endpoint
+/*
+AdminUploadContentDirectParams contains all the parameters to send to the API endpoint
 for the admin upload content direct operation typically these are written to a http.Request
 */
 type AdminUploadContentDirectParams struct {

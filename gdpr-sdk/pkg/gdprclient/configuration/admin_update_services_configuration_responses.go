@@ -115,9 +115,10 @@ func NewAdminUpdateServicesConfigurationOK() *AdminUpdateServicesConfigurationOK
 	return &AdminUpdateServicesConfigurationOK{}
 }
 
-/*AdminUpdateServicesConfigurationOK handles this case with default header values.
+/*
+AdminUpdateServicesConfigurationOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateServicesConfigurationOK struct {
 	Payload *gdprclientmodels.DTOServiceConfigurationUpdateRequest
@@ -169,9 +170,10 @@ func NewAdminUpdateServicesConfigurationBadRequest() *AdminUpdateServicesConfigu
 	return &AdminUpdateServicesConfigurationBadRequest{}
 }
 
-/*AdminUpdateServicesConfigurationBadRequest handles this case with default header values.
+/*
+AdminUpdateServicesConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateServicesConfigurationBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminUpdateServicesConfigurationUnauthorized() *AdminUpdateServicesConfi
 	return &AdminUpdateServicesConfigurationUnauthorized{}
 }
 
-/*AdminUpdateServicesConfigurationUnauthorized handles this case with default header values.
+/*
+AdminUpdateServicesConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdateServicesConfigurationUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminUpdateServicesConfigurationInternalServerError() *AdminUpdateServic
 	return &AdminUpdateServicesConfigurationInternalServerError{}
 }
 
-/*AdminUpdateServicesConfigurationInternalServerError handles this case with default header values.
+/*
+AdminUpdateServicesConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateServicesConfigurationInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

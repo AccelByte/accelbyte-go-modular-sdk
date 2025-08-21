@@ -115,9 +115,10 @@ func NewListContentVersionsOK() *ListContentVersionsOK {
 	return &ListContentVersionsOK{}
 }
 
-/*ListContentVersionsOK handles this case with default header values.
+/*
+ListContentVersionsOK handles this case with default header values.
 
-  list content's payload versions
+	list content's payload versions
 */
 type ListContentVersionsOK struct {
 	Payload *ugcclientmodels.ModelsListContentVersionsResponse
@@ -169,9 +170,10 @@ func NewListContentVersionsUnauthorized() *ListContentVersionsUnauthorized {
 	return &ListContentVersionsUnauthorized{}
 }
 
-/*ListContentVersionsUnauthorized handles this case with default header values.
+/*
+ListContentVersionsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type ListContentVersionsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewListContentVersionsNotFound() *ListContentVersionsNotFound {
 	return &ListContentVersionsNotFound{}
 }
 
-/*ListContentVersionsNotFound handles this case with default header values.
+/*
+ListContentVersionsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774004</td><td>ugc content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774004</td><td>ugc content not found</td></tr></table>
 */
 type ListContentVersionsNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewListContentVersionsInternalServerError() *ListContentVersionsInternalSer
 	return &ListContentVersionsInternalServerError{}
 }
 
-/*ListContentVersionsInternalServerError handles this case with default header values.
+/*
+ListContentVersionsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774005</td><td>unable to get ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774005</td><td>unable to get ugc content</td></tr></table>
 */
 type ListContentVersionsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

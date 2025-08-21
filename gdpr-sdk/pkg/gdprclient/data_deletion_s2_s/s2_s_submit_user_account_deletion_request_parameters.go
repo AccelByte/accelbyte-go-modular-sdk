@@ -57,7 +57,8 @@ func NewS2SSubmitUserAccountDeletionRequestParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*S2SSubmitUserAccountDeletionRequestParams contains all the parameters to send to the API endpoint
+/*
+S2SSubmitUserAccountDeletionRequestParams contains all the parameters to send to the API endpoint
 for the s2s submit user account deletion request operation typically these are written to a http.Request
 */
 type S2SSubmitUserAccountDeletionRequestParams struct {

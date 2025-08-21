@@ -85,9 +85,10 @@ func NewCheckEventConditionOK() *CheckEventConditionOK {
 	return &CheckEventConditionOK{}
 }
 
-/*CheckEventConditionOK handles this case with default header values.
+/*
+CheckEventConditionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CheckEventConditionOK struct {
 	Payload *platformclientmodels.ConditionMatchResult
@@ -139,9 +140,10 @@ func NewCheckEventConditionNotFound() *CheckEventConditionNotFound {
 	return &CheckEventConditionNotFound{}
 }
 
-/*CheckEventConditionNotFound handles this case with default header values.
+/*
+CheckEventConditionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34041</td><td>Reward [{rewardId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34041</td><td>Reward [{rewardId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CheckEventConditionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

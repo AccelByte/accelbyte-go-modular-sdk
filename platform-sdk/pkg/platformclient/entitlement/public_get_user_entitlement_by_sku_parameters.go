@@ -80,7 +80,8 @@ func NewPublicGetUserEntitlementBySkuParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicGetUserEntitlementBySkuParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserEntitlementBySkuParams contains all the parameters to send to the API endpoint
 for the public get user entitlement by sku operation typically these are written to a http.Request
 */
 type PublicGetUserEntitlementBySkuParams struct {

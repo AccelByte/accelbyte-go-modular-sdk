@@ -99,7 +99,8 @@ func NewPublicListGlobalAchievementsParamsWithHTTPClient(client *http.Client) *P
 	}
 }
 
-/*PublicListGlobalAchievementsParams contains all the parameters to send to the API endpoint
+/*
+PublicListGlobalAchievementsParams contains all the parameters to send to the API endpoint
 for the public list global achievements operation typically these are written to a http.Request
 */
 type PublicListGlobalAchievementsParams struct {

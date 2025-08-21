@@ -114,9 +114,10 @@ func NewDeleteAllUserGroupNoContent() *DeleteAllUserGroupNoContent {
 	return &DeleteAllUserGroupNoContent{}
 }
 
-/*DeleteAllUserGroupNoContent handles this case with default header values.
+/*
+DeleteAllUserGroupNoContent handles this case with default header values.
 
-  groups deleted
+	groups deleted
 */
 type DeleteAllUserGroupNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteAllUserGroupUnauthorized() *DeleteAllUserGroupUnauthorized {
 	return &DeleteAllUserGroupUnauthorized{}
 }
 
-/*DeleteAllUserGroupUnauthorized handles this case with default header values.
+/*
+DeleteAllUserGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteAllUserGroupUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewDeleteAllUserGroupNotFound() *DeleteAllUserGroupNotFound {
 	return &DeleteAllUserGroupNotFound{}
 }
 
-/*DeleteAllUserGroupNotFound handles this case with default header values.
+/*
+DeleteAllUserGroupNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773302</td><td>Groups not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773302</td><td>Groups not found</td></tr></table>
 */
 type DeleteAllUserGroupNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewDeleteAllUserGroupInternalServerError() *DeleteAllUserGroupInternalServe
 	return &DeleteAllUserGroupInternalServerError{}
 }
 
-/*DeleteAllUserGroupInternalServerError handles this case with default header values.
+/*
+DeleteAllUserGroupInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773301</td><td>Unable to find all user group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773301</td><td>Unable to find all user group</td></tr></table>
 */
 type DeleteAllUserGroupInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

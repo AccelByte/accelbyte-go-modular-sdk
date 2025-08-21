@@ -57,7 +57,8 @@ func NewAnonymizeFulfillmentParamsWithHTTPClient(client *http.Client) *Anonymize
 	}
 }
 
-/*AnonymizeFulfillmentParams contains all the parameters to send to the API endpoint
+/*
+AnonymizeFulfillmentParams contains all the parameters to send to the API endpoint
 for the anonymize fulfillment operation typically these are written to a http.Request
 */
 type AnonymizeFulfillmentParams struct {

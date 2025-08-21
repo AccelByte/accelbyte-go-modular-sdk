@@ -85,9 +85,10 @@ func NewTestWxPayConfigByIDOK() *TestWxPayConfigByIDOK {
 	return &TestWxPayConfigByIDOK{}
 }
 
-/*TestWxPayConfigByIDOK handles this case with default header values.
+/*
+TestWxPayConfigByIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestWxPayConfigByIDOK struct {
 	Payload *platformclientmodels.TestResult
@@ -139,9 +140,10 @@ func NewTestWxPayConfigByIDNotFound() *TestWxPayConfigByIDNotFound {
 	return &TestWxPayConfigByIDNotFound{}
 }
 
-/*TestWxPayConfigByIDNotFound handles this case with default header values.
+/*
+TestWxPayConfigByIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
 */
 type TestWxPayConfigByIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

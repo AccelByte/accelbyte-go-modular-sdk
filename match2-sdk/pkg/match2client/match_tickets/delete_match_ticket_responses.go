@@ -144,9 +144,10 @@ func NewDeleteMatchTicketNoContent() *DeleteMatchTicketNoContent {
 	return &DeleteMatchTicketNoContent{}
 }
 
-/*DeleteMatchTicketNoContent handles this case with default header values.
+/*
+DeleteMatchTicketNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteMatchTicketNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteMatchTicketUnauthorized() *DeleteMatchTicketUnauthorized {
 	return &DeleteMatchTicketUnauthorized{}
 }
 
-/*DeleteMatchTicketUnauthorized handles this case with default header values.
+/*
+DeleteMatchTicketUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteMatchTicketUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewDeleteMatchTicketForbidden() *DeleteMatchTicketForbidden {
 	return &DeleteMatchTicketForbidden{}
 }
 
-/*DeleteMatchTicketForbidden handles this case with default header values.
+/*
+DeleteMatchTicketForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteMatchTicketForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewDeleteMatchTicketNotFound() *DeleteMatchTicketNotFound {
 	return &DeleteMatchTicketNotFound{}
 }
 
-/*DeleteMatchTicketNotFound handles this case with default header values.
+/*
+DeleteMatchTicketNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteMatchTicketNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewDeleteMatchTicketNotAcceptable() *DeleteMatchTicketNotAcceptable {
 	return &DeleteMatchTicketNotAcceptable{}
 }
 
-/*DeleteMatchTicketNotAcceptable handles this case with default header values.
+/*
+DeleteMatchTicketNotAcceptable handles this case with default header values.
 
-  Not Acceptable
+	Not Acceptable
 */
 type DeleteMatchTicketNotAcceptable struct {
 	Payload *match2clientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewDeleteMatchTicketInternalServerError() *DeleteMatchTicketInternalServerE
 	return &DeleteMatchTicketInternalServerError{}
 }
 
-/*DeleteMatchTicketInternalServerError handles this case with default header values.
+/*
+DeleteMatchTicketInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteMatchTicketInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

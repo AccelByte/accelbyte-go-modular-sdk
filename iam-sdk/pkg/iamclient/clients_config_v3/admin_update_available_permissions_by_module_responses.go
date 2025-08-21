@@ -99,9 +99,10 @@ func NewAdminUpdateAvailablePermissionsByModuleNoContent() *AdminUpdateAvailable
 	return &AdminUpdateAvailablePermissionsByModuleNoContent{}
 }
 
-/*AdminUpdateAvailablePermissionsByModuleNoContent handles this case with default header values.
+/*
+AdminUpdateAvailablePermissionsByModuleNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminUpdateAvailablePermissionsByModuleNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewAdminUpdateAvailablePermissionsByModuleUnauthorized() *AdminUpdateAvaila
 	return &AdminUpdateAvailablePermissionsByModuleUnauthorized{}
 }
 
-/*AdminUpdateAvailablePermissionsByModuleUnauthorized handles this case with default header values.
+/*
+AdminUpdateAvailablePermissionsByModuleUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateAvailablePermissionsByModuleUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -180,9 +182,10 @@ func NewAdminUpdateAvailablePermissionsByModuleForbidden() *AdminUpdateAvailable
 	return &AdminUpdateAvailablePermissionsByModuleForbidden{}
 }
 
-/*AdminUpdateAvailablePermissionsByModuleForbidden handles this case with default header values.
+/*
+AdminUpdateAvailablePermissionsByModuleForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateAvailablePermissionsByModuleForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

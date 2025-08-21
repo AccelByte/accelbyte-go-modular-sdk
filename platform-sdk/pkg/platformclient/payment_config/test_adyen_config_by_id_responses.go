@@ -85,9 +85,10 @@ func NewTestAdyenConfigByIDOK() *TestAdyenConfigByIDOK {
 	return &TestAdyenConfigByIDOK{}
 }
 
-/*TestAdyenConfigByIDOK handles this case with default header values.
+/*
+TestAdyenConfigByIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestAdyenConfigByIDOK struct {
 	Payload *platformclientmodels.TestResult
@@ -139,9 +140,10 @@ func NewTestAdyenConfigByIDNotFound() *TestAdyenConfigByIDNotFound {
 	return &TestAdyenConfigByIDNotFound{}
 }
 
-/*TestAdyenConfigByIDNotFound handles this case with default header values.
+/*
+TestAdyenConfigByIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
 */
 type TestAdyenConfigByIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

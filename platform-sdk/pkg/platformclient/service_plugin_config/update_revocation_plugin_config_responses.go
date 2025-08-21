@@ -85,9 +85,10 @@ func NewUpdateRevocationPluginConfigOK() *UpdateRevocationPluginConfigOK {
 	return &UpdateRevocationPluginConfigOK{}
 }
 
-/*UpdateRevocationPluginConfigOK handles this case with default header values.
+/*
+UpdateRevocationPluginConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateRevocationPluginConfigOK struct {
 	Payload *platformclientmodels.RevocationPluginConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateRevocationPluginConfigUnprocessableEntity() *UpdateRevocationPlugi
 	return &UpdateRevocationPluginConfigUnprocessableEntity{}
 }
 
-/*UpdateRevocationPluginConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdateRevocationPluginConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateRevocationPluginConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

@@ -130,10 +130,9 @@ func NewGetListOfDeploymentV1OK() *GetListOfDeploymentV1OK {
 	return &GetListOfDeploymentV1OK{}
 }
 
-/*GetListOfDeploymentV1OK handles this case with default header values.
-
-
- */
+/*
+GetListOfDeploymentV1OK handles this case with default header values.
+*/
 type GetListOfDeploymentV1OK struct {
 	Payload *csmclientmodels.GeneratedGetDeploymentListV1Response
 }
@@ -184,9 +183,10 @@ func NewGetListOfDeploymentV1BadRequest() *GetListOfDeploymentV1BadRequest {
 	return &GetListOfDeploymentV1BadRequest{}
 }
 
-/*GetListOfDeploymentV1BadRequest handles this case with default header values.
+/*
+GetListOfDeploymentV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetListOfDeploymentV1BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewGetListOfDeploymentV1Unauthorized() *GetListOfDeploymentV1Unauthorized {
 	return &GetListOfDeploymentV1Unauthorized{}
 }
 
-/*GetListOfDeploymentV1Unauthorized handles this case with default header values.
+/*
+GetListOfDeploymentV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetListOfDeploymentV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewGetListOfDeploymentV1Forbidden() *GetListOfDeploymentV1Forbidden {
 	return &GetListOfDeploymentV1Forbidden{}
 }
 
-/*GetListOfDeploymentV1Forbidden handles this case with default header values.
+/*
+GetListOfDeploymentV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetListOfDeploymentV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewGetListOfDeploymentV1InternalServerError() *GetListOfDeploymentV1Interna
 	return &GetListOfDeploymentV1InternalServerError{}
 }
 
-/*GetListOfDeploymentV1InternalServerError handles this case with default header values.
+/*
+GetListOfDeploymentV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetListOfDeploymentV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

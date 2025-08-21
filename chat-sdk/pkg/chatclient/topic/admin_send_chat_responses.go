@@ -130,9 +130,10 @@ func NewAdminSendChatOK() *AdminSendChatOK {
 	return &AdminSendChatOK{}
 }
 
-/*AdminSendChatOK handles this case with default header values.
+/*
+AdminSendChatOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminSendChatOK struct {
 	Payload []*chatclientmodels.ModelsChatMessageResponse
@@ -182,9 +183,10 @@ func NewAdminSendChatBadRequest() *AdminSendChatBadRequest {
 	return &AdminSendChatBadRequest{}
 }
 
-/*AdminSendChatBadRequest handles this case with default header values.
+/*
+AdminSendChatBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminSendChatBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewAdminSendChatUnauthorized() *AdminSendChatUnauthorized {
 	return &AdminSendChatUnauthorized{}
 }
 
-/*AdminSendChatUnauthorized handles this case with default header values.
+/*
+AdminSendChatUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminSendChatUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewAdminSendChatForbidden() *AdminSendChatForbidden {
 	return &AdminSendChatForbidden{}
 }
 
-/*AdminSendChatForbidden handles this case with default header values.
+/*
+AdminSendChatForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminSendChatForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewAdminSendChatInternalServerError() *AdminSendChatInternalServerError {
 	return &AdminSendChatInternalServerError{}
 }
 
-/*AdminSendChatInternalServerError handles this case with default header values.
+/*
+AdminSendChatInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSendChatInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

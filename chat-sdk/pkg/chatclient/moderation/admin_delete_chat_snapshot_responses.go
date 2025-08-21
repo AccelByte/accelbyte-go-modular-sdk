@@ -144,9 +144,10 @@ func NewAdminDeleteChatSnapshotNoContent() *AdminDeleteChatSnapshotNoContent {
 	return &AdminDeleteChatSnapshotNoContent{}
 }
 
-/*AdminDeleteChatSnapshotNoContent handles this case with default header values.
+/*
+AdminDeleteChatSnapshotNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteChatSnapshotNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeleteChatSnapshotBadRequest() *AdminDeleteChatSnapshotBadRequest {
 	return &AdminDeleteChatSnapshotBadRequest{}
 }
 
-/*AdminDeleteChatSnapshotBadRequest handles this case with default header values.
+/*
+AdminDeleteChatSnapshotBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeleteChatSnapshotBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -225,9 +227,10 @@ func NewAdminDeleteChatSnapshotUnauthorized() *AdminDeleteChatSnapshotUnauthoriz
 	return &AdminDeleteChatSnapshotUnauthorized{}
 }
 
-/*AdminDeleteChatSnapshotUnauthorized handles this case with default header values.
+/*
+AdminDeleteChatSnapshotUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeleteChatSnapshotUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -279,9 +282,10 @@ func NewAdminDeleteChatSnapshotForbidden() *AdminDeleteChatSnapshotForbidden {
 	return &AdminDeleteChatSnapshotForbidden{}
 }
 
-/*AdminDeleteChatSnapshotForbidden handles this case with default header values.
+/*
+AdminDeleteChatSnapshotForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeleteChatSnapshotForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -333,9 +337,10 @@ func NewAdminDeleteChatSnapshotNotFound() *AdminDeleteChatSnapshotNotFound {
 	return &AdminDeleteChatSnapshotNotFound{}
 }
 
-/*AdminDeleteChatSnapshotNotFound handles this case with default header values.
+/*
+AdminDeleteChatSnapshotNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminDeleteChatSnapshotNotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -387,9 +392,10 @@ func NewAdminDeleteChatSnapshotInternalServerError() *AdminDeleteChatSnapshotInt
 	return &AdminDeleteChatSnapshotInternalServerError{}
 }
 
-/*AdminDeleteChatSnapshotInternalServerError handles this case with default header values.
+/*
+AdminDeleteChatSnapshotInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteChatSnapshotInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

@@ -58,7 +58,8 @@ func NewGetMyGroupJoinRequestV2ParamsWithHTTPClient(client *http.Client) *GetMyG
 	}
 }
 
-/*GetMyGroupJoinRequestV2Params contains all the parameters to send to the API endpoint
+/*
+GetMyGroupJoinRequestV2Params contains all the parameters to send to the API endpoint
 for the get my group join request v2 operation typically these are written to a http.Request
 */
 type GetMyGroupJoinRequestV2Params struct {

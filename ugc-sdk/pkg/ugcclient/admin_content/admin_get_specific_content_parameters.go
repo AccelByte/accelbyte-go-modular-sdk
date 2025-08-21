@@ -57,7 +57,8 @@ func NewAdminGetSpecificContentParamsWithHTTPClient(client *http.Client) *AdminG
 	}
 }
 
-/*AdminGetSpecificContentParams contains all the parameters to send to the API endpoint
+/*
+AdminGetSpecificContentParams contains all the parameters to send to the API endpoint
 for the admin get specific content operation typically these are written to a http.Request
 */
 type AdminGetSpecificContentParams struct {

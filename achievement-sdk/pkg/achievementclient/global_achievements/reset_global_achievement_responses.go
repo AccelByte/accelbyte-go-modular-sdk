@@ -114,9 +114,10 @@ func NewResetGlobalAchievementNoContent() *ResetGlobalAchievementNoContent {
 	return &ResetGlobalAchievementNoContent{}
 }
 
-/*ResetGlobalAchievementNoContent handles this case with default header values.
+/*
+ResetGlobalAchievementNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type ResetGlobalAchievementNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewResetGlobalAchievementUnauthorized() *ResetGlobalAchievementUnauthorized
 	return &ResetGlobalAchievementUnauthorized{}
 }
 
-/*ResetGlobalAchievementUnauthorized handles this case with default header values.
+/*
+ResetGlobalAchievementUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type ResetGlobalAchievementUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewResetGlobalAchievementForbidden() *ResetGlobalAchievementForbidden {
 	return &ResetGlobalAchievementForbidden{}
 }
 
-/*ResetGlobalAchievementForbidden handles this case with default header values.
+/*
+ResetGlobalAchievementForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type ResetGlobalAchievementForbidden struct {
 	Payload *achievementclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewResetGlobalAchievementInternalServerError() *ResetGlobalAchievementInter
 	return &ResetGlobalAchievementInternalServerError{}
 }
 
-/*ResetGlobalAchievementInternalServerError handles this case with default header values.
+/*
+ResetGlobalAchievementInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ResetGlobalAchievementInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

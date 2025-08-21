@@ -59,7 +59,8 @@ func NewFreeFormNotificationByUserIDParamsWithHTTPClient(client *http.Client) *F
 	}
 }
 
-/*FreeFormNotificationByUserIDParams contains all the parameters to send to the API endpoint
+/*
+FreeFormNotificationByUserIDParams contains all the parameters to send to the API endpoint
 for the free form notification by user id operation typically these are written to a http.Request
 */
 type FreeFormNotificationByUserIDParams struct {

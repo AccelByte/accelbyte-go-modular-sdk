@@ -130,10 +130,9 @@ func NewGetAppReleaseV1OK() *GetAppReleaseV1OK {
 	return &GetAppReleaseV1OK{}
 }
 
-/*GetAppReleaseV1OK handles this case with default header values.
-
-
- */
+/*
+GetAppReleaseV1OK handles this case with default header values.
+*/
 type GetAppReleaseV1OK struct {
 	Payload *csmclientmodels.GeneratedGetAppReleaseV1Response
 }
@@ -184,9 +183,10 @@ func NewGetAppReleaseV1Unauthorized() *GetAppReleaseV1Unauthorized {
 	return &GetAppReleaseV1Unauthorized{}
 }
 
-/*GetAppReleaseV1Unauthorized handles this case with default header values.
+/*
+GetAppReleaseV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetAppReleaseV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewGetAppReleaseV1Forbidden() *GetAppReleaseV1Forbidden {
 	return &GetAppReleaseV1Forbidden{}
 }
 
-/*GetAppReleaseV1Forbidden handles this case with default header values.
+/*
+GetAppReleaseV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetAppReleaseV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewGetAppReleaseV1NotFound() *GetAppReleaseV1NotFound {
 	return &GetAppReleaseV1NotFound{}
 }
 
-/*GetAppReleaseV1NotFound handles this case with default header values.
+/*
+GetAppReleaseV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetAppReleaseV1NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewGetAppReleaseV1InternalServerError() *GetAppReleaseV1InternalServerError
 	return &GetAppReleaseV1InternalServerError{}
 }
 
-/*GetAppReleaseV1InternalServerError handles this case with default header values.
+/*
+GetAppReleaseV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetAppReleaseV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

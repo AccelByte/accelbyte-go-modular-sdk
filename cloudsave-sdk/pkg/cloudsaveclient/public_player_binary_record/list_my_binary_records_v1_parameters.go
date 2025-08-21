@@ -78,7 +78,8 @@ func NewListMyBinaryRecordsV1ParamsWithHTTPClient(client *http.Client) *ListMyBi
 	}
 }
 
-/*ListMyBinaryRecordsV1Params contains all the parameters to send to the API endpoint
+/*
+ListMyBinaryRecordsV1Params contains all the parameters to send to the API endpoint
 for the list my binary records v1 operation typically these are written to a http.Request
 */
 type ListMyBinaryRecordsV1Params struct {

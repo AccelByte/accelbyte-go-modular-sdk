@@ -100,9 +100,10 @@ func NewGetTimeZonesOK() *GetTimeZonesOK {
 	return &GetTimeZonesOK{}
 }
 
-/*GetTimeZonesOK handles this case with default header values.
+/*
+GetTimeZonesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetTimeZonesOK struct {
 	Payload []string
@@ -152,9 +153,10 @@ func NewGetTimeZonesBadRequest() *GetTimeZonesBadRequest {
 	return &GetTimeZonesBadRequest{}
 }
 
-/*GetTimeZonesBadRequest handles this case with default header values.
+/*
+GetTimeZonesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetTimeZonesBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -206,9 +208,10 @@ func NewGetTimeZonesUnauthorized() *GetTimeZonesUnauthorized {
 	return &GetTimeZonesUnauthorized{}
 }
 
-/*GetTimeZonesUnauthorized handles this case with default header values.
+/*
+GetTimeZonesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetTimeZonesUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity

@@ -115,10 +115,9 @@ func NewCreateReasonCreated() *CreateReasonCreated {
 	return &CreateReasonCreated{}
 }
 
-/*CreateReasonCreated handles this case with default header values.
-
-
- */
+/*
+CreateReasonCreated handles this case with default header values.
+*/
 type CreateReasonCreated struct {
 	Payload *reportingclientmodels.RestapiAdminReasonResponse
 }
@@ -169,10 +168,9 @@ func NewCreateReasonBadRequest() *CreateReasonBadRequest {
 	return &CreateReasonBadRequest{}
 }
 
-/*CreateReasonBadRequest handles this case with default header values.
-
-
- */
+/*
+CreateReasonBadRequest handles this case with default header values.
+*/
 type CreateReasonBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -223,9 +221,10 @@ func NewCreateReasonConflict() *CreateReasonConflict {
 	return &CreateReasonConflict{}
 }
 
-/*CreateReasonConflict handles this case with default header values.
+/*
+CreateReasonConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateReasonConflict struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
@@ -277,10 +276,9 @@ func NewCreateReasonInternalServerError() *CreateReasonInternalServerError {
 	return &CreateReasonInternalServerError{}
 }
 
-/*CreateReasonInternalServerError handles this case with default header values.
-
-
- */
+/*
+CreateReasonInternalServerError handles this case with default header values.
+*/
 type CreateReasonInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

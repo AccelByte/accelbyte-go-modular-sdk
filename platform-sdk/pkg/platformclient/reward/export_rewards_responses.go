@@ -72,9 +72,10 @@ func NewExportRewardsOK(writer io.Writer) *ExportRewardsOK {
 	}
 }
 
-/*ExportRewardsOK handles this case with default header values.
+/*
+ExportRewardsOK handles this case with default header values.
 
-  successful export of reward configs
+	successful export of reward configs
 */
 type ExportRewardsOK struct {
 	Payload io.Writer

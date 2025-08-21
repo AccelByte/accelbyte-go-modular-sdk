@@ -57,7 +57,8 @@ func NewRetrieveCountryListWithPoliciesParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*RetrieveCountryListWithPoliciesParams contains all the parameters to send to the API endpoint
+/*
+RetrieveCountryListWithPoliciesParams contains all the parameters to send to the API endpoint
 for the retrieve country list with policies operation typically these are written to a http.Request
 */
 type RetrieveCountryListWithPoliciesParams struct {

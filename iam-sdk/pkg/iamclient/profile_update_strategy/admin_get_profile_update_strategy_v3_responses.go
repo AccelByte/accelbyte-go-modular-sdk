@@ -130,9 +130,10 @@ func NewAdminGetProfileUpdateStrategyV3OK() *AdminGetProfileUpdateStrategyV3OK {
 	return &AdminGetProfileUpdateStrategyV3OK{}
 }
 
-/*AdminGetProfileUpdateStrategyV3OK handles this case with default header values.
+/*
+AdminGetProfileUpdateStrategyV3OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminGetProfileUpdateStrategyV3OK struct {
 	Payload *iamclientmodels.ModelGetProfileUpdateStrategyConfigResponse
@@ -184,9 +185,10 @@ func NewAdminGetProfileUpdateStrategyV3BadRequest() *AdminGetProfileUpdateStrate
 	return &AdminGetProfileUpdateStrategyV3BadRequest{}
 }
 
-/*AdminGetProfileUpdateStrategyV3BadRequest handles this case with default header values.
+/*
+AdminGetProfileUpdateStrategyV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetProfileUpdateStrategyV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminGetProfileUpdateStrategyV3Unauthorized() *AdminGetProfileUpdateStra
 	return &AdminGetProfileUpdateStrategyV3Unauthorized{}
 }
 
-/*AdminGetProfileUpdateStrategyV3Unauthorized handles this case with default header values.
+/*
+AdminGetProfileUpdateStrategyV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetProfileUpdateStrategyV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetProfileUpdateStrategyV3Forbidden() *AdminGetProfileUpdateStrateg
 	return &AdminGetProfileUpdateStrategyV3Forbidden{}
 }
 
-/*AdminGetProfileUpdateStrategyV3Forbidden handles this case with default header values.
+/*
+AdminGetProfileUpdateStrategyV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetProfileUpdateStrategyV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetProfileUpdateStrategyV3InternalServerError() *AdminGetProfileUpd
 	return &AdminGetProfileUpdateStrategyV3InternalServerError{}
 }
 
-/*AdminGetProfileUpdateStrategyV3InternalServerError handles this case with default header values.
+/*
+AdminGetProfileUpdateStrategyV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetProfileUpdateStrategyV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

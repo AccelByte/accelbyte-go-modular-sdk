@@ -57,7 +57,8 @@ func NewAdminChannelTopicSummaryParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminChannelTopicSummaryParams contains all the parameters to send to the API endpoint
+/*
+AdminChannelTopicSummaryParams contains all the parameters to send to the API endpoint
 for the admin channel topic summary operation typically these are written to a http.Request
 */
 type AdminChannelTopicSummaryParams struct {

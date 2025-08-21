@@ -99,9 +99,10 @@ func NewAdminDeleteTagV3NoContent() *AdminDeleteTagV3NoContent {
 	return &AdminDeleteTagV3NoContent{}
 }
 
-/*AdminDeleteTagV3NoContent handles this case with default header values.
+/*
+AdminDeleteTagV3NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteTagV3NoContent struct {
 }
@@ -126,10 +127,9 @@ func NewAdminDeleteTagV3NotFound() *AdminDeleteTagV3NotFound {
 	return &AdminDeleteTagV3NotFound{}
 }
 
-/*AdminDeleteTagV3NotFound handles this case with default header values.
-
-
- */
+/*
+AdminDeleteTagV3NotFound handles this case with default header values.
+*/
 type AdminDeleteTagV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
 }
@@ -180,9 +180,10 @@ func NewAdminDeleteTagV3InternalServerError() *AdminDeleteTagV3InternalServerErr
 	return &AdminDeleteTagV3InternalServerError{}
 }
 
-/*AdminDeleteTagV3InternalServerError handles this case with default header values.
+/*
+AdminDeleteTagV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDeleteTagV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

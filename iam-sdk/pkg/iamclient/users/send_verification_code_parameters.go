@@ -59,7 +59,8 @@ func NewSendVerificationCodeParamsWithHTTPClient(client *http.Client) *SendVerif
 	}
 }
 
-/*SendVerificationCodeParams contains all the parameters to send to the API endpoint
+/*
+SendVerificationCodeParams contains all the parameters to send to the API endpoint
 for the send verification code operation typically these are written to a http.Request
 */
 type SendVerificationCodeParams struct {

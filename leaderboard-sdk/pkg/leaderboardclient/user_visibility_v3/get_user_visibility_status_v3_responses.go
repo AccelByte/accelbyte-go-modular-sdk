@@ -130,9 +130,10 @@ func NewGetUserVisibilityStatusV3OK() *GetUserVisibilityStatusV3OK {
 	return &GetUserVisibilityStatusV3OK{}
 }
 
-/*GetUserVisibilityStatusV3OK handles this case with default header values.
+/*
+GetUserVisibilityStatusV3OK handles this case with default header values.
 
-  User visibility status retrieved
+	User visibility status retrieved
 */
 type GetUserVisibilityStatusV3OK struct {
 	Payload *leaderboardclientmodels.ModelsGetUserVisibilityResponse
@@ -184,9 +185,10 @@ func NewGetUserVisibilityStatusV3BadRequest() *GetUserVisibilityStatusV3BadReque
 	return &GetUserVisibilityStatusV3BadRequest{}
 }
 
-/*GetUserVisibilityStatusV3BadRequest handles this case with default header values.
+/*
+GetUserVisibilityStatusV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetUserVisibilityStatusV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetUserVisibilityStatusV3Unauthorized() *GetUserVisibilityStatusV3Unauth
 	return &GetUserVisibilityStatusV3Unauthorized{}
 }
 
-/*GetUserVisibilityStatusV3Unauthorized handles this case with default header values.
+/*
+GetUserVisibilityStatusV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserVisibilityStatusV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetUserVisibilityStatusV3Forbidden() *GetUserVisibilityStatusV3Forbidden
 	return &GetUserVisibilityStatusV3Forbidden{}
 }
 
-/*GetUserVisibilityStatusV3Forbidden handles this case with default header values.
+/*
+GetUserVisibilityStatusV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserVisibilityStatusV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetUserVisibilityStatusV3InternalServerError() *GetUserVisibilityStatusV
 	return &GetUserVisibilityStatusV3InternalServerError{}
 }
 
-/*GetUserVisibilityStatusV3InternalServerError handles this case with default header values.
+/*
+GetUserVisibilityStatusV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetUserVisibilityStatusV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

@@ -57,7 +57,8 @@ func NewAdminGetLobbyCCUParamsWithHTTPClient(client *http.Client) *AdminGetLobby
 	}
 }
 
-/*AdminGetLobbyCCUParams contains all the parameters to send to the API endpoint
+/*
+AdminGetLobbyCCUParams contains all the parameters to send to the API endpoint
 for the admin get lobby ccu operation typically these are written to a http.Request
 */
 type AdminGetLobbyCCUParams struct {

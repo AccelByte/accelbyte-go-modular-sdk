@@ -57,7 +57,8 @@ func NewListFulfillmentScriptsParamsWithHTTPClient(client *http.Client) *ListFul
 	}
 }
 
-/*ListFulfillmentScriptsParams contains all the parameters to send to the API endpoint
+/*
+ListFulfillmentScriptsParams contains all the parameters to send to the API endpoint
 for the list fulfillment scripts operation typically these are written to a http.Request
 */
 type ListFulfillmentScriptsParams struct {

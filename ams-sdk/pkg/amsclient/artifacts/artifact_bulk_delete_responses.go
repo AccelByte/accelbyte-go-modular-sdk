@@ -129,9 +129,10 @@ func NewArtifactBulkDeleteAccepted() *ArtifactBulkDeleteAccepted {
 	return &ArtifactBulkDeleteAccepted{}
 }
 
-/*ArtifactBulkDeleteAccepted handles this case with default header values.
+/*
+ArtifactBulkDeleteAccepted handles this case with default header values.
 
-  delete received
+	delete received
 */
 type ArtifactBulkDeleteAccepted struct {
 }
@@ -156,9 +157,10 @@ func NewArtifactBulkDeleteBadRequest() *ArtifactBulkDeleteBadRequest {
 	return &ArtifactBulkDeleteBadRequest{}
 }
 
-/*ArtifactBulkDeleteBadRequest handles this case with default header values.
+/*
+ArtifactBulkDeleteBadRequest handles this case with default header values.
 
-  bad request
+	bad request
 */
 type ArtifactBulkDeleteBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -210,9 +212,10 @@ func NewArtifactBulkDeleteUnauthorized() *ArtifactBulkDeleteUnauthorized {
 	return &ArtifactBulkDeleteUnauthorized{}
 }
 
-/*ArtifactBulkDeleteUnauthorized handles this case with default header values.
+/*
+ArtifactBulkDeleteUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type ArtifactBulkDeleteUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -264,9 +267,10 @@ func NewArtifactBulkDeleteForbidden() *ArtifactBulkDeleteForbidden {
 	return &ArtifactBulkDeleteForbidden{}
 }
 
-/*ArtifactBulkDeleteForbidden handles this case with default header values.
+/*
+ArtifactBulkDeleteForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type ArtifactBulkDeleteForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -318,9 +322,10 @@ func NewArtifactBulkDeleteInternalServerError() *ArtifactBulkDeleteInternalServe
 	return &ArtifactBulkDeleteInternalServerError{}
 }
 
-/*ArtifactBulkDeleteInternalServerError handles this case with default header values.
+/*
+ArtifactBulkDeleteInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type ArtifactBulkDeleteInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

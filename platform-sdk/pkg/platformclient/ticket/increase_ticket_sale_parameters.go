@@ -59,7 +59,8 @@ func NewIncreaseTicketSaleParamsWithHTTPClient(client *http.Client) *IncreaseTic
 	}
 }
 
-/*IncreaseTicketSaleParams contains all the parameters to send to the API endpoint
+/*
+IncreaseTicketSaleParams contains all the parameters to send to the API endpoint
 for the increase ticket sale operation typically these are written to a http.Request
 */
 type IncreaseTicketSaleParams struct {

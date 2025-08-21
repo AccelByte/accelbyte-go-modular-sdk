@@ -57,7 +57,8 @@ func NewDeleteSeasonParamsWithHTTPClient(client *http.Client) *DeleteSeasonParam
 	}
 }
 
-/*DeleteSeasonParams contains all the parameters to send to the API endpoint
+/*
+DeleteSeasonParams contains all the parameters to send to the API endpoint
 for the delete season operation typically these are written to a http.Request
 */
 type DeleteSeasonParams struct {

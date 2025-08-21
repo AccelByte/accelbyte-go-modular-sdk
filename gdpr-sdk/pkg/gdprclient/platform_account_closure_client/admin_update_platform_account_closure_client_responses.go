@@ -129,9 +129,10 @@ func NewAdminUpdatePlatformAccountClosureClientNoContent() *AdminUpdatePlatformA
 	return &AdminUpdatePlatformAccountClosureClientNoContent{}
 }
 
-/*AdminUpdatePlatformAccountClosureClientNoContent handles this case with default header values.
+/*
+AdminUpdatePlatformAccountClosureClientNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminUpdatePlatformAccountClosureClientNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminUpdatePlatformAccountClosureClientBadRequest() *AdminUpdatePlatform
 	return &AdminUpdatePlatformAccountClosureClientBadRequest{}
 }
 
-/*AdminUpdatePlatformAccountClosureClientBadRequest handles this case with default header values.
+/*
+AdminUpdatePlatformAccountClosureClientBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdatePlatformAccountClosureClientBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewAdminUpdatePlatformAccountClosureClientUnauthorized() *AdminUpdatePlatfo
 	return &AdminUpdatePlatformAccountClosureClientUnauthorized{}
 }
 
-/*AdminUpdatePlatformAccountClosureClientUnauthorized handles this case with default header values.
+/*
+AdminUpdatePlatformAccountClosureClientUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdatePlatformAccountClosureClientUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewAdminUpdatePlatformAccountClosureClientForbidden() *AdminUpdatePlatformA
 	return &AdminUpdatePlatformAccountClosureClientForbidden{}
 }
 
-/*AdminUpdatePlatformAccountClosureClientForbidden handles this case with default header values.
+/*
+AdminUpdatePlatformAccountClosureClientForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdatePlatformAccountClosureClientForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewAdminUpdatePlatformAccountClosureClientInternalServerError() *AdminUpdat
 	return &AdminUpdatePlatformAccountClosureClientInternalServerError{}
 }
 
-/*AdminUpdatePlatformAccountClosureClientInternalServerError handles this case with default header values.
+/*
+AdminUpdatePlatformAccountClosureClientInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdatePlatformAccountClosureClientInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

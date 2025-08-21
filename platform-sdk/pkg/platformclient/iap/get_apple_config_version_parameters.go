@@ -57,7 +57,8 @@ func NewGetAppleConfigVersionParamsWithHTTPClient(client *http.Client) *GetApple
 	}
 }
 
-/*GetAppleConfigVersionParams contains all the parameters to send to the API endpoint
+/*
+GetAppleConfigVersionParams contains all the parameters to send to the API endpoint
 for the get apple config version operation typically these are written to a http.Request
 */
 type GetAppleConfigVersionParams struct {

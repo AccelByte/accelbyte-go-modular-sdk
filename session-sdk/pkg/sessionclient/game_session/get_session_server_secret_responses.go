@@ -130,9 +130,10 @@ func NewGetSessionServerSecretOK() *GetSessionServerSecretOK {
 	return &GetSessionServerSecretOK{}
 }
 
-/*GetSessionServerSecretOK handles this case with default header values.
+/*
+GetSessionServerSecretOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetSessionServerSecretOK struct {
 	Payload *sessionclientmodels.ApimodelsServerSecret
@@ -184,9 +185,10 @@ func NewGetSessionServerSecretBadRequest() *GetSessionServerSecretBadRequest {
 	return &GetSessionServerSecretBadRequest{}
 }
 
-/*GetSessionServerSecretBadRequest handles this case with default header values.
+/*
+GetSessionServerSecretBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetSessionServerSecretBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewGetSessionServerSecretUnauthorized() *GetSessionServerSecretUnauthorized
 	return &GetSessionServerSecretUnauthorized{}
 }
 
-/*GetSessionServerSecretUnauthorized handles this case with default header values.
+/*
+GetSessionServerSecretUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetSessionServerSecretUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewGetSessionServerSecretNotFound() *GetSessionServerSecretNotFound {
 	return &GetSessionServerSecretNotFound{}
 }
 
-/*GetSessionServerSecretNotFound handles this case with default header values.
+/*
+GetSessionServerSecretNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetSessionServerSecretNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewGetSessionServerSecretInternalServerError() *GetSessionServerSecretInter
 	return &GetSessionServerSecretInternalServerError{}
 }
 
-/*GetSessionServerSecretInternalServerError handles this case with default header values.
+/*
+GetSessionServerSecretInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetSessionServerSecretInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

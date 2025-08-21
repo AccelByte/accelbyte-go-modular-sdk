@@ -57,7 +57,8 @@ func NewSyncSteamAbnormalTransactionParamsWithHTTPClient(client *http.Client) *S
 	}
 }
 
-/*SyncSteamAbnormalTransactionParams contains all the parameters to send to the API endpoint
+/*
+SyncSteamAbnormalTransactionParams contains all the parameters to send to the API endpoint
 for the sync steam abnormal transaction operation typically these are written to a http.Request
 */
 type SyncSteamAbnormalTransactionParams struct {

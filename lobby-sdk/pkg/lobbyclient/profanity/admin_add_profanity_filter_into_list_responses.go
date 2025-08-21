@@ -144,9 +144,10 @@ func NewAdminAddProfanityFilterIntoListOK() *AdminAddProfanityFilterIntoListOK {
 	return &AdminAddProfanityFilterIntoListOK{}
 }
 
-/*AdminAddProfanityFilterIntoListOK handles this case with default header values.
+/*
+AdminAddProfanityFilterIntoListOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminAddProfanityFilterIntoListOK struct {
 }
@@ -171,9 +172,10 @@ func NewAdminAddProfanityFilterIntoListBadRequest() *AdminAddProfanityFilterInto
 	return &AdminAddProfanityFilterIntoListBadRequest{}
 }
 
-/*AdminAddProfanityFilterIntoListBadRequest handles this case with default header values.
+/*
+AdminAddProfanityFilterIntoListBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminAddProfanityFilterIntoListBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -225,9 +227,10 @@ func NewAdminAddProfanityFilterIntoListUnauthorized() *AdminAddProfanityFilterIn
 	return &AdminAddProfanityFilterIntoListUnauthorized{}
 }
 
-/*AdminAddProfanityFilterIntoListUnauthorized handles this case with default header values.
+/*
+AdminAddProfanityFilterIntoListUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminAddProfanityFilterIntoListUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -279,9 +282,10 @@ func NewAdminAddProfanityFilterIntoListForbidden() *AdminAddProfanityFilterIntoL
 	return &AdminAddProfanityFilterIntoListForbidden{}
 }
 
-/*AdminAddProfanityFilterIntoListForbidden handles this case with default header values.
+/*
+AdminAddProfanityFilterIntoListForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminAddProfanityFilterIntoListForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -333,9 +337,10 @@ func NewAdminAddProfanityFilterIntoListNotFound() *AdminAddProfanityFilterIntoLi
 	return &AdminAddProfanityFilterIntoListNotFound{}
 }
 
-/*AdminAddProfanityFilterIntoListNotFound handles this case with default header values.
+/*
+AdminAddProfanityFilterIntoListNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminAddProfanityFilterIntoListNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -387,9 +392,10 @@ func NewAdminAddProfanityFilterIntoListInternalServerError() *AdminAddProfanityF
 	return &AdminAddProfanityFilterIntoListInternalServerError{}
 }
 
-/*AdminAddProfanityFilterIntoListInternalServerError handles this case with default header values.
+/*
+AdminAddProfanityFilterIntoListInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminAddProfanityFilterIntoListInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

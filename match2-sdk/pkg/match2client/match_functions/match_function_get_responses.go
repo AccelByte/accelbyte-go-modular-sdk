@@ -130,9 +130,10 @@ func NewMatchFunctionGetOK() *MatchFunctionGetOK {
 	return &MatchFunctionGetOK{}
 }
 
-/*MatchFunctionGetOK handles this case with default header values.
+/*
+MatchFunctionGetOK handles this case with default header values.
 
-  Created
+	Created
 */
 type MatchFunctionGetOK struct {
 	Payload *match2clientmodels.APIMatchFunctionConfig
@@ -184,9 +185,10 @@ func NewMatchFunctionGetUnauthorized() *MatchFunctionGetUnauthorized {
 	return &MatchFunctionGetUnauthorized{}
 }
 
-/*MatchFunctionGetUnauthorized handles this case with default header values.
+/*
+MatchFunctionGetUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type MatchFunctionGetUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewMatchFunctionGetForbidden() *MatchFunctionGetForbidden {
 	return &MatchFunctionGetForbidden{}
 }
 
-/*MatchFunctionGetForbidden handles this case with default header values.
+/*
+MatchFunctionGetForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type MatchFunctionGetForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewMatchFunctionGetNotFound() *MatchFunctionGetNotFound {
 	return &MatchFunctionGetNotFound{}
 }
 
-/*MatchFunctionGetNotFound handles this case with default header values.
+/*
+MatchFunctionGetNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type MatchFunctionGetNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewMatchFunctionGetInternalServerError() *MatchFunctionGetInternalServerErr
 	return &MatchFunctionGetInternalServerError{}
 }
 
-/*MatchFunctionGetInternalServerError handles this case with default header values.
+/*
+MatchFunctionGetInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type MatchFunctionGetInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewUploadURLGetParamsWithHTTPClient(client *http.Client) *UploadURLGetParam
 	}
 }
 
-/*UploadURLGetParams contains all the parameters to send to the API endpoint
+/*
+UploadURLGetParams contains all the parameters to send to the API endpoint
 for the upload url get operation typically these are written to a http.Request
 */
 type UploadURLGetParams struct {

@@ -69,9 +69,10 @@ func NewEnableEntitlementOriginFeatureOK() *EnableEntitlementOriginFeatureOK {
 	return &EnableEntitlementOriginFeatureOK{}
 }
 
-/*EnableEntitlementOriginFeatureOK handles this case with default header values.
+/*
+EnableEntitlementOriginFeatureOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type EnableEntitlementOriginFeatureOK struct {
 	Payload *platformclientmodels.EntitlementConfigInfo

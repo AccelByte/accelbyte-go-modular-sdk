@@ -114,9 +114,10 @@ func NewAdminReconcileMaxActiveSessionOK() *AdminReconcileMaxActiveSessionOK {
 	return &AdminReconcileMaxActiveSessionOK{}
 }
 
-/*AdminReconcileMaxActiveSessionOK handles this case with default header values.
+/*
+AdminReconcileMaxActiveSessionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminReconcileMaxActiveSessionOK struct {
 }
@@ -141,9 +142,10 @@ func NewAdminReconcileMaxActiveSessionBadRequest() *AdminReconcileMaxActiveSessi
 	return &AdminReconcileMaxActiveSessionBadRequest{}
 }
 
-/*AdminReconcileMaxActiveSessionBadRequest handles this case with default header values.
+/*
+AdminReconcileMaxActiveSessionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminReconcileMaxActiveSessionBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewAdminReconcileMaxActiveSessionUnauthorized() *AdminReconcileMaxActiveSes
 	return &AdminReconcileMaxActiveSessionUnauthorized{}
 }
 
-/*AdminReconcileMaxActiveSessionUnauthorized handles this case with default header values.
+/*
+AdminReconcileMaxActiveSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminReconcileMaxActiveSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewAdminReconcileMaxActiveSessionInternalServerError() *AdminReconcileMaxAc
 	return &AdminReconcileMaxActiveSessionInternalServerError{}
 }
 
-/*AdminReconcileMaxActiveSessionInternalServerError handles this case with default header values.
+/*
+AdminReconcileMaxActiveSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminReconcileMaxActiveSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

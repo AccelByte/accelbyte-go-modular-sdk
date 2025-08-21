@@ -129,9 +129,10 @@ func NewDeleteBackfillNoContent() *DeleteBackfillNoContent {
 	return &DeleteBackfillNoContent{}
 }
 
-/*DeleteBackfillNoContent handles this case with default header values.
+/*
+DeleteBackfillNoContent handles this case with default header values.
 
-  Created
+	Created
 */
 type DeleteBackfillNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteBackfillUnauthorized() *DeleteBackfillUnauthorized {
 	return &DeleteBackfillUnauthorized{}
 }
 
-/*DeleteBackfillUnauthorized handles this case with default header values.
+/*
+DeleteBackfillUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteBackfillUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewDeleteBackfillForbidden() *DeleteBackfillForbidden {
 	return &DeleteBackfillForbidden{}
 }
 
-/*DeleteBackfillForbidden handles this case with default header values.
+/*
+DeleteBackfillForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteBackfillForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewDeleteBackfillNotFound() *DeleteBackfillNotFound {
 	return &DeleteBackfillNotFound{}
 }
 
-/*DeleteBackfillNotFound handles this case with default header values.
+/*
+DeleteBackfillNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteBackfillNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewDeleteBackfillInternalServerError() *DeleteBackfillInternalServerError {
 	return &DeleteBackfillInternalServerError{}
 }
 
-/*DeleteBackfillInternalServerError handles this case with default header values.
+/*
+DeleteBackfillInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteBackfillInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

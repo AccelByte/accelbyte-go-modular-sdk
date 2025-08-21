@@ -100,9 +100,10 @@ func NewGetLanguagesOK() *GetLanguagesOK {
 	return &GetLanguagesOK{}
 }
 
-/*GetLanguagesOK handles this case with default header values.
+/*
+GetLanguagesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetLanguagesOK struct {
 	Payload map[string]string
@@ -152,9 +153,10 @@ func NewGetLanguagesBadRequest() *GetLanguagesBadRequest {
 	return &GetLanguagesBadRequest{}
 }
 
-/*GetLanguagesBadRequest handles this case with default header values.
+/*
+GetLanguagesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetLanguagesBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -206,9 +208,10 @@ func NewGetLanguagesUnauthorized() *GetLanguagesUnauthorized {
 	return &GetLanguagesUnauthorized{}
 }
 
-/*GetLanguagesUnauthorized handles this case with default header values.
+/*
+GetLanguagesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetLanguagesUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity

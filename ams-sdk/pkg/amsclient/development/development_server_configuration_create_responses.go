@@ -130,9 +130,10 @@ func NewDevelopmentServerConfigurationCreateCreated() *DevelopmentServerConfigur
 	return &DevelopmentServerConfigurationCreateCreated{}
 }
 
-/*DevelopmentServerConfigurationCreateCreated handles this case with default header values.
+/*
+DevelopmentServerConfigurationCreateCreated handles this case with default header values.
 
-  development server configuration created
+	development server configuration created
 */
 type DevelopmentServerConfigurationCreateCreated struct {
 	Payload *amsclientmodels.APIDevelopmentServerConfigurationCreateResponse
@@ -184,9 +185,10 @@ func NewDevelopmentServerConfigurationCreateBadRequest() *DevelopmentServerConfi
 	return &DevelopmentServerConfigurationCreateBadRequest{}
 }
 
-/*DevelopmentServerConfigurationCreateBadRequest handles this case with default header values.
+/*
+DevelopmentServerConfigurationCreateBadRequest handles this case with default header values.
 
-  bad request
+	bad request
 */
 type DevelopmentServerConfigurationCreateBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewDevelopmentServerConfigurationCreateUnauthorized() *DevelopmentServerCon
 	return &DevelopmentServerConfigurationCreateUnauthorized{}
 }
 
-/*DevelopmentServerConfigurationCreateUnauthorized handles this case with default header values.
+/*
+DevelopmentServerConfigurationCreateUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type DevelopmentServerConfigurationCreateUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewDevelopmentServerConfigurationCreateForbidden() *DevelopmentServerConfig
 	return &DevelopmentServerConfigurationCreateForbidden{}
 }
 
-/*DevelopmentServerConfigurationCreateForbidden handles this case with default header values.
+/*
+DevelopmentServerConfigurationCreateForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type DevelopmentServerConfigurationCreateForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewDevelopmentServerConfigurationCreateInternalServerError() *DevelopmentSe
 	return &DevelopmentServerConfigurationCreateInternalServerError{}
 }
 
-/*DevelopmentServerConfigurationCreateInternalServerError handles this case with default header values.
+/*
+DevelopmentServerConfigurationCreateInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type DevelopmentServerConfigurationCreateInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

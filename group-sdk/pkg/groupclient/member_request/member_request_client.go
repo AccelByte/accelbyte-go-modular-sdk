@@ -45,7 +45,7 @@ Required valid user authentication
 
 Required Member Role Permission: "GROUP:JOIN [READ]"
 
-This endpoint is used to Get Group Join Request List
+# This endpoint is used to Get Group Join Request List
 
 Get Group Join Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
 
@@ -133,7 +133,7 @@ func (a *Client) GetGroupJoinRequestPublicV1Short(params *GetGroupJoinRequestPub
 GetGroupInvitationRequestPublicV1Short get group invitation request list
 Required valid user authentication
 
-This endpoint is used to Get Group Invitation Request List
+# This endpoint is used to Get Group Invitation Request List
 
 Get Group Invitation Request List for the user calling this endpoint. It will check any group invitation for this user
 
@@ -223,7 +223,7 @@ Required valid user authentication
 
 Required Member Role Permission: "GROUP:JOIN [READ]"
 
-This endpoint is used to Get Group Invite Request List
+# This endpoint is used to Get Group Invite Request List
 
 Get Group Invite Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
 
@@ -313,7 +313,7 @@ Required valid user authentication
 
 Required Member Role Permission: "GROUP:JOIN [READ]"
 
-This endpoint is used to Get Group Join Request List
+# This endpoint is used to Get Group Join Request List
 
 Get Group Join Request List for specific group. Group members needs to have permission and also belong to the group to access this endpoint
 
@@ -401,7 +401,7 @@ func (a *Client) GetGroupJoinRequestPublicV2Short(params *GetGroupJoinRequestPub
 GetMyGroupJoinRequestV2Short get my join request to the groups
 Required valid user authentication
 
-This endpoint is used to Get My Join Request To The Groups
+# This endpoint is used to Get My Join Request To The Groups
 
 Get My Join Request To The Groups for the user calling this endpoint. It will check any join request group for this user
 

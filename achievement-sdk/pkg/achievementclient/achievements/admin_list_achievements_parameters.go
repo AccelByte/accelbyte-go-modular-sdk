@@ -113,7 +113,8 @@ func NewAdminListAchievementsParamsWithHTTPClient(client *http.Client) *AdminLis
 	}
 }
 
-/*AdminListAchievementsParams contains all the parameters to send to the API endpoint
+/*
+AdminListAchievementsParams contains all the parameters to send to the API endpoint
 for the admin list achievements operation typically these are written to a http.Request
 */
 type AdminListAchievementsParams struct {

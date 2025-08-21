@@ -57,7 +57,8 @@ func NewRestoreDLCItemConfigHistoryParamsWithHTTPClient(client *http.Client) *Re
 	}
 }
 
-/*RestoreDLCItemConfigHistoryParams contains all the parameters to send to the API endpoint
+/*
+RestoreDLCItemConfigHistoryParams contains all the parameters to send to the API endpoint
 for the restore dlc item config history operation typically these are written to a http.Request
 */
 type RestoreDLCItemConfigHistoryParams struct {

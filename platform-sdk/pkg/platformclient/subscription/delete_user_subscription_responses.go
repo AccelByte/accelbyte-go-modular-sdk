@@ -66,9 +66,10 @@ func NewDeleteUserSubscriptionNoContent() *DeleteUserSubscriptionNoContent {
 	return &DeleteUserSubscriptionNoContent{}
 }
 
-/*DeleteUserSubscriptionNoContent handles this case with default header values.
+/*
+DeleteUserSubscriptionNoContent handles this case with default header values.
 
-  delete user subscription successfully
+	delete user subscription successfully
 */
 type DeleteUserSubscriptionNoContent struct {
 }

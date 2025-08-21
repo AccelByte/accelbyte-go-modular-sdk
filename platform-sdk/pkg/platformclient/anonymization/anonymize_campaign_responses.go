@@ -66,9 +66,10 @@ func NewAnonymizeCampaignNoContent() *AnonymizeCampaignNoContent {
 	return &AnonymizeCampaignNoContent{}
 }
 
-/*AnonymizeCampaignNoContent handles this case with default header values.
+/*
+AnonymizeCampaignNoContent handles this case with default header values.
 
-  Anonymize successfully
+	Anonymize successfully
 */
 type AnonymizeCampaignNoContent struct {
 }

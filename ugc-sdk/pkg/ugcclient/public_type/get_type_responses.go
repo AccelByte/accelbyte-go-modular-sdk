@@ -115,9 +115,10 @@ func NewGetTypeOK() *GetTypeOK {
 	return &GetTypeOK{}
 }
 
-/*GetTypeOK handles this case with default header values.
+/*
+GetTypeOK handles this case with default header values.
 
-  Get types
+	Get types
 */
 type GetTypeOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGetTypeResponse
@@ -169,9 +170,10 @@ func NewGetTypeBadRequest() *GetTypeBadRequest {
 	return &GetTypeBadRequest{}
 }
 
-/*GetTypeBadRequest handles this case with default header values.
+/*
+GetTypeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771801</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771801</td><td>invalid paging parameter</td></tr></table>
 */
 type GetTypeBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewGetTypeUnauthorized() *GetTypeUnauthorized {
 	return &GetTypeUnauthorized{}
 }
 
-/*GetTypeUnauthorized handles this case with default header values.
+/*
+GetTypeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetTypeUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewGetTypeInternalServerError() *GetTypeInternalServerError {
 	return &GetTypeInternalServerError{}
 }
 
-/*GetTypeInternalServerError handles this case with default header values.
+/*
+GetTypeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771802</td><td>Unable get types</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771802</td><td>Unable get types</td></tr></table>
 */
 type GetTypeInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

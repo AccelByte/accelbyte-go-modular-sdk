@@ -115,9 +115,10 @@ func NewQueryStatsOK() *QueryStatsOK {
 	return &QueryStatsOK{}
 }
 
-/*QueryStatsOK handles this case with default header values.
+/*
+QueryStatsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryStatsOK struct {
 	Payload *socialclientmodels.StatPagingSlicedResult
@@ -169,9 +170,10 @@ func NewQueryStatsUnauthorized() *QueryStatsUnauthorized {
 	return &QueryStatsUnauthorized{}
 }
 
-/*QueryStatsUnauthorized handles this case with default header values.
+/*
+QueryStatsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type QueryStatsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewQueryStatsForbidden() *QueryStatsForbidden {
 	return &QueryStatsForbidden{}
 }
 
-/*QueryStatsForbidden handles this case with default header values.
+/*
+QueryStatsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type QueryStatsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewQueryStatsInternalServerError() *QueryStatsInternalServerError {
 	return &QueryStatsInternalServerError{}
 }
 
-/*QueryStatsInternalServerError handles this case with default header values.
+/*
+QueryStatsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type QueryStatsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

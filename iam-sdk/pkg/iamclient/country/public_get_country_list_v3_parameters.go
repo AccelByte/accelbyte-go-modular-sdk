@@ -57,7 +57,8 @@ func NewPublicGetCountryListV3ParamsWithHTTPClient(client *http.Client) *PublicG
 	}
 }
 
-/*PublicGetCountryListV3Params contains all the parameters to send to the API endpoint
+/*
+PublicGetCountryListV3Params contains all the parameters to send to the API endpoint
 for the public get country list v3 operation typically these are written to a http.Request
 */
 type PublicGetCountryListV3Params struct {

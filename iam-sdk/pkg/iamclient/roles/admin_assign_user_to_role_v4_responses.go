@@ -160,9 +160,10 @@ func NewAdminAssignUserToRoleV4Created() *AdminAssignUserToRoleV4Created {
 	return &AdminAssignUserToRoleV4Created{}
 }
 
-/*AdminAssignUserToRoleV4Created handles this case with default header values.
+/*
+AdminAssignUserToRoleV4Created handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminAssignUserToRoleV4Created struct {
 	Payload *iamclientmodels.ModelAssignedUserV4Response
@@ -214,9 +215,10 @@ func NewAdminAssignUserToRoleV4BadRequest() *AdminAssignUserToRoleV4BadRequest {
 	return &AdminAssignUserToRoleV4BadRequest{}
 }
 
-/*AdminAssignUserToRoleV4BadRequest handles this case with default header values.
+/*
+AdminAssignUserToRoleV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10457</td><td>specified role is not admin role</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10457</td><td>specified role is not admin role</td></tr></table>
 */
 type AdminAssignUserToRoleV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -268,9 +270,10 @@ func NewAdminAssignUserToRoleV4Unauthorized() *AdminAssignUserToRoleV4Unauthoriz
 	return &AdminAssignUserToRoleV4Unauthorized{}
 }
 
-/*AdminAssignUserToRoleV4Unauthorized handles this case with default header values.
+/*
+AdminAssignUserToRoleV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminAssignUserToRoleV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,9 +325,10 @@ func NewAdminAssignUserToRoleV4Forbidden() *AdminAssignUserToRoleV4Forbidden {
 	return &AdminAssignUserToRoleV4Forbidden{}
 }
 
-/*AdminAssignUserToRoleV4Forbidden handles this case with default header values.
+/*
+AdminAssignUserToRoleV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10459</td><td>operator is not a role manager</td></tr><tr><td>10182</td><td>given namespace cannot be assigned to the role</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10459</td><td>operator is not a role manager</td></tr><tr><td>10182</td><td>given namespace cannot be assigned to the role</td></tr></table>
 */
 type AdminAssignUserToRoleV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -376,9 +380,10 @@ func NewAdminAssignUserToRoleV4NotFound() *AdminAssignUserToRoleV4NotFound {
 	return &AdminAssignUserToRoleV4NotFound{}
 }
 
-/*AdminAssignUserToRoleV4NotFound handles this case with default header values.
+/*
+AdminAssignUserToRoleV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminAssignUserToRoleV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -430,9 +435,10 @@ func NewAdminAssignUserToRoleV4Conflict() *AdminAssignUserToRoleV4Conflict {
 	return &AdminAssignUserToRoleV4Conflict{}
 }
 
-/*AdminAssignUserToRoleV4Conflict handles this case with default header values.
+/*
+AdminAssignUserToRoleV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10469</td><td>role member exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10469</td><td>role member exist</td></tr></table>
 */
 type AdminAssignUserToRoleV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -484,9 +490,10 @@ func NewAdminAssignUserToRoleV4UnprocessableEntity() *AdminAssignUserToRoleV4Unp
 	return &AdminAssignUserToRoleV4UnprocessableEntity{}
 }
 
-/*AdminAssignUserToRoleV4UnprocessableEntity handles this case with default header values.
+/*
+AdminAssignUserToRoleV4UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10183</td><td>unprocessable entity</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10183</td><td>unprocessable entity</td></tr></table>
 */
 type AdminAssignUserToRoleV4UnprocessableEntity struct {
 	Payload *iamclientmodels.RestErrorResponse

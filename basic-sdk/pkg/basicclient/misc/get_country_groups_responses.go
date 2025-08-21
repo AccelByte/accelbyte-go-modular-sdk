@@ -130,9 +130,10 @@ func NewGetCountryGroupsOK() *GetCountryGroupsOK {
 	return &GetCountryGroupsOK{}
 }
 
-/*GetCountryGroupsOK handles this case with default header values.
+/*
+GetCountryGroupsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCountryGroupsOK struct {
 	Payload []*basicclientmodels.RetrieveCountryGroupResponse
@@ -182,9 +183,10 @@ func NewGetCountryGroupsBadRequest() *GetCountryGroupsBadRequest {
 	return &GetCountryGroupsBadRequest{}
 }
 
-/*GetCountryGroupsBadRequest handles this case with default header values.
+/*
+GetCountryGroupsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetCountryGroupsBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -236,9 +238,10 @@ func NewGetCountryGroupsUnauthorized() *GetCountryGroupsUnauthorized {
 	return &GetCountryGroupsUnauthorized{}
 }
 
-/*GetCountryGroupsUnauthorized handles this case with default header values.
+/*
+GetCountryGroupsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetCountryGroupsUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -290,9 +293,10 @@ func NewGetCountryGroupsForbidden() *GetCountryGroupsForbidden {
 	return &GetCountryGroupsForbidden{}
 }
 
-/*GetCountryGroupsForbidden handles this case with default header values.
+/*
+GetCountryGroupsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetCountryGroupsForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -344,9 +348,10 @@ func NewGetCountryGroupsNotFound() *GetCountryGroupsNotFound {
 	return &GetCountryGroupsNotFound{}
 }
 
-/*GetCountryGroupsNotFound handles this case with default header values.
+/*
+GetCountryGroupsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11233</td><td>Unable to {action}: Country group with code [{countryGroupCode}] is not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11233</td><td>Unable to {action}: Country group with code [{countryGroupCode}] is not found</td></tr></table>
 */
 type GetCountryGroupsNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

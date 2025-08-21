@@ -99,9 +99,10 @@ func NewCancelTicketNoContent() *CancelTicketNoContent {
 	return &CancelTicketNoContent{}
 }
 
-/*CancelTicketNoContent handles this case with default header values.
+/*
+CancelTicketNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type CancelTicketNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewCancelTicketUnauthorized() *CancelTicketUnauthorized {
 	return &CancelTicketUnauthorized{}
 }
 
-/*CancelTicketUnauthorized handles this case with default header values.
+/*
+CancelTicketUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CancelTicketUnauthorized struct {
 	Payload *loginqueueclientmodels.ResponseError
@@ -180,9 +182,10 @@ func NewCancelTicketInternalServerError() *CancelTicketInternalServerError {
 	return &CancelTicketInternalServerError{}
 }
 
-/*CancelTicketInternalServerError handles this case with default header values.
+/*
+CancelTicketInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CancelTicketInternalServerError struct {
 	Payload *loginqueueclientmodels.ResponseError

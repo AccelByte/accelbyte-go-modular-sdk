@@ -100,9 +100,10 @@ func NewCreateLocalizedPolicyVersionCreated() *CreateLocalizedPolicyVersionCreat
 	return &CreateLocalizedPolicyVersionCreated{}
 }
 
-/*CreateLocalizedPolicyVersionCreated handles this case with default header values.
+/*
+CreateLocalizedPolicyVersionCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateLocalizedPolicyVersionCreated struct {
 	Payload *legalclientmodels.CreateLocalizedPolicyVersionResponse
@@ -154,9 +155,10 @@ func NewCreateLocalizedPolicyVersionBadRequest() *CreateLocalizedPolicyVersionBa
 	return &CreateLocalizedPolicyVersionBadRequest{}
 }
 
-/*CreateLocalizedPolicyVersionBadRequest handles this case with default header values.
+/*
+CreateLocalizedPolicyVersionBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr></table>
 */
 type CreateLocalizedPolicyVersionBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewCreateLocalizedPolicyVersionConflict() *CreateLocalizedPolicyVersionConf
 	return &CreateLocalizedPolicyVersionConflict{}
 }
 
-/*CreateLocalizedPolicyVersionConflict handles this case with default header values.
+/*
+CreateLocalizedPolicyVersionConflict handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40044</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_exist</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40044</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_exist</td></tr></table>
 */
 type CreateLocalizedPolicyVersionConflict struct {
 	Payload *legalclientmodels.ErrorEntity

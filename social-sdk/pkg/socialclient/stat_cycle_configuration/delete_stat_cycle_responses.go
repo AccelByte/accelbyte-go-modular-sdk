@@ -129,9 +129,10 @@ func NewDeleteStatCycleNoContent() *DeleteStatCycleNoContent {
 	return &DeleteStatCycleNoContent{}
 }
 
-/*DeleteStatCycleNoContent handles this case with default header values.
+/*
+DeleteStatCycleNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type DeleteStatCycleNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteStatCycleUnauthorized() *DeleteStatCycleUnauthorized {
 	return &DeleteStatCycleUnauthorized{}
 }
 
-/*DeleteStatCycleUnauthorized handles this case with default header values.
+/*
+DeleteStatCycleUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type DeleteStatCycleUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -210,9 +212,10 @@ func NewDeleteStatCycleForbidden() *DeleteStatCycleForbidden {
 	return &DeleteStatCycleForbidden{}
 }
 
-/*DeleteStatCycleForbidden handles this case with default header values.
+/*
+DeleteStatCycleForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteStatCycleForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -264,9 +267,10 @@ func NewDeleteStatCycleNotFound() *DeleteStatCycleNotFound {
 	return &DeleteStatCycleNotFound{}
 }
 
-/*DeleteStatCycleNotFound handles this case with default header values.
+/*
+DeleteStatCycleNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type DeleteStatCycleNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -318,9 +322,10 @@ func NewDeleteStatCycleInternalServerError() *DeleteStatCycleInternalServerError
 	return &DeleteStatCycleInternalServerError{}
 }
 
-/*DeleteStatCycleInternalServerError handles this case with default header values.
+/*
+DeleteStatCycleInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type DeleteStatCycleInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

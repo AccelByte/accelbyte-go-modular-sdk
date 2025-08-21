@@ -129,9 +129,10 @@ func NewPublicCancelMyAccountDeletionRequestNoContent() *PublicCancelMyAccountDe
 	return &PublicCancelMyAccountDeletionRequestNoContent{}
 }
 
-/*PublicCancelMyAccountDeletionRequestNoContent handles this case with default header values.
+/*
+PublicCancelMyAccountDeletionRequestNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicCancelMyAccountDeletionRequestNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicCancelMyAccountDeletionRequestUnauthorized() *PublicCancelMyAccoun
 	return &PublicCancelMyAccountDeletionRequestUnauthorized{}
 }
 
-/*PublicCancelMyAccountDeletionRequestUnauthorized handles this case with default header values.
+/*
+PublicCancelMyAccountDeletionRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicCancelMyAccountDeletionRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewPublicCancelMyAccountDeletionRequestForbidden() *PublicCancelMyAccountDe
 	return &PublicCancelMyAccountDeletionRequestForbidden{}
 }
 
-/*PublicCancelMyAccountDeletionRequestForbidden handles this case with default header values.
+/*
+PublicCancelMyAccountDeletionRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicCancelMyAccountDeletionRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewPublicCancelMyAccountDeletionRequestNotFound() *PublicCancelMyAccountDel
 	return &PublicCancelMyAccountDeletionRequestNotFound{}
 }
 
-/*PublicCancelMyAccountDeletionRequestNotFound handles this case with default header values.
+/*
+PublicCancelMyAccountDeletionRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicCancelMyAccountDeletionRequestNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewPublicCancelMyAccountDeletionRequestInternalServerError() *PublicCancelM
 	return &PublicCancelMyAccountDeletionRequestInternalServerError{}
 }
 
-/*PublicCancelMyAccountDeletionRequestInternalServerError handles this case with default header values.
+/*
+PublicCancelMyAccountDeletionRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicCancelMyAccountDeletionRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

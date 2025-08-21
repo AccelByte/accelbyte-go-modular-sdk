@@ -129,9 +129,10 @@ func NewPublishTemplateLocalizationV1AdminNoContent() *PublishTemplateLocalizati
 	return &PublishTemplateLocalizationV1AdminNoContent{}
 }
 
-/*PublishTemplateLocalizationV1AdminNoContent handles this case with default header values.
+/*
+PublishTemplateLocalizationV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublishTemplateLocalizationV1AdminNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublishTemplateLocalizationV1AdminUnauthorized() *PublishTemplateLocaliz
 	return &PublishTemplateLocalizationV1AdminUnauthorized{}
 }
 
-/*PublishTemplateLocalizationV1AdminUnauthorized handles this case with default header values.
+/*
+PublishTemplateLocalizationV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublishTemplateLocalizationV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -210,9 +212,10 @@ func NewPublishTemplateLocalizationV1AdminForbidden() *PublishTemplateLocalizati
 	return &PublishTemplateLocalizationV1AdminForbidden{}
 }
 
-/*PublishTemplateLocalizationV1AdminForbidden handles this case with default header values.
+/*
+PublishTemplateLocalizationV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublishTemplateLocalizationV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -264,9 +267,10 @@ func NewPublishTemplateLocalizationV1AdminNotFound() *PublishTemplateLocalizatio
 	return &PublishTemplateLocalizationV1AdminNotFound{}
 }
 
-/*PublishTemplateLocalizationV1AdminNotFound handles this case with default header values.
+/*
+PublishTemplateLocalizationV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublishTemplateLocalizationV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -318,9 +322,10 @@ func NewPublishTemplateLocalizationV1AdminInternalServerError() *PublishTemplate
 	return &PublishTemplateLocalizationV1AdminInternalServerError{}
 }
 
-/*PublishTemplateLocalizationV1AdminInternalServerError handles this case with default header values.
+/*
+PublishTemplateLocalizationV1AdminInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublishTemplateLocalizationV1AdminInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

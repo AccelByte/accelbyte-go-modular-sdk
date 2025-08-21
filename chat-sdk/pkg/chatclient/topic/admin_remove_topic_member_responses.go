@@ -69,10 +69,9 @@ func NewAdminRemoveTopicMemberOK() *AdminRemoveTopicMemberOK {
 	return &AdminRemoveTopicMemberOK{}
 }
 
-/*AdminRemoveTopicMemberOK handles this case with default header values.
-
-
- */
+/*
+AdminRemoveTopicMemberOK handles this case with default header values.
+*/
 type AdminRemoveTopicMemberOK struct {
 	Payload *chatclientmodels.MessageActionAddUserToTopicResult
 }

@@ -59,7 +59,8 @@ func NewPublicForgotPasswordWithoutNamespaceV3ParamsWithHTTPClient(client *http.
 	}
 }
 
-/*PublicForgotPasswordWithoutNamespaceV3Params contains all the parameters to send to the API endpoint
+/*
+PublicForgotPasswordWithoutNamespaceV3Params contains all the parameters to send to the API endpoint
 for the public forgot password without namespace v3 operation typically these are written to a http.Request
 */
 type PublicForgotPasswordWithoutNamespaceV3Params struct {

@@ -115,9 +115,10 @@ func NewPublicCreatePartyOK() *PublicCreatePartyOK {
 	return &PublicCreatePartyOK{}
 }
 
-/*PublicCreatePartyOK handles this case with default header values.
+/*
+PublicCreatePartyOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicCreatePartyOK struct {
 	Payload *sessionclientmodels.ApimodelsPartySessionResponse
@@ -169,9 +170,10 @@ func NewPublicCreatePartyBadRequest() *PublicCreatePartyBadRequest {
 	return &PublicCreatePartyBadRequest{}
 }
 
-/*PublicCreatePartyBadRequest handles this case with default header values.
+/*
+PublicCreatePartyBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicCreatePartyBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicCreatePartyUnauthorized() *PublicCreatePartyUnauthorized {
 	return &PublicCreatePartyUnauthorized{}
 }
 
-/*PublicCreatePartyUnauthorized handles this case with default header values.
+/*
+PublicCreatePartyUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicCreatePartyUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicCreatePartyInternalServerError() *PublicCreatePartyInternalServerE
 	return &PublicCreatePartyInternalServerError{}
 }
 
-/*PublicCreatePartyInternalServerError handles this case with default header values.
+/*
+PublicCreatePartyInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicCreatePartyInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

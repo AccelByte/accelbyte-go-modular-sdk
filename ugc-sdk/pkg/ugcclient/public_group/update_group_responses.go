@@ -130,9 +130,10 @@ func NewUpdateGroupOK() *UpdateGroupOK {
 	return &UpdateGroupOK{}
 }
 
-/*UpdateGroupOK handles this case with default header values.
+/*
+UpdateGroupOK handles this case with default header values.
 
-  Group updated
+	Group updated
 */
 type UpdateGroupOK struct {
 	Payload *ugcclientmodels.ModelsCreateGroupResponse
@@ -184,9 +185,10 @@ func NewUpdateGroupBadRequest() *UpdateGroupBadRequest {
 	return &UpdateGroupBadRequest{}
 }
 
-/*UpdateGroupBadRequest handles this case with default header values.
+/*
+UpdateGroupBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772201</td><td>Malformed request/Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772201</td><td>Malformed request/Invalid request body</td></tr></table>
 */
 type UpdateGroupBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewUpdateGroupUnauthorized() *UpdateGroupUnauthorized {
 	return &UpdateGroupUnauthorized{}
 }
 
-/*UpdateGroupUnauthorized handles this case with default header values.
+/*
+UpdateGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateGroupUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewUpdateGroupNotFound() *UpdateGroupNotFound {
 	return &UpdateGroupNotFound{}
 }
 
-/*UpdateGroupNotFound handles this case with default header values.
+/*
+UpdateGroupNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772203</td><td>Group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772203</td><td>Group not found</td></tr></table>
 */
 type UpdateGroupNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewUpdateGroupInternalServerError() *UpdateGroupInternalServerError {
 	return &UpdateGroupInternalServerError{}
 }
 
-/*UpdateGroupInternalServerError handles this case with default header values.
+/*
+UpdateGroupInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772202</td><td>Unable to update group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772202</td><td>Unable to update group</td></tr></table>
 */
 type UpdateGroupInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

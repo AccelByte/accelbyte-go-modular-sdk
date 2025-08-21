@@ -59,7 +59,8 @@ func NewAdminUploadContentScreenshotParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminUploadContentScreenshotParams contains all the parameters to send to the API endpoint
+/*
+AdminUploadContentScreenshotParams contains all the parameters to send to the API endpoint
 for the admin upload content screenshot operation typically these are written to a http.Request
 */
 type AdminUploadContentScreenshotParams struct {

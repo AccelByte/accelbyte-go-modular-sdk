@@ -115,9 +115,10 @@ func NewInfoSupportedInstancesOK() *InfoSupportedInstancesOK {
 	return &InfoSupportedInstancesOK{}
 }
 
-/*InfoSupportedInstancesOK handles this case with default header values.
+/*
+InfoSupportedInstancesOK handles this case with default header values.
 
-  success
+	success
 */
 type InfoSupportedInstancesOK struct {
 	Payload *amsclientmodels.APIInstanceTypesResponse
@@ -169,9 +170,10 @@ func NewInfoSupportedInstancesUnauthorized() *InfoSupportedInstancesUnauthorized
 	return &InfoSupportedInstancesUnauthorized{}
 }
 
-/*InfoSupportedInstancesUnauthorized handles this case with default header values.
+/*
+InfoSupportedInstancesUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type InfoSupportedInstancesUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -223,9 +225,10 @@ func NewInfoSupportedInstancesForbidden() *InfoSupportedInstancesForbidden {
 	return &InfoSupportedInstancesForbidden{}
 }
 
-/*InfoSupportedInstancesForbidden handles this case with default header values.
+/*
+InfoSupportedInstancesForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type InfoSupportedInstancesForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -277,9 +280,10 @@ func NewInfoSupportedInstancesInternalServerError() *InfoSupportedInstancesInter
 	return &InfoSupportedInstancesInternalServerError{}
 }
 
-/*InfoSupportedInstancesInternalServerError handles this case with default header values.
+/*
+InfoSupportedInstancesInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type InfoSupportedInstancesInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

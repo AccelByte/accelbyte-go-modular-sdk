@@ -130,9 +130,10 @@ func NewUpdateChannelOK() *UpdateChannelOK {
 	return &UpdateChannelOK{}
 }
 
-/*UpdateChannelOK handles this case with default header values.
+/*
+UpdateChannelOK handles this case with default header values.
 
-  Channel updated
+	Channel updated
 */
 type UpdateChannelOK struct {
 	Payload *ugcclientmodels.ModelsChannelResponse
@@ -184,9 +185,10 @@ func NewUpdateChannelBadRequest() *UpdateChannelBadRequest {
 	return &UpdateChannelBadRequest{}
 }
 
-/*UpdateChannelBadRequest handles this case with default header values.
+/*
+UpdateChannelBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770600</td><td>Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770600</td><td>Invalid request body</td></tr></table>
 */
 type UpdateChannelBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewUpdateChannelUnauthorized() *UpdateChannelUnauthorized {
 	return &UpdateChannelUnauthorized{}
 }
 
-/*UpdateChannelUnauthorized handles this case with default header values.
+/*
+UpdateChannelUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateChannelUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewUpdateChannelNotFound() *UpdateChannelNotFound {
 	return &UpdateChannelNotFound{}
 }
 
-/*UpdateChannelNotFound handles this case with default header values.
+/*
+UpdateChannelNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770603</td><td>Channel was not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770603</td><td>Channel was not found</td></tr></table>
 */
 type UpdateChannelNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewUpdateChannelInternalServerError() *UpdateChannelInternalServerError {
 	return &UpdateChannelInternalServerError{}
 }
 
-/*UpdateChannelInternalServerError handles this case with default header values.
+/*
+UpdateChannelInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770602</td><td>Unable to save channel</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770602</td><td>Unable to save channel</td></tr></table>
 */
 type UpdateChannelInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

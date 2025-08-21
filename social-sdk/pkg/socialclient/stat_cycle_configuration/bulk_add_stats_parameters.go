@@ -59,7 +59,8 @@ func NewBulkAddStatsParamsWithHTTPClient(client *http.Client) *BulkAddStatsParam
 	}
 }
 
-/*BulkAddStatsParams contains all the parameters to send to the API endpoint
+/*
+BulkAddStatsParams contains all the parameters to send to the API endpoint
 for the bulk add stats operation typically these are written to a http.Request
 */
 type BulkAddStatsParams struct {

@@ -85,9 +85,10 @@ func NewUpdatePlaystationIAPConfigOK() *UpdatePlaystationIAPConfigOK {
 	return &UpdatePlaystationIAPConfigOK{}
 }
 
-/*UpdatePlaystationIAPConfigOK handles this case with default header values.
+/*
+UpdatePlaystationIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePlaystationIAPConfigOK struct {
 	Payload *platformclientmodels.PlayStationIAPConfigInfo
@@ -139,9 +140,10 @@ func NewUpdatePlaystationIAPConfigBadRequest() *UpdatePlaystationIAPConfigBadReq
 	return &UpdatePlaystationIAPConfigBadRequest{}
 }
 
-/*UpdatePlaystationIAPConfigBadRequest handles this case with default header values.
+/*
+UpdatePlaystationIAPConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39130</td><td>Invalid playstation config: [{message}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39130</td><td>Invalid playstation config: [{message}]</td></tr></table>
 */
 type UpdatePlaystationIAPConfigBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity

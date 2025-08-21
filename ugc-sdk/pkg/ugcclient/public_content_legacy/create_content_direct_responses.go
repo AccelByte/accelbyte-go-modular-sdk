@@ -130,9 +130,10 @@ func NewCreateContentDirectCreated() *CreateContentDirectCreated {
 	return &CreateContentDirectCreated{}
 }
 
-/*CreateContentDirectCreated handles this case with default header values.
+/*
+CreateContentDirectCreated handles this case with default header values.
 
-  Content uploaded
+	Content uploaded
 */
 type CreateContentDirectCreated struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponse
@@ -184,9 +185,10 @@ func NewCreateContentDirectBadRequest() *CreateContentDirectBadRequest {
 	return &CreateContentDirectBadRequest{}
 }
 
-/*CreateContentDirectBadRequest handles this case with default header values.
+/*
+CreateContentDirectBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr></table>
 */
 type CreateContentDirectBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewCreateContentDirectUnauthorized() *CreateContentDirectUnauthorized {
 	return &CreateContentDirectUnauthorized{}
 }
 
-/*CreateContentDirectUnauthorized handles this case with default header values.
+/*
+CreateContentDirectUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateContentDirectUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewCreateContentDirectForbidden() *CreateContentDirectForbidden {
 	return &CreateContentDirectForbidden{}
 }
 
-/*CreateContentDirectForbidden handles this case with default header values.
+/*
+CreateContentDirectForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770104</td><td>User has been banned to create content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770104</td><td>User has been banned to create content</td></tr></table>
 */
 type CreateContentDirectForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewCreateContentDirectInternalServerError() *CreateContentDirectInternalSer
 	return &CreateContentDirectInternalServerError{}
 }
 
-/*CreateContentDirectInternalServerError handles this case with default header values.
+/*
+CreateContentDirectInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
 */
 type CreateContentDirectInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -175,9 +175,10 @@ func NewUpdateUserStatItemValue1OK() *UpdateUserStatItemValue1OK {
 	return &UpdateUserStatItemValue1OK{}
 }
 
-/*UpdateUserStatItemValue1OK handles this case with default header values.
+/*
+UpdateUserStatItemValue1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateUserStatItemValue1OK struct {
 	Payload *socialclientmodels.StatItemIncResult
@@ -229,9 +230,10 @@ func NewUpdateUserStatItemValue1BadRequest() *UpdateUserStatItemValue1BadRequest
 	return &UpdateUserStatItemValue1BadRequest{}
 }
 
-/*UpdateUserStatItemValue1BadRequest handles this case with default header values.
+/*
+UpdateUserStatItemValue1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12221</td><td>Invalid stat operator, expect [{expected}] but actual [{actual}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12221</td><td>Invalid stat operator, expect [{expected}] but actual [{actual}]</td></tr></table>
 */
 type UpdateUserStatItemValue1BadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -283,9 +285,10 @@ func NewUpdateUserStatItemValue1Unauthorized() *UpdateUserStatItemValue1Unauthor
 	return &UpdateUserStatItemValue1Unauthorized{}
 }
 
-/*UpdateUserStatItemValue1Unauthorized handles this case with default header values.
+/*
+UpdateUserStatItemValue1Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateUserStatItemValue1Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -337,9 +340,10 @@ func NewUpdateUserStatItemValue1Forbidden() *UpdateUserStatItemValue1Forbidden {
 	return &UpdateUserStatItemValue1Forbidden{}
 }
 
-/*UpdateUserStatItemValue1Forbidden handles this case with default header values.
+/*
+UpdateUserStatItemValue1Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdateUserStatItemValue1Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -391,9 +395,10 @@ func NewUpdateUserStatItemValue1NotFound() *UpdateUserStatItemValue1NotFound {
 	return &UpdateUserStatItemValue1NotFound{}
 }
 
-/*UpdateUserStatItemValue1NotFound handles this case with default header values.
+/*
+UpdateUserStatItemValue1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type UpdateUserStatItemValue1NotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -445,9 +450,10 @@ func NewUpdateUserStatItemValue1Conflict() *UpdateUserStatItemValue1Conflict {
 	return &UpdateUserStatItemValue1Conflict{}
 }
 
-/*UpdateUserStatItemValue1Conflict handles this case with default header values.
+/*
+UpdateUserStatItemValue1Conflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12273</td><td>Stat [{statCode}] is not decreasable</td></tr><tr><td>12275</td><td>[{action}] value: [{value}] of stat [{statCode}] is out of range while minimum [{minimum}] and maximum [{maximum}] in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12273</td><td>Stat [{statCode}] is not decreasable</td></tr><tr><td>12275</td><td>[{action}] value: [{value}] of stat [{statCode}] is out of range while minimum [{minimum}] and maximum [{maximum}] in namespace [{namespace}]</td></tr></table>
 */
 type UpdateUserStatItemValue1Conflict struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -499,9 +505,10 @@ func NewUpdateUserStatItemValue1UnprocessableEntity() *UpdateUserStatItemValue1U
 	return &UpdateUserStatItemValue1UnprocessableEntity{}
 }
 
-/*UpdateUserStatItemValue1UnprocessableEntity handles this case with default header values.
+/*
+UpdateUserStatItemValue1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateUserStatItemValue1UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -553,9 +560,10 @@ func NewUpdateUserStatItemValue1InternalServerError() *UpdateUserStatItemValue1I
 	return &UpdateUserStatItemValue1InternalServerError{}
 }
 
-/*UpdateUserStatItemValue1InternalServerError handles this case with default header values.
+/*
+UpdateUserStatItemValue1InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type UpdateUserStatItemValue1InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

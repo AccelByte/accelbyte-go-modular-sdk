@@ -151,9 +151,10 @@ func NewPutPlayerRecordConcurrentHandlerV1OK() *PutPlayerRecordConcurrentHandler
 	return &PutPlayerRecordConcurrentHandlerV1OK{}
 }
 
-/*PutPlayerRecordConcurrentHandlerV1OK handles this case with default header values.
+/*
+PutPlayerRecordConcurrentHandlerV1OK handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type PutPlayerRecordConcurrentHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsPlayerRecordConcurrentUpdateResponse
@@ -205,9 +206,10 @@ func NewPutPlayerRecordConcurrentHandlerV1NoContent() *PutPlayerRecordConcurrent
 	return &PutPlayerRecordConcurrentHandlerV1NoContent{}
 }
 
-/*PutPlayerRecordConcurrentHandlerV1NoContent handles this case with default header values.
+/*
+PutPlayerRecordConcurrentHandlerV1NoContent handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type PutPlayerRecordConcurrentHandlerV1NoContent struct {
 }
@@ -232,9 +234,10 @@ func NewPutPlayerRecordConcurrentHandlerV1BadRequest() *PutPlayerRecordConcurren
 	return &PutPlayerRecordConcurrentHandlerV1BadRequest{}
 }
 
-/*PutPlayerRecordConcurrentHandlerV1BadRequest handles this case with default header values.
+/*
+PutPlayerRecordConcurrentHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18060</td><td>invalid request body</td></tr><tr><td>18064</td><td>validation error</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18065</td><td>unable to update record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18060</td><td>invalid request body</td></tr><tr><td>18064</td><td>validation error</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18065</td><td>unable to update record</td></tr></table>
 */
 type PutPlayerRecordConcurrentHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -286,9 +289,10 @@ func NewPutPlayerRecordConcurrentHandlerV1Unauthorized() *PutPlayerRecordConcurr
 	return &PutPlayerRecordConcurrentHandlerV1Unauthorized{}
 }
 
-/*PutPlayerRecordConcurrentHandlerV1Unauthorized handles this case with default header values.
+/*
+PutPlayerRecordConcurrentHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PutPlayerRecordConcurrentHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -340,9 +344,10 @@ func NewPutPlayerRecordConcurrentHandlerV1Forbidden() *PutPlayerRecordConcurrent
 	return &PutPlayerRecordConcurrentHandlerV1Forbidden{}
 }
 
-/*PutPlayerRecordConcurrentHandlerV1Forbidden handles this case with default header values.
+/*
+PutPlayerRecordConcurrentHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PutPlayerRecordConcurrentHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -394,9 +399,10 @@ func NewPutPlayerRecordConcurrentHandlerV1PreconditionFailed() *PutPlayerRecordC
 	return &PutPlayerRecordConcurrentHandlerV1PreconditionFailed{}
 }
 
-/*PutPlayerRecordConcurrentHandlerV1PreconditionFailed handles this case with default header values.
+/*
+PutPlayerRecordConcurrentHandlerV1PreconditionFailed handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18066</td><td>precondition failed: record has changed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18066</td><td>precondition failed: record has changed</td></tr></table>
 */
 type PutPlayerRecordConcurrentHandlerV1PreconditionFailed struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -448,9 +454,10 @@ func NewPutPlayerRecordConcurrentHandlerV1InternalServerError() *PutPlayerRecord
 	return &PutPlayerRecordConcurrentHandlerV1InternalServerError{}
 }
 
-/*PutPlayerRecordConcurrentHandlerV1InternalServerError handles this case with default header values.
+/*
+PutPlayerRecordConcurrentHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18061</td><td>unable to update record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18061</td><td>unable to update record</td></tr></table>
 */
 type PutPlayerRecordConcurrentHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

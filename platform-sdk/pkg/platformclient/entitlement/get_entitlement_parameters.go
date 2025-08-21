@@ -57,7 +57,8 @@ func NewGetEntitlementParamsWithHTTPClient(client *http.Client) *GetEntitlementP
 	}
 }
 
-/*GetEntitlementParams contains all the parameters to send to the API endpoint
+/*
+GetEntitlementParams contains all the parameters to send to the API endpoint
 for the get entitlement operation typically these are written to a http.Request
 */
 type GetEntitlementParams struct {

@@ -57,7 +57,8 @@ func NewTestXsollaConfigByIDParamsWithHTTPClient(client *http.Client) *TestXsoll
 	}
 }
 
-/*TestXsollaConfigByIDParams contains all the parameters to send to the API endpoint
+/*
+TestXsollaConfigByIDParams contains all the parameters to send to the API endpoint
 for the test xsolla config by id operation typically these are written to a http.Request
 */
 type TestXsollaConfigByIDParams struct {

@@ -145,9 +145,10 @@ func NewGetAllTimeLeaderboardRankingPublicV2OK() *GetAllTimeLeaderboardRankingPu
 	return &GetAllTimeLeaderboardRankingPublicV2OK{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV2OK handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV2OK handles this case with default header values.
 
-  All time leaderboard ranking retrieved
+	All time leaderboard ranking retrieved
 */
 type GetAllTimeLeaderboardRankingPublicV2OK struct {
 	Payload *leaderboardclientmodels.V2GetPublicLeaderboardRankingResponse
@@ -199,9 +200,10 @@ func NewGetAllTimeLeaderboardRankingPublicV2BadRequest() *GetAllTimeLeaderboardR
 	return &GetAllTimeLeaderboardRankingPublicV2BadRequest{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV2BadRequest handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV2BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetAllTimeLeaderboardRankingPublicV2Unauthorized() *GetAllTimeLeaderboar
 	return &GetAllTimeLeaderboardRankingPublicV2Unauthorized{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV2Unauthorized handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV2Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetAllTimeLeaderboardRankingPublicV2Forbidden() *GetAllTimeLeaderboardRa
 	return &GetAllTimeLeaderboardRankingPublicV2Forbidden{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV2Forbidden handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV2Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetAllTimeLeaderboardRankingPublicV2NotFound() *GetAllTimeLeaderboardRan
 	return &GetAllTimeLeaderboardRankingPublicV2NotFound{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV2NotFound handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV2NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetAllTimeLeaderboardRankingPublicV2InternalServerError() *GetAllTimeLea
 	return &GetAllTimeLeaderboardRankingPublicV2InternalServerError{}
 }
 
-/*GetAllTimeLeaderboardRankingPublicV2InternalServerError handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingPublicV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingPublicV2InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

@@ -136,9 +136,10 @@ func NewAdminProfanityImportOK() *AdminProfanityImportOK {
 	return &AdminProfanityImportOK{}
 }
 
-/*AdminProfanityImportOK handles this case with default header values.
+/*
+AdminProfanityImportOK handles this case with default header values.
 
-  returned when showResult=true
+	returned when showResult=true
 */
 type AdminProfanityImportOK struct {
 	Payload *chatclientmodels.ModelsDictionaryImportResult
@@ -190,9 +191,10 @@ func NewAdminProfanityImportNoContent() *AdminProfanityImportNoContent {
 	return &AdminProfanityImportNoContent{}
 }
 
-/*AdminProfanityImportNoContent handles this case with default header values.
+/*
+AdminProfanityImportNoContent handles this case with default header values.
 
-  No Content returned when showResult=false or not defined
+	No Content returned when showResult=false or not defined
 */
 type AdminProfanityImportNoContent struct {
 }
@@ -217,9 +219,10 @@ func NewAdminProfanityImportBadRequest() *AdminProfanityImportBadRequest {
 	return &AdminProfanityImportBadRequest{}
 }
 
-/*AdminProfanityImportBadRequest handles this case with default header values.
+/*
+AdminProfanityImportBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminProfanityImportBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -271,9 +274,10 @@ func NewAdminProfanityImportUnauthorized() *AdminProfanityImportUnauthorized {
 	return &AdminProfanityImportUnauthorized{}
 }
 
-/*AdminProfanityImportUnauthorized handles this case with default header values.
+/*
+AdminProfanityImportUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminProfanityImportUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -325,9 +329,10 @@ func NewAdminProfanityImportForbidden() *AdminProfanityImportForbidden {
 	return &AdminProfanityImportForbidden{}
 }
 
-/*AdminProfanityImportForbidden handles this case with default header values.
+/*
+AdminProfanityImportForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminProfanityImportForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -379,9 +384,10 @@ func NewAdminProfanityImportInternalServerError() *AdminProfanityImportInternalS
 	return &AdminProfanityImportInternalServerError{}
 }
 
-/*AdminProfanityImportInternalServerError handles this case with default header values.
+/*
+AdminProfanityImportInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminProfanityImportInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

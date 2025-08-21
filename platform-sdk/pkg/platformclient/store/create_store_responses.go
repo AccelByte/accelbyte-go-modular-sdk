@@ -100,9 +100,10 @@ func NewCreateStoreCreated() *CreateStoreCreated {
 	return &CreateStoreCreated{}
 }
 
-/*CreateStoreCreated handles this case with default header values.
+/*
+CreateStoreCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateStoreCreated struct {
 	Payload *platformclientmodels.StoreInfo
@@ -154,9 +155,10 @@ func NewCreateStoreConflict() *CreateStoreConflict {
 	return &CreateStoreConflict{}
 }
 
-/*CreateStoreConflict handles this case with default header values.
+/*
+CreateStoreConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30174</td><td>Draft store already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30174</td><td>Draft store already exists in namespace [{namespace}]</td></tr></table>
 */
 type CreateStoreConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewCreateStoreUnprocessableEntity() *CreateStoreUnprocessableEntity {
 	return &CreateStoreUnprocessableEntity{}
 }
 
-/*CreateStoreUnprocessableEntity handles this case with default header values.
+/*
+CreateStoreUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateStoreUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

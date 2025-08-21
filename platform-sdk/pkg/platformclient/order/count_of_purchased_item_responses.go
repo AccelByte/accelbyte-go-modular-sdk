@@ -69,9 +69,10 @@ func NewCountOfPurchasedItemOK() *CountOfPurchasedItemOK {
 	return &CountOfPurchasedItemOK{}
 }
 
-/*CountOfPurchasedItemOK handles this case with default header values.
+/*
+CountOfPurchasedItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CountOfPurchasedItemOK struct {
 	Payload *platformclientmodels.PurchasedItemCount

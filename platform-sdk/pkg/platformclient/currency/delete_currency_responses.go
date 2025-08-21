@@ -85,9 +85,10 @@ func NewDeleteCurrencyOK() *DeleteCurrencyOK {
 	return &DeleteCurrencyOK{}
 }
 
-/*DeleteCurrencyOK handles this case with default header values.
+/*
+DeleteCurrencyOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DeleteCurrencyOK struct {
 	Payload *platformclientmodels.CurrencyInfo
@@ -139,9 +140,10 @@ func NewDeleteCurrencyNotFound() *DeleteCurrencyNotFound {
 	return &DeleteCurrencyNotFound{}
 }
 
-/*DeleteCurrencyNotFound handles this case with default header values.
+/*
+DeleteCurrencyNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DeleteCurrencyNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

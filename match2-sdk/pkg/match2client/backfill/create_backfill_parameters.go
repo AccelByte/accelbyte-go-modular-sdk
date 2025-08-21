@@ -59,7 +59,8 @@ func NewCreateBackfillParamsWithHTTPClient(client *http.Client) *CreateBackfillP
 	}
 }
 
-/*CreateBackfillParams contains all the parameters to send to the API endpoint
+/*
+CreateBackfillParams contains all the parameters to send to the API endpoint
 for the create backfill operation typically these are written to a http.Request
 */
 type CreateBackfillParams struct {

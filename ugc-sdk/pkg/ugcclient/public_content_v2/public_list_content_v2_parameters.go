@@ -86,7 +86,8 @@ func NewPublicListContentV2ParamsWithHTTPClient(client *http.Client) *PublicList
 	}
 }
 
-/*PublicListContentV2Params contains all the parameters to send to the API endpoint
+/*
+PublicListContentV2Params contains all the parameters to send to the API endpoint
 for the public list content v2 operation typically these are written to a http.Request
 */
 type PublicListContentV2Params struct {

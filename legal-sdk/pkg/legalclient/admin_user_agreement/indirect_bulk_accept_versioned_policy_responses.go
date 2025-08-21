@@ -69,9 +69,10 @@ func NewIndirectBulkAcceptVersionedPolicyCreated() *IndirectBulkAcceptVersionedP
 	return &IndirectBulkAcceptVersionedPolicyCreated{}
 }
 
-/*IndirectBulkAcceptVersionedPolicyCreated handles this case with default header values.
+/*
+IndirectBulkAcceptVersionedPolicyCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type IndirectBulkAcceptVersionedPolicyCreated struct {
 	Payload *legalclientmodels.AcceptAgreementResponse

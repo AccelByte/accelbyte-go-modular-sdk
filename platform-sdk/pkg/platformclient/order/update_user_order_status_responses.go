@@ -115,9 +115,10 @@ func NewUpdateUserOrderStatusOK() *UpdateUserOrderStatusOK {
 	return &UpdateUserOrderStatusOK{}
 }
 
-/*UpdateUserOrderStatusOK handles this case with default header values.
+/*
+UpdateUserOrderStatusOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateUserOrderStatusOK struct {
 	Payload *platformclientmodels.OrderInfo
@@ -169,9 +170,10 @@ func NewUpdateUserOrderStatusNotFound() *UpdateUserOrderStatusNotFound {
 	return &UpdateUserOrderStatusNotFound{}
 }
 
-/*UpdateUserOrderStatusNotFound handles this case with default header values.
+/*
+UpdateUserOrderStatusNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
 */
 type UpdateUserOrderStatusNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewUpdateUserOrderStatusConflict() *UpdateUserOrderStatusConflict {
 	return &UpdateUserOrderStatusConflict{}
 }
 
-/*UpdateUserOrderStatusConflict handles this case with default header values.
+/*
+UpdateUserOrderStatusConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type UpdateUserOrderStatusConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewUpdateUserOrderStatusUnprocessableEntity() *UpdateUserOrderStatusUnproce
 	return &UpdateUserOrderStatusUnprocessableEntity{}
 }
 
-/*UpdateUserOrderStatusUnprocessableEntity handles this case with default header values.
+/*
+UpdateUserOrderStatusUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateUserOrderStatusUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

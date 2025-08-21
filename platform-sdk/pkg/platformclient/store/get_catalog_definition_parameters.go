@@ -76,7 +76,8 @@ func NewGetCatalogDefinitionParamsWithHTTPClient(client *http.Client) *GetCatalo
 	}
 }
 
-/*GetCatalogDefinitionParams contains all the parameters to send to the API endpoint
+/*
+GetCatalogDefinitionParams contains all the parameters to send to the API endpoint
 for the get catalog definition operation typically these are written to a http.Request
 */
 type GetCatalogDefinitionParams struct {

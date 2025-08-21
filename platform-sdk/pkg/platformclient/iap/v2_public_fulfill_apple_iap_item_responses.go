@@ -114,9 +114,10 @@ func NewV2PublicFulfillAppleIAPItemNoContent() *V2PublicFulfillAppleIAPItemNoCon
 	return &V2PublicFulfillAppleIAPItemNoContent{}
 }
 
-/*V2PublicFulfillAppleIAPItemNoContent handles this case with default header values.
+/*
+V2PublicFulfillAppleIAPItemNoContent handles this case with default header values.
 
-  Fulfill successfully
+	Fulfill successfully
 */
 type V2PublicFulfillAppleIAPItemNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewV2PublicFulfillAppleIAPItemBadRequest() *V2PublicFulfillAppleIAPItemBadR
 	return &V2PublicFulfillAppleIAPItemBadRequest{}
 }
 
-/*V2PublicFulfillAppleIAPItemBadRequest handles this case with default header values.
+/*
+V2PublicFulfillAppleIAPItemBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>39131</td><td>Invalid Apple IAP config under namespace [{namespace}]: [{message}]</td></tr><tr><td>39136</td><td>Request Apple API failed with status code [{statusCode}] and error message [{message}]</td></tr><tr><td>39137</td><td>Verify Apple transaction failed with status [{status}] and error message [{message}]</td></tr><tr><td>39138</td><td>Apple IAP version mismatch detected: The current configuration is set to  [{configVersion}], but the API version is [{apiVersion}]. Please ensure that both the configuration and API versions are aligned</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>39131</td><td>Invalid Apple IAP config under namespace [{namespace}]: [{message}]</td></tr><tr><td>39136</td><td>Request Apple API failed with status code [{statusCode}] and error message [{message}]</td></tr><tr><td>39137</td><td>Verify Apple transaction failed with status [{status}] and error message [{message}]</td></tr><tr><td>39138</td><td>Apple IAP version mismatch detected: The current configuration is set to  [{configVersion}], but the API version is [{apiVersion}]. Please ensure that both the configuration and API versions are aligned</td></tr></table>
 */
 type V2PublicFulfillAppleIAPItemBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -195,9 +197,10 @@ func NewV2PublicFulfillAppleIAPItemNotFound() *V2PublicFulfillAppleIAPItemNotFou
 	return &V2PublicFulfillAppleIAPItemNotFound{}
 }
 
-/*V2PublicFulfillAppleIAPItemNotFound handles this case with default header values.
+/*
+V2PublicFulfillAppleIAPItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>39142</td><td>Apple IAP config not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>39142</td><td>Apple IAP config not found in namespace [{namespace}]</td></tr></table>
 */
 type V2PublicFulfillAppleIAPItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -249,9 +252,10 @@ func NewV2PublicFulfillAppleIAPItemConflict() *V2PublicFulfillAppleIAPItemConfli
 	return &V2PublicFulfillAppleIAPItemConflict{}
 }
 
-/*V2PublicFulfillAppleIAPItemConflict handles this case with default header values.
+/*
+V2PublicFulfillAppleIAPItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39171</td><td>The bundle id in namespace [{namespace}] expect [{expected}] but was [{actual}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39171</td><td>The bundle id in namespace [{namespace}] expect [{expected}] but was [{actual}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type V2PublicFulfillAppleIAPItemConflict struct {
 	Payload *platformclientmodels.ErrorEntity

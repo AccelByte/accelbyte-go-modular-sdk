@@ -115,9 +115,10 @@ func NewAdminGetInventoryConfigurationOK() *AdminGetInventoryConfigurationOK {
 	return &AdminGetInventoryConfigurationOK{}
 }
 
-/*AdminGetInventoryConfigurationOK handles this case with default header values.
+/*
+AdminGetInventoryConfigurationOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetInventoryConfigurationOK struct {
 	Payload *inventoryclientmodels.ApimodelsInventoryConfigurationResp
@@ -169,9 +170,10 @@ func NewAdminGetInventoryConfigurationBadRequest() *AdminGetInventoryConfigurati
 	return &AdminGetInventoryConfigurationBadRequest{}
 }
 
-/*AdminGetInventoryConfigurationBadRequest handles this case with default header values.
+/*
+AdminGetInventoryConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetInventoryConfigurationBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetInventoryConfigurationNotFound() *AdminGetInventoryConfiguration
 	return &AdminGetInventoryConfigurationNotFound{}
 }
 
-/*AdminGetInventoryConfigurationNotFound handles this case with default header values.
+/*
+AdminGetInventoryConfigurationNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetInventoryConfigurationNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetInventoryConfigurationInternalServerError() *AdminGetInventoryCo
 	return &AdminGetInventoryConfigurationInternalServerError{}
 }
 
-/*AdminGetInventoryConfigurationInternalServerError handles this case with default header values.
+/*
+AdminGetInventoryConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetInventoryConfigurationInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

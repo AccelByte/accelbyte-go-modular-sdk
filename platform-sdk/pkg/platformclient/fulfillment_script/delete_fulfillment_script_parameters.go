@@ -57,7 +57,8 @@ func NewDeleteFulfillmentScriptParamsWithHTTPClient(client *http.Client) *Delete
 	}
 }
 
-/*DeleteFulfillmentScriptParams contains all the parameters to send to the API endpoint
+/*
+DeleteFulfillmentScriptParams contains all the parameters to send to the API endpoint
 for the delete fulfillment script operation typically these are written to a http.Request
 */
 type DeleteFulfillmentScriptParams struct {

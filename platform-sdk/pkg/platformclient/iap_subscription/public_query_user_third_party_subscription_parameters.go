@@ -105,7 +105,8 @@ func NewPublicQueryUserThirdPartySubscriptionParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*PublicQueryUserThirdPartySubscriptionParams contains all the parameters to send to the API endpoint
+/*
+PublicQueryUserThirdPartySubscriptionParams contains all the parameters to send to the API endpoint
 for the public query user third party subscription operation typically these are written to a http.Request
 */
 type PublicQueryUserThirdPartySubscriptionParams struct {

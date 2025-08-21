@@ -100,10 +100,9 @@ func NewAdminFindActionListOK() *AdminFindActionListOK {
 	return &AdminFindActionListOK{}
 }
 
-/*AdminFindActionListOK handles this case with default header values.
-
-
- */
+/*
+AdminFindActionListOK handles this case with default header values.
+*/
 type AdminFindActionListOK struct {
 	Payload *reportingclientmodels.RestapiActionListAPIResponse
 }
@@ -154,10 +153,9 @@ func NewAdminFindActionListBadRequest() *AdminFindActionListBadRequest {
 	return &AdminFindActionListBadRequest{}
 }
 
-/*AdminFindActionListBadRequest handles this case with default header values.
-
-
- */
+/*
+AdminFindActionListBadRequest handles this case with default header values.
+*/
 type AdminFindActionListBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -208,10 +206,9 @@ func NewAdminFindActionListInternalServerError() *AdminFindActionListInternalSer
 	return &AdminFindActionListInternalServerError{}
 }
 
-/*AdminFindActionListInternalServerError handles this case with default header values.
-
-
- */
+/*
+AdminFindActionListInternalServerError handles this case with default header values.
+*/
 type AdminFindActionListInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

@@ -57,7 +57,8 @@ func NewGetEstimatedPriceParamsWithHTTPClient(client *http.Client) *GetEstimated
 	}
 }
 
-/*GetEstimatedPriceParams contains all the parameters to send to the API endpoint
+/*
+GetEstimatedPriceParams contains all the parameters to send to the API endpoint
 for the get estimated price operation typically these are written to a http.Request
 */
 type GetEstimatedPriceParams struct {

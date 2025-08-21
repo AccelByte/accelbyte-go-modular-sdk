@@ -70,7 +70,8 @@ func NewGetAppImageListV1ParamsWithHTTPClient(client *http.Client) *GetAppImageL
 	}
 }
 
-/*GetAppImageListV1Params contains all the parameters to send to the API endpoint
+/*
+GetAppImageListV1Params contains all the parameters to send to the API endpoint
 for the get app image list v1 operation typically these are written to a http.Request
 */
 type GetAppImageListV1Params struct {

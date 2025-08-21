@@ -100,9 +100,10 @@ func NewSyncOculusConsumableEntitlementsOK() *SyncOculusConsumableEntitlementsOK
 	return &SyncOculusConsumableEntitlementsOK{}
 }
 
-/*SyncOculusConsumableEntitlementsOK handles this case with default header values.
+/*
+SyncOculusConsumableEntitlementsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SyncOculusConsumableEntitlementsOK struct {
 	Payload []*platformclientmodels.OculusReconcileResult
@@ -152,9 +153,10 @@ func NewSyncOculusConsumableEntitlementsBadRequest() *SyncOculusConsumableEntitl
 	return &SyncOculusConsumableEntitlementsBadRequest{}
 }
 
-/*SyncOculusConsumableEntitlementsBadRequest handles this case with default header values.
+/*
+SyncOculusConsumableEntitlementsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39134</td><td>Invalid Oculus IAP config under namespace [{namespace}]: [{message}]</td></tr><tr><td>39133</td><td>Bad request for Oculus: [{reason}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39134</td><td>Invalid Oculus IAP config under namespace [{namespace}]: [{message}]</td></tr><tr><td>39133</td><td>Bad request for Oculus: [{reason}]</td></tr></table>
 */
 type SyncOculusConsumableEntitlementsBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewSyncOculusConsumableEntitlementsNotFound() *SyncOculusConsumableEntitlem
 	return &SyncOculusConsumableEntitlementsNotFound{}
 }
 
-/*SyncOculusConsumableEntitlementsNotFound handles this case with default header values.
+/*
+SyncOculusConsumableEntitlementsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39146</td><td>Oculus IAP config not found in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39146</td><td>Oculus IAP config not found in namespace [{namespace}].</td></tr></table>
 */
 type SyncOculusConsumableEntitlementsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

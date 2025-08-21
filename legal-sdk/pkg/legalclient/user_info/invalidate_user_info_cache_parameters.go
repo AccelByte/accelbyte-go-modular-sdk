@@ -57,7 +57,8 @@ func NewInvalidateUserInfoCacheParamsWithHTTPClient(client *http.Client) *Invali
 	}
 }
 
-/*InvalidateUserInfoCacheParams contains all the parameters to send to the API endpoint
+/*
+InvalidateUserInfoCacheParams contains all the parameters to send to the API endpoint
 for the invalidate user info cache operation typically these are written to a http.Request
 */
 type InvalidateUserInfoCacheParams struct {

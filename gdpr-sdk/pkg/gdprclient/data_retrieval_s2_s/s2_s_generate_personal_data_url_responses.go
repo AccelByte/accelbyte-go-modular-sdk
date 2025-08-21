@@ -130,9 +130,10 @@ func NewS2SGeneratePersonalDataURLOK() *S2SGeneratePersonalDataURLOK {
 	return &S2SGeneratePersonalDataURLOK{}
 }
 
-/*S2SGeneratePersonalDataURLOK handles this case with default header values.
+/*
+S2SGeneratePersonalDataURLOK handles this case with default header values.
 
-  OK
+	OK
 */
 type S2SGeneratePersonalDataURLOK struct {
 	Payload *gdprclientmodels.ModelsS2SUserDataURL
@@ -184,9 +185,10 @@ func NewS2SGeneratePersonalDataURLBadRequest() *S2SGeneratePersonalDataURLBadReq
 	return &S2SGeneratePersonalDataURLBadRequest{}
 }
 
-/*S2SGeneratePersonalDataURLBadRequest handles this case with default header values.
+/*
+S2SGeneratePersonalDataURLBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type S2SGeneratePersonalDataURLBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewS2SGeneratePersonalDataURLUnauthorized() *S2SGeneratePersonalDataURLUnau
 	return &S2SGeneratePersonalDataURLUnauthorized{}
 }
 
-/*S2SGeneratePersonalDataURLUnauthorized handles this case with default header values.
+/*
+S2SGeneratePersonalDataURLUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type S2SGeneratePersonalDataURLUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewS2SGeneratePersonalDataURLNotFound() *S2SGeneratePersonalDataURLNotFound
 	return &S2SGeneratePersonalDataURLNotFound{}
 }
 
-/*S2SGeneratePersonalDataURLNotFound handles this case with default header values.
+/*
+S2SGeneratePersonalDataURLNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type S2SGeneratePersonalDataURLNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewS2SGeneratePersonalDataURLInternalServerError() *S2SGeneratePersonalData
 	return &S2SGeneratePersonalDataURLInternalServerError{}
 }
 
-/*S2SGeneratePersonalDataURLInternalServerError handles this case with default header values.
+/*
+S2SGeneratePersonalDataURLInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type S2SGeneratePersonalDataURLInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

@@ -59,7 +59,8 @@ func NewBulkResetUserStatItem3ParamsWithHTTPClient(client *http.Client) *BulkRes
 	}
 }
 
-/*BulkResetUserStatItem3Params contains all the parameters to send to the API endpoint
+/*
+BulkResetUserStatItem3Params contains all the parameters to send to the API endpoint
 for the bulk reset user stat item 3 operation typically these are written to a http.Request
 */
 type BulkResetUserStatItem3Params struct {

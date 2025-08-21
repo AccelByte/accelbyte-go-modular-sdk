@@ -57,7 +57,8 @@ func NewRuleSetDetailsParamsWithHTTPClient(client *http.Client) *RuleSetDetailsP
 	}
 }
 
-/*RuleSetDetailsParams contains all the parameters to send to the API endpoint
+/*
+RuleSetDetailsParams contains all the parameters to send to the API endpoint
 for the rule set details operation typically these are written to a http.Request
 */
 type RuleSetDetailsParams struct {

@@ -130,9 +130,10 @@ func NewGetUserRankingPublicV1OK() *GetUserRankingPublicV1OK {
 	return &GetUserRankingPublicV1OK{}
 }
 
-/*GetUserRankingPublicV1OK handles this case with default header values.
+/*
+GetUserRankingPublicV1OK handles this case with default header values.
 
-  User ranking retrieved
+	User ranking retrieved
 */
 type GetUserRankingPublicV1OK struct {
 	Payload *leaderboardclientmodels.ModelsUserRankingResponse
@@ -184,9 +185,10 @@ func NewGetUserRankingPublicV1Unauthorized() *GetUserRankingPublicV1Unauthorized
 	return &GetUserRankingPublicV1Unauthorized{}
 }
 
-/*GetUserRankingPublicV1Unauthorized handles this case with default header values.
+/*
+GetUserRankingPublicV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserRankingPublicV1Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetUserRankingPublicV1Forbidden() *GetUserRankingPublicV1Forbidden {
 	return &GetUserRankingPublicV1Forbidden{}
 }
 
-/*GetUserRankingPublicV1Forbidden handles this case with default header values.
+/*
+GetUserRankingPublicV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserRankingPublicV1Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetUserRankingPublicV1NotFound() *GetUserRankingPublicV1NotFound {
 	return &GetUserRankingPublicV1NotFound{}
 }
 
-/*GetUserRankingPublicV1NotFound handles this case with default header values.
+/*
+GetUserRankingPublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71237</td><td>leaderboard ranking not created for inactive leaderboard</td></tr><tr><td>71233</td><td>user ranking data not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71237</td><td>leaderboard ranking not created for inactive leaderboard</td></tr><tr><td>71233</td><td>user ranking data not found</td></tr></table>
 */
 type GetUserRankingPublicV1NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetUserRankingPublicV1InternalServerError() *GetUserRankingPublicV1Inter
 	return &GetUserRankingPublicV1InternalServerError{}
 }
 
-/*GetUserRankingPublicV1InternalServerError handles this case with default header values.
+/*
+GetUserRankingPublicV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetUserRankingPublicV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

@@ -59,7 +59,8 @@ func NewCreateTierParamsWithHTTPClient(client *http.Client) *CreateTierParams {
 	}
 }
 
-/*CreateTierParams contains all the parameters to send to the API endpoint
+/*
+CreateTierParams contains all the parameters to send to the API endpoint
 for the create tier operation typically these are written to a http.Request
 */
 type CreateTierParams struct {

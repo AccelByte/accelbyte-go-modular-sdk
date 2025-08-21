@@ -69,9 +69,10 @@ func NewTestAdyenConfigOK() *TestAdyenConfigOK {
 	return &TestAdyenConfigOK{}
 }
 
-/*TestAdyenConfigOK handles this case with default header values.
+/*
+TestAdyenConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestAdyenConfigOK struct {
 	Payload *platformclientmodels.TestResult

@@ -57,7 +57,8 @@ func NewAdminQueryGameSessionsByAttributesParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*AdminQueryGameSessionsByAttributesParams contains all the parameters to send to the API endpoint
+/*
+AdminQueryGameSessionsByAttributesParams contains all the parameters to send to the API endpoint
 for the admin query game sessions by attributes operation typically these are written to a http.Request
 */
 type AdminQueryGameSessionsByAttributesParams struct {

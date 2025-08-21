@@ -57,7 +57,8 @@ func NewGetPlayerPublicBinaryRecordsV1ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*GetPlayerPublicBinaryRecordsV1Params contains all the parameters to send to the API endpoint
+/*
+GetPlayerPublicBinaryRecordsV1Params contains all the parameters to send to the API endpoint
 for the get player public binary records v1 operation typically these are written to a http.Request
 */
 type GetPlayerPublicBinaryRecordsV1Params struct {

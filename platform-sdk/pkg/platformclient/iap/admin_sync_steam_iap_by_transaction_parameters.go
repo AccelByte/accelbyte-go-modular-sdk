@@ -59,7 +59,8 @@ func NewAdminSyncSteamIAPByTransactionParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*AdminSyncSteamIAPByTransactionParams contains all the parameters to send to the API endpoint
+/*
+AdminSyncSteamIAPByTransactionParams contains all the parameters to send to the API endpoint
 for the admin sync steam iap by transaction operation typically these are written to a http.Request
 */
 type AdminSyncSteamIAPByTransactionParams struct {

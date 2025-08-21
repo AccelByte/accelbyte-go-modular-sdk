@@ -57,7 +57,8 @@ func NewAdminDeleteChatParamsWithHTTPClient(client *http.Client) *AdminDeleteCha
 	}
 }
 
-/*AdminDeleteChatParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteChatParams contains all the parameters to send to the API endpoint
 for the admin delete chat operation typically these are written to a http.Request
 */
 type AdminDeleteChatParams struct {

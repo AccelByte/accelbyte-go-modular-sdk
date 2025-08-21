@@ -115,9 +115,10 @@ func NewFulfillRewardsV2OK() *FulfillRewardsV2OK {
 	return &FulfillRewardsV2OK{}
 }
 
-/*FulfillRewardsV2OK handles this case with default header values.
+/*
+FulfillRewardsV2OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type FulfillRewardsV2OK struct {
 	Payload *platformclientmodels.FulfillmentResult
@@ -169,9 +170,10 @@ func NewFulfillRewardsV2BadRequest() *FulfillRewardsV2BadRequest {
 	return &FulfillRewardsV2BadRequest{}
 }
 
-/*FulfillRewardsV2BadRequest handles this case with default header values.
+/*
+FulfillRewardsV2BadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr></table>
 */
 type FulfillRewardsV2BadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewFulfillRewardsV2NotFound() *FulfillRewardsV2NotFound {
 	return &FulfillRewardsV2NotFound{}
 }
 
-/*FulfillRewardsV2NotFound handles this case with default header values.
+/*
+FulfillRewardsV2NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type FulfillRewardsV2NotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewFulfillRewardsV2Conflict() *FulfillRewardsV2Conflict {
 	return &FulfillRewardsV2Conflict{}
 }
 
-/*FulfillRewardsV2Conflict handles this case with default header values.
+/*
+FulfillRewardsV2Conflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type FulfillRewardsV2Conflict struct {
 	Payload *platformclientmodels.ErrorEntity

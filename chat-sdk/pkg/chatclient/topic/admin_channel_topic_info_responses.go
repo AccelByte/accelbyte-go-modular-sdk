@@ -145,9 +145,10 @@ func NewAdminChannelTopicInfoOK() *AdminChannelTopicInfoOK {
 	return &AdminChannelTopicInfoOK{}
 }
 
-/*AdminChannelTopicInfoOK handles this case with default header values.
+/*
+AdminChannelTopicInfoOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminChannelTopicInfoOK struct {
 	Payload *chatclientmodels.ModelsChannelTopicResponse
@@ -199,9 +200,10 @@ func NewAdminChannelTopicInfoBadRequest() *AdminChannelTopicInfoBadRequest {
 	return &AdminChannelTopicInfoBadRequest{}
 }
 
-/*AdminChannelTopicInfoBadRequest handles this case with default header values.
+/*
+AdminChannelTopicInfoBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminChannelTopicInfoBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminChannelTopicInfoUnauthorized() *AdminChannelTopicInfoUnauthorized {
 	return &AdminChannelTopicInfoUnauthorized{}
 }
 
-/*AdminChannelTopicInfoUnauthorized handles this case with default header values.
+/*
+AdminChannelTopicInfoUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminChannelTopicInfoUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminChannelTopicInfoForbidden() *AdminChannelTopicInfoForbidden {
 	return &AdminChannelTopicInfoForbidden{}
 }
 
-/*AdminChannelTopicInfoForbidden handles this case with default header values.
+/*
+AdminChannelTopicInfoForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminChannelTopicInfoForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminChannelTopicInfoNotFound() *AdminChannelTopicInfoNotFound {
 	return &AdminChannelTopicInfoNotFound{}
 }
 
-/*AdminChannelTopicInfoNotFound handles this case with default header values.
+/*
+AdminChannelTopicInfoNotFound handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminChannelTopicInfoNotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminChannelTopicInfoInternalServerError() *AdminChannelTopicInfoInterna
 	return &AdminChannelTopicInfoInternalServerError{}
 }
 
-/*AdminChannelTopicInfoInternalServerError handles this case with default header values.
+/*
+AdminChannelTopicInfoInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminChannelTopicInfoInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

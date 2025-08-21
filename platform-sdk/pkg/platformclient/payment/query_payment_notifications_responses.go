@@ -69,9 +69,10 @@ func NewQueryPaymentNotificationsOK() *QueryPaymentNotificationsOK {
 	return &QueryPaymentNotificationsOK{}
 }
 
-/*QueryPaymentNotificationsOK handles this case with default header values.
+/*
+QueryPaymentNotificationsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryPaymentNotificationsOK struct {
 	Payload *platformclientmodels.PaymentNotificationPagingSlicedResult

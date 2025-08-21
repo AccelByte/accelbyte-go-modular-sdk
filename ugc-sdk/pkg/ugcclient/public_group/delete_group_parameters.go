@@ -57,7 +57,8 @@ func NewDeleteGroupParamsWithHTTPClient(client *http.Client) *DeleteGroupParams 
 	}
 }
 
-/*DeleteGroupParams contains all the parameters to send to the API endpoint
+/*
+DeleteGroupParams contains all the parameters to send to the API endpoint
 for the delete group operation typically these are written to a http.Request
 */
 type DeleteGroupParams struct {

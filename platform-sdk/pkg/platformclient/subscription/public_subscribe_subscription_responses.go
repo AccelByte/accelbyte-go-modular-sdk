@@ -144,9 +144,10 @@ func NewPublicSubscribeSubscriptionCreated() *PublicSubscribeSubscriptionCreated
 	return &PublicSubscribeSubscriptionCreated{}
 }
 
-/*PublicSubscribeSubscriptionCreated handles this case with default header values.
+/*
+PublicSubscribeSubscriptionCreated handles this case with default header values.
 
-  subscribe request processed
+	subscribe request processed
 */
 type PublicSubscribeSubscriptionCreated struct {
 }
@@ -171,9 +172,10 @@ func NewPublicSubscribeSubscriptionBadRequest() *PublicSubscribeSubscriptionBadR
 	return &PublicSubscribeSubscriptionBadRequest{}
 }
 
-/*PublicSubscribeSubscriptionBadRequest handles this case with default header values.
+/*
+PublicSubscribeSubscriptionBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40121</td><td>Item type [{itemType}] does not support</td></tr><tr><td>40122</td><td>Subscription already been subscribed by user</td></tr><tr><td>40123</td><td>Currency [{currencyCode}] does not support</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40121</td><td>Item type [{itemType}] does not support</td></tr><tr><td>40122</td><td>Subscription already been subscribed by user</td></tr><tr><td>40123</td><td>Currency [{currencyCode}] does not support</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
 */
 type PublicSubscribeSubscriptionBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -225,9 +227,10 @@ func NewPublicSubscribeSubscriptionForbidden() *PublicSubscribeSubscriptionForbi
 	return &PublicSubscribeSubscriptionForbidden{}
 }
 
-/*PublicSubscribeSubscriptionForbidden handles this case with default header values.
+/*
+PublicSubscribeSubscriptionForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20016</td><td>action is banned</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20016</td><td>action is banned</td></tr></table>
 */
 type PublicSubscribeSubscriptionForbidden struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -279,9 +282,10 @@ func NewPublicSubscribeSubscriptionNotFound() *PublicSubscribeSubscriptionNotFou
 	return &PublicSubscribeSubscriptionNotFound{}
 }
 
-/*PublicSubscribeSubscriptionNotFound handles this case with default header values.
+/*
+PublicSubscribeSubscriptionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicSubscribeSubscriptionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -333,9 +337,10 @@ func NewPublicSubscribeSubscriptionConflict() *PublicSubscribeSubscriptionConfli
 	return &PublicSubscribeSubscriptionConflict{}
 }
 
-/*PublicSubscribeSubscriptionConflict handles this case with default header values.
+/*
+PublicSubscribeSubscriptionConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr><tr><td>40172</td><td>Subscription [{subscriptionId}] is charging, waiting for payment notification</td></tr><tr><td>40173</td><td>Subscription [{subscriptionId}] current currency [{currentCurrency}] not match request currency [{requestCurrency}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr><tr><td>40172</td><td>Subscription [{subscriptionId}] is charging, waiting for payment notification</td></tr><tr><td>40173</td><td>Subscription [{subscriptionId}] current currency [{currentCurrency}] not match request currency [{requestCurrency}]</td></tr></table>
 */
 type PublicSubscribeSubscriptionConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -387,9 +392,10 @@ func NewPublicSubscribeSubscriptionUnprocessableEntity() *PublicSubscribeSubscri
 	return &PublicSubscribeSubscriptionUnprocessableEntity{}
 }
 
-/*PublicSubscribeSubscriptionUnprocessableEntity handles this case with default header values.
+/*
+PublicSubscribeSubscriptionUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicSubscribeSubscriptionUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

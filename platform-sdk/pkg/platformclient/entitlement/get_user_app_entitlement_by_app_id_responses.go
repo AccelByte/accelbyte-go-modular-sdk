@@ -85,9 +85,10 @@ func NewGetUserAppEntitlementByAppIDOK() *GetUserAppEntitlementByAppIDOK {
 	return &GetUserAppEntitlementByAppIDOK{}
 }
 
-/*GetUserAppEntitlementByAppIDOK handles this case with default header values.
+/*
+GetUserAppEntitlementByAppIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserAppEntitlementByAppIDOK struct {
 	Payload *platformclientmodels.AppEntitlementInfo
@@ -139,9 +140,10 @@ func NewGetUserAppEntitlementByAppIDNotFound() *GetUserAppEntitlementByAppIDNotF
 	return &GetUserAppEntitlementByAppIDNotFound{}
 }
 
-/*GetUserAppEntitlementByAppIDNotFound handles this case with default header values.
+/*
+GetUserAppEntitlementByAppIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31142</td><td>Entitlement with appId [{appId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31142</td><td>Entitlement with appId [{appId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetUserAppEntitlementByAppIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

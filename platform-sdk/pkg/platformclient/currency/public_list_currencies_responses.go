@@ -69,9 +69,10 @@ func NewPublicListCurrenciesOK() *PublicListCurrenciesOK {
 	return &PublicListCurrenciesOK{}
 }
 
-/*PublicListCurrenciesOK handles this case with default header values.
+/*
+PublicListCurrenciesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicListCurrenciesOK struct {
 	Payload []*platformclientmodels.CurrencyInfo

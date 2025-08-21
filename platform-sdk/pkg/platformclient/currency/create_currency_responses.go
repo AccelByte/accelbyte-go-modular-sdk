@@ -100,9 +100,10 @@ func NewCreateCurrencyOK() *CreateCurrencyOK {
 	return &CreateCurrencyOK{}
 }
 
-/*CreateCurrencyOK handles this case with default header values.
+/*
+CreateCurrencyOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateCurrencyOK struct {
 	Payload *platformclientmodels.CurrencyInfo
@@ -154,9 +155,10 @@ func NewCreateCurrencyConflict() *CreateCurrencyConflict {
 	return &CreateCurrencyConflict{}
 }
 
-/*CreateCurrencyConflict handles this case with default header values.
+/*
+CreateCurrencyConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36171</td><td>Currency [{currencyCode}] already exists in namespace [{namespace}]</td></tr><tr><td>36172</td><td>Real Currency [{currencyCode}] not allowed in game namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36171</td><td>Currency [{currencyCode}] already exists in namespace [{namespace}]</td></tr><tr><td>36172</td><td>Real Currency [{currencyCode}] not allowed in game namespace [{namespace}]</td></tr></table>
 */
 type CreateCurrencyConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewCreateCurrencyUnprocessableEntity() *CreateCurrencyUnprocessableEntity {
 	return &CreateCurrencyUnprocessableEntity{}
 }
 
-/*CreateCurrencyUnprocessableEntity handles this case with default header values.
+/*
+CreateCurrencyUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateCurrencyUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

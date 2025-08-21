@@ -145,9 +145,10 @@ func NewAdminCreateThirdPartyConfigCreated() *AdminCreateThirdPartyConfigCreated
 	return &AdminCreateThirdPartyConfigCreated{}
 }
 
-/*AdminCreateThirdPartyConfigCreated handles this case with default header values.
+/*
+AdminCreateThirdPartyConfigCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateThirdPartyConfigCreated struct {
 	Payload *lobbyclientmodels.ModelsCreateConfigResponse
@@ -199,9 +200,10 @@ func NewAdminCreateThirdPartyConfigBadRequest() *AdminCreateThirdPartyConfigBadR
 	return &AdminCreateThirdPartyConfigBadRequest{}
 }
 
-/*AdminCreateThirdPartyConfigBadRequest handles this case with default header values.
+/*
+AdminCreateThirdPartyConfigBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCreateThirdPartyConfigBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -253,9 +255,10 @@ func NewAdminCreateThirdPartyConfigUnauthorized() *AdminCreateThirdPartyConfigUn
 	return &AdminCreateThirdPartyConfigUnauthorized{}
 }
 
-/*AdminCreateThirdPartyConfigUnauthorized handles this case with default header values.
+/*
+AdminCreateThirdPartyConfigUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminCreateThirdPartyConfigUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -307,9 +310,10 @@ func NewAdminCreateThirdPartyConfigForbidden() *AdminCreateThirdPartyConfigForbi
 	return &AdminCreateThirdPartyConfigForbidden{}
 }
 
-/*AdminCreateThirdPartyConfigForbidden handles this case with default header values.
+/*
+AdminCreateThirdPartyConfigForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminCreateThirdPartyConfigForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -361,9 +365,10 @@ func NewAdminCreateThirdPartyConfigConflict() *AdminCreateThirdPartyConfigConfli
 	return &AdminCreateThirdPartyConfigConflict{}
 }
 
-/*AdminCreateThirdPartyConfigConflict handles this case with default header values.
+/*
+AdminCreateThirdPartyConfigConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminCreateThirdPartyConfigConflict struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -415,9 +420,10 @@ func NewAdminCreateThirdPartyConfigInternalServerError() *AdminCreateThirdPartyC
 	return &AdminCreateThirdPartyConfigInternalServerError{}
 }
 
-/*AdminCreateThirdPartyConfigInternalServerError handles this case with default header values.
+/*
+AdminCreateThirdPartyConfigInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCreateThirdPartyConfigInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

@@ -115,9 +115,10 @@ func NewAdminGetCountryBlacklistV3OK() *AdminGetCountryBlacklistV3OK {
 	return &AdminGetCountryBlacklistV3OK{}
 }
 
-/*AdminGetCountryBlacklistV3OK handles this case with default header values.
+/*
+AdminGetCountryBlacklistV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetCountryBlacklistV3OK struct {
 	Payload *iamclientmodels.ModelCountryBlacklistResponse
@@ -169,9 +170,10 @@ func NewAdminGetCountryBlacklistV3Unauthorized() *AdminGetCountryBlacklistV3Unau
 	return &AdminGetCountryBlacklistV3Unauthorized{}
 }
 
-/*AdminGetCountryBlacklistV3Unauthorized handles this case with default header values.
+/*
+AdminGetCountryBlacklistV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetCountryBlacklistV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetCountryBlacklistV3Forbidden() *AdminGetCountryBlacklistV3Forbidd
 	return &AdminGetCountryBlacklistV3Forbidden{}
 }
 
-/*AdminGetCountryBlacklistV3Forbidden handles this case with default header values.
+/*
+AdminGetCountryBlacklistV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetCountryBlacklistV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetCountryBlacklistV3InternalServerError() *AdminGetCountryBlacklis
 	return &AdminGetCountryBlacklistV3InternalServerError{}
 }
 
-/*AdminGetCountryBlacklistV3InternalServerError handles this case with default header values.
+/*
+AdminGetCountryBlacklistV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetCountryBlacklistV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -130,9 +130,10 @@ func NewImportAchievementsOK() *ImportAchievementsOK {
 	return &ImportAchievementsOK{}
 }
 
-/*ImportAchievementsOK handles this case with default header values.
+/*
+ImportAchievementsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type ImportAchievementsOK struct {
 	Payload *achievementclientmodels.ServiceImportConfigResponse
@@ -184,9 +185,10 @@ func NewImportAchievementsUnauthorized() *ImportAchievementsUnauthorized {
 	return &ImportAchievementsUnauthorized{}
 }
 
-/*ImportAchievementsUnauthorized handles this case with default header values.
+/*
+ImportAchievementsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type ImportAchievementsUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewImportAchievementsForbidden() *ImportAchievementsForbidden {
 	return &ImportAchievementsForbidden{}
 }
 
-/*ImportAchievementsForbidden handles this case with default header values.
+/*
+ImportAchievementsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type ImportAchievementsForbidden struct {
 	Payload *achievementclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewImportAchievementsTooManyRequests() *ImportAchievementsTooManyRequests {
 	return &ImportAchievementsTooManyRequests{}
 }
 
-/*ImportAchievementsTooManyRequests handles this case with default header values.
+/*
+ImportAchievementsTooManyRequests handles this case with default header values.
 
-  Too Many Requests
+	Too Many Requests
 */
 type ImportAchievementsTooManyRequests struct {
 	Payload *achievementclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewImportAchievementsInternalServerError() *ImportAchievementsInternalServe
 	return &ImportAchievementsInternalServerError{}
 }
 
-/*ImportAchievementsInternalServerError handles this case with default header values.
+/*
+ImportAchievementsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ImportAchievementsInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

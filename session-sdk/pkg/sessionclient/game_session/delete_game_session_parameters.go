@@ -57,7 +57,8 @@ func NewDeleteGameSessionParamsWithHTTPClient(client *http.Client) *DeleteGameSe
 	}
 }
 
-/*DeleteGameSessionParams contains all the parameters to send to the API endpoint
+/*
+DeleteGameSessionParams contains all the parameters to send to the API endpoint
 for the delete game session operation typically these are written to a http.Request
 */
 type DeleteGameSessionParams struct {

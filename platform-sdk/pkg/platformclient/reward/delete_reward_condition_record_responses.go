@@ -66,9 +66,10 @@ func NewDeleteRewardConditionRecordNoContent() *DeleteRewardConditionRecordNoCon
 	return &DeleteRewardConditionRecordNoContent{}
 }
 
-/*DeleteRewardConditionRecordNoContent handles this case with default header values.
+/*
+DeleteRewardConditionRecordNoContent handles this case with default header values.
 
-  Delete reward success
+	Delete reward success
 */
 type DeleteRewardConditionRecordNoContent struct {
 }

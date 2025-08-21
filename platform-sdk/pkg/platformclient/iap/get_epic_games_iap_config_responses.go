@@ -69,9 +69,10 @@ func NewGetEpicGamesIAPConfigOK() *GetEpicGamesIAPConfigOK {
 	return &GetEpicGamesIAPConfigOK{}
 }
 
-/*GetEpicGamesIAPConfigOK handles this case with default header values.
+/*
+GetEpicGamesIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetEpicGamesIAPConfigOK struct {
 	Payload *platformclientmodels.EpicGamesIAPConfigInfo

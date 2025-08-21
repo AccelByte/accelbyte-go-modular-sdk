@@ -59,7 +59,8 @@ func NewAdminBulkSaveItemParamsWithHTTPClient(client *http.Client) *AdminBulkSav
 	}
 }
 
-/*AdminBulkSaveItemParams contains all the parameters to send to the API endpoint
+/*
+AdminBulkSaveItemParams contains all the parameters to send to the API endpoint
 for the admin bulk save item operation typically these are written to a http.Request
 */
 type AdminBulkSaveItemParams struct {

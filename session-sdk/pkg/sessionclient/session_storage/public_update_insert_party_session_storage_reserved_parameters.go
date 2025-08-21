@@ -57,7 +57,8 @@ func NewPublicUpdateInsertPartySessionStorageReservedParamsWithHTTPClient(client
 	}
 }
 
-/*PublicUpdateInsertPartySessionStorageReservedParams contains all the parameters to send to the API endpoint
+/*
+PublicUpdateInsertPartySessionStorageReservedParams contains all the parameters to send to the API endpoint
 for the public update insert party session storage reserved operation typically these are written to a http.Request
 */
 type PublicUpdateInsertPartySessionStorageReservedParams struct {

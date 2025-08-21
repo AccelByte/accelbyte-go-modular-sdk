@@ -57,7 +57,8 @@ func NewAdminDeletePlatformLinkV2ParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminDeletePlatformLinkV2Params contains all the parameters to send to the API endpoint
+/*
+AdminDeletePlatformLinkV2Params contains all the parameters to send to the API endpoint
 for the admin delete platform link v2 operation typically these are written to a http.Request
 */
 type AdminDeletePlatformLinkV2Params struct {

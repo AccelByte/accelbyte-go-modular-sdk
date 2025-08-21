@@ -85,9 +85,10 @@ func NewGetAppleConfigVersionOK() *GetAppleConfigVersionOK {
 	return &GetAppleConfigVersionOK{}
 }
 
-/*GetAppleConfigVersionOK handles this case with default header values.
+/*
+GetAppleConfigVersionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetAppleConfigVersionOK struct {
 	Payload *platformclientmodels.AppleIAPConfigVersionInfo
@@ -139,9 +140,10 @@ func NewGetAppleConfigVersionNotFound() *GetAppleConfigVersionNotFound {
 	return &GetAppleConfigVersionNotFound{}
 }
 
-/*GetAppleConfigVersionNotFound handles this case with default header values.
+/*
+GetAppleConfigVersionNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39142</td><td>Apple IAP config not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>39142</td><td>Apple IAP config not found in namespace [{namespace}]</td></tr></table>
 */
 type GetAppleConfigVersionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

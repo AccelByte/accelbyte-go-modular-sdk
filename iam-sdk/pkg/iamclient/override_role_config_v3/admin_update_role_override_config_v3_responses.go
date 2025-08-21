@@ -130,9 +130,10 @@ func NewAdminUpdateRoleOverrideConfigV3OK() *AdminUpdateRoleOverrideConfigV3OK {
 	return &AdminUpdateRoleOverrideConfigV3OK{}
 }
 
-/*AdminUpdateRoleOverrideConfigV3OK handles this case with default header values.
+/*
+AdminUpdateRoleOverrideConfigV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateRoleOverrideConfigV3OK struct {
 	Payload *iamclientmodels.ModelRoleOverrideResponse
@@ -184,9 +185,10 @@ func NewAdminUpdateRoleOverrideConfigV3BadRequest() *AdminUpdateRoleOverrideConf
 	return &AdminUpdateRoleOverrideConfigV3BadRequest{}
 }
 
-/*AdminUpdateRoleOverrideConfigV3BadRequest handles this case with default header values.
+/*
+AdminUpdateRoleOverrideConfigV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminUpdateRoleOverrideConfigV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminUpdateRoleOverrideConfigV3Unauthorized() *AdminUpdateRoleOverrideCo
 	return &AdminUpdateRoleOverrideConfigV3Unauthorized{}
 }
 
-/*AdminUpdateRoleOverrideConfigV3Unauthorized handles this case with default header values.
+/*
+AdminUpdateRoleOverrideConfigV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateRoleOverrideConfigV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminUpdateRoleOverrideConfigV3Forbidden() *AdminUpdateRoleOverrideConfi
 	return &AdminUpdateRoleOverrideConfigV3Forbidden{}
 }
 
-/*AdminUpdateRoleOverrideConfigV3Forbidden handles this case with default header values.
+/*
+AdminUpdateRoleOverrideConfigV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateRoleOverrideConfigV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminUpdateRoleOverrideConfigV3InternalServerError() *AdminUpdateRoleOve
 	return &AdminUpdateRoleOverrideConfigV3InternalServerError{}
 }
 
-/*AdminUpdateRoleOverrideConfigV3InternalServerError handles this case with default header values.
+/*
+AdminUpdateRoleOverrideConfigV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpdateRoleOverrideConfigV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

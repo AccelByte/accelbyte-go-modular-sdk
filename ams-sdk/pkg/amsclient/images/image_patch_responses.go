@@ -130,9 +130,10 @@ func NewImagePatchOK() *ImagePatchOK {
 	return &ImagePatchOK{}
 }
 
-/*ImagePatchOK handles this case with default header values.
+/*
+ImagePatchOK handles this case with default header values.
 
-  success
+	success
 */
 type ImagePatchOK struct {
 	Payload *amsclientmodels.APIImageDetails
@@ -184,9 +185,10 @@ func NewImagePatchUnauthorized() *ImagePatchUnauthorized {
 	return &ImagePatchUnauthorized{}
 }
 
-/*ImagePatchUnauthorized handles this case with default header values.
+/*
+ImagePatchUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type ImagePatchUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewImagePatchForbidden() *ImagePatchForbidden {
 	return &ImagePatchForbidden{}
 }
 
-/*ImagePatchForbidden handles this case with default header values.
+/*
+ImagePatchForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type ImagePatchForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewImagePatchNotFound() *ImagePatchNotFound {
 	return &ImagePatchNotFound{}
 }
 
-/*ImagePatchNotFound handles this case with default header values.
+/*
+ImagePatchNotFound handles this case with default header values.
 
-  account not linked
+	account not linked
 */
 type ImagePatchNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewImagePatchInternalServerError() *ImagePatchInternalServerError {
 	return &ImagePatchInternalServerError{}
 }
 
-/*ImagePatchInternalServerError handles this case with default header values.
+/*
+ImagePatchInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type ImagePatchInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

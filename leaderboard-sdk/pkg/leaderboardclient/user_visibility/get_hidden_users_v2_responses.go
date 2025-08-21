@@ -130,9 +130,10 @@ func NewGetHiddenUsersV2OK() *GetHiddenUsersV2OK {
 	return &GetHiddenUsersV2OK{}
 }
 
-/*GetHiddenUsersV2OK handles this case with default header values.
+/*
+GetHiddenUsersV2OK handles this case with default header values.
 
-  Hidden user retrieved
+	Hidden user retrieved
 */
 type GetHiddenUsersV2OK struct {
 	Payload *leaderboardclientmodels.ModelsGetHiddenUserResponse
@@ -184,9 +185,10 @@ func NewGetHiddenUsersV2BadRequest() *GetHiddenUsersV2BadRequest {
 	return &GetHiddenUsersV2BadRequest{}
 }
 
-/*GetHiddenUsersV2BadRequest handles this case with default header values.
+/*
+GetHiddenUsersV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
 */
 type GetHiddenUsersV2BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetHiddenUsersV2Unauthorized() *GetHiddenUsersV2Unauthorized {
 	return &GetHiddenUsersV2Unauthorized{}
 }
 
-/*GetHiddenUsersV2Unauthorized handles this case with default header values.
+/*
+GetHiddenUsersV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetHiddenUsersV2Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetHiddenUsersV2Forbidden() *GetHiddenUsersV2Forbidden {
 	return &GetHiddenUsersV2Forbidden{}
 }
 
-/*GetHiddenUsersV2Forbidden handles this case with default header values.
+/*
+GetHiddenUsersV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetHiddenUsersV2Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetHiddenUsersV2InternalServerError() *GetHiddenUsersV2InternalServerErr
 	return &GetHiddenUsersV2InternalServerError{}
 }
 
-/*GetHiddenUsersV2InternalServerError handles this case with default header values.
+/*
+GetHiddenUsersV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetHiddenUsersV2InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

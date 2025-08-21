@@ -69,9 +69,10 @@ func NewGetOrderStatisticsOK() *GetOrderStatisticsOK {
 	return &GetOrderStatisticsOK{}
 }
 
-/*GetOrderStatisticsOK handles this case with default header values.
+/*
+GetOrderStatisticsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetOrderStatisticsOK struct {
 	Payload *platformclientmodels.OrderStatistics

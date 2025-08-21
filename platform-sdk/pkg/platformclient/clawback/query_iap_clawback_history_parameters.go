@@ -114,7 +114,8 @@ func NewQueryIAPClawbackHistoryParamsWithHTTPClient(client *http.Client) *QueryI
 	}
 }
 
-/*QueryIAPClawbackHistoryParams contains all the parameters to send to the API endpoint
+/*
+QueryIAPClawbackHistoryParams contains all the parameters to send to the API endpoint
 for the query iap clawback history operation typically these are written to a http.Request
 */
 type QueryIAPClawbackHistoryParams struct {

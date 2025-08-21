@@ -57,7 +57,8 @@ func NewDeleteUserRankingByCycleIDAdminV3ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*DeleteUserRankingByCycleIDAdminV3Params contains all the parameters to send to the API endpoint
+/*
+DeleteUserRankingByCycleIDAdminV3Params contains all the parameters to send to the API endpoint
 for the delete user ranking by cycle id admin v3 operation typically these are written to a http.Request
 */
 type DeleteUserRankingByCycleIDAdminV3Params struct {

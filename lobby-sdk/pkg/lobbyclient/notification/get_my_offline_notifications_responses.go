@@ -145,9 +145,10 @@ func NewGetMyOfflineNotificationsOK() *GetMyOfflineNotificationsOK {
 	return &GetMyOfflineNotificationsOK{}
 }
 
-/*GetMyOfflineNotificationsOK handles this case with default header values.
+/*
+GetMyOfflineNotificationsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetMyOfflineNotificationsOK struct {
 	Payload *lobbyclientmodels.ModelNotificationsResponse
@@ -199,9 +200,10 @@ func NewGetMyOfflineNotificationsBadRequest() *GetMyOfflineNotificationsBadReque
 	return &GetMyOfflineNotificationsBadRequest{}
 }
 
-/*GetMyOfflineNotificationsBadRequest handles this case with default header values.
+/*
+GetMyOfflineNotificationsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetMyOfflineNotificationsBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -253,9 +255,10 @@ func NewGetMyOfflineNotificationsUnauthorized() *GetMyOfflineNotificationsUnauth
 	return &GetMyOfflineNotificationsUnauthorized{}
 }
 
-/*GetMyOfflineNotificationsUnauthorized handles this case with default header values.
+/*
+GetMyOfflineNotificationsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetMyOfflineNotificationsUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -307,9 +310,10 @@ func NewGetMyOfflineNotificationsForbidden() *GetMyOfflineNotificationsForbidden
 	return &GetMyOfflineNotificationsForbidden{}
 }
 
-/*GetMyOfflineNotificationsForbidden handles this case with default header values.
+/*
+GetMyOfflineNotificationsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetMyOfflineNotificationsForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -361,9 +365,10 @@ func NewGetMyOfflineNotificationsNotFound() *GetMyOfflineNotificationsNotFound {
 	return &GetMyOfflineNotificationsNotFound{}
 }
 
-/*GetMyOfflineNotificationsNotFound handles this case with default header values.
+/*
+GetMyOfflineNotificationsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetMyOfflineNotificationsNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -415,9 +420,10 @@ func NewGetMyOfflineNotificationsInternalServerError() *GetMyOfflineNotification
 	return &GetMyOfflineNotificationsInternalServerError{}
 }
 
-/*GetMyOfflineNotificationsInternalServerError handles this case with default header values.
+/*
+GetMyOfflineNotificationsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetMyOfflineNotificationsInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

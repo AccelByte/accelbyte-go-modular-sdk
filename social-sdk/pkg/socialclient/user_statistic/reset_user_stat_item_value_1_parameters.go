@@ -57,7 +57,8 @@ func NewResetUserStatItemValue1ParamsWithHTTPClient(client *http.Client) *ResetU
 	}
 }
 
-/*ResetUserStatItemValue1Params contains all the parameters to send to the API endpoint
+/*
+ResetUserStatItemValue1Params contains all the parameters to send to the API endpoint
 for the reset user stat item value 1 operation typically these are written to a http.Request
 */
 type ResetUserStatItemValue1Params struct {

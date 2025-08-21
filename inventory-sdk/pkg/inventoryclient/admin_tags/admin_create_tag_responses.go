@@ -115,9 +115,10 @@ func NewAdminCreateTagCreated() *AdminCreateTagCreated {
 	return &AdminCreateTagCreated{}
 }
 
-/*AdminCreateTagCreated handles this case with default header values.
+/*
+AdminCreateTagCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateTagCreated struct {
 	Payload *inventoryclientmodels.ApimodelsCreateTagResp
@@ -169,9 +170,10 @@ func NewAdminCreateTagBadRequest() *AdminCreateTagBadRequest {
 	return &AdminCreateTagBadRequest{}
 }
 
-/*AdminCreateTagBadRequest handles this case with default header values.
+/*
+AdminCreateTagBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCreateTagBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -223,9 +225,10 @@ func NewAdminCreateTagConflict() *AdminCreateTagConflict {
 	return &AdminCreateTagConflict{}
 }
 
-/*AdminCreateTagConflict handles this case with default header values.
+/*
+AdminCreateTagConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminCreateTagConflict struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -277,9 +280,10 @@ func NewAdminCreateTagInternalServerError() *AdminCreateTagInternalServerError {
 	return &AdminCreateTagInternalServerError{}
 }
 
-/*AdminCreateTagInternalServerError handles this case with default header values.
+/*
+AdminCreateTagInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCreateTagInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

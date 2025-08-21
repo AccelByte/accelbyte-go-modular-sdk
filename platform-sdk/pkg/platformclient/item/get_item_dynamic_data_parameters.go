@@ -57,7 +57,8 @@ func NewGetItemDynamicDataParamsWithHTTPClient(client *http.Client) *GetItemDyna
 	}
 }
 
-/*GetItemDynamicDataParams contains all the parameters to send to the API endpoint
+/*
+GetItemDynamicDataParams contains all the parameters to send to the API endpoint
 for the get item dynamic data operation typically these are written to a http.Request
 */
 type GetItemDynamicDataParams struct {

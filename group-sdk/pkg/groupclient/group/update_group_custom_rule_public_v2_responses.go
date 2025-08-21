@@ -145,9 +145,10 @@ func NewUpdateGroupCustomRulePublicV2OK() *UpdateGroupCustomRulePublicV2OK {
 	return &UpdateGroupCustomRulePublicV2OK{}
 }
 
-/*UpdateGroupCustomRulePublicV2OK handles this case with default header values.
+/*
+UpdateGroupCustomRulePublicV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateGroupCustomRulePublicV2OK struct {
 	Payload *groupclientmodels.ModelsGroupResponseV1
@@ -199,9 +200,10 @@ func NewUpdateGroupCustomRulePublicV2BadRequest() *UpdateGroupCustomRulePublicV2
 	return &UpdateGroupCustomRulePublicV2BadRequest{}
 }
 
-/*UpdateGroupCustomRulePublicV2BadRequest handles this case with default header values.
+/*
+UpdateGroupCustomRulePublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type UpdateGroupCustomRulePublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewUpdateGroupCustomRulePublicV2Unauthorized() *UpdateGroupCustomRulePublic
 	return &UpdateGroupCustomRulePublicV2Unauthorized{}
 }
 
-/*UpdateGroupCustomRulePublicV2Unauthorized handles this case with default header values.
+/*
+UpdateGroupCustomRulePublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateGroupCustomRulePublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewUpdateGroupCustomRulePublicV2Forbidden() *UpdateGroupCustomRulePublicV2F
 	return &UpdateGroupCustomRulePublicV2Forbidden{}
 }
 
-/*UpdateGroupCustomRulePublicV2Forbidden handles this case with default header values.
+/*
+UpdateGroupCustomRulePublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type UpdateGroupCustomRulePublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewUpdateGroupCustomRulePublicV2NotFound() *UpdateGroupCustomRulePublicV2No
 	return &UpdateGroupCustomRulePublicV2NotFound{}
 }
 
-/*UpdateGroupCustomRulePublicV2NotFound handles this case with default header values.
+/*
+UpdateGroupCustomRulePublicV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
 */
 type UpdateGroupCustomRulePublicV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewUpdateGroupCustomRulePublicV2InternalServerError() *UpdateGroupCustomRul
 	return &UpdateGroupCustomRulePublicV2InternalServerError{}
 }
 
-/*UpdateGroupCustomRulePublicV2InternalServerError handles this case with default header values.
+/*
+UpdateGroupCustomRulePublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateGroupCustomRulePublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

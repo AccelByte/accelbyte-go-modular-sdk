@@ -130,9 +130,10 @@ func NewAddSSOLoginPlatformCredentialCreated() *AddSSOLoginPlatformCredentialCre
 	return &AddSSOLoginPlatformCredentialCreated{}
 }
 
-/*AddSSOLoginPlatformCredentialCreated handles this case with default header values.
+/*
+AddSSOLoginPlatformCredentialCreated handles this case with default header values.
 
-  SSO Credential Created
+	SSO Credential Created
 */
 type AddSSOLoginPlatformCredentialCreated struct {
 	Payload *iamclientmodels.ModelSSOPlatformCredentialResponse
@@ -184,9 +185,10 @@ func NewAddSSOLoginPlatformCredentialBadRequest() *AddSSOLoginPlatformCredential
 	return &AddSSOLoginPlatformCredentialBadRequest{}
 }
 
-/*AddSSOLoginPlatformCredentialBadRequest handles this case with default header values.
+/*
+AddSSOLoginPlatformCredentialBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type AddSSOLoginPlatformCredentialBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAddSSOLoginPlatformCredentialUnauthorized() *AddSSOLoginPlatformCredenti
 	return &AddSSOLoginPlatformCredentialUnauthorized{}
 }
 
-/*AddSSOLoginPlatformCredentialUnauthorized handles this case with default header values.
+/*
+AddSSOLoginPlatformCredentialUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AddSSOLoginPlatformCredentialUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAddSSOLoginPlatformCredentialForbidden() *AddSSOLoginPlatformCredentialF
 	return &AddSSOLoginPlatformCredentialForbidden{}
 }
 
-/*AddSSOLoginPlatformCredentialForbidden handles this case with default header values.
+/*
+AddSSOLoginPlatformCredentialForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AddSSOLoginPlatformCredentialForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAddSSOLoginPlatformCredentialInternalServerError() *AddSSOLoginPlatformC
 	return &AddSSOLoginPlatformCredentialInternalServerError{}
 }
 
-/*AddSSOLoginPlatformCredentialInternalServerError handles this case with default header values.
+/*
+AddSSOLoginPlatformCredentialInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AddSSOLoginPlatformCredentialInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

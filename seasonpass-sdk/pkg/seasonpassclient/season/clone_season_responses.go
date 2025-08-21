@@ -115,9 +115,10 @@ func NewCloneSeasonOK() *CloneSeasonOK {
 	return &CloneSeasonOK{}
 }
 
-/*CloneSeasonOK handles this case with default header values.
+/*
+CloneSeasonOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CloneSeasonOK struct {
 	Payload *seasonpassclientmodels.SeasonInfo
@@ -169,9 +170,10 @@ func NewCloneSeasonBadRequest() *CloneSeasonBadRequest {
 	return &CloneSeasonBadRequest{}
 }
 
-/*CloneSeasonBadRequest handles this case with default header values.
+/*
+CloneSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49122</td><td>Invalid time range</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49122</td><td>Invalid time range</td></tr></table>
 */
 type CloneSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewCloneSeasonNotFound() *CloneSeasonNotFound {
 	return &CloneSeasonNotFound{}
 }
 
-/*CloneSeasonNotFound handles this case with default header values.
+/*
+CloneSeasonNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CloneSeasonNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewCloneSeasonUnprocessableEntity() *CloneSeasonUnprocessableEntity {
 	return &CloneSeasonUnprocessableEntity{}
 }
 
-/*CloneSeasonUnprocessableEntity handles this case with default header values.
+/*
+CloneSeasonUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CloneSeasonUnprocessableEntity struct {
 	Payload *seasonpassclientmodels.ValidationErrorEntity

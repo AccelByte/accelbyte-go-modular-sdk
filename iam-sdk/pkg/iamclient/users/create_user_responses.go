@@ -120,9 +120,10 @@ func NewCreateUserCreated() *CreateUserCreated {
 	return &CreateUserCreated{}
 }
 
-/*CreateUserCreated handles this case with default header values.
+/*
+CreateUserCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateUserCreated struct {
 	Payload *iamclientmodels.ModelUserCreateResponse
@@ -174,9 +175,10 @@ func NewCreateUserBadRequest() *CreateUserBadRequest {
 	return &CreateUserBadRequest{}
 }
 
-/*CreateUserBadRequest handles this case with default header values.
+/*
+CreateUserBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014001</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014001</td><td>unable to parse request body</td></tr></table>
 */
 type CreateUserBadRequest struct {
 }
@@ -201,9 +203,10 @@ func NewCreateUserUnauthorized() *CreateUserUnauthorized {
 	return &CreateUserUnauthorized{}
 }
 
-/*CreateUserUnauthorized handles this case with default header values.
+/*
+CreateUserUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateUserUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,9 +258,10 @@ func NewCreateUserForbidden() *CreateUserForbidden {
 	return &CreateUserForbidden{}
 }
 
-/*CreateUserForbidden handles this case with default header values.
+/*
+CreateUserForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type CreateUserForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -309,9 +313,10 @@ func NewCreateUserConflict() *CreateUserConflict {
 	return &CreateUserConflict{}
 }
 
-/*CreateUserConflict handles this case with default header values.
+/*
+CreateUserConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014002</td><td>user already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014002</td><td>user already exists</td></tr></table>
 */
 type CreateUserConflict struct {
 }

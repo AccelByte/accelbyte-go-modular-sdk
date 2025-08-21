@@ -59,7 +59,8 @@ func NewAdminClaimUserRewardsParamsWithHTTPClient(client *http.Client) *AdminCla
 	}
 }
 
-/*AdminClaimUserRewardsParams contains all the parameters to send to the API endpoint
+/*
+AdminClaimUserRewardsParams contains all the parameters to send to the API endpoint
 for the admin claim user rewards operation typically these are written to a http.Request
 */
 type AdminClaimUserRewardsParams struct {

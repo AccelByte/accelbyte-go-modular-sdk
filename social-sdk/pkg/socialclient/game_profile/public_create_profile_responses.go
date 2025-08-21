@@ -144,9 +144,10 @@ func NewPublicCreateProfileCreated() *PublicCreateProfileCreated {
 	return &PublicCreateProfileCreated{}
 }
 
-/*PublicCreateProfileCreated handles this case with default header values.
+/*
+PublicCreateProfileCreated handles this case with default header values.
 
-  Profile has been created
+	Profile has been created
 */
 type PublicCreateProfileCreated struct {
 }
@@ -171,9 +172,10 @@ func NewPublicCreateProfileBadRequest() *PublicCreateProfileBadRequest {
 	return &PublicCreateProfileBadRequest{}
 }
 
-/*PublicCreateProfileBadRequest handles this case with default header values.
+/*
+PublicCreateProfileBadRequest handles this case with default header values.
 
-  Bad request
+	Bad request
 */
 type PublicCreateProfileBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -225,9 +227,10 @@ func NewPublicCreateProfileUnauthorized() *PublicCreateProfileUnauthorized {
 	return &PublicCreateProfileUnauthorized{}
 }
 
-/*PublicCreateProfileUnauthorized handles this case with default header values.
+/*
+PublicCreateProfileUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicCreateProfileUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -279,9 +282,10 @@ func NewPublicCreateProfileForbidden() *PublicCreateProfileForbidden {
 	return &PublicCreateProfileForbidden{}
 }
 
-/*PublicCreateProfileForbidden handles this case with default header values.
+/*
+PublicCreateProfileForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicCreateProfileForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -333,9 +337,10 @@ func NewPublicCreateProfileUnprocessableEntity() *PublicCreateProfileUnprocessab
 	return &PublicCreateProfileUnprocessableEntity{}
 }
 
-/*PublicCreateProfileUnprocessableEntity handles this case with default header values.
+/*
+PublicCreateProfileUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicCreateProfileUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -387,9 +392,10 @@ func NewPublicCreateProfileInternalServerError() *PublicCreateProfileInternalSer
 	return &PublicCreateProfileInternalServerError{}
 }
 
-/*PublicCreateProfileInternalServerError handles this case with default header values.
+/*
+PublicCreateProfileInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicCreateProfileInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

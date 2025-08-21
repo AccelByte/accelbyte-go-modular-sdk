@@ -69,9 +69,10 @@ func NewPublicGetDescendantCategoriesOK() *PublicGetDescendantCategoriesOK {
 	return &PublicGetDescendantCategoriesOK{}
 }
 
-/*PublicGetDescendantCategoriesOK handles this case with default header values.
+/*
+PublicGetDescendantCategoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetDescendantCategoriesOK struct {
 	Payload []*platformclientmodels.CategoryInfo

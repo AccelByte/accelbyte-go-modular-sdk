@@ -145,9 +145,10 @@ func NewAdminGetLobbyCCUOK() *AdminGetLobbyCCUOK {
 	return &AdminGetLobbyCCUOK{}
 }
 
-/*AdminGetLobbyCCUOK handles this case with default header values.
+/*
+AdminGetLobbyCCUOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetLobbyCCUOK struct {
 	Payload *lobbyclientmodels.ModelsGetLobbyCcuResponse
@@ -199,9 +200,10 @@ func NewAdminGetLobbyCCUBadRequest() *AdminGetLobbyCCUBadRequest {
 	return &AdminGetLobbyCCUBadRequest{}
 }
 
-/*AdminGetLobbyCCUBadRequest handles this case with default header values.
+/*
+AdminGetLobbyCCUBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetLobbyCCUBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetLobbyCCUUnauthorized() *AdminGetLobbyCCUUnauthorized {
 	return &AdminGetLobbyCCUUnauthorized{}
 }
 
-/*AdminGetLobbyCCUUnauthorized handles this case with default header values.
+/*
+AdminGetLobbyCCUUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetLobbyCCUUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetLobbyCCUForbidden() *AdminGetLobbyCCUForbidden {
 	return &AdminGetLobbyCCUForbidden{}
 }
 
-/*AdminGetLobbyCCUForbidden handles this case with default header values.
+/*
+AdminGetLobbyCCUForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetLobbyCCUForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetLobbyCCUNotFound() *AdminGetLobbyCCUNotFound {
 	return &AdminGetLobbyCCUNotFound{}
 }
 
-/*AdminGetLobbyCCUNotFound handles this case with default header values.
+/*
+AdminGetLobbyCCUNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetLobbyCCUNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetLobbyCCUInternalServerError() *AdminGetLobbyCCUInternalServerErr
 	return &AdminGetLobbyCCUInternalServerError{}
 }
 
-/*AdminGetLobbyCCUInternalServerError handles this case with default header values.
+/*
+AdminGetLobbyCCUInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetLobbyCCUInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

@@ -130,9 +130,10 @@ func NewAdminUpdateIntegrationConfigurationOK() *AdminUpdateIntegrationConfigura
 	return &AdminUpdateIntegrationConfigurationOK{}
 }
 
-/*AdminUpdateIntegrationConfigurationOK handles this case with default header values.
+/*
+AdminUpdateIntegrationConfigurationOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateIntegrationConfigurationOK struct {
 	Payload *inventoryclientmodels.ApimodelsIntegrationConfigurationResp
@@ -184,9 +185,10 @@ func NewAdminUpdateIntegrationConfigurationBadRequest() *AdminUpdateIntegrationC
 	return &AdminUpdateIntegrationConfigurationBadRequest{}
 }
 
-/*AdminUpdateIntegrationConfigurationBadRequest handles this case with default header values.
+/*
+AdminUpdateIntegrationConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateIntegrationConfigurationBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -238,9 +240,10 @@ func NewAdminUpdateIntegrationConfigurationNotFound() *AdminUpdateIntegrationCon
 	return &AdminUpdateIntegrationConfigurationNotFound{}
 }
 
-/*AdminUpdateIntegrationConfigurationNotFound handles this case with default header values.
+/*
+AdminUpdateIntegrationConfigurationNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateIntegrationConfigurationNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -292,9 +295,10 @@ func NewAdminUpdateIntegrationConfigurationConflict() *AdminUpdateIntegrationCon
 	return &AdminUpdateIntegrationConfigurationConflict{}
 }
 
-/*AdminUpdateIntegrationConfigurationConflict handles this case with default header values.
+/*
+AdminUpdateIntegrationConfigurationConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminUpdateIntegrationConfigurationConflict struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -346,9 +350,10 @@ func NewAdminUpdateIntegrationConfigurationInternalServerError() *AdminUpdateInt
 	return &AdminUpdateIntegrationConfigurationInternalServerError{}
 }
 
-/*AdminUpdateIntegrationConfigurationInternalServerError handles this case with default header values.
+/*
+AdminUpdateIntegrationConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateIntegrationConfigurationInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

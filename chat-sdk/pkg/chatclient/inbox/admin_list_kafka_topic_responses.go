@@ -115,9 +115,10 @@ func NewAdminListKafkaTopicOK() *AdminListKafkaTopicOK {
 	return &AdminListKafkaTopicOK{}
 }
 
-/*AdminListKafkaTopicOK handles this case with default header values.
+/*
+AdminListKafkaTopicOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListKafkaTopicOK struct {
 	Payload *chatclientmodels.ModelsGetListTopicKafkaResponse
@@ -169,9 +170,10 @@ func NewAdminListKafkaTopicUnauthorized() *AdminListKafkaTopicUnauthorized {
 	return &AdminListKafkaTopicUnauthorized{}
 }
 
-/*AdminListKafkaTopicUnauthorized handles this case with default header values.
+/*
+AdminListKafkaTopicUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminListKafkaTopicUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -223,9 +225,10 @@ func NewAdminListKafkaTopicForbidden() *AdminListKafkaTopicForbidden {
 	return &AdminListKafkaTopicForbidden{}
 }
 
-/*AdminListKafkaTopicForbidden handles this case with default header values.
+/*
+AdminListKafkaTopicForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminListKafkaTopicForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -277,9 +280,10 @@ func NewAdminListKafkaTopicInternalServerError() *AdminListKafkaTopicInternalSer
 	return &AdminListKafkaTopicInternalServerError{}
 }
 
-/*AdminListKafkaTopicInternalServerError handles this case with default header values.
+/*
+AdminListKafkaTopicInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminListKafkaTopicInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

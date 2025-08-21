@@ -57,7 +57,8 @@ func NewDeleteChannelParamsWithHTTPClient(client *http.Client) *DeleteChannelPar
 	}
 }
 
-/*DeleteChannelParams contains all the parameters to send to the API endpoint
+/*
+DeleteChannelParams contains all the parameters to send to the API endpoint
 for the delete channel operation typically these are written to a http.Request
 */
 type DeleteChannelParams struct {

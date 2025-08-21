@@ -57,7 +57,8 @@ func NewPublicGetConfigV1ParamsWithHTTPClient(client *http.Client) *PublicGetCon
 	}
 }
 
-/*PublicGetConfigV1Params contains all the parameters to send to the API endpoint
+/*
+PublicGetConfigV1Params contains all the parameters to send to the API endpoint
 for the public get config v1 operation typically these are written to a http.Request
 */
 type PublicGetConfigV1Params struct {

@@ -114,9 +114,10 @@ func NewResetPasswordV3NoContent() *ResetPasswordV3NoContent {
 	return &ResetPasswordV3NoContent{}
 }
 
-/*ResetPasswordV3NoContent handles this case with default header values.
+/*
+ResetPasswordV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type ResetPasswordV3NoContent struct {
 }
@@ -141,9 +142,10 @@ func NewResetPasswordV3BadRequest() *ResetPasswordV3BadRequest {
 	return &ResetPasswordV3BadRequest{}
 }
 
-/*ResetPasswordV3BadRequest handles this case with default header values.
+/*
+ResetPasswordV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr></table>
 */
 type ResetPasswordV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -195,9 +197,10 @@ func NewResetPasswordV3Forbidden() *ResetPasswordV3Forbidden {
 	return &ResetPasswordV3Forbidden{}
 }
 
-/*ResetPasswordV3Forbidden handles this case with default header values.
+/*
+ResetPasswordV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10152</td><td>verification code not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10152</td><td>verification code not found</td></tr></table>
 */
 type ResetPasswordV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -249,9 +252,10 @@ func NewResetPasswordV3NotFound() *ResetPasswordV3NotFound {
 	return &ResetPasswordV3NotFound{}
 }
 
-/*ResetPasswordV3NotFound handles this case with default header values.
+/*
+ResetPasswordV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type ResetPasswordV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

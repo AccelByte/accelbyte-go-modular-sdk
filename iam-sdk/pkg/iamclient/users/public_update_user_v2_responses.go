@@ -125,9 +125,10 @@ func NewPublicUpdateUserV2OK() *PublicUpdateUserV2OK {
 	return &PublicUpdateUserV2OK{}
 }
 
-/*PublicUpdateUserV2OK handles this case with default header values.
+/*
+PublicUpdateUserV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicUpdateUserV2OK struct {
 	Payload []*iamclientmodels.ModelUserResponse
@@ -177,9 +178,10 @@ func NewPublicUpdateUserV2BadRequest() *PublicUpdateUserV2BadRequest {
 	return &PublicUpdateUserV2BadRequest{}
 }
 
-/*PublicUpdateUserV2BadRequest handles this case with default header values.
+/*
+PublicUpdateUserV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10131</td><td>invalid date of birth</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr><tr><td>10132</td><td>invalid email address</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10131</td><td>invalid date of birth</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr><tr><td>10132</td><td>invalid email address</td></tr></table>
 */
 type PublicUpdateUserV2BadRequest struct {
 }
@@ -204,9 +206,10 @@ func NewPublicUpdateUserV2Unauthorized() *PublicUpdateUserV2Unauthorized {
 	return &PublicUpdateUserV2Unauthorized{}
 }
 
-/*PublicUpdateUserV2Unauthorized handles this case with default header values.
+/*
+PublicUpdateUserV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicUpdateUserV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -258,9 +261,10 @@ func NewPublicUpdateUserV2NotFound() *PublicUpdateUserV2NotFound {
 	return &PublicUpdateUserV2NotFound{}
 }
 
-/*PublicUpdateUserV2NotFound handles this case with default header values.
+/*
+PublicUpdateUserV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicUpdateUserV2NotFound struct {
 }
@@ -285,9 +289,10 @@ func NewPublicUpdateUserV2Conflict() *PublicUpdateUserV2Conflict {
 	return &PublicUpdateUserV2Conflict{}
 }
 
-/*PublicUpdateUserV2Conflict handles this case with default header values.
+/*
+PublicUpdateUserV2Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type PublicUpdateUserV2Conflict struct {
 }
@@ -312,9 +317,10 @@ func NewPublicUpdateUserV2InternalServerError() *PublicUpdateUserV2InternalServe
 	return &PublicUpdateUserV2InternalServerError{}
 }
 
-/*PublicUpdateUserV2InternalServerError handles this case with default header values.
+/*
+PublicUpdateUserV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicUpdateUserV2InternalServerError struct {
 }

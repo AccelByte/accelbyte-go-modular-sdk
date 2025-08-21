@@ -85,9 +85,10 @@ func NewGetPaymentOrderChargeStatusOK() *GetPaymentOrderChargeStatusOK {
 	return &GetPaymentOrderChargeStatusOK{}
 }
 
-/*GetPaymentOrderChargeStatusOK handles this case with default header values.
+/*
+GetPaymentOrderChargeStatusOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPaymentOrderChargeStatusOK struct {
 	Payload *platformclientmodels.PaymentOrderChargeStatus
@@ -139,9 +140,10 @@ func NewGetPaymentOrderChargeStatusNotFound() *GetPaymentOrderChargeStatusNotFou
 	return &GetPaymentOrderChargeStatusNotFound{}
 }
 
-/*GetPaymentOrderChargeStatusNotFound handles this case with default header values.
+/*
+GetPaymentOrderChargeStatusNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
 */
 type GetPaymentOrderChargeStatusNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

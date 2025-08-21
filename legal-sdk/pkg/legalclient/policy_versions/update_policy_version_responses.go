@@ -100,9 +100,10 @@ func NewUpdatePolicyVersionOK() *UpdatePolicyVersionOK {
 	return &UpdatePolicyVersionOK{}
 }
 
-/*UpdatePolicyVersionOK handles this case with default header values.
+/*
+UpdatePolicyVersionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePolicyVersionOK struct {
 	Payload *legalclientmodels.UpdatePolicyVersionResponse
@@ -154,9 +155,10 @@ func NewUpdatePolicyVersionBadRequest() *UpdatePolicyVersionBadRequest {
 	return &UpdatePolicyVersionBadRequest{}
 }
 
-/*UpdatePolicyVersionBadRequest handles this case with default header values.
+/*
+UpdatePolicyVersionBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr><tr><td>40042</td><td>errors.net.accelbyte.platform.legal.policy_version_freezed</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr><tr><td>40042</td><td>errors.net.accelbyte.platform.legal.policy_version_freezed</td></tr></table>
 */
 type UpdatePolicyVersionBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewUpdatePolicyVersionConflict() *UpdatePolicyVersionConflict {
 	return &UpdatePolicyVersionConflict{}
 }
 
-/*UpdatePolicyVersionConflict handles this case with default header values.
+/*
+UpdatePolicyVersionConflict handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40043</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_exist</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40043</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_exist</td></tr></table>
 */
 type UpdatePolicyVersionConflict struct {
 	Payload *legalclientmodels.ErrorEntity

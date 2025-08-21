@@ -130,9 +130,10 @@ func NewAdminGetInboxCategoriesOK() *AdminGetInboxCategoriesOK {
 	return &AdminGetInboxCategoriesOK{}
 }
 
-/*AdminGetInboxCategoriesOK handles this case with default header values.
+/*
+AdminGetInboxCategoriesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetInboxCategoriesOK struct {
 	Payload []*chatclientmodels.ModelsGetInboxCategoriesResponseItem
@@ -182,9 +183,10 @@ func NewAdminGetInboxCategoriesBadRequest() *AdminGetInboxCategoriesBadRequest {
 	return &AdminGetInboxCategoriesBadRequest{}
 }
 
-/*AdminGetInboxCategoriesBadRequest handles this case with default header values.
+/*
+AdminGetInboxCategoriesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetInboxCategoriesBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewAdminGetInboxCategoriesUnauthorized() *AdminGetInboxCategoriesUnauthoriz
 	return &AdminGetInboxCategoriesUnauthorized{}
 }
 
-/*AdminGetInboxCategoriesUnauthorized handles this case with default header values.
+/*
+AdminGetInboxCategoriesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetInboxCategoriesUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewAdminGetInboxCategoriesForbidden() *AdminGetInboxCategoriesForbidden {
 	return &AdminGetInboxCategoriesForbidden{}
 }
 
-/*AdminGetInboxCategoriesForbidden handles this case with default header values.
+/*
+AdminGetInboxCategoriesForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetInboxCategoriesForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewAdminGetInboxCategoriesInternalServerError() *AdminGetInboxCategoriesInt
 	return &AdminGetInboxCategoriesInternalServerError{}
 }
 
-/*AdminGetInboxCategoriesInternalServerError handles this case with default header values.
+/*
+AdminGetInboxCategoriesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetInboxCategoriesInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

@@ -59,7 +59,8 @@ func NewAdminUpsertPlayFeatureFlagParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminUpsertPlayFeatureFlagParams contains all the parameters to send to the API endpoint
+/*
+AdminUpsertPlayFeatureFlagParams contains all the parameters to send to the API endpoint
 for the admin upsert play feature flag operation typically these are written to a http.Request
 */
 type AdminUpsertPlayFeatureFlagParams struct {

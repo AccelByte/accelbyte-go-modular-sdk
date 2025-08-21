@@ -57,7 +57,8 @@ func NewPublicRequestDataRetrievalParamsWithHTTPClient(client *http.Client) *Pub
 	}
 }
 
-/*PublicRequestDataRetrievalParams contains all the parameters to send to the API endpoint
+/*
+PublicRequestDataRetrievalParams contains all the parameters to send to the API endpoint
 for the public request data retrieval operation typically these are written to a http.Request
 */
 type PublicRequestDataRetrievalParams struct {

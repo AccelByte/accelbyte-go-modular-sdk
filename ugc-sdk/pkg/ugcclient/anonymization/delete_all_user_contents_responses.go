@@ -114,9 +114,10 @@ func NewDeleteAllUserContentsNoContent() *DeleteAllUserContentsNoContent {
 	return &DeleteAllUserContentsNoContent{}
 }
 
-/*DeleteAllUserContentsNoContent handles this case with default header values.
+/*
+DeleteAllUserContentsNoContent handles this case with default header values.
 
-  User content's deleted
+	User content's deleted
 */
 type DeleteAllUserContentsNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteAllUserContentsUnauthorized() *DeleteAllUserContentsUnauthorized {
 	return &DeleteAllUserContentsUnauthorized{}
 }
 
-/*DeleteAllUserContentsUnauthorized handles this case with default header values.
+/*
+DeleteAllUserContentsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteAllUserContentsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewDeleteAllUserContentsNotFound() *DeleteAllUserContentsNotFound {
 	return &DeleteAllUserContentsNotFound{}
 }
 
-/*DeleteAllUserContentsNotFound handles this case with default header values.
+/*
+DeleteAllUserContentsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773402</td><td>Content not found</td></tr><tr><td>771601</td><td>Creator not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773402</td><td>Content not found</td></tr><tr><td>771601</td><td>Creator not found</td></tr></table>
 */
 type DeleteAllUserContentsNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewDeleteAllUserContentsInternalServerError() *DeleteAllUserContentsInterna
 	return &DeleteAllUserContentsInternalServerError{}
 }
 
-/*DeleteAllUserContentsInternalServerError handles this case with default header values.
+/*
+DeleteAllUserContentsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773401</td><td>Unable to get all user content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773401</td><td>Unable to get all user content</td></tr></table>
 */
 type DeleteAllUserContentsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

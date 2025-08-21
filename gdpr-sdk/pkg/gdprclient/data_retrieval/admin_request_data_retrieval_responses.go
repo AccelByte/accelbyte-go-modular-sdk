@@ -145,9 +145,10 @@ func NewAdminRequestDataRetrievalCreated() *AdminRequestDataRetrievalCreated {
 	return &AdminRequestDataRetrievalCreated{}
 }
 
-/*AdminRequestDataRetrievalCreated handles this case with default header values.
+/*
+AdminRequestDataRetrievalCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminRequestDataRetrievalCreated struct {
 	Payload *gdprclientmodels.ModelsDataRetrievalResponse
@@ -199,9 +200,10 @@ func NewAdminRequestDataRetrievalBadRequest() *AdminRequestDataRetrievalBadReque
 	return &AdminRequestDataRetrievalBadRequest{}
 }
 
-/*AdminRequestDataRetrievalBadRequest handles this case with default header values.
+/*
+AdminRequestDataRetrievalBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminRequestDataRetrievalBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminRequestDataRetrievalUnauthorized() *AdminRequestDataRetrievalUnauth
 	return &AdminRequestDataRetrievalUnauthorized{}
 }
 
-/*AdminRequestDataRetrievalUnauthorized handles this case with default header values.
+/*
+AdminRequestDataRetrievalUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminRequestDataRetrievalUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminRequestDataRetrievalNotFound() *AdminRequestDataRetrievalNotFound {
 	return &AdminRequestDataRetrievalNotFound{}
 }
 
-/*AdminRequestDataRetrievalNotFound handles this case with default header values.
+/*
+AdminRequestDataRetrievalNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminRequestDataRetrievalNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminRequestDataRetrievalTooManyRequests() *AdminRequestDataRetrievalToo
 	return &AdminRequestDataRetrievalTooManyRequests{}
 }
 
-/*AdminRequestDataRetrievalTooManyRequests handles this case with default header values.
+/*
+AdminRequestDataRetrievalTooManyRequests handles this case with default header values.
 
-  Too Many Requests
+	Too Many Requests
 */
 type AdminRequestDataRetrievalTooManyRequests struct {
 	Payload *gdprclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminRequestDataRetrievalInternalServerError() *AdminRequestDataRetrieva
 	return &AdminRequestDataRetrievalInternalServerError{}
 }
 
-/*AdminRequestDataRetrievalInternalServerError handles this case with default header values.
+/*
+AdminRequestDataRetrievalInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminRequestDataRetrievalInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

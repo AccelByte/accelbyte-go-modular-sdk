@@ -57,7 +57,8 @@ func NewCancelTicketParamsWithHTTPClient(client *http.Client) *CancelTicketParam
 	}
 }
 
-/*CancelTicketParams contains all the parameters to send to the API endpoint
+/*
+CancelTicketParams contains all the parameters to send to the API endpoint
 for the cancel ticket operation typically these are written to a http.Request
 */
 type CancelTicketParams struct {
@@ -65,7 +66,7 @@ type CancelTicketParams struct {
 	/*RetryPolicy*/
 	RetryPolicy *utils.Retry
 	/*Namespace
-	  namespace of the game
+	  Namespace, only accept alphabet and numeric
 
 	*/
 	Namespace string

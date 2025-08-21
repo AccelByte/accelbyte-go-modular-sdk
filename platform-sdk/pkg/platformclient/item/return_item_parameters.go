@@ -59,7 +59,8 @@ func NewReturnItemParamsWithHTTPClient(client *http.Client) *ReturnItemParams {
 	}
 }
 
-/*ReturnItemParams contains all the parameters to send to the API endpoint
+/*
+ReturnItemParams contains all the parameters to send to the API endpoint
 for the return item operation typically these are written to a http.Request
 */
 type ReturnItemParams struct {

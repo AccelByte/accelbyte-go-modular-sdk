@@ -130,9 +130,10 @@ func NewSyncInGameItemOK() *SyncInGameItemOK {
 	return &SyncInGameItemOK{}
 }
 
-/*SyncInGameItemOK handles this case with default header values.
+/*
+SyncInGameItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SyncInGameItemOK struct {
 	Payload *platformclientmodels.FullItemInfo
@@ -184,9 +185,10 @@ func NewSyncInGameItemBadRequest() *SyncInGameItemBadRequest {
 	return &SyncInGameItemBadRequest{}
 }
 
-/*SyncInGameItemBadRequest handles this case with default header values.
+/*
+SyncInGameItemBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr><tr><td>30022</td><td>Default region [{region}] is required</td></tr><tr><td>30324</td><td>Invalid namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr><tr><td>30022</td><td>Default region [{region}] is required</td></tr><tr><td>30324</td><td>Invalid namespace [{namespace}]</td></tr></table>
 */
 type SyncInGameItemBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewSyncInGameItemNotFound() *SyncInGameItemNotFound {
 	return &SyncInGameItemNotFound{}
 }
 
-/*SyncInGameItemNotFound handles this case with default header values.
+/*
+SyncInGameItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type SyncInGameItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewSyncInGameItemConflict() *SyncInGameItemConflict {
 	return &SyncInGameItemConflict{}
 }
 
-/*SyncInGameItemConflict handles this case with default header values.
+/*
+SyncInGameItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr><tr><td>30373</td><td>ItemType [{itemType}] is not allowed in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr><tr><td>30373</td><td>ItemType [{itemType}] is not allowed in namespace [{namespace}]</td></tr></table>
 */
 type SyncInGameItemConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewSyncInGameItemUnprocessableEntity() *SyncInGameItemUnprocessableEntity {
 	return &SyncInGameItemUnprocessableEntity{}
 }
 
-/*SyncInGameItemUnprocessableEntity handles this case with default header values.
+/*
+SyncInGameItemUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type SyncInGameItemUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

@@ -145,9 +145,10 @@ func NewJoinGameSessionOK() *JoinGameSessionOK {
 	return &JoinGameSessionOK{}
 }
 
-/*JoinGameSessionOK handles this case with default header values.
+/*
+JoinGameSessionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type JoinGameSessionOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -199,9 +200,10 @@ func NewJoinGameSessionBadRequest() *JoinGameSessionBadRequest {
 	return &JoinGameSessionBadRequest{}
 }
 
-/*JoinGameSessionBadRequest handles this case with default header values.
+/*
+JoinGameSessionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type JoinGameSessionBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewJoinGameSessionUnauthorized() *JoinGameSessionUnauthorized {
 	return &JoinGameSessionUnauthorized{}
 }
 
-/*JoinGameSessionUnauthorized handles this case with default header values.
+/*
+JoinGameSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type JoinGameSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewJoinGameSessionForbidden() *JoinGameSessionForbidden {
 	return &JoinGameSessionForbidden{}
 }
 
-/*JoinGameSessionForbidden handles this case with default header values.
+/*
+JoinGameSessionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type JoinGameSessionForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewJoinGameSessionNotFound() *JoinGameSessionNotFound {
 	return &JoinGameSessionNotFound{}
 }
 
-/*JoinGameSessionNotFound handles this case with default header values.
+/*
+JoinGameSessionNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type JoinGameSessionNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewJoinGameSessionInternalServerError() *JoinGameSessionInternalServerError
 	return &JoinGameSessionInternalServerError{}
 }
 
-/*JoinGameSessionInternalServerError handles this case with default header values.
+/*
+JoinGameSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type JoinGameSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

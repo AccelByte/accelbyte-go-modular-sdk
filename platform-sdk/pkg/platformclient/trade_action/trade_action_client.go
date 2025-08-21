@@ -42,22 +42,20 @@ CommitShort commit a chain of actions or operations
 This API is used to create a chained operations
 
 Other detail info:
-            * Returns : chain action history
-            *  FULFILL_ITEM operation supported item type : INGAMEITEM,LOOTBOX,OPTIONBOX
+  - Returns : chain action history
+  - FULFILL_ITEM operation supported item type : INGAMEITEM,LOOTBOX,OPTIONBOX
 
 ## Restrictions for metadata
-
 
 1. Cannot use "." as the key name
 -
 
-                                        { "data.2": "value" }
-
+	{ "data.2": "value" }
 
 2. Cannot use "$" as the prefix in key names
 -
 
-                                        { "$data": "value" }
+	{ "$data": "value" }
 */
 func (a *Client) CommitShort(params *CommitParams, authInfo runtime.ClientAuthInfoWriter) (*CommitResponse, error) {
 	// TODO: Validate the params before sending
@@ -114,7 +112,7 @@ GetTradeHistoryByCriteriaShort retrieve trade history by criteria
 This API is used to fetch trade history based on the provided criteria
 
 Other detail info:
-            * Returns : trade history list based on criteria
+  - Returns : trade history list based on criteria
 */
 func (a *Client) GetTradeHistoryByCriteriaShort(params *GetTradeHistoryByCriteriaParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByCriteriaResponse, error) {
 	// TODO: Validate the params before sending
@@ -171,7 +169,7 @@ GetTradeHistoryByTransactionIDShort retrieve trade history by transaction id
 This API is used to fetch a specific trade history using transaction ID
 
 Other detail info:
-            * Returns : trade history based on transaction ID
+  - Returns : trade history based on transaction ID
 */
 func (a *Client) GetTradeHistoryByTransactionIDShort(params *GetTradeHistoryByTransactionIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTradeHistoryByTransactionIDResponse, error) {
 	// TODO: Validate the params before sending

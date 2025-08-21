@@ -130,9 +130,10 @@ func NewUpdateDLCItemConfigOK() *UpdateDLCItemConfigOK {
 	return &UpdateDLCItemConfigOK{}
 }
 
-/*UpdateDLCItemConfigOK handles this case with default header values.
+/*
+UpdateDLCItemConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateDLCItemConfigOK struct {
 	Payload *platformclientmodels.DLCItemConfigInfo
@@ -184,9 +185,10 @@ func NewUpdateDLCItemConfigBadRequest() *UpdateDLCItemConfigBadRequest {
 	return &UpdateDLCItemConfigBadRequest{}
 }
 
-/*UpdateDLCItemConfigBadRequest handles this case with default header values.
+/*
+UpdateDLCItemConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>394721</td><td>Invalid platform DLC config namespace [{namespace}]: [{message}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>394721</td><td>Invalid platform DLC config namespace [{namespace}]: [{message}]</td></tr></table>
 */
 type UpdateDLCItemConfigBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewUpdateDLCItemConfigNotFound() *UpdateDLCItemConfigNotFound {
 	return &UpdateDLCItemConfigNotFound{}
 }
 
-/*UpdateDLCItemConfigNotFound handles this case with default header values.
+/*
+UpdateDLCItemConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{itemSku}] does not exist </td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{itemSku}] does not exist </td></tr></table>
 */
 type UpdateDLCItemConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewUpdateDLCItemConfigConflict() *UpdateDLCItemConfigConflict {
 	return &UpdateDLCItemConfigConflict{}
 }
 
-/*UpdateDLCItemConfigConflict handles this case with default header values.
+/*
+UpdateDLCItemConfigConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39471</td><td>Duplicated dlc reward id [{dlcRewardId}] in namespace [{namespace}] </td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39471</td><td>Duplicated dlc reward id [{dlcRewardId}] in namespace [{namespace}] </td></tr></table>
 */
 type UpdateDLCItemConfigConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewUpdateDLCItemConfigUnprocessableEntity() *UpdateDLCItemConfigUnprocessab
 	return &UpdateDLCItemConfigUnprocessableEntity{}
 }
 
-/*UpdateDLCItemConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdateDLCItemConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateDLCItemConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

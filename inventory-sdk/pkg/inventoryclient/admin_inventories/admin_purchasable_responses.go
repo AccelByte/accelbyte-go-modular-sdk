@@ -129,9 +129,10 @@ func NewAdminPurchasableNoContent() *AdminPurchasableNoContent {
 	return &AdminPurchasableNoContent{}
 }
 
-/*AdminPurchasableNoContent handles this case with default header values.
+/*
+AdminPurchasableNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminPurchasableNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminPurchasableBadRequest() *AdminPurchasableBadRequest {
 	return &AdminPurchasableBadRequest{}
 }
 
-/*AdminPurchasableBadRequest handles this case with default header values.
+/*
+AdminPurchasableBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminPurchasableBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -210,9 +212,10 @@ func NewAdminPurchasableNotFound() *AdminPurchasableNotFound {
 	return &AdminPurchasableNotFound{}
 }
 
-/*AdminPurchasableNotFound handles this case with default header values.
+/*
+AdminPurchasableNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminPurchasableNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -264,9 +267,10 @@ func NewAdminPurchasableConflict() *AdminPurchasableConflict {
 	return &AdminPurchasableConflict{}
 }
 
-/*AdminPurchasableConflict handles this case with default header values.
+/*
+AdminPurchasableConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminPurchasableConflict struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -318,9 +322,10 @@ func NewAdminPurchasableInternalServerError() *AdminPurchasableInternalServerErr
 	return &AdminPurchasableInternalServerError{}
 }
 
-/*AdminPurchasableInternalServerError handles this case with default header values.
+/*
+AdminPurchasableInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminPurchasableInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

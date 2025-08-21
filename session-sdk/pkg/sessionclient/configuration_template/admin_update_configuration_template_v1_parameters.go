@@ -59,7 +59,8 @@ func NewAdminUpdateConfigurationTemplateV1ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*AdminUpdateConfigurationTemplateV1Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateConfigurationTemplateV1Params contains all the parameters to send to the API endpoint
 for the admin update configuration template v1 operation typically these are written to a http.Request
 */
 type AdminUpdateConfigurationTemplateV1Params struct {

@@ -57,7 +57,8 @@ func NewAdminListUserAllPlatformAccountsDistinctV3ParamsWithHTTPClient(client *h
 	}
 }
 
-/*AdminListUserAllPlatformAccountsDistinctV3Params contains all the parameters to send to the API endpoint
+/*
+AdminListUserAllPlatformAccountsDistinctV3Params contains all the parameters to send to the API endpoint
 for the admin list user all platform accounts distinct v3 operation typically these are written to a http.Request
 */
 type AdminListUserAllPlatformAccountsDistinctV3Params struct {

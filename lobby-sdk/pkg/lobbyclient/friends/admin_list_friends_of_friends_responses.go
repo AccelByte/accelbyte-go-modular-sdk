@@ -130,10 +130,9 @@ func NewAdminListFriendsOfFriendsOK() *AdminListFriendsOfFriendsOK {
 	return &AdminListFriendsOfFriendsOK{}
 }
 
-/*AdminListFriendsOfFriendsOK handles this case with default header values.
-
-
- */
+/*
+AdminListFriendsOfFriendsOK handles this case with default header values.
+*/
 type AdminListFriendsOfFriendsOK struct {
 	Payload *lobbyclientmodels.ModelFriendshipConnectionResponse
 }
@@ -184,9 +183,10 @@ func NewAdminListFriendsOfFriendsBadRequest() *AdminListFriendsOfFriendsBadReque
 	return &AdminListFriendsOfFriendsBadRequest{}
 }
 
-/*AdminListFriendsOfFriendsBadRequest handles this case with default header values.
+/*
+AdminListFriendsOfFriendsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminListFriendsOfFriendsBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -238,9 +238,10 @@ func NewAdminListFriendsOfFriendsUnauthorized() *AdminListFriendsOfFriendsUnauth
 	return &AdminListFriendsOfFriendsUnauthorized{}
 }
 
-/*AdminListFriendsOfFriendsUnauthorized handles this case with default header values.
+/*
+AdminListFriendsOfFriendsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminListFriendsOfFriendsUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -292,9 +293,10 @@ func NewAdminListFriendsOfFriendsForbidden() *AdminListFriendsOfFriendsForbidden
 	return &AdminListFriendsOfFriendsForbidden{}
 }
 
-/*AdminListFriendsOfFriendsForbidden handles this case with default header values.
+/*
+AdminListFriendsOfFriendsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminListFriendsOfFriendsForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -346,9 +348,10 @@ func NewAdminListFriendsOfFriendsInternalServerError() *AdminListFriendsOfFriend
 	return &AdminListFriendsOfFriendsInternalServerError{}
 }
 
-/*AdminListFriendsOfFriendsInternalServerError handles this case with default header values.
+/*
+AdminListFriendsOfFriendsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminListFriendsOfFriendsInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

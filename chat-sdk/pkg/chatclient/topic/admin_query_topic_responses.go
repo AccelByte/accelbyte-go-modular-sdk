@@ -130,9 +130,10 @@ func NewAdminQueryTopicOK() *AdminQueryTopicOK {
 	return &AdminQueryTopicOK{}
 }
 
-/*AdminQueryTopicOK handles this case with default header values.
+/*
+AdminQueryTopicOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminQueryTopicOK struct {
 	Payload []*chatclientmodels.ModelsTopicInfo
@@ -182,9 +183,10 @@ func NewAdminQueryTopicBadRequest() *AdminQueryTopicBadRequest {
 	return &AdminQueryTopicBadRequest{}
 }
 
-/*AdminQueryTopicBadRequest handles this case with default header values.
+/*
+AdminQueryTopicBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminQueryTopicBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewAdminQueryTopicUnauthorized() *AdminQueryTopicUnauthorized {
 	return &AdminQueryTopicUnauthorized{}
 }
 
-/*AdminQueryTopicUnauthorized handles this case with default header values.
+/*
+AdminQueryTopicUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminQueryTopicUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewAdminQueryTopicForbidden() *AdminQueryTopicForbidden {
 	return &AdminQueryTopicForbidden{}
 }
 
-/*AdminQueryTopicForbidden handles this case with default header values.
+/*
+AdminQueryTopicForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminQueryTopicForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewAdminQueryTopicInternalServerError() *AdminQueryTopicInternalServerError
 	return &AdminQueryTopicInternalServerError{}
 }
 
-/*AdminQueryTopicInternalServerError handles this case with default header values.
+/*
+AdminQueryTopicInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminQueryTopicInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

@@ -130,9 +130,10 @@ func NewUpdateGameSessionBackfillTicketIDOK() *UpdateGameSessionBackfillTicketID
 	return &UpdateGameSessionBackfillTicketIDOK{}
 }
 
-/*UpdateGameSessionBackfillTicketIDOK handles this case with default header values.
+/*
+UpdateGameSessionBackfillTicketIDOK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateGameSessionBackfillTicketIDOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -184,9 +185,10 @@ func NewUpdateGameSessionBackfillTicketIDUnauthorized() *UpdateGameSessionBackfi
 	return &UpdateGameSessionBackfillTicketIDUnauthorized{}
 }
 
-/*UpdateGameSessionBackfillTicketIDUnauthorized handles this case with default header values.
+/*
+UpdateGameSessionBackfillTicketIDUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateGameSessionBackfillTicketIDUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewUpdateGameSessionBackfillTicketIDForbidden() *UpdateGameSessionBackfillT
 	return &UpdateGameSessionBackfillTicketIDForbidden{}
 }
 
-/*UpdateGameSessionBackfillTicketIDForbidden handles this case with default header values.
+/*
+UpdateGameSessionBackfillTicketIDForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateGameSessionBackfillTicketIDForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewUpdateGameSessionBackfillTicketIDNotFound() *UpdateGameSessionBackfillTi
 	return &UpdateGameSessionBackfillTicketIDNotFound{}
 }
 
-/*UpdateGameSessionBackfillTicketIDNotFound handles this case with default header values.
+/*
+UpdateGameSessionBackfillTicketIDNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UpdateGameSessionBackfillTicketIDNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewUpdateGameSessionBackfillTicketIDInternalServerError() *UpdateGameSessio
 	return &UpdateGameSessionBackfillTicketIDInternalServerError{}
 }
 
-/*UpdateGameSessionBackfillTicketIDInternalServerError handles this case with default header values.
+/*
+UpdateGameSessionBackfillTicketIDInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateGameSessionBackfillTicketIDInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

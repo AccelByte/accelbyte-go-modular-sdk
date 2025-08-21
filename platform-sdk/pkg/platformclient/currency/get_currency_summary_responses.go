@@ -85,9 +85,10 @@ func NewGetCurrencySummaryOK() *GetCurrencySummaryOK {
 	return &GetCurrencySummaryOK{}
 }
 
-/*GetCurrencySummaryOK handles this case with default header values.
+/*
+GetCurrencySummaryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCurrencySummaryOK struct {
 	Payload *platformclientmodels.CurrencySummary
@@ -139,9 +140,10 @@ func NewGetCurrencySummaryNotFound() *GetCurrencySummaryNotFound {
 	return &GetCurrencySummaryNotFound{}
 }
 
-/*GetCurrencySummaryNotFound handles this case with default header values.
+/*
+GetCurrencySummaryNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetCurrencySummaryNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -130,9 +130,10 @@ func NewGetGameTemplateOK() *GetGameTemplateOK {
 	return &GetGameTemplateOK{}
 }
 
-/*GetGameTemplateOK handles this case with default header values.
+/*
+GetGameTemplateOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetGameTemplateOK struct {
 	Payload []*lobbyclientmodels.ModelTemplateResponse
@@ -182,9 +183,10 @@ func NewGetGameTemplateBadRequest() *GetGameTemplateBadRequest {
 	return &GetGameTemplateBadRequest{}
 }
 
-/*GetGameTemplateBadRequest handles this case with default header values.
+/*
+GetGameTemplateBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetGameTemplateBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewGetGameTemplateUnauthorized() *GetGameTemplateUnauthorized {
 	return &GetGameTemplateUnauthorized{}
 }
 
-/*GetGameTemplateUnauthorized handles this case with default header values.
+/*
+GetGameTemplateUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetGameTemplateUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewGetGameTemplateForbidden() *GetGameTemplateForbidden {
 	return &GetGameTemplateForbidden{}
 }
 
-/*GetGameTemplateForbidden handles this case with default header values.
+/*
+GetGameTemplateForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetGameTemplateForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewGetGameTemplateNotFound() *GetGameTemplateNotFound {
 	return &GetGameTemplateNotFound{}
 }
 
-/*GetGameTemplateNotFound handles this case with default header values.
+/*
+GetGameTemplateNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetGameTemplateNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

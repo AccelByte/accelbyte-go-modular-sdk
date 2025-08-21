@@ -115,9 +115,10 @@ func NewPublicGetPaymentURLOK() *PublicGetPaymentURLOK {
 	return &PublicGetPaymentURLOK{}
 }
 
-/*PublicGetPaymentURLOK handles this case with default header values.
+/*
+PublicGetPaymentURLOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetPaymentURLOK struct {
 	Payload *platformclientmodels.PaymentURL
@@ -169,9 +170,10 @@ func NewPublicGetPaymentURLBadRequest() *PublicGetPaymentURLBadRequest {
 	return &PublicGetPaymentURLBadRequest{}
 }
 
-/*PublicGetPaymentURLBadRequest handles this case with default header values.
+/*
+PublicGetPaymentURLBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33321</td><td>Payment provider [{paymentProvider}] not support currency [{currency}]</td></tr><tr><td>33322</td><td>Payment provider [{paymentProvider}] not supported</td></tr><tr><td>33332</td><td>Amount too small, please contact administrator</td></tr><tr><td>33333</td><td>Neon Pay checkout payment order [{paymentOrderNo}] failed with message [{errMsg}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33321</td><td>Payment provider [{paymentProvider}] not support currency [{currency}]</td></tr><tr><td>33322</td><td>Payment provider [{paymentProvider}] not supported</td></tr><tr><td>33332</td><td>Amount too small, please contact administrator</td></tr><tr><td>33333</td><td>Neon Pay checkout payment order [{paymentOrderNo}] failed with message [{errMsg}]</td></tr></table>
 */
 type PublicGetPaymentURLBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewPublicGetPaymentURLForbidden() *PublicGetPaymentURLForbidden {
 	return &PublicGetPaymentURLForbidden{}
 }
 
-/*PublicGetPaymentURLForbidden handles this case with default header values.
+/*
+PublicGetPaymentURLForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20016</td><td>action is banned</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20016</td><td>action is banned</td></tr></table>
 */
 type PublicGetPaymentURLForbidden struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewPublicGetPaymentURLNotFound() *PublicGetPaymentURLNotFound {
 	return &PublicGetPaymentURLNotFound{}
 }
 
-/*PublicGetPaymentURLNotFound handles this case with default header values.
+/*
+PublicGetPaymentURLNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicGetPaymentURLNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

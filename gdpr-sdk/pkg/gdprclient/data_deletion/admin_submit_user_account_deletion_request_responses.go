@@ -145,9 +145,10 @@ func NewAdminSubmitUserAccountDeletionRequestCreated() *AdminSubmitUserAccountDe
 	return &AdminSubmitUserAccountDeletionRequestCreated{}
 }
 
-/*AdminSubmitUserAccountDeletionRequestCreated handles this case with default header values.
+/*
+AdminSubmitUserAccountDeletionRequestCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminSubmitUserAccountDeletionRequestCreated struct {
 	Payload *gdprclientmodels.ModelsRequestDeleteResponse
@@ -199,9 +200,10 @@ func NewAdminSubmitUserAccountDeletionRequestUnauthorized() *AdminSubmitUserAcco
 	return &AdminSubmitUserAccountDeletionRequestUnauthorized{}
 }
 
-/*AdminSubmitUserAccountDeletionRequestUnauthorized handles this case with default header values.
+/*
+AdminSubmitUserAccountDeletionRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminSubmitUserAccountDeletionRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminSubmitUserAccountDeletionRequestForbidden() *AdminSubmitUserAccount
 	return &AdminSubmitUserAccountDeletionRequestForbidden{}
 }
 
-/*AdminSubmitUserAccountDeletionRequestForbidden handles this case with default header values.
+/*
+AdminSubmitUserAccountDeletionRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminSubmitUserAccountDeletionRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminSubmitUserAccountDeletionRequestNotFound() *AdminSubmitUserAccountD
 	return &AdminSubmitUserAccountDeletionRequestNotFound{}
 }
 
-/*AdminSubmitUserAccountDeletionRequestNotFound handles this case with default header values.
+/*
+AdminSubmitUserAccountDeletionRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminSubmitUserAccountDeletionRequestNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminSubmitUserAccountDeletionRequestConflict() *AdminSubmitUserAccountD
 	return &AdminSubmitUserAccountDeletionRequestConflict{}
 }
 
-/*AdminSubmitUserAccountDeletionRequestConflict handles this case with default header values.
+/*
+AdminSubmitUserAccountDeletionRequestConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminSubmitUserAccountDeletionRequestConflict struct {
 	Payload *gdprclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminSubmitUserAccountDeletionRequestInternalServerError() *AdminSubmitU
 	return &AdminSubmitUserAccountDeletionRequestInternalServerError{}
 }
 
-/*AdminSubmitUserAccountDeletionRequestInternalServerError handles this case with default header values.
+/*
+AdminSubmitUserAccountDeletionRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSubmitUserAccountDeletionRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

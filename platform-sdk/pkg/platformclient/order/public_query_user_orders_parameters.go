@@ -117,7 +117,8 @@ func NewPublicQueryUserOrdersParamsWithHTTPClient(client *http.Client) *PublicQu
 	}
 }
 
-/*PublicQueryUserOrdersParams contains all the parameters to send to the API endpoint
+/*
+PublicQueryUserOrdersParams contains all the parameters to send to the API endpoint
 for the public query user orders operation typically these are written to a http.Request
 */
 type PublicQueryUserOrdersParams struct {

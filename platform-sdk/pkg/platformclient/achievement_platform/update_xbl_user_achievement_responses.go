@@ -84,9 +84,10 @@ func NewUpdateXblUserAchievementNoContent() *UpdateXblUserAchievementNoContent {
 	return &UpdateXblUserAchievementNoContent{}
 }
 
-/*UpdateXblUserAchievementNoContent handles this case with default header values.
+/*
+UpdateXblUserAchievementNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UpdateXblUserAchievementNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewUpdateXblUserAchievementBadRequest() *UpdateXblUserAchievementBadRequest
 	return &UpdateXblUserAchievementBadRequest{}
 }
 
-/*UpdateXblUserAchievementBadRequest handles this case with default header values.
+/*
+UpdateXblUserAchievementBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateXblUserAchievementBadRequest struct {
 	Payload *platformclientmodels.ValidationErrorEntity

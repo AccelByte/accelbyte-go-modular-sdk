@@ -144,9 +144,10 @@ func NewAdminSetProfanityRuleForNamespaceOK() *AdminSetProfanityRuleForNamespace
 	return &AdminSetProfanityRuleForNamespaceOK{}
 }
 
-/*AdminSetProfanityRuleForNamespaceOK handles this case with default header values.
+/*
+AdminSetProfanityRuleForNamespaceOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminSetProfanityRuleForNamespaceOK struct {
 }
@@ -171,9 +172,10 @@ func NewAdminSetProfanityRuleForNamespaceBadRequest() *AdminSetProfanityRuleForN
 	return &AdminSetProfanityRuleForNamespaceBadRequest{}
 }
 
-/*AdminSetProfanityRuleForNamespaceBadRequest handles this case with default header values.
+/*
+AdminSetProfanityRuleForNamespaceBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminSetProfanityRuleForNamespaceBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -225,9 +227,10 @@ func NewAdminSetProfanityRuleForNamespaceUnauthorized() *AdminSetProfanityRuleFo
 	return &AdminSetProfanityRuleForNamespaceUnauthorized{}
 }
 
-/*AdminSetProfanityRuleForNamespaceUnauthorized handles this case with default header values.
+/*
+AdminSetProfanityRuleForNamespaceUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminSetProfanityRuleForNamespaceUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -279,9 +282,10 @@ func NewAdminSetProfanityRuleForNamespaceForbidden() *AdminSetProfanityRuleForNa
 	return &AdminSetProfanityRuleForNamespaceForbidden{}
 }
 
-/*AdminSetProfanityRuleForNamespaceForbidden handles this case with default header values.
+/*
+AdminSetProfanityRuleForNamespaceForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminSetProfanityRuleForNamespaceForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -333,9 +337,10 @@ func NewAdminSetProfanityRuleForNamespaceNotFound() *AdminSetProfanityRuleForNam
 	return &AdminSetProfanityRuleForNamespaceNotFound{}
 }
 
-/*AdminSetProfanityRuleForNamespaceNotFound handles this case with default header values.
+/*
+AdminSetProfanityRuleForNamespaceNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminSetProfanityRuleForNamespaceNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -387,9 +392,10 @@ func NewAdminSetProfanityRuleForNamespaceInternalServerError() *AdminSetProfanit
 	return &AdminSetProfanityRuleForNamespaceInternalServerError{}
 }
 
-/*AdminSetProfanityRuleForNamespaceInternalServerError handles this case with default header values.
+/*
+AdminSetProfanityRuleForNamespaceInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSetProfanityRuleForNamespaceInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

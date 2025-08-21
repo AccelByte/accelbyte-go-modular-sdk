@@ -57,7 +57,8 @@ func NewDeleteLeaderboardConfigurationAdminV3ParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*DeleteLeaderboardConfigurationAdminV3Params contains all the parameters to send to the API endpoint
+/*
+DeleteLeaderboardConfigurationAdminV3Params contains all the parameters to send to the API endpoint
 for the delete leaderboard configuration admin v3 operation typically these are written to a http.Request
 */
 type DeleteLeaderboardConfigurationAdminV3Params struct {

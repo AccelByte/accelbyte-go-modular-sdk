@@ -160,9 +160,10 @@ func NewAdminUpdateContentByShareCodeV2OK() *AdminUpdateContentByShareCodeV2OK {
 	return &AdminUpdateContentByShareCodeV2OK{}
 }
 
-/*AdminUpdateContentByShareCodeV2OK handles this case with default header values.
+/*
+AdminUpdateContentByShareCodeV2OK handles this case with default header values.
 
-  content udpated at s3
+	content udpated at s3
 */
 type AdminUpdateContentByShareCodeV2OK struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponseV2
@@ -214,9 +215,10 @@ func NewAdminUpdateContentByShareCodeV2BadRequest() *AdminUpdateContentByShareCo
 	return &AdminUpdateContentByShareCodeV2BadRequest{}
 }
 
-/*AdminUpdateContentByShareCodeV2BadRequest handles this case with default header values.
+/*
+AdminUpdateContentByShareCodeV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr><tr><td>770107</td><td>Unable to update ugc content: invalid shareCode format</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr><tr><td>770107</td><td>Unable to update ugc content: invalid shareCode format</td></tr></table>
 */
 type AdminUpdateContentByShareCodeV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewAdminUpdateContentByShareCodeV2Unauthorized() *AdminUpdateContentByShare
 	return &AdminUpdateContentByShareCodeV2Unauthorized{}
 }
 
-/*AdminUpdateContentByShareCodeV2Unauthorized handles this case with default header values.
+/*
+AdminUpdateContentByShareCodeV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateContentByShareCodeV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewAdminUpdateContentByShareCodeV2Forbidden() *AdminUpdateContentByShareCod
 	return &AdminUpdateContentByShareCodeV2Forbidden{}
 }
 
-/*AdminUpdateContentByShareCodeV2Forbidden handles this case with default header values.
+/*
+AdminUpdateContentByShareCodeV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type AdminUpdateContentByShareCodeV2Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewAdminUpdateContentByShareCodeV2NotFound() *AdminUpdateContentByShareCode
 	return &AdminUpdateContentByShareCodeV2NotFound{}
 }
 
-/*AdminUpdateContentByShareCodeV2NotFound handles this case with default header values.
+/*
+AdminUpdateContentByShareCodeV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
 */
 type AdminUpdateContentByShareCodeV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewAdminUpdateContentByShareCodeV2Conflict() *AdminUpdateContentByShareCode
 	return &AdminUpdateContentByShareCodeV2Conflict{}
 }
 
-/*AdminUpdateContentByShareCodeV2Conflict handles this case with default header values.
+/*
+AdminUpdateContentByShareCodeV2Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772606</td><td>Share code already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772606</td><td>Share code already used</td></tr></table>
 */
 type AdminUpdateContentByShareCodeV2Conflict struct {
 	Payload *ugcclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewAdminUpdateContentByShareCodeV2InternalServerError() *AdminUpdateContent
 	return &AdminUpdateContentByShareCodeV2InternalServerError{}
 }
 
-/*AdminUpdateContentByShareCodeV2InternalServerError handles this case with default header values.
+/*
+AdminUpdateContentByShareCodeV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type AdminUpdateContentByShareCodeV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

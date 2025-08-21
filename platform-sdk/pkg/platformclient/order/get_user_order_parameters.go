@@ -57,7 +57,8 @@ func NewGetUserOrderParamsWithHTTPClient(client *http.Client) *GetUserOrderParam
 	}
 }
 
-/*GetUserOrderParams contains all the parameters to send to the API endpoint
+/*
+GetUserOrderParams contains all the parameters to send to the API endpoint
 for the get user order operation typically these are written to a http.Request
 */
 type GetUserOrderParams struct {

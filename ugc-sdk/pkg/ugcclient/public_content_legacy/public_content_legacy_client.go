@@ -75,7 +75,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) SearchChannelSpecificContentShort(params *SearchChannelSpecificContentParams, authInfo runtime.ClientAuthInfoWriter) (*SearchChannelSpecificContentResponse, error) {
 	// TODO: Validate the params before sending
@@ -170,7 +170,7 @@ Allowed character for operand: alphanumeric, underscore `_` and dash `-`
 
 Allowed character for operator: `&` `|` `(` `)`
 
- Please note that value of tags query param should be URL encoded
+	Please note that value of tags query param should be URL encoded
 */
 func (a *Client) PublicSearchContentShort(params *PublicSearchContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchContentResponse, error) {
 	// TODO: Validate the params before sending
@@ -555,10 +555,9 @@ func (a *Client) PublicDownloadContentByContentIDShort(params *PublicDownloadCon
 /*
 PublicDownloadContentPreviewShort get content preview
 
-
 Requires valid user token
 
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) PublicDownloadContentPreviewShort(params *PublicDownloadContentPreviewParams, authInfo runtime.ClientAuthInfoWriter) (*PublicDownloadContentPreviewResponse, error) {
 	// TODO: Validate the params before sending
@@ -723,8 +722,6 @@ All request body are required except payload, preview, tags, contentType and cus
 contentType values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
 If not specified, it will use fileExtension value.
 
-
-
 NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) CreateContentS3Short(params *CreateContentS3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateContentS3Response, error) {
@@ -817,10 +814,7 @@ If not specified, it will use `fileExtension` value.
 
 To update content file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
 
-
-
-
- NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
+	NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */
 func (a *Client) PublicUpdateContentByShareCodeShort(params *PublicUpdateContentByShareCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateContentByShareCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -921,8 +915,6 @@ All request body are required except payload, preview, tags, contentType, update
 contentType values is used to enforce the Content-Type header needed by the client to upload the content using the S3 presigned URL.
 If not specified, it will use fileExtension value.
 To update content's file, set `updateContentFile` to `true` and upload the file using URL in `payloadURL.url` in response body.
-
-
 
 NOTE: Preview is Legacy Code, please use Screenshot for better solution to display preview of a content
 */

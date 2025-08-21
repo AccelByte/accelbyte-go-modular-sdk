@@ -57,7 +57,8 @@ func NewDeleteCurrencyParamsWithHTTPClient(client *http.Client) *DeleteCurrencyP
 	}
 }
 
-/*DeleteCurrencyParams contains all the parameters to send to the API endpoint
+/*
+DeleteCurrencyParams contains all the parameters to send to the API endpoint
 for the delete currency operation typically these are written to a http.Request
 */
 type DeleteCurrencyParams struct {

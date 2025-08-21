@@ -144,9 +144,10 @@ func NewAdminDeleteUserRoleV3NoContent() *AdminDeleteUserRoleV3NoContent {
 	return &AdminDeleteUserRoleV3NoContent{}
 }
 
-/*AdminDeleteUserRoleV3NoContent handles this case with default header values.
+/*
+AdminDeleteUserRoleV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDeleteUserRoleV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeleteUserRoleV3BadRequest() *AdminDeleteUserRoleV3BadRequest {
 	return &AdminDeleteUserRoleV3BadRequest{}
 }
 
-/*AdminDeleteUserRoleV3BadRequest handles this case with default header values.
+/*
+AdminDeleteUserRoleV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminDeleteUserRoleV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminDeleteUserRoleV3Unauthorized() *AdminDeleteUserRoleV3Unauthorized {
 	return &AdminDeleteUserRoleV3Unauthorized{}
 }
 
-/*AdminDeleteUserRoleV3Unauthorized handles this case with default header values.
+/*
+AdminDeleteUserRoleV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteUserRoleV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminDeleteUserRoleV3Forbidden() *AdminDeleteUserRoleV3Forbidden {
 	return &AdminDeleteUserRoleV3Forbidden{}
 }
 
-/*AdminDeleteUserRoleV3Forbidden handles this case with default header values.
+/*
+AdminDeleteUserRoleV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10159</td><td>operator is not a role manager</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10159</td><td>operator is not a role manager</td></tr></table>
 */
 type AdminDeleteUserRoleV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminDeleteUserRoleV3NotFound() *AdminDeleteUserRoleV3NotFound {
 	return &AdminDeleteUserRoleV3NotFound{}
 }
 
-/*AdminDeleteUserRoleV3NotFound handles this case with default header values.
+/*
+AdminDeleteUserRoleV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10156</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10156</td><td>role not found</td></tr></table>
 */
 type AdminDeleteUserRoleV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminDeleteUserRoleV3InternalServerError() *AdminDeleteUserRoleV3Interna
 	return &AdminDeleteUserRoleV3InternalServerError{}
 }
 
-/*AdminDeleteUserRoleV3InternalServerError handles this case with default header values.
+/*
+AdminDeleteUserRoleV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDeleteUserRoleV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -115,9 +115,10 @@ func NewPublicGetUserAccountDeletionStatusOK() *PublicGetUserAccountDeletionStat
 	return &PublicGetUserAccountDeletionStatusOK{}
 }
 
-/*PublicGetUserAccountDeletionStatusOK handles this case with default header values.
+/*
+PublicGetUserAccountDeletionStatusOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetUserAccountDeletionStatusOK struct {
 	Payload *gdprclientmodels.ModelsDeletionStatus
@@ -169,9 +170,10 @@ func NewPublicGetUserAccountDeletionStatusUnauthorized() *PublicGetUserAccountDe
 	return &PublicGetUserAccountDeletionStatusUnauthorized{}
 }
 
-/*PublicGetUserAccountDeletionStatusUnauthorized handles this case with default header values.
+/*
+PublicGetUserAccountDeletionStatusUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetUserAccountDeletionStatusUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicGetUserAccountDeletionStatusForbidden() *PublicGetUserAccountDelet
 	return &PublicGetUserAccountDeletionStatusForbidden{}
 }
 
-/*PublicGetUserAccountDeletionStatusForbidden handles this case with default header values.
+/*
+PublicGetUserAccountDeletionStatusForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicGetUserAccountDeletionStatusForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicGetUserAccountDeletionStatusInternalServerError() *PublicGetUserAc
 	return &PublicGetUserAccountDeletionStatusInternalServerError{}
 }
 
-/*PublicGetUserAccountDeletionStatusInternalServerError handles this case with default header values.
+/*
+PublicGetUserAccountDeletionStatusInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetUserAccountDeletionStatusInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

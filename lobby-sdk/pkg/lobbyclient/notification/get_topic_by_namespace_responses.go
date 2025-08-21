@@ -130,9 +130,10 @@ func NewGetTopicByNamespaceOK() *GetTopicByNamespaceOK {
 	return &GetTopicByNamespaceOK{}
 }
 
-/*GetTopicByNamespaceOK handles this case with default header values.
+/*
+GetTopicByNamespaceOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetTopicByNamespaceOK struct {
 	Payload *lobbyclientmodels.ModelTopicByNamespacesResponse
@@ -184,9 +185,10 @@ func NewGetTopicByNamespaceUnauthorized() *GetTopicByNamespaceUnauthorized {
 	return &GetTopicByNamespaceUnauthorized{}
 }
 
-/*GetTopicByNamespaceUnauthorized handles this case with default header values.
+/*
+GetTopicByNamespaceUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetTopicByNamespaceUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewGetTopicByNamespaceForbidden() *GetTopicByNamespaceForbidden {
 	return &GetTopicByNamespaceForbidden{}
 }
 
-/*GetTopicByNamespaceForbidden handles this case with default header values.
+/*
+GetTopicByNamespaceForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetTopicByNamespaceForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewGetTopicByNamespaceNotFound() *GetTopicByNamespaceNotFound {
 	return &GetTopicByNamespaceNotFound{}
 }
 
-/*GetTopicByNamespaceNotFound handles this case with default header values.
+/*
+GetTopicByNamespaceNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetTopicByNamespaceNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewGetTopicByNamespaceInternalServerError() *GetTopicByNamespaceInternalSer
 	return &GetTopicByNamespaceInternalServerError{}
 }
 
-/*GetTopicByNamespaceInternalServerError handles this case with default header values.
+/*
+GetTopicByNamespaceInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetTopicByNamespaceInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

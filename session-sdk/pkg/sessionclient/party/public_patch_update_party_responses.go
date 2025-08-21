@@ -160,9 +160,10 @@ func NewPublicPatchUpdatePartyOK() *PublicPatchUpdatePartyOK {
 	return &PublicPatchUpdatePartyOK{}
 }
 
-/*PublicPatchUpdatePartyOK handles this case with default header values.
+/*
+PublicPatchUpdatePartyOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicPatchUpdatePartyOK struct {
 	Payload *sessionclientmodels.ApimodelsPartySessionResponse
@@ -214,9 +215,10 @@ func NewPublicPatchUpdatePartyBadRequest() *PublicPatchUpdatePartyBadRequest {
 	return &PublicPatchUpdatePartyBadRequest{}
 }
 
-/*PublicPatchUpdatePartyBadRequest handles this case with default header values.
+/*
+PublicPatchUpdatePartyBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPatchUpdatePartyBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewPublicPatchUpdatePartyUnauthorized() *PublicPatchUpdatePartyUnauthorized
 	return &PublicPatchUpdatePartyUnauthorized{}
 }
 
-/*PublicPatchUpdatePartyUnauthorized handles this case with default header values.
+/*
+PublicPatchUpdatePartyUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPatchUpdatePartyUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewPublicPatchUpdatePartyForbidden() *PublicPatchUpdatePartyForbidden {
 	return &PublicPatchUpdatePartyForbidden{}
 }
 
-/*PublicPatchUpdatePartyForbidden handles this case with default header values.
+/*
+PublicPatchUpdatePartyForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicPatchUpdatePartyForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewPublicPatchUpdatePartyNotFound() *PublicPatchUpdatePartyNotFound {
 	return &PublicPatchUpdatePartyNotFound{}
 }
 
-/*PublicPatchUpdatePartyNotFound handles this case with default header values.
+/*
+PublicPatchUpdatePartyNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPatchUpdatePartyNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewPublicPatchUpdatePartyConflict() *PublicPatchUpdatePartyConflict {
 	return &PublicPatchUpdatePartyConflict{}
 }
 
-/*PublicPatchUpdatePartyConflict handles this case with default header values.
+/*
+PublicPatchUpdatePartyConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type PublicPatchUpdatePartyConflict struct {
 	Payload *sessionclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewPublicPatchUpdatePartyInternalServerError() *PublicPatchUpdatePartyInter
 	return &PublicPatchUpdatePartyInternalServerError{}
 }
 
-/*PublicPatchUpdatePartyInternalServerError handles this case with default header values.
+/*
+PublicPatchUpdatePartyInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPatchUpdatePartyInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

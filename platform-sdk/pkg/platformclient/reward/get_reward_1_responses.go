@@ -85,9 +85,10 @@ func NewGetReward1OK() *GetReward1OK {
 	return &GetReward1OK{}
 }
 
-/*GetReward1OK handles this case with default header values.
+/*
+GetReward1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetReward1OK struct {
 	Payload *platformclientmodels.RewardInfo
@@ -139,9 +140,10 @@ func NewGetReward1NotFound() *GetReward1NotFound {
 	return &GetReward1NotFound{}
 }
 
-/*GetReward1NotFound handles this case with default header values.
+/*
+GetReward1NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34041</td><td>Reward [{rewardId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34041</td><td>Reward [{rewardId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetReward1NotFound struct {
 	Payload *platformclientmodels.ErrorEntity

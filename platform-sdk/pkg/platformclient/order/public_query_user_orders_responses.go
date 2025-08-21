@@ -69,9 +69,10 @@ func NewPublicQueryUserOrdersOK() *PublicQueryUserOrdersOK {
 	return &PublicQueryUserOrdersOK{}
 }
 
-/*PublicQueryUserOrdersOK handles this case with default header values.
+/*
+PublicQueryUserOrdersOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicQueryUserOrdersOK struct {
 	Payload *platformclientmodels.OrderPagingSlicedResult

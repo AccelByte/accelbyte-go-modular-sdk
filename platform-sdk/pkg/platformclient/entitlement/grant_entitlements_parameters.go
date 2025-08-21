@@ -59,7 +59,8 @@ func NewGrantEntitlementsParamsWithHTTPClient(client *http.Client) *GrantEntitle
 	}
 }
 
-/*GrantEntitlementsParams contains all the parameters to send to the API endpoint
+/*
+GrantEntitlementsParams contains all the parameters to send to the API endpoint
 for the grant entitlements operation typically these are written to a http.Request
 */
 type GrantEntitlementsParams struct {

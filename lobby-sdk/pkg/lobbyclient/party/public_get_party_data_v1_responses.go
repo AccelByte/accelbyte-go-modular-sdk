@@ -145,9 +145,10 @@ func NewPublicGetPartyDataV1OK() *PublicGetPartyDataV1OK {
 	return &PublicGetPartyDataV1OK{}
 }
 
-/*PublicGetPartyDataV1OK handles this case with default header values.
+/*
+PublicGetPartyDataV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetPartyDataV1OK struct {
 	Payload *lobbyclientmodels.ModelsPartyData
@@ -199,9 +200,10 @@ func NewPublicGetPartyDataV1BadRequest() *PublicGetPartyDataV1BadRequest {
 	return &PublicGetPartyDataV1BadRequest{}
 }
 
-/*PublicGetPartyDataV1BadRequest handles this case with default header values.
+/*
+PublicGetPartyDataV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetPartyDataV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewPublicGetPartyDataV1Unauthorized() *PublicGetPartyDataV1Unauthorized {
 	return &PublicGetPartyDataV1Unauthorized{}
 }
 
-/*PublicGetPartyDataV1Unauthorized handles this case with default header values.
+/*
+PublicGetPartyDataV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetPartyDataV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewPublicGetPartyDataV1Forbidden() *PublicGetPartyDataV1Forbidden {
 	return &PublicGetPartyDataV1Forbidden{}
 }
 
-/*PublicGetPartyDataV1Forbidden handles this case with default header values.
+/*
+PublicGetPartyDataV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicGetPartyDataV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewPublicGetPartyDataV1NotFound() *PublicGetPartyDataV1NotFound {
 	return &PublicGetPartyDataV1NotFound{}
 }
 
-/*PublicGetPartyDataV1NotFound handles this case with default header values.
+/*
+PublicGetPartyDataV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetPartyDataV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewPublicGetPartyDataV1InternalServerError() *PublicGetPartyDataV1InternalS
 	return &PublicGetPartyDataV1InternalServerError{}
 }
 
-/*PublicGetPartyDataV1InternalServerError handles this case with default header values.
+/*
+PublicGetPartyDataV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetPartyDataV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

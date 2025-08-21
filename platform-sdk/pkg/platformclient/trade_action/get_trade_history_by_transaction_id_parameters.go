@@ -57,7 +57,8 @@ func NewGetTradeHistoryByTransactionIDParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*GetTradeHistoryByTransactionIDParams contains all the parameters to send to the API endpoint
+/*
+GetTradeHistoryByTransactionIDParams contains all the parameters to send to the API endpoint
 for the get trade history by transaction id operation typically these are written to a http.Request
 */
 type GetTradeHistoryByTransactionIDParams struct {

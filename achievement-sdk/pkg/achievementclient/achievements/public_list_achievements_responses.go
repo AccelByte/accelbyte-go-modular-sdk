@@ -130,9 +130,10 @@ func NewPublicListAchievementsOK() *PublicListAchievementsOK {
 	return &PublicListAchievementsOK{}
 }
 
-/*PublicListAchievementsOK handles this case with default header values.
+/*
+PublicListAchievementsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicListAchievementsOK struct {
 	Payload *achievementclientmodels.ModelsPublicAchievementsResponse
@@ -184,9 +185,10 @@ func NewPublicListAchievementsBadRequest() *PublicListAchievementsBadRequest {
 	return &PublicListAchievementsBadRequest{}
 }
 
-/*PublicListAchievementsBadRequest handles this case with default header values.
+/*
+PublicListAchievementsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicListAchievementsBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicListAchievementsUnauthorized() *PublicListAchievementsUnauthorized
 	return &PublicListAchievementsUnauthorized{}
 }
 
-/*PublicListAchievementsUnauthorized handles this case with default header values.
+/*
+PublicListAchievementsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicListAchievementsUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicListAchievementsNotFound() *PublicListAchievementsNotFound {
 	return &PublicListAchievementsNotFound{}
 }
 
-/*PublicListAchievementsNotFound handles this case with default header values.
+/*
+PublicListAchievementsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicListAchievementsNotFound struct {
 	Payload *achievementclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicListAchievementsInternalServerError() *PublicListAchievementsInter
 	return &PublicListAchievementsInternalServerError{}
 }
 
-/*PublicListAchievementsInternalServerError handles this case with default header values.
+/*
+PublicListAchievementsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicListAchievementsInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

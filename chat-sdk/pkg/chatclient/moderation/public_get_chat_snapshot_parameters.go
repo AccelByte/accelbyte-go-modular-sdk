@@ -57,7 +57,8 @@ func NewPublicGetChatSnapshotParamsWithHTTPClient(client *http.Client) *PublicGe
 	}
 }
 
-/*PublicGetChatSnapshotParams contains all the parameters to send to the API endpoint
+/*
+PublicGetChatSnapshotParams contains all the parameters to send to the API endpoint
 for the public get chat snapshot operation typically these are written to a http.Request
 */
 type PublicGetChatSnapshotParams struct {

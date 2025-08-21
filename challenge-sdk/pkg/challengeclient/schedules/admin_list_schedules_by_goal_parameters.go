@@ -78,7 +78,8 @@ func NewAdminListSchedulesByGoalParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminListSchedulesByGoalParams contains all the parameters to send to the API endpoint
+/*
+AdminListSchedulesByGoalParams contains all the parameters to send to the API endpoint
 for the admin list schedules by goal operation typically these are written to a http.Request
 */
 type AdminListSchedulesByGoalParams struct {

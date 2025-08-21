@@ -69,9 +69,10 @@ func NewGetPsnEntitlementOwnershipOK() *GetPsnEntitlementOwnershipOK {
 	return &GetPsnEntitlementOwnershipOK{}
 }
 
-/*GetPsnEntitlementOwnershipOK handles this case with default header values.
+/*
+GetPsnEntitlementOwnershipOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPsnEntitlementOwnershipOK struct {
 	Payload *platformclientmodels.Ownership

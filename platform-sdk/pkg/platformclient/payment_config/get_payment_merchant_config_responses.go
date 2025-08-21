@@ -69,9 +69,10 @@ func NewGetPaymentMerchantConfigOK() *GetPaymentMerchantConfigOK {
 	return &GetPaymentMerchantConfigOK{}
 }
 
-/*GetPaymentMerchantConfigOK handles this case with default header values.
+/*
+GetPaymentMerchantConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPaymentMerchantConfigOK struct {
 	Payload *platformclientmodels.PaymentDomainWhitelistConfigInfo

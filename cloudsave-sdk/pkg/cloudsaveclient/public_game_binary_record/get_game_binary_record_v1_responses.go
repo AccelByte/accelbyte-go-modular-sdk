@@ -130,9 +130,10 @@ func NewGetGameBinaryRecordV1OK() *GetGameBinaryRecordV1OK {
 	return &GetGameBinaryRecordV1OK{}
 }
 
-/*GetGameBinaryRecordV1OK handles this case with default header values.
+/*
+GetGameBinaryRecordV1OK handles this case with default header values.
 
-  Record in namespace-level retrieved
+	Record in namespace-level retrieved
 */
 type GetGameBinaryRecordV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsGameBinaryRecordResponse
@@ -184,9 +185,10 @@ func NewGetGameBinaryRecordV1Unauthorized() *GetGameBinaryRecordV1Unauthorized {
 	return &GetGameBinaryRecordV1Unauthorized{}
 }
 
-/*GetGameBinaryRecordV1Unauthorized handles this case with default header values.
+/*
+GetGameBinaryRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetGameBinaryRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewGetGameBinaryRecordV1Forbidden() *GetGameBinaryRecordV1Forbidden {
 	return &GetGameBinaryRecordV1Forbidden{}
 }
 
-/*GetGameBinaryRecordV1Forbidden handles this case with default header values.
+/*
+GetGameBinaryRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetGameBinaryRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewGetGameBinaryRecordV1NotFound() *GetGameBinaryRecordV1NotFound {
 	return &GetGameBinaryRecordV1NotFound{}
 }
 
-/*GetGameBinaryRecordV1NotFound handles this case with default header values.
+/*
+GetGameBinaryRecordV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18303</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18303</td><td>record not found</td></tr></table>
 */
 type GetGameBinaryRecordV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewGetGameBinaryRecordV1InternalServerError() *GetGameBinaryRecordV1Interna
 	return &GetGameBinaryRecordV1InternalServerError{}
 }
 
-/*GetGameBinaryRecordV1InternalServerError handles this case with default header values.
+/*
+GetGameBinaryRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18301</td><td>unable to get record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18301</td><td>unable to get record</td></tr></table>
 */
 type GetGameBinaryRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

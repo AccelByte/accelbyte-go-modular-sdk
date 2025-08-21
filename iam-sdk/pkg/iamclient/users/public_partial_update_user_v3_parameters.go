@@ -59,7 +59,8 @@ func NewPublicPartialUpdateUserV3ParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*PublicPartialUpdateUserV3Params contains all the parameters to send to the API endpoint
+/*
+PublicPartialUpdateUserV3Params contains all the parameters to send to the API endpoint
 for the public partial update user v3 operation typically these are written to a http.Request
 */
 type PublicPartialUpdateUserV3Params struct {

@@ -115,9 +115,10 @@ func NewChargePaymentOrderOK() *ChargePaymentOrderOK {
 	return &ChargePaymentOrderOK{}
 }
 
-/*ChargePaymentOrderOK handles this case with default header values.
+/*
+ChargePaymentOrderOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ChargePaymentOrderOK struct {
 	Payload *platformclientmodels.PaymentOrderInfo
@@ -169,9 +170,10 @@ func NewChargePaymentOrderBadRequest() *ChargePaymentOrderBadRequest {
 	return &ChargePaymentOrderBadRequest{}
 }
 
-/*ChargePaymentOrderBadRequest handles this case with default header values.
+/*
+ChargePaymentOrderBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33322</td><td>Payment provider [{paymentProvider}] not supported</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33322</td><td>Payment provider [{paymentProvider}] not supported</td></tr></table>
 */
 type ChargePaymentOrderBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewChargePaymentOrderNotFound() *ChargePaymentOrderNotFound {
 	return &ChargePaymentOrderNotFound{}
 }
 
-/*ChargePaymentOrderNotFound handles this case with default header values.
+/*
+ChargePaymentOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
 */
 type ChargePaymentOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewChargePaymentOrderConflict() *ChargePaymentOrderConflict {
 	return &ChargePaymentOrderConflict{}
 }
 
-/*ChargePaymentOrderConflict handles this case with default header values.
+/*
+ChargePaymentOrderConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33171</td><td>Invalid payment order status [{status}] for payment order [{paymentOrderNo}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33171</td><td>Invalid payment order status [{status}] for payment order [{paymentOrderNo}]</td></tr></table>
 */
 type ChargePaymentOrderConflict struct {
 	Payload *platformclientmodels.ErrorEntity

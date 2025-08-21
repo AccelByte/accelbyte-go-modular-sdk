@@ -100,9 +100,10 @@ func NewCloneStoreOK() *CloneStoreOK {
 	return &CloneStoreOK{}
 }
 
-/*CloneStoreOK handles this case with default header values.
+/*
+CloneStoreOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CloneStoreOK struct {
 	Payload *platformclientmodels.StoreInfo
@@ -154,9 +155,10 @@ func NewCloneStoreBadRequest() *CloneStoreBadRequest {
 	return &CloneStoreBadRequest{}
 }
 
-/*CloneStoreBadRequest handles this case with default header values.
+/*
+CloneStoreBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30122</td><td>Store's meta mismatch</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30122</td><td>Store's meta mismatch</td></tr></table>
 */
 type CloneStoreBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewCloneStoreNotFound() *CloneStoreNotFound {
 	return &CloneStoreNotFound{}
 }
 
-/*CloneStoreNotFound handles this case with default header values.
+/*
+CloneStoreNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CloneStoreNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

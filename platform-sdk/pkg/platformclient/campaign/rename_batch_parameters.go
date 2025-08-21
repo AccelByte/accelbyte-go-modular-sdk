@@ -59,7 +59,8 @@ func NewRenameBatchParamsWithHTTPClient(client *http.Client) *RenameBatchParams 
 	}
 }
 
-/*RenameBatchParams contains all the parameters to send to the API endpoint
+/*
+RenameBatchParams contains all the parameters to send to the API endpoint
 for the rename batch operation typically these are written to a http.Request
 */
 type RenameBatchParams struct {

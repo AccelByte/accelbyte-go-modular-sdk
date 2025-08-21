@@ -130,9 +130,10 @@ func NewImageListOK() *ImageListOK {
 	return &ImageListOK{}
 }
 
-/*ImageListOK handles this case with default header values.
+/*
+ImageListOK handles this case with default header values.
 
-  success
+	success
 */
 type ImageListOK struct {
 	Payload *amsclientmodels.APIImageList
@@ -184,9 +185,10 @@ func NewImageListUnauthorized() *ImageListUnauthorized {
 	return &ImageListUnauthorized{}
 }
 
-/*ImageListUnauthorized handles this case with default header values.
+/*
+ImageListUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type ImageListUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewImageListForbidden() *ImageListForbidden {
 	return &ImageListForbidden{}
 }
 
-/*ImageListForbidden handles this case with default header values.
+/*
+ImageListForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type ImageListForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewImageListNotFound() *ImageListNotFound {
 	return &ImageListNotFound{}
 }
 
-/*ImageListNotFound handles this case with default header values.
+/*
+ImageListNotFound handles this case with default header values.
 
-  account not linked
+	account not linked
 */
 type ImageListNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewImageListInternalServerError() *ImageListInternalServerError {
 	return &ImageListInternalServerError{}
 }
 
-/*ImageListInternalServerError handles this case with default header values.
+/*
+ImageListInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type ImageListInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

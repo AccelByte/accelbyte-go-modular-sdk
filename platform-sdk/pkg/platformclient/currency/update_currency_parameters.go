@@ -59,7 +59,8 @@ func NewUpdateCurrencyParamsWithHTTPClient(client *http.Client) *UpdateCurrencyP
 	}
 }
 
-/*UpdateCurrencyParams contains all the parameters to send to the API endpoint
+/*
+UpdateCurrencyParams contains all the parameters to send to the API endpoint
 for the update currency operation typically these are written to a http.Request
 */
 type UpdateCurrencyParams struct {

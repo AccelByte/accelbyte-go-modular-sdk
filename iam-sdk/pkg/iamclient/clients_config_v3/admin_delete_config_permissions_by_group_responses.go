@@ -99,9 +99,10 @@ func NewAdminDeleteConfigPermissionsByGroupNoContent() *AdminDeleteConfigPermiss
 	return &AdminDeleteConfigPermissionsByGroupNoContent{}
 }
 
-/*AdminDeleteConfigPermissionsByGroupNoContent handles this case with default header values.
+/*
+AdminDeleteConfigPermissionsByGroupNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDeleteConfigPermissionsByGroupNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewAdminDeleteConfigPermissionsByGroupUnauthorized() *AdminDeleteConfigPerm
 	return &AdminDeleteConfigPermissionsByGroupUnauthorized{}
 }
 
-/*AdminDeleteConfigPermissionsByGroupUnauthorized handles this case with default header values.
+/*
+AdminDeleteConfigPermissionsByGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteConfigPermissionsByGroupUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -180,9 +182,10 @@ func NewAdminDeleteConfigPermissionsByGroupForbidden() *AdminDeleteConfigPermiss
 	return &AdminDeleteConfigPermissionsByGroupForbidden{}
 }
 
-/*AdminDeleteConfigPermissionsByGroupForbidden handles this case with default header values.
+/*
+AdminDeleteConfigPermissionsByGroupForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeleteConfigPermissionsByGroupForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

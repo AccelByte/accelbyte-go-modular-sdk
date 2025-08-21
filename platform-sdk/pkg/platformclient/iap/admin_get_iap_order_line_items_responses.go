@@ -69,9 +69,10 @@ func NewAdminGetIAPOrderLineItemsOK() *AdminGetIAPOrderLineItemsOK {
 	return &AdminGetIAPOrderLineItemsOK{}
 }
 
-/*AdminGetIAPOrderLineItemsOK handles this case with default header values.
+/*
+AdminGetIAPOrderLineItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AdminGetIAPOrderLineItemsOK struct {
 	Payload []*platformclientmodels.IAPOrderLineItemInfo

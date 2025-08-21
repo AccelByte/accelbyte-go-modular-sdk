@@ -57,7 +57,8 @@ func NewAdminGetPlayerPublicRecordHandlerV1ParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*AdminGetPlayerPublicRecordHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+AdminGetPlayerPublicRecordHandlerV1Params contains all the parameters to send to the API endpoint
 for the admin get player public record handler v1 operation typically these are written to a http.Request
 */
 type AdminGetPlayerPublicRecordHandlerV1Params struct {

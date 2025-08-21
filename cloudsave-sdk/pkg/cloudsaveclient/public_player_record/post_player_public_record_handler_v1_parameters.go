@@ -59,7 +59,8 @@ func NewPostPlayerPublicRecordHandlerV1ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*PostPlayerPublicRecordHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+PostPlayerPublicRecordHandlerV1Params contains all the parameters to send to the API endpoint
 for the post player public record handler v1 operation typically these are written to a http.Request
 */
 type PostPlayerPublicRecordHandlerV1Params struct {

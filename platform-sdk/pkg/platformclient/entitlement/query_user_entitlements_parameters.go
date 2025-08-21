@@ -173,7 +173,8 @@ func NewQueryUserEntitlementsParamsWithHTTPClient(client *http.Client) *QueryUse
 	}
 }
 
-/*QueryUserEntitlementsParams contains all the parameters to send to the API endpoint
+/*
+QueryUserEntitlementsParams contains all the parameters to send to the API endpoint
 for the query user entitlements operation typically these are written to a http.Request
 */
 type QueryUserEntitlementsParams struct {

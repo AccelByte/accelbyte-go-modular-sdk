@@ -58,7 +58,8 @@ func NewGetListOfVariablesV2ParamsWithHTTPClient(client *http.Client) *GetListOf
 	}
 }
 
-/*GetListOfVariablesV2Params contains all the parameters to send to the API endpoint
+/*
+GetListOfVariablesV2Params contains all the parameters to send to the API endpoint
 for the get list of variables v2 operation typically these are written to a http.Request
 */
 type GetListOfVariablesV2Params struct {

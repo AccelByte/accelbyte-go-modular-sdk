@@ -59,7 +59,8 @@ func NewSyncXboxInventoryParamsWithHTTPClient(client *http.Client) *SyncXboxInve
 	}
 }
 
-/*SyncXboxInventoryParams contains all the parameters to send to the API endpoint
+/*
+SyncXboxInventoryParams contains all the parameters to send to the API endpoint
 for the sync xbox inventory operation typically these are written to a http.Request
 */
 type SyncXboxInventoryParams struct {

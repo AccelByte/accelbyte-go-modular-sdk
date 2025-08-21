@@ -57,7 +57,8 @@ func NewCheckUserAvailabilityParamsWithHTTPClient(client *http.Client) *CheckUse
 	}
 }
 
-/*CheckUserAvailabilityParams contains all the parameters to send to the API endpoint
+/*
+CheckUserAvailabilityParams contains all the parameters to send to the API endpoint
 for the check user availability operation typically these are written to a http.Request
 */
 type CheckUserAvailabilityParams struct {

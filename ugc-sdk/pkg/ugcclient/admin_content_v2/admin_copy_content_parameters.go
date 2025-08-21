@@ -59,7 +59,8 @@ func NewAdminCopyContentParamsWithHTTPClient(client *http.Client) *AdminCopyCont
 	}
 }
 
-/*AdminCopyContentParams contains all the parameters to send to the API endpoint
+/*
+AdminCopyContentParams contains all the parameters to send to the API endpoint
 for the admin copy content operation typically these are written to a http.Request
 */
 type AdminCopyContentParams struct {

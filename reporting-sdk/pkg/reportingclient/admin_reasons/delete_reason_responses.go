@@ -84,10 +84,9 @@ func NewDeleteReasonNoContent() *DeleteReasonNoContent {
 	return &DeleteReasonNoContent{}
 }
 
-/*DeleteReasonNoContent handles this case with default header values.
-
-
- */
+/*
+DeleteReasonNoContent handles this case with default header values.
+*/
 type DeleteReasonNoContent struct {
 }
 
@@ -111,10 +110,9 @@ func NewDeleteReasonInternalServerError() *DeleteReasonInternalServerError {
 	return &DeleteReasonInternalServerError{}
 }
 
-/*DeleteReasonInternalServerError handles this case with default header values.
-
-
- */
+/*
+DeleteReasonInternalServerError handles this case with default header values.
+*/
 type DeleteReasonInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

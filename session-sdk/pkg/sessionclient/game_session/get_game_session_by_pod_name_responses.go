@@ -145,9 +145,10 @@ func NewGetGameSessionByPodNameOK() *GetGameSessionByPodNameOK {
 	return &GetGameSessionByPodNameOK{}
 }
 
-/*GetGameSessionByPodNameOK handles this case with default header values.
+/*
+GetGameSessionByPodNameOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetGameSessionByPodNameOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -199,9 +200,10 @@ func NewGetGameSessionByPodNameBadRequest() *GetGameSessionByPodNameBadRequest {
 	return &GetGameSessionByPodNameBadRequest{}
 }
 
-/*GetGameSessionByPodNameBadRequest handles this case with default header values.
+/*
+GetGameSessionByPodNameBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetGameSessionByPodNameBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewGetGameSessionByPodNameUnauthorized() *GetGameSessionByPodNameUnauthoriz
 	return &GetGameSessionByPodNameUnauthorized{}
 }
 
-/*GetGameSessionByPodNameUnauthorized handles this case with default header values.
+/*
+GetGameSessionByPodNameUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetGameSessionByPodNameUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewGetGameSessionByPodNameForbidden() *GetGameSessionByPodNameForbidden {
 	return &GetGameSessionByPodNameForbidden{}
 }
 
-/*GetGameSessionByPodNameForbidden handles this case with default header values.
+/*
+GetGameSessionByPodNameForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetGameSessionByPodNameForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewGetGameSessionByPodNameNotFound() *GetGameSessionByPodNameNotFound {
 	return &GetGameSessionByPodNameNotFound{}
 }
 
-/*GetGameSessionByPodNameNotFound handles this case with default header values.
+/*
+GetGameSessionByPodNameNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetGameSessionByPodNameNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewGetGameSessionByPodNameInternalServerError() *GetGameSessionByPodNameInt
 	return &GetGameSessionByPodNameInternalServerError{}
 }
 
-/*GetGameSessionByPodNameInternalServerError handles this case with default header values.
+/*
+GetGameSessionByPodNameInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetGameSessionByPodNameInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

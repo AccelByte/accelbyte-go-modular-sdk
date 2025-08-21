@@ -650,7 +650,6 @@ func (a *Client) AdminGenerateOfficialContentUploadURLV2Short(params *AdminGener
 AdminListContentV2Short list contents
 For advance tag filtering supports & as AND operator and | as OR operator and parentheses ( ) for priority. e.g:
 
-
 *tags=red*
 *tags=red&animal;*
 *tags=red|animal*
@@ -662,7 +661,6 @@ The precedence of logical operator is AND > OR, so if no parentheses, AND logica
 Allowed character for operand: alphanumeric, underscore _ and dash -
 
 Allowed character for operator: & | ( )
-
 
 **Please note that value of tags query param should be URL encoded**
 */

@@ -144,9 +144,10 @@ func NewLeaveGameSessionNoContent() *LeaveGameSessionNoContent {
 	return &LeaveGameSessionNoContent{}
 }
 
-/*LeaveGameSessionNoContent handles this case with default header values.
+/*
+LeaveGameSessionNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type LeaveGameSessionNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewLeaveGameSessionBadRequest() *LeaveGameSessionBadRequest {
 	return &LeaveGameSessionBadRequest{}
 }
 
-/*LeaveGameSessionBadRequest handles this case with default header values.
+/*
+LeaveGameSessionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type LeaveGameSessionBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewLeaveGameSessionUnauthorized() *LeaveGameSessionUnauthorized {
 	return &LeaveGameSessionUnauthorized{}
 }
 
-/*LeaveGameSessionUnauthorized handles this case with default header values.
+/*
+LeaveGameSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type LeaveGameSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewLeaveGameSessionForbidden() *LeaveGameSessionForbidden {
 	return &LeaveGameSessionForbidden{}
 }
 
-/*LeaveGameSessionForbidden handles this case with default header values.
+/*
+LeaveGameSessionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type LeaveGameSessionForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewLeaveGameSessionNotFound() *LeaveGameSessionNotFound {
 	return &LeaveGameSessionNotFound{}
 }
 
-/*LeaveGameSessionNotFound handles this case with default header values.
+/*
+LeaveGameSessionNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type LeaveGameSessionNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewLeaveGameSessionInternalServerError() *LeaveGameSessionInternalServerErr
 	return &LeaveGameSessionInternalServerError{}
 }
 
-/*LeaveGameSessionInternalServerError handles this case with default header values.
+/*
+LeaveGameSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type LeaveGameSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

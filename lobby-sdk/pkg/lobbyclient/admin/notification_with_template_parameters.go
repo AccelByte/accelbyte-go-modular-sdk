@@ -59,7 +59,8 @@ func NewNotificationWithTemplateParamsWithHTTPClient(client *http.Client) *Notif
 	}
 }
 
-/*NotificationWithTemplateParams contains all the parameters to send to the API endpoint
+/*
+NotificationWithTemplateParams contains all the parameters to send to the API endpoint
 for the notification with template operation typically these are written to a http.Request
 */
 type NotificationWithTemplateParams struct {

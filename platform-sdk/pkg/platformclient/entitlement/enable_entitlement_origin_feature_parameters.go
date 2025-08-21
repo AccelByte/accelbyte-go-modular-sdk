@@ -57,7 +57,8 @@ func NewEnableEntitlementOriginFeatureParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*EnableEntitlementOriginFeatureParams contains all the parameters to send to the API endpoint
+/*
+EnableEntitlementOriginFeatureParams contains all the parameters to send to the API endpoint
 for the enable entitlement origin feature operation typically these are written to a http.Request
 */
 type EnableEntitlementOriginFeatureParams struct {

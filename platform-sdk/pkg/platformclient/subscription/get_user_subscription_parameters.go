@@ -57,7 +57,8 @@ func NewGetUserSubscriptionParamsWithHTTPClient(client *http.Client) *GetUserSub
 	}
 }
 
-/*GetUserSubscriptionParams contains all the parameters to send to the API endpoint
+/*
+GetUserSubscriptionParams contains all the parameters to send to the API endpoint
 for the get user subscription operation typically these are written to a http.Request
 */
 type GetUserSubscriptionParams struct {

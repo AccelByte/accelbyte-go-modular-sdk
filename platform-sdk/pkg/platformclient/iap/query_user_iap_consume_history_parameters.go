@@ -120,7 +120,8 @@ func NewQueryUserIAPConsumeHistoryParamsWithHTTPClient(client *http.Client) *Que
 	}
 }
 
-/*QueryUserIAPConsumeHistoryParams contains all the parameters to send to the API endpoint
+/*
+QueryUserIAPConsumeHistoryParams contains all the parameters to send to the API endpoint
 for the query user iap consume history operation typically these are written to a http.Request
 */
 type QueryUserIAPConsumeHistoryParams struct {

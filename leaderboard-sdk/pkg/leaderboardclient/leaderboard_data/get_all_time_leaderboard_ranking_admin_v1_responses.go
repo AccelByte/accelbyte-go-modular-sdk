@@ -145,9 +145,10 @@ func NewGetAllTimeLeaderboardRankingAdminV1OK() *GetAllTimeLeaderboardRankingAdm
 	return &GetAllTimeLeaderboardRankingAdminV1OK{}
 }
 
-/*GetAllTimeLeaderboardRankingAdminV1OK handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingAdminV1OK handles this case with default header values.
 
-  All time leaderboard ranking data retrieved
+	All time leaderboard ranking data retrieved
 */
 type GetAllTimeLeaderboardRankingAdminV1OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
@@ -199,9 +200,10 @@ func NewGetAllTimeLeaderboardRankingAdminV1BadRequest() *GetAllTimeLeaderboardRa
 	return &GetAllTimeLeaderboardRankingAdminV1BadRequest{}
 }
 
-/*GetAllTimeLeaderboardRankingAdminV1BadRequest handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingAdminV1BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetAllTimeLeaderboardRankingAdminV1Unauthorized() *GetAllTimeLeaderboard
 	return &GetAllTimeLeaderboardRankingAdminV1Unauthorized{}
 }
 
-/*GetAllTimeLeaderboardRankingAdminV1Unauthorized handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingAdminV1Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetAllTimeLeaderboardRankingAdminV1Forbidden() *GetAllTimeLeaderboardRan
 	return &GetAllTimeLeaderboardRankingAdminV1Forbidden{}
 }
 
-/*GetAllTimeLeaderboardRankingAdminV1Forbidden handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingAdminV1Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetAllTimeLeaderboardRankingAdminV1NotFound() *GetAllTimeLeaderboardRank
 	return &GetAllTimeLeaderboardRankingAdminV1NotFound{}
 }
 
-/*GetAllTimeLeaderboardRankingAdminV1NotFound handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingAdminV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingAdminV1NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetAllTimeLeaderboardRankingAdminV1InternalServerError() *GetAllTimeLead
 	return &GetAllTimeLeaderboardRankingAdminV1InternalServerError{}
 }
 
-/*GetAllTimeLeaderboardRankingAdminV1InternalServerError handles this case with default header values.
+/*
+GetAllTimeLeaderboardRankingAdminV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
 */
 type GetAllTimeLeaderboardRankingAdminV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

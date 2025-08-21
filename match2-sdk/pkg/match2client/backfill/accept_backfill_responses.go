@@ -145,9 +145,10 @@ func NewAcceptBackfillOK() *AcceptBackfillOK {
 	return &AcceptBackfillOK{}
 }
 
-/*AcceptBackfillOK handles this case with default header values.
+/*
+AcceptBackfillOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AcceptBackfillOK struct {
 	Payload *match2clientmodels.ModelsGameSession
@@ -199,9 +200,10 @@ func NewAcceptBackfillBadRequest() *AcceptBackfillBadRequest {
 	return &AcceptBackfillBadRequest{}
 }
 
-/*AcceptBackfillBadRequest handles this case with default header values.
+/*
+AcceptBackfillBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AcceptBackfillBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAcceptBackfillUnauthorized() *AcceptBackfillUnauthorized {
 	return &AcceptBackfillUnauthorized{}
 }
 
-/*AcceptBackfillUnauthorized handles this case with default header values.
+/*
+AcceptBackfillUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AcceptBackfillUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAcceptBackfillForbidden() *AcceptBackfillForbidden {
 	return &AcceptBackfillForbidden{}
 }
 
-/*AcceptBackfillForbidden handles this case with default header values.
+/*
+AcceptBackfillForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AcceptBackfillForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAcceptBackfillNotFound() *AcceptBackfillNotFound {
 	return &AcceptBackfillNotFound{}
 }
 
-/*AcceptBackfillNotFound handles this case with default header values.
+/*
+AcceptBackfillNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AcceptBackfillNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAcceptBackfillInternalServerError() *AcceptBackfillInternalServerError {
 	return &AcceptBackfillInternalServerError{}
 }
 
-/*AcceptBackfillInternalServerError handles this case with default header values.
+/*
+AcceptBackfillInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AcceptBackfillInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

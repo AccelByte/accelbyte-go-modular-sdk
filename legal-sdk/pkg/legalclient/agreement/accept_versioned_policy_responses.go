@@ -84,9 +84,10 @@ func NewAcceptVersionedPolicyCreated() *AcceptVersionedPolicyCreated {
 	return &AcceptVersionedPolicyCreated{}
 }
 
-/*AcceptVersionedPolicyCreated handles this case with default header values.
+/*
+AcceptVersionedPolicyCreated handles this case with default header values.
 
-  successful anonymize
+	successful anonymize
 */
 type AcceptVersionedPolicyCreated struct {
 }
@@ -111,9 +112,10 @@ func NewAcceptVersionedPolicyBadRequest() *AcceptVersionedPolicyBadRequest {
 	return &AcceptVersionedPolicyBadRequest{}
 }
 
-/*AcceptVersionedPolicyBadRequest handles this case with default header values.
+/*
+AcceptVersionedPolicyBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_localize_policy_version_id</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_localize_policy_version_id</td></tr></table>
 */
 type AcceptVersionedPolicyBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

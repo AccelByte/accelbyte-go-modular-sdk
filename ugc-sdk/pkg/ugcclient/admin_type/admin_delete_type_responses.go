@@ -114,9 +114,10 @@ func NewAdminDeleteTypeNoContent() *AdminDeleteTypeNoContent {
 	return &AdminDeleteTypeNoContent{}
 }
 
-/*AdminDeleteTypeNoContent handles this case with default header values.
+/*
+AdminDeleteTypeNoContent handles this case with default header values.
 
-  Types deleted
+	Types deleted
 */
 type AdminDeleteTypeNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminDeleteTypeUnauthorized() *AdminDeleteTypeUnauthorized {
 	return &AdminDeleteTypeUnauthorized{}
 }
 
-/*AdminDeleteTypeUnauthorized handles this case with default header values.
+/*
+AdminDeleteTypeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteTypeUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewAdminDeleteTypeNotFound() *AdminDeleteTypeNotFound {
 	return &AdminDeleteTypeNotFound{}
 }
 
-/*AdminDeleteTypeNotFound handles this case with default header values.
+/*
+AdminDeleteTypeNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772005</td><td>Type not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772005</td><td>Type not found</td></tr></table>
 */
 type AdminDeleteTypeNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewAdminDeleteTypeInternalServerError() *AdminDeleteTypeInternalServerError
 	return &AdminDeleteTypeInternalServerError{}
 }
 
-/*AdminDeleteTypeInternalServerError handles this case with default header values.
+/*
+AdminDeleteTypeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772004</td><td>Unable delete type</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772004</td><td>Unable delete type</td></tr></table>
 */
 type AdminDeleteTypeInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

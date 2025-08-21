@@ -130,9 +130,10 @@ func NewAdminGetPlayerBinaryRecordV1OK() *AdminGetPlayerBinaryRecordV1OK {
 	return &AdminGetPlayerBinaryRecordV1OK{}
 }
 
-/*AdminGetPlayerBinaryRecordV1OK handles this case with default header values.
+/*
+AdminGetPlayerBinaryRecordV1OK handles this case with default header values.
 
-  Record in user-level retrieved
+	Record in user-level retrieved
 */
 type AdminGetPlayerBinaryRecordV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsPlayerBinaryRecordResponse
@@ -184,9 +185,10 @@ func NewAdminGetPlayerBinaryRecordV1Unauthorized() *AdminGetPlayerBinaryRecordV1
 	return &AdminGetPlayerBinaryRecordV1Unauthorized{}
 }
 
-/*AdminGetPlayerBinaryRecordV1Unauthorized handles this case with default header values.
+/*
+AdminGetPlayerBinaryRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetPlayerBinaryRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewAdminGetPlayerBinaryRecordV1Forbidden() *AdminGetPlayerBinaryRecordV1For
 	return &AdminGetPlayerBinaryRecordV1Forbidden{}
 }
 
-/*AdminGetPlayerBinaryRecordV1Forbidden handles this case with default header values.
+/*
+AdminGetPlayerBinaryRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetPlayerBinaryRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewAdminGetPlayerBinaryRecordV1NotFound() *AdminGetPlayerBinaryRecordV1NotF
 	return &AdminGetPlayerBinaryRecordV1NotFound{}
 }
 
-/*AdminGetPlayerBinaryRecordV1NotFound handles this case with default header values.
+/*
+AdminGetPlayerBinaryRecordV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18325</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18325</td><td>record not found</td></tr></table>
 */
 type AdminGetPlayerBinaryRecordV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewAdminGetPlayerBinaryRecordV1InternalServerError() *AdminGetPlayerBinaryR
 	return &AdminGetPlayerBinaryRecordV1InternalServerError{}
 }
 
-/*AdminGetPlayerBinaryRecordV1InternalServerError handles this case with default header values.
+/*
+AdminGetPlayerBinaryRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18323</td><td>unable to get record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18323</td><td>unable to get record</td></tr></table>
 */
 type AdminGetPlayerBinaryRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

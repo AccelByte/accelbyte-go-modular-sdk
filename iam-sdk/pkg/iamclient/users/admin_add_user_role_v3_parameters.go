@@ -57,7 +57,8 @@ func NewAdminAddUserRoleV3ParamsWithHTTPClient(client *http.Client) *AdminAddUse
 	}
 }
 
-/*AdminAddUserRoleV3Params contains all the parameters to send to the API endpoint
+/*
+AdminAddUserRoleV3Params contains all the parameters to send to the API endpoint
 for the admin add user role v3 operation typically these are written to a http.Request
 */
 type AdminAddUserRoleV3Params struct {

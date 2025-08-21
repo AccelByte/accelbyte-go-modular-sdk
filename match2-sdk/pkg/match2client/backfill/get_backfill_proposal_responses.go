@@ -145,9 +145,10 @@ func NewGetBackfillProposalOK() *GetBackfillProposalOK {
 	return &GetBackfillProposalOK{}
 }
 
-/*GetBackfillProposalOK handles this case with default header values.
+/*
+GetBackfillProposalOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetBackfillProposalOK struct {
 	Payload *match2clientmodels.APIBackfillProposalResponse
@@ -199,9 +200,10 @@ func NewGetBackfillProposalBadRequest() *GetBackfillProposalBadRequest {
 	return &GetBackfillProposalBadRequest{}
 }
 
-/*GetBackfillProposalBadRequest handles this case with default header values.
+/*
+GetBackfillProposalBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetBackfillProposalBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewGetBackfillProposalUnauthorized() *GetBackfillProposalUnauthorized {
 	return &GetBackfillProposalUnauthorized{}
 }
 
-/*GetBackfillProposalUnauthorized handles this case with default header values.
+/*
+GetBackfillProposalUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetBackfillProposalUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewGetBackfillProposalForbidden() *GetBackfillProposalForbidden {
 	return &GetBackfillProposalForbidden{}
 }
 
-/*GetBackfillProposalForbidden handles this case with default header values.
+/*
+GetBackfillProposalForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetBackfillProposalForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewGetBackfillProposalNotFound() *GetBackfillProposalNotFound {
 	return &GetBackfillProposalNotFound{}
 }
 
-/*GetBackfillProposalNotFound handles this case with default header values.
+/*
+GetBackfillProposalNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetBackfillProposalNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewGetBackfillProposalInternalServerError() *GetBackfillProposalInternalSer
 	return &GetBackfillProposalInternalServerError{}
 }
 
-/*GetBackfillProposalInternalServerError handles this case with default header values.
+/*
+GetBackfillProposalInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetBackfillProposalInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

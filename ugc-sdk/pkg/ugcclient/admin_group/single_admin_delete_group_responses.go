@@ -114,9 +114,10 @@ func NewSingleAdminDeleteGroupNoContent() *SingleAdminDeleteGroupNoContent {
 	return &SingleAdminDeleteGroupNoContent{}
 }
 
-/*SingleAdminDeleteGroupNoContent handles this case with default header values.
+/*
+SingleAdminDeleteGroupNoContent handles this case with default header values.
 
-  Group deleted
+	Group deleted
 */
 type SingleAdminDeleteGroupNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewSingleAdminDeleteGroupUnauthorized() *SingleAdminDeleteGroupUnauthorized
 	return &SingleAdminDeleteGroupUnauthorized{}
 }
 
-/*SingleAdminDeleteGroupUnauthorized handles this case with default header values.
+/*
+SingleAdminDeleteGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SingleAdminDeleteGroupUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewSingleAdminDeleteGroupNotFound() *SingleAdminDeleteGroupNotFound {
 	return &SingleAdminDeleteGroupNotFound{}
 }
 
-/*SingleAdminDeleteGroupNotFound handles this case with default header values.
+/*
+SingleAdminDeleteGroupNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772403</td><td>Group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772403</td><td>Group not found</td></tr></table>
 */
 type SingleAdminDeleteGroupNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewSingleAdminDeleteGroupInternalServerError() *SingleAdminDeleteGroupInter
 	return &SingleAdminDeleteGroupInternalServerError{}
 }
 
-/*SingleAdminDeleteGroupInternalServerError handles this case with default header values.
+/*
+SingleAdminDeleteGroupInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772402</td><td>Unable delete groups</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772402</td><td>Unable delete groups</td></tr></table>
 */
 type SingleAdminDeleteGroupInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

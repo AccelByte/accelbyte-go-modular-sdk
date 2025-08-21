@@ -145,9 +145,10 @@ func NewUpdateAppResourcesV2OK() *UpdateAppResourcesV2OK {
 	return &UpdateAppResourcesV2OK{}
 }
 
-/*UpdateAppResourcesV2OK handles this case with default header values.
+/*
+UpdateAppResourcesV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateAppResourcesV2OK struct {
 	Payload *csmclientmodels.ApimodelAppItem
@@ -199,9 +200,10 @@ func NewUpdateAppResourcesV2BadRequest() *UpdateAppResourcesV2BadRequest {
 	return &UpdateAppResourcesV2BadRequest{}
 }
 
-/*UpdateAppResourcesV2BadRequest handles this case with default header values.
+/*
+UpdateAppResourcesV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateAppResourcesV2BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewUpdateAppResourcesV2Unauthorized() *UpdateAppResourcesV2Unauthorized {
 	return &UpdateAppResourcesV2Unauthorized{}
 }
 
-/*UpdateAppResourcesV2Unauthorized handles this case with default header values.
+/*
+UpdateAppResourcesV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateAppResourcesV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewUpdateAppResourcesV2Forbidden() *UpdateAppResourcesV2Forbidden {
 	return &UpdateAppResourcesV2Forbidden{}
 }
 
-/*UpdateAppResourcesV2Forbidden handles this case with default header values.
+/*
+UpdateAppResourcesV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateAppResourcesV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewUpdateAppResourcesV2NotFound() *UpdateAppResourcesV2NotFound {
 	return &UpdateAppResourcesV2NotFound{}
 }
 
-/*UpdateAppResourcesV2NotFound handles this case with default header values.
+/*
+UpdateAppResourcesV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UpdateAppResourcesV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewUpdateAppResourcesV2InternalServerError() *UpdateAppResourcesV2InternalS
 	return &UpdateAppResourcesV2InternalServerError{}
 }
 
-/*UpdateAppResourcesV2InternalServerError handles this case with default header values.
+/*
+UpdateAppResourcesV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateAppResourcesV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

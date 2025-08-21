@@ -57,7 +57,8 @@ func NewAdminGetBansTypeV3ParamsWithHTTPClient(client *http.Client) *AdminGetBan
 	}
 }
 
-/*AdminGetBansTypeV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetBansTypeV3Params contains all the parameters to send to the API endpoint
 for the admin get bans type v3 operation typically these are written to a http.Request
 */
 type AdminGetBansTypeV3Params struct {

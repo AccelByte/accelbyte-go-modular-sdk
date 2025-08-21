@@ -69,9 +69,10 @@ func NewUpdateRevocationConfigOK() *UpdateRevocationConfigOK {
 	return &UpdateRevocationConfigOK{}
 }
 
-/*UpdateRevocationConfigOK handles this case with default header values.
+/*
+UpdateRevocationConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateRevocationConfigOK struct {
 	Payload *platformclientmodels.RevocationConfigInfo

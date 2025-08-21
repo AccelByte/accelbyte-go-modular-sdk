@@ -57,7 +57,8 @@ func NewAdminGetConfigurationParamsWithHTTPClient(client *http.Client) *AdminGet
 	}
 }
 
-/*AdminGetConfigurationParams contains all the parameters to send to the API endpoint
+/*
+AdminGetConfigurationParams contains all the parameters to send to the API endpoint
 for the admin get configuration operation typically these are written to a http.Request
 */
 type AdminGetConfigurationParams struct {
@@ -65,7 +66,7 @@ type AdminGetConfigurationParams struct {
 	/*RetryPolicy*/
 	RetryPolicy *utils.Retry
 	/*Namespace
-	  namespace of the game
+	  Namespace, only accept alphabet and numeric
 
 	*/
 	Namespace string

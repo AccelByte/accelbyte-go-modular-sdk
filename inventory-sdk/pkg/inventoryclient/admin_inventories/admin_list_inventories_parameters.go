@@ -105,7 +105,8 @@ func NewAdminListInventoriesParamsWithHTTPClient(client *http.Client) *AdminList
 	}
 }
 
-/*AdminListInventoriesParams contains all the parameters to send to the API endpoint
+/*
+AdminListInventoriesParams contains all the parameters to send to the API endpoint
 for the admin list inventories operation typically these are written to a http.Request
 */
 type AdminListInventoriesParams struct {

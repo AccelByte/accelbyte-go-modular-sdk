@@ -70,7 +70,8 @@ func NewGetItemBySkuParamsWithHTTPClient(client *http.Client) *GetItemBySkuParam
 	}
 }
 
-/*GetItemBySkuParams contains all the parameters to send to the API endpoint
+/*
+GetItemBySkuParams contains all the parameters to send to the API endpoint
 for the get item by sku operation typically these are written to a http.Request
 */
 type GetItemBySkuParams struct {

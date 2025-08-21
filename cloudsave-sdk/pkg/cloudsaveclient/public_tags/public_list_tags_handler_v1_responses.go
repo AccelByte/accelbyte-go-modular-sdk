@@ -130,9 +130,10 @@ func NewPublicListTagsHandlerV1OK() *PublicListTagsHandlerV1OK {
 	return &PublicListTagsHandlerV1OK{}
 }
 
-/*PublicListTagsHandlerV1OK handles this case with default header values.
+/*
+PublicListTagsHandlerV1OK handles this case with default header values.
 
-  Available tags retrieved
+	Available tags retrieved
 */
 type PublicListTagsHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsListTagsResponse
@@ -184,9 +185,10 @@ func NewPublicListTagsHandlerV1BadRequest() *PublicListTagsHandlerV1BadRequest {
 	return &PublicListTagsHandlerV1BadRequest{}
 }
 
-/*PublicListTagsHandlerV1BadRequest handles this case with default header values.
+/*
+PublicListTagsHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18503</td><td>unable to list tags</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18503</td><td>unable to list tags</td></tr></table>
 */
 type PublicListTagsHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewPublicListTagsHandlerV1Unauthorized() *PublicListTagsHandlerV1Unauthoriz
 	return &PublicListTagsHandlerV1Unauthorized{}
 }
 
-/*PublicListTagsHandlerV1Unauthorized handles this case with default header values.
+/*
+PublicListTagsHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicListTagsHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewPublicListTagsHandlerV1Forbidden() *PublicListTagsHandlerV1Forbidden {
 	return &PublicListTagsHandlerV1Forbidden{}
 }
 
-/*PublicListTagsHandlerV1Forbidden handles this case with default header values.
+/*
+PublicListTagsHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicListTagsHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewPublicListTagsHandlerV1InternalServerError() *PublicListTagsHandlerV1Int
 	return &PublicListTagsHandlerV1InternalServerError{}
 }
 
-/*PublicListTagsHandlerV1InternalServerError handles this case with default header values.
+/*
+PublicListTagsHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18502</td><td>unable to list tags</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18502</td><td>unable to list tags</td></tr></table>
 */
 type PublicListTagsHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

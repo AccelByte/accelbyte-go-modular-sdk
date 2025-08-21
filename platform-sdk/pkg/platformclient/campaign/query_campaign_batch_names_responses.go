@@ -69,9 +69,10 @@ func NewQueryCampaignBatchNamesOK() *QueryCampaignBatchNamesOK {
 	return &QueryCampaignBatchNamesOK{}
 }
 
-/*QueryCampaignBatchNamesOK handles this case with default header values.
+/*
+QueryCampaignBatchNamesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryCampaignBatchNamesOK struct {
 	Payload []*platformclientmodels.CampaignBatchNameInfo

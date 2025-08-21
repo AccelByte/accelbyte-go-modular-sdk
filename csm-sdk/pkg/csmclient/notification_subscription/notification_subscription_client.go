@@ -234,7 +234,7 @@ Subscribe the user(s) an app notification.
 Request body:
 - notificationType : type of the app notification to be subscribed - Required.
 - values:
--"all"
+- "all"
 - "app-down"
 - "critical-vulnerability"
 - subscribers : user(s) to subscribe the app notification - Required.

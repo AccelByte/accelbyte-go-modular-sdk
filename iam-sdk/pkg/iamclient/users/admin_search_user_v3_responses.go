@@ -130,9 +130,10 @@ func NewAdminSearchUserV3OK() *AdminSearchUserV3OK {
 	return &AdminSearchUserV3OK{}
 }
 
-/*AdminSearchUserV3OK handles this case with default header values.
+/*
+AdminSearchUserV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminSearchUserV3OK struct {
 	Payload *iamclientmodels.ModelSearchUsersResponseWithPaginationV3
@@ -184,9 +185,10 @@ func NewAdminSearchUserV3BadRequest() *AdminSearchUserV3BadRequest {
 	return &AdminSearchUserV3BadRequest{}
 }
 
-/*AdminSearchUserV3BadRequest handles this case with default header values.
+/*
+AdminSearchUserV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminSearchUserV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminSearchUserV3Unauthorized() *AdminSearchUserV3Unauthorized {
 	return &AdminSearchUserV3Unauthorized{}
 }
 
-/*AdminSearchUserV3Unauthorized handles this case with default header values.
+/*
+AdminSearchUserV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminSearchUserV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminSearchUserV3Forbidden() *AdminSearchUserV3Forbidden {
 	return &AdminSearchUserV3Forbidden{}
 }
 
-/*AdminSearchUserV3Forbidden handles this case with default header values.
+/*
+AdminSearchUserV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminSearchUserV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminSearchUserV3InternalServerError() *AdminSearchUserV3InternalServerE
 	return &AdminSearchUserV3InternalServerError{}
 }
 
-/*AdminSearchUserV3InternalServerError handles this case with default header values.
+/*
+AdminSearchUserV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminSearchUserV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

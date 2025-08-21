@@ -129,9 +129,10 @@ func NewDevelopmentServerConfigurationPatchNoContent() *DevelopmentServerConfigu
 	return &DevelopmentServerConfigurationPatchNoContent{}
 }
 
-/*DevelopmentServerConfigurationPatchNoContent handles this case with default header values.
+/*
+DevelopmentServerConfigurationPatchNoContent handles this case with default header values.
 
-  development server configuration updated
+	development server configuration updated
 */
 type DevelopmentServerConfigurationPatchNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDevelopmentServerConfigurationPatchUnauthorized() *DevelopmentServerConf
 	return &DevelopmentServerConfigurationPatchUnauthorized{}
 }
 
-/*DevelopmentServerConfigurationPatchUnauthorized handles this case with default header values.
+/*
+DevelopmentServerConfigurationPatchUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type DevelopmentServerConfigurationPatchUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -210,9 +212,10 @@ func NewDevelopmentServerConfigurationPatchForbidden() *DevelopmentServerConfigu
 	return &DevelopmentServerConfigurationPatchForbidden{}
 }
 
-/*DevelopmentServerConfigurationPatchForbidden handles this case with default header values.
+/*
+DevelopmentServerConfigurationPatchForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type DevelopmentServerConfigurationPatchForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -264,9 +267,10 @@ func NewDevelopmentServerConfigurationPatchNotFound() *DevelopmentServerConfigur
 	return &DevelopmentServerConfigurationPatchNotFound{}
 }
 
-/*DevelopmentServerConfigurationPatchNotFound handles this case with default header values.
+/*
+DevelopmentServerConfigurationPatchNotFound handles this case with default header values.
 
-  development server configuration not found
+	development server configuration not found
 */
 type DevelopmentServerConfigurationPatchNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -318,9 +322,10 @@ func NewDevelopmentServerConfigurationPatchInternalServerError() *DevelopmentSer
 	return &DevelopmentServerConfigurationPatchInternalServerError{}
 }
 
-/*DevelopmentServerConfigurationPatchInternalServerError handles this case with default header values.
+/*
+DevelopmentServerConfigurationPatchInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type DevelopmentServerConfigurationPatchInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

@@ -114,9 +114,10 @@ func NewDeleteUserRankingsAdminV1NoContent() *DeleteUserRankingsAdminV1NoContent
 	return &DeleteUserRankingsAdminV1NoContent{}
 }
 
-/*DeleteUserRankingsAdminV1NoContent handles this case with default header values.
+/*
+DeleteUserRankingsAdminV1NoContent handles this case with default header values.
 
-  User ranking deleted
+	User ranking deleted
 */
 type DeleteUserRankingsAdminV1NoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteUserRankingsAdminV1Unauthorized() *DeleteUserRankingsAdminV1Unauth
 	return &DeleteUserRankingsAdminV1Unauthorized{}
 }
 
-/*DeleteUserRankingsAdminV1Unauthorized handles this case with default header values.
+/*
+DeleteUserRankingsAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteUserRankingsAdminV1Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -195,9 +197,10 @@ func NewDeleteUserRankingsAdminV1Forbidden() *DeleteUserRankingsAdminV1Forbidden
 	return &DeleteUserRankingsAdminV1Forbidden{}
 }
 
-/*DeleteUserRankingsAdminV1Forbidden handles this case with default header values.
+/*
+DeleteUserRankingsAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteUserRankingsAdminV1Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -249,9 +252,10 @@ func NewDeleteUserRankingsAdminV1InternalServerError() *DeleteUserRankingsAdminV
 	return &DeleteUserRankingsAdminV1InternalServerError{}
 }
 
-/*DeleteUserRankingsAdminV1InternalServerError handles this case with default header values.
+/*
+DeleteUserRankingsAdminV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DeleteUserRankingsAdminV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

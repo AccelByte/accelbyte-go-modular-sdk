@@ -130,9 +130,10 @@ func NewCreateXrayBulkTicketObservabilityOK() *CreateXrayBulkTicketObservability
 	return &CreateXrayBulkTicketObservabilityOK{}
 }
 
-/*CreateXrayBulkTicketObservabilityOK handles this case with default header values.
+/*
+CreateXrayBulkTicketObservabilityOK handles this case with default header values.
 
-  OK
+	OK
 */
 type CreateXrayBulkTicketObservabilityOK struct {
 	Payload *sessionhistoryclientmodels.ApimodelsXRayBulkTicketObservabilityResponse
@@ -184,9 +185,10 @@ func NewCreateXrayBulkTicketObservabilityBadRequest() *CreateXrayBulkTicketObser
 	return &CreateXrayBulkTicketObservabilityBadRequest{}
 }
 
-/*CreateXrayBulkTicketObservabilityBadRequest handles this case with default header values.
+/*
+CreateXrayBulkTicketObservabilityBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateXrayBulkTicketObservabilityBadRequest struct {
 	Payload *sessionhistoryclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewCreateXrayBulkTicketObservabilityUnauthorized() *CreateXrayBulkTicketObs
 	return &CreateXrayBulkTicketObservabilityUnauthorized{}
 }
 
-/*CreateXrayBulkTicketObservabilityUnauthorized handles this case with default header values.
+/*
+CreateXrayBulkTicketObservabilityUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateXrayBulkTicketObservabilityUnauthorized struct {
 	Payload *sessionhistoryclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewCreateXrayBulkTicketObservabilityForbidden() *CreateXrayBulkTicketObserv
 	return &CreateXrayBulkTicketObservabilityForbidden{}
 }
 
-/*CreateXrayBulkTicketObservabilityForbidden handles this case with default header values.
+/*
+CreateXrayBulkTicketObservabilityForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateXrayBulkTicketObservabilityForbidden struct {
 	Payload *sessionhistoryclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewCreateXrayBulkTicketObservabilityInternalServerError() *CreateXrayBulkTi
 	return &CreateXrayBulkTicketObservabilityInternalServerError{}
 }
 
-/*CreateXrayBulkTicketObservabilityInternalServerError handles this case with default header values.
+/*
+CreateXrayBulkTicketObservabilityInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateXrayBulkTicketObservabilityInternalServerError struct {
 	Payload *sessionhistoryclientmodels.ResponseError

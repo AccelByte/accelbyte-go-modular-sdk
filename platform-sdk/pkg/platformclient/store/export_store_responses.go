@@ -88,9 +88,10 @@ func NewExportStoreOK(writer io.Writer) *ExportStoreOK {
 	}
 }
 
-/*ExportStoreOK handles this case with default header values.
+/*
+ExportStoreOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type ExportStoreOK struct {
 	Payload io.Writer
@@ -140,9 +141,10 @@ func NewExportStoreNotFound() *ExportStoreNotFound {
 	return &ExportStoreNotFound{}
 }
 
-/*ExportStoreNotFound handles this case with default header values.
+/*
+ExportStoreNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type ExportStoreNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

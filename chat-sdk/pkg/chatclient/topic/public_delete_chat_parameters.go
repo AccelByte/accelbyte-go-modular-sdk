@@ -57,7 +57,8 @@ func NewPublicDeleteChatParamsWithHTTPClient(client *http.Client) *PublicDeleteC
 	}
 }
 
-/*PublicDeleteChatParams contains all the parameters to send to the API endpoint
+/*
+PublicDeleteChatParams contains all the parameters to send to the API endpoint
 for the public delete chat operation typically these are written to a http.Request
 */
 type PublicDeleteChatParams struct {

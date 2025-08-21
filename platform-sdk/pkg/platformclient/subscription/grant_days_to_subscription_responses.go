@@ -85,9 +85,10 @@ func NewGrantDaysToSubscriptionOK() *GrantDaysToSubscriptionOK {
 	return &GrantDaysToSubscriptionOK{}
 }
 
-/*GrantDaysToSubscriptionOK handles this case with default header values.
+/*
+GrantDaysToSubscriptionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GrantDaysToSubscriptionOK struct {
 	Payload *platformclientmodels.SubscriptionInfo
@@ -139,9 +140,10 @@ func NewGrantDaysToSubscriptionNotFound() *GrantDaysToSubscriptionNotFound {
 	return &GrantDaysToSubscriptionNotFound{}
 }
 
-/*GrantDaysToSubscriptionNotFound handles this case with default header values.
+/*
+GrantDaysToSubscriptionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
 */
 type GrantDaysToSubscriptionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewAnonymizeCampaignParamsWithHTTPClient(client *http.Client) *AnonymizeCam
 	}
 }
 
-/*AnonymizeCampaignParams contains all the parameters to send to the API endpoint
+/*
+AnonymizeCampaignParams contains all the parameters to send to the API endpoint
 for the anonymize campaign operation typically these are written to a http.Request
 */
 type AnonymizeCampaignParams struct {

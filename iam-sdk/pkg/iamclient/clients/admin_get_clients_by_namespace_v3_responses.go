@@ -115,9 +115,10 @@ func NewAdminGetClientsByNamespaceV3OK() *AdminGetClientsByNamespaceV3OK {
 	return &AdminGetClientsByNamespaceV3OK{}
 }
 
-/*AdminGetClientsByNamespaceV3OK handles this case with default header values.
+/*
+AdminGetClientsByNamespaceV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetClientsByNamespaceV3OK struct {
 	Payload *iamclientmodels.ClientmodelClientsV3Response
@@ -169,9 +170,10 @@ func NewAdminGetClientsByNamespaceV3BadRequest() *AdminGetClientsByNamespaceV3Ba
 	return &AdminGetClientsByNamespaceV3BadRequest{}
 }
 
-/*AdminGetClientsByNamespaceV3BadRequest handles this case with default header values.
+/*
+AdminGetClientsByNamespaceV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetClientsByNamespaceV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetClientsByNamespaceV3Unauthorized() *AdminGetClientsByNamespaceV3
 	return &AdminGetClientsByNamespaceV3Unauthorized{}
 }
 
-/*AdminGetClientsByNamespaceV3Unauthorized handles this case with default header values.
+/*
+AdminGetClientsByNamespaceV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetClientsByNamespaceV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetClientsByNamespaceV3Forbidden() *AdminGetClientsByNamespaceV3For
 	return &AdminGetClientsByNamespaceV3Forbidden{}
 }
 
-/*AdminGetClientsByNamespaceV3Forbidden handles this case with default header values.
+/*
+AdminGetClientsByNamespaceV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetClientsByNamespaceV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

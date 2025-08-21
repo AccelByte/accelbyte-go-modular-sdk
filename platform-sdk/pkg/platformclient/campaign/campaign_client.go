@@ -57,7 +57,7 @@ QueryCampaignsShort query campaigns
 Query campaigns, if name is presented, it's fuzzy match.
 Other detail info:
 
-  * Returns : slice of campaigns
+  - Returns : slice of campaigns
 */
 func (a *Client) QueryCampaignsShort(params *QueryCampaignsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignsResponse, error) {
 	// TODO: Validate the params before sending
@@ -114,7 +114,7 @@ CreateCampaignShort create campaign
 Create campaign.
 Other detail info:
 
-  * Returns : created campaign
+  - Returns : created campaign
 */
 func (a *Client) CreateCampaignShort(params *CreateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCampaignResponse, error) {
 	// TODO: Validate the params before sending
@@ -192,7 +192,7 @@ GetCampaignShort get campaign
 Get campaign info.
 Other detail info:
 
-  * Returns : campaign info
+  - Returns : campaign info
 */
 func (a *Client) GetCampaignShort(params *GetCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignResponse, error) {
 	// TODO: Validate the params before sending
@@ -256,7 +256,7 @@ UpdateCampaignShort update campaign
 Update campaign.
 Other detail info:
 
-  * Returns : updated campaign
+  - Returns : updated campaign
 */
 func (a *Client) UpdateCampaignShort(params *UpdateCampaignParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCampaignResponse, error) {
 	// TODO: Validate the params before sending
@@ -395,7 +395,7 @@ QueryCampaignBatchNamesShort query campaign batch names
 Query campaign batch name by fuzzy match.
 Other detail info:
 
-  * Returns : list of campaign batch names
+  - Returns : list of campaign batch names
 */
 func (a *Client) QueryCampaignBatchNamesShort(params *QueryCampaignBatchNamesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCampaignBatchNamesResponse, error) {
 	// TODO: Validate the params before sending
@@ -452,7 +452,7 @@ GetCampaignDynamicShort get campaign dynamic
 Get campaign dynamic.
 Other detail info:
 
-  * Returns : campaign dynamic
+  - Returns : campaign dynamic
 */
 func (a *Client) GetCampaignDynamicShort(params *GetCampaignDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetCampaignDynamicResponse, error) {
 	// TODO: Validate the params before sending
@@ -516,8 +516,8 @@ QueryCodesShort query codes
 Query campaign codes.
 Other detail info:
 
-  * Returns : list of codes
-  * The batchName field in the codes response will be present only when the withBatchName parameter is true , or when the batchName filter is not blank.
+  - Returns : list of codes
+  - The batchName field in the codes response will be present only when the withBatchName parameter is true , or when the batchName filter is not blank.
 */
 func (a *Client) QueryCodesShort(params *QueryCodesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryCodesResponse, error) {
 	// TODO: Validate the params before sending
@@ -574,7 +574,7 @@ CreateCodesShort create campaign codes
 This API is used to create campaign codes, it will increase the batch No. based on last creation.
 Other detail info:
 
-  * Returns : number of codes created
+  - Returns : number of codes created
 */
 func (a *Client) CreateCodesShort(params *CreateCodesParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCodesResponse, error) {
 	// TODO: Validate the params before sending
@@ -652,8 +652,8 @@ DownloadShort download codes
 Download all or a batch of campaign's codes as a csv file.
 Other detail info:
 
-  * Returns : codes csv file
-  * The csv file will always have Batch Name column, but this column will be filled only when the withBatchName parameter is true , or when the batchName filter is not blank.
+  - Returns : codes csv file
+  - The csv file will always have Batch Name column, but this column will be filled only when the withBatchName parameter is true , or when the batchName filter is not blank.
 */
 func (a *Client) DownloadShort(params *DownloadParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadResponse, error) {
 	// TODO: Validate the params before sending
@@ -712,7 +712,7 @@ Bulk disable codes.
 Bulk disable campaign codes, all matched codes will be disabled except those have already been redeemed.
 Other detail info:
 
-  * Returns : the number of code actually disabled
+  - Returns : the number of code actually disabled
 */
 func (a *Client) BulkDisableCodesShort(params *BulkDisableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkDisableCodesResponse, error) {
 	// TODO: Validate the params before sending
@@ -769,7 +769,7 @@ BulkEnableCodesShort bulk enable codes
 Bulk enable campaign codes.
 Other detail info:
 
-  * Returns : the number of code actually enabled
+  - Returns : the number of code actually enabled
 */
 func (a *Client) BulkEnableCodesShort(params *BulkEnableCodesParams, authInfo runtime.ClientAuthInfoWriter) (*BulkEnableCodesResponse, error) {
 	// TODO: Validate the params before sending
@@ -826,7 +826,7 @@ QueryRedeemHistoryShort query redeem history
 Query redeem history.
 Other detail info:
 
-  * Returns : slice of redeem history
+  - Returns : slice of redeem history
 */
 func (a *Client) QueryRedeemHistoryShort(params *QueryRedeemHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryRedeemHistoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -883,7 +883,7 @@ GetCodeShort get code info
 Get campaign code, it will check code whether available to redeem if redeemable true.
 Other detail info:
 
-  * Returns : code info
+  - Returns : code info
 */
 func (a *Client) GetCodeShort(params *GetCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -956,7 +956,7 @@ Disable code.
 Disable an active code, the code can't be disabled if it has already been redeemed.
 Other detail info:
 
-  * Returns : disabled code
+  - Returns : disabled code
 */
 func (a *Client) DisableCodeShort(params *DisableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*DisableCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -1020,7 +1020,7 @@ EnableCodeShort enable code
 Enable code.
 Other detail info:
 
-  * Returns : enabled code
+  - Returns : enabled code
 */
 func (a *Client) EnableCodeShort(params *EnableCodeParams, authInfo runtime.ClientAuthInfoWriter) (*EnableCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -1081,10 +1081,12 @@ func (a *Client) EnableCodeShort(params *EnableCodeParams, authInfo runtime.Clie
 
 /*
 ApplyUserRedemptionShort redeem code
- [SERVICE COMMUNICATION ONLY] Redeem code. If the campaign which the code belongs to is INACTIVE, the code couldn't be redeemed even if its status is ACTIVE.
+
+	[SERVICE COMMUNICATION ONLY] Redeem code. If the campaign which the code belongs to is INACTIVE, the code couldn't be redeemed even if its status is ACTIVE.
+
 Other detail info:
 
-  * Returns : Redeem result
+  - Returns : Redeem result
 */
 func (a *Client) ApplyUserRedemptionShort(params *ApplyUserRedemptionParams, authInfo runtime.ClientAuthInfoWriter) (*ApplyUserRedemptionResponse, error) {
 	// TODO: Validate the params before sending

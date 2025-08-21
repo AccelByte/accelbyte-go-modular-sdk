@@ -100,9 +100,10 @@ func NewDeleteStoreOK() *DeleteStoreOK {
 	return &DeleteStoreOK{}
 }
 
-/*DeleteStoreOK handles this case with default header values.
+/*
+DeleteStoreOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DeleteStoreOK struct {
 	Payload *platformclientmodels.StoreInfo
@@ -154,9 +155,10 @@ func NewDeleteStoreNotFound() *DeleteStoreNotFound {
 	return &DeleteStoreNotFound{}
 }
 
-/*DeleteStoreNotFound handles this case with default header values.
+/*
+DeleteStoreNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DeleteStoreNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewDeleteStoreConflict() *DeleteStoreConflict {
 	return &DeleteStoreConflict{}
 }
 
-/*DeleteStoreConflict handles this case with default header values.
+/*
+DeleteStoreConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type DeleteStoreConflict struct {
 	Payload *platformclientmodels.ErrorEntity

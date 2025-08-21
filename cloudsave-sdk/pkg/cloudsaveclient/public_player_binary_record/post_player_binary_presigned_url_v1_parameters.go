@@ -59,7 +59,8 @@ func NewPostPlayerBinaryPresignedURLV1ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*PostPlayerBinaryPresignedURLV1Params contains all the parameters to send to the API endpoint
+/*
+PostPlayerBinaryPresignedURLV1Params contains all the parameters to send to the API endpoint
 for the post player binary presigned urlv1 operation typically these are written to a http.Request
 */
 type PostPlayerBinaryPresignedURLV1Params struct {

@@ -129,9 +129,10 @@ func NewAdminResetAchievementNoContent() *AdminResetAchievementNoContent {
 	return &AdminResetAchievementNoContent{}
 }
 
-/*AdminResetAchievementNoContent handles this case with default header values.
+/*
+AdminResetAchievementNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminResetAchievementNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminResetAchievementBadRequest() *AdminResetAchievementBadRequest {
 	return &AdminResetAchievementBadRequest{}
 }
 
-/*AdminResetAchievementBadRequest handles this case with default header values.
+/*
+AdminResetAchievementBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminResetAchievementBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewAdminResetAchievementUnauthorized() *AdminResetAchievementUnauthorized {
 	return &AdminResetAchievementUnauthorized{}
 }
 
-/*AdminResetAchievementUnauthorized handles this case with default header values.
+/*
+AdminResetAchievementUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminResetAchievementUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewAdminResetAchievementNotFound() *AdminResetAchievementNotFound {
 	return &AdminResetAchievementNotFound{}
 }
 
-/*AdminResetAchievementNotFound handles this case with default header values.
+/*
+AdminResetAchievementNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminResetAchievementNotFound struct {
 	Payload *achievementclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewAdminResetAchievementInternalServerError() *AdminResetAchievementInterna
 	return &AdminResetAchievementInternalServerError{}
 }
 
-/*AdminResetAchievementInternalServerError handles this case with default header values.
+/*
+AdminResetAchievementInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminResetAchievementInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

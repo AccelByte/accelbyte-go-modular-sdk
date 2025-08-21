@@ -130,9 +130,10 @@ func NewAdminQueryTopicLogOK() *AdminQueryTopicLogOK {
 	return &AdminQueryTopicLogOK{}
 }
 
-/*AdminQueryTopicLogOK handles this case with default header values.
+/*
+AdminQueryTopicLogOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminQueryTopicLogOK struct {
 	Payload *chatclientmodels.ModelsTopicLogWithPaginationResponse
@@ -184,9 +185,10 @@ func NewAdminQueryTopicLogBadRequest() *AdminQueryTopicLogBadRequest {
 	return &AdminQueryTopicLogBadRequest{}
 }
 
-/*AdminQueryTopicLogBadRequest handles this case with default header values.
+/*
+AdminQueryTopicLogBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminQueryTopicLogBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminQueryTopicLogUnauthorized() *AdminQueryTopicLogUnauthorized {
 	return &AdminQueryTopicLogUnauthorized{}
 }
 
-/*AdminQueryTopicLogUnauthorized handles this case with default header values.
+/*
+AdminQueryTopicLogUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminQueryTopicLogUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminQueryTopicLogForbidden() *AdminQueryTopicLogForbidden {
 	return &AdminQueryTopicLogForbidden{}
 }
 
-/*AdminQueryTopicLogForbidden handles this case with default header values.
+/*
+AdminQueryTopicLogForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminQueryTopicLogForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminQueryTopicLogInternalServerError() *AdminQueryTopicLogInternalServe
 	return &AdminQueryTopicLogInternalServerError{}
 }
 
-/*AdminQueryTopicLogInternalServerError handles this case with default header values.
+/*
+AdminQueryTopicLogInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminQueryTopicLogInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

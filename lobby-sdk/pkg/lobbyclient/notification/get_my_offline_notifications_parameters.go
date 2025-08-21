@@ -78,7 +78,8 @@ func NewGetMyOfflineNotificationsParamsWithHTTPClient(client *http.Client) *GetM
 	}
 }
 
-/*GetMyOfflineNotificationsParams contains all the parameters to send to the API endpoint
+/*
+GetMyOfflineNotificationsParams contains all the parameters to send to the API endpoint
 for the get my offline notifications operation typically these are written to a http.Request
 */
 type GetMyOfflineNotificationsParams struct {

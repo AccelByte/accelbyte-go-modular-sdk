@@ -144,9 +144,10 @@ func NewCreateMatchFunctionCreated() *CreateMatchFunctionCreated {
 	return &CreateMatchFunctionCreated{}
 }
 
-/*CreateMatchFunctionCreated handles this case with default header values.
+/*
+CreateMatchFunctionCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateMatchFunctionCreated struct {
 }
@@ -171,9 +172,10 @@ func NewCreateMatchFunctionBadRequest() *CreateMatchFunctionBadRequest {
 	return &CreateMatchFunctionBadRequest{}
 }
 
-/*CreateMatchFunctionBadRequest handles this case with default header values.
+/*
+CreateMatchFunctionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateMatchFunctionBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewCreateMatchFunctionUnauthorized() *CreateMatchFunctionUnauthorized {
 	return &CreateMatchFunctionUnauthorized{}
 }
 
-/*CreateMatchFunctionUnauthorized handles this case with default header values.
+/*
+CreateMatchFunctionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateMatchFunctionUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewCreateMatchFunctionForbidden() *CreateMatchFunctionForbidden {
 	return &CreateMatchFunctionForbidden{}
 }
 
-/*CreateMatchFunctionForbidden handles this case with default header values.
+/*
+CreateMatchFunctionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateMatchFunctionForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewCreateMatchFunctionConflict() *CreateMatchFunctionConflict {
 	return &CreateMatchFunctionConflict{}
 }
 
-/*CreateMatchFunctionConflict handles this case with default header values.
+/*
+CreateMatchFunctionConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateMatchFunctionConflict struct {
 	Payload *match2clientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewCreateMatchFunctionInternalServerError() *CreateMatchFunctionInternalSer
 	return &CreateMatchFunctionInternalServerError{}
 }
 
-/*CreateMatchFunctionInternalServerError handles this case with default header values.
+/*
+CreateMatchFunctionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateMatchFunctionInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

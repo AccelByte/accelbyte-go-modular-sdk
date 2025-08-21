@@ -57,7 +57,8 @@ func NewUnpublishPolicyVersionParamsWithHTTPClient(client *http.Client) *Unpubli
 	}
 }
 
-/*UnpublishPolicyVersionParams contains all the parameters to send to the API endpoint
+/*
+UnpublishPolicyVersionParams contains all the parameters to send to the API endpoint
 for the unpublish policy version operation typically these are written to a http.Request
 */
 type UnpublishPolicyVersionParams struct {

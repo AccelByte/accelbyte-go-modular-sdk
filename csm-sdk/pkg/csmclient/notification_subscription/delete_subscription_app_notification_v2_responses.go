@@ -129,10 +129,9 @@ func NewDeleteSubscriptionAppNotificationV2OK() *DeleteSubscriptionAppNotificati
 	return &DeleteSubscriptionAppNotificationV2OK{}
 }
 
-/*DeleteSubscriptionAppNotificationV2OK handles this case with default header values.
-
-
- */
+/*
+DeleteSubscriptionAppNotificationV2OK handles this case with default header values.
+*/
 type DeleteSubscriptionAppNotificationV2OK struct {
 }
 
@@ -156,9 +155,10 @@ func NewDeleteSubscriptionAppNotificationV2Unauthorized() *DeleteSubscriptionApp
 	return &DeleteSubscriptionAppNotificationV2Unauthorized{}
 }
 
-/*DeleteSubscriptionAppNotificationV2Unauthorized handles this case with default header values.
+/*
+DeleteSubscriptionAppNotificationV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteSubscriptionAppNotificationV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -210,9 +210,10 @@ func NewDeleteSubscriptionAppNotificationV2Forbidden() *DeleteSubscriptionAppNot
 	return &DeleteSubscriptionAppNotificationV2Forbidden{}
 }
 
-/*DeleteSubscriptionAppNotificationV2Forbidden handles this case with default header values.
+/*
+DeleteSubscriptionAppNotificationV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteSubscriptionAppNotificationV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -264,9 +265,10 @@ func NewDeleteSubscriptionAppNotificationV2NotFound() *DeleteSubscriptionAppNoti
 	return &DeleteSubscriptionAppNotificationV2NotFound{}
 }
 
-/*DeleteSubscriptionAppNotificationV2NotFound handles this case with default header values.
+/*
+DeleteSubscriptionAppNotificationV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteSubscriptionAppNotificationV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -318,9 +320,10 @@ func NewDeleteSubscriptionAppNotificationV2InternalServerError() *DeleteSubscrip
 	return &DeleteSubscriptionAppNotificationV2InternalServerError{}
 }
 
-/*DeleteSubscriptionAppNotificationV2InternalServerError handles this case with default header values.
+/*
+DeleteSubscriptionAppNotificationV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteSubscriptionAppNotificationV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

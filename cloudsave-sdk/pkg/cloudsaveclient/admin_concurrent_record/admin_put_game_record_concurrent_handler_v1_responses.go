@@ -144,9 +144,10 @@ func NewAdminPutGameRecordConcurrentHandlerV1NoContent() *AdminPutGameRecordConc
 	return &AdminPutGameRecordConcurrentHandlerV1NoContent{}
 }
 
-/*AdminPutGameRecordConcurrentHandlerV1NoContent handles this case with default header values.
+/*
+AdminPutGameRecordConcurrentHandlerV1NoContent handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type AdminPutGameRecordConcurrentHandlerV1NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminPutGameRecordConcurrentHandlerV1BadRequest() *AdminPutGameRecordCon
 	return &AdminPutGameRecordConcurrentHandlerV1BadRequest{}
 }
 
-/*AdminPutGameRecordConcurrentHandlerV1BadRequest handles this case with default header values.
+/*
+AdminPutGameRecordConcurrentHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18060</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18052</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18060</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18052</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr></table>
 */
 type AdminPutGameRecordConcurrentHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -225,9 +227,10 @@ func NewAdminPutGameRecordConcurrentHandlerV1Unauthorized() *AdminPutGameRecordC
 	return &AdminPutGameRecordConcurrentHandlerV1Unauthorized{}
 }
 
-/*AdminPutGameRecordConcurrentHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminPutGameRecordConcurrentHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPutGameRecordConcurrentHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -279,9 +282,10 @@ func NewAdminPutGameRecordConcurrentHandlerV1Forbidden() *AdminPutGameRecordConc
 	return &AdminPutGameRecordConcurrentHandlerV1Forbidden{}
 }
 
-/*AdminPutGameRecordConcurrentHandlerV1Forbidden handles this case with default header values.
+/*
+AdminPutGameRecordConcurrentHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminPutGameRecordConcurrentHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -333,9 +337,10 @@ func NewAdminPutGameRecordConcurrentHandlerV1PreconditionFailed() *AdminPutGameR
 	return &AdminPutGameRecordConcurrentHandlerV1PreconditionFailed{}
 }
 
-/*AdminPutGameRecordConcurrentHandlerV1PreconditionFailed handles this case with default header values.
+/*
+AdminPutGameRecordConcurrentHandlerV1PreconditionFailed handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18056</td><td>precondition failed: record has changed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18056</td><td>precondition failed: record has changed</td></tr></table>
 */
 type AdminPutGameRecordConcurrentHandlerV1PreconditionFailed struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -387,9 +392,10 @@ func NewAdminPutGameRecordConcurrentHandlerV1InternalServerError() *AdminPutGame
 	return &AdminPutGameRecordConcurrentHandlerV1InternalServerError{}
 }
 
-/*AdminPutGameRecordConcurrentHandlerV1InternalServerError handles this case with default header values.
+/*
+AdminPutGameRecordConcurrentHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18051</td><td>unable to marshal request body</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18053</td><td>unable to update record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18051</td><td>unable to marshal request body</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18053</td><td>unable to update record</td></tr></table>
 */
 type AdminPutGameRecordConcurrentHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

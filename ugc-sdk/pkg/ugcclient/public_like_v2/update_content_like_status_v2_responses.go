@@ -145,9 +145,10 @@ func NewUpdateContentLikeStatusV2OK() *UpdateContentLikeStatusV2OK {
 	return &UpdateContentLikeStatusV2OK{}
 }
 
-/*UpdateContentLikeStatusV2OK handles this case with default header values.
+/*
+UpdateContentLikeStatusV2OK handles this case with default header values.
 
-  Update like/unlike status to a content
+	Update like/unlike status to a content
 */
 type UpdateContentLikeStatusV2OK struct {
 	Payload *ugcclientmodels.ModelsContentLikeResponse
@@ -199,9 +200,10 @@ func NewUpdateContentLikeStatusV2BadRequest() *UpdateContentLikeStatusV2BadReque
 	return &UpdateContentLikeStatusV2BadRequest{}
 }
 
-/*UpdateContentLikeStatusV2BadRequest handles this case with default header values.
+/*
+UpdateContentLikeStatusV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771000</td><td>Malformed request/Content not found/Unable to update like status: content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771000</td><td>Malformed request/Content not found/Unable to update like status: content not found</td></tr></table>
 */
 type UpdateContentLikeStatusV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewUpdateContentLikeStatusV2Unauthorized() *UpdateContentLikeStatusV2Unauth
 	return &UpdateContentLikeStatusV2Unauthorized{}
 }
 
-/*UpdateContentLikeStatusV2Unauthorized handles this case with default header values.
+/*
+UpdateContentLikeStatusV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateContentLikeStatusV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewUpdateContentLikeStatusV2NotFound() *UpdateContentLikeStatusV2NotFound {
 	return &UpdateContentLikeStatusV2NotFound{}
 }
 
-/*UpdateContentLikeStatusV2NotFound handles this case with default header values.
+/*
+UpdateContentLikeStatusV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770200</td><td>Content not found</td></tr><tr><td>771001</td><td>unable to like content/Unable to update like status: database error</td></tr><tr><td>771000</td><td>Malformed request/Content not found/Unable to update like status: content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770200</td><td>Content not found</td></tr><tr><td>771001</td><td>unable to like content/Unable to update like status: database error</td></tr><tr><td>771000</td><td>Malformed request/Content not found/Unable to update like status: content not found</td></tr></table>
 */
 type UpdateContentLikeStatusV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewUpdateContentLikeStatusV2TooManyRequests() *UpdateContentLikeStatusV2Too
 	return &UpdateContentLikeStatusV2TooManyRequests{}
 }
 
-/*UpdateContentLikeStatusV2TooManyRequests handles this case with default header values.
+/*
+UpdateContentLikeStatusV2TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771003</td><td>Unable to like content: too many request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771003</td><td>Unable to like content: too many request</td></tr></table>
 */
 type UpdateContentLikeStatusV2TooManyRequests struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewUpdateContentLikeStatusV2InternalServerError() *UpdateContentLikeStatusV
 	return &UpdateContentLikeStatusV2InternalServerError{}
 }
 
-/*UpdateContentLikeStatusV2InternalServerError handles this case with default header values.
+/*
+UpdateContentLikeStatusV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771001</td><td>unable to like content/Unable to update like status: database error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771001</td><td>unable to like content/Unable to update like status: database error</td></tr></table>
 */
 type UpdateContentLikeStatusV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

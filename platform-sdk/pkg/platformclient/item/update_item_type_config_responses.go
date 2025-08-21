@@ -115,9 +115,10 @@ func NewUpdateItemTypeConfigOK() *UpdateItemTypeConfigOK {
 	return &UpdateItemTypeConfigOK{}
 }
 
-/*UpdateItemTypeConfigOK handles this case with default header values.
+/*
+UpdateItemTypeConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateItemTypeConfigOK struct {
 	Payload *platformclientmodels.ItemTypeConfigInfo
@@ -169,9 +170,10 @@ func NewUpdateItemTypeConfigNotFound() *UpdateItemTypeConfigNotFound {
 	return &UpdateItemTypeConfigNotFound{}
 }
 
-/*UpdateItemTypeConfigNotFound handles this case with default header values.
+/*
+UpdateItemTypeConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30541</td><td>Item type config [{id}] doesn't exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30541</td><td>Item type config [{id}] doesn't exist</td></tr></table>
 */
 type UpdateItemTypeConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewUpdateItemTypeConfigConflict() *UpdateItemTypeConfigConflict {
 	return &UpdateItemTypeConfigConflict{}
 }
 
-/*UpdateItemTypeConfigConflict handles this case with default header values.
+/*
+UpdateItemTypeConfigConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30371</td><td>Item type config for type [{itemType}] and clazz [{clazz}] already exists</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30371</td><td>Item type config for type [{itemType}] and clazz [{clazz}] already exists</td></tr></table>
 */
 type UpdateItemTypeConfigConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewUpdateItemTypeConfigUnprocessableEntity() *UpdateItemTypeConfigUnprocess
 	return &UpdateItemTypeConfigUnprocessableEntity{}
 }
 
-/*UpdateItemTypeConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdateItemTypeConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateItemTypeConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

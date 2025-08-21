@@ -69,10 +69,9 @@ func NewAdminGetLogConfigOK() *AdminGetLogConfigOK {
 	return &AdminGetLogConfigOK{}
 }
 
-/*AdminGetLogConfigOK handles this case with default header values.
-
-
- */
+/*
+AdminGetLogConfigOK handles this case with default header values.
+*/
 type AdminGetLogConfigOK struct {
 	Payload *lobbyclientmodels.LogconfigConfiguration
 }

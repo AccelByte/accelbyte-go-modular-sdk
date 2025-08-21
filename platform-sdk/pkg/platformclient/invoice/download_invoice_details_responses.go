@@ -72,9 +72,10 @@ func NewDownloadInvoiceDetailsOK(writer io.Writer) *DownloadInvoiceDetailsOK {
 	}
 }
 
-/*DownloadInvoiceDetailsOK handles this case with default header values.
+/*
+DownloadInvoiceDetailsOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type DownloadInvoiceDetailsOK struct {
 	Payload io.Writer

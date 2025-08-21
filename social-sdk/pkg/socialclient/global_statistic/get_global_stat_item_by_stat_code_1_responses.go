@@ -130,9 +130,10 @@ func NewGetGlobalStatItemByStatCode1OK() *GetGlobalStatItemByStatCode1OK {
 	return &GetGlobalStatItemByStatCode1OK{}
 }
 
-/*GetGlobalStatItemByStatCode1OK handles this case with default header values.
+/*
+GetGlobalStatItemByStatCode1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetGlobalStatItemByStatCode1OK struct {
 	Payload *socialclientmodels.GlobalStatItemInfo
@@ -184,9 +185,10 @@ func NewGetGlobalStatItemByStatCode1Unauthorized() *GetGlobalStatItemByStatCode1
 	return &GetGlobalStatItemByStatCode1Unauthorized{}
 }
 
-/*GetGlobalStatItemByStatCode1Unauthorized handles this case with default header values.
+/*
+GetGlobalStatItemByStatCode1Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type GetGlobalStatItemByStatCode1Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewGetGlobalStatItemByStatCode1Forbidden() *GetGlobalStatItemByStatCode1For
 	return &GetGlobalStatItemByStatCode1Forbidden{}
 }
 
-/*GetGlobalStatItemByStatCode1Forbidden handles this case with default header values.
+/*
+GetGlobalStatItemByStatCode1Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetGlobalStatItemByStatCode1Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewGetGlobalStatItemByStatCode1NotFound() *GetGlobalStatItemByStatCode1NotF
 	return &GetGlobalStatItemByStatCode1NotFound{}
 }
 
-/*GetGlobalStatItemByStatCode1NotFound handles this case with default header values.
+/*
+GetGlobalStatItemByStatCode1NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12244</td><td>Global stat item of [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12244</td><td>Global stat item of [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type GetGlobalStatItemByStatCode1NotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewGetGlobalStatItemByStatCode1InternalServerError() *GetGlobalStatItemBySt
 	return &GetGlobalStatItemByStatCode1InternalServerError{}
 }
 
-/*GetGlobalStatItemByStatCode1InternalServerError handles this case with default header values.
+/*
+GetGlobalStatItemByStatCode1InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type GetGlobalStatItemByStatCode1InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

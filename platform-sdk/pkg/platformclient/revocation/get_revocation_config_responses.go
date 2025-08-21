@@ -85,9 +85,10 @@ func NewGetRevocationConfigOK() *GetRevocationConfigOK {
 	return &GetRevocationConfigOK{}
 }
 
-/*GetRevocationConfigOK handles this case with default header values.
+/*
+GetRevocationConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetRevocationConfigOK struct {
 	Payload *platformclientmodels.RevocationConfigInfo
@@ -139,9 +140,10 @@ func NewGetRevocationConfigNotFound() *GetRevocationConfigNotFound {
 	return &GetRevocationConfigNotFound{}
 }
 
-/*GetRevocationConfigNotFound handles this case with default header values.
+/*
+GetRevocationConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33243</td><td>Payment callback config for [{namespace}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33243</td><td>Payment callback config for [{namespace}] does not exist</td></tr></table>
 */
 type GetRevocationConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

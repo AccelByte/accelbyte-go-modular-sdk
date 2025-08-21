@@ -115,9 +115,10 @@ func NewUpdateKeyGroupOK() *UpdateKeyGroupOK {
 	return &UpdateKeyGroupOK{}
 }
 
-/*UpdateKeyGroupOK handles this case with default header values.
+/*
+UpdateKeyGroupOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateKeyGroupOK struct {
 	Payload *platformclientmodels.KeyGroupInfo
@@ -169,9 +170,10 @@ func NewUpdateKeyGroupNotFound() *UpdateKeyGroupNotFound {
 	return &UpdateKeyGroupNotFound{}
 }
 
-/*UpdateKeyGroupNotFound handles this case with default header values.
+/*
+UpdateKeyGroupNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37241</td><td>Key group [{keyGroupId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37241</td><td>Key group [{keyGroupId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateKeyGroupNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewUpdateKeyGroupConflict() *UpdateKeyGroupConflict {
 	return &UpdateKeyGroupConflict{}
 }
 
-/*UpdateKeyGroupConflict handles this case with default header values.
+/*
+UpdateKeyGroupConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37271</td><td>Key group [{name}] already exists in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37271</td><td>Key group [{name}] already exists in namespace [{namespace}]</td></tr></table>
 */
 type UpdateKeyGroupConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewUpdateKeyGroupUnprocessableEntity() *UpdateKeyGroupUnprocessableEntity {
 	return &UpdateKeyGroupUnprocessableEntity{}
 }
 
-/*UpdateKeyGroupUnprocessableEntity handles this case with default header values.
+/*
+UpdateKeyGroupUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateKeyGroupUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

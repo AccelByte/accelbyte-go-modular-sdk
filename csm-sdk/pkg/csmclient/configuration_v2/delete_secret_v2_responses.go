@@ -129,10 +129,9 @@ func NewDeleteSecretV2NoContent() *DeleteSecretV2NoContent {
 	return &DeleteSecretV2NoContent{}
 }
 
-/*DeleteSecretV2NoContent handles this case with default header values.
-
-
- */
+/*
+DeleteSecretV2NoContent handles this case with default header values.
+*/
 type DeleteSecretV2NoContent struct {
 }
 
@@ -156,9 +155,10 @@ func NewDeleteSecretV2Unauthorized() *DeleteSecretV2Unauthorized {
 	return &DeleteSecretV2Unauthorized{}
 }
 
-/*DeleteSecretV2Unauthorized handles this case with default header values.
+/*
+DeleteSecretV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteSecretV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -210,9 +210,10 @@ func NewDeleteSecretV2Forbidden() *DeleteSecretV2Forbidden {
 	return &DeleteSecretV2Forbidden{}
 }
 
-/*DeleteSecretV2Forbidden handles this case with default header values.
+/*
+DeleteSecretV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteSecretV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -264,9 +265,10 @@ func NewDeleteSecretV2NotFound() *DeleteSecretV2NotFound {
 	return &DeleteSecretV2NotFound{}
 }
 
-/*DeleteSecretV2NotFound handles this case with default header values.
+/*
+DeleteSecretV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteSecretV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -318,9 +320,10 @@ func NewDeleteSecretV2InternalServerError() *DeleteSecretV2InternalServerError {
 	return &DeleteSecretV2InternalServerError{}
 }
 
-/*DeleteSecretV2InternalServerError handles this case with default header values.
+/*
+DeleteSecretV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteSecretV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

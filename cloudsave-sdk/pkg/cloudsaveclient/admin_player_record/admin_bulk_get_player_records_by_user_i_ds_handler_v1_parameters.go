@@ -59,7 +59,8 @@ func NewAdminBulkGetPlayerRecordsByUserIDsHandlerV1ParamsWithHTTPClient(client *
 	}
 }
 
-/*AdminBulkGetPlayerRecordsByUserIDsHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+AdminBulkGetPlayerRecordsByUserIDsHandlerV1Params contains all the parameters to send to the API endpoint
 for the admin bulk get player records by user i ds handler v1 operation typically these are written to a http.Request
 */
 type AdminBulkGetPlayerRecordsByUserIDsHandlerV1Params struct {

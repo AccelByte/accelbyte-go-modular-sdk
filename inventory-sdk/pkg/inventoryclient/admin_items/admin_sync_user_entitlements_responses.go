@@ -144,9 +144,10 @@ func NewAdminSyncUserEntitlementsNoContent() *AdminSyncUserEntitlementsNoContent
 	return &AdminSyncUserEntitlementsNoContent{}
 }
 
-/*AdminSyncUserEntitlementsNoContent handles this case with default header values.
+/*
+AdminSyncUserEntitlementsNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminSyncUserEntitlementsNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminSyncUserEntitlementsBadRequest() *AdminSyncUserEntitlementsBadReque
 	return &AdminSyncUserEntitlementsBadRequest{}
 }
 
-/*AdminSyncUserEntitlementsBadRequest handles this case with default header values.
+/*
+AdminSyncUserEntitlementsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminSyncUserEntitlementsBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -225,9 +227,10 @@ func NewAdminSyncUserEntitlementsUnauthorized() *AdminSyncUserEntitlementsUnauth
 	return &AdminSyncUserEntitlementsUnauthorized{}
 }
 
-/*AdminSyncUserEntitlementsUnauthorized handles this case with default header values.
+/*
+AdminSyncUserEntitlementsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminSyncUserEntitlementsUnauthorized struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -279,9 +282,10 @@ func NewAdminSyncUserEntitlementsForbidden() *AdminSyncUserEntitlementsForbidden
 	return &AdminSyncUserEntitlementsForbidden{}
 }
 
-/*AdminSyncUserEntitlementsForbidden handles this case with default header values.
+/*
+AdminSyncUserEntitlementsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminSyncUserEntitlementsForbidden struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -333,9 +337,10 @@ func NewAdminSyncUserEntitlementsNotFound() *AdminSyncUserEntitlementsNotFound {
 	return &AdminSyncUserEntitlementsNotFound{}
 }
 
-/*AdminSyncUserEntitlementsNotFound handles this case with default header values.
+/*
+AdminSyncUserEntitlementsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminSyncUserEntitlementsNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -387,9 +392,10 @@ func NewAdminSyncUserEntitlementsInternalServerError() *AdminSyncUserEntitlement
 	return &AdminSyncUserEntitlementsInternalServerError{}
 }
 
-/*AdminSyncUserEntitlementsInternalServerError handles this case with default header values.
+/*
+AdminSyncUserEntitlementsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSyncUserEntitlementsInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

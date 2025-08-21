@@ -58,7 +58,8 @@ func NewRetrieveAllPolicyTypesParamsWithHTTPClient(client *http.Client) *Retriev
 	}
 }
 
-/*RetrieveAllPolicyTypesParams contains all the parameters to send to the API endpoint
+/*
+RetrieveAllPolicyTypesParams contains all the parameters to send to the API endpoint
 for the retrieve all policy types operation typically these are written to a http.Request
 */
 type RetrieveAllPolicyTypesParams struct {

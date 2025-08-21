@@ -144,9 +144,10 @@ func NewAdminRemoveRoleManagersV3NoContent() *AdminRemoveRoleManagersV3NoContent
 	return &AdminRemoveRoleManagersV3NoContent{}
 }
 
-/*AdminRemoveRoleManagersV3NoContent handles this case with default header values.
+/*
+AdminRemoveRoleManagersV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminRemoveRoleManagersV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminRemoveRoleManagersV3BadRequest() *AdminRemoveRoleManagersV3BadReque
 	return &AdminRemoveRoleManagersV3BadRequest{}
 }
 
-/*AdminRemoveRoleManagersV3BadRequest handles this case with default header values.
+/*
+AdminRemoveRoleManagersV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminRemoveRoleManagersV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminRemoveRoleManagersV3Unauthorized() *AdminRemoveRoleManagersV3Unauth
 	return &AdminRemoveRoleManagersV3Unauthorized{}
 }
 
-/*AdminRemoveRoleManagersV3Unauthorized handles this case with default header values.
+/*
+AdminRemoveRoleManagersV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminRemoveRoleManagersV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminRemoveRoleManagersV3Forbidden() *AdminRemoveRoleManagersV3Forbidden
 	return &AdminRemoveRoleManagersV3Forbidden{}
 }
 
-/*AdminRemoveRoleManagersV3Forbidden handles this case with default header values.
+/*
+AdminRemoveRoleManagersV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminRemoveRoleManagersV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminRemoveRoleManagersV3NotFound() *AdminRemoveRoleManagersV3NotFound {
 	return &AdminRemoveRoleManagersV3NotFound{}
 }
 
-/*AdminRemoveRoleManagersV3NotFound handles this case with default header values.
+/*
+AdminRemoveRoleManagersV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminRemoveRoleManagersV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminRemoveRoleManagersV3InternalServerError() *AdminRemoveRoleManagersV
 	return &AdminRemoveRoleManagersV3InternalServerError{}
 }
 
-/*AdminRemoveRoleManagersV3InternalServerError handles this case with default header values.
+/*
+AdminRemoveRoleManagersV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminRemoveRoleManagersV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

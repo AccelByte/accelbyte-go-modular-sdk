@@ -88,7 +88,8 @@ func NewSearchItemTypeConfigParamsWithHTTPClient(client *http.Client) *SearchIte
 	}
 }
 
-/*SearchItemTypeConfigParams contains all the parameters to send to the API endpoint
+/*
+SearchItemTypeConfigParams contains all the parameters to send to the API endpoint
 for the search item type config operation typically these are written to a http.Request
 */
 type SearchItemTypeConfigParams struct {

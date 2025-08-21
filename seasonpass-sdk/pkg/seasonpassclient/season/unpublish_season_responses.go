@@ -115,9 +115,10 @@ func NewUnpublishSeasonOK() *UnpublishSeasonOK {
 	return &UnpublishSeasonOK{}
 }
 
-/*UnpublishSeasonOK handles this case with default header values.
+/*
+UnpublishSeasonOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UnpublishSeasonOK struct {
 	Payload *seasonpassclientmodels.SeasonInfo
@@ -169,9 +170,10 @@ func NewUnpublishSeasonBadRequest() *UnpublishSeasonBadRequest {
 	return &UnpublishSeasonBadRequest{}
 }
 
-/*UnpublishSeasonBadRequest handles this case with default header values.
+/*
+UnpublishSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type UnpublishSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewUnpublishSeasonNotFound() *UnpublishSeasonNotFound {
 	return &UnpublishSeasonNotFound{}
 }
 
-/*UnpublishSeasonNotFound handles this case with default header values.
+/*
+UnpublishSeasonNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UnpublishSeasonNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewUnpublishSeasonConflict() *UnpublishSeasonConflict {
 	return &UnpublishSeasonConflict{}
 }
 
-/*UnpublishSeasonConflict handles this case with default header values.
+/*
+UnpublishSeasonConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49180</td><td>Season is already started</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49180</td><td>Season is already started</td></tr></table>
 */
 type UnpublishSeasonConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity

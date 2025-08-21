@@ -145,9 +145,10 @@ func NewGetUserGroupInformationPublicV2OK() *GetUserGroupInformationPublicV2OK {
 	return &GetUserGroupInformationPublicV2OK{}
 }
 
-/*GetUserGroupInformationPublicV2OK handles this case with default header values.
+/*
+GetUserGroupInformationPublicV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserGroupInformationPublicV2OK struct {
 	Payload *groupclientmodels.ModelsGetGroupMemberListResponseV1
@@ -199,9 +200,10 @@ func NewGetUserGroupInformationPublicV2BadRequest() *GetUserGroupInformationPubl
 	return &GetUserGroupInformationPublicV2BadRequest{}
 }
 
-/*GetUserGroupInformationPublicV2BadRequest handles this case with default header values.
+/*
+GetUserGroupInformationPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetUserGroupInformationPublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetUserGroupInformationPublicV2Unauthorized() *GetUserGroupInformationPu
 	return &GetUserGroupInformationPublicV2Unauthorized{}
 }
 
-/*GetUserGroupInformationPublicV2Unauthorized handles this case with default header values.
+/*
+GetUserGroupInformationPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserGroupInformationPublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetUserGroupInformationPublicV2Forbidden() *GetUserGroupInformationPubli
 	return &GetUserGroupInformationPublicV2Forbidden{}
 }
 
-/*GetUserGroupInformationPublicV2Forbidden handles this case with default header values.
+/*
+GetUserGroupInformationPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type GetUserGroupInformationPublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetUserGroupInformationPublicV2NotFound() *GetUserGroupInformationPublic
 	return &GetUserGroupInformationPublicV2NotFound{}
 }
 
-/*GetUserGroupInformationPublicV2NotFound handles this case with default header values.
+/*
+GetUserGroupInformationPublicV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
 */
 type GetUserGroupInformationPublicV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetUserGroupInformationPublicV2InternalServerError() *GetUserGroupInform
 	return &GetUserGroupInformationPublicV2InternalServerError{}
 }
 
-/*GetUserGroupInformationPublicV2InternalServerError handles this case with default header values.
+/*
+GetUserGroupInformationPublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetUserGroupInformationPublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

@@ -57,7 +57,8 @@ func NewEnableUserWalletParamsWithHTTPClient(client *http.Client) *EnableUserWal
 	}
 }
 
-/*EnableUserWalletParams contains all the parameters to send to the API endpoint
+/*
+EnableUserWalletParams contains all the parameters to send to the API endpoint
 for the enable user wallet operation typically these are written to a http.Request
 */
 type EnableUserWalletParams struct {

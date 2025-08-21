@@ -85,9 +85,10 @@ func NewUplodLootBoxPluginConfigCertOK() *UplodLootBoxPluginConfigCertOK {
 	return &UplodLootBoxPluginConfigCertOK{}
 }
 
-/*UplodLootBoxPluginConfigCertOK handles this case with default header values.
+/*
+UplodLootBoxPluginConfigCertOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UplodLootBoxPluginConfigCertOK struct {
 	Payload *platformclientmodels.LootBoxPluginConfigInfo
@@ -139,9 +140,10 @@ func NewUplodLootBoxPluginConfigCertUnprocessableEntity() *UplodLootBoxPluginCon
 	return &UplodLootBoxPluginConfigCertUnprocessableEntity{}
 }
 
-/*UplodLootBoxPluginConfigCertUnprocessableEntity handles this case with default header values.
+/*
+UplodLootBoxPluginConfigCertUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UplodLootBoxPluginConfigCertUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

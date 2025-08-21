@@ -100,9 +100,10 @@ func NewAdminListInventoriesOK() *AdminListInventoriesOK {
 	return &AdminListInventoriesOK{}
 }
 
-/*AdminListInventoriesOK handles this case with default header values.
+/*
+AdminListInventoriesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListInventoriesOK struct {
 	Payload *inventoryclientmodels.ApimodelsListInventoryResp
@@ -154,9 +155,10 @@ func NewAdminListInventoriesBadRequest() *AdminListInventoriesBadRequest {
 	return &AdminListInventoriesBadRequest{}
 }
 
-/*AdminListInventoriesBadRequest handles this case with default header values.
+/*
+AdminListInventoriesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminListInventoriesBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -208,9 +210,10 @@ func NewAdminListInventoriesInternalServerError() *AdminListInventoriesInternalS
 	return &AdminListInventoriesInternalServerError{}
 }
 
-/*AdminListInventoriesInternalServerError handles this case with default header values.
+/*
+AdminListInventoriesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminListInventoriesInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

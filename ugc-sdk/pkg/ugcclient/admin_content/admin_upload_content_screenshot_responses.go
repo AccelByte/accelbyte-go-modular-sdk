@@ -145,9 +145,10 @@ func NewAdminUploadContentScreenshotCreated() *AdminUploadContentScreenshotCreat
 	return &AdminUploadContentScreenshotCreated{}
 }
 
-/*AdminUploadContentScreenshotCreated handles this case with default header values.
+/*
+AdminUploadContentScreenshotCreated handles this case with default header values.
 
-  Screenshots uploaded
+	Screenshots uploaded
 */
 type AdminUploadContentScreenshotCreated struct {
 	Payload *ugcclientmodels.ModelsCreateScreenshotResponse
@@ -199,9 +200,10 @@ func NewAdminUploadContentScreenshotBadRequest() *AdminUploadContentScreenshotBa
 	return &AdminUploadContentScreenshotBadRequest{}
 }
 
-/*AdminUploadContentScreenshotBadRequest handles this case with default header values.
+/*
+AdminUploadContentScreenshotBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
 */
 type AdminUploadContentScreenshotBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUploadContentScreenshotUnauthorized() *AdminUploadContentScreenshot
 	return &AdminUploadContentScreenshotUnauthorized{}
 }
 
-/*AdminUploadContentScreenshotUnauthorized handles this case with default header values.
+/*
+AdminUploadContentScreenshotUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUploadContentScreenshotUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUploadContentScreenshotForbidden() *AdminUploadContentScreenshotFor
 	return &AdminUploadContentScreenshotForbidden{}
 }
 
-/*AdminUploadContentScreenshotForbidden handles this case with default header values.
+/*
+AdminUploadContentScreenshotForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type AdminUploadContentScreenshotForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUploadContentScreenshotNotFound() *AdminUploadContentScreenshotNotF
 	return &AdminUploadContentScreenshotNotFound{}
 }
 
-/*AdminUploadContentScreenshotNotFound handles this case with default header values.
+/*
+AdminUploadContentScreenshotNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
 */
 type AdminUploadContentScreenshotNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUploadContentScreenshotInternalServerError() *AdminUploadContentScr
 	return &AdminUploadContentScreenshotInternalServerError{}
 }
 
-/*AdminUploadContentScreenshotInternalServerError handles this case with default header values.
+/*
+AdminUploadContentScreenshotInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
 */
 type AdminUploadContentScreenshotInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

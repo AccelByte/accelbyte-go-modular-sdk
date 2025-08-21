@@ -114,9 +114,10 @@ func NewAdminDeleteAllUserStatesNoContent() *AdminDeleteAllUserStatesNoContent {
 	return &AdminDeleteAllUserStatesNoContent{}
 }
 
-/*AdminDeleteAllUserStatesNoContent handles this case with default header values.
+/*
+AdminDeleteAllUserStatesNoContent handles this case with default header values.
 
-  User stats deleted
+	User stats deleted
 */
 type AdminDeleteAllUserStatesNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminDeleteAllUserStatesUnauthorized() *AdminDeleteAllUserStatesUnauthor
 	return &AdminDeleteAllUserStatesUnauthorized{}
 }
 
-/*AdminDeleteAllUserStatesUnauthorized handles this case with default header values.
+/*
+AdminDeleteAllUserStatesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteAllUserStatesUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewAdminDeleteAllUserStatesNotFound() *AdminDeleteAllUserStatesNotFound {
 	return &AdminDeleteAllUserStatesNotFound{}
 }
 
-/*AdminDeleteAllUserStatesNotFound handles this case with default header values.
+/*
+AdminDeleteAllUserStatesNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773602</td><td>user states are not found: content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773602</td><td>user states are not found: content not found</td></tr></table>
 */
 type AdminDeleteAllUserStatesNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewAdminDeleteAllUserStatesInternalServerError() *AdminDeleteAllUserStatesI
 	return &AdminDeleteAllUserStatesInternalServerError{}
 }
 
-/*AdminDeleteAllUserStatesInternalServerError handles this case with default header values.
+/*
+AdminDeleteAllUserStatesInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773601</td><td>Unable to get all user contents/Unable to delete user states</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773601</td><td>Unable to get all user contents/Unable to delete user states</td></tr></table>
 */
 type AdminDeleteAllUserStatesInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

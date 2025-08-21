@@ -145,9 +145,10 @@ func NewUpdateGroupPredefinedRulePublicV1OK() *UpdateGroupPredefinedRulePublicV1
 	return &UpdateGroupPredefinedRulePublicV1OK{}
 }
 
-/*UpdateGroupPredefinedRulePublicV1OK handles this case with default header values.
+/*
+UpdateGroupPredefinedRulePublicV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateGroupPredefinedRulePublicV1OK struct {
 	Payload *groupclientmodels.ModelsGroupResponseV1
@@ -199,9 +200,10 @@ func NewUpdateGroupPredefinedRulePublicV1BadRequest() *UpdateGroupPredefinedRule
 	return &UpdateGroupPredefinedRulePublicV1BadRequest{}
 }
 
-/*UpdateGroupPredefinedRulePublicV1BadRequest handles this case with default header values.
+/*
+UpdateGroupPredefinedRulePublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateGroupPredefinedRulePublicV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewUpdateGroupPredefinedRulePublicV1Unauthorized() *UpdateGroupPredefinedRu
 	return &UpdateGroupPredefinedRulePublicV1Unauthorized{}
 }
 
-/*UpdateGroupPredefinedRulePublicV1Unauthorized handles this case with default header values.
+/*
+UpdateGroupPredefinedRulePublicV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateGroupPredefinedRulePublicV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewUpdateGroupPredefinedRulePublicV1Forbidden() *UpdateGroupPredefinedRuleP
 	return &UpdateGroupPredefinedRulePublicV1Forbidden{}
 }
 
-/*UpdateGroupPredefinedRulePublicV1Forbidden handles this case with default header values.
+/*
+UpdateGroupPredefinedRulePublicV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type UpdateGroupPredefinedRulePublicV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewUpdateGroupPredefinedRulePublicV1NotFound() *UpdateGroupPredefinedRulePu
 	return &UpdateGroupPredefinedRulePublicV1NotFound{}
 }
 
-/*UpdateGroupPredefinedRulePublicV1NotFound handles this case with default header values.
+/*
+UpdateGroupPredefinedRulePublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
 */
 type UpdateGroupPredefinedRulePublicV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewUpdateGroupPredefinedRulePublicV1InternalServerError() *UpdateGroupPrede
 	return &UpdateGroupPredefinedRulePublicV1InternalServerError{}
 }
 
-/*UpdateGroupPredefinedRulePublicV1InternalServerError handles this case with default header values.
+/*
+UpdateGroupPredefinedRulePublicV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateGroupPredefinedRulePublicV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

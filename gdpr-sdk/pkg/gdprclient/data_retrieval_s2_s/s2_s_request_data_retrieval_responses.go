@@ -130,9 +130,10 @@ func NewS2SRequestDataRetrievalCreated() *S2SRequestDataRetrievalCreated {
 	return &S2SRequestDataRetrievalCreated{}
 }
 
-/*S2SRequestDataRetrievalCreated handles this case with default header values.
+/*
+S2SRequestDataRetrievalCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type S2SRequestDataRetrievalCreated struct {
 	Payload *gdprclientmodels.ModelsS2SDataRetrievalResponse
@@ -184,9 +185,10 @@ func NewS2SRequestDataRetrievalBadRequest() *S2SRequestDataRetrievalBadRequest {
 	return &S2SRequestDataRetrievalBadRequest{}
 }
 
-/*S2SRequestDataRetrievalBadRequest handles this case with default header values.
+/*
+S2SRequestDataRetrievalBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type S2SRequestDataRetrievalBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewS2SRequestDataRetrievalUnauthorized() *S2SRequestDataRetrievalUnauthoriz
 	return &S2SRequestDataRetrievalUnauthorized{}
 }
 
-/*S2SRequestDataRetrievalUnauthorized handles this case with default header values.
+/*
+S2SRequestDataRetrievalUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type S2SRequestDataRetrievalUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewS2SRequestDataRetrievalNotFound() *S2SRequestDataRetrievalNotFound {
 	return &S2SRequestDataRetrievalNotFound{}
 }
 
-/*S2SRequestDataRetrievalNotFound handles this case with default header values.
+/*
+S2SRequestDataRetrievalNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type S2SRequestDataRetrievalNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewS2SRequestDataRetrievalInternalServerError() *S2SRequestDataRetrievalInt
 	return &S2SRequestDataRetrievalInternalServerError{}
 }
 
-/*S2SRequestDataRetrievalInternalServerError handles this case with default header values.
+/*
+S2SRequestDataRetrievalInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type S2SRequestDataRetrievalInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

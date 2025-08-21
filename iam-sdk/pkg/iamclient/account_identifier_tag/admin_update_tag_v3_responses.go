@@ -130,9 +130,10 @@ func NewAdminUpdateTagV3OK() *AdminUpdateTagV3OK {
 	return &AdminUpdateTagV3OK{}
 }
 
-/*AdminUpdateTagV3OK handles this case with default header values.
+/*
+AdminUpdateTagV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateTagV3OK struct {
 	Payload *iamclientmodels.AccountcommonTagResponse
@@ -184,9 +185,10 @@ func NewAdminUpdateTagV3BadRequest() *AdminUpdateTagV3BadRequest {
 	return &AdminUpdateTagV3BadRequest{}
 }
 
-/*AdminUpdateTagV3BadRequest handles this case with default header values.
+/*
+AdminUpdateTagV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminUpdateTagV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,10 +240,9 @@ func NewAdminUpdateTagV3NotFound() *AdminUpdateTagV3NotFound {
 	return &AdminUpdateTagV3NotFound{}
 }
 
-/*AdminUpdateTagV3NotFound handles this case with default header values.
-
-
- */
+/*
+AdminUpdateTagV3NotFound handles this case with default header values.
+*/
 type AdminUpdateTagV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
 }
@@ -292,10 +293,9 @@ func NewAdminUpdateTagV3Conflict() *AdminUpdateTagV3Conflict {
 	return &AdminUpdateTagV3Conflict{}
 }
 
-/*AdminUpdateTagV3Conflict handles this case with default header values.
-
-
- */
+/*
+AdminUpdateTagV3Conflict handles this case with default header values.
+*/
 type AdminUpdateTagV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
 }
@@ -346,9 +346,10 @@ func NewAdminUpdateTagV3InternalServerError() *AdminUpdateTagV3InternalServerErr
 	return &AdminUpdateTagV3InternalServerError{}
 }
 
-/*AdminUpdateTagV3InternalServerError handles this case with default header values.
+/*
+AdminUpdateTagV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpdateTagV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

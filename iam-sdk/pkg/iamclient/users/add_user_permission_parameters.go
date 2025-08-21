@@ -60,7 +60,8 @@ func NewAddUserPermissionParamsWithHTTPClient(client *http.Client) *AddUserPermi
 	}
 }
 
-/*AddUserPermissionParams contains all the parameters to send to the API endpoint
+/*
+AddUserPermissionParams contains all the parameters to send to the API endpoint
 for the add user permission operation typically these are written to a http.Request
 */
 type AddUserPermissionParams struct {

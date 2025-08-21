@@ -115,9 +115,10 @@ func NewUpdateUserEntitlementOK() *UpdateUserEntitlementOK {
 	return &UpdateUserEntitlementOK{}
 }
 
-/*UpdateUserEntitlementOK handles this case with default header values.
+/*
+UpdateUserEntitlementOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateUserEntitlementOK struct {
 	Payload *platformclientmodels.EntitlementInfo
@@ -169,9 +170,10 @@ func NewUpdateUserEntitlementNotFound() *UpdateUserEntitlementNotFound {
 	return &UpdateUserEntitlementNotFound{}
 }
 
-/*UpdateUserEntitlementNotFound handles this case with default header values.
+/*
+UpdateUserEntitlementNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateUserEntitlementNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewUpdateUserEntitlementConflict() *UpdateUserEntitlementConflict {
 	return &UpdateUserEntitlementConflict{}
 }
 
-/*UpdateUserEntitlementConflict handles this case with default header values.
+/*
+UpdateUserEntitlementConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31171</td><td>Entitlement [{entitlementId}] already revoked</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31171</td><td>Entitlement [{entitlementId}] already revoked</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type UpdateUserEntitlementConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewUpdateUserEntitlementUnprocessableEntity() *UpdateUserEntitlementUnproce
 	return &UpdateUserEntitlementUnprocessableEntity{}
 }
 
-/*UpdateUserEntitlementUnprocessableEntity handles this case with default header values.
+/*
+UpdateUserEntitlementUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateUserEntitlementUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

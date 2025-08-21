@@ -115,9 +115,10 @@ func NewAdminListContentV2OK() *AdminListContentV2OK {
 	return &AdminListContentV2OK{}
 }
 
-/*AdminListContentV2OK handles this case with default header values.
+/*
+AdminListContentV2OK handles this case with default header values.
 
-  List content
+	List content
 */
 type AdminListContentV2OK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponseV2
@@ -169,9 +170,10 @@ func NewAdminListContentV2BadRequest() *AdminListContentV2BadRequest {
 	return &AdminListContentV2BadRequest{}
 }
 
-/*AdminListContentV2BadRequest handles this case with default header values.
+/*
+AdminListContentV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
 */
 type AdminListContentV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminListContentV2Unauthorized() *AdminListContentV2Unauthorized {
 	return &AdminListContentV2Unauthorized{}
 }
 
-/*AdminListContentV2Unauthorized handles this case with default header values.
+/*
+AdminListContentV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListContentV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminListContentV2InternalServerError() *AdminListContentV2InternalServe
 	return &AdminListContentV2InternalServerError{}
 }
 
-/*AdminListContentV2InternalServerError handles this case with default header values.
+/*
+AdminListContentV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
 */
 type AdminListContentV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

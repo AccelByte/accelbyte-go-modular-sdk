@@ -59,7 +59,8 @@ func NewSingleAdminUpdateContentDirectParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*SingleAdminUpdateContentDirectParams contains all the parameters to send to the API endpoint
+/*
+SingleAdminUpdateContentDirectParams contains all the parameters to send to the API endpoint
 for the single admin update content direct operation typically these are written to a http.Request
 */
 type SingleAdminUpdateContentDirectParams struct {

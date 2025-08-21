@@ -57,7 +57,8 @@ func NewAdminUploadXBoxCertificateParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminUploadXBoxCertificateParams contains all the parameters to send to the API endpoint
+/*
+AdminUploadXBoxCertificateParams contains all the parameters to send to the API endpoint
 for the admin upload x box certificate operation typically these are written to a http.Request
 */
 type AdminUploadXBoxCertificateParams struct {

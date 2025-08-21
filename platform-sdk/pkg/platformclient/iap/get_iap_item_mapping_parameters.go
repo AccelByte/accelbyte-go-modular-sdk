@@ -84,7 +84,8 @@ func NewGetIAPItemMappingParamsWithHTTPClient(client *http.Client) *GetIAPItemMa
 	}
 }
 
-/*GetIAPItemMappingParams contains all the parameters to send to the API endpoint
+/*
+GetIAPItemMappingParams contains all the parameters to send to the API endpoint
 for the get iap item mapping operation typically these are written to a http.Request
 */
 type GetIAPItemMappingParams struct {

@@ -59,7 +59,8 @@ func NewSingleAdminUpdateContentS3ParamsWithHTTPClient(client *http.Client) *Sin
 	}
 }
 
-/*SingleAdminUpdateContentS3Params contains all the parameters to send to the API endpoint
+/*
+SingleAdminUpdateContentS3Params contains all the parameters to send to the API endpoint
 for the single admin update content s3 operation typically these are written to a http.Request
 */
 type SingleAdminUpdateContentS3Params struct {

@@ -85,9 +85,10 @@ func NewGetCampaignDynamicOK() *GetCampaignDynamicOK {
 	return &GetCampaignDynamicOK{}
 }
 
-/*GetCampaignDynamicOK handles this case with default header values.
+/*
+GetCampaignDynamicOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCampaignDynamicOK struct {
 	Payload *platformclientmodels.CampaignDynamicInfo
@@ -139,9 +140,10 @@ func NewGetCampaignDynamicNotFound() *GetCampaignDynamicNotFound {
 	return &GetCampaignDynamicNotFound{}
 }
 
-/*GetCampaignDynamicNotFound handles this case with default header values.
+/*
+GetCampaignDynamicNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetCampaignDynamicNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

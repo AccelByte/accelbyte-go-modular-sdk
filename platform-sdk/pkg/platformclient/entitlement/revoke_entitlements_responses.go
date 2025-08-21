@@ -85,9 +85,10 @@ func NewRevokeEntitlementsOK() *RevokeEntitlementsOK {
 	return &RevokeEntitlementsOK{}
 }
 
-/*RevokeEntitlementsOK handles this case with default header values.
+/*
+RevokeEntitlementsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RevokeEntitlementsOK struct {
 	Payload *platformclientmodels.BulkEntitlementRevokeResult
@@ -139,9 +140,10 @@ func NewRevokeEntitlementsUnprocessableEntity() *RevokeEntitlementsUnprocessable
 	return &RevokeEntitlementsUnprocessableEntity{}
 }
 
-/*RevokeEntitlementsUnprocessableEntity handles this case with default header values.
+/*
+RevokeEntitlementsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type RevokeEntitlementsUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

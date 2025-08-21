@@ -129,9 +129,10 @@ func NewPublicPlatformUnlinkV3NoContent() *PublicPlatformUnlinkV3NoContent {
 	return &PublicPlatformUnlinkV3NoContent{}
 }
 
-/*PublicPlatformUnlinkV3NoContent handles this case with default header values.
+/*
+PublicPlatformUnlinkV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicPlatformUnlinkV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicPlatformUnlinkV3BadRequest() *PublicPlatformUnlinkV3BadRequest {
 	return &PublicPlatformUnlinkV3BadRequest{}
 }
 
-/*PublicPlatformUnlinkV3BadRequest handles this case with default header values.
+/*
+PublicPlatformUnlinkV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicPlatformUnlinkV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,9 +212,10 @@ func NewPublicPlatformUnlinkV3Unauthorized() *PublicPlatformUnlinkV3Unauthorized
 	return &PublicPlatformUnlinkV3Unauthorized{}
 }
 
-/*PublicPlatformUnlinkV3Unauthorized handles this case with default header values.
+/*
+PublicPlatformUnlinkV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicPlatformUnlinkV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +267,10 @@ func NewPublicPlatformUnlinkV3NotFound() *PublicPlatformUnlinkV3NotFound {
 	return &PublicPlatformUnlinkV3NotFound{}
 }
 
-/*PublicPlatformUnlinkV3NotFound handles this case with default header values.
+/*
+PublicPlatformUnlinkV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicPlatformUnlinkV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +322,10 @@ func NewPublicPlatformUnlinkV3InternalServerError() *PublicPlatformUnlinkV3Inter
 	return &PublicPlatformUnlinkV3InternalServerError{}
 }
 
-/*PublicPlatformUnlinkV3InternalServerError handles this case with default header values.
+/*
+PublicPlatformUnlinkV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicPlatformUnlinkV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

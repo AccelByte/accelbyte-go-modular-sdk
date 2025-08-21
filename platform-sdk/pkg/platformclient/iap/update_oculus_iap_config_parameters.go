@@ -59,7 +59,8 @@ func NewUpdateOculusIAPConfigParamsWithHTTPClient(client *http.Client) *UpdateOc
 	}
 }
 
-/*UpdateOculusIAPConfigParams contains all the parameters to send to the API endpoint
+/*
+UpdateOculusIAPConfigParams contains all the parameters to send to the API endpoint
 for the update oculus iap config operation typically these are written to a http.Request
 */
 type UpdateOculusIAPConfigParams struct {

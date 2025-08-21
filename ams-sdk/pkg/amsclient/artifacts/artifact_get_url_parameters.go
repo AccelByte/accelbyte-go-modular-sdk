@@ -57,7 +57,8 @@ func NewArtifactGetURLParamsWithHTTPClient(client *http.Client) *ArtifactGetURLP
 	}
 }
 
-/*ArtifactGetURLParams contains all the parameters to send to the API endpoint
+/*
+ArtifactGetURLParams contains all the parameters to send to the API endpoint
 for the artifact get url operation typically these are written to a http.Request
 */
 type ArtifactGetURLParams struct {

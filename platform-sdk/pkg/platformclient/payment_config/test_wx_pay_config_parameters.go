@@ -59,7 +59,8 @@ func NewTestWxPayConfigParamsWithHTTPClient(client *http.Client) *TestWxPayConfi
 	}
 }
 
-/*TestWxPayConfigParams contains all the parameters to send to the API endpoint
+/*
+TestWxPayConfigParams contains all the parameters to send to the API endpoint
 for the test wx pay config operation typically these are written to a http.Request
 */
 type TestWxPayConfigParams struct {

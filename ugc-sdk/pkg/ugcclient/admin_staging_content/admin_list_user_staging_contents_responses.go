@@ -130,9 +130,10 @@ func NewAdminListUserStagingContentsOK() *AdminListUserStagingContentsOK {
 	return &AdminListUserStagingContentsOK{}
 }
 
-/*AdminListUserStagingContentsOK handles this case with default header values.
+/*
+AdminListUserStagingContentsOK handles this case with default header values.
 
-  list user's staging content
+	list user's staging content
 */
 type AdminListUserStagingContentsOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedListStagingContentResponse
@@ -184,9 +185,10 @@ func NewAdminListUserStagingContentsBadRequest() *AdminListUserStagingContentsBa
 	return &AdminListUserStagingContentsBadRequest{}
 }
 
-/*AdminListUserStagingContentsBadRequest handles this case with default header values.
+/*
+AdminListUserStagingContentsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774301</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774301</td><td>invalid paging parameter</td></tr></table>
 */
 type AdminListUserStagingContentsBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminListUserStagingContentsUnauthorized() *AdminListUserStagingContents
 	return &AdminListUserStagingContentsUnauthorized{}
 }
 
-/*AdminListUserStagingContentsUnauthorized handles this case with default header values.
+/*
+AdminListUserStagingContentsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListUserStagingContentsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminListUserStagingContentsForbidden() *AdminListUserStagingContentsFor
 	return &AdminListUserStagingContentsForbidden{}
 }
 
-/*AdminListUserStagingContentsForbidden handles this case with default header values.
+/*
+AdminListUserStagingContentsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminListUserStagingContentsForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminListUserStagingContentsInternalServerError() *AdminListUserStagingC
 	return &AdminListUserStagingContentsInternalServerError{}
 }
 
-/*AdminListUserStagingContentsInternalServerError handles this case with default header values.
+/*
+AdminListUserStagingContentsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774302</td><td>unable to get staging content</td></tr><tr><td>774303</td><td>unable to generate presigned URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774302</td><td>unable to get staging content</td></tr><tr><td>774303</td><td>unable to generate presigned URL</td></tr></table>
 */
 type AdminListUserStagingContentsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

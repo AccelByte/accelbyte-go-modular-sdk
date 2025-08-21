@@ -115,9 +115,10 @@ func NewExportConfigOK() *ExportConfigOK {
 	return &ExportConfigOK{}
 }
 
-/*ExportConfigOK handles this case with default header values.
+/*
+ExportConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type ExportConfigOK struct {
 	Payload []*chatclientmodels.ModelsConfigExport
@@ -167,9 +168,10 @@ func NewExportConfigUnauthorized() *ExportConfigUnauthorized {
 	return &ExportConfigUnauthorized{}
 }
 
-/*ExportConfigUnauthorized handles this case with default header values.
+/*
+ExportConfigUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type ExportConfigUnauthorized struct {
 	Payload *chatclientmodels.ResponseError
@@ -221,9 +223,10 @@ func NewExportConfigForbidden() *ExportConfigForbidden {
 	return &ExportConfigForbidden{}
 }
 
-/*ExportConfigForbidden handles this case with default header values.
+/*
+ExportConfigForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type ExportConfigForbidden struct {
 	Payload *chatclientmodels.ResponseError
@@ -275,9 +278,10 @@ func NewExportConfigInternalServerError() *ExportConfigInternalServerError {
 	return &ExportConfigInternalServerError{}
 }
 
-/*ExportConfigInternalServerError handles this case with default header values.
+/*
+ExportConfigInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ExportConfigInternalServerError struct {
 	Payload *chatclientmodels.ResponseError

@@ -84,9 +84,10 @@ func NewResetUserSeasonNoContent() *ResetUserSeasonNoContent {
 	return &ResetUserSeasonNoContent{}
 }
 
-/*ResetUserSeasonNoContent handles this case with default header values.
+/*
+ResetUserSeasonNoContent handles this case with default header values.
 
-  OK
+	OK
 */
 type ResetUserSeasonNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewResetUserSeasonBadRequest() *ResetUserSeasonBadRequest {
 	return &ResetUserSeasonBadRequest{}
 }
 
-/*ResetUserSeasonBadRequest handles this case with default header values.
+/*
+ResetUserSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type ResetUserSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity

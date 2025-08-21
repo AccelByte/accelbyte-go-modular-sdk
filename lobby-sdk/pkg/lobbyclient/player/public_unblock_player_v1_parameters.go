@@ -59,7 +59,8 @@ func NewPublicUnblockPlayerV1ParamsWithHTTPClient(client *http.Client) *PublicUn
 	}
 }
 
-/*PublicUnblockPlayerV1Params contains all the parameters to send to the API endpoint
+/*
+PublicUnblockPlayerV1Params contains all the parameters to send to the API endpoint
 for the public unblock player v1 operation typically these are written to a http.Request
 */
 type PublicUnblockPlayerV1Params struct {

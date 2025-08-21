@@ -100,9 +100,10 @@ func NewAdminGetConfigValueV3OK() *AdminGetConfigValueV3OK {
 	return &AdminGetConfigValueV3OK{}
 }
 
-/*AdminGetConfigValueV3OK handles this case with default header values.
+/*
+AdminGetConfigValueV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetConfigValueV3OK struct {
 	Payload *iamclientmodels.ModelConfigValueResponseV3
@@ -154,9 +155,10 @@ func NewAdminGetConfigValueV3BadRequest() *AdminGetConfigValueV3BadRequest {
 	return &AdminGetConfigValueV3BadRequest{}
 }
 
-/*AdminGetConfigValueV3BadRequest handles this case with default header values.
+/*
+AdminGetConfigValueV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetConfigValueV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -208,9 +210,10 @@ func NewAdminGetConfigValueV3InternalServerError() *AdminGetConfigValueV3Interna
 	return &AdminGetConfigValueV3InternalServerError{}
 }
 
-/*AdminGetConfigValueV3InternalServerError handles this case with default header values.
+/*
+AdminGetConfigValueV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetConfigValueV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

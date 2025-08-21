@@ -66,9 +66,10 @@ func NewDeleteRevocationConfigNoContent() *DeleteRevocationConfigNoContent {
 	return &DeleteRevocationConfigNoContent{}
 }
 
-/*DeleteRevocationConfigNoContent handles this case with default header values.
+/*
+DeleteRevocationConfigNoContent handles this case with default header values.
 
-  Delete successfully
+	Delete successfully
 */
 type DeleteRevocationConfigNoContent struct {
 }

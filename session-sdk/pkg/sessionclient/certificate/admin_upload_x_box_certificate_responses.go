@@ -145,9 +145,10 @@ func NewAdminUploadXBoxCertificateOK() *AdminUploadXBoxCertificateOK {
 	return &AdminUploadXBoxCertificateOK{}
 }
 
-/*AdminUploadXBoxCertificateOK handles this case with default header values.
+/*
+AdminUploadXBoxCertificateOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUploadXBoxCertificateOK struct {
 	Payload *sessionclientmodels.ModelsPlatformCredentials
@@ -199,9 +200,10 @@ func NewAdminUploadXBoxCertificateBadRequest() *AdminUploadXBoxCertificateBadReq
 	return &AdminUploadXBoxCertificateBadRequest{}
 }
 
-/*AdminUploadXBoxCertificateBadRequest handles this case with default header values.
+/*
+AdminUploadXBoxCertificateBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUploadXBoxCertificateBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUploadXBoxCertificateUnauthorized() *AdminUploadXBoxCertificateUnau
 	return &AdminUploadXBoxCertificateUnauthorized{}
 }
 
-/*AdminUploadXBoxCertificateUnauthorized handles this case with default header values.
+/*
+AdminUploadXBoxCertificateUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUploadXBoxCertificateUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUploadXBoxCertificateForbidden() *AdminUploadXBoxCertificateForbidd
 	return &AdminUploadXBoxCertificateForbidden{}
 }
 
-/*AdminUploadXBoxCertificateForbidden handles this case with default header values.
+/*
+AdminUploadXBoxCertificateForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUploadXBoxCertificateForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUploadXBoxCertificateNotFound() *AdminUploadXBoxCertificateNotFound
 	return &AdminUploadXBoxCertificateNotFound{}
 }
 
-/*AdminUploadXBoxCertificateNotFound handles this case with default header values.
+/*
+AdminUploadXBoxCertificateNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUploadXBoxCertificateNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUploadXBoxCertificateInternalServerError() *AdminUploadXBoxCertific
 	return &AdminUploadXBoxCertificateInternalServerError{}
 }
 
-/*AdminUploadXBoxCertificateInternalServerError handles this case with default header values.
+/*
+AdminUploadXBoxCertificateInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUploadXBoxCertificateInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

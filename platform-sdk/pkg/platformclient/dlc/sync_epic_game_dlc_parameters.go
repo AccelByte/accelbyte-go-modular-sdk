@@ -59,7 +59,8 @@ func NewSyncEpicGameDLCParamsWithHTTPClient(client *http.Client) *SyncEpicGameDL
 	}
 }
 
-/*SyncEpicGameDLCParams contains all the parameters to send to the API endpoint
+/*
+SyncEpicGameDLCParams contains all the parameters to send to the API endpoint
 for the sync epic game dlc operation typically these are written to a http.Request
 */
 type SyncEpicGameDLCParams struct {

@@ -145,9 +145,10 @@ func NewPostGameBinaryPresignedURLV1Created() *PostGameBinaryPresignedURLV1Creat
 	return &PostGameBinaryPresignedURLV1Created{}
 }
 
-/*PostGameBinaryPresignedURLV1Created handles this case with default header values.
+/*
+PostGameBinaryPresignedURLV1Created handles this case with default header values.
 
-  Successful Operation
+	Successful Operation
 */
 type PostGameBinaryPresignedURLV1Created struct {
 	Payload *cloudsaveclientmodels.ModelsUploadBinaryRecordResponse
@@ -199,9 +200,10 @@ func NewPostGameBinaryPresignedURLV1BadRequest() *PostGameBinaryPresignedURLV1Ba
 	return &PostGameBinaryPresignedURLV1BadRequest{}
 }
 
-/*PostGameBinaryPresignedURLV1BadRequest handles this case with default header values.
+/*
+PostGameBinaryPresignedURLV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18311</td><td>invalid request body</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18311</td><td>invalid request body</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr></table>
 */
 type PostGameBinaryPresignedURLV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewPostGameBinaryPresignedURLV1Unauthorized() *PostGameBinaryPresignedURLV1
 	return &PostGameBinaryPresignedURLV1Unauthorized{}
 }
 
-/*PostGameBinaryPresignedURLV1Unauthorized handles this case with default header values.
+/*
+PostGameBinaryPresignedURLV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PostGameBinaryPresignedURLV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewPostGameBinaryPresignedURLV1Forbidden() *PostGameBinaryPresignedURLV1For
 	return &PostGameBinaryPresignedURLV1Forbidden{}
 }
 
-/*PostGameBinaryPresignedURLV1Forbidden handles this case with default header values.
+/*
+PostGameBinaryPresignedURLV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PostGameBinaryPresignedURLV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewPostGameBinaryPresignedURLV1NotFound() *PostGameBinaryPresignedURLV1NotF
 	return &PostGameBinaryPresignedURLV1NotFound{}
 }
 
-/*PostGameBinaryPresignedURLV1NotFound handles this case with default header values.
+/*
+PostGameBinaryPresignedURLV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18313</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18313</td><td>record not found</td></tr></table>
 */
 type PostGameBinaryPresignedURLV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewPostGameBinaryPresignedURLV1InternalServerError() *PostGameBinaryPresign
 	return &PostGameBinaryPresignedURLV1InternalServerError{}
 }
 
-/*PostGameBinaryPresignedURLV1InternalServerError handles this case with default header values.
+/*
+PostGameBinaryPresignedURLV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18312</td><td>unable to get record</td></tr><tr><td>18314</td><td>unable to get presigned URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18312</td><td>unable to get record</td></tr><tr><td>18314</td><td>unable to get presigned URL</td></tr></table>
 */
 type PostGameBinaryPresignedURLV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

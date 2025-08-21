@@ -130,9 +130,10 @@ func NewAdminGetAllConfigurationTemplatesV1OK() *AdminGetAllConfigurationTemplat
 	return &AdminGetAllConfigurationTemplatesV1OK{}
 }
 
-/*AdminGetAllConfigurationTemplatesV1OK handles this case with default header values.
+/*
+AdminGetAllConfigurationTemplatesV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetAllConfigurationTemplatesV1OK struct {
 	Payload *sessionclientmodels.ApimodelsConfigurationTemplatesResponse
@@ -184,9 +185,10 @@ func NewAdminGetAllConfigurationTemplatesV1BadRequest() *AdminGetAllConfiguratio
 	return &AdminGetAllConfigurationTemplatesV1BadRequest{}
 }
 
-/*AdminGetAllConfigurationTemplatesV1BadRequest handles this case with default header values.
+/*
+AdminGetAllConfigurationTemplatesV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetAllConfigurationTemplatesV1BadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetAllConfigurationTemplatesV1Unauthorized() *AdminGetAllConfigurat
 	return &AdminGetAllConfigurationTemplatesV1Unauthorized{}
 }
 
-/*AdminGetAllConfigurationTemplatesV1Unauthorized handles this case with default header values.
+/*
+AdminGetAllConfigurationTemplatesV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetAllConfigurationTemplatesV1Unauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGetAllConfigurationTemplatesV1Forbidden() *AdminGetAllConfiguration
 	return &AdminGetAllConfigurationTemplatesV1Forbidden{}
 }
 
-/*AdminGetAllConfigurationTemplatesV1Forbidden handles this case with default header values.
+/*
+AdminGetAllConfigurationTemplatesV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetAllConfigurationTemplatesV1Forbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetAllConfigurationTemplatesV1InternalServerError() *AdminGetAllCon
 	return &AdminGetAllConfigurationTemplatesV1InternalServerError{}
 }
 
-/*AdminGetAllConfigurationTemplatesV1InternalServerError handles this case with default header values.
+/*
+AdminGetAllConfigurationTemplatesV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetAllConfigurationTemplatesV1InternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

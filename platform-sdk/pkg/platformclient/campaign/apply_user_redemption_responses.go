@@ -115,9 +115,10 @@ func NewApplyUserRedemptionOK() *ApplyUserRedemptionOK {
 	return &ApplyUserRedemptionOK{}
 }
 
-/*ApplyUserRedemptionOK handles this case with default header values.
+/*
+ApplyUserRedemptionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ApplyUserRedemptionOK struct {
 	Payload *platformclientmodels.RedeemResult
@@ -169,9 +170,10 @@ func NewApplyUserRedemptionNotFound() *ApplyUserRedemptionNotFound {
 	return &ApplyUserRedemptionNotFound{}
 }
 
-/*ApplyUserRedemptionNotFound handles this case with default header values.
+/*
+ApplyUserRedemptionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type ApplyUserRedemptionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewApplyUserRedemptionConflict() *ApplyUserRedemptionConflict {
 	return &ApplyUserRedemptionConflict{}
 }
 
-/*ApplyUserRedemptionConflict handles this case with default header values.
+/*
+ApplyUserRedemptionConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37172</td><td>Campaign [{campaignId}] is inactive in namespace [{namespace}]</td></tr><tr><td>37173</td><td>Code [{code}] is inactive in namespace [{namespace}]</td></tr><tr><td>37174</td><td>Exceeded max redeem count per code [{maxCount}]</td></tr><tr><td>37175</td><td>Exceeded max redeem count per code per user [{maxCount}]</td></tr><tr><td>37177</td><td>Code redemption not started</td></tr><tr><td>37178</td><td>Code redemption already ended</td></tr><tr><td>37179</td><td>Exceeded max redeem count per campaign per user [{maxCount}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37172</td><td>Campaign [{campaignId}] is inactive in namespace [{namespace}]</td></tr><tr><td>37173</td><td>Code [{code}] is inactive in namespace [{namespace}]</td></tr><tr><td>37174</td><td>Exceeded max redeem count per code [{maxCount}]</td></tr><tr><td>37175</td><td>Exceeded max redeem count per code per user [{maxCount}]</td></tr><tr><td>37177</td><td>Code redemption not started</td></tr><tr><td>37178</td><td>Code redemption already ended</td></tr><tr><td>37179</td><td>Exceeded max redeem count per campaign per user [{maxCount}]</td></tr></table>
 */
 type ApplyUserRedemptionConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewApplyUserRedemptionUnprocessableEntity() *ApplyUserRedemptionUnprocessab
 	return &ApplyUserRedemptionUnprocessableEntity{}
 }
 
-/*ApplyUserRedemptionUnprocessableEntity handles this case with default header values.
+/*
+ApplyUserRedemptionUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type ApplyUserRedemptionUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

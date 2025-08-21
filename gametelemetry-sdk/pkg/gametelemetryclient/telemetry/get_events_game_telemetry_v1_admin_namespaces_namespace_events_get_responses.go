@@ -105,9 +105,10 @@ func NewGetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetOK() *GetEvents
 	return &GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetOK{}
 }
 
-/*GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetOK handles this case with default header values.
+/*
+GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetOK handles this case with default header values.
 
-  Successful Response
+	Successful Response
 */
 type GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetOK struct {
 	Payload *gametelemetryclientmodels.PagedResponseGetNamespaceEventResponse
@@ -159,9 +160,10 @@ func NewGetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetBadRequest() *G
 	return &GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetBadRequest{}
 }
 
-/*GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetBadRequest handles this case with default header values.
+/*
+GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetBadRequest struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse
@@ -213,9 +215,10 @@ func NewGetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetUnprocessableEn
 	return &GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetUnprocessableEntity{}
 }
 
-/*GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetUnprocessableEntity handles this case with default header values.
+/*
+GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetUnprocessableEntity handles this case with default header values.
 
-  Validation Error
+	Validation Error
 */
 type GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetUnprocessableEntity struct {
 	Payload *gametelemetryclientmodels.HTTPValidationError

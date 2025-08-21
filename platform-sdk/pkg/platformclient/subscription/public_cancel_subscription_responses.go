@@ -100,9 +100,10 @@ func NewPublicCancelSubscriptionOK() *PublicCancelSubscriptionOK {
 	return &PublicCancelSubscriptionOK{}
 }
 
-/*PublicCancelSubscriptionOK handles this case with default header values.
+/*
+PublicCancelSubscriptionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicCancelSubscriptionOK struct {
 	Payload *platformclientmodels.SubscriptionInfo
@@ -154,9 +155,10 @@ func NewPublicCancelSubscriptionNotFound() *PublicCancelSubscriptionNotFound {
 	return &PublicCancelSubscriptionNotFound{}
 }
 
-/*PublicCancelSubscriptionNotFound handles this case with default header values.
+/*
+PublicCancelSubscriptionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
 */
 type PublicCancelSubscriptionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewPublicCancelSubscriptionConflict() *PublicCancelSubscriptionConflict {
 	return &PublicCancelSubscriptionConflict{}
 }
 
-/*PublicCancelSubscriptionConflict handles this case with default header values.
+/*
+PublicCancelSubscriptionConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40171</td><td>Subscription [{subscriptionId}] is not active</td></tr><tr><td>40172</td><td>Subscription [{subscriptionId}] is charging, waiting for payment notification</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40171</td><td>Subscription [{subscriptionId}] is not active</td></tr><tr><td>40172</td><td>Subscription [{subscriptionId}] is charging, waiting for payment notification</td></tr></table>
 */
 type PublicCancelSubscriptionConflict struct {
 	Payload *platformclientmodels.ErrorEntity

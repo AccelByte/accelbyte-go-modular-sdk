@@ -78,7 +78,8 @@ func NewQueryPaymentProviderConfigParamsWithHTTPClient(client *http.Client) *Que
 	}
 }
 
-/*QueryPaymentProviderConfigParams contains all the parameters to send to the API endpoint
+/*
+QueryPaymentProviderConfigParams contains all the parameters to send to the API endpoint
 for the query payment provider config operation typically these are written to a http.Request
 */
 type QueryPaymentProviderConfigParams struct {

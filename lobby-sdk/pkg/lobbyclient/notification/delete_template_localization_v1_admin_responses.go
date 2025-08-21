@@ -129,9 +129,10 @@ func NewDeleteTemplateLocalizationV1AdminNoContent() *DeleteTemplateLocalization
 	return &DeleteTemplateLocalizationV1AdminNoContent{}
 }
 
-/*DeleteTemplateLocalizationV1AdminNoContent handles this case with default header values.
+/*
+DeleteTemplateLocalizationV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteTemplateLocalizationV1AdminNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteTemplateLocalizationV1AdminUnauthorized() *DeleteTemplateLocalizat
 	return &DeleteTemplateLocalizationV1AdminUnauthorized{}
 }
 
-/*DeleteTemplateLocalizationV1AdminUnauthorized handles this case with default header values.
+/*
+DeleteTemplateLocalizationV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteTemplateLocalizationV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -210,9 +212,10 @@ func NewDeleteTemplateLocalizationV1AdminForbidden() *DeleteTemplateLocalization
 	return &DeleteTemplateLocalizationV1AdminForbidden{}
 }
 
-/*DeleteTemplateLocalizationV1AdminForbidden handles this case with default header values.
+/*
+DeleteTemplateLocalizationV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteTemplateLocalizationV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -264,9 +267,10 @@ func NewDeleteTemplateLocalizationV1AdminNotFound() *DeleteTemplateLocalizationV
 	return &DeleteTemplateLocalizationV1AdminNotFound{}
 }
 
-/*DeleteTemplateLocalizationV1AdminNotFound handles this case with default header values.
+/*
+DeleteTemplateLocalizationV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteTemplateLocalizationV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -318,9 +322,10 @@ func NewDeleteTemplateLocalizationV1AdminInternalServerError() *DeleteTemplateLo
 	return &DeleteTemplateLocalizationV1AdminInternalServerError{}
 }
 
-/*DeleteTemplateLocalizationV1AdminInternalServerError handles this case with default header values.
+/*
+DeleteTemplateLocalizationV1AdminInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteTemplateLocalizationV1AdminInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

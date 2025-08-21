@@ -46,7 +46,7 @@ This API is used to query all passes for a season.
 
 Other detail info:
 
-  * Returns : the list of passes
+  - Returns : the list of passes
 */
 func (a *Client) QueryPassesShort(params *QueryPassesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryPassesResponse, error) {
 	// TODO: Validate the params before sending
@@ -118,7 +118,7 @@ This API is used to create a pass for a draft season.
 
 Other detail info:
 
-  * Returns : created pass
+  - Returns : created pass
 */
 func (a *Client) CreatePassShort(params *CreatePassParams, authInfo runtime.ClientAuthInfoWriter) (*CreatePassResponse, error) {
 	// TODO: Validate the params before sending
@@ -204,7 +204,7 @@ This API is used to get a pass for a season.
 
 Other detail info:
 
-  * Returns : pass data
+  - Returns : pass data
 */
 func (a *Client) GetPassShort(params *GetPassParams, authInfo runtime.ClientAuthInfoWriter) (*GetPassResponse, error) {
 	// TODO: Validate the params before sending
@@ -350,7 +350,7 @@ This API is used to update a pass. Only draft season pass can be updated.
 
 Other detail info:
 
-  * Returns : updated pass
+  - Returns : updated pass
 */
 func (a *Client) UpdatePassShort(params *UpdatePassParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePassResponse, error) {
 	// TODO: Validate the params before sending
@@ -436,7 +436,7 @@ This API is used to grant pass to user, it will auto enroll if there's no user s
 
 Other detail info:
 
-  * Returns : user season data
+  - Returns : user season data
 */
 func (a *Client) GrantUserPassShort(params *GrantUserPassParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserPassResponse, error) {
 	// TODO: Validate the params before sending

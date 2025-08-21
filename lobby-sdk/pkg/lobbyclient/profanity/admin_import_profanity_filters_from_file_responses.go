@@ -144,9 +144,10 @@ func NewAdminImportProfanityFiltersFromFileOK() *AdminImportProfanityFiltersFrom
 	return &AdminImportProfanityFiltersFromFileOK{}
 }
 
-/*AdminImportProfanityFiltersFromFileOK handles this case with default header values.
+/*
+AdminImportProfanityFiltersFromFileOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminImportProfanityFiltersFromFileOK struct {
 }
@@ -171,9 +172,10 @@ func NewAdminImportProfanityFiltersFromFileBadRequest() *AdminImportProfanityFil
 	return &AdminImportProfanityFiltersFromFileBadRequest{}
 }
 
-/*AdminImportProfanityFiltersFromFileBadRequest handles this case with default header values.
+/*
+AdminImportProfanityFiltersFromFileBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminImportProfanityFiltersFromFileBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -225,9 +227,10 @@ func NewAdminImportProfanityFiltersFromFileUnauthorized() *AdminImportProfanityF
 	return &AdminImportProfanityFiltersFromFileUnauthorized{}
 }
 
-/*AdminImportProfanityFiltersFromFileUnauthorized handles this case with default header values.
+/*
+AdminImportProfanityFiltersFromFileUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminImportProfanityFiltersFromFileUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -279,9 +282,10 @@ func NewAdminImportProfanityFiltersFromFileForbidden() *AdminImportProfanityFilt
 	return &AdminImportProfanityFiltersFromFileForbidden{}
 }
 
-/*AdminImportProfanityFiltersFromFileForbidden handles this case with default header values.
+/*
+AdminImportProfanityFiltersFromFileForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminImportProfanityFiltersFromFileForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -333,9 +337,10 @@ func NewAdminImportProfanityFiltersFromFileNotFound() *AdminImportProfanityFilte
 	return &AdminImportProfanityFiltersFromFileNotFound{}
 }
 
-/*AdminImportProfanityFiltersFromFileNotFound handles this case with default header values.
+/*
+AdminImportProfanityFiltersFromFileNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminImportProfanityFiltersFromFileNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -387,9 +392,10 @@ func NewAdminImportProfanityFiltersFromFileInternalServerError() *AdminImportPro
 	return &AdminImportProfanityFiltersFromFileInternalServerError{}
 }
 
-/*AdminImportProfanityFiltersFromFileInternalServerError handles this case with default header values.
+/*
+AdminImportProfanityFiltersFromFileInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminImportProfanityFiltersFromFileInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

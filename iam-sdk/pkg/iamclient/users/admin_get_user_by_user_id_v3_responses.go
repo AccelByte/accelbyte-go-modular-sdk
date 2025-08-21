@@ -145,9 +145,10 @@ func NewAdminGetUserByUserIDV3OK() *AdminGetUserByUserIDV3OK {
 	return &AdminGetUserByUserIDV3OK{}
 }
 
-/*AdminGetUserByUserIDV3OK handles this case with default header values.
+/*
+AdminGetUserByUserIDV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserByUserIDV3OK struct {
 	Payload *iamclientmodels.ModelUserResponseV3
@@ -199,9 +200,10 @@ func NewAdminGetUserByUserIDV3BadRequest() *AdminGetUserByUserIDV3BadRequest {
 	return &AdminGetUserByUserIDV3BadRequest{}
 }
 
-/*AdminGetUserByUserIDV3BadRequest handles this case with default header values.
+/*
+AdminGetUserByUserIDV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetUserByUserIDV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewAdminGetUserByUserIDV3Unauthorized() *AdminGetUserByUserIDV3Unauthorized
 	return &AdminGetUserByUserIDV3Unauthorized{}
 }
 
-/*AdminGetUserByUserIDV3Unauthorized handles this case with default header values.
+/*
+AdminGetUserByUserIDV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserByUserIDV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewAdminGetUserByUserIDV3Forbidden() *AdminGetUserByUserIDV3Forbidden {
 	return &AdminGetUserByUserIDV3Forbidden{}
 }
 
-/*AdminGetUserByUserIDV3Forbidden handles this case with default header values.
+/*
+AdminGetUserByUserIDV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserByUserIDV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewAdminGetUserByUserIDV3NotFound() *AdminGetUserByUserIDV3NotFound {
 	return &AdminGetUserByUserIDV3NotFound{}
 }
 
-/*AdminGetUserByUserIDV3NotFound handles this case with default header values.
+/*
+AdminGetUserByUserIDV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type AdminGetUserByUserIDV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewAdminGetUserByUserIDV3InternalServerError() *AdminGetUserByUserIDV3Inter
 	return &AdminGetUserByUserIDV3InternalServerError{}
 }
 
-/*AdminGetUserByUserIDV3InternalServerError handles this case with default header values.
+/*
+AdminGetUserByUserIDV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetUserByUserIDV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

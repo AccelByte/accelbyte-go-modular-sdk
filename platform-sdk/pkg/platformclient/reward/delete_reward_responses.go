@@ -85,9 +85,10 @@ func NewDeleteRewardOK() *DeleteRewardOK {
 	return &DeleteRewardOK{}
 }
 
-/*DeleteRewardOK handles this case with default header values.
+/*
+DeleteRewardOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DeleteRewardOK struct {
 	Payload *platformclientmodels.RewardInfo
@@ -139,9 +140,10 @@ func NewDeleteRewardNotFound() *DeleteRewardNotFound {
 	return &DeleteRewardNotFound{}
 }
 
-/*DeleteRewardNotFound handles this case with default header values.
+/*
+DeleteRewardNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34041</td><td>Reward [{rewardId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34041</td><td>Reward [{rewardId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DeleteRewardNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

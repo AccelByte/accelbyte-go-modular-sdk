@@ -144,9 +144,10 @@ func NewAdminCancelUserAccountDeletionRequestNoContent() *AdminCancelUserAccount
 	return &AdminCancelUserAccountDeletionRequestNoContent{}
 }
 
-/*AdminCancelUserAccountDeletionRequestNoContent handles this case with default header values.
+/*
+AdminCancelUserAccountDeletionRequestNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminCancelUserAccountDeletionRequestNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminCancelUserAccountDeletionRequestBadRequest() *AdminCancelUserAccoun
 	return &AdminCancelUserAccountDeletionRequestBadRequest{}
 }
 
-/*AdminCancelUserAccountDeletionRequestBadRequest handles this case with default header values.
+/*
+AdminCancelUserAccountDeletionRequestBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCancelUserAccountDeletionRequestBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewAdminCancelUserAccountDeletionRequestUnauthorized() *AdminCancelUserAcco
 	return &AdminCancelUserAccountDeletionRequestUnauthorized{}
 }
 
-/*AdminCancelUserAccountDeletionRequestUnauthorized handles this case with default header values.
+/*
+AdminCancelUserAccountDeletionRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminCancelUserAccountDeletionRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewAdminCancelUserAccountDeletionRequestForbidden() *AdminCancelUserAccount
 	return &AdminCancelUserAccountDeletionRequestForbidden{}
 }
 
-/*AdminCancelUserAccountDeletionRequestForbidden handles this case with default header values.
+/*
+AdminCancelUserAccountDeletionRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminCancelUserAccountDeletionRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewAdminCancelUserAccountDeletionRequestNotFound() *AdminCancelUserAccountD
 	return &AdminCancelUserAccountDeletionRequestNotFound{}
 }
 
-/*AdminCancelUserAccountDeletionRequestNotFound handles this case with default header values.
+/*
+AdminCancelUserAccountDeletionRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminCancelUserAccountDeletionRequestNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewAdminCancelUserAccountDeletionRequestInternalServerError() *AdminCancelU
 	return &AdminCancelUserAccountDeletionRequestInternalServerError{}
 }
 
-/*AdminCancelUserAccountDeletionRequestInternalServerError handles this case with default header values.
+/*
+AdminCancelUserAccountDeletionRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCancelUserAccountDeletionRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

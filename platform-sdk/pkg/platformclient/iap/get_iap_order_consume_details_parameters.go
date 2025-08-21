@@ -57,7 +57,8 @@ func NewGetIAPOrderConsumeDetailsParamsWithHTTPClient(client *http.Client) *GetI
 	}
 }
 
-/*GetIAPOrderConsumeDetailsParams contains all the parameters to send to the API endpoint
+/*
+GetIAPOrderConsumeDetailsParams contains all the parameters to send to the API endpoint
 for the get iap order consume details operation typically these are written to a http.Request
 */
 type GetIAPOrderConsumeDetailsParams struct {

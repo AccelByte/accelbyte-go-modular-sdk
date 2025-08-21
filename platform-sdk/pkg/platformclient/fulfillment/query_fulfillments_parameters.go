@@ -95,7 +95,8 @@ func NewQueryFulfillmentsParamsWithHTTPClient(client *http.Client) *QueryFulfill
 	}
 }
 
-/*QueryFulfillmentsParams contains all the parameters to send to the API endpoint
+/*
+QueryFulfillmentsParams contains all the parameters to send to the API endpoint
 for the query fulfillments operation typically these are written to a http.Request
 */
 type QueryFulfillmentsParams struct {

@@ -175,9 +175,10 @@ func NewIncUserStatItemValueOK() *IncUserStatItemValueOK {
 	return &IncUserStatItemValueOK{}
 }
 
-/*IncUserStatItemValueOK handles this case with default header values.
+/*
+IncUserStatItemValueOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type IncUserStatItemValueOK struct {
 	Payload *socialclientmodels.StatItemIncResult
@@ -229,9 +230,10 @@ func NewIncUserStatItemValueBadRequest() *IncUserStatItemValueBadRequest {
 	return &IncUserStatItemValueBadRequest{}
 }
 
-/*IncUserStatItemValueBadRequest handles this case with default header values.
+/*
+IncUserStatItemValueBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12221</td><td>Invalid stat operator, expect [{expected}] but actual [{actual}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12221</td><td>Invalid stat operator, expect [{expected}] but actual [{actual}]</td></tr></table>
 */
 type IncUserStatItemValueBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -283,9 +285,10 @@ func NewIncUserStatItemValueUnauthorized() *IncUserStatItemValueUnauthorized {
 	return &IncUserStatItemValueUnauthorized{}
 }
 
-/*IncUserStatItemValueUnauthorized handles this case with default header values.
+/*
+IncUserStatItemValueUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type IncUserStatItemValueUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -337,9 +340,10 @@ func NewIncUserStatItemValueForbidden() *IncUserStatItemValueForbidden {
 	return &IncUserStatItemValueForbidden{}
 }
 
-/*IncUserStatItemValueForbidden handles this case with default header values.
+/*
+IncUserStatItemValueForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type IncUserStatItemValueForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -391,9 +395,10 @@ func NewIncUserStatItemValueNotFound() *IncUserStatItemValueNotFound {
 	return &IncUserStatItemValueNotFound{}
 }
 
-/*IncUserStatItemValueNotFound handles this case with default header values.
+/*
+IncUserStatItemValueNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr><tr><td>12242</td><td>Stat item of [{statCode}] of user [{profileId}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr><tr><td>12242</td><td>Stat item of [{statCode}] of user [{profileId}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type IncUserStatItemValueNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -445,9 +450,10 @@ func NewIncUserStatItemValueConflict() *IncUserStatItemValueConflict {
 	return &IncUserStatItemValueConflict{}
 }
 
-/*IncUserStatItemValueConflict handles this case with default header values.
+/*
+IncUserStatItemValueConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12273</td><td>Stat [{statCode}] is not decreasable</td></tr><tr><td>12275</td><td>[{action}] value: [{value}] of stat [{statCode}]  is out of range while minimum [{minimum}] and maximum [{maximum}] in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12273</td><td>Stat [{statCode}] is not decreasable</td></tr><tr><td>12275</td><td>[{action}] value: [{value}] of stat [{statCode}]  is out of range while minimum [{minimum}] and maximum [{maximum}] in namespace [{namespace}]</td></tr></table>
 */
 type IncUserStatItemValueConflict struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -499,9 +505,10 @@ func NewIncUserStatItemValueUnprocessableEntity() *IncUserStatItemValueUnprocess
 	return &IncUserStatItemValueUnprocessableEntity{}
 }
 
-/*IncUserStatItemValueUnprocessableEntity handles this case with default header values.
+/*
+IncUserStatItemValueUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type IncUserStatItemValueUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -553,9 +560,10 @@ func NewIncUserStatItemValueInternalServerError() *IncUserStatItemValueInternalS
 	return &IncUserStatItemValueInternalServerError{}
 }
 
-/*IncUserStatItemValueInternalServerError handles this case with default header values.
+/*
+IncUserStatItemValueInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type IncUserStatItemValueInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

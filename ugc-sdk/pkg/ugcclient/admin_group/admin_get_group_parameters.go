@@ -57,7 +57,8 @@ func NewAdminGetGroupParamsWithHTTPClient(client *http.Client) *AdminGetGroupPar
 	}
 }
 
-/*AdminGetGroupParams contains all the parameters to send to the API endpoint
+/*
+AdminGetGroupParams contains all the parameters to send to the API endpoint
 for the admin get group operation typically these are written to a http.Request
 */
 type AdminGetGroupParams struct {

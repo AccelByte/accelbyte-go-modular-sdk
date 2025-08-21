@@ -145,9 +145,10 @@ func NewAdminUpdateUserInventoriesByInventoryCodeOK() *AdminUpdateUserInventorie
 	return &AdminUpdateUserInventoriesByInventoryCodeOK{}
 }
 
-/*AdminUpdateUserInventoriesByInventoryCodeOK handles this case with default header values.
+/*
+AdminUpdateUserInventoriesByInventoryCodeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateUserInventoriesByInventoryCodeOK struct {
 	Payload []*inventoryclientmodels.ApimodelsInventoryResp
@@ -197,9 +198,10 @@ func NewAdminUpdateUserInventoriesByInventoryCodeBadRequest() *AdminUpdateUserIn
 	return &AdminUpdateUserInventoriesByInventoryCodeBadRequest{}
 }
 
-/*AdminUpdateUserInventoriesByInventoryCodeBadRequest handles this case with default header values.
+/*
+AdminUpdateUserInventoriesByInventoryCodeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateUserInventoriesByInventoryCodeBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -251,9 +253,10 @@ func NewAdminUpdateUserInventoriesByInventoryCodeUnauthorized() *AdminUpdateUser
 	return &AdminUpdateUserInventoriesByInventoryCodeUnauthorized{}
 }
 
-/*AdminUpdateUserInventoriesByInventoryCodeUnauthorized handles this case with default header values.
+/*
+AdminUpdateUserInventoriesByInventoryCodeUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdateUserInventoriesByInventoryCodeUnauthorized struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -305,9 +308,10 @@ func NewAdminUpdateUserInventoriesByInventoryCodeForbidden() *AdminUpdateUserInv
 	return &AdminUpdateUserInventoriesByInventoryCodeForbidden{}
 }
 
-/*AdminUpdateUserInventoriesByInventoryCodeForbidden handles this case with default header values.
+/*
+AdminUpdateUserInventoriesByInventoryCodeForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdateUserInventoriesByInventoryCodeForbidden struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -359,9 +363,10 @@ func NewAdminUpdateUserInventoriesByInventoryCodeNotFound() *AdminUpdateUserInve
 	return &AdminUpdateUserInventoriesByInventoryCodeNotFound{}
 }
 
-/*AdminUpdateUserInventoriesByInventoryCodeNotFound handles this case with default header values.
+/*
+AdminUpdateUserInventoriesByInventoryCodeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateUserInventoriesByInventoryCodeNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -413,9 +418,10 @@ func NewAdminUpdateUserInventoriesByInventoryCodeInternalServerError() *AdminUpd
 	return &AdminUpdateUserInventoriesByInventoryCodeInternalServerError{}
 }
 
-/*AdminUpdateUserInventoriesByInventoryCodeInternalServerError handles this case with default header values.
+/*
+AdminUpdateUserInventoriesByInventoryCodeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateUserInventoriesByInventoryCodeInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

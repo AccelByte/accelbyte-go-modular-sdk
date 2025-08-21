@@ -80,7 +80,8 @@ func NewPublicGetUserEntitlementByItemIDParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*PublicGetUserEntitlementByItemIDParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserEntitlementByItemIDParams contains all the parameters to send to the API endpoint
 for the public get user entitlement by item id operation typically these are written to a http.Request
 */
 type PublicGetUserEntitlementByItemIDParams struct {

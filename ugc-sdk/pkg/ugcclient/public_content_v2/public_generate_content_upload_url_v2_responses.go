@@ -145,9 +145,10 @@ func NewPublicGenerateContentUploadURLV2OK() *PublicGenerateContentUploadURLV2OK
 	return &PublicGenerateContentUploadURLV2OK{}
 }
 
-/*PublicGenerateContentUploadURLV2OK handles this case with default header values.
+/*
+PublicGenerateContentUploadURLV2OK handles this case with default header values.
 
-  content upload URL generated
+	content upload URL generated
 */
 type PublicGenerateContentUploadURLV2OK struct {
 	Payload *ugcclientmodels.ModelsGenerateContentUploadURLResponse
@@ -199,9 +200,10 @@ func NewPublicGenerateContentUploadURLV2BadRequest() *PublicGenerateContentUploa
 	return &PublicGenerateContentUploadURLV2BadRequest{}
 }
 
-/*PublicGenerateContentUploadURLV2BadRequest handles this case with default header values.
+/*
+PublicGenerateContentUploadURLV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
 */
 type PublicGenerateContentUploadURLV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewPublicGenerateContentUploadURLV2Unauthorized() *PublicGenerateContentUpl
 	return &PublicGenerateContentUploadURLV2Unauthorized{}
 }
 
-/*PublicGenerateContentUploadURLV2Unauthorized handles this case with default header values.
+/*
+PublicGenerateContentUploadURLV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGenerateContentUploadURLV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewPublicGenerateContentUploadURLV2Forbidden() *PublicGenerateContentUpload
 	return &PublicGenerateContentUploadURLV2Forbidden{}
 }
 
-/*PublicGenerateContentUploadURLV2Forbidden handles this case with default header values.
+/*
+PublicGenerateContentUploadURLV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type PublicGenerateContentUploadURLV2Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewPublicGenerateContentUploadURLV2NotFound() *PublicGenerateContentUploadU
 	return &PublicGenerateContentUploadURLV2NotFound{}
 }
 
-/*PublicGenerateContentUploadURLV2NotFound handles this case with default header values.
+/*
+PublicGenerateContentUploadURLV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
 */
 type PublicGenerateContentUploadURLV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicGenerateContentUploadURLV2InternalServerError() *PublicGenerateCon
 	return &PublicGenerateContentUploadURLV2InternalServerError{}
 }
 
-/*PublicGenerateContentUploadURLV2InternalServerError handles this case with default header values.
+/*
+PublicGenerateContentUploadURLV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
 */
 type PublicGenerateContentUploadURLV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

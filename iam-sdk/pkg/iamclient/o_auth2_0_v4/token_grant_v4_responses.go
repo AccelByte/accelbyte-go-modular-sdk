@@ -137,9 +137,10 @@ func NewTokenGrantV4OK() *TokenGrantV4OK {
 	return &TokenGrantV4OK{}
 }
 
-/*TokenGrantV4OK handles this case with default header values.
+/*
+TokenGrantV4OK handles this case with default header values.
 
-  Token returned
+	Token returned
 */
 type TokenGrantV4OK struct {
 	Payload *iamclientmodels.OauthmodelTokenWithDeviceCookieResponseV3
@@ -191,9 +192,10 @@ func NewTokenGrantV4Accepted() *TokenGrantV4Accepted {
 	return &TokenGrantV4Accepted{}
 }
 
-/*TokenGrantV4Accepted handles this case with default header values.
+/*
+TokenGrantV4Accepted handles this case with default header values.
 
-  Login ticket returned
+	Login ticket returned
 */
 type TokenGrantV4Accepted struct {
 	Payload *iamclientmodels.OauthmodelLoginQueueTicketResponse
@@ -245,9 +247,10 @@ func NewTokenGrantV4BadRequest() *TokenGrantV4BadRequest {
 	return &TokenGrantV4BadRequest{}
 }
 
-/*TokenGrantV4BadRequest handles this case with default header values.
+/*
+TokenGrantV4BadRequest handles this case with default header values.
 
-  InvalidRequest
+	InvalidRequest
 */
 type TokenGrantV4BadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -299,9 +302,10 @@ func NewTokenGrantV4Unauthorized() *TokenGrantV4Unauthorized {
 	return &TokenGrantV4Unauthorized{}
 }
 
-/*TokenGrantV4Unauthorized handles this case with default header values.
+/*
+TokenGrantV4Unauthorized handles this case with default header values.
 
-  Client authentication failed
+	Client authentication failed
 */
 type TokenGrantV4Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -353,9 +357,10 @@ func NewTokenGrantV4Forbidden() *TokenGrantV4Forbidden {
 	return &TokenGrantV4Forbidden{}
 }
 
-/*TokenGrantV4Forbidden handles this case with default header values.
+/*
+TokenGrantV4Forbidden handles this case with default header values.
 
-  Unauthorized access
+	Unauthorized access
 */
 type TokenGrantV4Forbidden struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -407,9 +412,10 @@ func NewTokenGrantV4TooManyRequests() *TokenGrantV4TooManyRequests {
 	return &TokenGrantV4TooManyRequests{}
 }
 
-/*TokenGrantV4TooManyRequests handles this case with default header values.
+/*
+TokenGrantV4TooManyRequests handles this case with default header values.
 
-  Too many failed auth attempt
+	Too many failed auth attempt
 */
 type TokenGrantV4TooManyRequests struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

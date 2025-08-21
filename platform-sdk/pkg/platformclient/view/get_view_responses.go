@@ -85,9 +85,10 @@ func NewGetViewOK() *GetViewOK {
 	return &GetViewOK{}
 }
 
-/*GetViewOK handles this case with default header values.
+/*
+GetViewOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetViewOK struct {
 	Payload *platformclientmodels.FullViewInfo
@@ -139,9 +140,10 @@ func NewGetViewNotFound() *GetViewNotFound {
 	return &GetViewNotFound{}
 }
 
-/*GetViewNotFound handles this case with default header values.
+/*
+GetViewNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30641</td><td>View [{viewId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30641</td><td>View [{viewId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetViewNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

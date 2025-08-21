@@ -124,9 +124,10 @@ func NewRemoveRoleManagersNoContent() *RemoveRoleManagersNoContent {
 	return &RemoveRoleManagersNoContent{}
 }
 
-/*RemoveRoleManagersNoContent handles this case with default header values.
+/*
+RemoveRoleManagersNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type RemoveRoleManagersNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewRemoveRoleManagersBadRequest() *RemoveRoleManagersBadRequest {
 	return &RemoveRoleManagersBadRequest{}
 }
 
-/*RemoveRoleManagersBadRequest handles this case with default header values.
+/*
+RemoveRoleManagersBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type RemoveRoleManagersBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewRemoveRoleManagersUnauthorized() *RemoveRoleManagersUnauthorized {
 	return &RemoveRoleManagersUnauthorized{}
 }
 
-/*RemoveRoleManagersUnauthorized handles this case with default header values.
+/*
+RemoveRoleManagersUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type RemoveRoleManagersUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewRemoveRoleManagersForbidden() *RemoveRoleManagersForbidden {
 	return &RemoveRoleManagersForbidden{}
 }
 
-/*RemoveRoleManagersForbidden handles this case with default header values.
+/*
+RemoveRoleManagersForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type RemoveRoleManagersForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewRemoveRoleManagersNotFound() *RemoveRoleManagersNotFound {
 	return &RemoveRoleManagersNotFound{}
 }
 
-/*RemoveRoleManagersNotFound handles this case with default header values.
+/*
+RemoveRoleManagersNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type RemoveRoleManagersNotFound struct {
 }

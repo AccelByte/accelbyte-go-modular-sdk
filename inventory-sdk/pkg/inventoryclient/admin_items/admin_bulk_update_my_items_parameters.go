@@ -59,7 +59,8 @@ func NewAdminBulkUpdateMyItemsParamsWithHTTPClient(client *http.Client) *AdminBu
 	}
 }
 
-/*AdminBulkUpdateMyItemsParams contains all the parameters to send to the API endpoint
+/*
+AdminBulkUpdateMyItemsParams contains all the parameters to send to the API endpoint
 for the admin bulk update my items operation typically these are written to a http.Request
 */
 type AdminBulkUpdateMyItemsParams struct {

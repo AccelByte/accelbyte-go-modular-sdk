@@ -145,9 +145,10 @@ func NewGetSingleMemberRoleAdminV1OK() *GetSingleMemberRoleAdminV1OK {
 	return &GetSingleMemberRoleAdminV1OK{}
 }
 
-/*GetSingleMemberRoleAdminV1OK handles this case with default header values.
+/*
+GetSingleMemberRoleAdminV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetSingleMemberRoleAdminV1OK struct {
 	Payload *groupclientmodels.ModelsMemberRoleResponseV1
@@ -199,9 +200,10 @@ func NewGetSingleMemberRoleAdminV1BadRequest() *GetSingleMemberRoleAdminV1BadReq
 	return &GetSingleMemberRoleAdminV1BadRequest{}
 }
 
-/*GetSingleMemberRoleAdminV1BadRequest handles this case with default header values.
+/*
+GetSingleMemberRoleAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetSingleMemberRoleAdminV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetSingleMemberRoleAdminV1Unauthorized() *GetSingleMemberRoleAdminV1Unau
 	return &GetSingleMemberRoleAdminV1Unauthorized{}
 }
 
-/*GetSingleMemberRoleAdminV1Unauthorized handles this case with default header values.
+/*
+GetSingleMemberRoleAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetSingleMemberRoleAdminV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetSingleMemberRoleAdminV1Forbidden() *GetSingleMemberRoleAdminV1Forbidd
 	return &GetSingleMemberRoleAdminV1Forbidden{}
 }
 
-/*GetSingleMemberRoleAdminV1Forbidden handles this case with default header values.
+/*
+GetSingleMemberRoleAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetSingleMemberRoleAdminV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetSingleMemberRoleAdminV1NotFound() *GetSingleMemberRoleAdminV1NotFound
 	return &GetSingleMemberRoleAdminV1NotFound{}
 }
 
-/*GetSingleMemberRoleAdminV1NotFound handles this case with default header values.
+/*
+GetSingleMemberRoleAdminV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73232</td><td>member role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73232</td><td>member role not found</td></tr></table>
 */
 type GetSingleMemberRoleAdminV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetSingleMemberRoleAdminV1InternalServerError() *GetSingleMemberRoleAdmi
 	return &GetSingleMemberRoleAdminV1InternalServerError{}
 }
 
-/*GetSingleMemberRoleAdminV1InternalServerError handles this case with default header values.
+/*
+GetSingleMemberRoleAdminV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetSingleMemberRoleAdminV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

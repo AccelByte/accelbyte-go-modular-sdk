@@ -57,7 +57,8 @@ func NewGetCatalogConfigParamsWithHTTPClient(client *http.Client) *GetCatalogCon
 	}
 }
 
-/*GetCatalogConfigParams contains all the parameters to send to the API endpoint
+/*
+GetCatalogConfigParams contains all the parameters to send to the API endpoint
 for the get catalog config operation typically these are written to a http.Request
 */
 type GetCatalogConfigParams struct {

@@ -57,7 +57,8 @@ func NewAdminGetSteamJobInfoParamsWithHTTPClient(client *http.Client) *AdminGetS
 	}
 }
 
-/*AdminGetSteamJobInfoParams contains all the parameters to send to the API endpoint
+/*
+AdminGetSteamJobInfoParams contains all the parameters to send to the API endpoint
 for the admin get steam job info operation typically these are written to a http.Request
 */
 type AdminGetSteamJobInfoParams struct {

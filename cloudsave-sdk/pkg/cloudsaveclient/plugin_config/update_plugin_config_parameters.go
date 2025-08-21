@@ -59,7 +59,8 @@ func NewUpdatePluginConfigParamsWithHTTPClient(client *http.Client) *UpdatePlugi
 	}
 }
 
-/*UpdatePluginConfigParams contains all the parameters to send to the API endpoint
+/*
+UpdatePluginConfigParams contains all the parameters to send to the API endpoint
 for the update plugin config operation typically these are written to a http.Request
 */
 type UpdatePluginConfigParams struct {

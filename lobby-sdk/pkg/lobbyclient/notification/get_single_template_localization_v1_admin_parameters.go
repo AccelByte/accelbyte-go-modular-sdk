@@ -57,7 +57,8 @@ func NewGetSingleTemplateLocalizationV1AdminParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*GetSingleTemplateLocalizationV1AdminParams contains all the parameters to send to the API endpoint
+/*
+GetSingleTemplateLocalizationV1AdminParams contains all the parameters to send to the API endpoint
 for the get single template localization v1 admin operation typically these are written to a http.Request
 */
 type GetSingleTemplateLocalizationV1AdminParams struct {

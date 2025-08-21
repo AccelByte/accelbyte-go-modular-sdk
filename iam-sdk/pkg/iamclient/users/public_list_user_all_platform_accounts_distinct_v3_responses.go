@@ -145,9 +145,10 @@ func NewPublicListUserAllPlatformAccountsDistinctV3OK() *PublicListUserAllPlatfo
 	return &PublicListUserAllPlatformAccountsDistinctV3OK{}
 }
 
-/*PublicListUserAllPlatformAccountsDistinctV3OK handles this case with default header values.
+/*
+PublicListUserAllPlatformAccountsDistinctV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicListUserAllPlatformAccountsDistinctV3OK struct {
 	Payload *iamclientmodels.AccountcommonDistinctPlatformResponseV3
@@ -199,9 +200,10 @@ func NewPublicListUserAllPlatformAccountsDistinctV3BadRequest() *PublicListUserA
 	return &PublicListUserAllPlatformAccountsDistinctV3BadRequest{}
 }
 
-/*PublicListUserAllPlatformAccountsDistinctV3BadRequest handles this case with default header values.
+/*
+PublicListUserAllPlatformAccountsDistinctV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicListUserAllPlatformAccountsDistinctV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewPublicListUserAllPlatformAccountsDistinctV3Unauthorized() *PublicListUse
 	return &PublicListUserAllPlatformAccountsDistinctV3Unauthorized{}
 }
 
-/*PublicListUserAllPlatformAccountsDistinctV3Unauthorized handles this case with default header values.
+/*
+PublicListUserAllPlatformAccountsDistinctV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicListUserAllPlatformAccountsDistinctV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewPublicListUserAllPlatformAccountsDistinctV3Forbidden() *PublicListUserAl
 	return &PublicListUserAllPlatformAccountsDistinctV3Forbidden{}
 }
 
-/*PublicListUserAllPlatformAccountsDistinctV3Forbidden handles this case with default header values.
+/*
+PublicListUserAllPlatformAccountsDistinctV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicListUserAllPlatformAccountsDistinctV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewPublicListUserAllPlatformAccountsDistinctV3NotFound() *PublicListUserAll
 	return &PublicListUserAllPlatformAccountsDistinctV3NotFound{}
 }
 
-/*PublicListUserAllPlatformAccountsDistinctV3NotFound handles this case with default header values.
+/*
+PublicListUserAllPlatformAccountsDistinctV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicListUserAllPlatformAccountsDistinctV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewPublicListUserAllPlatformAccountsDistinctV3InternalServerError() *Public
 	return &PublicListUserAllPlatformAccountsDistinctV3InternalServerError{}
 }
 
-/*PublicListUserAllPlatformAccountsDistinctV3InternalServerError handles this case with default header values.
+/*
+PublicListUserAllPlatformAccountsDistinctV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicListUserAllPlatformAccountsDistinctV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -129,9 +129,10 @@ func NewFreeFormNotificationAccepted() *FreeFormNotificationAccepted {
 	return &FreeFormNotificationAccepted{}
 }
 
-/*FreeFormNotificationAccepted handles this case with default header values.
+/*
+FreeFormNotificationAccepted handles this case with default header values.
 
-  Accepted
+	Accepted
 */
 type FreeFormNotificationAccepted struct {
 }
@@ -156,9 +157,10 @@ func NewFreeFormNotificationBadRequest() *FreeFormNotificationBadRequest {
 	return &FreeFormNotificationBadRequest{}
 }
 
-/*FreeFormNotificationBadRequest handles this case with default header values.
+/*
+FreeFormNotificationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type FreeFormNotificationBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewFreeFormNotificationUnauthorized() *FreeFormNotificationUnauthorized {
 	return &FreeFormNotificationUnauthorized{}
 }
 
-/*FreeFormNotificationUnauthorized handles this case with default header values.
+/*
+FreeFormNotificationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type FreeFormNotificationUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewFreeFormNotificationForbidden() *FreeFormNotificationForbidden {
 	return &FreeFormNotificationForbidden{}
 }
 
-/*FreeFormNotificationForbidden handles this case with default header values.
+/*
+FreeFormNotificationForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type FreeFormNotificationForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewFreeFormNotificationNotFound() *FreeFormNotificationNotFound {
 	return &FreeFormNotificationNotFound{}
 }
 
-/*FreeFormNotificationNotFound handles this case with default header values.
+/*
+FreeFormNotificationNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type FreeFormNotificationNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

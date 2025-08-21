@@ -100,9 +100,10 @@ func NewAdminDeleteGlobalConfigurationNoContent() *AdminDeleteGlobalConfiguratio
 	return &AdminDeleteGlobalConfigurationNoContent{}
 }
 
-/*AdminDeleteGlobalConfigurationNoContent handles this case with default header values.
+/*
+AdminDeleteGlobalConfigurationNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteGlobalConfigurationNoContent struct {
 	Payload string
@@ -152,9 +153,10 @@ func NewAdminDeleteGlobalConfigurationUnauthorized() *AdminDeleteGlobalConfigura
 	return &AdminDeleteGlobalConfigurationUnauthorized{}
 }
 
-/*AdminDeleteGlobalConfigurationUnauthorized handles this case with default header values.
+/*
+AdminDeleteGlobalConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeleteGlobalConfigurationUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -206,9 +208,10 @@ func NewAdminDeleteGlobalConfigurationForbidden() *AdminDeleteGlobalConfiguratio
 	return &AdminDeleteGlobalConfigurationForbidden{}
 }
 
-/*AdminDeleteGlobalConfigurationForbidden handles this case with default header values.
+/*
+AdminDeleteGlobalConfigurationForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeleteGlobalConfigurationForbidden struct {
 	Payload *sessionclientmodels.ResponseError

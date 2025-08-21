@@ -175,9 +175,10 @@ func NewAdminCreateGoalCreated() *AdminCreateGoalCreated {
 	return &AdminCreateGoalCreated{}
 }
 
-/*AdminCreateGoalCreated handles this case with default header values.
+/*
+AdminCreateGoalCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateGoalCreated struct {
 	Payload *challengeclientmodels.ModelGoalResponse
@@ -229,9 +230,10 @@ func NewAdminCreateGoalBadRequest() *AdminCreateGoalBadRequest {
 	return &AdminCreateGoalBadRequest{}
 }
 
-/*AdminCreateGoalBadRequest handles this case with default header values.
+/*
+AdminCreateGoalBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminCreateGoalBadRequest struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -283,9 +285,10 @@ func NewAdminCreateGoalUnauthorized() *AdminCreateGoalUnauthorized {
 	return &AdminCreateGoalUnauthorized{}
 }
 
-/*AdminCreateGoalUnauthorized handles this case with default header values.
+/*
+AdminCreateGoalUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCreateGoalUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -337,9 +340,10 @@ func NewAdminCreateGoalForbidden() *AdminCreateGoalForbidden {
 	return &AdminCreateGoalForbidden{}
 }
 
-/*AdminCreateGoalForbidden handles this case with default header values.
+/*
+AdminCreateGoalForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminCreateGoalForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -391,9 +395,10 @@ func NewAdminCreateGoalNotFound() *AdminCreateGoalNotFound {
 	return &AdminCreateGoalNotFound{}
 }
 
-/*AdminCreateGoalNotFound handles this case with default header values.
+/*
+AdminCreateGoalNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminCreateGoalNotFound struct {
 	Payload *challengeclientmodels.ResponseError
@@ -445,9 +450,10 @@ func NewAdminCreateGoalConflict() *AdminCreateGoalConflict {
 	return &AdminCreateGoalConflict{}
 }
 
-/*AdminCreateGoalConflict handles this case with default header values.
+/*
+AdminCreateGoalConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99002</td><td>duplicate key error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99002</td><td>duplicate key error: {{message}}</td></tr></table>
 */
 type AdminCreateGoalConflict struct {
 	Payload *challengeclientmodels.ResponseError
@@ -499,9 +505,10 @@ func NewAdminCreateGoalUnprocessableEntity() *AdminCreateGoalUnprocessableEntity
 	return &AdminCreateGoalUnprocessableEntity{}
 }
 
-/*AdminCreateGoalUnprocessableEntity handles this case with default header values.
+/*
+AdminCreateGoalUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>99004</td><td>unprocessable entity: {{message}}</td></tr></table>
 */
 type AdminCreateGoalUnprocessableEntity struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -553,9 +560,10 @@ func NewAdminCreateGoalInternalServerError() *AdminCreateGoalInternalServerError
 	return &AdminCreateGoalInternalServerError{}
 }
 
-/*AdminCreateGoalInternalServerError handles this case with default header values.
+/*
+AdminCreateGoalInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminCreateGoalInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

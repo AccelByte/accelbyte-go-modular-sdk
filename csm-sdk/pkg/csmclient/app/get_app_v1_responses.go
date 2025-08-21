@@ -130,10 +130,9 @@ func NewGetAppV1OK() *GetAppV1OK {
 	return &GetAppV1OK{}
 }
 
-/*GetAppV1OK handles this case with default header values.
-
-
- */
+/*
+GetAppV1OK handles this case with default header values.
+*/
 type GetAppV1OK struct {
 	Payload *csmclientmodels.GeneratedGetAppV1Response
 }
@@ -184,9 +183,10 @@ func NewGetAppV1Unauthorized() *GetAppV1Unauthorized {
 	return &GetAppV1Unauthorized{}
 }
 
-/*GetAppV1Unauthorized handles this case with default header values.
+/*
+GetAppV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetAppV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewGetAppV1Forbidden() *GetAppV1Forbidden {
 	return &GetAppV1Forbidden{}
 }
 
-/*GetAppV1Forbidden handles this case with default header values.
+/*
+GetAppV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetAppV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewGetAppV1NotFound() *GetAppV1NotFound {
 	return &GetAppV1NotFound{}
 }
 
-/*GetAppV1NotFound handles this case with default header values.
+/*
+GetAppV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetAppV1NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewGetAppV1InternalServerError() *GetAppV1InternalServerError {
 	return &GetAppV1InternalServerError{}
 }
 
-/*GetAppV1InternalServerError handles this case with default header values.
+/*
+GetAppV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetAppV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

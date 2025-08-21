@@ -145,9 +145,10 @@ func NewPostPlayerBinaryRecordV1Created() *PostPlayerBinaryRecordV1Created {
 	return &PostPlayerBinaryRecordV1Created{}
 }
 
-/*PostPlayerBinaryRecordV1Created handles this case with default header values.
+/*
+PostPlayerBinaryRecordV1Created handles this case with default header values.
 
-  Record in user-level created
+	Record in user-level created
 */
 type PostPlayerBinaryRecordV1Created struct {
 	Payload *cloudsaveclientmodels.ModelsUploadBinaryRecordResponse
@@ -199,9 +200,10 @@ func NewPostPlayerBinaryRecordV1BadRequest() *PostPlayerBinaryRecordV1BadRequest
 	return &PostPlayerBinaryRecordV1BadRequest{}
 }
 
-/*PostPlayerBinaryRecordV1BadRequest handles this case with default header values.
+/*
+PostPlayerBinaryRecordV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18327</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18327</td><td>invalid request body</td></tr></table>
 */
 type PostPlayerBinaryRecordV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewPostPlayerBinaryRecordV1Unauthorized() *PostPlayerBinaryRecordV1Unauthor
 	return &PostPlayerBinaryRecordV1Unauthorized{}
 }
 
-/*PostPlayerBinaryRecordV1Unauthorized handles this case with default header values.
+/*
+PostPlayerBinaryRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PostPlayerBinaryRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewPostPlayerBinaryRecordV1Forbidden() *PostPlayerBinaryRecordV1Forbidden {
 	return &PostPlayerBinaryRecordV1Forbidden{}
 }
 
-/*PostPlayerBinaryRecordV1Forbidden handles this case with default header values.
+/*
+PostPlayerBinaryRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PostPlayerBinaryRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewPostPlayerBinaryRecordV1Conflict() *PostPlayerBinaryRecordV1Conflict {
 	return &PostPlayerBinaryRecordV1Conflict{}
 }
 
-/*PostPlayerBinaryRecordV1Conflict handles this case with default header values.
+/*
+PostPlayerBinaryRecordV1Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18330</td><td>key already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18330</td><td>key already exists</td></tr></table>
 */
 type PostPlayerBinaryRecordV1Conflict struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewPostPlayerBinaryRecordV1InternalServerError() *PostPlayerBinaryRecordV1I
 	return &PostPlayerBinaryRecordV1InternalServerError{}
 }
 
-/*PostPlayerBinaryRecordV1InternalServerError handles this case with default header values.
+/*
+PostPlayerBinaryRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18323</td><td>unable to get record</td></tr><tr><td>18328</td><td>unable to save record</td></tr><tr><td>18331</td><td>unable to get presigned URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18323</td><td>unable to get record</td></tr><tr><td>18328</td><td>unable to save record</td></tr><tr><td>18331</td><td>unable to get presigned URL</td></tr></table>
 */
 type PostPlayerBinaryRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

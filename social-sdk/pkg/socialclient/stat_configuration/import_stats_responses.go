@@ -130,9 +130,10 @@ func NewImportStatsCreated() *ImportStatsCreated {
 	return &ImportStatsCreated{}
 }
 
-/*ImportStatsCreated handles this case with default header values.
+/*
+ImportStatsCreated handles this case with default header values.
 
-  Import stats successfully
+	Import stats successfully
 */
 type ImportStatsCreated struct {
 	Payload *socialclientmodels.StatImportInfo
@@ -184,9 +185,10 @@ func NewImportStatsBadRequest() *ImportStatsBadRequest {
 	return &ImportStatsBadRequest{}
 }
 
-/*ImportStatsBadRequest handles this case with default header values.
+/*
+ImportStatsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12222</td><td>Stats data for namespace [{namespace}] is invalid</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12222</td><td>Stats data for namespace [{namespace}] is invalid</td></tr></table>
 */
 type ImportStatsBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewImportStatsUnauthorized() *ImportStatsUnauthorized {
 	return &ImportStatsUnauthorized{}
 }
 
-/*ImportStatsUnauthorized handles this case with default header values.
+/*
+ImportStatsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type ImportStatsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewImportStatsForbidden() *ImportStatsForbidden {
 	return &ImportStatsForbidden{}
 }
 
-/*ImportStatsForbidden handles this case with default header values.
+/*
+ImportStatsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type ImportStatsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewImportStatsInternalServerError() *ImportStatsInternalServerError {
 	return &ImportStatsInternalServerError{}
 }
 
-/*ImportStatsInternalServerError handles this case with default header values.
+/*
+ImportStatsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type ImportStatsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

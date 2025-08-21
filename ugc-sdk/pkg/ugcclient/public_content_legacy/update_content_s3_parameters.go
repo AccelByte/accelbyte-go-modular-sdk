@@ -59,7 +59,8 @@ func NewUpdateContentS3ParamsWithHTTPClient(client *http.Client) *UpdateContentS
 	}
 }
 
-/*UpdateContentS3Params contains all the parameters to send to the API endpoint
+/*
+UpdateContentS3Params contains all the parameters to send to the API endpoint
 for the update content s3 operation typically these are written to a http.Request
 */
 type UpdateContentS3Params struct {

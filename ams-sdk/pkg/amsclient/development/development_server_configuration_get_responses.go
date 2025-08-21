@@ -130,9 +130,10 @@ func NewDevelopmentServerConfigurationGetOK() *DevelopmentServerConfigurationGet
 	return &DevelopmentServerConfigurationGetOK{}
 }
 
-/*DevelopmentServerConfigurationGetOK handles this case with default header values.
+/*
+DevelopmentServerConfigurationGetOK handles this case with default header values.
 
-  development server configuration
+	development server configuration
 */
 type DevelopmentServerConfigurationGetOK struct {
 	Payload *amsclientmodels.APIDevelopmentServerConfigurationGetResponse
@@ -184,9 +185,10 @@ func NewDevelopmentServerConfigurationGetUnauthorized() *DevelopmentServerConfig
 	return &DevelopmentServerConfigurationGetUnauthorized{}
 }
 
-/*DevelopmentServerConfigurationGetUnauthorized handles this case with default header values.
+/*
+DevelopmentServerConfigurationGetUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type DevelopmentServerConfigurationGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewDevelopmentServerConfigurationGetForbidden() *DevelopmentServerConfigura
 	return &DevelopmentServerConfigurationGetForbidden{}
 }
 
-/*DevelopmentServerConfigurationGetForbidden handles this case with default header values.
+/*
+DevelopmentServerConfigurationGetForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type DevelopmentServerConfigurationGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewDevelopmentServerConfigurationGetNotFound() *DevelopmentServerConfigurat
 	return &DevelopmentServerConfigurationGetNotFound{}
 }
 
-/*DevelopmentServerConfigurationGetNotFound handles this case with default header values.
+/*
+DevelopmentServerConfigurationGetNotFound handles this case with default header values.
 
-  development server configuration not found
+	development server configuration not found
 */
 type DevelopmentServerConfigurationGetNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewDevelopmentServerConfigurationGetInternalServerError() *DevelopmentServe
 	return &DevelopmentServerConfigurationGetInternalServerError{}
 }
 
-/*DevelopmentServerConfigurationGetInternalServerError handles this case with default header values.
+/*
+DevelopmentServerConfigurationGetInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type DevelopmentServerConfigurationGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

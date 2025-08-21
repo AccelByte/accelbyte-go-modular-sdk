@@ -69,9 +69,10 @@ func NewPublicListStoresOK() *PublicListStoresOK {
 	return &PublicListStoresOK{}
 }
 
-/*PublicListStoresOK handles this case with default header values.
+/*
+PublicListStoresOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicListStoresOK struct {
 	Payload []*platformclientmodels.StoreInfo

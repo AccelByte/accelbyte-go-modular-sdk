@@ -59,7 +59,8 @@ func NewAcquireItemParamsWithHTTPClient(client *http.Client) *AcquireItemParams 
 	}
 }
 
-/*AcquireItemParams contains all the parameters to send to the API endpoint
+/*
+AcquireItemParams contains all the parameters to send to the API endpoint
 for the acquire item operation typically these are written to a http.Request
 */
 type AcquireItemParams struct {

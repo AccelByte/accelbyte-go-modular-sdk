@@ -93,7 +93,8 @@ func NewGetUserEntitlementByItemIDParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*GetUserEntitlementByItemIDParams contains all the parameters to send to the API endpoint
+/*
+GetUserEntitlementByItemIDParams contains all the parameters to send to the API endpoint
 for the get user entitlement by item id operation typically these are written to a http.Request
 */
 type GetUserEntitlementByItemIDParams struct {

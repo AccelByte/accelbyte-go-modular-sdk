@@ -130,9 +130,10 @@ func NewAdminUpsertPlayFeatureFlagOK() *AdminUpsertPlayFeatureFlagOK {
 	return &AdminUpsertPlayFeatureFlagOK{}
 }
 
-/*AdminUpsertPlayFeatureFlagOK handles this case with default header values.
+/*
+AdminUpsertPlayFeatureFlagOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpsertPlayFeatureFlagOK struct {
 	Payload *match2clientmodels.ModelsPlayFeatureFlag
@@ -184,9 +185,10 @@ func NewAdminUpsertPlayFeatureFlagBadRequest() *AdminUpsertPlayFeatureFlagBadReq
 	return &AdminUpsertPlayFeatureFlagBadRequest{}
 }
 
-/*AdminUpsertPlayFeatureFlagBadRequest handles this case with default header values.
+/*
+AdminUpsertPlayFeatureFlagBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpsertPlayFeatureFlagBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminUpsertPlayFeatureFlagUnauthorized() *AdminUpsertPlayFeatureFlagUnau
 	return &AdminUpsertPlayFeatureFlagUnauthorized{}
 }
 
-/*AdminUpsertPlayFeatureFlagUnauthorized handles this case with default header values.
+/*
+AdminUpsertPlayFeatureFlagUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpsertPlayFeatureFlagUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminUpsertPlayFeatureFlagForbidden() *AdminUpsertPlayFeatureFlagForbidd
 	return &AdminUpsertPlayFeatureFlagForbidden{}
 }
 
-/*AdminUpsertPlayFeatureFlagForbidden handles this case with default header values.
+/*
+AdminUpsertPlayFeatureFlagForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpsertPlayFeatureFlagForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminUpsertPlayFeatureFlagInternalServerError() *AdminUpsertPlayFeatureF
 	return &AdminUpsertPlayFeatureFlagInternalServerError{}
 }
 
-/*AdminUpsertPlayFeatureFlagInternalServerError handles this case with default header values.
+/*
+AdminUpsertPlayFeatureFlagInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpsertPlayFeatureFlagInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

@@ -58,7 +58,8 @@ func NewExportAchievementsParamsWithHTTPClient(client *http.Client) *ExportAchie
 	}
 }
 
-/*ExportAchievementsParams contains all the parameters to send to the API endpoint
+/*
+ExportAchievementsParams contains all the parameters to send to the API endpoint
 for the export achievements operation typically these are written to a http.Request
 */
 type ExportAchievementsParams struct {

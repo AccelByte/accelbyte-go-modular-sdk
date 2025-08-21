@@ -118,9 +118,10 @@ func NewExportAchievementsOK(writer io.Writer) *ExportAchievementsOK {
 	}
 }
 
-/*ExportAchievementsOK handles this case with default header values.
+/*
+ExportAchievementsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type ExportAchievementsOK struct {
 	Payload io.Writer
@@ -170,9 +171,10 @@ func NewExportAchievementsUnauthorized() *ExportAchievementsUnauthorized {
 	return &ExportAchievementsUnauthorized{}
 }
 
-/*ExportAchievementsUnauthorized handles this case with default header values.
+/*
+ExportAchievementsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type ExportAchievementsUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -224,9 +226,10 @@ func NewExportAchievementsForbidden() *ExportAchievementsForbidden {
 	return &ExportAchievementsForbidden{}
 }
 
-/*ExportAchievementsForbidden handles this case with default header values.
+/*
+ExportAchievementsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type ExportAchievementsForbidden struct {
 	Payload *achievementclientmodels.ResponseError
@@ -278,9 +281,10 @@ func NewExportAchievementsInternalServerError() *ExportAchievementsInternalServe
 	return &ExportAchievementsInternalServerError{}
 }
 
-/*ExportAchievementsInternalServerError handles this case with default header values.
+/*
+ExportAchievementsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ExportAchievementsInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

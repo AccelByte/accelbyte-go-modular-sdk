@@ -59,7 +59,8 @@ func NewPublicBanTopicMembersParamsWithHTTPClient(client *http.Client) *PublicBa
 	}
 }
 
-/*PublicBanTopicMembersParams contains all the parameters to send to the API endpoint
+/*
+PublicBanTopicMembersParams contains all the parameters to send to the API endpoint
 for the public ban topic members operation typically these are written to a http.Request
 */
 type PublicBanTopicMembersParams struct {

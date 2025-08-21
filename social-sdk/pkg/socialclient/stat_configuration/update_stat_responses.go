@@ -160,9 +160,10 @@ func NewUpdateStatOK() *UpdateStatOK {
 	return &UpdateStatOK{}
 }
 
-/*UpdateStatOK handles this case with default header values.
+/*
+UpdateStatOK handles this case with default header values.
 
-  successful update of stat
+	successful update of stat
 */
 type UpdateStatOK struct {
 	Payload *socialclientmodels.StatInfo
@@ -214,9 +215,10 @@ func NewUpdateStatBadRequest() *UpdateStatBadRequest {
 	return &UpdateStatBadRequest{}
 }
 
-/*UpdateStatBadRequest handles this case with default header values.
+/*
+UpdateStatBadRequest handles this case with default header values.
 
-  Bad request
+	Bad request
 */
 type UpdateStatBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -268,9 +270,10 @@ func NewUpdateStatUnauthorized() *UpdateStatUnauthorized {
 	return &UpdateStatUnauthorized{}
 }
 
-/*UpdateStatUnauthorized handles this case with default header values.
+/*
+UpdateStatUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type UpdateStatUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -322,9 +325,10 @@ func NewUpdateStatForbidden() *UpdateStatForbidden {
 	return &UpdateStatForbidden{}
 }
 
-/*UpdateStatForbidden handles this case with default header values.
+/*
+UpdateStatForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdateStatForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -376,9 +380,10 @@ func NewUpdateStatNotFound() *UpdateStatNotFound {
 	return &UpdateStatNotFound{}
 }
 
-/*UpdateStatNotFound handles this case with default header values.
+/*
+UpdateStatNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type UpdateStatNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -430,9 +435,10 @@ func NewUpdateStatUnprocessableEntity() *UpdateStatUnprocessableEntity {
 	return &UpdateStatUnprocessableEntity{}
 }
 
-/*UpdateStatUnprocessableEntity handles this case with default header values.
+/*
+UpdateStatUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateStatUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -484,9 +490,10 @@ func NewUpdateStatInternalServerError() *UpdateStatInternalServerError {
 	return &UpdateStatInternalServerError{}
 }
 
-/*UpdateStatInternalServerError handles this case with default header values.
+/*
+UpdateStatInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type UpdateStatInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

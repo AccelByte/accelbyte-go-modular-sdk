@@ -130,10 +130,9 @@ func NewGetIncomingFriendRequestsOK() *GetIncomingFriendRequestsOK {
 	return &GetIncomingFriendRequestsOK{}
 }
 
-/*GetIncomingFriendRequestsOK handles this case with default header values.
-
-
- */
+/*
+GetIncomingFriendRequestsOK handles this case with default header values.
+*/
 type GetIncomingFriendRequestsOK struct {
 	Payload *lobbyclientmodels.ModelLoadIncomingFriendsWithTimeResponse
 }
@@ -184,9 +183,10 @@ func NewGetIncomingFriendRequestsBadRequest() *GetIncomingFriendRequestsBadReque
 	return &GetIncomingFriendRequestsBadRequest{}
 }
 
-/*GetIncomingFriendRequestsBadRequest handles this case with default header values.
+/*
+GetIncomingFriendRequestsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetIncomingFriendRequestsBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -238,9 +238,10 @@ func NewGetIncomingFriendRequestsUnauthorized() *GetIncomingFriendRequestsUnauth
 	return &GetIncomingFriendRequestsUnauthorized{}
 }
 
-/*GetIncomingFriendRequestsUnauthorized handles this case with default header values.
+/*
+GetIncomingFriendRequestsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetIncomingFriendRequestsUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -292,9 +293,10 @@ func NewGetIncomingFriendRequestsForbidden() *GetIncomingFriendRequestsForbidden
 	return &GetIncomingFriendRequestsForbidden{}
 }
 
-/*GetIncomingFriendRequestsForbidden handles this case with default header values.
+/*
+GetIncomingFriendRequestsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetIncomingFriendRequestsForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -346,9 +348,10 @@ func NewGetIncomingFriendRequestsInternalServerError() *GetIncomingFriendRequest
 	return &GetIncomingFriendRequestsInternalServerError{}
 }
 
-/*GetIncomingFriendRequestsInternalServerError handles this case with default header values.
+/*
+GetIncomingFriendRequestsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetIncomingFriendRequestsInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

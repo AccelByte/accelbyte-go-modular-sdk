@@ -57,7 +57,8 @@ func NewJoinGroupV1ParamsWithHTTPClient(client *http.Client) *JoinGroupV1Params 
 	}
 }
 
-/*JoinGroupV1Params contains all the parameters to send to the API endpoint
+/*
+JoinGroupV1Params contains all the parameters to send to the API endpoint
 for the join group v1 operation typically these are written to a http.Request
 */
 type JoinGroupV1Params struct {

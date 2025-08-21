@@ -114,9 +114,10 @@ func NewCheckSeasonPurchasableNoContent() *CheckSeasonPurchasableNoContent {
 	return &CheckSeasonPurchasableNoContent{}
 }
 
-/*CheckSeasonPurchasableNoContent handles this case with default header values.
+/*
+CheckSeasonPurchasableNoContent handles this case with default header values.
 
-  OK
+	OK
 */
 type CheckSeasonPurchasableNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewCheckSeasonPurchasableBadRequest() *CheckSeasonPurchasableBadRequest {
 	return &CheckSeasonPurchasableBadRequest{}
 }
 
-/*CheckSeasonPurchasableBadRequest handles this case with default header values.
+/*
+CheckSeasonPurchasableBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type CheckSeasonPurchasableBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -195,9 +197,10 @@ func NewCheckSeasonPurchasableNotFound() *CheckSeasonPurchasableNotFound {
 	return &CheckSeasonPurchasableNotFound{}
 }
 
-/*CheckSeasonPurchasableNotFound handles this case with default header values.
+/*
+CheckSeasonPurchasableNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
 */
 type CheckSeasonPurchasableNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -249,9 +252,10 @@ func NewCheckSeasonPurchasableConflict() *CheckSeasonPurchasableConflict {
 	return &CheckSeasonPurchasableConflict{}
 }
 
-/*CheckSeasonPurchasableConflict handles this case with default header values.
+/*
+CheckSeasonPurchasableConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49183</td><td>Pass item does not match published season pass</td></tr><tr><td>49184</td><td>Tier item does not match published season tier</td></tr><tr><td>49185</td><td>Season has not started</td></tr><tr><td>49186</td><td>Pass already owned</td></tr><tr><td>49187</td><td>Exceed max tier count</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49183</td><td>Pass item does not match published season pass</td></tr><tr><td>49184</td><td>Tier item does not match published season tier</td></tr><tr><td>49185</td><td>Season has not started</td></tr><tr><td>49186</td><td>Pass already owned</td></tr><tr><td>49187</td><td>Exceed max tier count</td></tr></table>
 */
 type CheckSeasonPurchasableConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity

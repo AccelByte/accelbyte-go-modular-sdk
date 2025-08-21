@@ -85,9 +85,10 @@ func NewFleetListOK() *FleetListOK {
 	return &FleetListOK{}
 }
 
-/*FleetListOK handles this case with default header values.
+/*
+FleetListOK handles this case with default header values.
 
-  success
+	success
 */
 type FleetListOK struct {
 	Payload *amsclientmodels.APIFleetListResponse
@@ -139,9 +140,10 @@ func NewFleetListInternalServerError() *FleetListInternalServerError {
 	return &FleetListInternalServerError{}
 }
 
-/*FleetListInternalServerError handles this case with default header values.
+/*
+FleetListInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type FleetListInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

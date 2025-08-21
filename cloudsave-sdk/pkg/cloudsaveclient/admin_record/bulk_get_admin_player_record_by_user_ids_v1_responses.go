@@ -145,9 +145,10 @@ func NewBulkGetAdminPlayerRecordByUserIdsV1OK() *BulkGetAdminPlayerRecordByUserI
 	return &BulkGetAdminPlayerRecordByUserIdsV1OK{}
 }
 
-/*BulkGetAdminPlayerRecordByUserIdsV1OK handles this case with default header values.
+/*
+BulkGetAdminPlayerRecordByUserIdsV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type BulkGetAdminPlayerRecordByUserIdsV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsBulkGetAdminPlayerRecordResponse
@@ -199,9 +200,10 @@ func NewBulkGetAdminPlayerRecordByUserIdsV1BadRequest() *BulkGetAdminPlayerRecor
 	return &BulkGetAdminPlayerRecordByUserIdsV1BadRequest{}
 }
 
-/*BulkGetAdminPlayerRecordByUserIdsV1BadRequest handles this case with default header values.
+/*
+BulkGetAdminPlayerRecordByUserIdsV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18184</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18184</td><td>invalid request body</td></tr></table>
 */
 type BulkGetAdminPlayerRecordByUserIdsV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewBulkGetAdminPlayerRecordByUserIdsV1Unauthorized() *BulkGetAdminPlayerRec
 	return &BulkGetAdminPlayerRecordByUserIdsV1Unauthorized{}
 }
 
-/*BulkGetAdminPlayerRecordByUserIdsV1Unauthorized handles this case with default header values.
+/*
+BulkGetAdminPlayerRecordByUserIdsV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type BulkGetAdminPlayerRecordByUserIdsV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewBulkGetAdminPlayerRecordByUserIdsV1Forbidden() *BulkGetAdminPlayerRecord
 	return &BulkGetAdminPlayerRecordByUserIdsV1Forbidden{}
 }
 
-/*BulkGetAdminPlayerRecordByUserIdsV1Forbidden handles this case with default header values.
+/*
+BulkGetAdminPlayerRecordByUserIdsV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkGetAdminPlayerRecordByUserIdsV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewBulkGetAdminPlayerRecordByUserIdsV1NotFound() *BulkGetAdminPlayerRecordB
 	return &BulkGetAdminPlayerRecordByUserIdsV1NotFound{}
 }
 
-/*BulkGetAdminPlayerRecordByUserIdsV1NotFound handles this case with default header values.
+/*
+BulkGetAdminPlayerRecordByUserIdsV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18186</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18186</td><td>record not found</td></tr></table>
 */
 type BulkGetAdminPlayerRecordByUserIdsV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewBulkGetAdminPlayerRecordByUserIdsV1InternalServerError() *BulkGetAdminPl
 	return &BulkGetAdminPlayerRecordByUserIdsV1InternalServerError{}
 }
 
-/*BulkGetAdminPlayerRecordByUserIdsV1InternalServerError handles this case with default header values.
+/*
+BulkGetAdminPlayerRecordByUserIdsV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18185</td><td>unable to get record</td></tr><tr><td>18187</td><td>unable to decode record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18185</td><td>unable to get record</td></tr><tr><td>18187</td><td>unable to decode record</td></tr></table>
 */
 type BulkGetAdminPlayerRecordByUserIdsV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

@@ -85,9 +85,10 @@ func NewGetNamespacesGameTelemetryV1AdminNamespacesGetOK() *GetNamespacesGameTel
 	return &GetNamespacesGameTelemetryV1AdminNamespacesGetOK{}
 }
 
-/*GetNamespacesGameTelemetryV1AdminNamespacesGetOK handles this case with default header values.
+/*
+GetNamespacesGameTelemetryV1AdminNamespacesGetOK handles this case with default header values.
 
-  Successful Response
+	Successful Response
 */
 type GetNamespacesGameTelemetryV1AdminNamespacesGetOK struct {
 	Payload *gametelemetryclientmodels.ListBaseResponseStr
@@ -139,9 +140,10 @@ func NewGetNamespacesGameTelemetryV1AdminNamespacesGetInternalServerError() *Get
 	return &GetNamespacesGameTelemetryV1AdminNamespacesGetInternalServerError{}
 }
 
-/*GetNamespacesGameTelemetryV1AdminNamespacesGetInternalServerError handles this case with default header values.
+/*
+GetNamespacesGameTelemetryV1AdminNamespacesGetInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetNamespacesGameTelemetryV1AdminNamespacesGetInternalServerError struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse

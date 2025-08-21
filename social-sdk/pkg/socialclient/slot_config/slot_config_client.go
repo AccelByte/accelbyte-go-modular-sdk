@@ -44,11 +44,10 @@ type ClientService interface {
 GetNamespaceSlotConfigShort returns a namespace slot configuration
 ## The endpoint is going to be deprecated
 
-
 Get slot configuration for a given namespace. In case slot configuration is not set, the default will be returned.
 Other detail info:
 
-  *  Returns : namespace slot config info
+  - Returns : namespace slot config info
 */
 func (a *Client) GetNamespaceSlotConfigShort(params *GetNamespaceSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespaceSlotConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -103,14 +102,12 @@ func (a *Client) GetNamespaceSlotConfigShort(params *GetNamespaceSlotConfigParam
 /*
 UpdateNamespaceSlotConfigShort update a namespace slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Update a slot namespace configuration.
 Other detail info:
 
-  *  Returns : updated namespace slot config
+  - Returns : updated namespace slot config
 */
 func (a *Client) UpdateNamespaceSlotConfigShort(params *UpdateNamespaceSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNamespaceSlotConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -165,9 +162,7 @@ func (a *Client) UpdateNamespaceSlotConfigShort(params *UpdateNamespaceSlotConfi
 /*
 DeleteNamespaceSlotConfigShort deletes a namespace slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Deletes a namespace slot configuration, the configuration will be default after delete.
 Other detail info:
@@ -224,14 +219,12 @@ func (a *Client) DeleteNamespaceSlotConfigShort(params *DeleteNamespaceSlotConfi
 /*
 GetUserSlotConfigShort returns a user slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Get a user slot configuration in given namespace. In case the user slot configuration is not set, the namespace configuration will be returned.
 Other detail info:
 
-  * Returns: slot config info
+  - Returns: slot config info
 */
 func (a *Client) GetUserSlotConfigShort(params *GetUserSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserSlotConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -286,13 +279,11 @@ func (a *Client) GetUserSlotConfigShort(params *GetUserSlotConfigParams, authInf
 /*
 UpdateUserSlotConfigShort update a user slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Update a user slot configuration in given namespace.
 Other detail info:
-    *  Returns : updated slot config
+  - Returns : updated slot config
 */
 func (a *Client) UpdateUserSlotConfigShort(params *UpdateUserSlotConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserSlotConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -347,9 +338,7 @@ func (a *Client) UpdateUserSlotConfigShort(params *UpdateUserSlotConfigParams, a
 /*
 DeleteUserSlotConfigShort deletes a user slot configuration
 
-
 ## The endpoint is going to be deprecated
-
 
 Deletes a user slot configuration in given namespace, the namespace slot configuration will be returned after delete.
 Other detail info:

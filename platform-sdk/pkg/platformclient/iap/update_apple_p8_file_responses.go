@@ -69,9 +69,10 @@ func NewUpdateAppleP8FileOK() *UpdateAppleP8FileOK {
 	return &UpdateAppleP8FileOK{}
 }
 
-/*UpdateAppleP8FileOK handles this case with default header values.
+/*
+UpdateAppleP8FileOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateAppleP8FileOK struct {
 	Payload *platformclientmodels.AppleIAPConfigInfo

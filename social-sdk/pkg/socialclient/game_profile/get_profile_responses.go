@@ -130,9 +130,10 @@ func NewGetProfileOK() *GetProfileOK {
 	return &GetProfileOK{}
 }
 
-/*GetProfileOK handles this case with default header values.
+/*
+GetProfileOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetProfileOK struct {
 	Payload *socialclientmodels.GameProfileInfo
@@ -184,9 +185,10 @@ func NewGetProfileUnauthorized() *GetProfileUnauthorized {
 	return &GetProfileUnauthorized{}
 }
 
-/*GetProfileUnauthorized handles this case with default header values.
+/*
+GetProfileUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type GetProfileUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewGetProfileForbidden() *GetProfileForbidden {
 	return &GetProfileForbidden{}
 }
 
-/*GetProfileForbidden handles this case with default header values.
+/*
+GetProfileForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetProfileForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewGetProfileNotFound() *GetProfileNotFound {
 	return &GetProfileNotFound{}
 }
 
-/*GetProfileNotFound handles this case with default header values.
+/*
+GetProfileNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
 */
 type GetProfileNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewGetProfileInternalServerError() *GetProfileInternalServerError {
 	return &GetProfileInternalServerError{}
 }
 
-/*GetProfileInternalServerError handles this case with default header values.
+/*
+GetProfileInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type GetProfileInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

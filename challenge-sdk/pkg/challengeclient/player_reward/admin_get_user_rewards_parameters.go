@@ -112,7 +112,8 @@ func NewAdminGetUserRewardsParamsWithHTTPClient(client *http.Client) *AdminGetUs
 	}
 }
 
-/*AdminGetUserRewardsParams contains all the parameters to send to the API endpoint
+/*
+AdminGetUserRewardsParams contains all the parameters to send to the API endpoint
 for the admin get user rewards operation typically these are written to a http.Request
 */
 type AdminGetUserRewardsParams struct {

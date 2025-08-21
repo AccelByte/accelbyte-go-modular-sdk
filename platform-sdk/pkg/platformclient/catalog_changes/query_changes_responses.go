@@ -69,9 +69,10 @@ func NewQueryChangesOK() *QueryChangesOK {
 	return &QueryChangesOK{}
 }
 
-/*QueryChangesOK handles this case with default header values.
+/*
+QueryChangesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryChangesOK struct {
 	Payload *platformclientmodels.CatalogChangePagingResult

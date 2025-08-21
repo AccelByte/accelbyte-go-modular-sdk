@@ -57,7 +57,8 @@ func NewPublicDeletePlatformLinkV2ParamsWithHTTPClient(client *http.Client) *Pub
 	}
 }
 
-/*PublicDeletePlatformLinkV2Params contains all the parameters to send to the API endpoint
+/*
+PublicDeletePlatformLinkV2Params contains all the parameters to send to the API endpoint
 for the public delete platform link v2 operation typically these are written to a http.Request
 */
 type PublicDeletePlatformLinkV2Params struct {

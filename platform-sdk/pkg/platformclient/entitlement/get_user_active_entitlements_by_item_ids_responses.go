@@ -69,9 +69,10 @@ func NewGetUserActiveEntitlementsByItemIdsOK() *GetUserActiveEntitlementsByItemI
 	return &GetUserActiveEntitlementsByItemIdsOK{}
 }
 
-/*GetUserActiveEntitlementsByItemIdsOK handles this case with default header values.
+/*
+GetUserActiveEntitlementsByItemIdsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserActiveEntitlementsByItemIdsOK struct {
 	Payload []*platformclientmodels.EntitlementInfo

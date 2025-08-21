@@ -57,7 +57,8 @@ func NewFulfillUserOrderParamsWithHTTPClient(client *http.Client) *FulfillUserOr
 	}
 }
 
-/*FulfillUserOrderParams contains all the parameters to send to the API endpoint
+/*
+FulfillUserOrderParams contains all the parameters to send to the API endpoint
 for the fulfill user order operation typically these are written to a http.Request
 */
 type FulfillUserOrderParams struct {

@@ -57,7 +57,8 @@ func NewUnselectRecordParamsWithHTTPClient(client *http.Client) *UnselectRecordP
 	}
 }
 
-/*UnselectRecordParams contains all the parameters to send to the API endpoint
+/*
+UnselectRecordParams contains all the parameters to send to the API endpoint
 for the unselect record operation typically these are written to a http.Request
 */
 type UnselectRecordParams struct {

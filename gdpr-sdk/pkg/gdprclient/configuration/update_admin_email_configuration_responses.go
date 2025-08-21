@@ -114,9 +114,10 @@ func NewUpdateAdminEmailConfigurationNoContent() *UpdateAdminEmailConfigurationN
 	return &UpdateAdminEmailConfigurationNoContent{}
 }
 
-/*UpdateAdminEmailConfigurationNoContent handles this case with default header values.
+/*
+UpdateAdminEmailConfigurationNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UpdateAdminEmailConfigurationNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewUpdateAdminEmailConfigurationBadRequest() *UpdateAdminEmailConfiguration
 	return &UpdateAdminEmailConfigurationBadRequest{}
 }
 
-/*UpdateAdminEmailConfigurationBadRequest handles this case with default header values.
+/*
+UpdateAdminEmailConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateAdminEmailConfigurationBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewUpdateAdminEmailConfigurationUnauthorized() *UpdateAdminEmailConfigurati
 	return &UpdateAdminEmailConfigurationUnauthorized{}
 }
 
-/*UpdateAdminEmailConfigurationUnauthorized handles this case with default header values.
+/*
+UpdateAdminEmailConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateAdminEmailConfigurationUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewUpdateAdminEmailConfigurationInternalServerError() *UpdateAdminEmailConf
 	return &UpdateAdminEmailConfigurationInternalServerError{}
 }
 
-/*UpdateAdminEmailConfigurationInternalServerError handles this case with default header values.
+/*
+UpdateAdminEmailConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateAdminEmailConfigurationInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

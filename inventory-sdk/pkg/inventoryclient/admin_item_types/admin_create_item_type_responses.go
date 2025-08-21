@@ -115,9 +115,10 @@ func NewAdminCreateItemTypeCreated() *AdminCreateItemTypeCreated {
 	return &AdminCreateItemTypeCreated{}
 }
 
-/*AdminCreateItemTypeCreated handles this case with default header values.
+/*
+AdminCreateItemTypeCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateItemTypeCreated struct {
 	Payload *inventoryclientmodels.ApimodelsCreateItemTypeResp
@@ -169,9 +170,10 @@ func NewAdminCreateItemTypeBadRequest() *AdminCreateItemTypeBadRequest {
 	return &AdminCreateItemTypeBadRequest{}
 }
 
-/*AdminCreateItemTypeBadRequest handles this case with default header values.
+/*
+AdminCreateItemTypeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCreateItemTypeBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -223,9 +225,10 @@ func NewAdminCreateItemTypeConflict() *AdminCreateItemTypeConflict {
 	return &AdminCreateItemTypeConflict{}
 }
 
-/*AdminCreateItemTypeConflict handles this case with default header values.
+/*
+AdminCreateItemTypeConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminCreateItemTypeConflict struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -277,9 +280,10 @@ func NewAdminCreateItemTypeInternalServerError() *AdminCreateItemTypeInternalSer
 	return &AdminCreateItemTypeInternalServerError{}
 }
 
-/*AdminCreateItemTypeInternalServerError handles this case with default header values.
+/*
+AdminCreateItemTypeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCreateItemTypeInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

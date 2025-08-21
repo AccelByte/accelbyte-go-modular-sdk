@@ -59,7 +59,8 @@ func NewGetPsnEntitlementOwnershipParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*GetPsnEntitlementOwnershipParams contains all the parameters to send to the API endpoint
+/*
+GetPsnEntitlementOwnershipParams contains all the parameters to send to the API endpoint
 for the get psn entitlement ownership operation typically these are written to a http.Request
 */
 type GetPsnEntitlementOwnershipParams struct {

@@ -59,7 +59,8 @@ func NewAdminUpdateServicesConfigurationParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*AdminUpdateServicesConfigurationParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateServicesConfigurationParams contains all the parameters to send to the API endpoint
 for the admin update services configuration operation typically these are written to a http.Request
 */
 type AdminUpdateServicesConfigurationParams struct {

@@ -115,9 +115,10 @@ func NewProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetOK
 	return &ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetOK{}
 }
 
-/*ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetOK handles this case with default header values.
+/*
+ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetOK handles this case with default header values.
 
-  Successful Response
+	Successful Response
 */
 type ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetOK struct {
 	Payload *gametelemetryclientmodels.PlayTimeResponse
@@ -169,9 +170,10 @@ func NewProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetNo
 	return &ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetNotFound{}
 }
 
-/*ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetNotFound handles this case with default header values.
+/*
+ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetNotFound handles this case with default header values.
 
-  User not found
+	User not found
 */
 type ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetNotFound struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse
@@ -223,9 +225,10 @@ func NewProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetUn
 	return &ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetUnprocessableEntity{}
 }
 
-/*ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetUnprocessableEntity handles this case with default header values.
+/*
+ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetUnprocessableEntity handles this case with default header values.
 
-  Unable to process request
+	Unable to process request
 */
 type ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetUnprocessableEntity struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse
@@ -277,9 +280,10 @@ func NewProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetIn
 	return &ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetInternalServerError{}
 }
 
-/*ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetInternalServerError handles this case with default header values.
+/*
+ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetInternalServerError struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse

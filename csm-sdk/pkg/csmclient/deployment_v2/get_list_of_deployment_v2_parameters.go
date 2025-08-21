@@ -60,7 +60,8 @@ func NewGetListOfDeploymentV2ParamsWithHTTPClient(client *http.Client) *GetListO
 	}
 }
 
-/*GetListOfDeploymentV2Params contains all the parameters to send to the API endpoint
+/*
+GetListOfDeploymentV2Params contains all the parameters to send to the API endpoint
 for the get list of deployment v2 operation typically these are written to a http.Request
 */
 type GetListOfDeploymentV2Params struct {

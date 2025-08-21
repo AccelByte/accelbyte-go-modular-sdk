@@ -59,7 +59,8 @@ func NewSyncNativeFriendsParamsWithHTTPClient(client *http.Client) *SyncNativeFr
 	}
 }
 
-/*SyncNativeFriendsParams contains all the parameters to send to the API endpoint
+/*
+SyncNativeFriendsParams contains all the parameters to send to the API endpoint
 for the sync native friends operation typically these are written to a http.Request
 */
 type SyncNativeFriendsParams struct {

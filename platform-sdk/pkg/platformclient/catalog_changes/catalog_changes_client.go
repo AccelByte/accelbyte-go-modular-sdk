@@ -48,7 +48,7 @@ QueryChangesShort query catalog changes
 This API is used to query changes .
 
 Other detail info:
-            * Returns : the pagination of changes
+  - Returns : the pagination of changes
 */
 func (a *Client) QueryChangesShort(params *QueryChangesParams, authInfo runtime.ClientAuthInfoWriter) (*QueryChangesResponse, error) {
 	// TODO: Validate the params before sending
@@ -105,7 +105,7 @@ PublishAllShort publish all unpublished changes
 This API is used to publish all unpublished changes.
 
 Other detail info:
-            * Returns : no content
+  - Returns : no content
 */
 func (a *Client) PublishAllShort(params *PublishAllParams, authInfo runtime.ClientAuthInfoWriter) (*PublishAllResponse, error) {
 	// TODO: Validate the params before sending
@@ -176,7 +176,7 @@ PublishSelectedShort publish selected unpublished changes
 This API is used to publish selected unpublished changes.
 
 Other detail info:
-            * Returns : no content
+  - Returns : no content
 */
 func (a *Client) PublishSelectedShort(params *PublishSelectedParams, authInfo runtime.ClientAuthInfoWriter) (*PublishSelectedResponse, error) {
 	// TODO: Validate the params before sending
@@ -374,7 +374,7 @@ GetStatisticShort get catalog changes statistics
 This API is used to query catalog changes statistics .
 
 Other detail info:
-            * Returns : catalog changes statistics changes
+  - Returns : catalog changes statistics changes
 */
 func (a *Client) GetStatisticShort(params *GetStatisticParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatisticResponse, error) {
 	// TODO: Validate the params before sending

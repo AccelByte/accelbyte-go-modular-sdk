@@ -58,7 +58,8 @@ func NewGetGroupInviteRequestPublicV2ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*GetGroupInviteRequestPublicV2Params contains all the parameters to send to the API endpoint
+/*
+GetGroupInviteRequestPublicV2Params contains all the parameters to send to the API endpoint
 for the get group invite request public v2 operation typically these are written to a http.Request
 */
 type GetGroupInviteRequestPublicV2Params struct {

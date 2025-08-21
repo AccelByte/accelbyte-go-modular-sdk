@@ -57,7 +57,8 @@ func NewPublicListJusticePlatformAccountsV3ParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*PublicListJusticePlatformAccountsV3Params contains all the parameters to send to the API endpoint
+/*
+PublicListJusticePlatformAccountsV3Params contains all the parameters to send to the API endpoint
 for the public list justice platform accounts v3 operation typically these are written to a http.Request
 */
 type PublicListJusticePlatformAccountsV3Params struct {

@@ -85,9 +85,10 @@ func NewGetUserParticipatedSeasonsOK() *GetUserParticipatedSeasonsOK {
 	return &GetUserParticipatedSeasonsOK{}
 }
 
-/*GetUserParticipatedSeasonsOK handles this case with default header values.
+/*
+GetUserParticipatedSeasonsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserParticipatedSeasonsOK struct {
 	Payload *seasonpassclientmodels.ListUserSeasonInfoPagingSlicedResult
@@ -139,9 +140,10 @@ func NewGetUserParticipatedSeasonsBadRequest() *GetUserParticipatedSeasonsBadReq
 	return &GetUserParticipatedSeasonsBadRequest{}
 }
 
-/*GetUserParticipatedSeasonsBadRequest handles this case with default header values.
+/*
+GetUserParticipatedSeasonsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type GetUserParticipatedSeasonsBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity

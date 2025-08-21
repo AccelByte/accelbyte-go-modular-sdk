@@ -4,6 +4,8 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk
 
 go 1.18
 
+replace github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../services-api
+
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
 	github.com/go-openapi/errors v0.20.2

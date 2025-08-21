@@ -114,9 +114,10 @@ func NewProtectedSaveEventsGameTelemetryV1ProtectedEventsPostNoContent() *Protec
 	return &ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostNoContent{}
 }
 
-/*ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostNoContent handles this case with default header values.
+/*
+ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostNoContent handles this case with default header values.
 
-  Successful Response
+	Successful Response
 */
 type ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewProtectedSaveEventsGameTelemetryV1ProtectedEventsPostUnprocessableEntity
 	return &ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostUnprocessableEntity{}
 }
 
-/*ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostUnprocessableEntity handles this case with default header values.
+/*
+ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostUnprocessableEntity handles this case with default header values.
 
-  Unable to process request
+	Unable to process request
 */
 type ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostUnprocessableEntity struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse
@@ -195,9 +197,10 @@ func NewProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInternalServerError
 	return &ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInternalServerError{}
 }
 
-/*ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInternalServerError handles this case with default header values.
+/*
+ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInternalServerError struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse
@@ -249,9 +252,10 @@ func NewProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInsufficientStorage
 	return &ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInsufficientStorage{}
 }
 
-/*ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInsufficientStorage handles this case with default header values.
+/*
+ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInsufficientStorage handles this case with default header values.
 
-  Insufficient space
+	Insufficient space
 */
 type ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostInsufficientStorage struct {
 	Payload *gametelemetryclientmodels.BaseErrorResponse

@@ -57,7 +57,8 @@ func NewGetDescendantCategoriesParamsWithHTTPClient(client *http.Client) *GetDes
 	}
 }
 
-/*GetDescendantCategoriesParams contains all the parameters to send to the API endpoint
+/*
+GetDescendantCategoriesParams contains all the parameters to send to the API endpoint
 for the get descendant categories operation typically these are written to a http.Request
 */
 type GetDescendantCategoriesParams struct {

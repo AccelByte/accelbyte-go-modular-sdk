@@ -99,7 +99,8 @@ func NewAdminListItemsParamsWithHTTPClient(client *http.Client) *AdminListItemsP
 	}
 }
 
-/*AdminListItemsParams contains all the parameters to send to the API endpoint
+/*
+AdminListItemsParams contains all the parameters to send to the API endpoint
 for the admin list items operation typically these are written to a http.Request
 */
 type AdminListItemsParams struct {

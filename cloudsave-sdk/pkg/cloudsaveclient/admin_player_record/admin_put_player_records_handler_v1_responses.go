@@ -115,9 +115,10 @@ func NewAdminPutPlayerRecordsHandlerV1OK() *AdminPutPlayerRecordsHandlerV1OK {
 	return &AdminPutPlayerRecordsHandlerV1OK{}
 }
 
-/*AdminPutPlayerRecordsHandlerV1OK handles this case with default header values.
+/*
+AdminPutPlayerRecordsHandlerV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminPutPlayerRecordsHandlerV1OK struct {
 	Payload []*cloudsaveclientmodels.ModelsBulkUpdatePlayerRecordResponse
@@ -167,9 +168,10 @@ func NewAdminPutPlayerRecordsHandlerV1BadRequest() *AdminPutPlayerRecordsHandler
 	return &AdminPutPlayerRecordsHandlerV1BadRequest{}
 }
 
-/*AdminPutPlayerRecordsHandlerV1BadRequest handles this case with default header values.
+/*
+AdminPutPlayerRecordsHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18353</td><td>invalid request body</td></tr><tr><td>18356</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr><tr><td>18354</td><td>records amount exceeded max limit</td></tr><tr><td>18355</td><td>unable to marshal request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18353</td><td>invalid request body</td></tr><tr><td>18356</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr><tr><td>18354</td><td>records amount exceeded max limit</td></tr><tr><td>18355</td><td>unable to marshal request body</td></tr></table>
 */
 type AdminPutPlayerRecordsHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -221,9 +223,10 @@ func NewAdminPutPlayerRecordsHandlerV1Unauthorized() *AdminPutPlayerRecordsHandl
 	return &AdminPutPlayerRecordsHandlerV1Unauthorized{}
 }
 
-/*AdminPutPlayerRecordsHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminPutPlayerRecordsHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPutPlayerRecordsHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -275,9 +278,10 @@ func NewAdminPutPlayerRecordsHandlerV1Forbidden() *AdminPutPlayerRecordsHandlerV
 	return &AdminPutPlayerRecordsHandlerV1Forbidden{}
 }
 
-/*AdminPutPlayerRecordsHandlerV1Forbidden handles this case with default header values.
+/*
+AdminPutPlayerRecordsHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminPutPlayerRecordsHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

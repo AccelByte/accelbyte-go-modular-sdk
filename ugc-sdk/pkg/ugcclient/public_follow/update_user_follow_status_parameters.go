@@ -59,7 +59,8 @@ func NewUpdateUserFollowStatusParamsWithHTTPClient(client *http.Client) *UpdateU
 	}
 }
 
-/*UpdateUserFollowStatusParams contains all the parameters to send to the API endpoint
+/*
+UpdateUserFollowStatusParams contains all the parameters to send to the API endpoint
 for the update user follow status operation typically these are written to a http.Request
 */
 type UpdateUserFollowStatusParams struct {

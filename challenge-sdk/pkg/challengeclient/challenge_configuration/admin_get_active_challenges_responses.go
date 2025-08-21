@@ -115,9 +115,10 @@ func NewAdminGetActiveChallengesOK() *AdminGetActiveChallengesOK {
 	return &AdminGetActiveChallengesOK{}
 }
 
-/*AdminGetActiveChallengesOK handles this case with default header values.
+/*
+AdminGetActiveChallengesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetActiveChallengesOK struct {
 	Payload *challengeclientmodels.ModelListChallengeResponse
@@ -169,9 +170,10 @@ func NewAdminGetActiveChallengesUnauthorized() *AdminGetActiveChallengesUnauthor
 	return &AdminGetActiveChallengesUnauthorized{}
 }
 
-/*AdminGetActiveChallengesUnauthorized handles this case with default header values.
+/*
+AdminGetActiveChallengesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetActiveChallengesUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetActiveChallengesForbidden() *AdminGetActiveChallengesForbidden {
 	return &AdminGetActiveChallengesForbidden{}
 }
 
-/*AdminGetActiveChallengesForbidden handles this case with default header values.
+/*
+AdminGetActiveChallengesForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetActiveChallengesForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetActiveChallengesInternalServerError() *AdminGetActiveChallengesI
 	return &AdminGetActiveChallengesInternalServerError{}
 }
 
-/*AdminGetActiveChallengesInternalServerError handles this case with default header values.
+/*
+AdminGetActiveChallengesInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminGetActiveChallengesInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

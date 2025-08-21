@@ -114,9 +114,10 @@ func NewDeleteContentNoContent() *DeleteContentNoContent {
 	return &DeleteContentNoContent{}
 }
 
-/*DeleteContentNoContent handles this case with default header values.
+/*
+DeleteContentNoContent handles this case with default header values.
 
-  Content deleted
+	Content deleted
 */
 type DeleteContentNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteContentUnauthorized() *DeleteContentUnauthorized {
 	return &DeleteContentUnauthorized{}
 }
 
-/*DeleteContentUnauthorized handles this case with default header values.
+/*
+DeleteContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewDeleteContentNotFound() *DeleteContentNotFound {
 	return &DeleteContentNotFound{}
 }
 
-/*DeleteContentNotFound handles this case with default header values.
+/*
+DeleteContentNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772702</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772702</td><td>Content not found</td></tr></table>
 */
 type DeleteContentNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewDeleteContentInternalServerError() *DeleteContentInternalServerError {
 	return &DeleteContentInternalServerError{}
 }
 
-/*DeleteContentInternalServerError handles this case with default header values.
+/*
+DeleteContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772701</td><td>Unable to delete content/Unable to update user liked count/Unable to delete like state/Unable to delete like state</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772701</td><td>Unable to delete content/Unable to update user liked count/Unable to delete like state/Unable to delete like state</td></tr></table>
 */
 type DeleteContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -59,7 +59,8 @@ func NewPublicUpgradeHeadlessWithCodeV4ForwardParamsWithHTTPClient(client *http.
 	}
 }
 
-/*PublicUpgradeHeadlessWithCodeV4ForwardParams contains all the parameters to send to the API endpoint
+/*
+PublicUpgradeHeadlessWithCodeV4ForwardParams contains all the parameters to send to the API endpoint
 for the public upgrade headless with code v4 forward operation typically these are written to a http.Request
 */
 type PublicUpgradeHeadlessWithCodeV4ForwardParams struct {

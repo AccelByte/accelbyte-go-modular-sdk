@@ -115,9 +115,10 @@ func NewImportStoreByCSVOK() *ImportStoreByCSVOK {
 	return &ImportStoreByCSVOK{}
 }
 
-/*ImportStoreByCSVOK handles this case with default header values.
+/*
+ImportStoreByCSVOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ImportStoreByCSVOK struct {
 	Payload *platformclientmodels.ImportStoreResult
@@ -169,9 +170,10 @@ func NewImportStoreByCSVBadRequest() *ImportStoreByCSVBadRequest {
 	return &ImportStoreByCSVBadRequest{}
 }
 
-/*ImportStoreByCSVBadRequest handles this case with default header values.
+/*
+ImportStoreByCSVBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30024</td><td>Unable to parse CSV cell [{content}]</td></tr><tr><td>30025</td><td>[{header}] is required by CSV import/export for catalogType [{catalogType}]</td></tr><tr><td>30121</td><td>Store data is invalid</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30024</td><td>Unable to parse CSV cell [{content}]</td></tr><tr><td>30025</td><td>[{header}] is required by CSV import/export for catalogType [{catalogType}]</td></tr><tr><td>30121</td><td>Store data is invalid</td></tr></table>
 */
 type ImportStoreByCSVBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewImportStoreByCSVNotFound() *ImportStoreByCSVNotFound {
 	return &ImportStoreByCSVNotFound{}
 }
 
-/*ImportStoreByCSVNotFound handles this case with default header values.
+/*
+ImportStoreByCSVNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
 */
 type ImportStoreByCSVNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewImportStoreByCSVConflict() *ImportStoreByCSVConflict {
 	return &ImportStoreByCSVConflict{}
 }
 
-/*ImportStoreByCSVConflict handles this case with default header values.
+/*
+ImportStoreByCSVConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30076</td><td>CSV header [{headerName}] is not supported for CatalogType [{catalogType}]</td></tr><tr><td>30382</td><td>Duplicated Item sku [{sku}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30076</td><td>CSV header [{headerName}] is not supported for CatalogType [{catalogType}]</td></tr><tr><td>30382</td><td>Duplicated Item sku [{sku}]</td></tr></table>
 */
 type ImportStoreByCSVConflict struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -66,9 +66,10 @@ func NewAnonymizeIntegrationNoContent() *AnonymizeIntegrationNoContent {
 	return &AnonymizeIntegrationNoContent{}
 }
 
-/*AnonymizeIntegrationNoContent handles this case with default header values.
+/*
+AnonymizeIntegrationNoContent handles this case with default header values.
 
-  Anonymize successfully
+	Anonymize successfully
 */
 type AnonymizeIntegrationNoContent struct {
 }

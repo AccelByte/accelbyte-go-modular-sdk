@@ -46,7 +46,7 @@ ListCurrenciesShort list currencies
 List currencies of a namespace.
 Other detail info:
 
-  * Returns : Currency List
+  - Returns : Currency List
 */
 func (a *Client) ListCurrenciesShort(params *ListCurrenciesParams, authInfo runtime.ClientAuthInfoWriter) (*ListCurrenciesResponse, error) {
 	// TODO: Validate the params before sending
@@ -103,7 +103,7 @@ CreateCurrencyShort create a currency
 Create a currency.
 Other detail info:
 
-  * Returns : created currency
+  - Returns : created currency
 */
 func (a *Client) CreateCurrencyShort(params *CreateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*CreateCurrencyResponse, error) {
 	// TODO: Validate the params before sending
@@ -174,7 +174,7 @@ UpdateCurrencyShort update a currency
 Update a currency by currency code.
 Other detail info:
 
-  * Returns : updated currency
+  - Returns : updated currency
 */
 func (a *Client) UpdateCurrencyShort(params *UpdateCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCurrencyResponse, error) {
 	// TODO: Validate the params before sending
@@ -245,7 +245,7 @@ DeleteCurrencyShort delete a currency
 Delete a currency by currency code.
 Other detail info:
 
-  * Returns :
+  - Returns :
 */
 func (a *Client) DeleteCurrencyShort(params *DeleteCurrencyParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteCurrencyResponse, error) {
 	// TODO: Validate the params before sending
@@ -309,7 +309,7 @@ GetCurrencyConfigShort get currency config
 [SERVICE COMMUNICATION ONLY] Get currency config by code.
 Other detail info:
 
-  * Returns : simplified Currency
+  - Returns : simplified Currency
 */
 func (a *Client) GetCurrencyConfigShort(params *GetCurrencyConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencyConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -373,7 +373,7 @@ GetCurrencySummaryShort get currency summary
 Get currency summary by code.
 Other detail info:
 
-  * Returns : simplified Currency
+  - Returns : simplified Currency
 */
 func (a *Client) GetCurrencySummaryShort(params *GetCurrencySummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GetCurrencySummaryResponse, error) {
 	// TODO: Validate the params before sending
@@ -437,7 +437,7 @@ PublicListCurrenciesShort list currencies
 List currencies of a namespace.
 Other detail info:
 
-  * Returns : Currency List
+  - Returns : Currency List
 */
 func (a *Client) PublicListCurrenciesShort(params *PublicListCurrenciesParams) (*PublicListCurrenciesResponse, error) {
 	// TODO: Validate the params before sending

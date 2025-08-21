@@ -59,7 +59,8 @@ func NewUserRejectFriendRequestParamsWithHTTPClient(client *http.Client) *UserRe
 	}
 }
 
-/*UserRejectFriendRequestParams contains all the parameters to send to the API endpoint
+/*
+UserRejectFriendRequestParams contains all the parameters to send to the API endpoint
 for the user reject friend request operation typically these are written to a http.Request
 */
 type UserRejectFriendRequestParams struct {

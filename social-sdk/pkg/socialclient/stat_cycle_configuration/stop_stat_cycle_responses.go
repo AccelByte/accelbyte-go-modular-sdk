@@ -145,9 +145,10 @@ func NewStopStatCycleOK() *StopStatCycleOK {
 	return &StopStatCycleOK{}
 }
 
-/*StopStatCycleOK handles this case with default header values.
+/*
+StopStatCycleOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type StopStatCycleOK struct {
 	Payload *socialclientmodels.StatCycleInfo
@@ -199,9 +200,10 @@ func NewStopStatCycleUnauthorized() *StopStatCycleUnauthorized {
 	return &StopStatCycleUnauthorized{}
 }
 
-/*StopStatCycleUnauthorized handles this case with default header values.
+/*
+StopStatCycleUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type StopStatCycleUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -253,9 +255,10 @@ func NewStopStatCycleForbidden() *StopStatCycleForbidden {
 	return &StopStatCycleForbidden{}
 }
 
-/*StopStatCycleForbidden handles this case with default header values.
+/*
+StopStatCycleForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type StopStatCycleForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -307,9 +310,10 @@ func NewStopStatCycleNotFound() *StopStatCycleNotFound {
 	return &StopStatCycleNotFound{}
 }
 
-/*StopStatCycleNotFound handles this case with default header values.
+/*
+StopStatCycleNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type StopStatCycleNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -361,9 +365,10 @@ func NewStopStatCycleConflict() *StopStatCycleConflict {
 	return &StopStatCycleConflict{}
 }
 
-/*StopStatCycleConflict handles this case with default header values.
+/*
+StopStatCycleConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12279</td><td>Invalid stat cycle status: Stat cycle [{id}], namespace [{namespace}], status [{status}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12279</td><td>Invalid stat cycle status: Stat cycle [{id}], namespace [{namespace}], status [{status}]</td></tr></table>
 */
 type StopStatCycleConflict struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -415,9 +420,10 @@ func NewStopStatCycleInternalServerError() *StopStatCycleInternalServerError {
 	return &StopStatCycleInternalServerError{}
 }
 
-/*StopStatCycleInternalServerError handles this case with default header values.
+/*
+StopStatCycleInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type StopStatCycleInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

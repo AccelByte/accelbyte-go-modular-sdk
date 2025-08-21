@@ -57,7 +57,8 @@ func NewAnonymizePaymentParamsWithHTTPClient(client *http.Client) *AnonymizePaym
 	}
 }
 
-/*AnonymizePaymentParams contains all the parameters to send to the API endpoint
+/*
+AnonymizePaymentParams contains all the parameters to send to the API endpoint
 for the anonymize payment operation typically these are written to a http.Request
 */
 type AnonymizePaymentParams struct {

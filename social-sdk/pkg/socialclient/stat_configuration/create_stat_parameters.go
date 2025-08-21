@@ -59,7 +59,8 @@ func NewCreateStatParamsWithHTTPClient(client *http.Client) *CreateStatParams {
 	}
 }
 
-/*CreateStatParams contains all the parameters to send to the API endpoint
+/*
+CreateStatParams contains all the parameters to send to the API endpoint
 for the create stat operation typically these are written to a http.Request
 */
 type CreateStatParams struct {

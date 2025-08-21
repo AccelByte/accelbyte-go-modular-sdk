@@ -130,9 +130,10 @@ func NewCreateGameSessionCreated() *CreateGameSessionCreated {
 	return &CreateGameSessionCreated{}
 }
 
-/*CreateGameSessionCreated handles this case with default header values.
+/*
+CreateGameSessionCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateGameSessionCreated struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -184,9 +185,10 @@ func NewCreateGameSessionBadRequest() *CreateGameSessionBadRequest {
 	return &CreateGameSessionBadRequest{}
 }
 
-/*CreateGameSessionBadRequest handles this case with default header values.
+/*
+CreateGameSessionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateGameSessionBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewCreateGameSessionUnauthorized() *CreateGameSessionUnauthorized {
 	return &CreateGameSessionUnauthorized{}
 }
 
-/*CreateGameSessionUnauthorized handles this case with default header values.
+/*
+CreateGameSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateGameSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewCreateGameSessionForbidden() *CreateGameSessionForbidden {
 	return &CreateGameSessionForbidden{}
 }
 
-/*CreateGameSessionForbidden handles this case with default header values.
+/*
+CreateGameSessionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateGameSessionForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewCreateGameSessionInternalServerError() *CreateGameSessionInternalServerE
 	return &CreateGameSessionInternalServerError{}
 }
 
-/*CreateGameSessionInternalServerError handles this case with default header values.
+/*
+CreateGameSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateGameSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

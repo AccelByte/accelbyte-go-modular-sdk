@@ -57,7 +57,8 @@ func NewS2SGetDataRequestByRequestIDParamsWithHTTPClient(client *http.Client) *S
 	}
 }
 
-/*S2SGetDataRequestByRequestIDParams contains all the parameters to send to the API endpoint
+/*
+S2SGetDataRequestByRequestIDParams contains all the parameters to send to the API endpoint
 for the s2s get data request by request id operation typically these are written to a http.Request
 */
 type S2SGetDataRequestByRequestIDParams struct {

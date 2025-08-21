@@ -145,9 +145,10 @@ func NewUpdateMemberRolePublicV1OK() *UpdateMemberRolePublicV1OK {
 	return &UpdateMemberRolePublicV1OK{}
 }
 
-/*UpdateMemberRolePublicV1OK handles this case with default header values.
+/*
+UpdateMemberRolePublicV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateMemberRolePublicV1OK struct {
 	Payload *groupclientmodels.ModelsGetUserGroupInformationResponseV1
@@ -199,9 +200,10 @@ func NewUpdateMemberRolePublicV1BadRequest() *UpdateMemberRolePublicV1BadRequest
 	return &UpdateMemberRolePublicV1BadRequest{}
 }
 
-/*UpdateMemberRolePublicV1BadRequest handles this case with default header values.
+/*
+UpdateMemberRolePublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type UpdateMemberRolePublicV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewUpdateMemberRolePublicV1Unauthorized() *UpdateMemberRolePublicV1Unauthor
 	return &UpdateMemberRolePublicV1Unauthorized{}
 }
 
-/*UpdateMemberRolePublicV1Unauthorized handles this case with default header values.
+/*
+UpdateMemberRolePublicV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateMemberRolePublicV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewUpdateMemberRolePublicV1Forbidden() *UpdateMemberRolePublicV1Forbidden {
 	return &UpdateMemberRolePublicV1Forbidden{}
 }
 
-/*UpdateMemberRolePublicV1Forbidden handles this case with default header values.
+/*
+UpdateMemberRolePublicV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateMemberRolePublicV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewUpdateMemberRolePublicV1NotFound() *UpdateMemberRolePublicV1NotFound {
 	return &UpdateMemberRolePublicV1NotFound{}
 }
 
-/*UpdateMemberRolePublicV1NotFound handles this case with default header values.
+/*
+UpdateMemberRolePublicV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73232</td><td>member role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73232</td><td>member role not found</td></tr></table>
 */
 type UpdateMemberRolePublicV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewUpdateMemberRolePublicV1InternalServerError() *UpdateMemberRolePublicV1I
 	return &UpdateMemberRolePublicV1InternalServerError{}
 }
 
-/*UpdateMemberRolePublicV1InternalServerError handles this case with default header values.
+/*
+UpdateMemberRolePublicV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateMemberRolePublicV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

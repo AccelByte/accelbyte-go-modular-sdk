@@ -66,9 +66,10 @@ func NewAnonymizeOrderNoContent() *AnonymizeOrderNoContent {
 	return &AnonymizeOrderNoContent{}
 }
 
-/*AnonymizeOrderNoContent handles this case with default header values.
+/*
+AnonymizeOrderNoContent handles this case with default header values.
 
-  Anonymize successfully
+	Anonymize successfully
 */
 type AnonymizeOrderNoContent struct {
 }

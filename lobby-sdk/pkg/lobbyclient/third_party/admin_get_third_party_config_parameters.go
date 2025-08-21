@@ -57,7 +57,8 @@ func NewAdminGetThirdPartyConfigParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminGetThirdPartyConfigParams contains all the parameters to send to the API endpoint
+/*
+AdminGetThirdPartyConfigParams contains all the parameters to send to the API endpoint
 for the admin get third party config operation typically these are written to a http.Request
 */
 type AdminGetThirdPartyConfigParams struct {

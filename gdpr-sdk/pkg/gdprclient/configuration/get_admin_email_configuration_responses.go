@@ -100,9 +100,10 @@ func NewGetAdminEmailConfigurationOK() *GetAdminEmailConfigurationOK {
 	return &GetAdminEmailConfigurationOK{}
 }
 
-/*GetAdminEmailConfigurationOK handles this case with default header values.
+/*
+GetAdminEmailConfigurationOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetAdminEmailConfigurationOK struct {
 	Payload []string
@@ -152,9 +153,10 @@ func NewGetAdminEmailConfigurationUnauthorized() *GetAdminEmailConfigurationUnau
 	return &GetAdminEmailConfigurationUnauthorized{}
 }
 
-/*GetAdminEmailConfigurationUnauthorized handles this case with default header values.
+/*
+GetAdminEmailConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetAdminEmailConfigurationUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -206,9 +208,10 @@ func NewGetAdminEmailConfigurationInternalServerError() *GetAdminEmailConfigurat
 	return &GetAdminEmailConfigurationInternalServerError{}
 }
 
-/*GetAdminEmailConfigurationInternalServerError handles this case with default header values.
+/*
+GetAdminEmailConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetAdminEmailConfigurationInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

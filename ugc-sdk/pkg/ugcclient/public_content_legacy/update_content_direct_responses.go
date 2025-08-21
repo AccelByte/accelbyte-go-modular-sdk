@@ -145,9 +145,10 @@ func NewUpdateContentDirectOK() *UpdateContentDirectOK {
 	return &UpdateContentDirectOK{}
 }
 
-/*UpdateContentDirectOK handles this case with default header values.
+/*
+UpdateContentDirectOK handles this case with default header values.
 
-  Content updated
+	Content updated
 */
 type UpdateContentDirectOK struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponse
@@ -199,9 +200,10 @@ func NewUpdateContentDirectBadRequest() *UpdateContentDirectBadRequest {
 	return &UpdateContentDirectBadRequest{}
 }
 
-/*UpdateContentDirectBadRequest handles this case with default header values.
+/*
+UpdateContentDirectBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
 */
 type UpdateContentDirectBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewUpdateContentDirectUnauthorized() *UpdateContentDirectUnauthorized {
 	return &UpdateContentDirectUnauthorized{}
 }
 
-/*UpdateContentDirectUnauthorized handles this case with default header values.
+/*
+UpdateContentDirectUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateContentDirectUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewUpdateContentDirectForbidden() *UpdateContentDirectForbidden {
 	return &UpdateContentDirectForbidden{}
 }
 
-/*UpdateContentDirectForbidden handles this case with default header values.
+/*
+UpdateContentDirectForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type UpdateContentDirectForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewUpdateContentDirectNotFound() *UpdateContentDirectNotFound {
 	return &UpdateContentDirectNotFound{}
 }
 
-/*UpdateContentDirectNotFound handles this case with default header values.
+/*
+UpdateContentDirectNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
 */
 type UpdateContentDirectNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewUpdateContentDirectInternalServerError() *UpdateContentDirectInternalSer
 	return &UpdateContentDirectInternalServerError{}
 }
 
-/*UpdateContentDirectInternalServerError handles this case with default header values.
+/*
+UpdateContentDirectInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type UpdateContentDirectInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

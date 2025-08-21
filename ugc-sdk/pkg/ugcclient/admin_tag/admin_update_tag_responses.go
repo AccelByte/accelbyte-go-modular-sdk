@@ -145,9 +145,10 @@ func NewAdminUpdateTagOK() *AdminUpdateTagOK {
 	return &AdminUpdateTagOK{}
 }
 
-/*AdminUpdateTagOK handles this case with default header values.
+/*
+AdminUpdateTagOK handles this case with default header values.
 
-  Tags updated
+	Tags updated
 */
 type AdminUpdateTagOK struct {
 	Payload *ugcclientmodels.ModelsCreateTagResponse
@@ -199,9 +200,10 @@ func NewAdminUpdateTagBadRequest() *AdminUpdateTagBadRequest {
 	return &AdminUpdateTagBadRequest{}
 }
 
-/*AdminUpdateTagBadRequest handles this case with default header values.
+/*
+AdminUpdateTagBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772801</td><td>Malformed request/Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772801</td><td>Malformed request/Invalid request body</td></tr></table>
 */
 type AdminUpdateTagBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUpdateTagUnauthorized() *AdminUpdateTagUnauthorized {
 	return &AdminUpdateTagUnauthorized{}
 }
 
-/*AdminUpdateTagUnauthorized handles this case with default header values.
+/*
+AdminUpdateTagUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateTagUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUpdateTagNotFound() *AdminUpdateTagNotFound {
 	return &AdminUpdateTagNotFound{}
 }
 
-/*AdminUpdateTagNotFound handles this case with default header values.
+/*
+AdminUpdateTagNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772803</td><td>Tag not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772803</td><td>Tag not found</td></tr></table>
 */
 type AdminUpdateTagNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUpdateTagConflict() *AdminUpdateTagConflict {
 	return &AdminUpdateTagConflict{}
 }
 
-/*AdminUpdateTagConflict handles this case with default header values.
+/*
+AdminUpdateTagConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772804</td><td>Proposed Tag already exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772804</td><td>Proposed Tag already exist</td></tr></table>
 */
 type AdminUpdateTagConflict struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUpdateTagInternalServerError() *AdminUpdateTagInternalServerError {
 	return &AdminUpdateTagInternalServerError{}
 }
 
-/*AdminUpdateTagInternalServerError handles this case with default header values.
+/*
+AdminUpdateTagInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772802</td><td>Unable update tags</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772802</td><td>Unable update tags</td></tr></table>
 */
 type AdminUpdateTagInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

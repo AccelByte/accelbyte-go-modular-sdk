@@ -88,9 +88,10 @@ func NewGetSlotDataOK(writer io.Writer) *GetSlotDataOK {
 	}
 }
 
-/*GetSlotDataOK handles this case with default header values.
+/*
+GetSlotDataOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type GetSlotDataOK struct {
 	Payload io.Writer
@@ -140,9 +141,10 @@ func NewGetSlotDataNotFound() *GetSlotDataNotFound {
 	return &GetSlotDataNotFound{}
 }
 
-/*GetSlotDataNotFound handles this case with default header values.
+/*
+GetSlotDataNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12141</td><td>Slot [{slotId}] not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12141</td><td>Slot [{slotId}] not found in namespace [{namespace}]</td></tr></table>
 */
 type GetSlotDataNotFound struct {
 	Payload *socialclientmodels.ErrorEntity

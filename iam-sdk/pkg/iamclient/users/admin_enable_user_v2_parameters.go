@@ -57,7 +57,8 @@ func NewAdminEnableUserV2ParamsWithHTTPClient(client *http.Client) *AdminEnableU
 	}
 }
 
-/*AdminEnableUserV2Params contains all the parameters to send to the API endpoint
+/*
+AdminEnableUserV2Params contains all the parameters to send to the API endpoint
 for the admin enable user v2 operation typically these are written to a http.Request
 */
 type AdminEnableUserV2Params struct {

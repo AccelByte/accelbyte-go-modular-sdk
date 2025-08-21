@@ -70,7 +70,8 @@ func NewAdminGetRecentTeamPlayerParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminGetRecentTeamPlayerParams contains all the parameters to send to the API endpoint
+/*
+AdminGetRecentTeamPlayerParams contains all the parameters to send to the API endpoint
 for the admin get recent team player operation typically these are written to a http.Request
 */
 type AdminGetRecentTeamPlayerParams struct {

@@ -115,9 +115,10 @@ func NewInitiateExportAgreementsToCSVOK() *InitiateExportAgreementsToCSVOK {
 	return &InitiateExportAgreementsToCSVOK{}
 }
 
-/*InitiateExportAgreementsToCSVOK handles this case with default header values.
+/*
+InitiateExportAgreementsToCSVOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type InitiateExportAgreementsToCSVOK struct {
 	Payload *legalclientmodels.InitiateExportAgreementsToCSVResponse
@@ -169,9 +170,10 @@ func NewInitiateExportAgreementsToCSVBadRequest() *InitiateExportAgreementsToCSV
 	return &InitiateExportAgreementsToCSVBadRequest{}
 }
 
-/*InitiateExportAgreementsToCSVBadRequest handles this case with default header values.
+/*
+InitiateExportAgreementsToCSVBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40027</td><td>Too many export running currently</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40027</td><td>Too many export running currently</td></tr></table>
 */
 type InitiateExportAgreementsToCSVBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewInitiateExportAgreementsToCSVNotFound() *InitiateExportAgreementsToCSVNo
 	return &InitiateExportAgreementsToCSVNotFound{}
 }
 
-/*InitiateExportAgreementsToCSVNotFound handles this case with default header values.
+/*
+InitiateExportAgreementsToCSVNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>Policy version with id: [{policyVersionId}] not found on namespace [{namespace}]</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>Policy version with id: [{policyVersionId}] not found on namespace [{namespace}]</td></tr></table>
 */
 type InitiateExportAgreementsToCSVNotFound struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewInitiateExportAgreementsToCSVConflict() *InitiateExportAgreementsToCSVCo
 	return &InitiateExportAgreementsToCSVConflict{}
 }
 
-/*InitiateExportAgreementsToCSVConflict handles this case with default header values.
+/*
+InitiateExportAgreementsToCSVConflict handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40071</td><td>Previous export still running for namespace [{namespace}] with exportId [{exportId}]</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40071</td><td>Previous export still running for namespace [{namespace}] with exportId [{exportId}]</td></tr></table>
 */
 type InitiateExportAgreementsToCSVConflict struct {
 	Payload *legalclientmodels.ErrorEntity

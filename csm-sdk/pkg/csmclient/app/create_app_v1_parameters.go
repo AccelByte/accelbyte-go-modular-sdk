@@ -59,7 +59,8 @@ func NewCreateAppV1ParamsWithHTTPClient(client *http.Client) *CreateAppV1Params 
 	}
 }
 
-/*CreateAppV1Params contains all the parameters to send to the API endpoint
+/*
+CreateAppV1Params contains all the parameters to send to the API endpoint
 for the create app v1 operation typically these are written to a http.Request
 */
 type CreateAppV1Params struct {

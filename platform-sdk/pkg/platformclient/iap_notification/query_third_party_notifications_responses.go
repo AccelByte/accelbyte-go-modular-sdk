@@ -69,9 +69,10 @@ func NewQueryThirdPartyNotificationsOK() *QueryThirdPartyNotificationsOK {
 	return &QueryThirdPartyNotificationsOK{}
 }
 
-/*QueryThirdPartyNotificationsOK handles this case with default header values.
+/*
+QueryThirdPartyNotificationsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryThirdPartyNotificationsOK struct {
 	Payload *platformclientmodels.NotificationPagingSlicedResult

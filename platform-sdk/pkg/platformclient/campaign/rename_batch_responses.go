@@ -84,9 +84,10 @@ func NewRenameBatchNoContent() *RenameBatchNoContent {
 	return &RenameBatchNoContent{}
 }
 
-/*RenameBatchNoContent handles this case with default header values.
+/*
+RenameBatchNoContent handles this case with default header values.
 
-  Batch was renamed successfully
+	Batch was renamed successfully
 */
 type RenameBatchNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewRenameBatchNotFound() *RenameBatchNotFound {
 	return &RenameBatchNotFound{}
 }
 
-/*RenameBatchNotFound handles this case with default header values.
+/*
+RenameBatchNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr><tr><td>37143</td><td>Batch name [{batchName}] does not exist for campaign [{campaignId}] in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37141</td><td>Campaign [{campaignId}] does not exist in namespace [{namespace}]</td></tr><tr><td>37143</td><td>Batch name [{batchName}] does not exist for campaign [{campaignId}] in namespace [{namespace}].</td></tr></table>
 */
 type RenameBatchNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -69,9 +69,10 @@ func NewGetNamespaceSlotConfigOK() *GetNamespaceSlotConfigOK {
 	return &GetNamespaceSlotConfigOK{}
 }
 
-/*GetNamespaceSlotConfigOK handles this case with default header values.
+/*
+GetNamespaceSlotConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetNamespaceSlotConfigOK struct {
 	Payload *socialclientmodels.NamespaceSlotConfigInfo

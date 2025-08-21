@@ -69,9 +69,10 @@ func NewGetUserSubscriptionActivitiesOK() *GetUserSubscriptionActivitiesOK {
 	return &GetUserSubscriptionActivitiesOK{}
 }
 
-/*GetUserSubscriptionActivitiesOK handles this case with default header values.
+/*
+GetUserSubscriptionActivitiesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserSubscriptionActivitiesOK struct {
 	Payload *platformclientmodels.SubscriptionActivityPagingSlicedResult

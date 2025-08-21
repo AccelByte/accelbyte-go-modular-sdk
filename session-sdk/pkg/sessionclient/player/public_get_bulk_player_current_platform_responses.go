@@ -130,9 +130,10 @@ func NewPublicGetBulkPlayerCurrentPlatformOK() *PublicGetBulkPlayerCurrentPlatfo
 	return &PublicGetBulkPlayerCurrentPlatformOK{}
 }
 
-/*PublicGetBulkPlayerCurrentPlatformOK handles this case with default header values.
+/*
+PublicGetBulkPlayerCurrentPlatformOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetBulkPlayerCurrentPlatformOK struct {
 	Payload *sessionclientmodels.ApimodelsPlayersCurrentPlatformResponse
@@ -184,9 +185,10 @@ func NewPublicGetBulkPlayerCurrentPlatformBadRequest() *PublicGetBulkPlayerCurre
 	return &PublicGetBulkPlayerCurrentPlatformBadRequest{}
 }
 
-/*PublicGetBulkPlayerCurrentPlatformBadRequest handles this case with default header values.
+/*
+PublicGetBulkPlayerCurrentPlatformBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetBulkPlayerCurrentPlatformBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicGetBulkPlayerCurrentPlatformUnauthorized() *PublicGetBulkPlayerCur
 	return &PublicGetBulkPlayerCurrentPlatformUnauthorized{}
 }
 
-/*PublicGetBulkPlayerCurrentPlatformUnauthorized handles this case with default header values.
+/*
+PublicGetBulkPlayerCurrentPlatformUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetBulkPlayerCurrentPlatformUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicGetBulkPlayerCurrentPlatformNotFound() *PublicGetBulkPlayerCurrent
 	return &PublicGetBulkPlayerCurrentPlatformNotFound{}
 }
 
-/*PublicGetBulkPlayerCurrentPlatformNotFound handles this case with default header values.
+/*
+PublicGetBulkPlayerCurrentPlatformNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetBulkPlayerCurrentPlatformNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicGetBulkPlayerCurrentPlatformInternalServerError() *PublicGetBulkPl
 	return &PublicGetBulkPlayerCurrentPlatformInternalServerError{}
 }
 
-/*PublicGetBulkPlayerCurrentPlatformInternalServerError handles this case with default header values.
+/*
+PublicGetBulkPlayerCurrentPlatformInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetBulkPlayerCurrentPlatformInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

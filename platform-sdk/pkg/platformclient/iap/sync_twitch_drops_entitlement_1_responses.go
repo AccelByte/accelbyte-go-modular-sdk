@@ -84,9 +84,10 @@ func NewSyncTwitchDropsEntitlement1NoContent() *SyncTwitchDropsEntitlement1NoCon
 	return &SyncTwitchDropsEntitlement1NoContent{}
 }
 
-/*SyncTwitchDropsEntitlement1NoContent handles this case with default header values.
+/*
+SyncTwitchDropsEntitlement1NoContent handles this case with default header values.
 
-  Sync Successful
+	Sync Successful
 */
 type SyncTwitchDropsEntitlement1NoContent struct {
 }
@@ -111,9 +112,10 @@ func NewSyncTwitchDropsEntitlement1BadRequest() *SyncTwitchDropsEntitlement1BadR
 	return &SyncTwitchDropsEntitlement1BadRequest{}
 }
 
-/*SyncTwitchDropsEntitlement1BadRequest handles this case with default header values.
+/*
+SyncTwitchDropsEntitlement1BadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39125</td><td>Invalid platform [{platformId}] user token</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr></table>
 */
 type SyncTwitchDropsEntitlement1BadRequest struct {
 	Payload *platformclientmodels.ErrorEntity

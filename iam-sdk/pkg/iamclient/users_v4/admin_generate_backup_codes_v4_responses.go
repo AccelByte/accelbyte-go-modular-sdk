@@ -144,9 +144,10 @@ func NewAdminGenerateBackupCodesV4OK() *AdminGenerateBackupCodesV4OK {
 	return &AdminGenerateBackupCodesV4OK{}
 }
 
-/*AdminGenerateBackupCodesV4OK handles this case with default header values.
+/*
+AdminGenerateBackupCodesV4OK handles this case with default header values.
 
-  Backup codes generated
+	Backup codes generated
 */
 type AdminGenerateBackupCodesV4OK struct {
 }
@@ -171,9 +172,10 @@ func NewAdminGenerateBackupCodesV4BadRequest() *AdminGenerateBackupCodesV4BadReq
 	return &AdminGenerateBackupCodesV4BadRequest{}
 }
 
-/*AdminGenerateBackupCodesV4BadRequest handles this case with default header values.
+/*
+AdminGenerateBackupCodesV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type AdminGenerateBackupCodesV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminGenerateBackupCodesV4Unauthorized() *AdminGenerateBackupCodesV4Unau
 	return &AdminGenerateBackupCodesV4Unauthorized{}
 }
 
-/*AdminGenerateBackupCodesV4Unauthorized handles this case with default header values.
+/*
+AdminGenerateBackupCodesV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGenerateBackupCodesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminGenerateBackupCodesV4Forbidden() *AdminGenerateBackupCodesV4Forbidd
 	return &AdminGenerateBackupCodesV4Forbidden{}
 }
 
-/*AdminGenerateBackupCodesV4Forbidden handles this case with default header values.
+/*
+AdminGenerateBackupCodesV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGenerateBackupCodesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminGenerateBackupCodesV4NotFound() *AdminGenerateBackupCodesV4NotFound
 	return &AdminGenerateBackupCodesV4NotFound{}
 }
 
-/*AdminGenerateBackupCodesV4NotFound handles this case with default header values.
+/*
+AdminGenerateBackupCodesV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminGenerateBackupCodesV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminGenerateBackupCodesV4InternalServerError() *AdminGenerateBackupCode
 	return &AdminGenerateBackupCodesV4InternalServerError{}
 }
 
-/*AdminGenerateBackupCodesV4InternalServerError handles this case with default header values.
+/*
+AdminGenerateBackupCodesV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGenerateBackupCodesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

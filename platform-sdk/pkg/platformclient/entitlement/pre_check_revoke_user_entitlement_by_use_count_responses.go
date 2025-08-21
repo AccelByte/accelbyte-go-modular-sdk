@@ -85,9 +85,10 @@ func NewPreCheckRevokeUserEntitlementByUseCountOK() *PreCheckRevokeUserEntitleme
 	return &PreCheckRevokeUserEntitlementByUseCountOK{}
 }
 
-/*PreCheckRevokeUserEntitlementByUseCountOK handles this case with default header values.
+/*
+PreCheckRevokeUserEntitlementByUseCountOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PreCheckRevokeUserEntitlementByUseCountOK struct {
 	Payload *platformclientmodels.EntitlementPrechekResult
@@ -139,9 +140,10 @@ func NewPreCheckRevokeUserEntitlementByUseCountNotFound() *PreCheckRevokeUserEnt
 	return &PreCheckRevokeUserEntitlementByUseCountNotFound{}
 }
 
-/*PreCheckRevokeUserEntitlementByUseCountNotFound handles this case with default header values.
+/*
+PreCheckRevokeUserEntitlementByUseCountNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PreCheckRevokeUserEntitlementByUseCountNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

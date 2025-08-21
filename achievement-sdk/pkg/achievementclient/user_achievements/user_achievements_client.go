@@ -44,22 +44,12 @@ type ClientService interface {
 /*
 AdminListUserAchievementsShort query user achievements [include achieved and in-progress]
 
-
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
 
-
-
-
 User Achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
-
-
-
 
 `achievedAt` value will return default value: `0001-01-01T00:00:00Z` for user achievement that locked or in progress
 */
@@ -143,7 +133,6 @@ func (a *Client) AdminListUserAchievementsShort(params *AdminListUserAchievement
 
 /*
 AdminBulkUnlockAchievementShort bulk unlock achievements
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`
@@ -236,11 +225,7 @@ func (a *Client) AdminBulkUnlockAchievementShort(params *AdminBulkUnlockAchievem
 /*
 AdminResetAchievementShort reset an achievement
 
-
 [TEST FACILITY ONLY]
-
-
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [DELETE]` and scope `social`
@@ -324,7 +309,6 @@ func (a *Client) AdminResetAchievementShort(params *AdminResetAchievementParams,
 
 /*
 AdminUnlockAchievementShort unlock an achievement
-
 
 Required permission
 `ADMIN:NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`
@@ -416,22 +400,12 @@ func (a *Client) AdminUnlockAchievementShort(params *AdminUnlockAchievementParam
 /*
 PublicListUserAchievementsShort query user achievements [include achieved and in-progress]
 
-
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [READ]` and scope `social`
 
-
-
-
 Note:
 
-
-
-
 User Achievement status value mean: `status = 1 (in progress)` and `status = 2 (unlocked)`
-
-
-
 
 `achievedAt` value will return default value: `0001-01-01T00:00:00Z` for user achievement that locked or in progress
 */
@@ -515,7 +489,6 @@ func (a *Client) PublicListUserAchievementsShort(params *PublicListUserAchieveme
 
 /*
 PublicBulkUnlockAchievementShort bulk unlock achievements
-
 
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`
@@ -607,7 +580,6 @@ func (a *Client) PublicBulkUnlockAchievementShort(params *PublicBulkUnlockAchiev
 
 /*
 PublicUnlockAchievementShort unlock an achievement
-
 
 Required permission
 `NAMESPACE:{namespace}:USER:{userId}:ACHIEVEMENT [UPDATE]` and scope `social`

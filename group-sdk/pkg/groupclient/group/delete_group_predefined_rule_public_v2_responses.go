@@ -144,9 +144,10 @@ func NewDeleteGroupPredefinedRulePublicV2NoContent() *DeleteGroupPredefinedRuleP
 	return &DeleteGroupPredefinedRulePublicV2NoContent{}
 }
 
-/*DeleteGroupPredefinedRulePublicV2NoContent handles this case with default header values.
+/*
+DeleteGroupPredefinedRulePublicV2NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteGroupPredefinedRulePublicV2NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteGroupPredefinedRulePublicV2BadRequest() *DeleteGroupPredefinedRule
 	return &DeleteGroupPredefinedRulePublicV2BadRequest{}
 }
 
-/*DeleteGroupPredefinedRulePublicV2BadRequest handles this case with default header values.
+/*
+DeleteGroupPredefinedRulePublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DeleteGroupPredefinedRulePublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -225,9 +227,10 @@ func NewDeleteGroupPredefinedRulePublicV2Unauthorized() *DeleteGroupPredefinedRu
 	return &DeleteGroupPredefinedRulePublicV2Unauthorized{}
 }
 
-/*DeleteGroupPredefinedRulePublicV2Unauthorized handles this case with default header values.
+/*
+DeleteGroupPredefinedRulePublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteGroupPredefinedRulePublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -279,9 +282,10 @@ func NewDeleteGroupPredefinedRulePublicV2Forbidden() *DeleteGroupPredefinedRuleP
 	return &DeleteGroupPredefinedRulePublicV2Forbidden{}
 }
 
-/*DeleteGroupPredefinedRulePublicV2Forbidden handles this case with default header values.
+/*
+DeleteGroupPredefinedRulePublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type DeleteGroupPredefinedRulePublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -333,9 +337,10 @@ func NewDeleteGroupPredefinedRulePublicV2NotFound() *DeleteGroupPredefinedRulePu
 	return &DeleteGroupPredefinedRulePublicV2NotFound{}
 }
 
-/*DeleteGroupPredefinedRulePublicV2NotFound handles this case with default header values.
+/*
+DeleteGroupPredefinedRulePublicV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
 */
 type DeleteGroupPredefinedRulePublicV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -387,9 +392,10 @@ func NewDeleteGroupPredefinedRulePublicV2InternalServerError() *DeleteGroupPrede
 	return &DeleteGroupPredefinedRulePublicV2InternalServerError{}
 }
 
-/*DeleteGroupPredefinedRulePublicV2InternalServerError handles this case with default header values.
+/*
+DeleteGroupPredefinedRulePublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteGroupPredefinedRulePublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

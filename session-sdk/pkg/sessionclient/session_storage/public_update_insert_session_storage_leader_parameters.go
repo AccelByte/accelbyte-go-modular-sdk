@@ -57,7 +57,8 @@ func NewPublicUpdateInsertSessionStorageLeaderParamsWithHTTPClient(client *http.
 	}
 }
 
-/*PublicUpdateInsertSessionStorageLeaderParams contains all the parameters to send to the API endpoint
+/*
+PublicUpdateInsertSessionStorageLeaderParams contains all the parameters to send to the API endpoint
 for the public update insert session storage leader operation typically these are written to a http.Request
 */
 type PublicUpdateInsertSessionStorageLeaderParams struct {

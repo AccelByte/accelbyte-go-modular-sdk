@@ -145,9 +145,10 @@ func NewAdminUpdateGameSessionMemberOK() *AdminUpdateGameSessionMemberOK {
 	return &AdminUpdateGameSessionMemberOK{}
 }
 
-/*AdminUpdateGameSessionMemberOK handles this case with default header values.
+/*
+AdminUpdateGameSessionMemberOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateGameSessionMemberOK struct {
 	Payload *sessionclientmodels.ApimodelsUpdateGameSessionMemberStatusResponse
@@ -199,9 +200,10 @@ func NewAdminUpdateGameSessionMemberBadRequest() *AdminUpdateGameSessionMemberBa
 	return &AdminUpdateGameSessionMemberBadRequest{}
 }
 
-/*AdminUpdateGameSessionMemberBadRequest handles this case with default header values.
+/*
+AdminUpdateGameSessionMemberBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateGameSessionMemberBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUpdateGameSessionMemberUnauthorized() *AdminUpdateGameSessionMember
 	return &AdminUpdateGameSessionMemberUnauthorized{}
 }
 
-/*AdminUpdateGameSessionMemberUnauthorized handles this case with default header values.
+/*
+AdminUpdateGameSessionMemberUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdateGameSessionMemberUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUpdateGameSessionMemberForbidden() *AdminUpdateGameSessionMemberFor
 	return &AdminUpdateGameSessionMemberForbidden{}
 }
 
-/*AdminUpdateGameSessionMemberForbidden handles this case with default header values.
+/*
+AdminUpdateGameSessionMemberForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdateGameSessionMemberForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUpdateGameSessionMemberNotFound() *AdminUpdateGameSessionMemberNotF
 	return &AdminUpdateGameSessionMemberNotFound{}
 }
 
-/*AdminUpdateGameSessionMemberNotFound handles this case with default header values.
+/*
+AdminUpdateGameSessionMemberNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateGameSessionMemberNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUpdateGameSessionMemberInternalServerError() *AdminUpdateGameSessio
 	return &AdminUpdateGameSessionMemberInternalServerError{}
 }
 
-/*AdminUpdateGameSessionMemberInternalServerError handles this case with default header values.
+/*
+AdminUpdateGameSessionMemberInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateGameSessionMemberInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

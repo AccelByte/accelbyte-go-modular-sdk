@@ -144,9 +144,10 @@ func NewUpdateNotificationTopicV1AdminNoContent() *UpdateNotificationTopicV1Admi
 	return &UpdateNotificationTopicV1AdminNoContent{}
 }
 
-/*UpdateNotificationTopicV1AdminNoContent handles this case with default header values.
+/*
+UpdateNotificationTopicV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UpdateNotificationTopicV1AdminNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewUpdateNotificationTopicV1AdminBadRequest() *UpdateNotificationTopicV1Adm
 	return &UpdateNotificationTopicV1AdminBadRequest{}
 }
 
-/*UpdateNotificationTopicV1AdminBadRequest handles this case with default header values.
+/*
+UpdateNotificationTopicV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateNotificationTopicV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -225,9 +227,10 @@ func NewUpdateNotificationTopicV1AdminUnauthorized() *UpdateNotificationTopicV1A
 	return &UpdateNotificationTopicV1AdminUnauthorized{}
 }
 
-/*UpdateNotificationTopicV1AdminUnauthorized handles this case with default header values.
+/*
+UpdateNotificationTopicV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateNotificationTopicV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -279,9 +282,10 @@ func NewUpdateNotificationTopicV1AdminForbidden() *UpdateNotificationTopicV1Admi
 	return &UpdateNotificationTopicV1AdminForbidden{}
 }
 
-/*UpdateNotificationTopicV1AdminForbidden handles this case with default header values.
+/*
+UpdateNotificationTopicV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateNotificationTopicV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -333,9 +337,10 @@ func NewUpdateNotificationTopicV1AdminNotFound() *UpdateNotificationTopicV1Admin
 	return &UpdateNotificationTopicV1AdminNotFound{}
 }
 
-/*UpdateNotificationTopicV1AdminNotFound handles this case with default header values.
+/*
+UpdateNotificationTopicV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UpdateNotificationTopicV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -387,9 +392,10 @@ func NewUpdateNotificationTopicV1AdminInternalServerError() *UpdateNotificationT
 	return &UpdateNotificationTopicV1AdminInternalServerError{}
 }
 
-/*UpdateNotificationTopicV1AdminInternalServerError handles this case with default header values.
+/*
+UpdateNotificationTopicV1AdminInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateNotificationTopicV1AdminInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

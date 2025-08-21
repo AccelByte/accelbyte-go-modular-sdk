@@ -57,7 +57,8 @@ func NewGetPaymentMerchantConfigParamsWithHTTPClient(client *http.Client) *GetPa
 	}
 }
 
-/*GetPaymentMerchantConfigParams contains all the parameters to send to the API endpoint
+/*
+GetPaymentMerchantConfigParams contains all the parameters to send to the API endpoint
 for the get payment merchant config operation typically these are written to a http.Request
 */
 type GetPaymentMerchantConfigParams struct {

@@ -145,9 +145,10 @@ func NewCreateNewGroupPublicV2Created() *CreateNewGroupPublicV2Created {
 	return &CreateNewGroupPublicV2Created{}
 }
 
-/*CreateNewGroupPublicV2Created handles this case with default header values.
+/*
+CreateNewGroupPublicV2Created handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateNewGroupPublicV2Created struct {
 	Payload *groupclientmodels.ModelsGroupResponseV1
@@ -199,9 +200,10 @@ func NewCreateNewGroupPublicV2BadRequest() *CreateNewGroupPublicV2BadRequest {
 	return &CreateNewGroupPublicV2BadRequest{}
 }
 
-/*CreateNewGroupPublicV2BadRequest handles this case with default header values.
+/*
+CreateNewGroupPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateNewGroupPublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewCreateNewGroupPublicV2Unauthorized() *CreateNewGroupPublicV2Unauthorized
 	return &CreateNewGroupPublicV2Unauthorized{}
 }
 
-/*CreateNewGroupPublicV2Unauthorized handles this case with default header values.
+/*
+CreateNewGroupPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateNewGroupPublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewCreateNewGroupPublicV2Forbidden() *CreateNewGroupPublicV2Forbidden {
 	return &CreateNewGroupPublicV2Forbidden{}
 }
 
-/*CreateNewGroupPublicV2Forbidden handles this case with default header values.
+/*
+CreateNewGroupPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type CreateNewGroupPublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewCreateNewGroupPublicV2Conflict() *CreateNewGroupPublicV2Conflict {
 	return &CreateNewGroupPublicV2Conflict{}
 }
 
-/*CreateNewGroupPublicV2Conflict handles this case with default header values.
+/*
+CreateNewGroupPublicV2Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73342</td><td>user already joined group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73342</td><td>user already joined group</td></tr></table>
 */
 type CreateNewGroupPublicV2Conflict struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewCreateNewGroupPublicV2InternalServerError() *CreateNewGroupPublicV2Inter
 	return &CreateNewGroupPublicV2InternalServerError{}
 }
 
-/*CreateNewGroupPublicV2InternalServerError handles this case with default header values.
+/*
+CreateNewGroupPublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateNewGroupPublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

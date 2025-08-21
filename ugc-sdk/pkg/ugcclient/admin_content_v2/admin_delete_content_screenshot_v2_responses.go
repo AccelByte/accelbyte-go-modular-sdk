@@ -144,9 +144,10 @@ func NewAdminDeleteContentScreenshotV2NoContent() *AdminDeleteContentScreenshotV
 	return &AdminDeleteContentScreenshotV2NoContent{}
 }
 
-/*AdminDeleteContentScreenshotV2NoContent handles this case with default header values.
+/*
+AdminDeleteContentScreenshotV2NoContent handles this case with default header values.
 
-  Screenshot deleted
+	Screenshot deleted
 */
 type AdminDeleteContentScreenshotV2NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeleteContentScreenshotV2BadRequest() *AdminDeleteContentScreenshot
 	return &AdminDeleteContentScreenshotV2BadRequest{}
 }
 
-/*AdminDeleteContentScreenshotV2BadRequest handles this case with default header values.
+/*
+AdminDeleteContentScreenshotV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type AdminDeleteContentScreenshotV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewAdminDeleteContentScreenshotV2Unauthorized() *AdminDeleteContentScreensh
 	return &AdminDeleteContentScreenshotV2Unauthorized{}
 }
 
-/*AdminDeleteContentScreenshotV2Unauthorized handles this case with default header values.
+/*
+AdminDeleteContentScreenshotV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteContentScreenshotV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewAdminDeleteContentScreenshotV2Forbidden() *AdminDeleteContentScreenshotV
 	return &AdminDeleteContentScreenshotV2Forbidden{}
 }
 
-/*AdminDeleteContentScreenshotV2Forbidden handles this case with default header values.
+/*
+AdminDeleteContentScreenshotV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type AdminDeleteContentScreenshotV2Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewAdminDeleteContentScreenshotV2NotFound() *AdminDeleteContentScreenshotV2
 	return &AdminDeleteContentScreenshotV2NotFound{}
 }
 
-/*AdminDeleteContentScreenshotV2NotFound handles this case with default header values.
+/*
+AdminDeleteContentScreenshotV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
 */
 type AdminDeleteContentScreenshotV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewAdminDeleteContentScreenshotV2InternalServerError() *AdminDeleteContentS
 	return &AdminDeleteContentScreenshotV2InternalServerError{}
 }
 
-/*AdminDeleteContentScreenshotV2InternalServerError handles this case with default header values.
+/*
+AdminDeleteContentScreenshotV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type AdminDeleteContentScreenshotV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

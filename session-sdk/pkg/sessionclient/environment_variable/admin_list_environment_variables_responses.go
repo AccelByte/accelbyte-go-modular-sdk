@@ -100,9 +100,10 @@ func NewAdminListEnvironmentVariablesOK() *AdminListEnvironmentVariablesOK {
 	return &AdminListEnvironmentVariablesOK{}
 }
 
-/*AdminListEnvironmentVariablesOK handles this case with default header values.
+/*
+AdminListEnvironmentVariablesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListEnvironmentVariablesOK struct {
 	Payload *sessionclientmodels.ApimodelsEnvironmentVariableListResponse
@@ -154,9 +155,10 @@ func NewAdminListEnvironmentVariablesUnauthorized() *AdminListEnvironmentVariabl
 	return &AdminListEnvironmentVariablesUnauthorized{}
 }
 
-/*AdminListEnvironmentVariablesUnauthorized handles this case with default header values.
+/*
+AdminListEnvironmentVariablesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminListEnvironmentVariablesUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -208,9 +210,10 @@ func NewAdminListEnvironmentVariablesForbidden() *AdminListEnvironmentVariablesF
 	return &AdminListEnvironmentVariablesForbidden{}
 }
 
-/*AdminListEnvironmentVariablesForbidden handles this case with default header values.
+/*
+AdminListEnvironmentVariablesForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminListEnvironmentVariablesForbidden struct {
 	Payload *sessionclientmodels.ResponseError

@@ -86,7 +86,8 @@ func NewAdminGetContentByChannelIDV2ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminGetContentByChannelIDV2Params contains all the parameters to send to the API endpoint
+/*
+AdminGetContentByChannelIDV2Params contains all the parameters to send to the API endpoint
 for the admin get content by channel idv2 operation typically these are written to a http.Request
 */
 type AdminGetContentByChannelIDV2Params struct {

@@ -70,7 +70,8 @@ func NewPublicTopicListParamsWithHTTPClient(client *http.Client) *PublicTopicLis
 	}
 }
 
-/*PublicTopicListParams contains all the parameters to send to the API endpoint
+/*
+PublicTopicListParams contains all the parameters to send to the API endpoint
 for the public topic list operation typically these are written to a http.Request
 */
 type PublicTopicListParams struct {

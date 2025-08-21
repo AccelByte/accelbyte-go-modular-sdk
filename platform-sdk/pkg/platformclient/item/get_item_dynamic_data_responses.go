@@ -85,9 +85,10 @@ func NewGetItemDynamicDataOK() *GetItemDynamicDataOK {
 	return &GetItemDynamicDataOK{}
 }
 
-/*GetItemDynamicDataOK handles this case with default header values.
+/*
+GetItemDynamicDataOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetItemDynamicDataOK struct {
 	Payload *platformclientmodels.ItemDynamicDataInfo
@@ -139,9 +140,10 @@ func NewGetItemDynamicDataNotFound() *GetItemDynamicDataNotFound {
 	return &GetItemDynamicDataNotFound{}
 }
 
-/*GetItemDynamicDataNotFound handles this case with default header values.
+/*
+GetItemDynamicDataNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetItemDynamicDataNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

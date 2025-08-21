@@ -115,9 +115,10 @@ func NewDebitUserWalletByCurrencyCodeOK() *DebitUserWalletByCurrencyCodeOK {
 	return &DebitUserWalletByCurrencyCodeOK{}
 }
 
-/*DebitUserWalletByCurrencyCodeOK handles this case with default header values.
+/*
+DebitUserWalletByCurrencyCodeOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DebitUserWalletByCurrencyCodeOK struct {
 	Payload *platformclientmodels.WalletInfo
@@ -169,9 +170,10 @@ func NewDebitUserWalletByCurrencyCodeBadRequest() *DebitUserWalletByCurrencyCode
 	return &DebitUserWalletByCurrencyCodeBadRequest{}
 }
 
-/*DebitUserWalletByCurrencyCodeBadRequest handles this case with default header values.
+/*
+DebitUserWalletByCurrencyCodeBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
 */
 type DebitUserWalletByCurrencyCodeBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewDebitUserWalletByCurrencyCodeConflict() *DebitUserWalletByCurrencyCodeCo
 	return &DebitUserWalletByCurrencyCodeConflict{}
 }
 
-/*DebitUserWalletByCurrencyCodeConflict handles this case with default header values.
+/*
+DebitUserWalletByCurrencyCodeConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type DebitUserWalletByCurrencyCodeConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewDebitUserWalletByCurrencyCodeUnprocessableEntity() *DebitUserWalletByCur
 	return &DebitUserWalletByCurrencyCodeUnprocessableEntity{}
 }
 
-/*DebitUserWalletByCurrencyCodeUnprocessableEntity handles this case with default header values.
+/*
+DebitUserWalletByCurrencyCodeUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DebitUserWalletByCurrencyCodeUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

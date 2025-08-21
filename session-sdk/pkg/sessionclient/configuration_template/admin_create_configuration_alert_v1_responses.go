@@ -160,9 +160,10 @@ func NewAdminCreateConfigurationAlertV1Created() *AdminCreateConfigurationAlertV
 	return &AdminCreateConfigurationAlertV1Created{}
 }
 
-/*AdminCreateConfigurationAlertV1Created handles this case with default header values.
+/*
+AdminCreateConfigurationAlertV1Created handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateConfigurationAlertV1Created struct {
 	Payload *sessionclientmodels.ApimodelsConfigAlertResponse
@@ -214,9 +215,10 @@ func NewAdminCreateConfigurationAlertV1BadRequest() *AdminCreateConfigurationAle
 	return &AdminCreateConfigurationAlertV1BadRequest{}
 }
 
-/*AdminCreateConfigurationAlertV1BadRequest handles this case with default header values.
+/*
+AdminCreateConfigurationAlertV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCreateConfigurationAlertV1BadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewAdminCreateConfigurationAlertV1Unauthorized() *AdminCreateConfigurationA
 	return &AdminCreateConfigurationAlertV1Unauthorized{}
 }
 
-/*AdminCreateConfigurationAlertV1Unauthorized handles this case with default header values.
+/*
+AdminCreateConfigurationAlertV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminCreateConfigurationAlertV1Unauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewAdminCreateConfigurationAlertV1Forbidden() *AdminCreateConfigurationAler
 	return &AdminCreateConfigurationAlertV1Forbidden{}
 }
 
-/*AdminCreateConfigurationAlertV1Forbidden handles this case with default header values.
+/*
+AdminCreateConfigurationAlertV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminCreateConfigurationAlertV1Forbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewAdminCreateConfigurationAlertV1NotFound() *AdminCreateConfigurationAlert
 	return &AdminCreateConfigurationAlertV1NotFound{}
 }
 
-/*AdminCreateConfigurationAlertV1NotFound handles this case with default header values.
+/*
+AdminCreateConfigurationAlertV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminCreateConfigurationAlertV1NotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewAdminCreateConfigurationAlertV1Conflict() *AdminCreateConfigurationAlert
 	return &AdminCreateConfigurationAlertV1Conflict{}
 }
 
-/*AdminCreateConfigurationAlertV1Conflict handles this case with default header values.
+/*
+AdminCreateConfigurationAlertV1Conflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminCreateConfigurationAlertV1Conflict struct {
 	Payload *sessionclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewAdminCreateConfigurationAlertV1InternalServerError() *AdminCreateConfigu
 	return &AdminCreateConfigurationAlertV1InternalServerError{}
 }
 
-/*AdminCreateConfigurationAlertV1InternalServerError handles this case with default header values.
+/*
+AdminCreateConfigurationAlertV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCreateConfigurationAlertV1InternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

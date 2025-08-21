@@ -85,9 +85,10 @@ func NewPublicUpdateUserNamespaceSlotMetadataOK() *PublicUpdateUserNamespaceSlot
 	return &PublicUpdateUserNamespaceSlotMetadataOK{}
 }
 
-/*PublicUpdateUserNamespaceSlotMetadataOK handles this case with default header values.
+/*
+PublicUpdateUserNamespaceSlotMetadataOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicUpdateUserNamespaceSlotMetadataOK struct {
 	Payload *socialclientmodels.SlotInfo
@@ -139,9 +140,10 @@ func NewPublicUpdateUserNamespaceSlotMetadataNotFound() *PublicUpdateUserNamespa
 	return &PublicUpdateUserNamespaceSlotMetadataNotFound{}
 }
 
-/*PublicUpdateUserNamespaceSlotMetadataNotFound handles this case with default header values.
+/*
+PublicUpdateUserNamespaceSlotMetadataNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12141</td><td>Slot [{slotId}] not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12141</td><td>Slot [{slotId}] not found in namespace [{namespace}]</td></tr></table>
 */
 type PublicUpdateUserNamespaceSlotMetadataNotFound struct {
 	Payload *socialclientmodels.ErrorEntity

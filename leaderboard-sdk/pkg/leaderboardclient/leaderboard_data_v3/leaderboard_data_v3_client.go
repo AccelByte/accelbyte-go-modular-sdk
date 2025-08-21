@@ -49,7 +49,6 @@ type ClientService interface {
 /*
 GetAllTimeLeaderboardRankingAdminV3Short get all time leaderboard ranking data
 
-
 Get rankings in an all time leaderboard.
 */
 func (a *Client) GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLeaderboardRankingAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingAdminV3Response, error) {
@@ -139,7 +138,6 @@ func (a *Client) GetAllTimeLeaderboardRankingAdminV3Short(params *GetAllTimeLead
 
 /*
 GetCurrentCycleLeaderboardRankingAdminV3Short get cycle leaderboard ranking data
-
 
 Get rankings in cycle leaderboard.
 */
@@ -231,11 +229,7 @@ func (a *Client) GetCurrentCycleLeaderboardRankingAdminV3Short(params *GetCurren
 /*
 DeleteAllUserRankingByCycleIDAdminV3Short delete all user ranking by cycle id
 
-
-This endpoint will delete user ranking by cycleId
-
-
-
+# This endpoint will delete user ranking by cycleId
 
 Warning : This will permanently delete your data. Make sure to back up anything important before continuing.
 */
@@ -404,11 +398,7 @@ func (a *Client) DeleteUserRankingByCycleIDAdminV3Short(params *DeleteUserRankin
 /*
 DeleteUserRankingByLeaderboardCodeAdminV3Short delete all user ranking by leaderboard code
 
-
-This endpoint will delete user ranking by leaderboard code
-
-
-
+# This endpoint will delete user ranking by leaderboard code
 
 Warning : This will permanently delete your data. Make sure to back up anything important before continuing.
 */
@@ -491,7 +481,6 @@ func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV3Short(params *DeleteUs
 
 /*
 GetUserRankingAdminV3Short get user ranking
-
 
 Get user ranking in leaderboard
 */
@@ -744,7 +733,6 @@ func (a *Client) DeleteUserRankingsAdminV3Short(params *DeleteUserRankingsAdminV
 /*
 GetAllTimeLeaderboardRankingPublicV3Short get all time leaderboard ranking data
 
-
 Get rankings in an all time leaderboard.
 */
 func (a *Client) GetAllTimeLeaderboardRankingPublicV3Short(params *GetAllTimeLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAllTimeLeaderboardRankingPublicV3Response, error) {
@@ -821,7 +809,6 @@ func (a *Client) GetAllTimeLeaderboardRankingPublicV3Short(params *GetAllTimeLea
 /*
 GetCurrentCycleLeaderboardRankingPublicV3Short get cycle leaderboard ranking data
 
-
 Get rankings in cycle leaderboard.
 */
 func (a *Client) GetCurrentCycleLeaderboardRankingPublicV3Short(params *GetCurrentCycleLeaderboardRankingPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentCycleLeaderboardRankingPublicV3Response, error) {
@@ -897,7 +884,6 @@ func (a *Client) GetCurrentCycleLeaderboardRankingPublicV3Short(params *GetCurre
 
 /*
 BulkGetUsersRankingPublicV3Short bulk get users ranking
-
 
 Bulk get users ranking in leaderboard, max allowed 20 userIDs at a time.
 */
@@ -988,7 +974,6 @@ func (a *Client) BulkGetUsersRankingPublicV3Short(params *BulkGetUsersRankingPub
 
 /*
 GetUserRankingPublicV3Short get user ranking
-
 
 Get user ranking in leaderboard
 */

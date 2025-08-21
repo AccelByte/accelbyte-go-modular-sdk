@@ -69,10 +69,9 @@ func NewAdminCreateNamespaceTopicOK() *AdminCreateNamespaceTopicOK {
 	return &AdminCreateNamespaceTopicOK{}
 }
 
-/*AdminCreateNamespaceTopicOK handles this case with default header values.
-
-
- */
+/*
+AdminCreateNamespaceTopicOK handles this case with default header values.
+*/
 type AdminCreateNamespaceTopicOK struct {
 	Payload *chatclientmodels.APICreateTopicResponse
 }

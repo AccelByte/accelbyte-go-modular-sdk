@@ -129,9 +129,10 @@ func NewAdminDeleteInboxCategoryOK() *AdminDeleteInboxCategoryOK {
 	return &AdminDeleteInboxCategoryOK{}
 }
 
-/*AdminDeleteInboxCategoryOK handles this case with default header values.
+/*
+AdminDeleteInboxCategoryOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminDeleteInboxCategoryOK struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDeleteInboxCategoryBadRequest() *AdminDeleteInboxCategoryBadRequest
 	return &AdminDeleteInboxCategoryBadRequest{}
 }
 
-/*AdminDeleteInboxCategoryBadRequest handles this case with default header values.
+/*
+AdminDeleteInboxCategoryBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeleteInboxCategoryBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewAdminDeleteInboxCategoryUnauthorized() *AdminDeleteInboxCategoryUnauthor
 	return &AdminDeleteInboxCategoryUnauthorized{}
 }
 
-/*AdminDeleteInboxCategoryUnauthorized handles this case with default header values.
+/*
+AdminDeleteInboxCategoryUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeleteInboxCategoryUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewAdminDeleteInboxCategoryForbidden() *AdminDeleteInboxCategoryForbidden {
 	return &AdminDeleteInboxCategoryForbidden{}
 }
 
-/*AdminDeleteInboxCategoryForbidden handles this case with default header values.
+/*
+AdminDeleteInboxCategoryForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminDeleteInboxCategoryForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewAdminDeleteInboxCategoryInternalServerError() *AdminDeleteInboxCategoryI
 	return &AdminDeleteInboxCategoryInternalServerError{}
 }
 
-/*AdminDeleteInboxCategoryInternalServerError handles this case with default header values.
+/*
+AdminDeleteInboxCategoryInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteInboxCategoryInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

@@ -69,9 +69,10 @@ func NewPublicGetPaymentAccountsOK() *PublicGetPaymentAccountsOK {
 	return &PublicGetPaymentAccountsOK{}
 }
 
-/*PublicGetPaymentAccountsOK handles this case with default header values.
+/*
+PublicGetPaymentAccountsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetPaymentAccountsOK struct {
 	Payload []*platformclientmodels.PaymentAccount

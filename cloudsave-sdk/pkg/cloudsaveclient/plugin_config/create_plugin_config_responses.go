@@ -145,9 +145,10 @@ func NewCreatePluginConfigCreated() *CreatePluginConfigCreated {
 	return &CreatePluginConfigCreated{}
 }
 
-/*CreatePluginConfigCreated handles this case with default header values.
+/*
+CreatePluginConfigCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreatePluginConfigCreated struct {
 	Payload *cloudsaveclientmodels.ModelsPluginResponse
@@ -199,9 +200,10 @@ func NewCreatePluginConfigBadRequest() *CreatePluginConfigBadRequest {
 	return &CreatePluginConfigBadRequest{}
 }
 
-/*CreatePluginConfigBadRequest handles this case with default header values.
+/*
+CreatePluginConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18401</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18401</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreatePluginConfigBadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewCreatePluginConfigUnauthorized() *CreatePluginConfigUnauthorized {
 	return &CreatePluginConfigUnauthorized{}
 }
 
-/*CreatePluginConfigUnauthorized handles this case with default header values.
+/*
+CreatePluginConfigUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreatePluginConfigUnauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewCreatePluginConfigForbidden() *CreatePluginConfigForbidden {
 	return &CreatePluginConfigForbidden{}
 }
 
-/*CreatePluginConfigForbidden handles this case with default header values.
+/*
+CreatePluginConfigForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type CreatePluginConfigForbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewCreatePluginConfigConflict() *CreatePluginConfigConflict {
 	return &CreatePluginConfigConflict{}
 }
 
-/*CreatePluginConfigConflict handles this case with default header values.
+/*
+CreatePluginConfigConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18402</td><td>plugins already configured</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18402</td><td>plugins already configured</td></tr></table>
 */
 type CreatePluginConfigConflict struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewCreatePluginConfigInternalServerError() *CreatePluginConfigInternalServe
 	return &CreatePluginConfigInternalServerError{}
 }
 
-/*CreatePluginConfigInternalServerError handles this case with default header values.
+/*
+CreatePluginConfigInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type CreatePluginConfigInternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

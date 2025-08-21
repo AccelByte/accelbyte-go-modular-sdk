@@ -145,9 +145,10 @@ func NewPostGameBinaryRecordV1Created() *PostGameBinaryRecordV1Created {
 	return &PostGameBinaryRecordV1Created{}
 }
 
-/*PostGameBinaryRecordV1Created handles this case with default header values.
+/*
+PostGameBinaryRecordV1Created handles this case with default header values.
 
-  Record in namespace-level created
+	Record in namespace-level created
 */
 type PostGameBinaryRecordV1Created struct {
 	Payload *cloudsaveclientmodels.ModelsUploadBinaryRecordResponse
@@ -199,9 +200,10 @@ func NewPostGameBinaryRecordV1BadRequest() *PostGameBinaryRecordV1BadRequest {
 	return &PostGameBinaryRecordV1BadRequest{}
 }
 
-/*PostGameBinaryRecordV1BadRequest handles this case with default header values.
+/*
+PostGameBinaryRecordV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18305</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18305</td><td>invalid request body</td></tr></table>
 */
 type PostGameBinaryRecordV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewPostGameBinaryRecordV1Unauthorized() *PostGameBinaryRecordV1Unauthorized
 	return &PostGameBinaryRecordV1Unauthorized{}
 }
 
-/*PostGameBinaryRecordV1Unauthorized handles this case with default header values.
+/*
+PostGameBinaryRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PostGameBinaryRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewPostGameBinaryRecordV1Forbidden() *PostGameBinaryRecordV1Forbidden {
 	return &PostGameBinaryRecordV1Forbidden{}
 }
 
-/*PostGameBinaryRecordV1Forbidden handles this case with default header values.
+/*
+PostGameBinaryRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PostGameBinaryRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewPostGameBinaryRecordV1Conflict() *PostGameBinaryRecordV1Conflict {
 	return &PostGameBinaryRecordV1Conflict{}
 }
 
-/*PostGameBinaryRecordV1Conflict handles this case with default header values.
+/*
+PostGameBinaryRecordV1Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18309</td><td>key already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18309</td><td>key already exists</td></tr></table>
 */
 type PostGameBinaryRecordV1Conflict struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewPostGameBinaryRecordV1InternalServerError() *PostGameBinaryRecordV1Inter
 	return &PostGameBinaryRecordV1InternalServerError{}
 }
 
-/*PostGameBinaryRecordV1InternalServerError handles this case with default header values.
+/*
+PostGameBinaryRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18301</td><td>unable to get record</td></tr><tr><td>18307</td><td>unable to save record</td></tr><tr><td>18310</td><td>unable to get presigned URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18301</td><td>unable to get record</td></tr><tr><td>18307</td><td>unable to save record</td></tr><tr><td>18310</td><td>unable to get presigned URL</td></tr></table>
 */
 type PostGameBinaryRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

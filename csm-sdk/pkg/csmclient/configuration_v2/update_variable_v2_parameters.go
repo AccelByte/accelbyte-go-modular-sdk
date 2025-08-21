@@ -59,7 +59,8 @@ func NewUpdateVariableV2ParamsWithHTTPClient(client *http.Client) *UpdateVariabl
 	}
 }
 
-/*UpdateVariableV2Params contains all the parameters to send to the API endpoint
+/*
+UpdateVariableV2Params contains all the parameters to send to the API endpoint
 for the update variable v2 operation typically these are written to a http.Request
 */
 type UpdateVariableV2Params struct {

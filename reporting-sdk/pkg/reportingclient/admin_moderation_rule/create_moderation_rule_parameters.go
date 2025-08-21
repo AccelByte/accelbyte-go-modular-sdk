@@ -59,7 +59,8 @@ func NewCreateModerationRuleParamsWithHTTPClient(client *http.Client) *CreateMod
 	}
 }
 
-/*CreateModerationRuleParams contains all the parameters to send to the API endpoint
+/*
+CreateModerationRuleParams contains all the parameters to send to the API endpoint
 for the create moderation rule operation typically these are written to a http.Request
 */
 type CreateModerationRuleParams struct {

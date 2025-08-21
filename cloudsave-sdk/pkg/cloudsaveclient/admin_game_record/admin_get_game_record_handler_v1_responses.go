@@ -130,9 +130,10 @@ func NewAdminGetGameRecordHandlerV1OK() *AdminGetGameRecordHandlerV1OK {
 	return &AdminGetGameRecordHandlerV1OK{}
 }
 
-/*AdminGetGameRecordHandlerV1OK handles this case with default header values.
+/*
+AdminGetGameRecordHandlerV1OK handles this case with default header values.
 
-  Record in namespace-level retrieved
+	Record in namespace-level retrieved
 */
 type AdminGetGameRecordHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsGameRecordAdminResponse
@@ -184,9 +185,10 @@ func NewAdminGetGameRecordHandlerV1Unauthorized() *AdminGetGameRecordHandlerV1Un
 	return &AdminGetGameRecordHandlerV1Unauthorized{}
 }
 
-/*AdminGetGameRecordHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminGetGameRecordHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetGameRecordHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewAdminGetGameRecordHandlerV1Forbidden() *AdminGetGameRecordHandlerV1Forbi
 	return &AdminGetGameRecordHandlerV1Forbidden{}
 }
 
-/*AdminGetGameRecordHandlerV1Forbidden handles this case with default header values.
+/*
+AdminGetGameRecordHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetGameRecordHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewAdminGetGameRecordHandlerV1NotFound() *AdminGetGameRecordHandlerV1NotFou
 	return &AdminGetGameRecordHandlerV1NotFound{}
 }
 
-/*AdminGetGameRecordHandlerV1NotFound handles this case with default header values.
+/*
+AdminGetGameRecordHandlerV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18003</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18003</td><td>record not found</td></tr></table>
 */
 type AdminGetGameRecordHandlerV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewAdminGetGameRecordHandlerV1InternalServerError() *AdminGetGameRecordHand
 	return &AdminGetGameRecordHandlerV1InternalServerError{}
 }
 
-/*AdminGetGameRecordHandlerV1InternalServerError handles this case with default header values.
+/*
+AdminGetGameRecordHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18001</td><td>unable to get record</td></tr><tr><td>18005</td><td>unable to decode record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18001</td><td>unable to get record</td></tr><tr><td>18005</td><td>unable to decode record</td></tr></table>
 */
 type AdminGetGameRecordHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

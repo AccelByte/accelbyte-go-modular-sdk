@@ -59,7 +59,8 @@ func NewSubscribeV2HandlerParamsWithHTTPClient(client *http.Client) *SubscribeV2
 	}
 }
 
-/*SubscribeV2HandlerParams contains all the parameters to send to the API endpoint
+/*
+SubscribeV2HandlerParams contains all the parameters to send to the API endpoint
 for the subscribe v2 handler operation typically these are written to a http.Request
 */
 type SubscribeV2HandlerParams struct {

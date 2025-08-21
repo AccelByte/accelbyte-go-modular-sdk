@@ -144,9 +144,10 @@ func NewAdminPostTagHandlerV1Created() *AdminPostTagHandlerV1Created {
 	return &AdminPostTagHandlerV1Created{}
 }
 
-/*AdminPostTagHandlerV1Created handles this case with default header values.
+/*
+AdminPostTagHandlerV1Created handles this case with default header values.
 
-  Tag created
+	Tag created
 */
 type AdminPostTagHandlerV1Created struct {
 }
@@ -171,9 +172,10 @@ func NewAdminPostTagHandlerV1BadRequest() *AdminPostTagHandlerV1BadRequest {
 	return &AdminPostTagHandlerV1BadRequest{}
 }
 
-/*AdminPostTagHandlerV1BadRequest handles this case with default header values.
+/*
+AdminPostTagHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18505</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18505</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminPostTagHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -225,9 +227,10 @@ func NewAdminPostTagHandlerV1Unauthorized() *AdminPostTagHandlerV1Unauthorized {
 	return &AdminPostTagHandlerV1Unauthorized{}
 }
 
-/*AdminPostTagHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminPostTagHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPostTagHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -279,9 +282,10 @@ func NewAdminPostTagHandlerV1Forbidden() *AdminPostTagHandlerV1Forbidden {
 	return &AdminPostTagHandlerV1Forbidden{}
 }
 
-/*AdminPostTagHandlerV1Forbidden handles this case with default header values.
+/*
+AdminPostTagHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminPostTagHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -333,9 +337,10 @@ func NewAdminPostTagHandlerV1Conflict() *AdminPostTagHandlerV1Conflict {
 	return &AdminPostTagHandlerV1Conflict{}
 }
 
-/*AdminPostTagHandlerV1Conflict handles this case with default header values.
+/*
+AdminPostTagHandlerV1Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18506</td><td>tag already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18506</td><td>tag already exists</td></tr></table>
 */
 type AdminPostTagHandlerV1Conflict struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -387,9 +392,10 @@ func NewAdminPostTagHandlerV1InternalServerError() *AdminPostTagHandlerV1Interna
 	return &AdminPostTagHandlerV1InternalServerError{}
 }
 
-/*AdminPostTagHandlerV1InternalServerError handles this case with default header values.
+/*
+AdminPostTagHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18507</td><td>unable to create tag</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18507</td><td>unable to create tag</td></tr></table>
 */
 type AdminPostTagHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

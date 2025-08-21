@@ -85,9 +85,10 @@ func NewDownloadCategoriesOK() *DownloadCategoriesOK {
 	return &DownloadCategoriesOK{}
 }
 
-/*DownloadCategoriesOK handles this case with default header values.
+/*
+DownloadCategoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DownloadCategoriesOK struct {
 	Payload []*platformclientmodels.HierarchicalCategoryInfo
@@ -137,9 +138,10 @@ func NewDownloadCategoriesNotFound() *DownloadCategoriesNotFound {
 	return &DownloadCategoriesNotFound{}
 }
 
-/*DownloadCategoriesNotFound handles this case with default header values.
+/*
+DownloadCategoriesNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DownloadCategoriesNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

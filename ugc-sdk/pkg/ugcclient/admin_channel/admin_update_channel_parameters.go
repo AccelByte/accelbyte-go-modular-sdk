@@ -59,7 +59,8 @@ func NewAdminUpdateChannelParamsWithHTTPClient(client *http.Client) *AdminUpdate
 	}
 }
 
-/*AdminUpdateChannelParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateChannelParams contains all the parameters to send to the API endpoint
 for the admin update channel operation typically these are written to a http.Request
 */
 type AdminUpdateChannelParams struct {

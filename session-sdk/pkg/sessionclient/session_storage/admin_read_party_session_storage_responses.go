@@ -130,9 +130,10 @@ func NewAdminReadPartySessionStorageOK() *AdminReadPartySessionStorageOK {
 	return &AdminReadPartySessionStorageOK{}
 }
 
-/*AdminReadPartySessionStorageOK handles this case with default header values.
+/*
+AdminReadPartySessionStorageOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminReadPartySessionStorageOK struct {
 	Payload map[string]interface{}
@@ -182,9 +183,10 @@ func NewAdminReadPartySessionStorageBadRequest() *AdminReadPartySessionStorageBa
 	return &AdminReadPartySessionStorageBadRequest{}
 }
 
-/*AdminReadPartySessionStorageBadRequest handles this case with default header values.
+/*
+AdminReadPartySessionStorageBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminReadPartySessionStorageBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -236,9 +238,10 @@ func NewAdminReadPartySessionStorageUnauthorized() *AdminReadPartySessionStorage
 	return &AdminReadPartySessionStorageUnauthorized{}
 }
 
-/*AdminReadPartySessionStorageUnauthorized handles this case with default header values.
+/*
+AdminReadPartySessionStorageUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminReadPartySessionStorageUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -290,9 +293,10 @@ func NewAdminReadPartySessionStorageNotFound() *AdminReadPartySessionStorageNotF
 	return &AdminReadPartySessionStorageNotFound{}
 }
 
-/*AdminReadPartySessionStorageNotFound handles this case with default header values.
+/*
+AdminReadPartySessionStorageNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminReadPartySessionStorageNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -344,9 +348,10 @@ func NewAdminReadPartySessionStorageInternalServerError() *AdminReadPartySession
 	return &AdminReadPartySessionStorageInternalServerError{}
 }
 
-/*AdminReadPartySessionStorageInternalServerError handles this case with default header values.
+/*
+AdminReadPartySessionStorageInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminReadPartySessionStorageInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -85,9 +85,10 @@ func NewValidateItemPurchaseConditionOK() *ValidateItemPurchaseConditionOK {
 	return &ValidateItemPurchaseConditionOK{}
 }
 
-/*ValidateItemPurchaseConditionOK handles this case with default header values.
+/*
+ValidateItemPurchaseConditionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ValidateItemPurchaseConditionOK struct {
 	Payload []*platformclientmodels.ItemPurchaseConditionValidateResult
@@ -137,9 +138,10 @@ func NewValidateItemPurchaseConditionUnprocessableEntity() *ValidateItemPurchase
 	return &ValidateItemPurchaseConditionUnprocessableEntity{}
 }
 
-/*ValidateItemPurchaseConditionUnprocessableEntity handles this case with default header values.
+/*
+ValidateItemPurchaseConditionUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type ValidateItemPurchaseConditionUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

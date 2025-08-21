@@ -59,7 +59,8 @@ func NewCreateRewardParamsWithHTTPClient(client *http.Client) *CreateRewardParam
 	}
 }
 
-/*CreateRewardParams contains all the parameters to send to the API endpoint
+/*
+CreateRewardParams contains all the parameters to send to the API endpoint
 for the create reward operation typically these are written to a http.Request
 */
 type CreateRewardParams struct {

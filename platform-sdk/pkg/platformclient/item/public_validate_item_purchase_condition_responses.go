@@ -85,9 +85,10 @@ func NewPublicValidateItemPurchaseConditionOK() *PublicValidateItemPurchaseCondi
 	return &PublicValidateItemPurchaseConditionOK{}
 }
 
-/*PublicValidateItemPurchaseConditionOK handles this case with default header values.
+/*
+PublicValidateItemPurchaseConditionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicValidateItemPurchaseConditionOK struct {
 	Payload []*platformclientmodels.ItemPurchaseConditionValidateResult
@@ -137,9 +138,10 @@ func NewPublicValidateItemPurchaseConditionUnprocessableEntity() *PublicValidate
 	return &PublicValidateItemPurchaseConditionUnprocessableEntity{}
 }
 
-/*PublicValidateItemPurchaseConditionUnprocessableEntity handles this case with default header values.
+/*
+PublicValidateItemPurchaseConditionUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicValidateItemPurchaseConditionUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

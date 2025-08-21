@@ -273,9 +273,9 @@ RetrieveLatestPoliciesShort retrieve latest policies by country
 Retrieve all active latest policies based on a country.
 Other detail info:
 
-  * Leave the policyType empty if you want to be responded with all policy type
-  *  Fill the tags if you want to filter the responded policy by tags
-  *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+  - Leave the policyType empty if you want to be responded with all policy type
+  - Fill the tags if you want to filter the responded policy by tags
+  - Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
 */
 func (a *Client) RetrieveLatestPoliciesShort(params *RetrieveLatestPoliciesParams) (*RetrieveLatestPoliciesResponse, error) {
 	// TODO: Validate the params before sending
@@ -331,16 +331,16 @@ RetrieveLatestPoliciesPublicShort retrieve latest policies by namespace and coun
 Retrieve all active latest policies based on a namespace and country. The country will be read from user token.
 Other detail info:
 
-  * Leave the policyType empty if you want to be responded with all policy type
-  *  Fill the tags if you want to filter the responded policy by tags
-  *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
-  *  Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
-    * Document 1 (default): Region US (default), UA
-    * Document 2 (default): Region US (default)
-    * Document 3 (default): Region US (default)
-    * User: Region UA
-    * Query: alwaysIncludeDefault: true
-    * Response: Document 1 (UA), Document 2 (US), Document 3 (US)
+  - Leave the policyType empty if you want to be responded with all policy type
+  - Fill the tags if you want to filter the responded policy by tags
+  - Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+  - Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
+  - Document 1 (default): Region US (default), UA
+  - Document 2 (default): Region US (default)
+  - Document 3 (default): Region US (default)
+  - User: Region UA
+  - Query: alwaysIncludeDefault: true
+  - Response: Document 1 (UA), Document 2 (US), Document 3 (US)
 */
 func (a *Client) RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPoliciesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLatestPoliciesPublicResponse, error) {
 	// TODO: Validate the params before sending
@@ -404,16 +404,16 @@ RetrieveLatestPoliciesByNamespaceAndCountryPublicShort retrieve latest policies 
 Retrieve all active latest policies based on a namespace and country.
 Other detail info:
 
-  * Leave the policyType empty if you want to be responded with all policy type
-  *  Fill the tags if you want to filter the responded policy by tags
-  *  Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
-  *  Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
-    * Document 1 (default): Region US (default), UA
-    * Document 2 (default): Region US (default)
-    * Document 3 (default): Region US (default)
-    * User: Region UA
-    * Query: alwaysIncludeDefault: true
-    * Response: Document 1 (UA), Document 2 (US), Document 3 (US)
+  - Leave the policyType empty if you want to be responded with all policy type
+  - Fill the tags if you want to filter the responded policy by tags
+  - Fill the defaultOnEmpty with true if you want to be responded with default country-specific policy if your requested country is not exist
+  - Fill the alwaysIncludeDefault with true if you want to be responded with always include default policy. If there are duplicate policies (default policies and country specific policies with same base policy) it'll include policy with same country code, for example:
+  - Document 1 (default): Region US (default), UA
+  - Document 2 (default): Region US (default)
+  - Document 3 (default): Region US (default)
+  - User: Region UA
+  - Query: alwaysIncludeDefault: true
+  - Response: Document 1 (UA), Document 2 (US), Document 3 (US)
 */
 func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse, error) {
 	// TODO: Validate the params before sending

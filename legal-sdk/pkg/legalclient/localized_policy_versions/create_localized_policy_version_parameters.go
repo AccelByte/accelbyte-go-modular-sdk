@@ -59,7 +59,8 @@ func NewCreateLocalizedPolicyVersionParamsWithHTTPClient(client *http.Client) *C
 	}
 }
 
-/*CreateLocalizedPolicyVersionParams contains all the parameters to send to the API endpoint
+/*
+CreateLocalizedPolicyVersionParams contains all the parameters to send to the API endpoint
 for the create localized policy version operation typically these are written to a http.Request
 */
 type CreateLocalizedPolicyVersionParams struct {

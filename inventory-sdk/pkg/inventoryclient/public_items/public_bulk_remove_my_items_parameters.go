@@ -59,7 +59,8 @@ func NewPublicBulkRemoveMyItemsParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicBulkRemoveMyItemsParams contains all the parameters to send to the API endpoint
+/*
+PublicBulkRemoveMyItemsParams contains all the parameters to send to the API endpoint
 for the public bulk remove my items operation typically these are written to a http.Request
 */
 type PublicBulkRemoveMyItemsParams struct {

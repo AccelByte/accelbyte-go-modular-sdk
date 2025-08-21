@@ -130,9 +130,10 @@ func NewFleetServerConnectionInfoOK() *FleetServerConnectionInfoOK {
 	return &FleetServerConnectionInfoOK{}
 }
 
-/*FleetServerConnectionInfoOK handles this case with default header values.
+/*
+FleetServerConnectionInfoOK handles this case with default header values.
 
-  success
+	success
 */
 type FleetServerConnectionInfoOK struct {
 	Payload *amsclientmodels.APIFleetServerConnectionInfoResponse
@@ -184,9 +185,10 @@ func NewFleetServerConnectionInfoUnauthorized() *FleetServerConnectionInfoUnauth
 	return &FleetServerConnectionInfoUnauthorized{}
 }
 
-/*FleetServerConnectionInfoUnauthorized handles this case with default header values.
+/*
+FleetServerConnectionInfoUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type FleetServerConnectionInfoUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewFleetServerConnectionInfoForbidden() *FleetServerConnectionInfoForbidden
 	return &FleetServerConnectionInfoForbidden{}
 }
 
-/*FleetServerConnectionInfoForbidden handles this case with default header values.
+/*
+FleetServerConnectionInfoForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type FleetServerConnectionInfoForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewFleetServerConnectionInfoNotFound() *FleetServerConnectionInfoNotFound {
 	return &FleetServerConnectionInfoNotFound{}
 }
 
-/*FleetServerConnectionInfoNotFound handles this case with default header values.
+/*
+FleetServerConnectionInfoNotFound handles this case with default header values.
 
-  dedicated server not found
+	dedicated server not found
 */
 type FleetServerConnectionInfoNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewFleetServerConnectionInfoInternalServerError() *FleetServerConnectionInf
 	return &FleetServerConnectionInfoInternalServerError{}
 }
 
-/*FleetServerConnectionInfoInternalServerError handles this case with default header values.
+/*
+FleetServerConnectionInfoInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type FleetServerConnectionInfoInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

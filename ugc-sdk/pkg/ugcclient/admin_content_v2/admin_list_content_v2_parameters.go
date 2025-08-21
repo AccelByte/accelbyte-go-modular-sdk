@@ -86,7 +86,8 @@ func NewAdminListContentV2ParamsWithHTTPClient(client *http.Client) *AdminListCo
 	}
 }
 
-/*AdminListContentV2Params contains all the parameters to send to the API endpoint
+/*
+AdminListContentV2Params contains all the parameters to send to the API endpoint
 for the admin list content v2 operation typically these are written to a http.Request
 */
 type AdminListContentV2Params struct {

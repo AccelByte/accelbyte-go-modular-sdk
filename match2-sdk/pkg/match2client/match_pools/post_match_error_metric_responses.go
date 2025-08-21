@@ -144,9 +144,10 @@ func NewPostMatchErrorMetricNoContent() *PostMatchErrorMetricNoContent {
 	return &PostMatchErrorMetricNoContent{}
 }
 
-/*PostMatchErrorMetricNoContent handles this case with default header values.
+/*
+PostMatchErrorMetricNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PostMatchErrorMetricNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPostMatchErrorMetricBadRequest() *PostMatchErrorMetricBadRequest {
 	return &PostMatchErrorMetricBadRequest{}
 }
 
-/*PostMatchErrorMetricBadRequest handles this case with default header values.
+/*
+PostMatchErrorMetricBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PostMatchErrorMetricBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewPostMatchErrorMetricUnauthorized() *PostMatchErrorMetricUnauthorized {
 	return &PostMatchErrorMetricUnauthorized{}
 }
 
-/*PostMatchErrorMetricUnauthorized handles this case with default header values.
+/*
+PostMatchErrorMetricUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PostMatchErrorMetricUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewPostMatchErrorMetricForbidden() *PostMatchErrorMetricForbidden {
 	return &PostMatchErrorMetricForbidden{}
 }
 
-/*PostMatchErrorMetricForbidden handles this case with default header values.
+/*
+PostMatchErrorMetricForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PostMatchErrorMetricForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewPostMatchErrorMetricNotFound() *PostMatchErrorMetricNotFound {
 	return &PostMatchErrorMetricNotFound{}
 }
 
-/*PostMatchErrorMetricNotFound handles this case with default header values.
+/*
+PostMatchErrorMetricNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PostMatchErrorMetricNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewPostMatchErrorMetricInternalServerError() *PostMatchErrorMetricInternalS
 	return &PostMatchErrorMetricInternalServerError{}
 }
 
-/*PostMatchErrorMetricInternalServerError handles this case with default header values.
+/*
+PostMatchErrorMetricInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PostMatchErrorMetricInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

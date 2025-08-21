@@ -99,9 +99,10 @@ func NewUnselectRecordNoContent() *UnselectRecordNoContent {
 	return &UnselectRecordNoContent{}
 }
 
-/*UnselectRecordNoContent handles this case with default header values.
+/*
+UnselectRecordNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UnselectRecordNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewUnselectRecordNotFound() *UnselectRecordNotFound {
 	return &UnselectRecordNotFound{}
 }
 
-/*UnselectRecordNotFound handles this case with default header values.
+/*
+UnselectRecordNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30041</td><td>Changelog [{changelogId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30041</td><td>Changelog [{changelogId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UnselectRecordNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewUnselectRecordConflict() *UnselectRecordConflict {
 	return &UnselectRecordConflict{}
 }
 
-/*UnselectRecordConflict handles this case with default header values.
+/*
+UnselectRecordConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30071</td><td>Can't unselect item [{itemId}] when the item which is bound to is already selected in namespace [{namespace}]</td></tr><tr><td>30072</td><td>Can't unselect category [{categoryPath}] when item with this category is already selected in namespace [{namespace}]</td></tr><tr><td>30073</td><td>Can't unselect store change</td></tr><tr><td>30074</td><td>Can't unselect subscription's content [{itemId}] when subscription is already selected in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30071</td><td>Can't unselect item [{itemId}] when the item which is bound to is already selected in namespace [{namespace}]</td></tr><tr><td>30072</td><td>Can't unselect category [{categoryPath}] when item with this category is already selected in namespace [{namespace}]</td></tr><tr><td>30073</td><td>Can't unselect store change</td></tr><tr><td>30074</td><td>Can't unselect subscription's content [{itemId}] when subscription is already selected in namespace [{namespace}]</td></tr></table>
 */
 type UnselectRecordConflict struct {
 	Payload *platformclientmodels.ErrorEntity

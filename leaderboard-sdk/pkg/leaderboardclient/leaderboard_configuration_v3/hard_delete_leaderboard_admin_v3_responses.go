@@ -144,9 +144,10 @@ func NewHardDeleteLeaderboardAdminV3NoContent() *HardDeleteLeaderboardAdminV3NoC
 	return &HardDeleteLeaderboardAdminV3NoContent{}
 }
 
-/*HardDeleteLeaderboardAdminV3NoContent handles this case with default header values.
+/*
+HardDeleteLeaderboardAdminV3NoContent handles this case with default header values.
 
-  Leaderboard successfully deleted
+	Leaderboard successfully deleted
 */
 type HardDeleteLeaderboardAdminV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewHardDeleteLeaderboardAdminV3BadRequest() *HardDeleteLeaderboardAdminV3Ba
 	return &HardDeleteLeaderboardAdminV3BadRequest{}
 }
 
-/*HardDeleteLeaderboardAdminV3BadRequest handles this case with default header values.
+/*
+HardDeleteLeaderboardAdminV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type HardDeleteLeaderboardAdminV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -225,9 +227,10 @@ func NewHardDeleteLeaderboardAdminV3Unauthorized() *HardDeleteLeaderboardAdminV3
 	return &HardDeleteLeaderboardAdminV3Unauthorized{}
 }
 
-/*HardDeleteLeaderboardAdminV3Unauthorized handles this case with default header values.
+/*
+HardDeleteLeaderboardAdminV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type HardDeleteLeaderboardAdminV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -279,9 +282,10 @@ func NewHardDeleteLeaderboardAdminV3Forbidden() *HardDeleteLeaderboardAdminV3For
 	return &HardDeleteLeaderboardAdminV3Forbidden{}
 }
 
-/*HardDeleteLeaderboardAdminV3Forbidden handles this case with default header values.
+/*
+HardDeleteLeaderboardAdminV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type HardDeleteLeaderboardAdminV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -333,9 +337,10 @@ func NewHardDeleteLeaderboardAdminV3NotFound() *HardDeleteLeaderboardAdminV3NotF
 	return &HardDeleteLeaderboardAdminV3NotFound{}
 }
 
-/*HardDeleteLeaderboardAdminV3NotFound handles this case with default header values.
+/*
+HardDeleteLeaderboardAdminV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
 */
 type HardDeleteLeaderboardAdminV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -387,9 +392,10 @@ func NewHardDeleteLeaderboardAdminV3InternalServerError() *HardDeleteLeaderboard
 	return &HardDeleteLeaderboardAdminV3InternalServerError{}
 }
 
-/*HardDeleteLeaderboardAdminV3InternalServerError handles this case with default header values.
+/*
+HardDeleteLeaderboardAdminV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type HardDeleteLeaderboardAdminV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

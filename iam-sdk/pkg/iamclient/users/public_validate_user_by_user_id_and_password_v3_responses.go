@@ -144,9 +144,10 @@ func NewPublicValidateUserByUserIDAndPasswordV3NoContent() *PublicValidateUserBy
 	return &PublicValidateUserByUserIDAndPasswordV3NoContent{}
 }
 
-/*PublicValidateUserByUserIDAndPasswordV3NoContent handles this case with default header values.
+/*
+PublicValidateUserByUserIDAndPasswordV3NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicValidateUserByUserIDAndPasswordV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicValidateUserByUserIDAndPasswordV3BadRequest() *PublicValidateUserB
 	return &PublicValidateUserByUserIDAndPasswordV3BadRequest{}
 }
 
-/*PublicValidateUserByUserIDAndPasswordV3BadRequest handles this case with default header values.
+/*
+PublicValidateUserByUserIDAndPasswordV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10143</td><td>password not match</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10143</td><td>password not match</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicValidateUserByUserIDAndPasswordV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewPublicValidateUserByUserIDAndPasswordV3Unauthorized() *PublicValidateUse
 	return &PublicValidateUserByUserIDAndPasswordV3Unauthorized{}
 }
 
-/*PublicValidateUserByUserIDAndPasswordV3Unauthorized handles this case with default header values.
+/*
+PublicValidateUserByUserIDAndPasswordV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicValidateUserByUserIDAndPasswordV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewPublicValidateUserByUserIDAndPasswordV3Forbidden() *PublicValidateUserBy
 	return &PublicValidateUserByUserIDAndPasswordV3Forbidden{}
 }
 
-/*PublicValidateUserByUserIDAndPasswordV3Forbidden handles this case with default header values.
+/*
+PublicValidateUserByUserIDAndPasswordV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicValidateUserByUserIDAndPasswordV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewPublicValidateUserByUserIDAndPasswordV3NotFound() *PublicValidateUserByU
 	return &PublicValidateUserByUserIDAndPasswordV3NotFound{}
 }
 
-/*PublicValidateUserByUserIDAndPasswordV3NotFound handles this case with default header values.
+/*
+PublicValidateUserByUserIDAndPasswordV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicValidateUserByUserIDAndPasswordV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewPublicValidateUserByUserIDAndPasswordV3InternalServerError() *PublicVali
 	return &PublicValidateUserByUserIDAndPasswordV3InternalServerError{}
 }
 
-/*PublicValidateUserByUserIDAndPasswordV3InternalServerError handles this case with default header values.
+/*
+PublicValidateUserByUserIDAndPasswordV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicValidateUserByUserIDAndPasswordV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

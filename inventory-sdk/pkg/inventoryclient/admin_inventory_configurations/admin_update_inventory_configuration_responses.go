@@ -130,9 +130,10 @@ func NewAdminUpdateInventoryConfigurationOK() *AdminUpdateInventoryConfiguration
 	return &AdminUpdateInventoryConfigurationOK{}
 }
 
-/*AdminUpdateInventoryConfigurationOK handles this case with default header values.
+/*
+AdminUpdateInventoryConfigurationOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateInventoryConfigurationOK struct {
 	Payload *inventoryclientmodels.ApimodelsInventoryConfigurationResp
@@ -184,9 +185,10 @@ func NewAdminUpdateInventoryConfigurationBadRequest() *AdminUpdateInventoryConfi
 	return &AdminUpdateInventoryConfigurationBadRequest{}
 }
 
-/*AdminUpdateInventoryConfigurationBadRequest handles this case with default header values.
+/*
+AdminUpdateInventoryConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdateInventoryConfigurationBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -238,9 +240,10 @@ func NewAdminUpdateInventoryConfigurationNotFound() *AdminUpdateInventoryConfigu
 	return &AdminUpdateInventoryConfigurationNotFound{}
 }
 
-/*AdminUpdateInventoryConfigurationNotFound handles this case with default header values.
+/*
+AdminUpdateInventoryConfigurationNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdateInventoryConfigurationNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -292,9 +295,10 @@ func NewAdminUpdateInventoryConfigurationConflict() *AdminUpdateInventoryConfigu
 	return &AdminUpdateInventoryConfigurationConflict{}
 }
 
-/*AdminUpdateInventoryConfigurationConflict handles this case with default header values.
+/*
+AdminUpdateInventoryConfigurationConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminUpdateInventoryConfigurationConflict struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -346,9 +350,10 @@ func NewAdminUpdateInventoryConfigurationInternalServerError() *AdminUpdateInven
 	return &AdminUpdateInventoryConfigurationInternalServerError{}
 }
 
-/*AdminUpdateInventoryConfigurationInternalServerError handles this case with default header values.
+/*
+AdminUpdateInventoryConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdateInventoryConfigurationInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

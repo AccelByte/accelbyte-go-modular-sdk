@@ -57,7 +57,8 @@ func NewDeleteAdminGameRecordTTLConfigParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*DeleteAdminGameRecordTTLConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteAdminGameRecordTTLConfigParams contains all the parameters to send to the API endpoint
 for the delete admin game record ttl config operation typically these are written to a http.Request
 */
 type DeleteAdminGameRecordTTLConfigParams struct {

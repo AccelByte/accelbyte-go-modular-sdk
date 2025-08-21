@@ -114,9 +114,10 @@ func NewAdminAnonymizeUserLeaderboardAdminV1NoContent() *AdminAnonymizeUserLeade
 	return &AdminAnonymizeUserLeaderboardAdminV1NoContent{}
 }
 
-/*AdminAnonymizeUserLeaderboardAdminV1NoContent handles this case with default header values.
+/*
+AdminAnonymizeUserLeaderboardAdminV1NoContent handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AdminAnonymizeUserLeaderboardAdminV1NoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminAnonymizeUserLeaderboardAdminV1Unauthorized() *AdminAnonymizeUserLe
 	return &AdminAnonymizeUserLeaderboardAdminV1Unauthorized{}
 }
 
-/*AdminAnonymizeUserLeaderboardAdminV1Unauthorized handles this case with default header values.
+/*
+AdminAnonymizeUserLeaderboardAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminAnonymizeUserLeaderboardAdminV1Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -195,9 +197,10 @@ func NewAdminAnonymizeUserLeaderboardAdminV1Forbidden() *AdminAnonymizeUserLeade
 	return &AdminAnonymizeUserLeaderboardAdminV1Forbidden{}
 }
 
-/*AdminAnonymizeUserLeaderboardAdminV1Forbidden handles this case with default header values.
+/*
+AdminAnonymizeUserLeaderboardAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminAnonymizeUserLeaderboardAdminV1Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -249,9 +252,10 @@ func NewAdminAnonymizeUserLeaderboardAdminV1InternalServerError() *AdminAnonymiz
 	return &AdminAnonymizeUserLeaderboardAdminV1InternalServerError{}
 }
 
-/*AdminAnonymizeUserLeaderboardAdminV1InternalServerError handles this case with default header values.
+/*
+AdminAnonymizeUserLeaderboardAdminV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminAnonymizeUserLeaderboardAdminV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

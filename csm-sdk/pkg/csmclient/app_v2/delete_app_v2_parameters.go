@@ -57,7 +57,8 @@ func NewDeleteAppV2ParamsWithHTTPClient(client *http.Client) *DeleteAppV2Params 
 	}
 }
 
-/*DeleteAppV2Params contains all the parameters to send to the API endpoint
+/*
+DeleteAppV2Params contains all the parameters to send to the API endpoint
 for the delete app v2 operation typically these are written to a http.Request
 */
 type DeleteAppV2Params struct {

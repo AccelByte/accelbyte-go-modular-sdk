@@ -99,9 +99,10 @@ func NewPublishPolicyVersion1OK() *PublishPolicyVersion1OK {
 	return &PublishPolicyVersion1OK{}
 }
 
-/*PublishPolicyVersion1OK handles this case with default header values.
+/*
+PublishPolicyVersion1OK handles this case with default header values.
 
-  operation successful
+	operation successful
 */
 type PublishPolicyVersion1OK struct {
 }
@@ -126,9 +127,10 @@ func NewPublishPolicyVersion1BadRequest() *PublishPolicyVersion1BadRequest {
 	return &PublishPolicyVersion1BadRequest{}
 }
 
-/*PublishPolicyVersion1BadRequest handles this case with default header values.
+/*
+PublishPolicyVersion1BadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr><tr><td>40046</td><td>errors.net.accelbyte.platform.legal.default_selection_not_provided</td></tr><tr><td>40030</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_not_provided</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_policy_version</td></tr><tr><td>40046</td><td>errors.net.accelbyte.platform.legal.default_selection_not_provided</td></tr><tr><td>40030</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_not_provided</td></tr></table>
 */
 type PublishPolicyVersion1BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewPublishPolicyVersion1Conflict() *PublishPolicyVersion1Conflict {
 	return &PublishPolicyVersion1Conflict{}
 }
 
-/*PublishPolicyVersion1Conflict handles this case with default header values.
+/*
+PublishPolicyVersion1Conflict handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40039</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_latest</td></tr><tr><td>40043</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_publish</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40039</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_latest</td></tr><tr><td>40043</td><td>errors.net.accelbyte.platform.legal.localized_policy_version_already_publish</td></tr></table>
 */
 type PublishPolicyVersion1Conflict struct {
 	Payload *legalclientmodels.ErrorEntity

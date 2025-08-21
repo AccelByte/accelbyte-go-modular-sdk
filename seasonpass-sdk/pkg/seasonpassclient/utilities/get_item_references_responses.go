@@ -85,9 +85,10 @@ func NewGetItemReferencesOK() *GetItemReferencesOK {
 	return &GetItemReferencesOK{}
 }
 
-/*GetItemReferencesOK handles this case with default header values.
+/*
+GetItemReferencesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetItemReferencesOK struct {
 	Payload *seasonpassclientmodels.ItemReferenceInfo
@@ -139,9 +140,10 @@ func NewGetItemReferencesBadRequest() *GetItemReferencesBadRequest {
 	return &GetItemReferencesBadRequest{}
 }
 
-/*GetItemReferencesBadRequest handles this case with default header values.
+/*
+GetItemReferencesBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetItemReferencesBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity

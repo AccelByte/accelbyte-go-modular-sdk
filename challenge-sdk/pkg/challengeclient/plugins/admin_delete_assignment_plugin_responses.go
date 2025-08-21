@@ -144,9 +144,10 @@ func NewAdminDeleteAssignmentPluginNoContent() *AdminDeleteAssignmentPluginNoCon
 	return &AdminDeleteAssignmentPluginNoContent{}
 }
 
-/*AdminDeleteAssignmentPluginNoContent handles this case with default header values.
+/*
+AdminDeleteAssignmentPluginNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteAssignmentPluginNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeleteAssignmentPluginBadRequest() *AdminDeleteAssignmentPluginBadR
 	return &AdminDeleteAssignmentPluginBadRequest{}
 }
 
-/*AdminDeleteAssignmentPluginBadRequest handles this case with default header values.
+/*
+AdminDeleteAssignmentPluginBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminDeleteAssignmentPluginBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewAdminDeleteAssignmentPluginUnauthorized() *AdminDeleteAssignmentPluginUn
 	return &AdminDeleteAssignmentPluginUnauthorized{}
 }
 
-/*AdminDeleteAssignmentPluginUnauthorized handles this case with default header values.
+/*
+AdminDeleteAssignmentPluginUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteAssignmentPluginUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -279,9 +282,10 @@ func NewAdminDeleteAssignmentPluginForbidden() *AdminDeleteAssignmentPluginForbi
 	return &AdminDeleteAssignmentPluginForbidden{}
 }
 
-/*AdminDeleteAssignmentPluginForbidden handles this case with default header values.
+/*
+AdminDeleteAssignmentPluginForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminDeleteAssignmentPluginForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -333,9 +337,10 @@ func NewAdminDeleteAssignmentPluginNotFound() *AdminDeleteAssignmentPluginNotFou
 	return &AdminDeleteAssignmentPluginNotFound{}
 }
 
-/*AdminDeleteAssignmentPluginNotFound handles this case with default header values.
+/*
+AdminDeleteAssignmentPluginNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminDeleteAssignmentPluginNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -387,9 +392,10 @@ func NewAdminDeleteAssignmentPluginInternalServerError() *AdminDeleteAssignmentP
 	return &AdminDeleteAssignmentPluginInternalServerError{}
 }
 
-/*AdminDeleteAssignmentPluginInternalServerError handles this case with default header values.
+/*
+AdminDeleteAssignmentPluginInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminDeleteAssignmentPluginInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

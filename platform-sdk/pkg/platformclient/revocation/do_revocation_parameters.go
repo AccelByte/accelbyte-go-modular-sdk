@@ -59,7 +59,8 @@ func NewDoRevocationParamsWithHTTPClient(client *http.Client) *DoRevocationParam
 	}
 }
 
-/*DoRevocationParams contains all the parameters to send to the API endpoint
+/*
+DoRevocationParams contains all the parameters to send to the API endpoint
 for the do revocation operation typically these are written to a http.Request
 */
 type DoRevocationParams struct {

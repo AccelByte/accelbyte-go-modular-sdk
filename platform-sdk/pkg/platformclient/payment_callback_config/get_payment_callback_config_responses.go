@@ -85,9 +85,10 @@ func NewGetPaymentCallbackConfigOK() *GetPaymentCallbackConfigOK {
 	return &GetPaymentCallbackConfigOK{}
 }
 
-/*GetPaymentCallbackConfigOK handles this case with default header values.
+/*
+GetPaymentCallbackConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPaymentCallbackConfigOK struct {
 	Payload *platformclientmodels.PaymentCallbackConfigInfo
@@ -139,9 +140,10 @@ func NewGetPaymentCallbackConfigNotFound() *GetPaymentCallbackConfigNotFound {
 	return &GetPaymentCallbackConfigNotFound{}
 }
 
-/*GetPaymentCallbackConfigNotFound handles this case with default header values.
+/*
+GetPaymentCallbackConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33243</td><td>Payment callback config for [{namespace}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33243</td><td>Payment callback config for [{namespace}] does not exist</td></tr></table>
 */
 type GetPaymentCallbackConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

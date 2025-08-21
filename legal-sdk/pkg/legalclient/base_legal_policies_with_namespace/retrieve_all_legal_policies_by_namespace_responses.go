@@ -69,9 +69,10 @@ func NewRetrieveAllLegalPoliciesByNamespaceOK() *RetrieveAllLegalPoliciesByNames
 	return &RetrieveAllLegalPoliciesByNamespaceOK{}
 }
 
-/*RetrieveAllLegalPoliciesByNamespaceOK handles this case with default header values.
+/*
+RetrieveAllLegalPoliciesByNamespaceOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveAllLegalPoliciesByNamespaceOK struct {
 	Payload []*legalclientmodels.RetrieveBasePolicyResponse

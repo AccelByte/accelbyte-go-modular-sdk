@@ -145,9 +145,10 @@ func NewFleetServersOK() *FleetServersOK {
 	return &FleetServersOK{}
 }
 
-/*FleetServersOK handles this case with default header values.
+/*
+FleetServersOK handles this case with default header values.
 
-  success
+	success
 */
 type FleetServersOK struct {
 	Payload *amsclientmodels.APIFleetServersResponse
@@ -199,9 +200,10 @@ func NewFleetServersBadRequest() *FleetServersBadRequest {
 	return &FleetServersBadRequest{}
 }
 
-/*FleetServersBadRequest handles this case with default header values.
+/*
+FleetServersBadRequest handles this case with default header values.
 
-  bad request
+	bad request
 */
 type FleetServersBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewFleetServersUnauthorized() *FleetServersUnauthorized {
 	return &FleetServersUnauthorized{}
 }
 
-/*FleetServersUnauthorized handles this case with default header values.
+/*
+FleetServersUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type FleetServersUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewFleetServersForbidden() *FleetServersForbidden {
 	return &FleetServersForbidden{}
 }
 
-/*FleetServersForbidden handles this case with default header values.
+/*
+FleetServersForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type FleetServersForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewFleetServersNotFound() *FleetServersNotFound {
 	return &FleetServersNotFound{}
 }
 
-/*FleetServersNotFound handles this case with default header values.
+/*
+FleetServersNotFound handles this case with default header values.
 
-  fleet not found
+	fleet not found
 */
 type FleetServersNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewFleetServersInternalServerError() *FleetServersInternalServerError {
 	return &FleetServersInternalServerError{}
 }
 
-/*FleetServersInternalServerError handles this case with default header values.
+/*
+FleetServersInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type FleetServersInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

@@ -183,7 +183,8 @@ func NewPublicQueryItemsParamsWithHTTPClient(client *http.Client) *PublicQueryIt
 	}
 }
 
-/*PublicQueryItemsParams contains all the parameters to send to the API endpoint
+/*
+PublicQueryItemsParams contains all the parameters to send to the API endpoint
 for the public query items operation typically these are written to a http.Request
 */
 type PublicQueryItemsParams struct {

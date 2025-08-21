@@ -66,9 +66,10 @@ func NewFunc1OK() *Func1OK {
 	return &Func1OK{}
 }
 
-/*Func1OK handles this case with default header values.
+/*
+Func1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type Func1OK struct {
 }

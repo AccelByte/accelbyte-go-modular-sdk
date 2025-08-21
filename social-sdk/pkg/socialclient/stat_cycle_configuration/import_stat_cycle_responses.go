@@ -130,9 +130,10 @@ func NewImportStatCycleCreated() *ImportStatCycleCreated {
 	return &ImportStatCycleCreated{}
 }
 
-/*ImportStatCycleCreated handles this case with default header values.
+/*
+ImportStatCycleCreated handles this case with default header values.
 
-  Import stat cycles successfully
+	Import stat cycles successfully
 */
 type ImportStatCycleCreated struct {
 	Payload *socialclientmodels.StatImportInfo
@@ -184,9 +185,10 @@ func NewImportStatCycleBadRequest() *ImportStatCycleBadRequest {
 	return &ImportStatCycleBadRequest{}
 }
 
-/*ImportStatCycleBadRequest handles this case with default header values.
+/*
+ImportStatCycleBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12222</td><td>Stats data for namespace [{namespace}] is invalid</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>12222</td><td>Stats data for namespace [{namespace}] is invalid</td></tr></table>
 */
 type ImportStatCycleBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewImportStatCycleUnauthorized() *ImportStatCycleUnauthorized {
 	return &ImportStatCycleUnauthorized{}
 }
 
-/*ImportStatCycleUnauthorized handles this case with default header values.
+/*
+ImportStatCycleUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type ImportStatCycleUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewImportStatCycleForbidden() *ImportStatCycleForbidden {
 	return &ImportStatCycleForbidden{}
 }
 
-/*ImportStatCycleForbidden handles this case with default header values.
+/*
+ImportStatCycleForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type ImportStatCycleForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewImportStatCycleInternalServerError() *ImportStatCycleInternalServerError
 	return &ImportStatCycleInternalServerError{}
 }
 
-/*ImportStatCycleInternalServerError handles this case with default header values.
+/*
+ImportStatCycleInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type ImportStatCycleInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

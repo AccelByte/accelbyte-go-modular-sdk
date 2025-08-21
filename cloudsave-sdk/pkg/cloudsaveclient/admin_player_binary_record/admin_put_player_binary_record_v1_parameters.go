@@ -59,7 +59,8 @@ func NewAdminPutPlayerBinaryRecordV1ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminPutPlayerBinaryRecordV1Params contains all the parameters to send to the API endpoint
+/*
+AdminPutPlayerBinaryRecordV1Params contains all the parameters to send to the API endpoint
 for the admin put player binary record v1 operation typically these are written to a http.Request
 */
 type AdminPutPlayerBinaryRecordV1Params struct {

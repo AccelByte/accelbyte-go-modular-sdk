@@ -85,9 +85,10 @@ func NewQueryImportHistoryOK() *QueryImportHistoryOK {
 	return &QueryImportHistoryOK{}
 }
 
-/*QueryImportHistoryOK handles this case with default header values.
+/*
+QueryImportHistoryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryImportHistoryOK struct {
 	Payload *platformclientmodels.ImportStoreHistoryPagingResult
@@ -139,9 +140,10 @@ func NewQueryImportHistoryBadRequest() *QueryImportHistoryBadRequest {
 	return &QueryImportHistoryBadRequest{}
 }
 
-/*QueryImportHistoryBadRequest handles this case with default header values.
+/*
+QueryImportHistoryBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20027</td><td>Invalid time range</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20027</td><td>Invalid time range</td></tr></table>
 */
 type QueryImportHistoryBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity

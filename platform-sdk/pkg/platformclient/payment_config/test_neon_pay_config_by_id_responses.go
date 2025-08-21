@@ -85,9 +85,10 @@ func NewTestNeonPayConfigByIDOK() *TestNeonPayConfigByIDOK {
 	return &TestNeonPayConfigByIDOK{}
 }
 
-/*TestNeonPayConfigByIDOK handles this case with default header values.
+/*
+TestNeonPayConfigByIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestNeonPayConfigByIDOK struct {
 	Payload *platformclientmodels.TestResult
@@ -139,9 +140,10 @@ func NewTestNeonPayConfigByIDNotFound() *TestNeonPayConfigByIDNotFound {
 	return &TestNeonPayConfigByIDNotFound{}
 }
 
-/*TestNeonPayConfigByIDNotFound handles this case with default header values.
+/*
+TestNeonPayConfigByIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
 */
 type TestNeonPayConfigByIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewAnonymizeWalletParamsWithHTTPClient(client *http.Client) *AnonymizeWalle
 	}
 }
 
-/*AnonymizeWalletParams contains all the parameters to send to the API endpoint
+/*
+AnonymizeWalletParams contains all the parameters to send to the API endpoint
 for the anonymize wallet operation typically these are written to a http.Request
 */
 type AnonymizeWalletParams struct {

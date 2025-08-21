@@ -85,9 +85,10 @@ func NewGetPublishedStoreOK() *GetPublishedStoreOK {
 	return &GetPublishedStoreOK{}
 }
 
-/*GetPublishedStoreOK handles this case with default header values.
+/*
+GetPublishedStoreOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPublishedStoreOK struct {
 	Payload *platformclientmodels.StoreInfo
@@ -139,9 +140,10 @@ func NewGetPublishedStoreNotFound() *GetPublishedStoreNotFound {
 	return &GetPublishedStoreNotFound{}
 }
 
-/*GetPublishedStoreNotFound handles this case with default header values.
+/*
+GetPublishedStoreNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetPublishedStoreNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

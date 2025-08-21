@@ -130,9 +130,10 @@ func NewCreateMemberRoleAdminV1Created() *CreateMemberRoleAdminV1Created {
 	return &CreateMemberRoleAdminV1Created{}
 }
 
-/*CreateMemberRoleAdminV1Created handles this case with default header values.
+/*
+CreateMemberRoleAdminV1Created handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateMemberRoleAdminV1Created struct {
 	Payload *groupclientmodels.ModelsMemberRoleResponseV1
@@ -184,9 +185,10 @@ func NewCreateMemberRoleAdminV1BadRequest() *CreateMemberRoleAdminV1BadRequest {
 	return &CreateMemberRoleAdminV1BadRequest{}
 }
 
-/*CreateMemberRoleAdminV1BadRequest handles this case with default header values.
+/*
+CreateMemberRoleAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type CreateMemberRoleAdminV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewCreateMemberRoleAdminV1Unauthorized() *CreateMemberRoleAdminV1Unauthoriz
 	return &CreateMemberRoleAdminV1Unauthorized{}
 }
 
-/*CreateMemberRoleAdminV1Unauthorized handles this case with default header values.
+/*
+CreateMemberRoleAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateMemberRoleAdminV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewCreateMemberRoleAdminV1Forbidden() *CreateMemberRoleAdminV1Forbidden {
 	return &CreateMemberRoleAdminV1Forbidden{}
 }
 
-/*CreateMemberRoleAdminV1Forbidden handles this case with default header values.
+/*
+CreateMemberRoleAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type CreateMemberRoleAdminV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewCreateMemberRoleAdminV1InternalServerError() *CreateMemberRoleAdminV1Int
 	return &CreateMemberRoleAdminV1InternalServerError{}
 }
 
-/*CreateMemberRoleAdminV1InternalServerError handles this case with default header values.
+/*
+CreateMemberRoleAdminV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateMemberRoleAdminV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

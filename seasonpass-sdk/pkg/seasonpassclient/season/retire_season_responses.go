@@ -115,9 +115,10 @@ func NewRetireSeasonOK() *RetireSeasonOK {
 	return &RetireSeasonOK{}
 }
 
-/*RetireSeasonOK handles this case with default header values.
+/*
+RetireSeasonOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetireSeasonOK struct {
 	Payload *seasonpassclientmodels.SeasonInfo
@@ -169,9 +170,10 @@ func NewRetireSeasonBadRequest() *RetireSeasonBadRequest {
 	return &RetireSeasonBadRequest{}
 }
 
-/*RetireSeasonBadRequest handles this case with default header values.
+/*
+RetireSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type RetireSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewRetireSeasonNotFound() *RetireSeasonNotFound {
 	return &RetireSeasonNotFound{}
 }
 
-/*RetireSeasonNotFound handles this case with default header values.
+/*
+RetireSeasonNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type RetireSeasonNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewRetireSeasonConflict() *RetireSeasonConflict {
 	return &RetireSeasonConflict{}
 }
 
-/*RetireSeasonConflict handles this case with default header values.
+/*
+RetireSeasonConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49181</td><td>Season has not ended</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49181</td><td>Season has not ended</td></tr></table>
 */
 type RetireSeasonConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity

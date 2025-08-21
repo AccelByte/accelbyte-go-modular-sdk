@@ -145,9 +145,10 @@ func NewGetGroupConfigurationAdminV1OK() *GetGroupConfigurationAdminV1OK {
 	return &GetGroupConfigurationAdminV1OK{}
 }
 
-/*GetGroupConfigurationAdminV1OK handles this case with default header values.
+/*
+GetGroupConfigurationAdminV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetGroupConfigurationAdminV1OK struct {
 	Payload *groupclientmodels.ModelsGetGroupConfigurationResponseV1
@@ -199,9 +200,10 @@ func NewGetGroupConfigurationAdminV1BadRequest() *GetGroupConfigurationAdminV1Ba
 	return &GetGroupConfigurationAdminV1BadRequest{}
 }
 
-/*GetGroupConfigurationAdminV1BadRequest handles this case with default header values.
+/*
+GetGroupConfigurationAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetGroupConfigurationAdminV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetGroupConfigurationAdminV1Unauthorized() *GetGroupConfigurationAdminV1
 	return &GetGroupConfigurationAdminV1Unauthorized{}
 }
 
-/*GetGroupConfigurationAdminV1Unauthorized handles this case with default header values.
+/*
+GetGroupConfigurationAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetGroupConfigurationAdminV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetGroupConfigurationAdminV1Forbidden() *GetGroupConfigurationAdminV1For
 	return &GetGroupConfigurationAdminV1Forbidden{}
 }
 
-/*GetGroupConfigurationAdminV1Forbidden handles this case with default header values.
+/*
+GetGroupConfigurationAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type GetGroupConfigurationAdminV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetGroupConfigurationAdminV1NotFound() *GetGroupConfigurationAdminV1NotF
 	return &GetGroupConfigurationAdminV1NotFound{}
 }
 
-/*GetGroupConfigurationAdminV1NotFound handles this case with default header values.
+/*
+GetGroupConfigurationAdminV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73131</td><td>global configuration not found</td></tr></table>
 */
 type GetGroupConfigurationAdminV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetGroupConfigurationAdminV1InternalServerError() *GetGroupConfiguration
 	return &GetGroupConfigurationAdminV1InternalServerError{}
 }
 
-/*GetGroupConfigurationAdminV1InternalServerError handles this case with default header values.
+/*
+GetGroupConfigurationAdminV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetGroupConfigurationAdminV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

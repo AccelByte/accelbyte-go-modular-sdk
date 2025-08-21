@@ -115,9 +115,10 @@ func NewPublicGetPartyOK() *PublicGetPartyOK {
 	return &PublicGetPartyOK{}
 }
 
-/*PublicGetPartyOK handles this case with default header values.
+/*
+PublicGetPartyOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetPartyOK struct {
 	Payload *sessionclientmodels.ApimodelsPartySessionResponse
@@ -169,9 +170,10 @@ func NewPublicGetPartyUnauthorized() *PublicGetPartyUnauthorized {
 	return &PublicGetPartyUnauthorized{}
 }
 
-/*PublicGetPartyUnauthorized handles this case with default header values.
+/*
+PublicGetPartyUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetPartyUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicGetPartyNotFound() *PublicGetPartyNotFound {
 	return &PublicGetPartyNotFound{}
 }
 
-/*PublicGetPartyNotFound handles this case with default header values.
+/*
+PublicGetPartyNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetPartyNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicGetPartyInternalServerError() *PublicGetPartyInternalServerError {
 	return &PublicGetPartyInternalServerError{}
 }
 
-/*PublicGetPartyInternalServerError handles this case with default header values.
+/*
+PublicGetPartyInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetPartyInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

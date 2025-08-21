@@ -59,7 +59,8 @@ func NewBulkCreditParamsWithHTTPClient(client *http.Client) *BulkCreditParams {
 	}
 }
 
-/*BulkCreditParams contains all the parameters to send to the API endpoint
+/*
+BulkCreditParams contains all the parameters to send to the API endpoint
 for the bulk credit operation typically these are written to a http.Request
 */
 type BulkCreditParams struct {

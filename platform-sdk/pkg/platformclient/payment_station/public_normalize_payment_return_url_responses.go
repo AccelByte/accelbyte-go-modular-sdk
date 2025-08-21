@@ -74,9 +74,10 @@ func NewPublicNormalizePaymentReturnURLNoContent() *PublicNormalizePaymentReturn
 	return &PublicNormalizePaymentReturnURLNoContent{}
 }
 
-/*PublicNormalizePaymentReturnURLNoContent handles this case with default header values.
+/*
+PublicNormalizePaymentReturnURLNoContent handles this case with default header values.
 
-  no content.(if query param 'returnUrl' is empty)
+	no content.(if query param 'returnUrl' is empty)
 */
 type PublicNormalizePaymentReturnURLNoContent struct {
 }
@@ -101,9 +102,10 @@ func NewPublicNormalizePaymentReturnURLTemporaryRedirect() *PublicNormalizePayme
 	return &PublicNormalizePaymentReturnURLTemporaryRedirect{}
 }
 
-/*PublicNormalizePaymentReturnURLTemporaryRedirect handles this case with default header values.
+/*
+PublicNormalizePaymentReturnURLTemporaryRedirect handles this case with default header values.
 
-  successful operation.(if query param 'returnUrl' is not empty)
+	successful operation.(if query param 'returnUrl' is not empty)
 */
 type PublicNormalizePaymentReturnURLTemporaryRedirect struct {
 	Location string

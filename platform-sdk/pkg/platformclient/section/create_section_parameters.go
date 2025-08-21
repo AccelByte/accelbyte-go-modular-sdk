@@ -59,7 +59,8 @@ func NewCreateSectionParamsWithHTTPClient(client *http.Client) *CreateSectionPar
 	}
 }
 
-/*CreateSectionParams contains all the parameters to send to the API endpoint
+/*
+CreateSectionParams contains all the parameters to send to the API endpoint
 for the create section operation typically these are written to a http.Request
 */
 type CreateSectionParams struct {

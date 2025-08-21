@@ -57,7 +57,8 @@ func NewGetResourcesLimitsParamsWithHTTPClient(client *http.Client) *GetResource
 	}
 }
 
-/*GetResourcesLimitsParams contains all the parameters to send to the API endpoint
+/*
+GetResourcesLimitsParams contains all the parameters to send to the API endpoint
 for the get resources limits operation typically these are written to a http.Request
 */
 type GetResourcesLimitsParams struct {

@@ -130,9 +130,10 @@ func NewGetTemplateSlugLocalizationsTemplateV1AdminOK() *GetTemplateSlugLocaliza
 	return &GetTemplateSlugLocalizationsTemplateV1AdminOK{}
 }
 
-/*GetTemplateSlugLocalizationsTemplateV1AdminOK handles this case with default header values.
+/*
+GetTemplateSlugLocalizationsTemplateV1AdminOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetTemplateSlugLocalizationsTemplateV1AdminOK struct {
 	Payload *lobbyclientmodels.ModelGetAllNotificationTemplateSlugResp
@@ -184,9 +185,10 @@ func NewGetTemplateSlugLocalizationsTemplateV1AdminBadRequest() *GetTemplateSlug
 	return &GetTemplateSlugLocalizationsTemplateV1AdminBadRequest{}
 }
 
-/*GetTemplateSlugLocalizationsTemplateV1AdminBadRequest handles this case with default header values.
+/*
+GetTemplateSlugLocalizationsTemplateV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetTemplateSlugLocalizationsTemplateV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -238,9 +240,10 @@ func NewGetTemplateSlugLocalizationsTemplateV1AdminUnauthorized() *GetTemplateSl
 	return &GetTemplateSlugLocalizationsTemplateV1AdminUnauthorized{}
 }
 
-/*GetTemplateSlugLocalizationsTemplateV1AdminUnauthorized handles this case with default header values.
+/*
+GetTemplateSlugLocalizationsTemplateV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetTemplateSlugLocalizationsTemplateV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -292,9 +295,10 @@ func NewGetTemplateSlugLocalizationsTemplateV1AdminForbidden() *GetTemplateSlugL
 	return &GetTemplateSlugLocalizationsTemplateV1AdminForbidden{}
 }
 
-/*GetTemplateSlugLocalizationsTemplateV1AdminForbidden handles this case with default header values.
+/*
+GetTemplateSlugLocalizationsTemplateV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetTemplateSlugLocalizationsTemplateV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -346,9 +350,10 @@ func NewGetTemplateSlugLocalizationsTemplateV1AdminNotFound() *GetTemplateSlugLo
 	return &GetTemplateSlugLocalizationsTemplateV1AdminNotFound{}
 }
 
-/*GetTemplateSlugLocalizationsTemplateV1AdminNotFound handles this case with default header values.
+/*
+GetTemplateSlugLocalizationsTemplateV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetTemplateSlugLocalizationsTemplateV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

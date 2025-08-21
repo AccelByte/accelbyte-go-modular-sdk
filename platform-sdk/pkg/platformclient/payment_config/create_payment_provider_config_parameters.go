@@ -59,7 +59,8 @@ func NewCreatePaymentProviderConfigParamsWithHTTPClient(client *http.Client) *Cr
 	}
 }
 
-/*CreatePaymentProviderConfigParams contains all the parameters to send to the API endpoint
+/*
+CreatePaymentProviderConfigParams contains all the parameters to send to the API endpoint
 for the create payment provider config operation typically these are written to a http.Request
 */
 type CreatePaymentProviderConfigParams struct {

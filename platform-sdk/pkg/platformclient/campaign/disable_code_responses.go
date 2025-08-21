@@ -85,9 +85,10 @@ func NewDisableCodeOK() *DisableCodeOK {
 	return &DisableCodeOK{}
 }
 
-/*DisableCodeOK handles this case with default header values.
+/*
+DisableCodeOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DisableCodeOK struct {
 	Payload *platformclientmodels.CodeInfo
@@ -139,9 +140,10 @@ func NewDisableCodeNotFound() *DisableCodeNotFound {
 	return &DisableCodeNotFound{}
 }
 
-/*DisableCodeNotFound handles this case with default header values.
+/*
+DisableCodeNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr><tr><td>37176</td><td>Code [{code}] has been redeemed in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37142</td><td>Code [{code}] does not exist in namespace [{namespace}]</td></tr><tr><td>37176</td><td>Code [{code}] has been redeemed in namespace [{namespace}]</td></tr></table>
 */
 type DisableCodeNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

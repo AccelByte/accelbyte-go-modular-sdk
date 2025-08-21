@@ -74,7 +74,8 @@ func NewAdminGetProfileUpdateStrategyV3ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*AdminGetProfileUpdateStrategyV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetProfileUpdateStrategyV3Params contains all the parameters to send to the API endpoint
 for the admin get profile update strategy v3 operation typically these are written to a http.Request
 */
 type AdminGetProfileUpdateStrategyV3Params struct {

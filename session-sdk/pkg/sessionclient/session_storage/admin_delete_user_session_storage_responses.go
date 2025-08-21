@@ -129,9 +129,10 @@ func NewAdminDeleteUserSessionStorageNoContent() *AdminDeleteUserSessionStorageN
 	return &AdminDeleteUserSessionStorageNoContent{}
 }
 
-/*AdminDeleteUserSessionStorageNoContent handles this case with default header values.
+/*
+AdminDeleteUserSessionStorageNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteUserSessionStorageNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDeleteUserSessionStorageBadRequest() *AdminDeleteUserSessionStorage
 	return &AdminDeleteUserSessionStorageBadRequest{}
 }
 
-/*AdminDeleteUserSessionStorageBadRequest handles this case with default header values.
+/*
+AdminDeleteUserSessionStorageBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminDeleteUserSessionStorageBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewAdminDeleteUserSessionStorageUnauthorized() *AdminDeleteUserSessionStora
 	return &AdminDeleteUserSessionStorageUnauthorized{}
 }
 
-/*AdminDeleteUserSessionStorageUnauthorized handles this case with default header values.
+/*
+AdminDeleteUserSessionStorageUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminDeleteUserSessionStorageUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewAdminDeleteUserSessionStorageNotFound() *AdminDeleteUserSessionStorageNo
 	return &AdminDeleteUserSessionStorageNotFound{}
 }
 
-/*AdminDeleteUserSessionStorageNotFound handles this case with default header values.
+/*
+AdminDeleteUserSessionStorageNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminDeleteUserSessionStorageNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewAdminDeleteUserSessionStorageInternalServerError() *AdminDeleteUserSessi
 	return &AdminDeleteUserSessionStorageInternalServerError{}
 }
 
-/*AdminDeleteUserSessionStorageInternalServerError handles this case with default header values.
+/*
+AdminDeleteUserSessionStorageInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteUserSessionStorageInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

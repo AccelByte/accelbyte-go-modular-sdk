@@ -85,9 +85,10 @@ func NewQueryOrdersOK() *QueryOrdersOK {
 	return &QueryOrdersOK{}
 }
 
-/*QueryOrdersOK handles this case with default header values.
+/*
+QueryOrdersOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryOrdersOK struct {
 	Payload *platformclientmodels.OrderPagingResult
@@ -139,9 +140,10 @@ func NewQueryOrdersUnprocessableEntity() *QueryOrdersUnprocessableEntity {
 	return &QueryOrdersUnprocessableEntity{}
 }
 
-/*QueryOrdersUnprocessableEntity handles this case with default header values.
+/*
+QueryOrdersUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type QueryOrdersUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

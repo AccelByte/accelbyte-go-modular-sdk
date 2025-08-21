@@ -85,9 +85,10 @@ func NewRequestPresignedURL1Created() *RequestPresignedURL1Created {
 	return &RequestPresignedURL1Created{}
 }
 
-/*RequestPresignedURL1Created handles this case with default header values.
+/*
+RequestPresignedURL1Created handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RequestPresignedURL1Created struct {
 	Payload *legalclientmodels.UploadLocalizedPolicyVersionAttachmentResponse
@@ -139,9 +140,10 @@ func NewRequestPresignedURL1BadRequest() *RequestPresignedURL1BadRequest {
 	return &RequestPresignedURL1BadRequest{}
 }
 
-/*RequestPresignedURL1BadRequest handles this case with default header values.
+/*
+RequestPresignedURL1BadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40034</td><td>errors.net.accelbyte.platform.legal.invalid_file_type</td></tr><tr><td>40037</td><td>errors.net.accelbyte.platform.legal.invalid_localized_policy_version</td></tr><tr><td>40042</td><td>errors.net.accelbyte.platform.legal.policy_version_freezed</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40034</td><td>errors.net.accelbyte.platform.legal.invalid_file_type</td></tr><tr><td>40037</td><td>errors.net.accelbyte.platform.legal.invalid_localized_policy_version</td></tr><tr><td>40042</td><td>errors.net.accelbyte.platform.legal.policy_version_freezed</td></tr></table>
 */
 type RequestPresignedURL1BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

@@ -77,7 +77,8 @@ func NewPublicGetMyDLCContentParamsWithHTTPClient(client *http.Client) *PublicGe
 	}
 }
 
-/*PublicGetMyDLCContentParams contains all the parameters to send to the API endpoint
+/*
+PublicGetMyDLCContentParams contains all the parameters to send to the API endpoint
 for the public get my dlc content operation typically these are written to a http.Request
 */
 type PublicGetMyDLCContentParams struct {

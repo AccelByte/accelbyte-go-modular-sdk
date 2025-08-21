@@ -69,9 +69,10 @@ func NewMockXblClawbackEventOK() *MockXblClawbackEventOK {
 	return &MockXblClawbackEventOK{}
 }
 
-/*MockXblClawbackEventOK handles this case with default header values.
+/*
+MockXblClawbackEventOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type MockXblClawbackEventOK struct {
 	Payload *platformclientmodels.ClawbackInfo

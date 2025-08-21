@@ -85,9 +85,10 @@ func NewSearchItemsOK() *SearchItemsOK {
 	return &SearchItemsOK{}
 }
 
-/*SearchItemsOK handles this case with default header values.
+/*
+SearchItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SearchItemsOK struct {
 	Payload *platformclientmodels.FullItemPagingSlicedResult
@@ -139,9 +140,10 @@ func NewSearchItemsNotFound() *SearchItemsNotFound {
 	return &SearchItemsNotFound{}
 }
 
-/*SearchItemsNotFound handles this case with default header values.
+/*
+SearchItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
 */
 type SearchItemsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

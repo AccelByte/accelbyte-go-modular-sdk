@@ -78,7 +78,8 @@ func NewPublicListSchedulesParamsWithHTTPClient(client *http.Client) *PublicList
 	}
 }
 
-/*PublicListSchedulesParams contains all the parameters to send to the API endpoint
+/*
+PublicListSchedulesParams contains all the parameters to send to the API endpoint
 for the public list schedules operation typically these are written to a http.Request
 */
 type PublicListSchedulesParams struct {

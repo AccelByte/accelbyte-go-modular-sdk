@@ -59,7 +59,8 @@ func NewCreateMatchTicketParamsWithHTTPClient(client *http.Client) *CreateMatchT
 	}
 }
 
-/*CreateMatchTicketParams contains all the parameters to send to the API endpoint
+/*
+CreateMatchTicketParams contains all the parameters to send to the API endpoint
 for the create match ticket operation typically these are written to a http.Request
 */
 type CreateMatchTicketParams struct {

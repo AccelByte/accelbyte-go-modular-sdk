@@ -145,9 +145,10 @@ func NewAdminGetPlatformAccountClosureClientOK() *AdminGetPlatformAccountClosure
 	return &AdminGetPlatformAccountClosureClientOK{}
 }
 
-/*AdminGetPlatformAccountClosureClientOK handles this case with default header values.
+/*
+AdminGetPlatformAccountClosureClientOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetPlatformAccountClosureClientOK struct {
 	Payload *gdprclientmodels.DTOPlatformAccountClosureClientResponse
@@ -199,9 +200,10 @@ func NewAdminGetPlatformAccountClosureClientBadRequest() *AdminGetPlatformAccoun
 	return &AdminGetPlatformAccountClosureClientBadRequest{}
 }
 
-/*AdminGetPlatformAccountClosureClientBadRequest handles this case with default header values.
+/*
+AdminGetPlatformAccountClosureClientBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetPlatformAccountClosureClientBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminGetPlatformAccountClosureClientUnauthorized() *AdminGetPlatformAcco
 	return &AdminGetPlatformAccountClosureClientUnauthorized{}
 }
 
-/*AdminGetPlatformAccountClosureClientUnauthorized handles this case with default header values.
+/*
+AdminGetPlatformAccountClosureClientUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetPlatformAccountClosureClientUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminGetPlatformAccountClosureClientForbidden() *AdminGetPlatformAccount
 	return &AdminGetPlatformAccountClosureClientForbidden{}
 }
 
-/*AdminGetPlatformAccountClosureClientForbidden handles this case with default header values.
+/*
+AdminGetPlatformAccountClosureClientForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetPlatformAccountClosureClientForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminGetPlatformAccountClosureClientNotFound() *AdminGetPlatformAccountC
 	return &AdminGetPlatformAccountClosureClientNotFound{}
 }
 
-/*AdminGetPlatformAccountClosureClientNotFound handles this case with default header values.
+/*
+AdminGetPlatformAccountClosureClientNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetPlatformAccountClosureClientNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminGetPlatformAccountClosureClientInternalServerError() *AdminGetPlatf
 	return &AdminGetPlatformAccountClosureClientInternalServerError{}
 }
 
-/*AdminGetPlatformAccountClosureClientInternalServerError handles this case with default header values.
+/*
+AdminGetPlatformAccountClosureClientInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetPlatformAccountClosureClientInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

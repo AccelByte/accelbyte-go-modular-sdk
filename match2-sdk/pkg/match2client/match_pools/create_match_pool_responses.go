@@ -144,9 +144,10 @@ func NewCreateMatchPoolCreated() *CreateMatchPoolCreated {
 	return &CreateMatchPoolCreated{}
 }
 
-/*CreateMatchPoolCreated handles this case with default header values.
+/*
+CreateMatchPoolCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateMatchPoolCreated struct {
 }
@@ -171,9 +172,10 @@ func NewCreateMatchPoolBadRequest() *CreateMatchPoolBadRequest {
 	return &CreateMatchPoolBadRequest{}
 }
 
-/*CreateMatchPoolBadRequest handles this case with default header values.
+/*
+CreateMatchPoolBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateMatchPoolBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewCreateMatchPoolUnauthorized() *CreateMatchPoolUnauthorized {
 	return &CreateMatchPoolUnauthorized{}
 }
 
-/*CreateMatchPoolUnauthorized handles this case with default header values.
+/*
+CreateMatchPoolUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateMatchPoolUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewCreateMatchPoolForbidden() *CreateMatchPoolForbidden {
 	return &CreateMatchPoolForbidden{}
 }
 
-/*CreateMatchPoolForbidden handles this case with default header values.
+/*
+CreateMatchPoolForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateMatchPoolForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewCreateMatchPoolConflict() *CreateMatchPoolConflict {
 	return &CreateMatchPoolConflict{}
 }
 
-/*CreateMatchPoolConflict handles this case with default header values.
+/*
+CreateMatchPoolConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateMatchPoolConflict struct {
 	Payload *match2clientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewCreateMatchPoolInternalServerError() *CreateMatchPoolInternalServerError
 	return &CreateMatchPoolInternalServerError{}
 }
 
-/*CreateMatchPoolInternalServerError handles this case with default header values.
+/*
+CreateMatchPoolInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateMatchPoolInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

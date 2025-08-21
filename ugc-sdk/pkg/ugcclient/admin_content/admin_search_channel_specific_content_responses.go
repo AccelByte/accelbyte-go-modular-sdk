@@ -115,9 +115,10 @@ func NewAdminSearchChannelSpecificContentOK() *AdminSearchChannelSpecificContent
 	return &AdminSearchChannelSpecificContentOK{}
 }
 
-/*AdminSearchChannelSpecificContentOK handles this case with default header values.
+/*
+AdminSearchChannelSpecificContentOK handles this case with default header values.
 
-  Search contents specific to a channel
+	Search contents specific to a channel
 */
 type AdminSearchChannelSpecificContentOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponse
@@ -169,9 +170,10 @@ func NewAdminSearchChannelSpecificContentBadRequest() *AdminSearchChannelSpecifi
 	return &AdminSearchChannelSpecificContentBadRequest{}
 }
 
-/*AdminSearchChannelSpecificContentBadRequest handles this case with default header values.
+/*
+AdminSearchChannelSpecificContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
 */
 type AdminSearchChannelSpecificContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminSearchChannelSpecificContentUnauthorized() *AdminSearchChannelSpeci
 	return &AdminSearchChannelSpecificContentUnauthorized{}
 }
 
-/*AdminSearchChannelSpecificContentUnauthorized handles this case with default header values.
+/*
+AdminSearchChannelSpecificContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminSearchChannelSpecificContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminSearchChannelSpecificContentInternalServerError() *AdminSearchChann
 	return &AdminSearchChannelSpecificContentInternalServerError{}
 }
 
-/*AdminSearchChannelSpecificContentInternalServerError handles this case with default header values.
+/*
+AdminSearchChannelSpecificContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
 */
 type AdminSearchChannelSpecificContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

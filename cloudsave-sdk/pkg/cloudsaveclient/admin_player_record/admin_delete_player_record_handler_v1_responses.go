@@ -114,9 +114,10 @@ func NewAdminDeletePlayerRecordHandlerV1NoContent() *AdminDeletePlayerRecordHand
 	return &AdminDeletePlayerRecordHandlerV1NoContent{}
 }
 
-/*AdminDeletePlayerRecordHandlerV1NoContent handles this case with default header values.
+/*
+AdminDeletePlayerRecordHandlerV1NoContent handles this case with default header values.
 
-  Record in user-level saved
+	Record in user-level saved
 */
 type AdminDeletePlayerRecordHandlerV1NoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminDeletePlayerRecordHandlerV1Unauthorized() *AdminDeletePlayerRecordH
 	return &AdminDeletePlayerRecordHandlerV1Unauthorized{}
 }
 
-/*AdminDeletePlayerRecordHandlerV1Unauthorized handles this case with default header values.
+/*
+AdminDeletePlayerRecordHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeletePlayerRecordHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -195,9 +197,10 @@ func NewAdminDeletePlayerRecordHandlerV1Forbidden() *AdminDeletePlayerRecordHand
 	return &AdminDeletePlayerRecordHandlerV1Forbidden{}
 }
 
-/*AdminDeletePlayerRecordHandlerV1Forbidden handles this case with default header values.
+/*
+AdminDeletePlayerRecordHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminDeletePlayerRecordHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -249,9 +252,10 @@ func NewAdminDeletePlayerRecordHandlerV1InternalServerError() *AdminDeletePlayer
 	return &AdminDeletePlayerRecordHandlerV1InternalServerError{}
 }
 
-/*AdminDeletePlayerRecordHandlerV1InternalServerError handles this case with default header values.
+/*
+AdminDeletePlayerRecordHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18070</td><td>unable to delete record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18070</td><td>unable to delete record</td></tr></table>
 */
 type AdminDeletePlayerRecordHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

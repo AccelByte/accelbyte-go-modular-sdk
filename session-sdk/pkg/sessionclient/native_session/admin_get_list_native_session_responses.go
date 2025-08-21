@@ -100,9 +100,10 @@ func NewAdminGetListNativeSessionOK() *AdminGetListNativeSessionOK {
 	return &AdminGetListNativeSessionOK{}
 }
 
-/*AdminGetListNativeSessionOK handles this case with default header values.
+/*
+AdminGetListNativeSessionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetListNativeSessionOK struct {
 	Payload *sessionclientmodels.ApimodelsNativeSessionPagingResponse
@@ -154,9 +155,10 @@ func NewAdminGetListNativeSessionUnauthorized() *AdminGetListNativeSessionUnauth
 	return &AdminGetListNativeSessionUnauthorized{}
 }
 
-/*AdminGetListNativeSessionUnauthorized handles this case with default header values.
+/*
+AdminGetListNativeSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetListNativeSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -208,9 +210,10 @@ func NewAdminGetListNativeSessionForbidden() *AdminGetListNativeSessionForbidden
 	return &AdminGetListNativeSessionForbidden{}
 }
 
-/*AdminGetListNativeSessionForbidden handles this case with default header values.
+/*
+AdminGetListNativeSessionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetListNativeSessionForbidden struct {
 	Payload *sessionclientmodels.ResponseError

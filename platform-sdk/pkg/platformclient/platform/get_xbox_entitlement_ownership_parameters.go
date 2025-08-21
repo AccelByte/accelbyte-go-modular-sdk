@@ -59,7 +59,8 @@ func NewGetXboxEntitlementOwnershipParamsWithHTTPClient(client *http.Client) *Ge
 	}
 }
 
-/*GetXboxEntitlementOwnershipParams contains all the parameters to send to the API endpoint
+/*
+GetXboxEntitlementOwnershipParams contains all the parameters to send to the API endpoint
 for the get xbox entitlement ownership operation typically these are written to a http.Request
 */
 type GetXboxEntitlementOwnershipParams struct {

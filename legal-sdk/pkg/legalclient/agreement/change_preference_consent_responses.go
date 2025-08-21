@@ -84,9 +84,10 @@ func NewChangePreferenceConsentOK() *ChangePreferenceConsentOK {
 	return &ChangePreferenceConsentOK{}
 }
 
-/*ChangePreferenceConsentOK handles this case with default header values.
+/*
+ChangePreferenceConsentOK handles this case with default header values.
 
-  operation successful
+	operation successful
 */
 type ChangePreferenceConsentOK struct {
 }
@@ -111,9 +112,10 @@ func NewChangePreferenceConsentNotFound() *ChangePreferenceConsentNotFound {
 	return &ChangePreferenceConsentNotFound{}
 }
 
-/*ChangePreferenceConsentNotFound handles this case with default header values.
+/*
+ChangePreferenceConsentNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40047</td><td>errors.net.accelbyte.platform.legal.user_agreement_not_found</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40047</td><td>errors.net.accelbyte.platform.legal.user_agreement_not_found</td></tr></table>
 */
 type ChangePreferenceConsentNotFound struct {
 	Payload *legalclientmodels.ErrorEntity

@@ -130,9 +130,10 @@ func NewAuthenticationWithPlatformLinkV3OK() *AuthenticationWithPlatformLinkV3OK
 	return &AuthenticationWithPlatformLinkV3OK{}
 }
 
-/*AuthenticationWithPlatformLinkV3OK handles this case with default header values.
+/*
+AuthenticationWithPlatformLinkV3OK handles this case with default header values.
 
-  Succeed to authenticate and link platform account.
+	Succeed to authenticate and link platform account.
 */
 type AuthenticationWithPlatformLinkV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3
@@ -184,9 +185,10 @@ func NewAuthenticationWithPlatformLinkV3BadRequest() *AuthenticationWithPlatform
 	return &AuthenticationWithPlatformLinkV3BadRequest{}
 }
 
-/*AuthenticationWithPlatformLinkV3BadRequest handles this case with default header values.
+/*
+AuthenticationWithPlatformLinkV3BadRequest handles this case with default header values.
 
-  Invalid username or password.
+	Invalid username or password.
 */
 type AuthenticationWithPlatformLinkV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAuthenticationWithPlatformLinkV3Unauthorized() *AuthenticationWithPlatfo
 	return &AuthenticationWithPlatformLinkV3Unauthorized{}
 }
 
-/*AuthenticationWithPlatformLinkV3Unauthorized handles this case with default header values.
+/*
+AuthenticationWithPlatformLinkV3Unauthorized handles this case with default header values.
 
-  Need 2FA.
+	Need 2FA.
 */
 type AuthenticationWithPlatformLinkV3Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -292,9 +295,10 @@ func NewAuthenticationWithPlatformLinkV3Forbidden() *AuthenticationWithPlatformL
 	return &AuthenticationWithPlatformLinkV3Forbidden{}
 }
 
-/*AuthenticationWithPlatformLinkV3Forbidden handles this case with default header values.
+/*
+AuthenticationWithPlatformLinkV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
 */
 type AuthenticationWithPlatformLinkV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAuthenticationWithPlatformLinkV3Conflict() *AuthenticationWithPlatformLi
 	return &AuthenticationWithPlatformLinkV3Conflict{}
 }
 
-/*AuthenticationWithPlatformLinkV3Conflict handles this case with default header values.
+/*
+AuthenticationWithPlatformLinkV3Conflict handles this case with default header values.
 
-  User already link this platform's another account'.
+	User already link this platform's another account'.
 */
 type AuthenticationWithPlatformLinkV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse

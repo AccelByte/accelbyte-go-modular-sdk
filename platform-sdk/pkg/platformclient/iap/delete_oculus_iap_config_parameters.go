@@ -57,7 +57,8 @@ func NewDeleteOculusIAPConfigParamsWithHTTPClient(client *http.Client) *DeleteOc
 	}
 }
 
-/*DeleteOculusIAPConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteOculusIAPConfigParams contains all the parameters to send to the API endpoint
 for the delete oculus iap config operation typically these are written to a http.Request
 */
 type DeleteOculusIAPConfigParams struct {

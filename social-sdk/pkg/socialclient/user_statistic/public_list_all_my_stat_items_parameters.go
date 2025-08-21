@@ -58,7 +58,8 @@ func NewPublicListAllMyStatItemsParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*PublicListAllMyStatItemsParams contains all the parameters to send to the API endpoint
+/*
+PublicListAllMyStatItemsParams contains all the parameters to send to the API endpoint
 for the public list all my stat items operation typically these are written to a http.Request
 */
 type PublicListAllMyStatItemsParams struct {

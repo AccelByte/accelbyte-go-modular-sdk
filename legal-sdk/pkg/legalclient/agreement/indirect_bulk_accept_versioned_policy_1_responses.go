@@ -85,9 +85,10 @@ func NewIndirectBulkAcceptVersionedPolicy1Created() *IndirectBulkAcceptVersioned
 	return &IndirectBulkAcceptVersionedPolicy1Created{}
 }
 
-/*IndirectBulkAcceptVersionedPolicy1Created handles this case with default header values.
+/*
+IndirectBulkAcceptVersionedPolicy1Created handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type IndirectBulkAcceptVersionedPolicy1Created struct {
 	Payload *legalclientmodels.AcceptAgreementResponse
@@ -139,9 +140,10 @@ func NewIndirectBulkAcceptVersionedPolicy1NotFound() *IndirectBulkAcceptVersione
 	return &IndirectBulkAcceptVersionedPolicy1NotFound{}
 }
 
-/*IndirectBulkAcceptVersionedPolicy1NotFound handles this case with default header values.
+/*
+IndirectBulkAcceptVersionedPolicy1NotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.policy_version_not_found</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.policy_version_not_found</td></tr></table>
 */
 type IndirectBulkAcceptVersionedPolicy1NotFound struct {
 	Payload *legalclientmodels.ErrorEntity

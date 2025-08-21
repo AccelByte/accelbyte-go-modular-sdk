@@ -85,9 +85,10 @@ func NewPublicGetSystemConfigV3OK() *PublicGetSystemConfigV3OK {
 	return &PublicGetSystemConfigV3OK{}
 }
 
-/*PublicGetSystemConfigV3OK handles this case with default header values.
+/*
+PublicGetSystemConfigV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetSystemConfigV3OK struct {
 	Payload *iamclientmodels.ModelInternalConfigResponseV3
@@ -139,9 +140,10 @@ func NewPublicGetSystemConfigV3InternalServerError() *PublicGetSystemConfigV3Int
 	return &PublicGetSystemConfigV3InternalServerError{}
 }
 
-/*PublicGetSystemConfigV3InternalServerError handles this case with default header values.
+/*
+PublicGetSystemConfigV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetSystemConfigV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

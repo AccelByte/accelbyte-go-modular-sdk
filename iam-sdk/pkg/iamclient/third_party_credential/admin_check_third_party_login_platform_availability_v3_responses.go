@@ -115,9 +115,10 @@ func NewAdminCheckThirdPartyLoginPlatformAvailabilityV3OK() *AdminCheckThirdPart
 	return &AdminCheckThirdPartyLoginPlatformAvailabilityV3OK{}
 }
 
-/*AdminCheckThirdPartyLoginPlatformAvailabilityV3OK handles this case with default header values.
+/*
+AdminCheckThirdPartyLoginPlatformAvailabilityV3OK handles this case with default header values.
 
-  Platform Availability Check Retrieved
+	Platform Availability Check Retrieved
 */
 type AdminCheckThirdPartyLoginPlatformAvailabilityV3OK struct {
 	Payload *iamclientmodels.ModelCheckAvailabilityResponse
@@ -169,9 +170,10 @@ func NewAdminCheckThirdPartyLoginPlatformAvailabilityV3BadRequest() *AdminCheckT
 	return &AdminCheckThirdPartyLoginPlatformAvailabilityV3BadRequest{}
 }
 
-/*AdminCheckThirdPartyLoginPlatformAvailabilityV3BadRequest handles this case with default header values.
+/*
+AdminCheckThirdPartyLoginPlatformAvailabilityV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10226</td><td>third party platform is not supported</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10226</td><td>third party platform is not supported</td></tr></table>
 */
 type AdminCheckThirdPartyLoginPlatformAvailabilityV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminCheckThirdPartyLoginPlatformAvailabilityV3Unauthorized() *AdminChec
 	return &AdminCheckThirdPartyLoginPlatformAvailabilityV3Unauthorized{}
 }
 
-/*AdminCheckThirdPartyLoginPlatformAvailabilityV3Unauthorized handles this case with default header values.
+/*
+AdminCheckThirdPartyLoginPlatformAvailabilityV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCheckThirdPartyLoginPlatformAvailabilityV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminCheckThirdPartyLoginPlatformAvailabilityV3Forbidden() *AdminCheckTh
 	return &AdminCheckThirdPartyLoginPlatformAvailabilityV3Forbidden{}
 }
 
-/*AdminCheckThirdPartyLoginPlatformAvailabilityV3Forbidden handles this case with default header values.
+/*
+AdminCheckThirdPartyLoginPlatformAvailabilityV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminCheckThirdPartyLoginPlatformAvailabilityV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

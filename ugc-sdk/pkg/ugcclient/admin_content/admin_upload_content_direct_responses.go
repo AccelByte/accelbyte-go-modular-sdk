@@ -145,9 +145,10 @@ func NewAdminUploadContentDirectCreated() *AdminUploadContentDirectCreated {
 	return &AdminUploadContentDirectCreated{}
 }
 
-/*AdminUploadContentDirectCreated handles this case with default header values.
+/*
+AdminUploadContentDirectCreated handles this case with default header values.
 
-  Content uploaded
+	Content uploaded
 */
 type AdminUploadContentDirectCreated struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponse
@@ -199,9 +200,10 @@ func NewAdminUploadContentDirectBadRequest() *AdminUploadContentDirectBadRequest
 	return &AdminUploadContentDirectBadRequest{}
 }
 
-/*AdminUploadContentDirectBadRequest handles this case with default header values.
+/*
+AdminUploadContentDirectBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770100</td><td>Malformed request/Invalid request body/channel do not exist</td></tr></table>
 */
 type AdminUploadContentDirectBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUploadContentDirectUnauthorized() *AdminUploadContentDirectUnauthor
 	return &AdminUploadContentDirectUnauthorized{}
 }
 
-/*AdminUploadContentDirectUnauthorized handles this case with default header values.
+/*
+AdminUploadContentDirectUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUploadContentDirectUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUploadContentDirectForbidden() *AdminUploadContentDirectForbidden {
 	return &AdminUploadContentDirectForbidden{}
 }
 
-/*AdminUploadContentDirectForbidden handles this case with default header values.
+/*
+AdminUploadContentDirectForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770104</td><td>User has been banned to create content</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770104</td><td>User has been banned to create content</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminUploadContentDirectForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUploadContentDirectConflict() *AdminUploadContentDirectConflict {
 	return &AdminUploadContentDirectConflict{}
 }
 
-/*AdminUploadContentDirectConflict handles this case with default header values.
+/*
+AdminUploadContentDirectConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770103</td><td>Unable to save ugc content: shareCode exceed the limit</td></tr></table>
 */
 type AdminUploadContentDirectConflict struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUploadContentDirectInternalServerError() *AdminUploadContentDirectI
 	return &AdminUploadContentDirectInternalServerError{}
 }
 
-/*AdminUploadContentDirectInternalServerError handles this case with default header values.
+/*
+AdminUploadContentDirectInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770102</td><td>Unable to check user ban status/Unable to save ugc content: unable to get channel</td></tr></table>
 */
 type AdminUploadContentDirectInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -144,9 +144,10 @@ func NewPublicKickGameSessionMemberNoContent() *PublicKickGameSessionMemberNoCon
 	return &PublicKickGameSessionMemberNoContent{}
 }
 
-/*PublicKickGameSessionMemberNoContent handles this case with default header values.
+/*
+PublicKickGameSessionMemberNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicKickGameSessionMemberNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicKickGameSessionMemberBadRequest() *PublicKickGameSessionMemberBadR
 	return &PublicKickGameSessionMemberBadRequest{}
 }
 
-/*PublicKickGameSessionMemberBadRequest handles this case with default header values.
+/*
+PublicKickGameSessionMemberBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicKickGameSessionMemberBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewPublicKickGameSessionMemberUnauthorized() *PublicKickGameSessionMemberUn
 	return &PublicKickGameSessionMemberUnauthorized{}
 }
 
-/*PublicKickGameSessionMemberUnauthorized handles this case with default header values.
+/*
+PublicKickGameSessionMemberUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicKickGameSessionMemberUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewPublicKickGameSessionMemberForbidden() *PublicKickGameSessionMemberForbi
 	return &PublicKickGameSessionMemberForbidden{}
 }
 
-/*PublicKickGameSessionMemberForbidden handles this case with default header values.
+/*
+PublicKickGameSessionMemberForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicKickGameSessionMemberForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewPublicKickGameSessionMemberNotFound() *PublicKickGameSessionMemberNotFou
 	return &PublicKickGameSessionMemberNotFound{}
 }
 
-/*PublicKickGameSessionMemberNotFound handles this case with default header values.
+/*
+PublicKickGameSessionMemberNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicKickGameSessionMemberNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewPublicKickGameSessionMemberInternalServerError() *PublicKickGameSessionM
 	return &PublicKickGameSessionMemberInternalServerError{}
 }
 
-/*PublicKickGameSessionMemberInternalServerError handles this case with default header values.
+/*
+PublicKickGameSessionMemberInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicKickGameSessionMemberInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

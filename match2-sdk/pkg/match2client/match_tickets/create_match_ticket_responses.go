@@ -160,9 +160,10 @@ func NewCreateMatchTicketCreated() *CreateMatchTicketCreated {
 	return &CreateMatchTicketCreated{}
 }
 
-/*CreateMatchTicketCreated handles this case with default header values.
+/*
+CreateMatchTicketCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateMatchTicketCreated struct {
 	Payload *match2clientmodels.APIMatchTicketResponse
@@ -214,9 +215,10 @@ func NewCreateMatchTicketBadRequest() *CreateMatchTicketBadRequest {
 	return &CreateMatchTicketBadRequest{}
 }
 
-/*CreateMatchTicketBadRequest handles this case with default header values.
+/*
+CreateMatchTicketBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateMatchTicketBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewCreateMatchTicketUnauthorized() *CreateMatchTicketUnauthorized {
 	return &CreateMatchTicketUnauthorized{}
 }
 
-/*CreateMatchTicketUnauthorized handles this case with default header values.
+/*
+CreateMatchTicketUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateMatchTicketUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewCreateMatchTicketForbidden() *CreateMatchTicketForbidden {
 	return &CreateMatchTicketForbidden{}
 }
 
-/*CreateMatchTicketForbidden handles this case with default header values.
+/*
+CreateMatchTicketForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateMatchTicketForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewCreateMatchTicketNotFound() *CreateMatchTicketNotFound {
 	return &CreateMatchTicketNotFound{}
 }
 
-/*CreateMatchTicketNotFound handles this case with default header values.
+/*
+CreateMatchTicketNotFound handles this case with default header values.
 
-  Not Found when the specified match pool does not exist
+	Not Found when the specified match pool does not exist
 */
 type CreateMatchTicketNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewCreateMatchTicketConflict() *CreateMatchTicketConflict {
 	return &CreateMatchTicketConflict{}
 }
 
-/*CreateMatchTicketConflict handles this case with default header values.
+/*
+CreateMatchTicketConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateMatchTicketConflict struct {
 	Payload *match2clientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewCreateMatchTicketInternalServerError() *CreateMatchTicketInternalServerE
 	return &CreateMatchTicketInternalServerError{}
 }
 
-/*CreateMatchTicketInternalServerError handles this case with default header values.
+/*
+CreateMatchTicketInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateMatchTicketInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

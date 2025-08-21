@@ -69,9 +69,10 @@ func NewGetUserInfoStatusOK() *GetUserInfoStatusOK {
 	return &GetUserInfoStatusOK{}
 }
 
-/*GetUserInfoStatusOK handles this case with default header values.
+/*
+GetUserInfoStatusOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserInfoStatusOK struct {
 	Payload []*legalclientmodels.RetrieveUserInfoCacheStatusResponse

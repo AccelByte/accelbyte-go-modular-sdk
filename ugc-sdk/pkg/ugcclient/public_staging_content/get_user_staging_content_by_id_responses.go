@@ -130,9 +130,10 @@ func NewGetUserStagingContentByIDOK() *GetUserStagingContentByIDOK {
 	return &GetUserStagingContentByIDOK{}
 }
 
-/*GetUserStagingContentByIDOK handles this case with default header values.
+/*
+GetUserStagingContentByIDOK handles this case with default header values.
 
-  staging content
+	staging content
 */
 type GetUserStagingContentByIDOK struct {
 	Payload *ugcclientmodels.ModelsStagingContentResponse
@@ -184,9 +185,10 @@ func NewGetUserStagingContentByIDUnauthorized() *GetUserStagingContentByIDUnauth
 	return &GetUserStagingContentByIDUnauthorized{}
 }
 
-/*GetUserStagingContentByIDUnauthorized handles this case with default header values.
+/*
+GetUserStagingContentByIDUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserStagingContentByIDUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewGetUserStagingContentByIDForbidden() *GetUserStagingContentByIDForbidden
 	return &GetUserStagingContentByIDForbidden{}
 }
 
-/*GetUserStagingContentByIDForbidden handles this case with default header values.
+/*
+GetUserStagingContentByIDForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetUserStagingContentByIDForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewGetUserStagingContentByIDNotFound() *GetUserStagingContentByIDNotFound {
 	return &GetUserStagingContentByIDNotFound{}
 }
 
-/*GetUserStagingContentByIDNotFound handles this case with default header values.
+/*
+GetUserStagingContentByIDNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774401</td><td>staging content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774401</td><td>staging content not found</td></tr></table>
 */
 type GetUserStagingContentByIDNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewGetUserStagingContentByIDInternalServerError() *GetUserStagingContentByI
 	return &GetUserStagingContentByIDInternalServerError{}
 }
 
-/*GetUserStagingContentByIDInternalServerError handles this case with default header values.
+/*
+GetUserStagingContentByIDInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774402</td><td>unable to get staging content</td></tr><tr><td>774403</td><td>unable to generate presigned URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774402</td><td>unable to get staging content</td></tr><tr><td>774403</td><td>unable to generate presigned URL</td></tr></table>
 */
 type GetUserStagingContentByIDInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

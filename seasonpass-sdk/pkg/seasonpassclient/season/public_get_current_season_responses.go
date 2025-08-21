@@ -115,9 +115,10 @@ func NewPublicGetCurrentSeasonOK() *PublicGetCurrentSeasonOK {
 	return &PublicGetCurrentSeasonOK{}
 }
 
-/*PublicGetCurrentSeasonOK handles this case with default header values.
+/*
+PublicGetCurrentSeasonOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetCurrentSeasonOK struct {
 	Payload *seasonpassclientmodels.LocalizedSeasonInfo
@@ -169,9 +170,10 @@ func NewPublicGetCurrentSeasonBadRequest() *PublicGetCurrentSeasonBadRequest {
 	return &PublicGetCurrentSeasonBadRequest{}
 }
 
-/*PublicGetCurrentSeasonBadRequest handles this case with default header values.
+/*
+PublicGetCurrentSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type PublicGetCurrentSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewPublicGetCurrentSeasonUnauthorized() *PublicGetCurrentSeasonUnauthorized
 	return &PublicGetCurrentSeasonUnauthorized{}
 }
 
-/*PublicGetCurrentSeasonUnauthorized handles this case with default header values.
+/*
+PublicGetCurrentSeasonUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicGetCurrentSeasonUnauthorized struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewPublicGetCurrentSeasonNotFound() *PublicGetCurrentSeasonNotFound {
 	return &PublicGetCurrentSeasonNotFound{}
 }
 
-/*PublicGetCurrentSeasonNotFound handles this case with default header values.
+/*
+PublicGetCurrentSeasonNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
 */
 type PublicGetCurrentSeasonNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

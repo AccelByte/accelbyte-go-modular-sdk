@@ -100,9 +100,10 @@ func NewEnableItemOK() *EnableItemOK {
 	return &EnableItemOK{}
 }
 
-/*EnableItemOK handles this case with default header values.
+/*
+EnableItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type EnableItemOK struct {
 	Payload *platformclientmodels.FullItemInfo
@@ -154,9 +155,10 @@ func NewEnableItemNotFound() *EnableItemNotFound {
 	return &EnableItemNotFound{}
 }
 
-/*EnableItemNotFound handles this case with default header values.
+/*
+EnableItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type EnableItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewEnableItemConflict() *EnableItemConflict {
 	return &EnableItemConflict{}
 }
 
-/*EnableItemConflict handles this case with default header values.
+/*
+EnableItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type EnableItemConflict struct {
 	Payload *platformclientmodels.ErrorEntity

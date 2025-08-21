@@ -103,9 +103,10 @@ func NewPublicDownloadUserOrderReceiptOK(writer io.Writer) *PublicDownloadUserOr
 	}
 }
 
-/*PublicDownloadUserOrderReceiptOK handles this case with default header values.
+/*
+PublicDownloadUserOrderReceiptOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type PublicDownloadUserOrderReceiptOK struct {
 	Payload io.Writer
@@ -155,9 +156,10 @@ func NewPublicDownloadUserOrderReceiptNotFound() *PublicDownloadUserOrderReceipt
 	return &PublicDownloadUserOrderReceiptNotFound{}
 }
 
-/*PublicDownloadUserOrderReceiptNotFound handles this case with default header values.
+/*
+PublicDownloadUserOrderReceiptNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
 */
 type PublicDownloadUserOrderReceiptNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -209,9 +211,10 @@ func NewPublicDownloadUserOrderReceiptConflict() *PublicDownloadUserOrderReceipt
 	return &PublicDownloadUserOrderReceiptConflict{}
 }
 
-/*PublicDownloadUserOrderReceiptConflict handles this case with default header values.
+/*
+PublicDownloadUserOrderReceiptConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32173</td><td>Receipt of order [{orderNo}] is not downloadable</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32173</td><td>Receipt of order [{orderNo}] is not downloadable</td></tr></table>
 */
 type PublicDownloadUserOrderReceiptConflict struct {
 	Payload *platformclientmodels.ErrorEntity

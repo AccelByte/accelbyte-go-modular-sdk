@@ -57,7 +57,8 @@ func NewDevelopmentServerConfigurationDeleteParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*DevelopmentServerConfigurationDeleteParams contains all the parameters to send to the API endpoint
+/*
+DevelopmentServerConfigurationDeleteParams contains all the parameters to send to the API endpoint
 for the development server configuration delete operation typically these are written to a http.Request
 */
 type DevelopmentServerConfigurationDeleteParams struct {

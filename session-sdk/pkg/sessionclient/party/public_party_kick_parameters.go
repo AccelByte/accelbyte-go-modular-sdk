@@ -57,7 +57,8 @@ func NewPublicPartyKickParamsWithHTTPClient(client *http.Client) *PublicPartyKic
 	}
 }
 
-/*PublicPartyKickParams contains all the parameters to send to the API endpoint
+/*
+PublicPartyKickParams contains all the parameters to send to the API endpoint
 for the public party kick operation typically these are written to a http.Request
 */
 type PublicPartyKickParams struct {

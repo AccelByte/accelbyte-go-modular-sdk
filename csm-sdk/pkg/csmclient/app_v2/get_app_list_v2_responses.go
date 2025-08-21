@@ -145,9 +145,10 @@ func NewGetAppListV2OK() *GetAppListV2OK {
 	return &GetAppListV2OK{}
 }
 
-/*GetAppListV2OK handles this case with default header values.
+/*
+GetAppListV2OK handles this case with default header values.
 
-  List of apps
+	List of apps
 */
 type GetAppListV2OK struct {
 	Payload *csmclientmodels.ApimodelGetAppListV2Response
@@ -199,9 +200,10 @@ func NewGetAppListV2BadRequest() *GetAppListV2BadRequest {
 	return &GetAppListV2BadRequest{}
 }
 
-/*GetAppListV2BadRequest handles this case with default header values.
+/*
+GetAppListV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetAppListV2BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetAppListV2Unauthorized() *GetAppListV2Unauthorized {
 	return &GetAppListV2Unauthorized{}
 }
 
-/*GetAppListV2Unauthorized handles this case with default header values.
+/*
+GetAppListV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetAppListV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetAppListV2Forbidden() *GetAppListV2Forbidden {
 	return &GetAppListV2Forbidden{}
 }
 
-/*GetAppListV2Forbidden handles this case with default header values.
+/*
+GetAppListV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetAppListV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetAppListV2NotFound() *GetAppListV2NotFound {
 	return &GetAppListV2NotFound{}
 }
 
-/*GetAppListV2NotFound handles this case with default header values.
+/*
+GetAppListV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetAppListV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetAppListV2InternalServerError() *GetAppListV2InternalServerError {
 	return &GetAppListV2InternalServerError{}
 }
 
-/*GetAppListV2InternalServerError handles this case with default header values.
+/*
+GetAppListV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetAppListV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

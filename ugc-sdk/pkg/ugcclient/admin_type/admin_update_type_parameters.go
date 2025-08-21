@@ -59,7 +59,8 @@ func NewAdminUpdateTypeParamsWithHTTPClient(client *http.Client) *AdminUpdateTyp
 	}
 }
 
-/*AdminUpdateTypeParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateTypeParams contains all the parameters to send to the API endpoint
 for the admin update type operation typically these are written to a http.Request
 */
 type AdminUpdateTypeParams struct {

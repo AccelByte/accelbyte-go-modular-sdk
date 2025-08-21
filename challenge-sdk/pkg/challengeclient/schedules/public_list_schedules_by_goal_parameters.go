@@ -78,7 +78,8 @@ func NewPublicListSchedulesByGoalParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*PublicListSchedulesByGoalParams contains all the parameters to send to the API endpoint
+/*
+PublicListSchedulesByGoalParams contains all the parameters to send to the API endpoint
 for the public list schedules by goal operation typically these are written to a http.Request
 */
 type PublicListSchedulesByGoalParams struct {

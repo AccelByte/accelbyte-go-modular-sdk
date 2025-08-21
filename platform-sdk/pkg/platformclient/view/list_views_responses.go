@@ -100,9 +100,10 @@ func NewListViewsOK() *ListViewsOK {
 	return &ListViewsOK{}
 }
 
-/*ListViewsOK handles this case with default header values.
+/*
+ListViewsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ListViewsOK struct {
 	Payload []*platformclientmodels.ListViewInfo
@@ -152,9 +153,10 @@ func NewListViewsNotFound() *ListViewsNotFound {
 	return &ListViewsNotFound{}
 }
 
-/*ListViewsNotFound handles this case with default header values.
+/*
+ListViewsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
 */
 type ListViewsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewListViewsUnprocessableEntity() *ListViewsUnprocessableEntity {
 	return &ListViewsUnprocessableEntity{}
 }
 
-/*ListViewsUnprocessableEntity handles this case with default header values.
+/*
+ListViewsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type ListViewsUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

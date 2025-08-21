@@ -57,7 +57,8 @@ func NewDeleteSubscriptionAppNotificationByUserIDV2ParamsWithHTTPClient(client *
 	}
 }
 
-/*DeleteSubscriptionAppNotificationByUserIDV2Params contains all the parameters to send to the API endpoint
+/*
+DeleteSubscriptionAppNotificationByUserIDV2Params contains all the parameters to send to the API endpoint
 for the delete subscription app notification by user idv2 operation typically these are written to a http.Request
 */
 type DeleteSubscriptionAppNotificationByUserIDV2Params struct {

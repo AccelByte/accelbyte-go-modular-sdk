@@ -109,9 +109,10 @@ func NewDeleteClientByNamespaceNoContent() *DeleteClientByNamespaceNoContent {
 	return &DeleteClientByNamespaceNoContent{}
 }
 
-/*DeleteClientByNamespaceNoContent handles this case with default header values.
+/*
+DeleteClientByNamespaceNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type DeleteClientByNamespaceNoContent struct {
 }
@@ -136,9 +137,10 @@ func NewDeleteClientByNamespaceUnauthorized() *DeleteClientByNamespaceUnauthoriz
 	return &DeleteClientByNamespaceUnauthorized{}
 }
 
-/*DeleteClientByNamespaceUnauthorized handles this case with default header values.
+/*
+DeleteClientByNamespaceUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteClientByNamespaceUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -190,9 +192,10 @@ func NewDeleteClientByNamespaceForbidden() *DeleteClientByNamespaceForbidden {
 	return &DeleteClientByNamespaceForbidden{}
 }
 
-/*DeleteClientByNamespaceForbidden handles this case with default header values.
+/*
+DeleteClientByNamespaceForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteClientByNamespaceForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -244,9 +247,10 @@ func NewDeleteClientByNamespaceNotFound() *DeleteClientByNamespaceNotFound {
 	return &DeleteClientByNamespaceNotFound{}
 }
 
-/*DeleteClientByNamespaceNotFound handles this case with default header values.
+/*
+DeleteClientByNamespaceNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type DeleteClientByNamespaceNotFound struct {
 }

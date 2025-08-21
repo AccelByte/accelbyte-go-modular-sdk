@@ -144,9 +144,10 @@ func NewAdminUpdateUserEmailAddressV4NoContent() *AdminUpdateUserEmailAddressV4N
 	return &AdminUpdateUserEmailAddressV4NoContent{}
 }
 
-/*AdminUpdateUserEmailAddressV4NoContent handles this case with default header values.
+/*
+AdminUpdateUserEmailAddressV4NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminUpdateUserEmailAddressV4NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminUpdateUserEmailAddressV4BadRequest() *AdminUpdateUserEmailAddressV4
 	return &AdminUpdateUserEmailAddressV4BadRequest{}
 }
 
-/*AdminUpdateUserEmailAddressV4BadRequest handles this case with default header values.
+/*
+AdminUpdateUserEmailAddressV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminUpdateUserEmailAddressV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminUpdateUserEmailAddressV4Unauthorized() *AdminUpdateUserEmailAddress
 	return &AdminUpdateUserEmailAddressV4Unauthorized{}
 }
 
-/*AdminUpdateUserEmailAddressV4Unauthorized handles this case with default header values.
+/*
+AdminUpdateUserEmailAddressV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type AdminUpdateUserEmailAddressV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminUpdateUserEmailAddressV4NotFound() *AdminUpdateUserEmailAddressV4No
 	return &AdminUpdateUserEmailAddressV4NotFound{}
 }
 
-/*AdminUpdateUserEmailAddressV4NotFound handles this case with default header values.
+/*
+AdminUpdateUserEmailAddressV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminUpdateUserEmailAddressV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminUpdateUserEmailAddressV4Conflict() *AdminUpdateUserEmailAddressV4Co
 	return &AdminUpdateUserEmailAddressV4Conflict{}
 }
 
-/*AdminUpdateUserEmailAddressV4Conflict handles this case with default header values.
+/*
+AdminUpdateUserEmailAddressV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type AdminUpdateUserEmailAddressV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminUpdateUserEmailAddressV4InternalServerError() *AdminUpdateUserEmail
 	return &AdminUpdateUserEmailAddressV4InternalServerError{}
 }
 
-/*AdminUpdateUserEmailAddressV4InternalServerError handles this case with default header values.
+/*
+AdminUpdateUserEmailAddressV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpdateUserEmailAddressV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

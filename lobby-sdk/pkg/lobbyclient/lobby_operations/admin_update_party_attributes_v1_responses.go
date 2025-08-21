@@ -160,9 +160,10 @@ func NewAdminUpdatePartyAttributesV1OK() *AdminUpdatePartyAttributesV1OK {
 	return &AdminUpdatePartyAttributesV1OK{}
 }
 
-/*AdminUpdatePartyAttributesV1OK handles this case with default header values.
+/*
+AdminUpdatePartyAttributesV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdatePartyAttributesV1OK struct {
 	Payload *lobbyclientmodels.ModelsPartyData
@@ -214,9 +215,10 @@ func NewAdminUpdatePartyAttributesV1BadRequest() *AdminUpdatePartyAttributesV1Ba
 	return &AdminUpdatePartyAttributesV1BadRequest{}
 }
 
-/*AdminUpdatePartyAttributesV1BadRequest handles this case with default header values.
+/*
+AdminUpdatePartyAttributesV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUpdatePartyAttributesV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -268,9 +270,10 @@ func NewAdminUpdatePartyAttributesV1Unauthorized() *AdminUpdatePartyAttributesV1
 	return &AdminUpdatePartyAttributesV1Unauthorized{}
 }
 
-/*AdminUpdatePartyAttributesV1Unauthorized handles this case with default header values.
+/*
+AdminUpdatePartyAttributesV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUpdatePartyAttributesV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -322,9 +325,10 @@ func NewAdminUpdatePartyAttributesV1Forbidden() *AdminUpdatePartyAttributesV1For
 	return &AdminUpdatePartyAttributesV1Forbidden{}
 }
 
-/*AdminUpdatePartyAttributesV1Forbidden handles this case with default header values.
+/*
+AdminUpdatePartyAttributesV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUpdatePartyAttributesV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -376,9 +380,10 @@ func NewAdminUpdatePartyAttributesV1NotFound() *AdminUpdatePartyAttributesV1NotF
 	return &AdminUpdatePartyAttributesV1NotFound{}
 }
 
-/*AdminUpdatePartyAttributesV1NotFound handles this case with default header values.
+/*
+AdminUpdatePartyAttributesV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminUpdatePartyAttributesV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -430,9 +435,10 @@ func NewAdminUpdatePartyAttributesV1PreconditionFailed() *AdminUpdatePartyAttrib
 	return &AdminUpdatePartyAttributesV1PreconditionFailed{}
 }
 
-/*AdminUpdatePartyAttributesV1PreconditionFailed handles this case with default header values.
+/*
+AdminUpdatePartyAttributesV1PreconditionFailed handles this case with default header values.
 
-  Precondition Failed
+	Precondition Failed
 */
 type AdminUpdatePartyAttributesV1PreconditionFailed struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -484,9 +490,10 @@ func NewAdminUpdatePartyAttributesV1InternalServerError() *AdminUpdatePartyAttri
 	return &AdminUpdatePartyAttributesV1InternalServerError{}
 }
 
-/*AdminUpdatePartyAttributesV1InternalServerError handles this case with default header values.
+/*
+AdminUpdatePartyAttributesV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUpdatePartyAttributesV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

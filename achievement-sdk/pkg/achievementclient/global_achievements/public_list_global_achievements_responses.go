@@ -115,9 +115,10 @@ func NewPublicListGlobalAchievementsOK() *PublicListGlobalAchievementsOK {
 	return &PublicListGlobalAchievementsOK{}
 }
 
-/*PublicListGlobalAchievementsOK handles this case with default header values.
+/*
+PublicListGlobalAchievementsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicListGlobalAchievementsOK struct {
 	Payload *achievementclientmodels.ModelsPaginatedGlobalAchievementResponse
@@ -169,9 +170,10 @@ func NewPublicListGlobalAchievementsBadRequest() *PublicListGlobalAchievementsBa
 	return &PublicListGlobalAchievementsBadRequest{}
 }
 
-/*PublicListGlobalAchievementsBadRequest handles this case with default header values.
+/*
+PublicListGlobalAchievementsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicListGlobalAchievementsBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicListGlobalAchievementsUnauthorized() *PublicListGlobalAchievements
 	return &PublicListGlobalAchievementsUnauthorized{}
 }
 
-/*PublicListGlobalAchievementsUnauthorized handles this case with default header values.
+/*
+PublicListGlobalAchievementsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicListGlobalAchievementsUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicListGlobalAchievementsInternalServerError() *PublicListGlobalAchie
 	return &PublicListGlobalAchievementsInternalServerError{}
 }
 
-/*PublicListGlobalAchievementsInternalServerError handles this case with default header values.
+/*
+PublicListGlobalAchievementsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicListGlobalAchievementsInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

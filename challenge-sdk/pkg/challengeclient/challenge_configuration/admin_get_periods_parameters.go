@@ -78,7 +78,8 @@ func NewAdminGetPeriodsParamsWithHTTPClient(client *http.Client) *AdminGetPeriod
 	}
 }
 
-/*AdminGetPeriodsParams contains all the parameters to send to the API endpoint
+/*
+AdminGetPeriodsParams contains all the parameters to send to the API endpoint
 for the admin get periods operation typically these are written to a http.Request
 */
 type AdminGetPeriodsParams struct {

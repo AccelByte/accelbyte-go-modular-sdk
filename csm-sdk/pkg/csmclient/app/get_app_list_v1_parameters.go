@@ -60,7 +60,8 @@ func NewGetAppListV1ParamsWithHTTPClient(client *http.Client) *GetAppListV1Param
 	}
 }
 
-/*GetAppListV1Params contains all the parameters to send to the API endpoint
+/*
+GetAppListV1Params contains all the parameters to send to the API endpoint
 for the get app list v1 operation typically these are written to a http.Request
 */
 type GetAppListV1Params struct {

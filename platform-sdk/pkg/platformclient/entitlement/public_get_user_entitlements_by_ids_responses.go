@@ -69,9 +69,10 @@ func NewPublicGetUserEntitlementsByIdsOK() *PublicGetUserEntitlementsByIdsOK {
 	return &PublicGetUserEntitlementsByIdsOK{}
 }
 
-/*PublicGetUserEntitlementsByIdsOK handles this case with default header values.
+/*
+PublicGetUserEntitlementsByIdsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetUserEntitlementsByIdsOK struct {
 	Payload []*platformclientmodels.EntitlementInfo

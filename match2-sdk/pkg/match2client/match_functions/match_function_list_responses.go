@@ -115,9 +115,10 @@ func NewMatchFunctionListOK() *MatchFunctionListOK {
 	return &MatchFunctionListOK{}
 }
 
-/*MatchFunctionListOK handles this case with default header values.
+/*
+MatchFunctionListOK handles this case with default header values.
 
-  Created
+	Created
 */
 type MatchFunctionListOK struct {
 	Payload *match2clientmodels.APIListMatchFunctionsResponse
@@ -169,9 +170,10 @@ func NewMatchFunctionListUnauthorized() *MatchFunctionListUnauthorized {
 	return &MatchFunctionListUnauthorized{}
 }
 
-/*MatchFunctionListUnauthorized handles this case with default header values.
+/*
+MatchFunctionListUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type MatchFunctionListUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewMatchFunctionListForbidden() *MatchFunctionListForbidden {
 	return &MatchFunctionListForbidden{}
 }
 
-/*MatchFunctionListForbidden handles this case with default header values.
+/*
+MatchFunctionListForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type MatchFunctionListForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewMatchFunctionListInternalServerError() *MatchFunctionListInternalServerE
 	return &MatchFunctionListInternalServerError{}
 }
 
-/*MatchFunctionListInternalServerError handles this case with default header values.
+/*
+MatchFunctionListInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type MatchFunctionListInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

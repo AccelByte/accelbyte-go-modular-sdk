@@ -66,9 +66,10 @@ func NewDeleteTwitchIAPConfigNoContent() *DeleteTwitchIAPConfigNoContent {
 	return &DeleteTwitchIAPConfigNoContent{}
 }
 
-/*DeleteTwitchIAPConfigNoContent handles this case with default header values.
+/*
+DeleteTwitchIAPConfigNoContent handles this case with default header values.
 
-  Delete successfully
+	Delete successfully
 */
 type DeleteTwitchIAPConfigNoContent struct {
 }

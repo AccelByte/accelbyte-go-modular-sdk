@@ -59,7 +59,8 @@ func NewBulkGetPlayerRecordSizeHandlerV1ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*BulkGetPlayerRecordSizeHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+BulkGetPlayerRecordSizeHandlerV1Params contains all the parameters to send to the API endpoint
 for the bulk get player record size handler v1 operation typically these are written to a http.Request
 */
 type BulkGetPlayerRecordSizeHandlerV1Params struct {

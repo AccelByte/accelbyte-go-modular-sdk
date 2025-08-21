@@ -130,9 +130,10 @@ func NewPublicGetPlayerMetricOK() *PublicGetPlayerMetricOK {
 	return &PublicGetPlayerMetricOK{}
 }
 
-/*PublicGetPlayerMetricOK handles this case with default header values.
+/*
+PublicGetPlayerMetricOK handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicGetPlayerMetricOK struct {
 	Payload *match2clientmodels.APIPlayerMetricRecord
@@ -184,9 +185,10 @@ func NewPublicGetPlayerMetricUnauthorized() *PublicGetPlayerMetricUnauthorized {
 	return &PublicGetPlayerMetricUnauthorized{}
 }
 
-/*PublicGetPlayerMetricUnauthorized handles this case with default header values.
+/*
+PublicGetPlayerMetricUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetPlayerMetricUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicGetPlayerMetricForbidden() *PublicGetPlayerMetricForbidden {
 	return &PublicGetPlayerMetricForbidden{}
 }
 
-/*PublicGetPlayerMetricForbidden handles this case with default header values.
+/*
+PublicGetPlayerMetricForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicGetPlayerMetricForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicGetPlayerMetricNotFound() *PublicGetPlayerMetricNotFound {
 	return &PublicGetPlayerMetricNotFound{}
 }
 
-/*PublicGetPlayerMetricNotFound handles this case with default header values.
+/*
+PublicGetPlayerMetricNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetPlayerMetricNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicGetPlayerMetricInternalServerError() *PublicGetPlayerMetricInterna
 	return &PublicGetPlayerMetricInternalServerError{}
 }
 
-/*PublicGetPlayerMetricInternalServerError handles this case with default header values.
+/*
+PublicGetPlayerMetricInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetPlayerMetricInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

@@ -69,9 +69,10 @@ func NewRetrieveLatestPoliciesByNamespaceAndCountryPublic1OK() *RetrieveLatestPo
 	return &RetrieveLatestPoliciesByNamespaceAndCountryPublic1OK{}
 }
 
-/*RetrieveLatestPoliciesByNamespaceAndCountryPublic1OK handles this case with default header values.
+/*
+RetrieveLatestPoliciesByNamespaceAndCountryPublic1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveLatestPoliciesByNamespaceAndCountryPublic1OK struct {
 	Payload []*legalclientmodels.RetrieveSimplePolicyPublicResponseV2

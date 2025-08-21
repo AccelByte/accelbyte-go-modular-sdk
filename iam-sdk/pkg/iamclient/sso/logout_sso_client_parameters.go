@@ -57,7 +57,8 @@ func NewLogoutSSOClientParamsWithHTTPClient(client *http.Client) *LogoutSSOClien
 	}
 }
 
-/*LogoutSSOClientParams contains all the parameters to send to the API endpoint
+/*
+LogoutSSOClientParams contains all the parameters to send to the API endpoint
 for the logout sso client operation typically these are written to a http.Request
 */
 type LogoutSSOClientParams struct {

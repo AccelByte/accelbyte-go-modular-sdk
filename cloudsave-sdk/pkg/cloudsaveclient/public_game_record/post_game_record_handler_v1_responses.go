@@ -130,9 +130,10 @@ func NewPostGameRecordHandlerV1Created() *PostGameRecordHandlerV1Created {
 	return &PostGameRecordHandlerV1Created{}
 }
 
-/*PostGameRecordHandlerV1Created handles this case with default header values.
+/*
+PostGameRecordHandlerV1Created handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type PostGameRecordHandlerV1Created struct {
 	Payload *cloudsaveclientmodels.ModelsGameRecordResponse
@@ -184,9 +185,10 @@ func NewPostGameRecordHandlerV1BadRequest() *PostGameRecordHandlerV1BadRequest {
 	return &PostGameRecordHandlerV1BadRequest{}
 }
 
-/*PostGameRecordHandlerV1BadRequest handles this case with default header values.
+/*
+PostGameRecordHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18011</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18015</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18201</td><td>invalid record operator, expect [%s] but actual [%s]</td></tr><tr><td>18011</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18015</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr></table>
 */
 type PostGameRecordHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewPostGameRecordHandlerV1Unauthorized() *PostGameRecordHandlerV1Unauthoriz
 	return &PostGameRecordHandlerV1Unauthorized{}
 }
 
-/*PostGameRecordHandlerV1Unauthorized handles this case with default header values.
+/*
+PostGameRecordHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PostGameRecordHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewPostGameRecordHandlerV1Forbidden() *PostGameRecordHandlerV1Forbidden {
 	return &PostGameRecordHandlerV1Forbidden{}
 }
 
-/*PostGameRecordHandlerV1Forbidden handles this case with default header values.
+/*
+PostGameRecordHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PostGameRecordHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewPostGameRecordHandlerV1InternalServerError() *PostGameRecordHandlerV1Int
 	return &PostGameRecordHandlerV1InternalServerError{}
 }
 
-/*PostGameRecordHandlerV1InternalServerError handles this case with default header values.
+/*
+PostGameRecordHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18012</td><td>unable to marshal request body</td></tr><tr><td>18013</td><td>unable to save record</td></tr><tr><td>18005</td><td>unable to decode record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18012</td><td>unable to marshal request body</td></tr><tr><td>18013</td><td>unable to save record</td></tr><tr><td>18005</td><td>unable to decode record</td></tr></table>
 */
 type PostGameRecordHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

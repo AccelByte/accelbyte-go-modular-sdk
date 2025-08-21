@@ -58,7 +58,8 @@ func NewGetUserRankingAdminV3ParamsWithHTTPClient(client *http.Client) *GetUserR
 	}
 }
 
-/*GetUserRankingAdminV3Params contains all the parameters to send to the API endpoint
+/*
+GetUserRankingAdminV3Params contains all the parameters to send to the API endpoint
 for the get user ranking admin v3 operation typically these are written to a http.Request
 */
 type GetUserRankingAdminV3Params struct {

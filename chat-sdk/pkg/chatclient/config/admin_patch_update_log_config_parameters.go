@@ -59,7 +59,8 @@ func NewAdminPatchUpdateLogConfigParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminPatchUpdateLogConfigParams contains all the parameters to send to the API endpoint
+/*
+AdminPatchUpdateLogConfigParams contains all the parameters to send to the API endpoint
 for the admin patch update log config operation typically these are written to a http.Request
 */
 type AdminPatchUpdateLogConfigParams struct {

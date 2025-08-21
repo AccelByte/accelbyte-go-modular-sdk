@@ -59,7 +59,8 @@ func NewProcessUserSubscriptionNotificationParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*ProcessUserSubscriptionNotificationParams contains all the parameters to send to the API endpoint
+/*
+ProcessUserSubscriptionNotificationParams contains all the parameters to send to the API endpoint
 for the process user subscription notification operation typically these are written to a http.Request
 */
 type ProcessUserSubscriptionNotificationParams struct {

@@ -59,7 +59,8 @@ func NewPutPlayerRecordHandlerV1ParamsWithHTTPClient(client *http.Client) *PutPl
 	}
 }
 
-/*PutPlayerRecordHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+PutPlayerRecordHandlerV1Params contains all the parameters to send to the API endpoint
 for the put player record handler v1 operation typically these are written to a http.Request
 */
 type PutPlayerRecordHandlerV1Params struct {

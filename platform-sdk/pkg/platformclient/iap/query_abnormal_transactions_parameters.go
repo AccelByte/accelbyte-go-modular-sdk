@@ -78,7 +78,8 @@ func NewQueryAbnormalTransactionsParamsWithHTTPClient(client *http.Client) *Quer
 	}
 }
 
-/*QueryAbnormalTransactionsParams contains all the parameters to send to the API endpoint
+/*
+QueryAbnormalTransactionsParams contains all the parameters to send to the API endpoint
 for the query abnormal transactions operation typically these are written to a http.Request
 */
 type QueryAbnormalTransactionsParams struct {

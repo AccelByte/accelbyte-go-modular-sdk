@@ -57,7 +57,8 @@ func NewGetTicketBoothIDParamsWithHTTPClient(client *http.Client) *GetTicketBoot
 	}
 }
 
-/*GetTicketBoothIDParams contains all the parameters to send to the API endpoint
+/*
+GetTicketBoothIDParams contains all the parameters to send to the API endpoint
 for the get ticket booth id operation typically these are written to a http.Request
 */
 type GetTicketBoothIDParams struct {

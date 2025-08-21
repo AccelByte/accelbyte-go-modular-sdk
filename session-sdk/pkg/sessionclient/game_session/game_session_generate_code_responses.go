@@ -145,9 +145,10 @@ func NewGameSessionGenerateCodeOK() *GameSessionGenerateCodeOK {
 	return &GameSessionGenerateCodeOK{}
 }
 
-/*GameSessionGenerateCodeOK handles this case with default header values.
+/*
+GameSessionGenerateCodeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GameSessionGenerateCodeOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionResponse
@@ -199,9 +200,10 @@ func NewGameSessionGenerateCodeBadRequest() *GameSessionGenerateCodeBadRequest {
 	return &GameSessionGenerateCodeBadRequest{}
 }
 
-/*GameSessionGenerateCodeBadRequest handles this case with default header values.
+/*
+GameSessionGenerateCodeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GameSessionGenerateCodeBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewGameSessionGenerateCodeUnauthorized() *GameSessionGenerateCodeUnauthoriz
 	return &GameSessionGenerateCodeUnauthorized{}
 }
 
-/*GameSessionGenerateCodeUnauthorized handles this case with default header values.
+/*
+GameSessionGenerateCodeUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GameSessionGenerateCodeUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewGameSessionGenerateCodeForbidden() *GameSessionGenerateCodeForbidden {
 	return &GameSessionGenerateCodeForbidden{}
 }
 
-/*GameSessionGenerateCodeForbidden handles this case with default header values.
+/*
+GameSessionGenerateCodeForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GameSessionGenerateCodeForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewGameSessionGenerateCodeNotFound() *GameSessionGenerateCodeNotFound {
 	return &GameSessionGenerateCodeNotFound{}
 }
 
-/*GameSessionGenerateCodeNotFound handles this case with default header values.
+/*
+GameSessionGenerateCodeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GameSessionGenerateCodeNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewGameSessionGenerateCodeInternalServerError() *GameSessionGenerateCodeInt
 	return &GameSessionGenerateCodeInternalServerError{}
 }
 
-/*GameSessionGenerateCodeInternalServerError handles this case with default header values.
+/*
+GameSessionGenerateCodeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GameSessionGenerateCodeInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

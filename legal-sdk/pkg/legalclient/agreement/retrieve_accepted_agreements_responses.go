@@ -69,9 +69,10 @@ func NewRetrieveAcceptedAgreementsOK() *RetrieveAcceptedAgreementsOK {
 	return &RetrieveAcceptedAgreementsOK{}
 }
 
-/*RetrieveAcceptedAgreementsOK handles this case with default header values.
+/*
+RetrieveAcceptedAgreementsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveAcceptedAgreementsOK struct {
 	Payload []*legalclientmodels.RetrieveAcceptedAgreementResponse

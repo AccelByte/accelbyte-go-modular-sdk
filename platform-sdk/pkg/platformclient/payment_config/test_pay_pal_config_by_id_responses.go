@@ -85,9 +85,10 @@ func NewTestPayPalConfigByIDOK() *TestPayPalConfigByIDOK {
 	return &TestPayPalConfigByIDOK{}
 }
 
-/*TestPayPalConfigByIDOK handles this case with default header values.
+/*
+TestPayPalConfigByIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestPayPalConfigByIDOK struct {
 	Payload *platformclientmodels.TestResult
@@ -139,9 +140,10 @@ func NewTestPayPalConfigByIDNotFound() *TestPayPalConfigByIDNotFound {
 	return &TestPayPalConfigByIDNotFound{}
 }
 
-/*TestPayPalConfigByIDNotFound handles this case with default header values.
+/*
+TestPayPalConfigByIDNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>33045</td><td>errors.net.accelbyte.platform.payment.payment_merchant_config_not_found</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>33045</td><td>errors.net.accelbyte.platform.payment.payment_merchant_config_not_found</td></tr></table>
 */
 type TestPayPalConfigByIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

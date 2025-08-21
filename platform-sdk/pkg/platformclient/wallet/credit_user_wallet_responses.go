@@ -100,9 +100,10 @@ func NewCreditUserWalletOK() *CreditUserWalletOK {
 	return &CreditUserWalletOK{}
 }
 
-/*CreditUserWalletOK handles this case with default header values.
+/*
+CreditUserWalletOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreditUserWalletOK struct {
 	Payload *platformclientmodels.WalletInfo
@@ -154,9 +155,10 @@ func NewCreditUserWalletBadRequest() *CreditUserWalletBadRequest {
 	return &CreditUserWalletBadRequest{}
 }
 
-/*CreditUserWalletBadRequest handles this case with default header values.
+/*
+CreditUserWalletBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr></table>
 */
 type CreditUserWalletBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewCreditUserWalletUnprocessableEntity() *CreditUserWalletUnprocessableEnti
 	return &CreditUserWalletUnprocessableEntity{}
 }
 
-/*CreditUserWalletUnprocessableEntity handles this case with default header values.
+/*
+CreditUserWalletUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreditUserWalletUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

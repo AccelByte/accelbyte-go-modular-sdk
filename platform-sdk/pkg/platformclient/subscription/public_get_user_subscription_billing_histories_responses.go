@@ -69,9 +69,10 @@ func NewPublicGetUserSubscriptionBillingHistoriesOK() *PublicGetUserSubscription
 	return &PublicGetUserSubscriptionBillingHistoriesOK{}
 }
 
-/*PublicGetUserSubscriptionBillingHistoriesOK handles this case with default header values.
+/*
+PublicGetUserSubscriptionBillingHistoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetUserSubscriptionBillingHistoriesOK struct {
 	Payload *platformclientmodels.BillingHistoryPagingSlicedResult

@@ -66,9 +66,10 @@ func NewDeleteNamespaceSlotConfigNoContent() *DeleteNamespaceSlotConfigNoContent
 	return &DeleteNamespaceSlotConfigNoContent{}
 }
 
-/*DeleteNamespaceSlotConfigNoContent handles this case with default header values.
+/*
+DeleteNamespaceSlotConfigNoContent handles this case with default header values.
 
-  Successful delete of namespace slot config
+	Successful delete of namespace slot config
 */
 type DeleteNamespaceSlotConfigNoContent struct {
 }

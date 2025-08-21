@@ -66,9 +66,10 @@ func NewAnonymizeSubscriptionNoContent() *AnonymizeSubscriptionNoContent {
 	return &AnonymizeSubscriptionNoContent{}
 }
 
-/*AnonymizeSubscriptionNoContent handles this case with default header values.
+/*
+AnonymizeSubscriptionNoContent handles this case with default header values.
 
-  Anonymize successfully
+	Anonymize successfully
 */
 type AnonymizeSubscriptionNoContent struct {
 }

@@ -78,7 +78,8 @@ func NewListGameBinaryRecordsV1ParamsWithHTTPClient(client *http.Client) *ListGa
 	}
 }
 
-/*ListGameBinaryRecordsV1Params contains all the parameters to send to the API endpoint
+/*
+ListGameBinaryRecordsV1Params contains all the parameters to send to the API endpoint
 for the list game binary records v1 operation typically these are written to a http.Request
 */
 type ListGameBinaryRecordsV1Params struct {

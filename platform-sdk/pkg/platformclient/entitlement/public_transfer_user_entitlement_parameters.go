@@ -59,7 +59,8 @@ func NewPublicTransferUserEntitlementParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicTransferUserEntitlementParams contains all the parameters to send to the API endpoint
+/*
+PublicTransferUserEntitlementParams contains all the parameters to send to the API endpoint
 for the public transfer user entitlement operation typically these are written to a http.Request
 */
 type PublicTransferUserEntitlementParams struct {

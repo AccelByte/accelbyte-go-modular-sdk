@@ -130,9 +130,10 @@ func NewPublicQueryGameSessionsByAttributesOK() *PublicQueryGameSessionsByAttrib
 	return &PublicQueryGameSessionsByAttributesOK{}
 }
 
-/*PublicQueryGameSessionsByAttributesOK handles this case with default header values.
+/*
+PublicQueryGameSessionsByAttributesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicQueryGameSessionsByAttributesOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionQueryResponse
@@ -184,9 +185,10 @@ func NewPublicQueryGameSessionsByAttributesBadRequest() *PublicQueryGameSessions
 	return &PublicQueryGameSessionsByAttributesBadRequest{}
 }
 
-/*PublicQueryGameSessionsByAttributesBadRequest handles this case with default header values.
+/*
+PublicQueryGameSessionsByAttributesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicQueryGameSessionsByAttributesBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicQueryGameSessionsByAttributesUnauthorized() *PublicQueryGameSessio
 	return &PublicQueryGameSessionsByAttributesUnauthorized{}
 }
 
-/*PublicQueryGameSessionsByAttributesUnauthorized handles this case with default header values.
+/*
+PublicQueryGameSessionsByAttributesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicQueryGameSessionsByAttributesUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicQueryGameSessionsByAttributesForbidden() *PublicQueryGameSessionsB
 	return &PublicQueryGameSessionsByAttributesForbidden{}
 }
 
-/*PublicQueryGameSessionsByAttributesForbidden handles this case with default header values.
+/*
+PublicQueryGameSessionsByAttributesForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicQueryGameSessionsByAttributesForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicQueryGameSessionsByAttributesInternalServerError() *PublicQueryGam
 	return &PublicQueryGameSessionsByAttributesInternalServerError{}
 }
 
-/*PublicQueryGameSessionsByAttributesInternalServerError handles this case with default header values.
+/*
+PublicQueryGameSessionsByAttributesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicQueryGameSessionsByAttributesInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

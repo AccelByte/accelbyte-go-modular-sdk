@@ -59,7 +59,8 @@ func NewDeleteAppImagesV1ParamsWithHTTPClient(client *http.Client) *DeleteAppIma
 	}
 }
 
-/*DeleteAppImagesV1Params contains all the parameters to send to the API endpoint
+/*
+DeleteAppImagesV1Params contains all the parameters to send to the API endpoint
 for the delete app images v1 operation typically these are written to a http.Request
 */
 type DeleteAppImagesV1Params struct {

@@ -100,9 +100,10 @@ func NewPublicSplitUserEntitlementOK() *PublicSplitUserEntitlementOK {
 	return &PublicSplitUserEntitlementOK{}
 }
 
-/*PublicSplitUserEntitlementOK handles this case with default header values.
+/*
+PublicSplitUserEntitlementOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicSplitUserEntitlementOK struct {
 	Payload *platformclientmodels.EntitlementSplitResult
@@ -154,9 +155,10 @@ func NewPublicSplitUserEntitlementNotFound() *PublicSplitUserEntitlementNotFound
 	return &PublicSplitUserEntitlementNotFound{}
 }
 
-/*PublicSplitUserEntitlementNotFound handles this case with default header values.
+/*
+PublicSplitUserEntitlementNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31141</td><td>Entitlement [{entitlementId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicSplitUserEntitlementNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewPublicSplitUserEntitlementConflict() *PublicSplitUserEntitlementConflict
 	return &PublicSplitUserEntitlementConflict{}
 }
 
-/*PublicSplitUserEntitlementConflict handles this case with default header values.
+/*
+PublicSplitUserEntitlementConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31171</td><td>Entitlement [{entitlementId}] already revoked</td></tr><tr><td>31172</td><td>Entitlement [{entitlementId}] not active</td></tr><tr><td>31174</td><td>Entitlement [{entitlementId}] already consumed</td></tr><tr><td>31176</td><td>Entitlement [{entitlementId}] use count is insufficient</td></tr><tr><td>31178</td><td>Entitlement [{entitlementId}] out of time range</td></tr><tr><td>31182</td><td>Entitlement [{entitlementId}] already sold</td></tr><tr><td>31183</td><td>Entitlement [{entitlementId}] origin [{origin}] not allowed be operated at [{platform}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31171</td><td>Entitlement [{entitlementId}] already revoked</td></tr><tr><td>31172</td><td>Entitlement [{entitlementId}] not active</td></tr><tr><td>31174</td><td>Entitlement [{entitlementId}] already consumed</td></tr><tr><td>31176</td><td>Entitlement [{entitlementId}] use count is insufficient</td></tr><tr><td>31178</td><td>Entitlement [{entitlementId}] out of time range</td></tr><tr><td>31182</td><td>Entitlement [{entitlementId}] already sold</td></tr><tr><td>31183</td><td>Entitlement [{entitlementId}] origin [{origin}] not allowed be operated at [{platform}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type PublicSplitUserEntitlementConflict struct {
 	Payload *platformclientmodels.ErrorEntity

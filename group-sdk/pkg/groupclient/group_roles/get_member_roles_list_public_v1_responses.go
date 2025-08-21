@@ -130,9 +130,10 @@ func NewGetMemberRolesListPublicV1OK() *GetMemberRolesListPublicV1OK {
 	return &GetMemberRolesListPublicV1OK{}
 }
 
-/*GetMemberRolesListPublicV1OK handles this case with default header values.
+/*
+GetMemberRolesListPublicV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetMemberRolesListPublicV1OK struct {
 	Payload *groupclientmodels.ModelsGetMemberRolesListResponseV1
@@ -184,9 +185,10 @@ func NewGetMemberRolesListPublicV1BadRequest() *GetMemberRolesListPublicV1BadReq
 	return &GetMemberRolesListPublicV1BadRequest{}
 }
 
-/*GetMemberRolesListPublicV1BadRequest handles this case with default header values.
+/*
+GetMemberRolesListPublicV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetMemberRolesListPublicV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetMemberRolesListPublicV1Unauthorized() *GetMemberRolesListPublicV1Unau
 	return &GetMemberRolesListPublicV1Unauthorized{}
 }
 
-/*GetMemberRolesListPublicV1Unauthorized handles this case with default header values.
+/*
+GetMemberRolesListPublicV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetMemberRolesListPublicV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetMemberRolesListPublicV1Forbidden() *GetMemberRolesListPublicV1Forbidd
 	return &GetMemberRolesListPublicV1Forbidden{}
 }
 
-/*GetMemberRolesListPublicV1Forbidden handles this case with default header values.
+/*
+GetMemberRolesListPublicV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetMemberRolesListPublicV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetMemberRolesListPublicV1InternalServerError() *GetMemberRolesListPubli
 	return &GetMemberRolesListPublicV1InternalServerError{}
 }
 
-/*GetMemberRolesListPublicV1InternalServerError handles this case with default header values.
+/*
+GetMemberRolesListPublicV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetMemberRolesListPublicV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

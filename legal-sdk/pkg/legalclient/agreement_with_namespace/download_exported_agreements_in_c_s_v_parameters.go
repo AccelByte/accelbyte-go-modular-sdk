@@ -57,7 +57,8 @@ func NewDownloadExportedAgreementsInCSVParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*DownloadExportedAgreementsInCSVParams contains all the parameters to send to the API endpoint
+/*
+DownloadExportedAgreementsInCSVParams contains all the parameters to send to the API endpoint
 for the download exported agreements in csv operation typically these are written to a http.Request
 */
 type DownloadExportedAgreementsInCSVParams struct {

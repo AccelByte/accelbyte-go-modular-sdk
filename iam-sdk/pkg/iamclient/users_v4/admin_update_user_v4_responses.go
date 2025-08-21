@@ -160,9 +160,10 @@ func NewAdminUpdateUserV4OK() *AdminUpdateUserV4OK {
 	return &AdminUpdateUserV4OK{}
 }
 
-/*AdminUpdateUserV4OK handles this case with default header values.
+/*
+AdminUpdateUserV4OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateUserV4OK struct {
 	Payload *iamclientmodels.ModelUserResponseV3
@@ -214,9 +215,10 @@ func NewAdminUpdateUserV4BadRequest() *AdminUpdateUserV4BadRequest {
 	return &AdminUpdateUserV4BadRequest{}
 }
 
-/*AdminUpdateUserV4BadRequest handles this case with default header values.
+/*
+AdminUpdateUserV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
 */
 type AdminUpdateUserV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -268,9 +270,10 @@ func NewAdminUpdateUserV4Unauthorized() *AdminUpdateUserV4Unauthorized {
 	return &AdminUpdateUserV4Unauthorized{}
 }
 
-/*AdminUpdateUserV4Unauthorized handles this case with default header values.
+/*
+AdminUpdateUserV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type AdminUpdateUserV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,9 +325,10 @@ func NewAdminUpdateUserV4Forbidden() *AdminUpdateUserV4Forbidden {
 	return &AdminUpdateUserV4Forbidden{}
 }
 
-/*AdminUpdateUserV4Forbidden handles this case with default header values.
+/*
+AdminUpdateUserV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateUserV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -376,9 +380,10 @@ func NewAdminUpdateUserV4NotFound() *AdminUpdateUserV4NotFound {
 	return &AdminUpdateUserV4NotFound{}
 }
 
-/*AdminUpdateUserV4NotFound handles this case with default header values.
+/*
+AdminUpdateUserV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminUpdateUserV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -430,9 +435,10 @@ func NewAdminUpdateUserV4Conflict() *AdminUpdateUserV4Conflict {
 	return &AdminUpdateUserV4Conflict{}
 }
 
-/*AdminUpdateUserV4Conflict handles this case with default header values.
+/*
+AdminUpdateUserV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
 */
 type AdminUpdateUserV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -484,9 +490,10 @@ func NewAdminUpdateUserV4InternalServerError() *AdminUpdateUserV4InternalServerE
 	return &AdminUpdateUserV4InternalServerError{}
 }
 
-/*AdminUpdateUserV4InternalServerError handles this case with default header values.
+/*
+AdminUpdateUserV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpdateUserV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

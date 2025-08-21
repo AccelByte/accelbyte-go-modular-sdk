@@ -57,7 +57,8 @@ func NewDeleteGameBinaryRecordV1ParamsWithHTTPClient(client *http.Client) *Delet
 	}
 }
 
-/*DeleteGameBinaryRecordV1Params contains all the parameters to send to the API endpoint
+/*
+DeleteGameBinaryRecordV1Params contains all the parameters to send to the API endpoint
 for the delete game binary record v1 operation typically these are written to a http.Request
 */
 type DeleteGameBinaryRecordV1Params struct {

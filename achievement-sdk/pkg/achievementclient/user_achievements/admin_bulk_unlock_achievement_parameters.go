@@ -59,7 +59,8 @@ func NewAdminBulkUnlockAchievementParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminBulkUnlockAchievementParams contains all the parameters to send to the API endpoint
+/*
+AdminBulkUnlockAchievementParams contains all the parameters to send to the API endpoint
 for the admin bulk unlock achievement operation typically these are written to a http.Request
 */
 type AdminBulkUnlockAchievementParams struct {

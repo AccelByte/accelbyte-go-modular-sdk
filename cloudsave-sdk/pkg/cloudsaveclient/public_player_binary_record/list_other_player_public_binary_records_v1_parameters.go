@@ -78,7 +78,8 @@ func NewListOtherPlayerPublicBinaryRecordsV1ParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*ListOtherPlayerPublicBinaryRecordsV1Params contains all the parameters to send to the API endpoint
+/*
+ListOtherPlayerPublicBinaryRecordsV1Params contains all the parameters to send to the API endpoint
 for the list other player public binary records v1 operation typically these are written to a http.Request
 */
 type ListOtherPlayerPublicBinaryRecordsV1Params struct {

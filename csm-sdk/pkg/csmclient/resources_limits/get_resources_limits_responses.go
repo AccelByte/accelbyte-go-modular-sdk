@@ -130,10 +130,9 @@ func NewGetResourcesLimitsOK() *GetResourcesLimitsOK {
 	return &GetResourcesLimitsOK{}
 }
 
-/*GetResourcesLimitsOK handles this case with default header values.
-
-
- */
+/*
+GetResourcesLimitsOK handles this case with default header values.
+*/
 type GetResourcesLimitsOK struct {
 	Payload *csmclientmodels.ApimodelCSMAppLimitsResponse
 }
@@ -184,9 +183,10 @@ func NewGetResourcesLimitsUnauthorized() *GetResourcesLimitsUnauthorized {
 	return &GetResourcesLimitsUnauthorized{}
 }
 
-/*GetResourcesLimitsUnauthorized handles this case with default header values.
+/*
+GetResourcesLimitsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetResourcesLimitsUnauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewGetResourcesLimitsPaymentRequired() *GetResourcesLimitsPaymentRequired {
 	return &GetResourcesLimitsPaymentRequired{}
 }
 
-/*GetResourcesLimitsPaymentRequired handles this case with default header values.
+/*
+GetResourcesLimitsPaymentRequired handles this case with default header values.
 
-  Payment Required
+	Payment Required
 */
 type GetResourcesLimitsPaymentRequired struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewGetResourcesLimitsForbidden() *GetResourcesLimitsForbidden {
 	return &GetResourcesLimitsForbidden{}
 }
 
-/*GetResourcesLimitsForbidden handles this case with default header values.
+/*
+GetResourcesLimitsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetResourcesLimitsForbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewGetResourcesLimitsInternalServerError() *GetResourcesLimitsInternalServe
 	return &GetResourcesLimitsInternalServerError{}
 }
 
-/*GetResourcesLimitsInternalServerError handles this case with default header values.
+/*
+GetResourcesLimitsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetResourcesLimitsInternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

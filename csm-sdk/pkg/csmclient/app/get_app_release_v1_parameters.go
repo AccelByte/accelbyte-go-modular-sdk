@@ -57,7 +57,8 @@ func NewGetAppReleaseV1ParamsWithHTTPClient(client *http.Client) *GetAppReleaseV
 	}
 }
 
-/*GetAppReleaseV1Params contains all the parameters to send to the API endpoint
+/*
+GetAppReleaseV1Params contains all the parameters to send to the API endpoint
 for the get app release v1 operation typically these are written to a http.Request
 */
 type GetAppReleaseV1Params struct {

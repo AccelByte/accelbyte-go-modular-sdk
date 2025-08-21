@@ -85,9 +85,10 @@ func NewGetCategoryOK() *GetCategoryOK {
 	return &GetCategoryOK{}
 }
 
-/*GetCategoryOK handles this case with default header values.
+/*
+GetCategoryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCategoryOK struct {
 	Payload *platformclientmodels.FullCategoryInfo
@@ -139,9 +140,10 @@ func NewGetCategoryNotFound() *GetCategoryNotFound {
 	return &GetCategoryNotFound{}
 }
 
-/*GetCategoryNotFound handles this case with default header values.
+/*
+GetCategoryNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetCategoryNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

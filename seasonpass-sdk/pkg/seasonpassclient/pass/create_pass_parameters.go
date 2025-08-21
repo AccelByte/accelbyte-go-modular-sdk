@@ -59,7 +59,8 @@ func NewCreatePassParamsWithHTTPClient(client *http.Client) *CreatePassParams {
 	}
 }
 
-/*CreatePassParams contains all the parameters to send to the API endpoint
+/*
+CreatePassParams contains all the parameters to send to the API endpoint
 for the create pass operation typically these are written to a http.Request
 */
 type CreatePassParams struct {

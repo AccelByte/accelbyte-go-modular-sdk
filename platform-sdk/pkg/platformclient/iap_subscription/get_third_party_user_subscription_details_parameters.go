@@ -57,7 +57,8 @@ func NewGetThirdPartyUserSubscriptionDetailsParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*GetThirdPartyUserSubscriptionDetailsParams contains all the parameters to send to the API endpoint
+/*
+GetThirdPartyUserSubscriptionDetailsParams contains all the parameters to send to the API endpoint
 for the get third party user subscription details operation typically these are written to a http.Request
 */
 type GetThirdPartyUserSubscriptionDetailsParams struct {

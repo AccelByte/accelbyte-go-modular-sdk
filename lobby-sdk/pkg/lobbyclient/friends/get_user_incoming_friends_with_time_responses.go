@@ -145,9 +145,10 @@ func NewGetUserIncomingFriendsWithTimeOK() *GetUserIncomingFriendsWithTimeOK {
 	return &GetUserIncomingFriendsWithTimeOK{}
 }
 
-/*GetUserIncomingFriendsWithTimeOK handles this case with default header values.
+/*
+GetUserIncomingFriendsWithTimeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserIncomingFriendsWithTimeOK struct {
 	Payload []*lobbyclientmodels.ModelLoadIncomingFriendsWithTimeResponse
@@ -197,9 +198,10 @@ func NewGetUserIncomingFriendsWithTimeBadRequest() *GetUserIncomingFriendsWithTi
 	return &GetUserIncomingFriendsWithTimeBadRequest{}
 }
 
-/*GetUserIncomingFriendsWithTimeBadRequest handles this case with default header values.
+/*
+GetUserIncomingFriendsWithTimeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetUserIncomingFriendsWithTimeBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -251,9 +253,10 @@ func NewGetUserIncomingFriendsWithTimeUnauthorized() *GetUserIncomingFriendsWith
 	return &GetUserIncomingFriendsWithTimeUnauthorized{}
 }
 
-/*GetUserIncomingFriendsWithTimeUnauthorized handles this case with default header values.
+/*
+GetUserIncomingFriendsWithTimeUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetUserIncomingFriendsWithTimeUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -305,9 +308,10 @@ func NewGetUserIncomingFriendsWithTimeForbidden() *GetUserIncomingFriendsWithTim
 	return &GetUserIncomingFriendsWithTimeForbidden{}
 }
 
-/*GetUserIncomingFriendsWithTimeForbidden handles this case with default header values.
+/*
+GetUserIncomingFriendsWithTimeForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetUserIncomingFriendsWithTimeForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -359,9 +363,10 @@ func NewGetUserIncomingFriendsWithTimeNotFound() *GetUserIncomingFriendsWithTime
 	return &GetUserIncomingFriendsWithTimeNotFound{}
 }
 
-/*GetUserIncomingFriendsWithTimeNotFound handles this case with default header values.
+/*
+GetUserIncomingFriendsWithTimeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetUserIncomingFriendsWithTimeNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -413,9 +418,10 @@ func NewGetUserIncomingFriendsWithTimeInternalServerError() *GetUserIncomingFrie
 	return &GetUserIncomingFriendsWithTimeInternalServerError{}
 }
 
-/*GetUserIncomingFriendsWithTimeInternalServerError handles this case with default header values.
+/*
+GetUserIncomingFriendsWithTimeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetUserIncomingFriendsWithTimeInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

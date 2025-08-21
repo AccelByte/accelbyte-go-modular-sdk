@@ -57,7 +57,8 @@ func NewGetRevocationConfigParamsWithHTTPClient(client *http.Client) *GetRevocat
 	}
 }
 
-/*GetRevocationConfigParams contains all the parameters to send to the API endpoint
+/*
+GetRevocationConfigParams contains all the parameters to send to the API endpoint
 for the get revocation config operation typically these are written to a http.Request
 */
 type GetRevocationConfigParams struct {

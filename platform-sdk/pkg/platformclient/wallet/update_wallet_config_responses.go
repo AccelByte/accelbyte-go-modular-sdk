@@ -69,9 +69,10 @@ func NewUpdateWalletConfigOK() *UpdateWalletConfigOK {
 	return &UpdateWalletConfigOK{}
 }
 
-/*UpdateWalletConfigOK handles this case with default header values.
+/*
+UpdateWalletConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateWalletConfigOK struct {
 	Payload *platformclientmodels.WalletConfigInfo

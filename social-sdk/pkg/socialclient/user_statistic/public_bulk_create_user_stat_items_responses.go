@@ -145,9 +145,10 @@ func NewPublicBulkCreateUserStatItemsOK() *PublicBulkCreateUserStatItemsOK {
 	return &PublicBulkCreateUserStatItemsOK{}
 }
 
-/*PublicBulkCreateUserStatItemsOK handles this case with default header values.
+/*
+PublicBulkCreateUserStatItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicBulkCreateUserStatItemsOK struct {
 	Payload []*socialclientmodels.BulkStatOperationResult
@@ -197,9 +198,10 @@ func NewPublicBulkCreateUserStatItemsBadRequest() *PublicBulkCreateUserStatItems
 	return &PublicBulkCreateUserStatItemsBadRequest{}
 }
 
-/*PublicBulkCreateUserStatItemsBadRequest handles this case with default header values.
+/*
+PublicBulkCreateUserStatItemsBadRequest handles this case with default header values.
 
-  Bad request
+	Bad request
 */
 type PublicBulkCreateUserStatItemsBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -251,9 +253,10 @@ func NewPublicBulkCreateUserStatItemsUnauthorized() *PublicBulkCreateUserStatIte
 	return &PublicBulkCreateUserStatItemsUnauthorized{}
 }
 
-/*PublicBulkCreateUserStatItemsUnauthorized handles this case with default header values.
+/*
+PublicBulkCreateUserStatItemsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicBulkCreateUserStatItemsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -305,9 +308,10 @@ func NewPublicBulkCreateUserStatItemsForbidden() *PublicBulkCreateUserStatItemsF
 	return &PublicBulkCreateUserStatItemsForbidden{}
 }
 
-/*PublicBulkCreateUserStatItemsForbidden handles this case with default header values.
+/*
+PublicBulkCreateUserStatItemsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicBulkCreateUserStatItemsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -359,9 +363,10 @@ func NewPublicBulkCreateUserStatItemsUnprocessableEntity() *PublicBulkCreateUser
 	return &PublicBulkCreateUserStatItemsUnprocessableEntity{}
 }
 
-/*PublicBulkCreateUserStatItemsUnprocessableEntity handles this case with default header values.
+/*
+PublicBulkCreateUserStatItemsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicBulkCreateUserStatItemsUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -413,9 +418,10 @@ func NewPublicBulkCreateUserStatItemsInternalServerError() *PublicBulkCreateUser
 	return &PublicBulkCreateUserStatItemsInternalServerError{}
 }
 
-/*PublicBulkCreateUserStatItemsInternalServerError handles this case with default header values.
+/*
+PublicBulkCreateUserStatItemsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicBulkCreateUserStatItemsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

@@ -69,9 +69,10 @@ func NewQueryFulfillmentHistoriesOK() *QueryFulfillmentHistoriesOK {
 	return &QueryFulfillmentHistoriesOK{}
 }
 
-/*QueryFulfillmentHistoriesOK handles this case with default header values.
+/*
+QueryFulfillmentHistoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryFulfillmentHistoriesOK struct {
 	Payload *platformclientmodels.FulfillmentHistoryPagingSlicedResult

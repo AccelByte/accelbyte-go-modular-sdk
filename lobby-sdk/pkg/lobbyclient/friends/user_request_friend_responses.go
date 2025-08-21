@@ -159,9 +159,10 @@ func NewUserRequestFriendCreated() *UserRequestFriendCreated {
 	return &UserRequestFriendCreated{}
 }
 
-/*UserRequestFriendCreated handles this case with default header values.
+/*
+UserRequestFriendCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type UserRequestFriendCreated struct {
 }
@@ -186,9 +187,10 @@ func NewUserRequestFriendBadRequest() *UserRequestFriendBadRequest {
 	return &UserRequestFriendBadRequest{}
 }
 
-/*UserRequestFriendBadRequest handles this case with default header values.
+/*
+UserRequestFriendBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UserRequestFriendBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -240,9 +242,10 @@ func NewUserRequestFriendUnauthorized() *UserRequestFriendUnauthorized {
 	return &UserRequestFriendUnauthorized{}
 }
 
-/*UserRequestFriendUnauthorized handles this case with default header values.
+/*
+UserRequestFriendUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UserRequestFriendUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -294,9 +297,10 @@ func NewUserRequestFriendForbidden() *UserRequestFriendForbidden {
 	return &UserRequestFriendForbidden{}
 }
 
-/*UserRequestFriendForbidden handles this case with default header values.
+/*
+UserRequestFriendForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UserRequestFriendForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -348,9 +352,10 @@ func NewUserRequestFriendNotFound() *UserRequestFriendNotFound {
 	return &UserRequestFriendNotFound{}
 }
 
-/*UserRequestFriendNotFound handles this case with default header values.
+/*
+UserRequestFriendNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UserRequestFriendNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -402,9 +407,10 @@ func NewUserRequestFriendUnprocessableEntity() *UserRequestFriendUnprocessableEn
 	return &UserRequestFriendUnprocessableEntity{}
 }
 
-/*UserRequestFriendUnprocessableEntity handles this case with default header values.
+/*
+UserRequestFriendUnprocessableEntity handles this case with default header values.
 
-  Unprocessable Entity
+	Unprocessable Entity
 */
 type UserRequestFriendUnprocessableEntity struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -456,9 +462,10 @@ func NewUserRequestFriendInternalServerError() *UserRequestFriendInternalServerE
 	return &UserRequestFriendInternalServerError{}
 }
 
-/*UserRequestFriendInternalServerError handles this case with default header values.
+/*
+UserRequestFriendInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UserRequestFriendInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

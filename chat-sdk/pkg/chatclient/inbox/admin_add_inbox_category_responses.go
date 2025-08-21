@@ -130,9 +130,10 @@ func NewAdminAddInboxCategoryOK() *AdminAddInboxCategoryOK {
 	return &AdminAddInboxCategoryOK{}
 }
 
-/*AdminAddInboxCategoryOK handles this case with default header values.
+/*
+AdminAddInboxCategoryOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminAddInboxCategoryOK struct {
 	Payload *chatclientmodels.ModelsAddInboxCategoryResponse
@@ -184,9 +185,10 @@ func NewAdminAddInboxCategoryBadRequest() *AdminAddInboxCategoryBadRequest {
 	return &AdminAddInboxCategoryBadRequest{}
 }
 
-/*AdminAddInboxCategoryBadRequest handles this case with default header values.
+/*
+AdminAddInboxCategoryBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminAddInboxCategoryBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminAddInboxCategoryUnauthorized() *AdminAddInboxCategoryUnauthorized {
 	return &AdminAddInboxCategoryUnauthorized{}
 }
 
-/*AdminAddInboxCategoryUnauthorized handles this case with default header values.
+/*
+AdminAddInboxCategoryUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminAddInboxCategoryUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminAddInboxCategoryForbidden() *AdminAddInboxCategoryForbidden {
 	return &AdminAddInboxCategoryForbidden{}
 }
 
-/*AdminAddInboxCategoryForbidden handles this case with default header values.
+/*
+AdminAddInboxCategoryForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminAddInboxCategoryForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminAddInboxCategoryInternalServerError() *AdminAddInboxCategoryInterna
 	return &AdminAddInboxCategoryInternalServerError{}
 }
 
-/*AdminAddInboxCategoryInternalServerError handles this case with default header values.
+/*
+AdminAddInboxCategoryInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminAddInboxCategoryInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

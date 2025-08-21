@@ -145,9 +145,10 @@ func NewGetCurrentSeasonLeaderboardRankingAdminV1OK() *GetCurrentSeasonLeaderboa
 	return &GetCurrentSeasonLeaderboardRankingAdminV1OK{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingAdminV1OK handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingAdminV1OK handles this case with default header values.
 
-  Current season leaderboard ranking retrieved
+	Current season leaderboard ranking retrieved
 */
 type GetCurrentSeasonLeaderboardRankingAdminV1OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
@@ -199,9 +200,10 @@ func NewGetCurrentSeasonLeaderboardRankingAdminV1BadRequest() *GetCurrentSeasonL
 	return &GetCurrentSeasonLeaderboardRankingAdminV1BadRequest{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingAdminV1BadRequest handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingAdminV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetCurrentSeasonLeaderboardRankingAdminV1BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetCurrentSeasonLeaderboardRankingAdminV1Unauthorized() *GetCurrentSeaso
 	return &GetCurrentSeasonLeaderboardRankingAdminV1Unauthorized{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingAdminV1Unauthorized handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetCurrentSeasonLeaderboardRankingAdminV1Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetCurrentSeasonLeaderboardRankingAdminV1Forbidden() *GetCurrentSeasonLe
 	return &GetCurrentSeasonLeaderboardRankingAdminV1Forbidden{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingAdminV1Forbidden handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetCurrentSeasonLeaderboardRankingAdminV1Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetCurrentSeasonLeaderboardRankingAdminV1NotFound() *GetCurrentSeasonLea
 	return &GetCurrentSeasonLeaderboardRankingAdminV1NotFound{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingAdminV1NotFound handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingAdminV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
 */
 type GetCurrentSeasonLeaderboardRankingAdminV1NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetCurrentSeasonLeaderboardRankingAdminV1InternalServerError() *GetCurre
 	return &GetCurrentSeasonLeaderboardRankingAdminV1InternalServerError{}
 }
 
-/*GetCurrentSeasonLeaderboardRankingAdminV1InternalServerError handles this case with default header values.
+/*
+GetCurrentSeasonLeaderboardRankingAdminV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
 */
 type GetCurrentSeasonLeaderboardRankingAdminV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

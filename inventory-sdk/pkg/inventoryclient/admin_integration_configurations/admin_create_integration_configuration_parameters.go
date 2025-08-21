@@ -59,7 +59,8 @@ func NewAdminCreateIntegrationConfigurationParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*AdminCreateIntegrationConfigurationParams contains all the parameters to send to the API endpoint
+/*
+AdminCreateIntegrationConfigurationParams contains all the parameters to send to the API endpoint
 for the admin create integration configuration operation typically these are written to a http.Request
 */
 type AdminCreateIntegrationConfigurationParams struct {

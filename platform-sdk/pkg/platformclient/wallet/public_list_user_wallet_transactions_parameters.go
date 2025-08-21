@@ -78,7 +78,8 @@ func NewPublicListUserWalletTransactionsParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*PublicListUserWalletTransactionsParams contains all the parameters to send to the API endpoint
+/*
+PublicListUserWalletTransactionsParams contains all the parameters to send to the API endpoint
 for the public list user wallet transactions operation typically these are written to a http.Request
 */
 type PublicListUserWalletTransactionsParams struct {

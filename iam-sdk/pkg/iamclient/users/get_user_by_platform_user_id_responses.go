@@ -125,9 +125,10 @@ func NewGetUserByPlatformUserIDOK() *GetUserByPlatformUserIDOK {
 	return &GetUserByPlatformUserIDOK{}
 }
 
-/*GetUserByPlatformUserIDOK handles this case with default header values.
+/*
+GetUserByPlatformUserIDOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserByPlatformUserIDOK struct {
 	Payload *iamclientmodels.ModelPublicUserResponse
@@ -179,9 +180,10 @@ func NewGetUserByPlatformUserIDBadRequest() *GetUserByPlatformUserIDBadRequest {
 	return &GetUserByPlatformUserIDBadRequest{}
 }
 
-/*GetUserByPlatformUserIDBadRequest handles this case with default header values.
+/*
+GetUserByPlatformUserIDBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type GetUserByPlatformUserIDBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -233,9 +235,10 @@ func NewGetUserByPlatformUserIDUnauthorized() *GetUserByPlatformUserIDUnauthoriz
 	return &GetUserByPlatformUserIDUnauthorized{}
 }
 
-/*GetUserByPlatformUserIDUnauthorized handles this case with default header values.
+/*
+GetUserByPlatformUserIDUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserByPlatformUserIDUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -287,9 +290,10 @@ func NewGetUserByPlatformUserIDForbidden() *GetUserByPlatformUserIDForbidden {
 	return &GetUserByPlatformUserIDForbidden{}
 }
 
-/*GetUserByPlatformUserIDForbidden handles this case with default header values.
+/*
+GetUserByPlatformUserIDForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserByPlatformUserIDForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -341,9 +345,10 @@ func NewGetUserByPlatformUserIDNotFound() *GetUserByPlatformUserIDNotFound {
 	return &GetUserByPlatformUserIDNotFound{}
 }
 
-/*GetUserByPlatformUserIDNotFound handles this case with default header values.
+/*
+GetUserByPlatformUserIDNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type GetUserByPlatformUserIDNotFound struct {
 }

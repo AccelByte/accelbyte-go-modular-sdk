@@ -57,7 +57,8 @@ func NewPublicGetCurrentUserSeasonParamsWithHTTPClient(client *http.Client) *Pub
 	}
 }
 
-/*PublicGetCurrentUserSeasonParams contains all the parameters to send to the API endpoint
+/*
+PublicGetCurrentUserSeasonParams contains all the parameters to send to the API endpoint
 for the public get current user season operation typically these are written to a http.Request
 */
 type PublicGetCurrentUserSeasonParams struct {

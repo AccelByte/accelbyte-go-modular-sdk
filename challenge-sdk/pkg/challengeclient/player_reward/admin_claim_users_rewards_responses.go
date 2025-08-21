@@ -145,9 +145,10 @@ func NewAdminClaimUsersRewardsOK() *AdminClaimUsersRewardsOK {
 	return &AdminClaimUsersRewardsOK{}
 }
 
-/*AdminClaimUsersRewardsOK handles this case with default header values.
+/*
+AdminClaimUsersRewardsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminClaimUsersRewardsOK struct {
 	Payload []*challengeclientmodels.ModelClaimUsersRewardsResponse
@@ -197,9 +198,10 @@ func NewAdminClaimUsersRewardsBadRequest() *AdminClaimUsersRewardsBadRequest {
 	return &AdminClaimUsersRewardsBadRequest{}
 }
 
-/*AdminClaimUsersRewardsBadRequest handles this case with default header values.
+/*
+AdminClaimUsersRewardsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminClaimUsersRewardsBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -251,9 +253,10 @@ func NewAdminClaimUsersRewardsUnauthorized() *AdminClaimUsersRewardsUnauthorized
 	return &AdminClaimUsersRewardsUnauthorized{}
 }
 
-/*AdminClaimUsersRewardsUnauthorized handles this case with default header values.
+/*
+AdminClaimUsersRewardsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminClaimUsersRewardsUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -305,9 +308,10 @@ func NewAdminClaimUsersRewardsForbidden() *AdminClaimUsersRewardsForbidden {
 	return &AdminClaimUsersRewardsForbidden{}
 }
 
-/*AdminClaimUsersRewardsForbidden handles this case with default header values.
+/*
+AdminClaimUsersRewardsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminClaimUsersRewardsForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -359,9 +363,10 @@ func NewAdminClaimUsersRewardsNotFound() *AdminClaimUsersRewardsNotFound {
 	return &AdminClaimUsersRewardsNotFound{}
 }
 
-/*AdminClaimUsersRewardsNotFound handles this case with default header values.
+/*
+AdminClaimUsersRewardsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminClaimUsersRewardsNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -413,9 +418,10 @@ func NewAdminClaimUsersRewardsInternalServerError() *AdminClaimUsersRewardsInter
 	return &AdminClaimUsersRewardsInternalServerError{}
 }
 
-/*AdminClaimUsersRewardsInternalServerError handles this case with default header values.
+/*
+AdminClaimUsersRewardsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminClaimUsersRewardsInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

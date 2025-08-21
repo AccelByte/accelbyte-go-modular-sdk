@@ -57,7 +57,8 @@ func NewExportStatCycleParamsWithHTTPClient(client *http.Client) *ExportStatCycl
 	}
 }
 
-/*ExportStatCycleParams contains all the parameters to send to the API endpoint
+/*
+ExportStatCycleParams contains all the parameters to send to the API endpoint
 for the export stat cycle operation typically these are written to a http.Request
 */
 type ExportStatCycleParams struct {

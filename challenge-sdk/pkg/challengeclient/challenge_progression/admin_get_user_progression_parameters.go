@@ -78,7 +78,8 @@ func NewAdminGetUserProgressionParamsWithHTTPClient(client *http.Client) *AdminG
 	}
 }
 
-/*AdminGetUserProgressionParams contains all the parameters to send to the API endpoint
+/*
+AdminGetUserProgressionParams contains all the parameters to send to the API endpoint
 for the admin get user progression operation typically these are written to a http.Request
 */
 type AdminGetUserProgressionParams struct {

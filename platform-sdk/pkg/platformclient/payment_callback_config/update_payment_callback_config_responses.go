@@ -69,9 +69,10 @@ func NewUpdatePaymentCallbackConfigOK() *UpdatePaymentCallbackConfigOK {
 	return &UpdatePaymentCallbackConfigOK{}
 }
 
-/*UpdatePaymentCallbackConfigOK handles this case with default header values.
+/*
+UpdatePaymentCallbackConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePaymentCallbackConfigOK struct {
 	Payload *platformclientmodels.PaymentCallbackConfigInfo

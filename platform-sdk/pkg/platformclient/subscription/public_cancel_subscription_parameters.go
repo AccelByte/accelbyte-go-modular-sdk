@@ -59,7 +59,8 @@ func NewPublicCancelSubscriptionParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*PublicCancelSubscriptionParams contains all the parameters to send to the API endpoint
+/*
+PublicCancelSubscriptionParams contains all the parameters to send to the API endpoint
 for the public cancel subscription operation typically these are written to a http.Request
 */
 type PublicCancelSubscriptionParams struct {

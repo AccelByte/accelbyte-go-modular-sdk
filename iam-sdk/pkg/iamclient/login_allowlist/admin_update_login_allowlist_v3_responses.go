@@ -129,9 +129,10 @@ func NewAdminUpdateLoginAllowlistV3NoContent() *AdminUpdateLoginAllowlistV3NoCon
 	return &AdminUpdateLoginAllowlistV3NoContent{}
 }
 
-/*AdminUpdateLoginAllowlistV3NoContent handles this case with default header values.
+/*
+AdminUpdateLoginAllowlistV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminUpdateLoginAllowlistV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminUpdateLoginAllowlistV3BadRequest() *AdminUpdateLoginAllowlistV3BadR
 	return &AdminUpdateLoginAllowlistV3BadRequest{}
 }
 
-/*AdminUpdateLoginAllowlistV3BadRequest handles this case with default header values.
+/*
+AdminUpdateLoginAllowlistV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10240</td><td>namespace is not game namespace</td></tr><tr><td>10470</td><td>role is empty</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10240</td><td>namespace is not game namespace</td></tr><tr><td>10470</td><td>role is empty</td></tr></table>
 */
 type AdminUpdateLoginAllowlistV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,9 +212,10 @@ func NewAdminUpdateLoginAllowlistV3Unauthorized() *AdminUpdateLoginAllowlistV3Un
 	return &AdminUpdateLoginAllowlistV3Unauthorized{}
 }
 
-/*AdminUpdateLoginAllowlistV3Unauthorized handles this case with default header values.
+/*
+AdminUpdateLoginAllowlistV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateLoginAllowlistV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +267,10 @@ func NewAdminUpdateLoginAllowlistV3Forbidden() *AdminUpdateLoginAllowlistV3Forbi
 	return &AdminUpdateLoginAllowlistV3Forbidden{}
 }
 
-/*AdminUpdateLoginAllowlistV3Forbidden handles this case with default header values.
+/*
+AdminUpdateLoginAllowlistV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateLoginAllowlistV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +322,10 @@ func NewAdminUpdateLoginAllowlistV3InternalServerError() *AdminUpdateLoginAllowl
 	return &AdminUpdateLoginAllowlistV3InternalServerError{}
 }
 
-/*AdminUpdateLoginAllowlistV3InternalServerError handles this case with default header values.
+/*
+AdminUpdateLoginAllowlistV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpdateLoginAllowlistV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

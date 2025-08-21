@@ -130,9 +130,10 @@ func NewUpdatePassOK() *UpdatePassOK {
 	return &UpdatePassOK{}
 }
 
-/*UpdatePassOK handles this case with default header values.
+/*
+UpdatePassOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdatePassOK struct {
 	Payload *seasonpassclientmodels.PassInfo
@@ -184,9 +185,10 @@ func NewUpdatePassBadRequest() *UpdatePassBadRequest {
 	return &UpdatePassBadRequest{}
 }
 
-/*UpdatePassBadRequest handles this case with default header values.
+/*
+UpdatePassBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49121</td><td>Default language [{language}] required in localizations</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49121</td><td>Default language [{language}] required in localizations</td></tr></table>
 */
 type UpdatePassBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewUpdatePassNotFound() *UpdatePassNotFound {
 	return &UpdatePassNotFound{}
 }
 
-/*UpdatePassNotFound handles this case with default header values.
+/*
+UpdatePassNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49145</td><td>Pass [{code}] does not exist</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49142</td><td>Pass item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49145</td><td>Pass [{code}] does not exist</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49142</td><td>Pass item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdatePassNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewUpdatePassConflict() *UpdatePassConflict {
 	return &UpdatePassConflict{}
 }
 
-/*UpdatePassConflict handles this case with default header values.
+/*
+UpdatePassConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
 */
 type UpdatePassConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewUpdatePassUnprocessableEntity() *UpdatePassUnprocessableEntity {
 	return &UpdatePassUnprocessableEntity{}
 }
 
-/*UpdatePassUnprocessableEntity handles this case with default header values.
+/*
+UpdatePassUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdatePassUnprocessableEntity struct {
 	Payload *seasonpassclientmodels.ValidationErrorEntity

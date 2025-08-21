@@ -130,9 +130,10 @@ func NewReorderTierOK() *ReorderTierOK {
 	return &ReorderTierOK{}
 }
 
-/*ReorderTierOK handles this case with default header values.
+/*
+ReorderTierOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ReorderTierOK struct {
 	Payload *seasonpassclientmodels.Tier
@@ -184,9 +185,10 @@ func NewReorderTierBadRequest() *ReorderTierBadRequest {
 	return &ReorderTierBadRequest{}
 }
 
-/*ReorderTierBadRequest handles this case with default header values.
+/*
+ReorderTierBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type ReorderTierBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewReorderTierNotFound() *ReorderTierNotFound {
 	return &ReorderTierNotFound{}
 }
 
-/*ReorderTierNotFound handles this case with default header values.
+/*
+ReorderTierNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49146</td><td>Tier does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49146</td><td>Tier does not exist</td></tr></table>
 */
 type ReorderTierNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewReorderTierConflict() *ReorderTierConflict {
 	return &ReorderTierConflict{}
 }
 
-/*ReorderTierConflict handles this case with default header values.
+/*
+ReorderTierConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
 */
 type ReorderTierConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewReorderTierUnprocessableEntity() *ReorderTierUnprocessableEntity {
 	return &ReorderTierUnprocessableEntity{}
 }
 
-/*ReorderTierUnprocessableEntity handles this case with default header values.
+/*
+ReorderTierUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type ReorderTierUnprocessableEntity struct {
 	Payload *seasonpassclientmodels.ValidationErrorEntity

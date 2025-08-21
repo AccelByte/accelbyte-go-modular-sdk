@@ -145,9 +145,10 @@ func NewPublicGetUserBanHistoryV3OK() *PublicGetUserBanHistoryV3OK {
 	return &PublicGetUserBanHistoryV3OK{}
 }
 
-/*PublicGetUserBanHistoryV3OK handles this case with default header values.
+/*
+PublicGetUserBanHistoryV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetUserBanHistoryV3OK struct {
 	Payload *iamclientmodels.ModelGetUserBanV3Response
@@ -199,9 +200,10 @@ func NewPublicGetUserBanHistoryV3BadRequest() *PublicGetUserBanHistoryV3BadReque
 	return &PublicGetUserBanHistoryV3BadRequest{}
 }
 
-/*PublicGetUserBanHistoryV3BadRequest handles this case with default header values.
+/*
+PublicGetUserBanHistoryV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicGetUserBanHistoryV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewPublicGetUserBanHistoryV3Unauthorized() *PublicGetUserBanHistoryV3Unauth
 	return &PublicGetUserBanHistoryV3Unauthorized{}
 }
 
-/*PublicGetUserBanHistoryV3Unauthorized handles this case with default header values.
+/*
+PublicGetUserBanHistoryV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetUserBanHistoryV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewPublicGetUserBanHistoryV3Forbidden() *PublicGetUserBanHistoryV3Forbidden
 	return &PublicGetUserBanHistoryV3Forbidden{}
 }
 
-/*PublicGetUserBanHistoryV3Forbidden handles this case with default header values.
+/*
+PublicGetUserBanHistoryV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetUserBanHistoryV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewPublicGetUserBanHistoryV3NotFound() *PublicGetUserBanHistoryV3NotFound {
 	return &PublicGetUserBanHistoryV3NotFound{}
 }
 
-/*PublicGetUserBanHistoryV3NotFound handles this case with default header values.
+/*
+PublicGetUserBanHistoryV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type PublicGetUserBanHistoryV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewPublicGetUserBanHistoryV3InternalServerError() *PublicGetUserBanHistoryV
 	return &PublicGetUserBanHistoryV3InternalServerError{}
 }
 
-/*PublicGetUserBanHistoryV3InternalServerError handles this case with default header values.
+/*
+PublicGetUserBanHistoryV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetUserBanHistoryV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

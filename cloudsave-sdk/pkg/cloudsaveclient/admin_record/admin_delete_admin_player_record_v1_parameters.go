@@ -57,7 +57,8 @@ func NewAdminDeleteAdminPlayerRecordV1ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*AdminDeleteAdminPlayerRecordV1Params contains all the parameters to send to the API endpoint
+/*
+AdminDeleteAdminPlayerRecordV1Params contains all the parameters to send to the API endpoint
 for the admin delete admin player record v1 operation typically these are written to a http.Request
 */
 type AdminDeleteAdminPlayerRecordV1Params struct {

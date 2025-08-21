@@ -59,7 +59,8 @@ func NewSyncInGameItemParamsWithHTTPClient(client *http.Client) *SyncInGameItemP
 	}
 }
 
-/*SyncInGameItemParams contains all the parameters to send to the API endpoint
+/*
+SyncInGameItemParams contains all the parameters to send to the API endpoint
 for the sync in game item operation typically these are written to a http.Request
 */
 type SyncInGameItemParams struct {

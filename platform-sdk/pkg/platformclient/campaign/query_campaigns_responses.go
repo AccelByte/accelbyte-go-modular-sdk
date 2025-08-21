@@ -69,9 +69,10 @@ func NewQueryCampaignsOK() *QueryCampaignsOK {
 	return &QueryCampaignsOK{}
 }
 
-/*QueryCampaignsOK handles this case with default header values.
+/*
+QueryCampaignsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryCampaignsOK struct {
 	Payload *platformclientmodels.CampaignPagingSlicedResult

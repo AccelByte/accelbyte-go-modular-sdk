@@ -115,9 +115,10 @@ func NewPublicGetUserPublicInfoByUserIDV4OK() *PublicGetUserPublicInfoByUserIDV4
 	return &PublicGetUserPublicInfoByUserIDV4OK{}
 }
 
-/*PublicGetUserPublicInfoByUserIDV4OK handles this case with default header values.
+/*
+PublicGetUserPublicInfoByUserIDV4OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetUserPublicInfoByUserIDV4OK struct {
 	Payload *iamclientmodels.ModelUserPublicInfoResponseV4
@@ -169,9 +170,10 @@ func NewPublicGetUserPublicInfoByUserIDV4BadRequest() *PublicGetUserPublicInfoBy
 	return &PublicGetUserPublicInfoByUserIDV4BadRequest{}
 }
 
-/*PublicGetUserPublicInfoByUserIDV4BadRequest handles this case with default header values.
+/*
+PublicGetUserPublicInfoByUserIDV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetUserPublicInfoByUserIDV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewPublicGetUserPublicInfoByUserIDV4NotFound() *PublicGetUserPublicInfoByUs
 	return &PublicGetUserPublicInfoByUserIDV4NotFound{}
 }
 
-/*PublicGetUserPublicInfoByUserIDV4NotFound handles this case with default header values.
+/*
+PublicGetUserPublicInfoByUserIDV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type PublicGetUserPublicInfoByUserIDV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewPublicGetUserPublicInfoByUserIDV4InternalServerError() *PublicGetUserPub
 	return &PublicGetUserPublicInfoByUserIDV4InternalServerError{}
 }
 
-/*PublicGetUserPublicInfoByUserIDV4InternalServerError handles this case with default header values.
+/*
+PublicGetUserPublicInfoByUserIDV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetUserPublicInfoByUserIDV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

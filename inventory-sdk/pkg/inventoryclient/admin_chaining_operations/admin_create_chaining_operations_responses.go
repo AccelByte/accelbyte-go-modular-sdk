@@ -145,9 +145,10 @@ func NewAdminCreateChainingOperationsOK() *AdminCreateChainingOperationsOK {
 	return &AdminCreateChainingOperationsOK{}
 }
 
-/*AdminCreateChainingOperationsOK handles this case with default header values.
+/*
+AdminCreateChainingOperationsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminCreateChainingOperationsOK struct {
 	Payload *inventoryclientmodels.ApimodelsChainingOperationResp
@@ -199,9 +200,10 @@ func NewAdminCreateChainingOperationsBadRequest() *AdminCreateChainingOperations
 	return &AdminCreateChainingOperationsBadRequest{}
 }
 
-/*AdminCreateChainingOperationsBadRequest handles this case with default header values.
+/*
+AdminCreateChainingOperationsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCreateChainingOperationsBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsChainingOperationResp
@@ -253,9 +255,10 @@ func NewAdminCreateChainingOperationsUnauthorized() *AdminCreateChainingOperatio
 	return &AdminCreateChainingOperationsUnauthorized{}
 }
 
-/*AdminCreateChainingOperationsUnauthorized handles this case with default header values.
+/*
+AdminCreateChainingOperationsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminCreateChainingOperationsUnauthorized struct {
 	Payload *inventoryclientmodels.ApimodelsChainingOperationResp
@@ -307,9 +310,10 @@ func NewAdminCreateChainingOperationsForbidden() *AdminCreateChainingOperationsF
 	return &AdminCreateChainingOperationsForbidden{}
 }
 
-/*AdminCreateChainingOperationsForbidden handles this case with default header values.
+/*
+AdminCreateChainingOperationsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminCreateChainingOperationsForbidden struct {
 	Payload *inventoryclientmodels.ApimodelsChainingOperationResp
@@ -361,9 +365,10 @@ func NewAdminCreateChainingOperationsNotFound() *AdminCreateChainingOperationsNo
 	return &AdminCreateChainingOperationsNotFound{}
 }
 
-/*AdminCreateChainingOperationsNotFound handles this case with default header values.
+/*
+AdminCreateChainingOperationsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminCreateChainingOperationsNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsChainingOperationResp
@@ -415,9 +420,10 @@ func NewAdminCreateChainingOperationsInternalServerError() *AdminCreateChainingO
 	return &AdminCreateChainingOperationsInternalServerError{}
 }
 
-/*AdminCreateChainingOperationsInternalServerError handles this case with default header values.
+/*
+AdminCreateChainingOperationsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCreateChainingOperationsInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsChainingOperationResp

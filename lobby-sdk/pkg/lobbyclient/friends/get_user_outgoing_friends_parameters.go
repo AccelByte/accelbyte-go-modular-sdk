@@ -78,7 +78,8 @@ func NewGetUserOutgoingFriendsParamsWithHTTPClient(client *http.Client) *GetUser
 	}
 }
 
-/*GetUserOutgoingFriendsParams contains all the parameters to send to the API endpoint
+/*
+GetUserOutgoingFriendsParams contains all the parameters to send to the API endpoint
 for the get user outgoing friends operation typically these are written to a http.Request
 */
 type GetUserOutgoingFriendsParams struct {

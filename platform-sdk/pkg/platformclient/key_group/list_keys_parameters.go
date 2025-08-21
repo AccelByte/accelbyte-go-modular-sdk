@@ -91,7 +91,8 @@ func NewListKeysParamsWithHTTPClient(client *http.Client) *ListKeysParams {
 	}
 }
 
-/*ListKeysParams contains all the parameters to send to the API endpoint
+/*
+ListKeysParams contains all the parameters to send to the API endpoint
 for the list keys operation typically these are written to a http.Request
 */
 type ListKeysParams struct {

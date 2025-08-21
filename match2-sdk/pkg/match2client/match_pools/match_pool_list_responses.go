@@ -115,9 +115,10 @@ func NewMatchPoolListOK() *MatchPoolListOK {
 	return &MatchPoolListOK{}
 }
 
-/*MatchPoolListOK handles this case with default header values.
+/*
+MatchPoolListOK handles this case with default header values.
 
-  OK
+	OK
 */
 type MatchPoolListOK struct {
 	Payload *match2clientmodels.APIListMatchPoolsResponse
@@ -169,9 +170,10 @@ func NewMatchPoolListUnauthorized() *MatchPoolListUnauthorized {
 	return &MatchPoolListUnauthorized{}
 }
 
-/*MatchPoolListUnauthorized handles this case with default header values.
+/*
+MatchPoolListUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type MatchPoolListUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewMatchPoolListForbidden() *MatchPoolListForbidden {
 	return &MatchPoolListForbidden{}
 }
 
-/*MatchPoolListForbidden handles this case with default header values.
+/*
+MatchPoolListForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type MatchPoolListForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewMatchPoolListInternalServerError() *MatchPoolListInternalServerError {
 	return &MatchPoolListInternalServerError{}
 }
 
-/*MatchPoolListInternalServerError handles this case with default header values.
+/*
+MatchPoolListInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type MatchPoolListInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

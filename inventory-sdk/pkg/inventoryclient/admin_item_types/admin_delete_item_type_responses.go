@@ -99,9 +99,10 @@ func NewAdminDeleteItemTypeNoContent() *AdminDeleteItemTypeNoContent {
 	return &AdminDeleteItemTypeNoContent{}
 }
 
-/*AdminDeleteItemTypeNoContent handles this case with default header values.
+/*
+AdminDeleteItemTypeNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminDeleteItemTypeNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewAdminDeleteItemTypeNotFound() *AdminDeleteItemTypeNotFound {
 	return &AdminDeleteItemTypeNotFound{}
 }
 
-/*AdminDeleteItemTypeNotFound handles this case with default header values.
+/*
+AdminDeleteItemTypeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminDeleteItemTypeNotFound struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -180,9 +182,10 @@ func NewAdminDeleteItemTypeInternalServerError() *AdminDeleteItemTypeInternalSer
 	return &AdminDeleteItemTypeInternalServerError{}
 }
 
-/*AdminDeleteItemTypeInternalServerError handles this case with default header values.
+/*
+AdminDeleteItemTypeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminDeleteItemTypeInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

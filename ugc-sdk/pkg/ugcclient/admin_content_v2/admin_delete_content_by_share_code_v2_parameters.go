@@ -57,7 +57,8 @@ func NewAdminDeleteContentByShareCodeV2ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*AdminDeleteContentByShareCodeV2Params contains all the parameters to send to the API endpoint
+/*
+AdminDeleteContentByShareCodeV2Params contains all the parameters to send to the API endpoint
 for the admin delete content by share code v2 operation typically these are written to a http.Request
 */
 type AdminDeleteContentByShareCodeV2Params struct {

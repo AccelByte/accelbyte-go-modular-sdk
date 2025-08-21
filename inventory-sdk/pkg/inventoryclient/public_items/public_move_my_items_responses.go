@@ -100,9 +100,10 @@ func NewPublicMoveMyItemsOK() *PublicMoveMyItemsOK {
 	return &PublicMoveMyItemsOK{}
 }
 
-/*PublicMoveMyItemsOK handles this case with default header values.
+/*
+PublicMoveMyItemsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicMoveMyItemsOK struct {
 	Payload *inventoryclientmodels.ApimodelsMoveItemsResp
@@ -154,9 +155,10 @@ func NewPublicMoveMyItemsBadRequest() *PublicMoveMyItemsBadRequest {
 	return &PublicMoveMyItemsBadRequest{}
 }
 
-/*PublicMoveMyItemsBadRequest handles this case with default header values.
+/*
+PublicMoveMyItemsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicMoveMyItemsBadRequest struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse
@@ -208,9 +210,10 @@ func NewPublicMoveMyItemsInternalServerError() *PublicMoveMyItemsInternalServerE
 	return &PublicMoveMyItemsInternalServerError{}
 }
 
-/*PublicMoveMyItemsInternalServerError handles this case with default header values.
+/*
+PublicMoveMyItemsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicMoveMyItemsInternalServerError struct {
 	Payload *inventoryclientmodels.ApimodelsErrorResponse

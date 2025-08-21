@@ -59,7 +59,8 @@ func NewAdminUpdateAchievementListOrderParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*AdminUpdateAchievementListOrderParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateAchievementListOrderParams contains all the parameters to send to the API endpoint
 for the admin update achievement list order operation typically these are written to a http.Request
 */
 type AdminUpdateAchievementListOrderParams struct {

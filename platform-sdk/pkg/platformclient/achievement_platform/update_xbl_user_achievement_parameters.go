@@ -59,7 +59,8 @@ func NewUpdateXblUserAchievementParamsWithHTTPClient(client *http.Client) *Updat
 	}
 }
 
-/*UpdateXblUserAchievementParams contains all the parameters to send to the API endpoint
+/*
+UpdateXblUserAchievementParams contains all the parameters to send to the API endpoint
 for the update xbl user achievement operation typically these are written to a http.Request
 */
 type UpdateXblUserAchievementParams struct {

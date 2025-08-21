@@ -69,10 +69,9 @@ func NewAdminAddTopicMemberOK() *AdminAddTopicMemberOK {
 	return &AdminAddTopicMemberOK{}
 }
 
-/*AdminAddTopicMemberOK handles this case with default header values.
-
-
- */
+/*
+AdminAddTopicMemberOK handles this case with default header values.
+*/
 type AdminAddTopicMemberOK struct {
 	Payload *chatclientmodels.MessageActionAddUserToTopicResult
 }

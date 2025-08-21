@@ -85,9 +85,10 @@ func NewGetUserEntitlementByItemIDOK() *GetUserEntitlementByItemIDOK {
 	return &GetUserEntitlementByItemIDOK{}
 }
 
-/*GetUserEntitlementByItemIDOK handles this case with default header values.
+/*
+GetUserEntitlementByItemIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserEntitlementByItemIDOK struct {
 	Payload *platformclientmodels.EntitlementInfo
@@ -139,9 +140,10 @@ func NewGetUserEntitlementByItemIDNotFound() *GetUserEntitlementByItemIDNotFound
 	return &GetUserEntitlementByItemIDNotFound{}
 }
 
-/*GetUserEntitlementByItemIDNotFound handles this case with default header values.
+/*
+GetUserEntitlementByItemIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31144</td><td>Entitlement with itemId [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>31144</td><td>Entitlement with itemId [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetUserEntitlementByItemIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

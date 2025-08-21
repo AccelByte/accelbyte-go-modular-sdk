@@ -122,7 +122,8 @@ func NewQueryThirdPartyNotificationsParamsWithHTTPClient(client *http.Client) *Q
 	}
 }
 
-/*QueryThirdPartyNotificationsParams contains all the parameters to send to the API endpoint
+/*
+QueryThirdPartyNotificationsParams contains all the parameters to send to the API endpoint
 for the query third party notifications operation typically these are written to a http.Request
 */
 type QueryThirdPartyNotificationsParams struct {

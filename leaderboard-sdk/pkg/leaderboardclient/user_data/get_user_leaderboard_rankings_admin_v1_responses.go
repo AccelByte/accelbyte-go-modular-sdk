@@ -115,9 +115,10 @@ func NewGetUserLeaderboardRankingsAdminV1OK() *GetUserLeaderboardRankingsAdminV1
 	return &GetUserLeaderboardRankingsAdminV1OK{}
 }
 
-/*GetUserLeaderboardRankingsAdminV1OK handles this case with default header values.
+/*
+GetUserLeaderboardRankingsAdminV1OK handles this case with default header values.
 
-  User rankings retrieved
+	User rankings retrieved
 */
 type GetUserLeaderboardRankingsAdminV1OK struct {
 	Payload *leaderboardclientmodels.ModelsGetAllUserLeaderboardsResp
@@ -169,9 +170,10 @@ func NewGetUserLeaderboardRankingsAdminV1Unauthorized() *GetUserLeaderboardRanki
 	return &GetUserLeaderboardRankingsAdminV1Unauthorized{}
 }
 
-/*GetUserLeaderboardRankingsAdminV1Unauthorized handles this case with default header values.
+/*
+GetUserLeaderboardRankingsAdminV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserLeaderboardRankingsAdminV1Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -223,9 +225,10 @@ func NewGetUserLeaderboardRankingsAdminV1Forbidden() *GetUserLeaderboardRankings
 	return &GetUserLeaderboardRankingsAdminV1Forbidden{}
 }
 
-/*GetUserLeaderboardRankingsAdminV1Forbidden handles this case with default header values.
+/*
+GetUserLeaderboardRankingsAdminV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserLeaderboardRankingsAdminV1Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -277,9 +280,10 @@ func NewGetUserLeaderboardRankingsAdminV1InternalServerError() *GetUserLeaderboa
 	return &GetUserLeaderboardRankingsAdminV1InternalServerError{}
 }
 
-/*GetUserLeaderboardRankingsAdminV1InternalServerError handles this case with default header values.
+/*
+GetUserLeaderboardRankingsAdminV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetUserLeaderboardRankingsAdminV1InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

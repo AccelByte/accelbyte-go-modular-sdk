@@ -160,9 +160,10 @@ func NewBulkAddStatsOK() *BulkAddStatsOK {
 	return &BulkAddStatsOK{}
 }
 
-/*BulkAddStatsOK handles this case with default header values.
+/*
+BulkAddStatsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkAddStatsOK struct {
 	Payload []*socialclientmodels.BulkStatCycleOperationResult
@@ -212,9 +213,10 @@ func NewBulkAddStatsBadRequest() *BulkAddStatsBadRequest {
 	return &BulkAddStatsBadRequest{}
 }
 
-/*BulkAddStatsBadRequest handles this case with default header values.
+/*
+BulkAddStatsBadRequest handles this case with default header values.
 
-  Bad request
+	Bad request
 */
 type BulkAddStatsBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -266,9 +268,10 @@ func NewBulkAddStatsUnauthorized() *BulkAddStatsUnauthorized {
 	return &BulkAddStatsUnauthorized{}
 }
 
-/*BulkAddStatsUnauthorized handles this case with default header values.
+/*
+BulkAddStatsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type BulkAddStatsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -320,9 +323,10 @@ func NewBulkAddStatsForbidden() *BulkAddStatsForbidden {
 	return &BulkAddStatsForbidden{}
 }
 
-/*BulkAddStatsForbidden handles this case with default header values.
+/*
+BulkAddStatsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkAddStatsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -374,9 +378,10 @@ func NewBulkAddStatsNotFound() *BulkAddStatsNotFound {
 	return &BulkAddStatsNotFound{}
 }
 
-/*BulkAddStatsNotFound handles this case with default header values.
+/*
+BulkAddStatsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type BulkAddStatsNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -428,9 +433,10 @@ func NewBulkAddStatsUnprocessableEntity() *BulkAddStatsUnprocessableEntity {
 	return &BulkAddStatsUnprocessableEntity{}
 }
 
-/*BulkAddStatsUnprocessableEntity handles this case with default header values.
+/*
+BulkAddStatsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkAddStatsUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -482,9 +488,10 @@ func NewBulkAddStatsInternalServerError() *BulkAddStatsInternalServerError {
 	return &BulkAddStatsInternalServerError{}
 }
 
-/*BulkAddStatsInternalServerError handles this case with default header values.
+/*
+BulkAddStatsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type BulkAddStatsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

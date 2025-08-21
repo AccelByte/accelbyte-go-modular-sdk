@@ -57,7 +57,8 @@ func NewDeleteTopicByTopicNameParamsWithHTTPClient(client *http.Client) *DeleteT
 	}
 }
 
-/*DeleteTopicByTopicNameParams contains all the parameters to send to the API endpoint
+/*
+DeleteTopicByTopicNameParams contains all the parameters to send to the API endpoint
 for the delete topic by topic name operation typically these are written to a http.Request
 */
 type DeleteTopicByTopicNameParams struct {

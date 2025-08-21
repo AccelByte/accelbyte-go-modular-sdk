@@ -115,9 +115,10 @@ func NewGetStatsOK() *GetStatsOK {
 	return &GetStatsOK{}
 }
 
-/*GetStatsOK handles this case with default header values.
+/*
+GetStatsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetStatsOK struct {
 	Payload *socialclientmodels.StatPagingSlicedResult
@@ -169,9 +170,10 @@ func NewGetStatsUnauthorized() *GetStatsUnauthorized {
 	return &GetStatsUnauthorized{}
 }
 
-/*GetStatsUnauthorized handles this case with default header values.
+/*
+GetStatsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type GetStatsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewGetStatsForbidden() *GetStatsForbidden {
 	return &GetStatsForbidden{}
 }
 
-/*GetStatsForbidden handles this case with default header values.
+/*
+GetStatsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetStatsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewGetStatsInternalServerError() *GetStatsInternalServerError {
 	return &GetStatsInternalServerError{}
 }
 
-/*GetStatsInternalServerError handles this case with default header values.
+/*
+GetStatsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type GetStatsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

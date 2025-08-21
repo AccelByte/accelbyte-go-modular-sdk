@@ -59,7 +59,8 @@ func NewCreateCurrencyParamsWithHTTPClient(client *http.Client) *CreateCurrencyP
 	}
 }
 
-/*CreateCurrencyParams contains all the parameters to send to the API endpoint
+/*
+CreateCurrencyParams contains all the parameters to send to the API endpoint
 for the create currency operation typically these are written to a http.Request
 */
 type CreateCurrencyParams struct {

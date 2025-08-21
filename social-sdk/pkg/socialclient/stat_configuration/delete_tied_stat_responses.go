@@ -144,9 +144,10 @@ func NewDeleteTiedStatNoContent() *DeleteTiedStatNoContent {
 	return &DeleteTiedStatNoContent{}
 }
 
-/*DeleteTiedStatNoContent handles this case with default header values.
+/*
+DeleteTiedStatNoContent handles this case with default header values.
 
-  Successfully delete the stat of tied status
+	Successfully delete the stat of tied status
 */
 type DeleteTiedStatNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteTiedStatUnauthorized() *DeleteTiedStatUnauthorized {
 	return &DeleteTiedStatUnauthorized{}
 }
 
-/*DeleteTiedStatUnauthorized handles this case with default header values.
+/*
+DeleteTiedStatUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type DeleteTiedStatUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -225,9 +227,10 @@ func NewDeleteTiedStatForbidden() *DeleteTiedStatForbidden {
 	return &DeleteTiedStatForbidden{}
 }
 
-/*DeleteTiedStatForbidden handles this case with default header values.
+/*
+DeleteTiedStatForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteTiedStatForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -279,9 +282,10 @@ func NewDeleteTiedStatNotFound() *DeleteTiedStatNotFound {
 	return &DeleteTiedStatNotFound{}
 }
 
-/*DeleteTiedStatNotFound handles this case with default header values.
+/*
+DeleteTiedStatNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type DeleteTiedStatNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -333,9 +337,10 @@ func NewDeleteTiedStatConflict() *DeleteTiedStatConflict {
 	return &DeleteTiedStatConflict{}
 }
 
-/*DeleteTiedStatConflict handles this case with default header values.
+/*
+DeleteTiedStatConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12276</td><td> Stat template with code [{statCode}] in namespace [{namespace}] not deletable due it is in an INIT status </td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12276</td><td> Stat template with code [{statCode}] in namespace [{namespace}] not deletable due it is in an INIT status </td></tr></table>
 */
 type DeleteTiedStatConflict struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -387,9 +392,10 @@ func NewDeleteTiedStatInternalServerError() *DeleteTiedStatInternalServerError {
 	return &DeleteTiedStatInternalServerError{}
 }
 
-/*DeleteTiedStatInternalServerError handles this case with default header values.
+/*
+DeleteTiedStatInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type DeleteTiedStatInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

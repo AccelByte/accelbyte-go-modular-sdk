@@ -59,7 +59,8 @@ func NewPublicGameSessionInviteParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicGameSessionInviteParams contains all the parameters to send to the API endpoint
+/*
+PublicGameSessionInviteParams contains all the parameters to send to the API endpoint
 for the public game session invite operation typically these are written to a http.Request
 */
 type PublicGameSessionInviteParams struct {

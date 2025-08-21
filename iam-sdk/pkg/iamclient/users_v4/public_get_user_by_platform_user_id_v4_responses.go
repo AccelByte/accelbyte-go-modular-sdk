@@ -130,9 +130,10 @@ func NewPublicGetUserByPlatformUserIDV4OK() *PublicGetUserByPlatformUserIDV4OK {
 	return &PublicGetUserByPlatformUserIDV4OK{}
 }
 
-/*PublicGetUserByPlatformUserIDV4OK handles this case with default header values.
+/*
+PublicGetUserByPlatformUserIDV4OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetUserByPlatformUserIDV4OK struct {
 	Payload *iamclientmodels.ModelUserResponseV3
@@ -184,9 +185,10 @@ func NewPublicGetUserByPlatformUserIDV4Unauthorized() *PublicGetUserByPlatformUs
 	return &PublicGetUserByPlatformUserIDV4Unauthorized{}
 }
 
-/*PublicGetUserByPlatformUserIDV4Unauthorized handles this case with default header values.
+/*
+PublicGetUserByPlatformUserIDV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetUserByPlatformUserIDV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewPublicGetUserByPlatformUserIDV4Forbidden() *PublicGetUserByPlatformUserI
 	return &PublicGetUserByPlatformUserIDV4Forbidden{}
 }
 
-/*PublicGetUserByPlatformUserIDV4Forbidden handles this case with default header values.
+/*
+PublicGetUserByPlatformUserIDV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr></table>
 */
 type PublicGetUserByPlatformUserIDV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewPublicGetUserByPlatformUserIDV4NotFound() *PublicGetUserByPlatformUserID
 	return &PublicGetUserByPlatformUserIDV4NotFound{}
 }
 
-/*PublicGetUserByPlatformUserIDV4NotFound handles this case with default header values.
+/*
+PublicGetUserByPlatformUserIDV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicGetUserByPlatformUserIDV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewPublicGetUserByPlatformUserIDV4InternalServerError() *PublicGetUserByPla
 	return &PublicGetUserByPlatformUserIDV4InternalServerError{}
 }
 
-/*PublicGetUserByPlatformUserIDV4InternalServerError handles this case with default header values.
+/*
+PublicGetUserByPlatformUserIDV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetUserByPlatformUserIDV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

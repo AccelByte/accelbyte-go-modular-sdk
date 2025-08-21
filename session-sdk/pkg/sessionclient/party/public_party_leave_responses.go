@@ -114,9 +114,10 @@ func NewPublicPartyLeaveNoContent() *PublicPartyLeaveNoContent {
 	return &PublicPartyLeaveNoContent{}
 }
 
-/*PublicPartyLeaveNoContent handles this case with default header values.
+/*
+PublicPartyLeaveNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicPartyLeaveNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewPublicPartyLeaveUnauthorized() *PublicPartyLeaveUnauthorized {
 	return &PublicPartyLeaveUnauthorized{}
 }
 
-/*PublicPartyLeaveUnauthorized handles this case with default header values.
+/*
+PublicPartyLeaveUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPartyLeaveUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewPublicPartyLeaveNotFound() *PublicPartyLeaveNotFound {
 	return &PublicPartyLeaveNotFound{}
 }
 
-/*PublicPartyLeaveNotFound handles this case with default header values.
+/*
+PublicPartyLeaveNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPartyLeaveNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewPublicPartyLeaveInternalServerError() *PublicPartyLeaveInternalServerErr
 	return &PublicPartyLeaveInternalServerError{}
 }
 
-/*PublicPartyLeaveInternalServerError handles this case with default header values.
+/*
+PublicPartyLeaveInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPartyLeaveInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

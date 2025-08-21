@@ -85,9 +85,10 @@ func NewAdminRetrieveEligibilitiesOK() *AdminRetrieveEligibilitiesOK {
 	return &AdminRetrieveEligibilitiesOK{}
 }
 
-/*AdminRetrieveEligibilitiesOK handles this case with default header values.
+/*
+AdminRetrieveEligibilitiesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AdminRetrieveEligibilitiesOK struct {
 	Payload *legalclientmodels.RetrieveUserEligibilitiesIndirectResponse
@@ -139,9 +140,10 @@ func NewAdminRetrieveEligibilitiesBadRequest() *AdminRetrieveEligibilitiesBadReq
 	return &AdminRetrieveEligibilitiesBadRequest{}
 }
 
-/*AdminRetrieveEligibilitiesBadRequest handles this case with default header values.
+/*
+AdminRetrieveEligibilitiesBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
 */
 type AdminRetrieveEligibilitiesBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

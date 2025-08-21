@@ -57,7 +57,8 @@ func NewDownloadCategoriesParamsWithHTTPClient(client *http.Client) *DownloadCat
 	}
 }
 
-/*DownloadCategoriesParams contains all the parameters to send to the API endpoint
+/*
+DownloadCategoriesParams contains all the parameters to send to the API endpoint
 for the download categories operation typically these are written to a http.Request
 */
 type DownloadCategoriesParams struct {

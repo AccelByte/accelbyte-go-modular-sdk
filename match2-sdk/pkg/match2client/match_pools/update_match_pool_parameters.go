@@ -59,7 +59,8 @@ func NewUpdateMatchPoolParamsWithHTTPClient(client *http.Client) *UpdateMatchPoo
 	}
 }
 
-/*UpdateMatchPoolParams contains all the parameters to send to the API endpoint
+/*
+UpdateMatchPoolParams contains all the parameters to send to the API endpoint
 for the update match pool operation typically these are written to a http.Request
 */
 type UpdateMatchPoolParams struct {

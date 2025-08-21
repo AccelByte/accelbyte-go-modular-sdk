@@ -145,9 +145,10 @@ func NewArtifactGetURLOK() *ArtifactGetURLOK {
 	return &ArtifactGetURLOK{}
 }
 
-/*ArtifactGetURLOK handles this case with default header values.
+/*
+ArtifactGetURLOK handles this case with default header values.
 
-  success
+	success
 */
 type ArtifactGetURLOK struct {
 	Payload *amsclientmodels.APIArtifactURLResponse
@@ -199,9 +200,10 @@ func NewArtifactGetURLBadRequest() *ArtifactGetURLBadRequest {
 	return &ArtifactGetURLBadRequest{}
 }
 
-/*ArtifactGetURLBadRequest handles this case with default header values.
+/*
+ArtifactGetURLBadRequest handles this case with default header values.
 
-  invalid data in request
+	invalid data in request
 */
 type ArtifactGetURLBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewArtifactGetURLUnauthorized() *ArtifactGetURLUnauthorized {
 	return &ArtifactGetURLUnauthorized{}
 }
 
-/*ArtifactGetURLUnauthorized handles this case with default header values.
+/*
+ArtifactGetURLUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type ArtifactGetURLUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewArtifactGetURLForbidden() *ArtifactGetURLForbidden {
 	return &ArtifactGetURLForbidden{}
 }
 
-/*ArtifactGetURLForbidden handles this case with default header values.
+/*
+ArtifactGetURLForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type ArtifactGetURLForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewArtifactGetURLNotFound() *ArtifactGetURLNotFound {
 	return &ArtifactGetURLNotFound{}
 }
 
-/*ArtifactGetURLNotFound handles this case with default header values.
+/*
+ArtifactGetURLNotFound handles this case with default header values.
 
-  no artifact with specifed artifactID
+	no artifact with specifed artifactID
 */
 type ArtifactGetURLNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewArtifactGetURLInternalServerError() *ArtifactGetURLInternalServerError {
 	return &ArtifactGetURLInternalServerError{}
 }
 
-/*ArtifactGetURLInternalServerError handles this case with default header values.
+/*
+ArtifactGetURLInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type ArtifactGetURLInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

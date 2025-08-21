@@ -145,9 +145,10 @@ func NewPublicVerifyHeadlessAccountV3OK() *PublicVerifyHeadlessAccountV3OK {
 	return &PublicVerifyHeadlessAccountV3OK{}
 }
 
-/*PublicVerifyHeadlessAccountV3OK handles this case with default header values.
+/*
+PublicVerifyHeadlessAccountV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicVerifyHeadlessAccountV3OK struct {
 	Payload *iamclientmodels.ModelUserResponseV3
@@ -199,9 +200,10 @@ func NewPublicVerifyHeadlessAccountV3BadRequest() *PublicVerifyHeadlessAccountV3
 	return &PublicVerifyHeadlessAccountV3BadRequest{}
 }
 
-/*PublicVerifyHeadlessAccountV3BadRequest handles this case with default header values.
+/*
+PublicVerifyHeadlessAccountV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicVerifyHeadlessAccountV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewPublicVerifyHeadlessAccountV3Unauthorized() *PublicVerifyHeadlessAccount
 	return &PublicVerifyHeadlessAccountV3Unauthorized{}
 }
 
-/*PublicVerifyHeadlessAccountV3Unauthorized handles this case with default header values.
+/*
+PublicVerifyHeadlessAccountV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicVerifyHeadlessAccountV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewPublicVerifyHeadlessAccountV3NotFound() *PublicVerifyHeadlessAccountV3No
 	return &PublicVerifyHeadlessAccountV3NotFound{}
 }
 
-/*PublicVerifyHeadlessAccountV3NotFound handles this case with default header values.
+/*
+PublicVerifyHeadlessAccountV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type PublicVerifyHeadlessAccountV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewPublicVerifyHeadlessAccountV3Conflict() *PublicVerifyHeadlessAccountV3Co
 	return &PublicVerifyHeadlessAccountV3Conflict{}
 }
 
-/*PublicVerifyHeadlessAccountV3Conflict handles this case with default header values.
+/*
+PublicVerifyHeadlessAccountV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr></table>
 */
 type PublicVerifyHeadlessAccountV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewPublicVerifyHeadlessAccountV3InternalServerError() *PublicVerifyHeadless
 	return &PublicVerifyHeadlessAccountV3InternalServerError{}
 }
 
-/*PublicVerifyHeadlessAccountV3InternalServerError handles this case with default header values.
+/*
+PublicVerifyHeadlessAccountV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicVerifyHeadlessAccountV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

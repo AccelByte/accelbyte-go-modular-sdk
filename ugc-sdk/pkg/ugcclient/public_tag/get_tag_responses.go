@@ -115,9 +115,10 @@ func NewGetTagOK() *GetTagOK {
 	return &GetTagOK{}
 }
 
-/*GetTagOK handles this case with default header values.
+/*
+GetTagOK handles this case with default header values.
 
-  Get tags
+	Get tags
 */
 type GetTagOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGetTagResponse
@@ -169,9 +170,10 @@ func NewGetTagBadRequest() *GetTagBadRequest {
 	return &GetTagBadRequest{}
 }
 
-/*GetTagBadRequest handles this case with default header values.
+/*
+GetTagBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771501</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771501</td><td>invalid paging parameter</td></tr></table>
 */
 type GetTagBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewGetTagUnauthorized() *GetTagUnauthorized {
 	return &GetTagUnauthorized{}
 }
 
-/*GetTagUnauthorized handles this case with default header values.
+/*
+GetTagUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetTagUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewGetTagInternalServerError() *GetTagInternalServerError {
 	return &GetTagInternalServerError{}
 }
 
-/*GetTagInternalServerError handles this case with default header values.
+/*
+GetTagInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771502</td><td>Unable get user tags</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771502</td><td>Unable get user tags</td></tr></table>
 */
 type GetTagInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

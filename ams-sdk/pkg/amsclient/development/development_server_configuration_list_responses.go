@@ -115,9 +115,10 @@ func NewDevelopmentServerConfigurationListOK() *DevelopmentServerConfigurationLi
 	return &DevelopmentServerConfigurationListOK{}
 }
 
-/*DevelopmentServerConfigurationListOK handles this case with default header values.
+/*
+DevelopmentServerConfigurationListOK handles this case with default header values.
 
-  development server configurations
+	development server configurations
 */
 type DevelopmentServerConfigurationListOK struct {
 	Payload *amsclientmodels.APIDevelopmentServerConfigurationListResponse
@@ -169,9 +170,10 @@ func NewDevelopmentServerConfigurationListUnauthorized() *DevelopmentServerConfi
 	return &DevelopmentServerConfigurationListUnauthorized{}
 }
 
-/*DevelopmentServerConfigurationListUnauthorized handles this case with default header values.
+/*
+DevelopmentServerConfigurationListUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type DevelopmentServerConfigurationListUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -223,9 +225,10 @@ func NewDevelopmentServerConfigurationListForbidden() *DevelopmentServerConfigur
 	return &DevelopmentServerConfigurationListForbidden{}
 }
 
-/*DevelopmentServerConfigurationListForbidden handles this case with default header values.
+/*
+DevelopmentServerConfigurationListForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type DevelopmentServerConfigurationListForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -277,9 +280,10 @@ func NewDevelopmentServerConfigurationListInternalServerError() *DevelopmentServ
 	return &DevelopmentServerConfigurationListInternalServerError{}
 }
 
-/*DevelopmentServerConfigurationListInternalServerError handles this case with default header values.
+/*
+DevelopmentServerConfigurationListInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type DevelopmentServerConfigurationListInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

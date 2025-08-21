@@ -85,10 +85,9 @@ func NewGetReportsByTicketOK() *GetReportsByTicketOK {
 	return &GetReportsByTicketOK{}
 }
 
-/*GetReportsByTicketOK handles this case with default header values.
-
-
- */
+/*
+GetReportsByTicketOK handles this case with default header values.
+*/
 type GetReportsByTicketOK struct {
 	Payload *reportingclientmodels.RestapiReportListResponse
 }
@@ -139,10 +138,9 @@ func NewGetReportsByTicketInternalServerError() *GetReportsByTicketInternalServe
 	return &GetReportsByTicketInternalServerError{}
 }
 
-/*GetReportsByTicketInternalServerError handles this case with default header values.
-
-
- */
+/*
+GetReportsByTicketInternalServerError handles this case with default header values.
+*/
 type GetReportsByTicketInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

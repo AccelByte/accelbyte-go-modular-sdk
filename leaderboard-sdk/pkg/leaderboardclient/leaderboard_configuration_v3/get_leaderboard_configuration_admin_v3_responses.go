@@ -145,9 +145,10 @@ func NewGetLeaderboardConfigurationAdminV3OK() *GetLeaderboardConfigurationAdmin
 	return &GetLeaderboardConfigurationAdminV3OK{}
 }
 
-/*GetLeaderboardConfigurationAdminV3OK handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV3OK handles this case with default header values.
 
-  Leaderboard retrieved
+	Leaderboard retrieved
 */
 type GetLeaderboardConfigurationAdminV3OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardConfigRespV3
@@ -199,9 +200,10 @@ func NewGetLeaderboardConfigurationAdminV3BadRequest() *GetLeaderboardConfigurat
 	return &GetLeaderboardConfigurationAdminV3BadRequest{}
 }
 
-/*GetLeaderboardConfigurationAdminV3BadRequest handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetLeaderboardConfigurationAdminV3Unauthorized() *GetLeaderboardConfigur
 	return &GetLeaderboardConfigurationAdminV3Unauthorized{}
 }
 
-/*GetLeaderboardConfigurationAdminV3Unauthorized handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetLeaderboardConfigurationAdminV3Forbidden() *GetLeaderboardConfigurati
 	return &GetLeaderboardConfigurationAdminV3Forbidden{}
 }
 
-/*GetLeaderboardConfigurationAdminV3Forbidden handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetLeaderboardConfigurationAdminV3NotFound() *GetLeaderboardConfiguratio
 	return &GetLeaderboardConfigurationAdminV3NotFound{}
 }
 
-/*GetLeaderboardConfigurationAdminV3NotFound handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetLeaderboardConfigurationAdminV3InternalServerError() *GetLeaderboardC
 	return &GetLeaderboardConfigurationAdminV3InternalServerError{}
 }
 
-/*GetLeaderboardConfigurationAdminV3InternalServerError handles this case with default header values.
+/*
+GetLeaderboardConfigurationAdminV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetLeaderboardConfigurationAdminV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

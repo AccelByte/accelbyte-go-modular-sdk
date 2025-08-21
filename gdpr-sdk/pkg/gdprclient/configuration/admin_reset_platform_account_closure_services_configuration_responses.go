@@ -99,9 +99,10 @@ func NewAdminResetPlatformAccountClosureServicesConfigurationNoContent() *AdminR
 	return &AdminResetPlatformAccountClosureServicesConfigurationNoContent{}
 }
 
-/*AdminResetPlatformAccountClosureServicesConfigurationNoContent handles this case with default header values.
+/*
+AdminResetPlatformAccountClosureServicesConfigurationNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminResetPlatformAccountClosureServicesConfigurationNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewAdminResetPlatformAccountClosureServicesConfigurationUnauthorized() *Adm
 	return &AdminResetPlatformAccountClosureServicesConfigurationUnauthorized{}
 }
 
-/*AdminResetPlatformAccountClosureServicesConfigurationUnauthorized handles this case with default header values.
+/*
+AdminResetPlatformAccountClosureServicesConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminResetPlatformAccountClosureServicesConfigurationUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -180,9 +182,10 @@ func NewAdminResetPlatformAccountClosureServicesConfigurationInternalServerError
 	return &AdminResetPlatformAccountClosureServicesConfigurationInternalServerError{}
 }
 
-/*AdminResetPlatformAccountClosureServicesConfigurationInternalServerError handles this case with default header values.
+/*
+AdminResetPlatformAccountClosureServicesConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminResetPlatformAccountClosureServicesConfigurationInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

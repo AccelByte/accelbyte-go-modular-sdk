@@ -130,9 +130,10 @@ func NewAdminGeneratePersonalDataURLOK() *AdminGeneratePersonalDataURLOK {
 	return &AdminGeneratePersonalDataURLOK{}
 }
 
-/*AdminGeneratePersonalDataURLOK handles this case with default header values.
+/*
+AdminGeneratePersonalDataURLOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGeneratePersonalDataURLOK struct {
 	Payload *gdprclientmodels.ModelsUserDataURL
@@ -184,9 +185,10 @@ func NewAdminGeneratePersonalDataURLBadRequest() *AdminGeneratePersonalDataURLBa
 	return &AdminGeneratePersonalDataURLBadRequest{}
 }
 
-/*AdminGeneratePersonalDataURLBadRequest handles this case with default header values.
+/*
+AdminGeneratePersonalDataURLBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGeneratePersonalDataURLBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGeneratePersonalDataURLUnauthorized() *AdminGeneratePersonalDataURL
 	return &AdminGeneratePersonalDataURLUnauthorized{}
 }
 
-/*AdminGeneratePersonalDataURLUnauthorized handles this case with default header values.
+/*
+AdminGeneratePersonalDataURLUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGeneratePersonalDataURLUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGeneratePersonalDataURLNotFound() *AdminGeneratePersonalDataURLNotF
 	return &AdminGeneratePersonalDataURLNotFound{}
 }
 
-/*AdminGeneratePersonalDataURLNotFound handles this case with default header values.
+/*
+AdminGeneratePersonalDataURLNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGeneratePersonalDataURLNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGeneratePersonalDataURLInternalServerError() *AdminGeneratePersonal
 	return &AdminGeneratePersonalDataURLInternalServerError{}
 }
 
-/*AdminGeneratePersonalDataURLInternalServerError handles this case with default header values.
+/*
+AdminGeneratePersonalDataURLInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGeneratePersonalDataURLInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

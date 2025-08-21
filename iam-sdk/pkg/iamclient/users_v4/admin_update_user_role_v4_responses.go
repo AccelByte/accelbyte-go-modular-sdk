@@ -160,9 +160,10 @@ func NewAdminUpdateUserRoleV4OK() *AdminUpdateUserRoleV4OK {
 	return &AdminUpdateUserRoleV4OK{}
 }
 
-/*AdminUpdateUserRoleV4OK handles this case with default header values.
+/*
+AdminUpdateUserRoleV4OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminUpdateUserRoleV4OK struct {
 	Payload *iamclientmodels.ModelListUserRolesV4Response
@@ -214,9 +215,10 @@ func NewAdminUpdateUserRoleV4BadRequest() *AdminUpdateUserRoleV4BadRequest {
 	return &AdminUpdateUserRoleV4BadRequest{}
 }
 
-/*AdminUpdateUserRoleV4BadRequest handles this case with default header values.
+/*
+AdminUpdateUserRoleV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminUpdateUserRoleV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -268,9 +270,10 @@ func NewAdminUpdateUserRoleV4Unauthorized() *AdminUpdateUserRoleV4Unauthorized {
 	return &AdminUpdateUserRoleV4Unauthorized{}
 }
 
-/*AdminUpdateUserRoleV4Unauthorized handles this case with default header values.
+/*
+AdminUpdateUserRoleV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateUserRoleV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,9 +325,10 @@ func NewAdminUpdateUserRoleV4Forbidden() *AdminUpdateUserRoleV4Forbidden {
 	return &AdminUpdateUserRoleV4Forbidden{}
 }
 
-/*AdminUpdateUserRoleV4Forbidden handles this case with default header values.
+/*
+AdminUpdateUserRoleV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateUserRoleV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -376,9 +380,10 @@ func NewAdminUpdateUserRoleV4NotFound() *AdminUpdateUserRoleV4NotFound {
 	return &AdminUpdateUserRoleV4NotFound{}
 }
 
-/*AdminUpdateUserRoleV4NotFound handles this case with default header values.
+/*
+AdminUpdateUserRoleV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10156</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10156</td><td>role not found</td></tr></table>
 */
 type AdminUpdateUserRoleV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -430,9 +435,10 @@ func NewAdminUpdateUserRoleV4UnprocessableEntity() *AdminUpdateUserRoleV4Unproce
 	return &AdminUpdateUserRoleV4UnprocessableEntity{}
 }
 
-/*AdminUpdateUserRoleV4UnprocessableEntity handles this case with default header values.
+/*
+AdminUpdateUserRoleV4UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10183</td><td>unprocessable entity</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10183</td><td>unprocessable entity</td></tr></table>
 */
 type AdminUpdateUserRoleV4UnprocessableEntity struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -484,9 +490,10 @@ func NewAdminUpdateUserRoleV4InternalServerError() *AdminUpdateUserRoleV4Interna
 	return &AdminUpdateUserRoleV4InternalServerError{}
 }
 
-/*AdminUpdateUserRoleV4InternalServerError handles this case with default header values.
+/*
+AdminUpdateUserRoleV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpdateUserRoleV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

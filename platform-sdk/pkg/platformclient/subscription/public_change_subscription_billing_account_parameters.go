@@ -57,7 +57,8 @@ func NewPublicChangeSubscriptionBillingAccountParamsWithHTTPClient(client *http.
 	}
 }
 
-/*PublicChangeSubscriptionBillingAccountParams contains all the parameters to send to the API endpoint
+/*
+PublicChangeSubscriptionBillingAccountParams contains all the parameters to send to the API endpoint
 for the public change subscription billing account operation typically these are written to a http.Request
 */
 type PublicChangeSubscriptionBillingAccountParams struct {

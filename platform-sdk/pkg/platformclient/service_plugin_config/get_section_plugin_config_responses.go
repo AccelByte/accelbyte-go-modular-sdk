@@ -69,9 +69,10 @@ func NewGetSectionPluginConfigOK() *GetSectionPluginConfigOK {
 	return &GetSectionPluginConfigOK{}
 }
 
-/*GetSectionPluginConfigOK handles this case with default header values.
+/*
+GetSectionPluginConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetSectionPluginConfigOK struct {
 	Payload *platformclientmodels.SectionPluginConfigInfo

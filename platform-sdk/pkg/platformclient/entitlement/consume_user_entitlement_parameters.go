@@ -59,7 +59,8 @@ func NewConsumeUserEntitlementParamsWithHTTPClient(client *http.Client) *Consume
 	}
 }
 
-/*ConsumeUserEntitlementParams contains all the parameters to send to the API endpoint
+/*
+ConsumeUserEntitlementParams contains all the parameters to send to the API endpoint
 for the consume user entitlement operation typically these are written to a http.Request
 */
 type ConsumeUserEntitlementParams struct {

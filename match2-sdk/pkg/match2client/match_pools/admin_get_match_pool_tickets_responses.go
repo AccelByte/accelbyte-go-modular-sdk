@@ -130,9 +130,10 @@ func NewAdminGetMatchPoolTicketsOK() *AdminGetMatchPoolTicketsOK {
 	return &AdminGetMatchPoolTicketsOK{}
 }
 
-/*AdminGetMatchPoolTicketsOK handles this case with default header values.
+/*
+AdminGetMatchPoolTicketsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetMatchPoolTicketsOK struct {
 	Payload *match2clientmodels.APIListMatchPoolTicketsResponse
@@ -184,9 +185,10 @@ func NewAdminGetMatchPoolTicketsUnauthorized() *AdminGetMatchPoolTicketsUnauthor
 	return &AdminGetMatchPoolTicketsUnauthorized{}
 }
 
-/*AdminGetMatchPoolTicketsUnauthorized handles this case with default header values.
+/*
+AdminGetMatchPoolTicketsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetMatchPoolTicketsUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetMatchPoolTicketsForbidden() *AdminGetMatchPoolTicketsForbidden {
 	return &AdminGetMatchPoolTicketsForbidden{}
 }
 
-/*AdminGetMatchPoolTicketsForbidden handles this case with default header values.
+/*
+AdminGetMatchPoolTicketsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetMatchPoolTicketsForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGetMatchPoolTicketsNotFound() *AdminGetMatchPoolTicketsNotFound {
 	return &AdminGetMatchPoolTicketsNotFound{}
 }
 
-/*AdminGetMatchPoolTicketsNotFound handles this case with default header values.
+/*
+AdminGetMatchPoolTicketsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetMatchPoolTicketsNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetMatchPoolTicketsInternalServerError() *AdminGetMatchPoolTicketsI
 	return &AdminGetMatchPoolTicketsInternalServerError{}
 }
 
-/*AdminGetMatchPoolTicketsInternalServerError handles this case with default header values.
+/*
+AdminGetMatchPoolTicketsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetMatchPoolTicketsInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

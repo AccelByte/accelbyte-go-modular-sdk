@@ -112,7 +112,8 @@ func NewPublicGetUserRewardsParamsWithHTTPClient(client *http.Client) *PublicGet
 	}
 }
 
-/*PublicGetUserRewardsParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserRewardsParams contains all the parameters to send to the API endpoint
 for the public get user rewards operation typically these are written to a http.Request
 */
 type PublicGetUserRewardsParams struct {

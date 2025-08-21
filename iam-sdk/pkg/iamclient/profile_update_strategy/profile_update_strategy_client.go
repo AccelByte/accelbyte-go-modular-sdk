@@ -124,7 +124,7 @@ func (a *Client) AdminGetProfileUpdateStrategyV3Short(params *AdminGetProfileUpd
 AdminUpdateProfileUpdateStrategyV3Short admin update profile update strategy by namespace and field.
 This API includes upsert behavior.
 Note:
-1. field 'config'' in request body will only work when type is limited
+1. field 'config” in request body will only work when type is limited
 */
 func (a *Client) AdminUpdateProfileUpdateStrategyV3Short(params *AdminUpdateProfileUpdateStrategyV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateProfileUpdateStrategyV3Response, error) {
 	// TODO: Validate the params before sending

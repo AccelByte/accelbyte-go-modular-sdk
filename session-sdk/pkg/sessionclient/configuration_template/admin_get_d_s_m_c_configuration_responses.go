@@ -145,9 +145,10 @@ func NewAdminGetDSMCConfigurationOK() *AdminGetDSMCConfigurationOK {
 	return &AdminGetDSMCConfigurationOK{}
 }
 
-/*AdminGetDSMCConfigurationOK handles this case with default header values.
+/*
+AdminGetDSMCConfigurationOK handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminGetDSMCConfigurationOK struct {
 	Payload *sessionclientmodels.ModelsDSMConfigRecord
@@ -199,9 +200,10 @@ func NewAdminGetDSMCConfigurationBadRequest() *AdminGetDSMCConfigurationBadReque
 	return &AdminGetDSMCConfigurationBadRequest{}
 }
 
-/*AdminGetDSMCConfigurationBadRequest handles this case with default header values.
+/*
+AdminGetDSMCConfigurationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetDSMCConfigurationBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminGetDSMCConfigurationUnauthorized() *AdminGetDSMCConfigurationUnauth
 	return &AdminGetDSMCConfigurationUnauthorized{}
 }
 
-/*AdminGetDSMCConfigurationUnauthorized handles this case with default header values.
+/*
+AdminGetDSMCConfigurationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetDSMCConfigurationUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminGetDSMCConfigurationForbidden() *AdminGetDSMCConfigurationForbidden
 	return &AdminGetDSMCConfigurationForbidden{}
 }
 
-/*AdminGetDSMCConfigurationForbidden handles this case with default header values.
+/*
+AdminGetDSMCConfigurationForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetDSMCConfigurationForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminGetDSMCConfigurationNotFound() *AdminGetDSMCConfigurationNotFound {
 	return &AdminGetDSMCConfigurationNotFound{}
 }
 
-/*AdminGetDSMCConfigurationNotFound handles this case with default header values.
+/*
+AdminGetDSMCConfigurationNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetDSMCConfigurationNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminGetDSMCConfigurationInternalServerError() *AdminGetDSMCConfiguratio
 	return &AdminGetDSMCConfigurationInternalServerError{}
 }
 
-/*AdminGetDSMCConfigurationInternalServerError handles this case with default header values.
+/*
+AdminGetDSMCConfigurationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetDSMCConfigurationInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

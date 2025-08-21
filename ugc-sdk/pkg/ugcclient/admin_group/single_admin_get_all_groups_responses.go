@@ -115,9 +115,10 @@ func NewSingleAdminGetAllGroupsOK() *SingleAdminGetAllGroupsOK {
 	return &SingleAdminGetAllGroupsOK{}
 }
 
-/*SingleAdminGetAllGroupsOK handles this case with default header values.
+/*
+SingleAdminGetAllGroupsOK handles this case with default header values.
 
-  Get all user group
+	Get all user group
 */
 type SingleAdminGetAllGroupsOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGroupResponse
@@ -169,9 +170,10 @@ func NewSingleAdminGetAllGroupsBadRequest() *SingleAdminGetAllGroupsBadRequest {
 	return &SingleAdminGetAllGroupsBadRequest{}
 }
 
-/*SingleAdminGetAllGroupsBadRequest handles this case with default header values.
+/*
+SingleAdminGetAllGroupsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772301</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772301</td><td>invalid paging parameter</td></tr></table>
 */
 type SingleAdminGetAllGroupsBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewSingleAdminGetAllGroupsUnauthorized() *SingleAdminGetAllGroupsUnauthoriz
 	return &SingleAdminGetAllGroupsUnauthorized{}
 }
 
-/*SingleAdminGetAllGroupsUnauthorized handles this case with default header values.
+/*
+SingleAdminGetAllGroupsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SingleAdminGetAllGroupsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewSingleAdminGetAllGroupsInternalServerError() *SingleAdminGetAllGroupsInt
 	return &SingleAdminGetAllGroupsInternalServerError{}
 }
 
-/*SingleAdminGetAllGroupsInternalServerError handles this case with default header values.
+/*
+SingleAdminGetAllGroupsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772302</td><td>Unable get groups</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772302</td><td>Unable get groups</td></tr></table>
 */
 type SingleAdminGetAllGroupsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

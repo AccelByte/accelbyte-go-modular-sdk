@@ -85,9 +85,10 @@ func NewGetOrderOK() *GetOrderOK {
 	return &GetOrderOK{}
 }
 
-/*GetOrderOK handles this case with default header values.
+/*
+GetOrderOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetOrderOK struct {
 	Payload *platformclientmodels.OrderInfo
@@ -139,9 +140,10 @@ func NewGetOrderNotFound() *GetOrderNotFound {
 	return &GetOrderNotFound{}
 }
 
-/*GetOrderNotFound handles this case with default header values.
+/*
+GetOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
 */
 type GetOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -59,7 +59,8 @@ func NewPublicUpdatePartyAttributesV1ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicUpdatePartyAttributesV1Params contains all the parameters to send to the API endpoint
+/*
+PublicUpdatePartyAttributesV1Params contains all the parameters to send to the API endpoint
 for the public update party attributes v1 operation typically these are written to a http.Request
 */
 type PublicUpdatePartyAttributesV1Params struct {

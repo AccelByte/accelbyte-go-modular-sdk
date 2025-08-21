@@ -69,9 +69,10 @@ func NewQueryKeyGroupsOK() *QueryKeyGroupsOK {
 	return &QueryKeyGroupsOK{}
 }
 
-/*QueryKeyGroupsOK handles this case with default header values.
+/*
+QueryKeyGroupsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryKeyGroupsOK struct {
 	Payload *platformclientmodels.KeyGroupPagingSlicedResult

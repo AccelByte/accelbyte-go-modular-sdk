@@ -59,7 +59,8 @@ func NewFulfillRewardsV2ParamsWithHTTPClient(client *http.Client) *FulfillReward
 	}
 }
 
-/*FulfillRewardsV2Params contains all the parameters to send to the API endpoint
+/*
+FulfillRewardsV2Params contains all the parameters to send to the API endpoint
 for the fulfill rewards v2 operation typically these are written to a http.Request
 */
 type FulfillRewardsV2Params struct {

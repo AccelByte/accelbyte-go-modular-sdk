@@ -72,9 +72,10 @@ func NewDownloadCSVTemplatesOK(writer io.Writer) *DownloadCSVTemplatesOK {
 	}
 }
 
-/*DownloadCSVTemplatesOK handles this case with default header values.
+/*
+DownloadCSVTemplatesOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type DownloadCSVTemplatesOK struct {
 	Payload io.Writer

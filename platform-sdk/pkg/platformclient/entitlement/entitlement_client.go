@@ -98,7 +98,7 @@ Query entitlements.
 
 Other detail info:
 
-  * Returns : entitlement list
+  - Returns : entitlement list
 */
 func (a *Client) QueryEntitlements1Short(params *QueryEntitlements1Params, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlements1Response, error) {
 	// TODO: Validate the params before sending
@@ -156,7 +156,7 @@ Query entitlements by Item Ids.
 
 Other detail info:
 
-  * Returns : entitlement list
+  - Returns : entitlement list
 */
 func (a *Client) QueryEntitlementsShort(params *QueryEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
@@ -213,7 +213,7 @@ EnableEntitlementOriginFeatureShort enable entitlement origin feature
 Enable Entitlement origin feature.
 Other detail info:
 
-  * Returns : entitlement info
+  - Returns : entitlement info
 */
 func (a *Client) EnableEntitlementOriginFeatureShort(params *EnableEntitlementOriginFeatureParams, authInfo runtime.ClientAuthInfoWriter) (*EnableEntitlementOriginFeatureResponse, error) {
 	// TODO: Validate the params before sending
@@ -270,7 +270,7 @@ GetEntitlementConfigInfoShort get entitlement config info
 Get entitlement config info.
 Other detail info:
 
-  * Returns : entitlement info
+  - Returns : entitlement info
 */
 func (a *Client) GetEntitlementConfigInfoShort(params *GetEntitlementConfigInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementConfigInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -330,16 +330,16 @@ Notes:
 
 Support Item Types:
 
-  *  APP
-  *  INGAMEITEM
-  *  CODE
-  *  SUBSCRIPTION
-  *  MEDIA
-  *  OPTIONBOX
-  *  LOOTBOX
+  - APP
+  - INGAMEITEM
+  - CODE
+  - SUBSCRIPTION
+  - MEDIA
+  - OPTIONBOX
+  - LOOTBOX
 
 Other detail info:
-  * Returns : bulk grant entitlements result
+  - Returns : bulk grant entitlements result
 */
 func (a *Client) GrantEntitlementsShort(params *GrantEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*GrantEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
@@ -403,7 +403,7 @@ RevokeEntitlementsShort revoke entitlements by ids
 Revoke entitlements, skipped revocation will be treated as fail.
 Other detail info:
 
-  * Returns : bulk revoke entitlements result
+  - Returns : bulk revoke entitlements result
 */
 func (a *Client) RevokeEntitlementsShort(params *RevokeEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
@@ -468,7 +468,7 @@ Get entitlement.
 
 Other detail info:
 
-  * Returns : entitlement
+  - Returns : entitlement
 */
 func (a *Client) GetEntitlementShort(params *GetEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -532,7 +532,7 @@ GetPlatformEntitlementConfigShort get platform entitlement config list
 Get platform entitlement config list.
 Other detail info:
 
-  * Returns : entitlement info
+  - Returns : entitlement info
 */
 func (a *Client) GetPlatformEntitlementConfigShort(params *GetPlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlatformEntitlementConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -589,7 +589,7 @@ UpdatePlatformEntitlementConfigShort update platform entitlement config
 Update platform entitlement config.
 Other detail info:
 
-  * Returns : platform entitlement config
+  - Returns : platform entitlement config
 */
 func (a *Client) UpdatePlatformEntitlementConfigShort(params *UpdatePlatformEntitlementConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformEntitlementConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -654,7 +654,7 @@ Query entitlements for a specific user.
 
 Other detail info:
 
-  * Returns : entitlement list
+  - Returns : entitlement list
 */
 func (a *Client) QueryUserEntitlementsShort(params *QueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
@@ -716,16 +716,16 @@ will skip un-supported item if input un-supported item types, please use /admin/
 
 Support Item Types:
 
-  *  APP
-  *  INGAMEITEM
-  *  CODE
-  *  SUBSCRIPTION
-  *  MEDIA
-  *  OPTIONBOX
-  *  LOOTBOX
+  - APP
+  - INGAMEITEM
+  - CODE
+  - SUBSCRIPTION
+  - MEDIA
+  - OPTIONBOX
+  - LOOTBOX
 
 Other detail info:
-  * Returns : granted entitlement
+  - Returns : granted entitlement
 */
 func (a *Client) GrantUserEntitlementShort(params *GrantUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GrantUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -858,7 +858,7 @@ Query app entitlements by appType.
 
 Other detail info:
 
-  * Returns : app entitlement pagination
+  - Returns : app entitlement pagination
 */
 func (a *Client) QueryUserEntitlementsByAppTypeShort(params *QueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserEntitlementsByAppTypeResponse, error) {
 	// TODO: Validate the params before sending
@@ -916,7 +916,7 @@ Get user entitlements by ids. This will return all entitlements regardless of it
 
 Other detail info:
 
-  * Returns : entitlement list
+  - Returns : entitlement list
 */
 func (a *Client) GetUserEntitlementsByIdsShort(params *GetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementsByIdsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1473,7 +1473,7 @@ RevokeAllEntitlementsShort revoke all entitlements of a user (this api is for te
 Revoke all entitlements of a user (This API is for testing purpose only)
 Other detail info:
 
-  * Returns : revoked entitlements count
+  - Returns : revoked entitlements count
 */
 func (a *Client) RevokeAllEntitlementsShort(params *RevokeAllEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeAllEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1530,7 +1530,7 @@ RevokeUserEntitlementsShort revoke user's entitlements by ids
 Revoke user's entitlements by ids.
 Other detail info:
 
-  * Returns : revoke entitlements count
+  - Returns : revoke entitlements count
 */
 func (a *Client) RevokeUserEntitlementsShort(params *RevokeUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1588,7 +1588,7 @@ Get user entitlement.
 
 Other detail info:
 
-  * Returns : entitlement
+  - Returns : entitlement
 */
 func (a *Client) GetUserEntitlementShort(params *GetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -1652,7 +1652,7 @@ UpdateUserEntitlementShort update user entitlement
 Update user entitlement. If update CONSUMABLE entitlement useCount to 0, the status will be CONSUMED.
 Other detail info:
 
-  * Returns : updated entitlement
+  - Returns : updated entitlement
 */
 func (a *Client) UpdateUserEntitlementShort(params *UpdateUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -1730,7 +1730,7 @@ ConsumeUserEntitlementShort consume user entitlement
 Consume user entitlement. If the entitlement useCount is 0, the status will be CONSUMED.
 Other detail info:
 
-  * Returns : consumed entitlement
+  - Returns : consumed entitlement
 */
 func (a *Client) ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*ConsumeUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -1806,10 +1806,12 @@ func (a *Client) ConsumeUserEntitlementShort(params *ConsumeUserEntitlementParam
 /*
 DisableUserEntitlementShort disable user entitlement
 Disable user entitlement if entitlement, only active entitlement can be disable, disabled entitlement can't consume.
- Like revoke, it will lose the entitlement ownership, except disabled entitlement can enable.
+
+	Like revoke, it will lose the entitlement ownership, except disabled entitlement can enable.
+
 Other detail info:
 
-  * Returns : disable entitlement
+  - Returns : disable entitlement
 */
 func (a *Client) DisableUserEntitlementShort(params *DisableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*DisableUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -1880,7 +1882,7 @@ EnableUserEntitlementShort enable user entitlement
 Enable user entitlement.
 Other detail info:
 
-  * Returns : enable entitlement
+  - Returns : enable entitlement
 */
 func (a *Client) EnableUserEntitlementShort(params *EnableUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*EnableUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -1952,7 +1954,7 @@ Get user entitlement histories.
 
 Other detail info:
 
-  * Returns : list of entitlement history
+  - Returns : list of entitlement history
 */
 func (a *Client) GetUserEntitlementHistoriesShort(params *GetUserEntitlementHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserEntitlementHistoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -2009,7 +2011,7 @@ RevokeUserEntitlementShort revoke user entitlement
 Revoke user entitlement.
 Other detail info:
 
-  * Returns : revoke entitlement
+  - Returns : revoke entitlement
 */
 func (a *Client) RevokeUserEntitlementShort(params *RevokeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -2073,7 +2075,7 @@ RevokeUserEntitlementByUseCountShort revoke specified count of user entitlement.
 Revoke specified count of user entitlement.
 Other detail info:
 
-  * Returns : The revoked entitlement
+  - Returns : The revoked entitlement
 */
 func (a *Client) RevokeUserEntitlementByUseCountShort(params *RevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserEntitlementByUseCountResponse, error) {
 	// TODO: Validate the params before sending
@@ -2137,7 +2139,7 @@ PreCheckRevokeUserEntitlementByUseCountShort check if specified count of user en
 Checks if specified use count of user entitlement can be revoked without actually revoking it.
 Other detail info:
 
-  * Returns : true if revokable, false otherwise
+  - Returns : true if revokable, false otherwise
 */
 func (a *Client) PreCheckRevokeUserEntitlementByUseCountShort(params *PreCheckRevokeUserEntitlementByUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*PreCheckRevokeUserEntitlementByUseCountResponse, error) {
 	// TODO: Validate the params before sending
@@ -2201,7 +2203,7 @@ RevokeUseCountShort revoke specified use count of user entitlement
 Revoke specified use count of user entitlement. please use /{entitlementId}/revoke/byUseCount endpoint instead of this endpoint
 Other detail info:
 
-  * Returns : revoke entitlement
+  - Returns : revoke entitlement
 */
 func (a *Client) RevokeUseCountShort(params *RevokeUseCountParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUseCountResponse, error) {
 	// TODO: Validate the params before sending
@@ -2263,7 +2265,7 @@ func (a *Client) RevokeUseCountShort(params *RevokeUseCountParams, authInfo runt
 /*
 SellUserEntitlementShort sell user entitlement
 Sell user entitlement. If the entitlement is consumable, useCount is 0, the status will be CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info:
-  * Returns : entitlement
+  - Returns : entitlement
 */
 func (a *Client) SellUserEntitlementShort(params *SellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SellUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -2389,8 +2391,8 @@ Get my app entitlement ownership by appId.
 
 Other detail info:
 
-  * Path's namespace :
-    * can be filled with publisher namespace in order to get publisher namespace app entitlement ownership
+  - Path's namespace :
+  - can be filled with publisher namespace in order to get publisher namespace app entitlement ownership
 */
 func (a *Client) PublicGetMyAppEntitlementOwnershipByAppIDShort(params *PublicGetMyAppEntitlementOwnershipByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyAppEntitlementOwnershipByAppIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -2448,9 +2450,9 @@ Get my entitlement ownership by itemId.
 
 Other detail info:
 
-  * Path's namespace :
-    * can be filled with publisher namespace in order to get publisher namespace entitlement ownership by sku
-    * can be filled with game namespace in order to get game namespace entitlement ownership by sku
+  - Path's namespace :
+  - can be filled with publisher namespace in order to get publisher namespace entitlement ownership by sku
+  - can be filled with game namespace in order to get game namespace entitlement ownership by sku
 */
 func (a *Client) PublicGetMyEntitlementOwnershipByItemIDShort(params *PublicGetMyEntitlementOwnershipByItemIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipByItemIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -2508,9 +2510,9 @@ Get my entitlement ownership by sku.
 
 Other detail info:
 
-  * Path's namespace :
-    * can be filled with publisher namespace in order to get publisher namespace entitlement ownership by sku
-    * can be filled with game namespace in order to get game namespace entitlement ownership by sku
+  - Path's namespace :
+  - can be filled with publisher namespace in order to get publisher namespace entitlement ownership by sku
+  - can be filled with game namespace in order to get game namespace entitlement ownership by sku
 */
 func (a *Client) PublicGetMyEntitlementOwnershipBySkuShort(params *PublicGetMyEntitlementOwnershipBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEntitlementOwnershipBySkuResponse, error) {
 	// TODO: Validate the params before sending
@@ -2568,18 +2570,15 @@ Gets an entitlement ownership token of specified itemIds, skus and appIds
 
 The decoded ownership token header like below:
 
+	{
 
-    {
+	  "kid": "9fd4cd5f991cebe3323605cd12d3b8bfdfc73fa4",
 
-      "kid": "9fd4cd5f991cebe3323605cd12d3b8bfdfc73fa4",
+	  "typ": "JWT",
 
-      "typ": "JWT",
+	  "alg": "RS256"
 
-      "alg": "RS256"
-
-    }
-
-
+	}
 
 That you can get the jwks by api /platform/jwks, if the configured private key is same as IAM,
 
@@ -2587,56 +2586,53 @@ you can also get jwks from IAM endpoint.
 
 The decoded ownership token payload like below:
 
+	{
 
-    {
+	 "namespace": "accelbyte",
 
-     "namespace": "accelbyte",
+	 "entitlements": [
 
-     "entitlements": [
+	  {
 
-      {
+	    "itemId": "4c1296291f604c199f7bb7f0ee02e5f8",
 
-        "itemId": "4c1296291f604c199f7bb7f0ee02e5f8",
+	    "appType": null,
 
-        "appType": null,
+	    "appId": null,
 
-        "appId": null,
+	    "namespace": "accelbyte",
 
-        "namespace": "accelbyte",
+	    "itemNamespace": "accelbyte",
 
-        "itemNamespace": "accelbyte",
+	    "sku": "prime-plus"
 
-        "sku": "prime-plus"
+	  },
 
-      },
+	  {
 
-      {
+	    "itemId": "e8f4974cf45c4e1f8d4f0c6990c518bd",
 
-        "itemId": "e8f4974cf45c4e1f8d4f0c6990c518bd",
+	    "appType": "GAME",
 
-        "appType": "GAME",
+	    "appId": "omeganebula",
 
-        "appId": "omeganebula",
+	    "namespace": "accelbyte",
 
-        "namespace": "accelbyte",
+	    "itemNamespace": "accelbyte",
 
-        "itemNamespace": "accelbyte",
+	    "sku": "APPG005ON"
 
-        "sku": "APPG005ON"
+	  }
 
-      }
+	 ],
 
-     ],
+	"sub": "66459eb6a4e44e6fb0040bd20c1079a5",
 
-    "sub": "66459eb6a4e44e6fb0040bd20c1079a5",
+	"exp": 1619624360,
 
-    "exp": 1619624360,
+	"iat": 1619624060
 
-    "iat": 1619624060
-
-    }
-
-
+	}
 
 if there's no active entitlement for the specific params, the entitlements section will be omitted.
 */
@@ -2696,7 +2692,7 @@ Query user entitlements for a specific user.
 
 Other detail info:
 
-  * Returns : entitlement list
+  - Returns : entitlement list
 */
 func (a *Client) PublicQueryUserEntitlementsShort(params *PublicQueryUserEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
@@ -2815,7 +2811,7 @@ Query app entitlements by appType.
 
 Other detail info:
 
-  * Returns : app entitlement pagination
+  - Returns : app entitlement pagination
 */
 func (a *Client) PublicQueryUserEntitlementsByAppTypeShort(params *PublicQueryUserEntitlementsByAppTypeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserEntitlementsByAppTypeResponse, error) {
 	// TODO: Validate the params before sending
@@ -2873,7 +2869,7 @@ Get user entitlements by ids..
 
 Other detail info:
 
-  * Returns : entitlement list
+  - Returns : entitlement list
 */
 func (a *Client) PublicGetUserEntitlementsByIdsShort(params *PublicGetUserEntitlementsByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementsByIdsResponse, error) {
 	// TODO: Validate the params before sending
@@ -3053,7 +3049,7 @@ Get user entitlement history
 
 Other detail info:
 
-  * Returns : user entitlement history list
+  - Returns : user entitlement history list
 */
 func (a *Client) PublicUserEntitlementHistoryShort(params *PublicUserEntitlementHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUserEntitlementHistoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -3381,7 +3377,7 @@ Get user entitlement.
 
 Other detail info:
 
-  * Returns : entitlement
+  - Returns : entitlement
 */
 func (a *Client) PublicGetUserEntitlementShort(params *PublicGetUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -3445,7 +3441,7 @@ PublicConsumeUserEntitlementShort consume user entitlement
 Consume user entitlement. If the entitlement useCount is 0, the status will be CONSUMED. Client should pass item id in options if entitlement clazz is OPTIONBOX
 Other detail info:
 
-  * Returns : consumed entitlement
+  - Returns : consumed entitlement
 */
 func (a *Client) PublicConsumeUserEntitlementShort(params *PublicConsumeUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicConsumeUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -3521,7 +3517,7 @@ func (a *Client) PublicConsumeUserEntitlementShort(params *PublicConsumeUserEnti
 /*
 PublicSellUserEntitlementShort sell user entitlement
 Sell user entitlement. If the entitlement is consumable, useCount is 0, the status will be CONSUMED. If the entitlement is durable, the status will be SOLD. Other detail info:
-  * Returns : entitlement
+  - Returns : entitlement
 */
 func (a *Client) PublicSellUserEntitlementShort(params *PublicSellUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSellUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -3590,7 +3586,7 @@ func (a *Client) PublicSellUserEntitlementShort(params *PublicSellUserEntitlemen
 /*
 PublicSplitUserEntitlementShort split user entitlement
 Split a specified use count of entitlement and create a new entitlement with splitting use count.Other detail info:
-  * Returns : entitlement
+  - Returns : entitlement
 */
 func (a *Client) PublicSplitUserEntitlementShort(params *PublicSplitUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSplitUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending
@@ -3659,7 +3655,7 @@ func (a *Client) PublicSplitUserEntitlementShort(params *PublicSplitUserEntitlem
 /*
 PublicTransferUserEntitlementShort transfer user entitlement
 Transfer a specified use count from entitlement A to B..Other detail info:
-  * Returns : entitlement
+  - Returns : entitlement
 */
 func (a *Client) PublicTransferUserEntitlementShort(params *PublicTransferUserEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*PublicTransferUserEntitlementResponse, error) {
 	// TODO: Validate the params before sending

@@ -144,9 +144,10 @@ func NewPublicGetBackupCodesV4NoContent() *PublicGetBackupCodesV4NoContent {
 	return &PublicGetBackupCodesV4NoContent{}
 }
 
-/*PublicGetBackupCodesV4NoContent handles this case with default header values.
+/*
+PublicGetBackupCodesV4NoContent handles this case with default header values.
 
-  Backup codes sent to email
+	Backup codes sent to email
 */
 type PublicGetBackupCodesV4NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicGetBackupCodesV4BadRequest() *PublicGetBackupCodesV4BadRequest {
 	return &PublicGetBackupCodesV4BadRequest{}
 }
 
-/*PublicGetBackupCodesV4BadRequest handles this case with default header values.
+/*
+PublicGetBackupCodesV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type PublicGetBackupCodesV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewPublicGetBackupCodesV4Unauthorized() *PublicGetBackupCodesV4Unauthorized
 	return &PublicGetBackupCodesV4Unauthorized{}
 }
 
-/*PublicGetBackupCodesV4Unauthorized handles this case with default header values.
+/*
+PublicGetBackupCodesV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetBackupCodesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewPublicGetBackupCodesV4Forbidden() *PublicGetBackupCodesV4Forbidden {
 	return &PublicGetBackupCodesV4Forbidden{}
 }
 
-/*PublicGetBackupCodesV4Forbidden handles this case with default header values.
+/*
+PublicGetBackupCodesV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetBackupCodesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewPublicGetBackupCodesV4NotFound() *PublicGetBackupCodesV4NotFound {
 	return &PublicGetBackupCodesV4NotFound{}
 }
 
-/*PublicGetBackupCodesV4NotFound handles this case with default header values.
+/*
+PublicGetBackupCodesV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicGetBackupCodesV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewPublicGetBackupCodesV4InternalServerError() *PublicGetBackupCodesV4Inter
 	return &PublicGetBackupCodesV4InternalServerError{}
 }
 
-/*PublicGetBackupCodesV4InternalServerError handles this case with default header values.
+/*
+PublicGetBackupCodesV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetBackupCodesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

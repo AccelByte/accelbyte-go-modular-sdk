@@ -59,7 +59,8 @@ func NewCreateSeasonParamsWithHTTPClient(client *http.Client) *CreateSeasonParam
 	}
 }
 
-/*CreateSeasonParams contains all the parameters to send to the API endpoint
+/*
+CreateSeasonParams contains all the parameters to send to the API endpoint
 for the create season operation typically these are written to a http.Request
 */
 type CreateSeasonParams struct {

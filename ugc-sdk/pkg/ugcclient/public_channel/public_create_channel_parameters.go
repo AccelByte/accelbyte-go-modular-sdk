@@ -59,7 +59,8 @@ func NewPublicCreateChannelParamsWithHTTPClient(client *http.Client) *PublicCrea
 	}
 }
 
-/*PublicCreateChannelParams contains all the parameters to send to the API endpoint
+/*
+PublicCreateChannelParams contains all the parameters to send to the API endpoint
 for the public create channel operation typically these are written to a http.Request
 */
 type PublicCreateChannelParams struct {

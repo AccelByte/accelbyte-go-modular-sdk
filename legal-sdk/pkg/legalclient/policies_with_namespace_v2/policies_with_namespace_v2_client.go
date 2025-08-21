@@ -39,25 +39,26 @@ type ClientService interface {
 RetrieveLatestPoliciesByNamespaceAndCountryPublic1Short retrieve latest policies by namespace and country
 This API is used to list all the related doc in register page, include optional & mandatory (when env config APP_LEGAL_AGREEMENT_ALWAYS_INCLUDE_DEFAULT=true).
 Other detail info: Here are the result of different cases
-      * Document 1, Region US (default, mandatory), UA (optional); clientID: [client_A]
-      * Document 2, Region US (default, optional), UA (mandatory); clientID: [client_A]
-      * Document 3, Region UA (default, mandatory); clientID: [client_A]
-      * Document 4, Region US (default, optional); clientID: [client_A]
-      * Document 5, Region US (default, optional); clientID: [client_B]
-      * Document 6, Region CA (mandatory, optional), UA (optional); clientID: [client_B]
-      * Query by: Region UA + client_A
-      * Response: Document 1 (UA, optional), Document 2 (UA, mandatory), Document 3 (UA, mandatory), Document 4 (US, optional)
-      * Query by: Region CA + client_A
-      * Response: Document 1 (US, mandatory), Document 2 (US, mandatory), Document 3 (UA, mandatory), Document 4 (US, optional)
-      * Query by: Region UA + client_B
-      * Response: Document 5 (US, optional), Document 6 (UA, optional)
-      * Query by: Region CN + client_B
-      * Response: Document 5 (US, optional), Document 6 (CA, mandatory)
+  - Document 1, Region US (default, mandatory), UA (optional); clientID: [client_A]
+  - Document 2, Region US (default, optional), UA (mandatory); clientID: [client_A]
+  - Document 3, Region UA (default, mandatory); clientID: [client_A]
+  - Document 4, Region US (default, optional); clientID: [client_A]
+  - Document 5, Region US (default, optional); clientID: [client_B]
+  - Document 6, Region CA (mandatory, optional), UA (optional); clientID: [client_B]
+  - Query by: Region UA + client_A
+  - Response: Document 1 (UA, optional), Document 2 (UA, mandatory), Document 3 (UA, mandatory), Document 4 (US, optional)
+  - Query by: Region CA + client_A
+  - Response: Document 1 (US, mandatory), Document 2 (US, mandatory), Document 3 (UA, mandatory), Document 4 (US, optional)
+  - Query by: Region UA + client_B
+  - Response: Document 5 (US, optional), Document 6 (UA, optional)
+  - Query by: Region CN + client_B
+  - Response: Document 5 (US, optional), Document 6 (CA, mandatory)
+
 Note: If APP_LEGAL_AGREEMENT_ALWAYS_INCLUDE_DEFAULT=false the behavior will be same with `/agreement/public/policies/namespaces/{namespace}/countries/{country_code}?defaultOnEmpty=true&visibleOnly;=true`;Here are the result of different cases
-      * Query by: Region UA + client_A
-      * Response: Document 1 (UA, optional), Document 2 (UA, mandatory), Document 3 (UA, mandatory)
-      * Query by: Region UA + client_B
-      * Response: Document 5 (US, optional)
+  - Query by: Region UA + client_A
+  - Response: Document 1 (UA, optional), Document 2 (UA, mandatory), Document 3 (UA, mandatory)
+  - Query by: Region UA + client_B
+  - Response: Document 5 (US, optional)
 */
 func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublic1Short(params *RetrieveLatestPoliciesByNamespaceAndCountryPublic1Params) (*RetrieveLatestPoliciesByNamespaceAndCountryPublic1Response, error) {
 	// TODO: Validate the params before sending

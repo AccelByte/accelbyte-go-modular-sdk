@@ -145,9 +145,10 @@ func NewAdminUpdateContentHideStatusV2OK() *AdminUpdateContentHideStatusV2OK {
 	return &AdminUpdateContentHideStatusV2OK{}
 }
 
-/*AdminUpdateContentHideStatusV2OK handles this case with default header values.
+/*
+AdminUpdateContentHideStatusV2OK handles this case with default header values.
 
-  Hide/UnHide user's generated content
+	Hide/UnHide user's generated content
 */
 type AdminUpdateContentHideStatusV2OK struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponseV2
@@ -199,9 +200,10 @@ func NewAdminUpdateContentHideStatusV2BadRequest() *AdminUpdateContentHideStatus
 	return &AdminUpdateContentHideStatusV2BadRequest{}
 }
 
-/*AdminUpdateContentHideStatusV2BadRequest handles this case with default header values.
+/*
+AdminUpdateContentHideStatusV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773801</td><td>Invalid request body/Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773801</td><td>Invalid request body/Malformed request</td></tr></table>
 */
 type AdminUpdateContentHideStatusV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUpdateContentHideStatusV2Unauthorized() *AdminUpdateContentHideStat
 	return &AdminUpdateContentHideStatusV2Unauthorized{}
 }
 
-/*AdminUpdateContentHideStatusV2Unauthorized handles this case with default header values.
+/*
+AdminUpdateContentHideStatusV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateContentHideStatusV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUpdateContentHideStatusV2Forbidden() *AdminUpdateContentHideStatusV
 	return &AdminUpdateContentHideStatusV2Forbidden{}
 }
 
-/*AdminUpdateContentHideStatusV2Forbidden handles this case with default header values.
+/*
+AdminUpdateContentHideStatusV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminUpdateContentHideStatusV2Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUpdateContentHideStatusV2NotFound() *AdminUpdateContentHideStatusV2
 	return &AdminUpdateContentHideStatusV2NotFound{}
 }
 
-/*AdminUpdateContentHideStatusV2NotFound handles this case with default header values.
+/*
+AdminUpdateContentHideStatusV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773803</td><td>Unable to update hide status: content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773803</td><td>Unable to update hide status: content not found</td></tr></table>
 */
 type AdminUpdateContentHideStatusV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUpdateContentHideStatusV2InternalServerError() *AdminUpdateContentH
 	return &AdminUpdateContentHideStatusV2InternalServerError{}
 }
 
-/*AdminUpdateContentHideStatusV2InternalServerError handles this case with default header values.
+/*
+AdminUpdateContentHideStatusV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773802</td><td>Unable to update hide status: database error</td></tr><tr><td>773804</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773802</td><td>Unable to update hide status: database error</td></tr><tr><td>773804</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
 */
 type AdminUpdateContentHideStatusV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

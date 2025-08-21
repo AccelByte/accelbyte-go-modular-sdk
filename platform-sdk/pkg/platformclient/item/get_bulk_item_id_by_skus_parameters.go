@@ -58,7 +58,8 @@ func NewGetBulkItemIDBySkusParamsWithHTTPClient(client *http.Client) *GetBulkIte
 	}
 }
 
-/*GetBulkItemIDBySkusParams contains all the parameters to send to the API endpoint
+/*
+GetBulkItemIDBySkusParams contains all the parameters to send to the API endpoint
 for the get bulk item id by skus operation typically these are written to a http.Request
 */
 type GetBulkItemIDBySkusParams struct {

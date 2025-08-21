@@ -144,9 +144,10 @@ func NewPublicPartyCancelNoContent() *PublicPartyCancelNoContent {
 	return &PublicPartyCancelNoContent{}
 }
 
-/*PublicPartyCancelNoContent handles this case with default header values.
+/*
+PublicPartyCancelNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicPartyCancelNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicPartyCancelBadRequest() *PublicPartyCancelBadRequest {
 	return &PublicPartyCancelBadRequest{}
 }
 
-/*PublicPartyCancelBadRequest handles this case with default header values.
+/*
+PublicPartyCancelBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPartyCancelBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewPublicPartyCancelUnauthorized() *PublicPartyCancelUnauthorized {
 	return &PublicPartyCancelUnauthorized{}
 }
 
-/*PublicPartyCancelUnauthorized handles this case with default header values.
+/*
+PublicPartyCancelUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPartyCancelUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewPublicPartyCancelForbidden() *PublicPartyCancelForbidden {
 	return &PublicPartyCancelForbidden{}
 }
 
-/*PublicPartyCancelForbidden handles this case with default header values.
+/*
+PublicPartyCancelForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicPartyCancelForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewPublicPartyCancelNotFound() *PublicPartyCancelNotFound {
 	return &PublicPartyCancelNotFound{}
 }
 
-/*PublicPartyCancelNotFound handles this case with default header values.
+/*
+PublicPartyCancelNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPartyCancelNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewPublicPartyCancelInternalServerError() *PublicPartyCancelInternalServerE
 	return &PublicPartyCancelInternalServerError{}
 }
 
-/*PublicPartyCancelInternalServerError handles this case with default header values.
+/*
+PublicPartyCancelInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPartyCancelInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

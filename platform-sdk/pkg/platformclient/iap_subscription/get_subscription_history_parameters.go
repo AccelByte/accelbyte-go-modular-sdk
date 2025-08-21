@@ -78,7 +78,8 @@ func NewGetSubscriptionHistoryParamsWithHTTPClient(client *http.Client) *GetSubs
 	}
 }
 
-/*GetSubscriptionHistoryParams contains all the parameters to send to the API endpoint
+/*
+GetSubscriptionHistoryParams contains all the parameters to send to the API endpoint
 for the get subscription history operation typically these are written to a http.Request
 */
 type GetSubscriptionHistoryParams struct {

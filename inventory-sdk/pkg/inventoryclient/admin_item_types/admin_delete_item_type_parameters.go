@@ -57,7 +57,8 @@ func NewAdminDeleteItemTypeParamsWithHTTPClient(client *http.Client) *AdminDelet
 	}
 }
 
-/*AdminDeleteItemTypeParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteItemTypeParams contains all the parameters to send to the API endpoint
 for the admin delete item type operation typically these are written to a http.Request
 */
 type AdminDeleteItemTypeParams struct {

@@ -145,9 +145,10 @@ func NewAdminQueryBackfillOK() *AdminQueryBackfillOK {
 	return &AdminQueryBackfillOK{}
 }
 
-/*AdminQueryBackfillOK handles this case with default header values.
+/*
+AdminQueryBackfillOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminQueryBackfillOK struct {
 	Payload *match2clientmodels.APIListBackfillQueryResponse
@@ -199,9 +200,10 @@ func NewAdminQueryBackfillBadRequest() *AdminQueryBackfillBadRequest {
 	return &AdminQueryBackfillBadRequest{}
 }
 
-/*AdminQueryBackfillBadRequest handles this case with default header values.
+/*
+AdminQueryBackfillBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminQueryBackfillBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminQueryBackfillUnauthorized() *AdminQueryBackfillUnauthorized {
 	return &AdminQueryBackfillUnauthorized{}
 }
 
-/*AdminQueryBackfillUnauthorized handles this case with default header values.
+/*
+AdminQueryBackfillUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminQueryBackfillUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminQueryBackfillForbidden() *AdminQueryBackfillForbidden {
 	return &AdminQueryBackfillForbidden{}
 }
 
-/*AdminQueryBackfillForbidden handles this case with default header values.
+/*
+AdminQueryBackfillForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminQueryBackfillForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminQueryBackfillNotFound() *AdminQueryBackfillNotFound {
 	return &AdminQueryBackfillNotFound{}
 }
 
-/*AdminQueryBackfillNotFound handles this case with default header values.
+/*
+AdminQueryBackfillNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminQueryBackfillNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminQueryBackfillInternalServerError() *AdminQueryBackfillInternalServe
 	return &AdminQueryBackfillInternalServerError{}
 }
 
-/*AdminQueryBackfillInternalServerError handles this case with default header values.
+/*
+AdminQueryBackfillInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminQueryBackfillInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewLeaveGameSessionParamsWithHTTPClient(client *http.Client) *LeaveGameSess
 	}
 }
 
-/*LeaveGameSessionParams contains all the parameters to send to the API endpoint
+/*
+LeaveGameSessionParams contains all the parameters to send to the API endpoint
 for the leave game session operation typically these are written to a http.Request
 */
 type LeaveGameSessionParams struct {

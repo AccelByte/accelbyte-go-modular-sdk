@@ -100,9 +100,10 @@ func NewAdminPatchUpdateLogConfigOK() *AdminPatchUpdateLogConfigOK {
 	return &AdminPatchUpdateLogConfigOK{}
 }
 
-/*AdminPatchUpdateLogConfigOK handles this case with default header values.
+/*
+AdminPatchUpdateLogConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminPatchUpdateLogConfigOK struct {
 	Payload *sessionclientmodels.LogconfigConfiguration
@@ -154,9 +155,10 @@ func NewAdminPatchUpdateLogConfigUnauthorized() *AdminPatchUpdateLogConfigUnauth
 	return &AdminPatchUpdateLogConfigUnauthorized{}
 }
 
-/*AdminPatchUpdateLogConfigUnauthorized handles this case with default header values.
+/*
+AdminPatchUpdateLogConfigUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminPatchUpdateLogConfigUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -208,9 +210,10 @@ func NewAdminPatchUpdateLogConfigForbidden() *AdminPatchUpdateLogConfigForbidden
 	return &AdminPatchUpdateLogConfigForbidden{}
 }
 
-/*AdminPatchUpdateLogConfigForbidden handles this case with default header values.
+/*
+AdminPatchUpdateLogConfigForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminPatchUpdateLogConfigForbidden struct {
 	Payload *sessionclientmodels.ResponseError

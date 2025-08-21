@@ -69,9 +69,10 @@ func NewGetPaymentTaxConfigOK() *GetPaymentTaxConfigOK {
 	return &GetPaymentTaxConfigOK{}
 }
 
-/*GetPaymentTaxConfigOK handles this case with default header values.
+/*
+GetPaymentTaxConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPaymentTaxConfigOK struct {
 	Payload *platformclientmodels.PaymentTaxConfigInfo

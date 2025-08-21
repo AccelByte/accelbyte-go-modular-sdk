@@ -57,7 +57,8 @@ func NewPublicPartyCancelParamsWithHTTPClient(client *http.Client) *PublicPartyC
 	}
 }
 
-/*PublicPartyCancelParams contains all the parameters to send to the API endpoint
+/*
+PublicPartyCancelParams contains all the parameters to send to the API endpoint
 for the public party cancel operation typically these are written to a http.Request
 */
 type PublicPartyCancelParams struct {

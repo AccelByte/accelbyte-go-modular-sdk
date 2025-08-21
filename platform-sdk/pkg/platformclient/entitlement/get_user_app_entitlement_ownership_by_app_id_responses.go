@@ -69,9 +69,10 @@ func NewGetUserAppEntitlementOwnershipByAppIDOK() *GetUserAppEntitlementOwnershi
 	return &GetUserAppEntitlementOwnershipByAppIDOK{}
 }
 
-/*GetUserAppEntitlementOwnershipByAppIDOK handles this case with default header values.
+/*
+GetUserAppEntitlementOwnershipByAppIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetUserAppEntitlementOwnershipByAppIDOK struct {
 	Payload *platformclientmodels.Ownership

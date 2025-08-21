@@ -69,9 +69,10 @@ func NewCommitOK() *CommitOK {
 	return &CommitOK{}
 }
 
-/*CommitOK handles this case with default header values.
+/*
+CommitOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CommitOK struct {
 	Payload *platformclientmodels.TradeChainActionHistoryInfo

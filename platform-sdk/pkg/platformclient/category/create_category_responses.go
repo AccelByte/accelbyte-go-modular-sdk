@@ -130,9 +130,10 @@ func NewCreateCategoryCreated() *CreateCategoryCreated {
 	return &CreateCategoryCreated{}
 }
 
-/*CreateCategoryCreated handles this case with default header values.
+/*
+CreateCategoryCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateCategoryCreated struct {
 	Payload *platformclientmodels.FullCategoryInfo
@@ -184,9 +185,10 @@ func NewCreateCategoryBadRequest() *CreateCategoryBadRequest {
 	return &CreateCategoryBadRequest{}
 }
 
-/*CreateCategoryBadRequest handles this case with default header values.
+/*
+CreateCategoryBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30021</td><td>Default language [{language}] required</td></tr></table>
 */
 type CreateCategoryBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewCreateCategoryNotFound() *CreateCategoryNotFound {
 	return &CreateCategoryNotFound{}
 }
 
-/*CreateCategoryNotFound handles this case with default header values.
+/*
+CreateCategoryNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CreateCategoryNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewCreateCategoryConflict() *CreateCategoryConflict {
 	return &CreateCategoryConflict{}
 }
 
-/*CreateCategoryConflict handles this case with default header values.
+/*
+CreateCategoryConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30271</td><td>Category [{categoryPath}] already exists in namespace [{namespace}]</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30271</td><td>Category [{categoryPath}] already exists in namespace [{namespace}]</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type CreateCategoryConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewCreateCategoryUnprocessableEntity() *CreateCategoryUnprocessableEntity {
 	return &CreateCategoryUnprocessableEntity{}
 }
 
-/*CreateCategoryUnprocessableEntity handles this case with default header values.
+/*
+CreateCategoryUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateCategoryUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

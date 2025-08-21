@@ -158,7 +158,7 @@ This endpoint is used to accept group invitation.
 
 Accept group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
 
-This endpoint will also check if the user who access this endpoint is already joined to specific group
+# This endpoint will also check if the user who access this endpoint is already joined to specific group
 
 Accessing this endpoint will make all requests (invite / join request) will be deleted for the user who access this endpoint
 
@@ -364,7 +364,7 @@ func (a *Client) RejectGroupInvitationPublicV1Short(params *RejectGroupInvitatio
 JoinGroupV1Short join to group
 Required valid user authentication
 
-This endpoint is used to join as group member
+# This endpoint is used to join as group member
 
 Join to the group. This endpoint will check the the the type of the group based on the groupID.
 
@@ -374,7 +374,7 @@ Additional Information:
 * Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
 * Joining OPEN group type will make this user become member of that group immediately
 
-This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+# This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
 
 Action Code: 73403
 */
@@ -859,8 +859,6 @@ Invited user will receive notification through lobby.
 
 Action Code: 73406
 
-
-
 memberRolePermissions example value :
 
 "action": 1
@@ -971,7 +969,7 @@ This endpoint is used to accept group join request.
 
 Accept group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-This endpoint will also check if the specific user is already joined to specific group
+# This endpoint will also check if the specific user is already joined to specific group
 
 Action Code: 73407
 */
@@ -1077,7 +1075,7 @@ This endpoint is used to reject group join request.
 
 Reject group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-This endpoint will also check if the specific user is already joined to specific group
+# This endpoint will also check if the specific user is already joined to specific group
 
 Action Code: 73408
 */
@@ -1457,7 +1455,7 @@ This endpoint is used to accept group invitation.
 
 Accept group invitation. If specific user is not invited in the specific group ID, it will show the the error to show if the user is not invited yet.
 
-This endpoint will also check if the user who access this endpoint is already joined to specific group
+# This endpoint will also check if the user who access this endpoint is already joined to specific group
 
 Accessing this endpoint will make all requests (invite / join request) will be deleted for the user who access this endpoint
 
@@ -1663,7 +1661,7 @@ func (a *Client) RejectGroupInvitationPublicV2Short(params *RejectGroupInvitatio
 JoinGroupV2Short join to group
 Required valid user authentication
 
-This endpoint is used to join as group member
+# This endpoint is used to join as group member
 
 Join to the group. This endpoint will check the the the type of the group based on the groupID.
 
@@ -1673,7 +1671,7 @@ Additional Information:
 * Joining PUBLIC group type will create join request and need approval from the privileged group member to accept the request to become the member
 * Joining OPEN group type will make this user become member of that group immediately
 
-This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
+# This endpoint will return status field to give information whether the user is JOINED or REQUESTED to join to the specific group
 
 Action Code: 73403
 */
@@ -1970,8 +1968,6 @@ Invited user will receive notification through lobby.
 
 Action Code: 73406
 
-
-
 memberRolePermissions example value :
 
 "action": 1
@@ -2179,7 +2175,7 @@ This endpoint is used to accept group join request.
 
 Accept group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-This endpoint will also check if the specific user is already joined to specific group
+# This endpoint will also check if the specific user is already joined to specific group
 
 Action Code: 73407
 */
@@ -2285,7 +2281,7 @@ This endpoint is used to reject group join request.
 
 Reject group join request. If specific user is not asked to join the specific group ID, it will show the the error to show if the user is not asked to join yet.
 
-This endpoint will also check if the specific user is already joined to specific group
+# This endpoint will also check if the specific user is already joined to specific group
 
 Action Code: 73408
 */

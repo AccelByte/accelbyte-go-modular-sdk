@@ -115,10 +115,9 @@ func NewUpdateReasonOK() *UpdateReasonOK {
 	return &UpdateReasonOK{}
 }
 
-/*UpdateReasonOK handles this case with default header values.
-
-
- */
+/*
+UpdateReasonOK handles this case with default header values.
+*/
 type UpdateReasonOK struct {
 	Payload *reportingclientmodels.RestapiAdminReasonResponse
 }
@@ -169,10 +168,9 @@ func NewUpdateReasonBadRequest() *UpdateReasonBadRequest {
 	return &UpdateReasonBadRequest{}
 }
 
-/*UpdateReasonBadRequest handles this case with default header values.
-
-
- */
+/*
+UpdateReasonBadRequest handles this case with default header values.
+*/
 type UpdateReasonBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -223,9 +221,10 @@ func NewUpdateReasonConflict() *UpdateReasonConflict {
 	return &UpdateReasonConflict{}
 }
 
-/*UpdateReasonConflict handles this case with default header values.
+/*
+UpdateReasonConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type UpdateReasonConflict struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
@@ -277,10 +276,9 @@ func NewUpdateReasonInternalServerError() *UpdateReasonInternalServerError {
 	return &UpdateReasonInternalServerError{}
 }
 
-/*UpdateReasonInternalServerError handles this case with default header values.
-
-
- */
+/*
+UpdateReasonInternalServerError handles this case with default header values.
+*/
 type UpdateReasonInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

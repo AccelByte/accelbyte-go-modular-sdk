@@ -59,7 +59,8 @@ func NewUpdateGroupCustomRulePublicV1ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*UpdateGroupCustomRulePublicV1Params contains all the parameters to send to the API endpoint
+/*
+UpdateGroupCustomRulePublicV1Params contains all the parameters to send to the API endpoint
 for the update group custom rule public v1 operation typically these are written to a http.Request
 */
 type UpdateGroupCustomRulePublicV1Params struct {

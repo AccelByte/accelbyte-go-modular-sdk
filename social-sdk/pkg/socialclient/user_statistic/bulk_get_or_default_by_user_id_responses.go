@@ -130,9 +130,10 @@ func NewBulkGetOrDefaultByUserIDOK() *BulkGetOrDefaultByUserIDOK {
 	return &BulkGetOrDefaultByUserIDOK{}
 }
 
-/*BulkGetOrDefaultByUserIDOK handles this case with default header values.
+/*
+BulkGetOrDefaultByUserIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkGetOrDefaultByUserIDOK struct {
 	Payload []*socialclientmodels.ADTOObjectForUserStatItemValue
@@ -182,9 +183,10 @@ func NewBulkGetOrDefaultByUserIDUnauthorized() *BulkGetOrDefaultByUserIDUnauthor
 	return &BulkGetOrDefaultByUserIDUnauthorized{}
 }
 
-/*BulkGetOrDefaultByUserIDUnauthorized handles this case with default header values.
+/*
+BulkGetOrDefaultByUserIDUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type BulkGetOrDefaultByUserIDUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -236,9 +238,10 @@ func NewBulkGetOrDefaultByUserIDForbidden() *BulkGetOrDefaultByUserIDForbidden {
 	return &BulkGetOrDefaultByUserIDForbidden{}
 }
 
-/*BulkGetOrDefaultByUserIDForbidden handles this case with default header values.
+/*
+BulkGetOrDefaultByUserIDForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkGetOrDefaultByUserIDForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -290,9 +293,10 @@ func NewBulkGetOrDefaultByUserIDUnprocessableEntity() *BulkGetOrDefaultByUserIDU
 	return &BulkGetOrDefaultByUserIDUnprocessableEntity{}
 }
 
-/*BulkGetOrDefaultByUserIDUnprocessableEntity handles this case with default header values.
+/*
+BulkGetOrDefaultByUserIDUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkGetOrDefaultByUserIDUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -344,9 +348,10 @@ func NewBulkGetOrDefaultByUserIDInternalServerError() *BulkGetOrDefaultByUserIDI
 	return &BulkGetOrDefaultByUserIDInternalServerError{}
 }
 
-/*BulkGetOrDefaultByUserIDInternalServerError handles this case with default header values.
+/*
+BulkGetOrDefaultByUserIDInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type BulkGetOrDefaultByUserIDInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

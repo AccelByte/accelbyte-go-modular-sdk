@@ -57,7 +57,8 @@ func NewAdminGetChatSnapshotParamsWithHTTPClient(client *http.Client) *AdminGetC
 	}
 }
 
-/*AdminGetChatSnapshotParams contains all the parameters to send to the API endpoint
+/*
+AdminGetChatSnapshotParams contains all the parameters to send to the API endpoint
 for the admin get chat snapshot operation typically these are written to a http.Request
 */
 type AdminGetChatSnapshotParams struct {

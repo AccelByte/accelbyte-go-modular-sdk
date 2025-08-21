@@ -59,7 +59,8 @@ func NewUpdateRevocationConfigParamsWithHTTPClient(client *http.Client) *UpdateR
 	}
 }
 
-/*UpdateRevocationConfigParams contains all the parameters to send to the API endpoint
+/*
+UpdateRevocationConfigParams contains all the parameters to send to the API endpoint
 for the update revocation config operation typically these are written to a http.Request
 */
 type UpdateRevocationConfigParams struct {

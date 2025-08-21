@@ -115,9 +115,10 @@ func NewAdminImportConfigV1OK() *AdminImportConfigV1OK {
 	return &AdminImportConfigV1OK{}
 }
 
-/*AdminImportConfigV1OK handles this case with default header values.
+/*
+AdminImportConfigV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminImportConfigV1OK struct {
 	Payload *lobbyclientmodels.ModelsImportConfigResponse
@@ -169,9 +170,10 @@ func NewAdminImportConfigV1Unauthorized() *AdminImportConfigV1Unauthorized {
 	return &AdminImportConfigV1Unauthorized{}
 }
 
-/*AdminImportConfigV1Unauthorized handles this case with default header values.
+/*
+AdminImportConfigV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminImportConfigV1Unauthorized struct {
 	Payload *lobbyclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminImportConfigV1Forbidden() *AdminImportConfigV1Forbidden {
 	return &AdminImportConfigV1Forbidden{}
 }
 
-/*AdminImportConfigV1Forbidden handles this case with default header values.
+/*
+AdminImportConfigV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminImportConfigV1Forbidden struct {
 	Payload *lobbyclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminImportConfigV1InternalServerError() *AdminImportConfigV1InternalSer
 	return &AdminImportConfigV1InternalServerError{}
 }
 
-/*AdminImportConfigV1InternalServerError handles this case with default header values.
+/*
+AdminImportConfigV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminImportConfigV1InternalServerError struct {
 	Payload *lobbyclientmodels.ResponseError

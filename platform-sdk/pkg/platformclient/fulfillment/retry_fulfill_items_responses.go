@@ -96,9 +96,10 @@ func NewRetryFulfillItemsOK() *RetryFulfillItemsOK {
 	return &RetryFulfillItemsOK{}
 }
 
-/*RetryFulfillItemsOK handles this case with default header values.
+/*
+RetryFulfillItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetryFulfillItemsOK struct {
 	Payload *platformclientmodels.FulfillmentV2Result
@@ -150,9 +151,10 @@ func NewRetryFulfillItemsNotFound() *RetryFulfillItemsNotFound {
 	return &RetryFulfillItemsNotFound{}
 }
 
-/*RetryFulfillItemsNotFound handles this case with default header values.
+/*
+RetryFulfillItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38145</td><td>Fulfillment with transactionId [{transactionId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38145</td><td>Fulfillment with transactionId [{transactionId}] does not exist</td></tr></table>
 */
 type RetryFulfillItemsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -204,9 +206,10 @@ func NewRetryFulfillItemsConflict() *RetryFulfillItemsConflict {
 	return &RetryFulfillItemsConflict{}
 }
 
-/*RetryFulfillItemsConflict handles this case with default header values.
+/*
+RetryFulfillItemsConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr></table>
 */
 type RetryFulfillItemsConflict struct {
 	Payload *platformclientmodels.FulfillmentV2Result

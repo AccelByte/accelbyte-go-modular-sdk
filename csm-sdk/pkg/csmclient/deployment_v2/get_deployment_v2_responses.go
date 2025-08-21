@@ -130,10 +130,9 @@ func NewGetDeploymentV2OK() *GetDeploymentV2OK {
 	return &GetDeploymentV2OK{}
 }
 
-/*GetDeploymentV2OK handles this case with default header values.
-
-
- */
+/*
+GetDeploymentV2OK handles this case with default header values.
+*/
 type GetDeploymentV2OK struct {
 	Payload *csmclientmodels.ApimodelGetDeploymentListV2DataItem
 }
@@ -184,9 +183,10 @@ func NewGetDeploymentV2Unauthorized() *GetDeploymentV2Unauthorized {
 	return &GetDeploymentV2Unauthorized{}
 }
 
-/*GetDeploymentV2Unauthorized handles this case with default header values.
+/*
+GetDeploymentV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetDeploymentV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewGetDeploymentV2Forbidden() *GetDeploymentV2Forbidden {
 	return &GetDeploymentV2Forbidden{}
 }
 
-/*GetDeploymentV2Forbidden handles this case with default header values.
+/*
+GetDeploymentV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetDeploymentV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewGetDeploymentV2NotFound() *GetDeploymentV2NotFound {
 	return &GetDeploymentV2NotFound{}
 }
 
-/*GetDeploymentV2NotFound handles this case with default header values.
+/*
+GetDeploymentV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetDeploymentV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewGetDeploymentV2InternalServerError() *GetDeploymentV2InternalServerError
 	return &GetDeploymentV2InternalServerError{}
 }
 
-/*GetDeploymentV2InternalServerError handles this case with default header values.
+/*
+GetDeploymentV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetDeploymentV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

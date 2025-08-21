@@ -145,9 +145,10 @@ func NewAdminCreateJusticeUserCreated() *AdminCreateJusticeUserCreated {
 	return &AdminCreateJusticeUserCreated{}
 }
 
-/*AdminCreateJusticeUserCreated handles this case with default header values.
+/*
+AdminCreateJusticeUserCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateJusticeUserCreated struct {
 	Payload *iamclientmodels.ModelCreateJusticeUserResponse
@@ -199,9 +200,10 @@ func NewAdminCreateJusticeUserBadRequest() *AdminCreateJusticeUserBadRequest {
 	return &AdminCreateJusticeUserBadRequest{}
 }
 
-/*AdminCreateJusticeUserBadRequest handles this case with default header values.
+/*
+AdminCreateJusticeUserBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminCreateJusticeUserBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewAdminCreateJusticeUserUnauthorized() *AdminCreateJusticeUserUnauthorized
 	return &AdminCreateJusticeUserUnauthorized{}
 }
 
-/*AdminCreateJusticeUserUnauthorized handles this case with default header values.
+/*
+AdminCreateJusticeUserUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type AdminCreateJusticeUserUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewAdminCreateJusticeUserForbidden() *AdminCreateJusticeUserForbidden {
 	return &AdminCreateJusticeUserForbidden{}
 }
 
-/*AdminCreateJusticeUserForbidden handles this case with default header values.
+/*
+AdminCreateJusticeUserForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminCreateJusticeUserForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewAdminCreateJusticeUserNotFound() *AdminCreateJusticeUserNotFound {
 	return &AdminCreateJusticeUserNotFound{}
 }
 
-/*AdminCreateJusticeUserNotFound handles this case with default header values.
+/*
+AdminCreateJusticeUserNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminCreateJusticeUserNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewAdminCreateJusticeUserInternalServerError() *AdminCreateJusticeUserInter
 	return &AdminCreateJusticeUserInternalServerError{}
 }
 
-/*AdminCreateJusticeUserInternalServerError handles this case with default header values.
+/*
+AdminCreateJusticeUserInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminCreateJusticeUserInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

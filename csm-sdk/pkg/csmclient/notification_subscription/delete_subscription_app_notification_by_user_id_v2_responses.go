@@ -129,10 +129,9 @@ func NewDeleteSubscriptionAppNotificationByUserIDV2OK() *DeleteSubscriptionAppNo
 	return &DeleteSubscriptionAppNotificationByUserIDV2OK{}
 }
 
-/*DeleteSubscriptionAppNotificationByUserIDV2OK handles this case with default header values.
-
-
- */
+/*
+DeleteSubscriptionAppNotificationByUserIDV2OK handles this case with default header values.
+*/
 type DeleteSubscriptionAppNotificationByUserIDV2OK struct {
 }
 
@@ -156,9 +155,10 @@ func NewDeleteSubscriptionAppNotificationByUserIDV2Unauthorized() *DeleteSubscri
 	return &DeleteSubscriptionAppNotificationByUserIDV2Unauthorized{}
 }
 
-/*DeleteSubscriptionAppNotificationByUserIDV2Unauthorized handles this case with default header values.
+/*
+DeleteSubscriptionAppNotificationByUserIDV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteSubscriptionAppNotificationByUserIDV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -210,9 +210,10 @@ func NewDeleteSubscriptionAppNotificationByUserIDV2Forbidden() *DeleteSubscripti
 	return &DeleteSubscriptionAppNotificationByUserIDV2Forbidden{}
 }
 
-/*DeleteSubscriptionAppNotificationByUserIDV2Forbidden handles this case with default header values.
+/*
+DeleteSubscriptionAppNotificationByUserIDV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteSubscriptionAppNotificationByUserIDV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -264,9 +265,10 @@ func NewDeleteSubscriptionAppNotificationByUserIDV2NotFound() *DeleteSubscriptio
 	return &DeleteSubscriptionAppNotificationByUserIDV2NotFound{}
 }
 
-/*DeleteSubscriptionAppNotificationByUserIDV2NotFound handles this case with default header values.
+/*
+DeleteSubscriptionAppNotificationByUserIDV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteSubscriptionAppNotificationByUserIDV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -318,9 +320,10 @@ func NewDeleteSubscriptionAppNotificationByUserIDV2InternalServerError() *Delete
 	return &DeleteSubscriptionAppNotificationByUserIDV2InternalServerError{}
 }
 
-/*DeleteSubscriptionAppNotificationByUserIDV2InternalServerError handles this case with default header values.
+/*
+DeleteSubscriptionAppNotificationByUserIDV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteSubscriptionAppNotificationByUserIDV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

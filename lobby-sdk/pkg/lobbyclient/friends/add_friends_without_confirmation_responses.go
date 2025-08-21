@@ -129,10 +129,9 @@ func NewAddFriendsWithoutConfirmationNoContent() *AddFriendsWithoutConfirmationN
 	return &AddFriendsWithoutConfirmationNoContent{}
 }
 
-/*AddFriendsWithoutConfirmationNoContent handles this case with default header values.
-
-
- */
+/*
+AddFriendsWithoutConfirmationNoContent handles this case with default header values.
+*/
 type AddFriendsWithoutConfirmationNoContent struct {
 }
 
@@ -156,9 +155,10 @@ func NewAddFriendsWithoutConfirmationBadRequest() *AddFriendsWithoutConfirmation
 	return &AddFriendsWithoutConfirmationBadRequest{}
 }
 
-/*AddFriendsWithoutConfirmationBadRequest handles this case with default header values.
+/*
+AddFriendsWithoutConfirmationBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AddFriendsWithoutConfirmationBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -210,9 +210,10 @@ func NewAddFriendsWithoutConfirmationUnauthorized() *AddFriendsWithoutConfirmati
 	return &AddFriendsWithoutConfirmationUnauthorized{}
 }
 
-/*AddFriendsWithoutConfirmationUnauthorized handles this case with default header values.
+/*
+AddFriendsWithoutConfirmationUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AddFriendsWithoutConfirmationUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -264,9 +265,10 @@ func NewAddFriendsWithoutConfirmationForbidden() *AddFriendsWithoutConfirmationF
 	return &AddFriendsWithoutConfirmationForbidden{}
 }
 
-/*AddFriendsWithoutConfirmationForbidden handles this case with default header values.
+/*
+AddFriendsWithoutConfirmationForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AddFriendsWithoutConfirmationForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -318,9 +320,10 @@ func NewAddFriendsWithoutConfirmationInternalServerError() *AddFriendsWithoutCon
 	return &AddFriendsWithoutConfirmationInternalServerError{}
 }
 
-/*AddFriendsWithoutConfirmationInternalServerError handles this case with default header values.
+/*
+AddFriendsWithoutConfirmationInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AddFriendsWithoutConfirmationInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

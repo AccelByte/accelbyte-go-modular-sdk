@@ -59,7 +59,8 @@ func NewAdminSetPlayerSessionAttributeParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*AdminSetPlayerSessionAttributeParams contains all the parameters to send to the API endpoint
+/*
+AdminSetPlayerSessionAttributeParams contains all the parameters to send to the API endpoint
 for the admin set player session attribute operation typically these are written to a http.Request
 */
 type AdminSetPlayerSessionAttributeParams struct {

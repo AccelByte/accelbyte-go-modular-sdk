@@ -57,7 +57,8 @@ func NewAdminGetLogConfigParamsWithHTTPClient(client *http.Client) *AdminGetLogC
 	}
 }
 
-/*AdminGetLogConfigParams contains all the parameters to send to the API endpoint
+/*
+AdminGetLogConfigParams contains all the parameters to send to the API endpoint
 for the admin get log config operation typically these are written to a http.Request
 */
 type AdminGetLogConfigParams struct {

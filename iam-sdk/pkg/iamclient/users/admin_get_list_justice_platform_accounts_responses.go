@@ -145,9 +145,10 @@ func NewAdminGetListJusticePlatformAccountsOK() *AdminGetListJusticePlatformAcco
 	return &AdminGetListJusticePlatformAccountsOK{}
 }
 
-/*AdminGetListJusticePlatformAccountsOK handles this case with default header values.
+/*
+AdminGetListJusticePlatformAccountsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetListJusticePlatformAccountsOK struct {
 	Payload []*iamclientmodels.ModelGetUserMapping
@@ -197,9 +198,10 @@ func NewAdminGetListJusticePlatformAccountsBadRequest() *AdminGetListJusticePlat
 	return &AdminGetListJusticePlatformAccountsBadRequest{}
 }
 
-/*AdminGetListJusticePlatformAccountsBadRequest handles this case with default header values.
+/*
+AdminGetListJusticePlatformAccountsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20025</td><td>not a publisher user</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20025</td><td>not a publisher user</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetListJusticePlatformAccountsBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -251,9 +253,10 @@ func NewAdminGetListJusticePlatformAccountsUnauthorized() *AdminGetListJusticePl
 	return &AdminGetListJusticePlatformAccountsUnauthorized{}
 }
 
-/*AdminGetListJusticePlatformAccountsUnauthorized handles this case with default header values.
+/*
+AdminGetListJusticePlatformAccountsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetListJusticePlatformAccountsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -305,9 +308,10 @@ func NewAdminGetListJusticePlatformAccountsForbidden() *AdminGetListJusticePlatf
 	return &AdminGetListJusticePlatformAccountsForbidden{}
 }
 
-/*AdminGetListJusticePlatformAccountsForbidden handles this case with default header values.
+/*
+AdminGetListJusticePlatformAccountsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetListJusticePlatformAccountsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -359,9 +363,10 @@ func NewAdminGetListJusticePlatformAccountsNotFound() *AdminGetListJusticePlatfo
 	return &AdminGetListJusticePlatformAccountsNotFound{}
 }
 
-/*AdminGetListJusticePlatformAccountsNotFound handles this case with default header values.
+/*
+AdminGetListJusticePlatformAccountsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminGetListJusticePlatformAccountsNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -413,9 +418,10 @@ func NewAdminGetListJusticePlatformAccountsInternalServerError() *AdminGetListJu
 	return &AdminGetListJusticePlatformAccountsInternalServerError{}
 }
 
-/*AdminGetListJusticePlatformAccountsInternalServerError handles this case with default header values.
+/*
+AdminGetListJusticePlatformAccountsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetListJusticePlatformAccountsInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

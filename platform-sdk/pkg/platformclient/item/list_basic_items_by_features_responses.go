@@ -69,9 +69,10 @@ func NewListBasicItemsByFeaturesOK() *ListBasicItemsByFeaturesOK {
 	return &ListBasicItemsByFeaturesOK{}
 }
 
-/*ListBasicItemsByFeaturesOK handles this case with default header values.
+/*
+ListBasicItemsByFeaturesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ListBasicItemsByFeaturesOK struct {
 	Payload []*platformclientmodels.BasicItem

@@ -69,9 +69,10 @@ func NewPublicGetRootCategoriesOK() *PublicGetRootCategoriesOK {
 	return &PublicGetRootCategoriesOK{}
 }
 
-/*PublicGetRootCategoriesOK handles this case with default header values.
+/*
+PublicGetRootCategoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetRootCategoriesOK struct {
 	Payload []*platformclientmodels.CategoryInfo

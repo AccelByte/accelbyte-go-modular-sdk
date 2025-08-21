@@ -85,9 +85,10 @@ func NewBulkCreditOK() *BulkCreditOK {
 	return &BulkCreditOK{}
 }
 
-/*BulkCreditOK handles this case with default header values.
+/*
+BulkCreditOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkCreditOK struct {
 	Payload *platformclientmodels.BulkCreditResult
@@ -139,9 +140,10 @@ func NewBulkCreditUnprocessableEntity() *BulkCreditUnprocessableEntity {
 	return &BulkCreditUnprocessableEntity{}
 }
 
-/*BulkCreditUnprocessableEntity handles this case with default header values.
+/*
+BulkCreditUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkCreditUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

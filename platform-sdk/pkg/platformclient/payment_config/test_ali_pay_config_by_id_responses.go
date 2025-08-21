@@ -85,9 +85,10 @@ func NewTestAliPayConfigByIDOK() *TestAliPayConfigByIDOK {
 	return &TestAliPayConfigByIDOK{}
 }
 
-/*TestAliPayConfigByIDOK handles this case with default header values.
+/*
+TestAliPayConfigByIDOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestAliPayConfigByIDOK struct {
 	Payload *platformclientmodels.TestResult
@@ -139,9 +140,10 @@ func NewTestAliPayConfigByIDNotFound() *TestAliPayConfigByIDNotFound {
 	return &TestAliPayConfigByIDNotFound{}
 }
 
-/*TestAliPayConfigByIDNotFound handles this case with default header values.
+/*
+TestAliPayConfigByIDNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33242</td><td>Payment merchant config [{id}] does not exist</td></tr></table>
 */
 type TestAliPayConfigByIDNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

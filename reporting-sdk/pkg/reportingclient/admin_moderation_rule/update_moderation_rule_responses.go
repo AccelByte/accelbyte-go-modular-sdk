@@ -130,9 +130,10 @@ func NewUpdateModerationRuleOK() *UpdateModerationRuleOK {
 	return &UpdateModerationRuleOK{}
 }
 
-/*UpdateModerationRuleOK handles this case with default header values.
+/*
+UpdateModerationRuleOK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateModerationRuleOK struct {
 	Payload *reportingclientmodels.RestapiModerationRuleResponse
@@ -184,9 +185,10 @@ func NewUpdateModerationRuleBadRequest() *UpdateModerationRuleBadRequest {
 	return &UpdateModerationRuleBadRequest{}
 }
 
-/*UpdateModerationRuleBadRequest handles this case with default header values.
+/*
+UpdateModerationRuleBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateModerationRuleBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
@@ -238,9 +240,10 @@ func NewUpdateModerationRuleNotFound() *UpdateModerationRuleNotFound {
 	return &UpdateModerationRuleNotFound{}
 }
 
-/*UpdateModerationRuleNotFound handles this case with default header values.
+/*
+UpdateModerationRuleNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UpdateModerationRuleNotFound struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
@@ -292,9 +295,10 @@ func NewUpdateModerationRuleConflict() *UpdateModerationRuleConflict {
 	return &UpdateModerationRuleConflict{}
 }
 
-/*UpdateModerationRuleConflict handles this case with default header values.
+/*
+UpdateModerationRuleConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type UpdateModerationRuleConflict struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
@@ -346,9 +350,10 @@ func NewUpdateModerationRuleInternalServerError() *UpdateModerationRuleInternalS
 	return &UpdateModerationRuleInternalServerError{}
 }
 
-/*UpdateModerationRuleInternalServerError handles this case with default header values.
+/*
+UpdateModerationRuleInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateModerationRuleInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse

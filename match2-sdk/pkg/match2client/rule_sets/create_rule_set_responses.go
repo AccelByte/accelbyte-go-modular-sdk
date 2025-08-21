@@ -144,9 +144,10 @@ func NewCreateRuleSetCreated() *CreateRuleSetCreated {
 	return &CreateRuleSetCreated{}
 }
 
-/*CreateRuleSetCreated handles this case with default header values.
+/*
+CreateRuleSetCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateRuleSetCreated struct {
 }
@@ -171,9 +172,10 @@ func NewCreateRuleSetBadRequest() *CreateRuleSetBadRequest {
 	return &CreateRuleSetBadRequest{}
 }
 
-/*CreateRuleSetBadRequest handles this case with default header values.
+/*
+CreateRuleSetBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type CreateRuleSetBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewCreateRuleSetUnauthorized() *CreateRuleSetUnauthorized {
 	return &CreateRuleSetUnauthorized{}
 }
 
-/*CreateRuleSetUnauthorized handles this case with default header values.
+/*
+CreateRuleSetUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type CreateRuleSetUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewCreateRuleSetForbidden() *CreateRuleSetForbidden {
 	return &CreateRuleSetForbidden{}
 }
 
-/*CreateRuleSetForbidden handles this case with default header values.
+/*
+CreateRuleSetForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type CreateRuleSetForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewCreateRuleSetConflict() *CreateRuleSetConflict {
 	return &CreateRuleSetConflict{}
 }
 
-/*CreateRuleSetConflict handles this case with default header values.
+/*
+CreateRuleSetConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type CreateRuleSetConflict struct {
 	Payload *match2clientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewCreateRuleSetInternalServerError() *CreateRuleSetInternalServerError {
 	return &CreateRuleSetInternalServerError{}
 }
 
-/*CreateRuleSetInternalServerError handles this case with default header values.
+/*
+CreateRuleSetInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CreateRuleSetInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

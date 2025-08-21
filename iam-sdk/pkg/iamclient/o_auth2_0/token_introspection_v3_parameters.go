@@ -57,7 +57,8 @@ func NewTokenIntrospectionV3ParamsWithHTTPClient(client *http.Client) *TokenIntr
 	}
 }
 
-/*TokenIntrospectionV3Params contains all the parameters to send to the API endpoint
+/*
+TokenIntrospectionV3Params contains all the parameters to send to the API endpoint
 for the token introspection v3 operation typically these are written to a http.Request
 */
 type TokenIntrospectionV3Params struct {

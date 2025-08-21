@@ -74,7 +74,8 @@ func NewPublicGetProfileUpdateStrategyV3ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*PublicGetProfileUpdateStrategyV3Params contains all the parameters to send to the API endpoint
+/*
+PublicGetProfileUpdateStrategyV3Params contains all the parameters to send to the API endpoint
 for the public get profile update strategy v3 operation typically these are written to a http.Request
 */
 type PublicGetProfileUpdateStrategyV3Params struct {

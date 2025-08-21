@@ -57,7 +57,8 @@ func NewRevokeEntitlementsParamsWithHTTPClient(client *http.Client) *RevokeEntit
 	}
 }
 
-/*RevokeEntitlementsParams contains all the parameters to send to the API endpoint
+/*
+RevokeEntitlementsParams contains all the parameters to send to the API endpoint
 for the revoke entitlements operation typically these are written to a http.Request
 */
 type RevokeEntitlementsParams struct {

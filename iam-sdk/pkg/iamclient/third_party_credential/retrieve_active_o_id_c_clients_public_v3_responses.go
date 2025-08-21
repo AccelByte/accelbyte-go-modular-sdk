@@ -100,9 +100,10 @@ func NewRetrieveActiveOIDCClientsPublicV3OK() *RetrieveActiveOIDCClientsPublicV3
 	return &RetrieveActiveOIDCClientsPublicV3OK{}
 }
 
-/*RetrieveActiveOIDCClientsPublicV3OK handles this case with default header values.
+/*
+RetrieveActiveOIDCClientsPublicV3OK handles this case with default header values.
 
-  All Active OIDC Credential Retrieved
+	All Active OIDC Credential Retrieved
 */
 type RetrieveActiveOIDCClientsPublicV3OK struct {
 	Payload []*iamclientmodels.ModelPublicThirdPartyPlatformInfo
@@ -152,9 +153,10 @@ func NewRetrieveActiveOIDCClientsPublicV3NotFound() *RetrieveActiveOIDCClientsPu
 	return &RetrieveActiveOIDCClientsPublicV3NotFound{}
 }
 
-/*RetrieveActiveOIDCClientsPublicV3NotFound handles this case with default header values.
+/*
+RetrieveActiveOIDCClientsPublicV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
 */
 type RetrieveActiveOIDCClientsPublicV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -206,9 +208,10 @@ func NewRetrieveActiveOIDCClientsPublicV3InternalServerError() *RetrieveActiveOI
 	return &RetrieveActiveOIDCClientsPublicV3InternalServerError{}
 }
 
-/*RetrieveActiveOIDCClientsPublicV3InternalServerError handles this case with default header values.
+/*
+RetrieveActiveOIDCClientsPublicV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type RetrieveActiveOIDCClientsPublicV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

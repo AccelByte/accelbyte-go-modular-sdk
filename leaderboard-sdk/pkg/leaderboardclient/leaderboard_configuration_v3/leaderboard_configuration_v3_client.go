@@ -46,7 +46,6 @@ type ClientService interface {
 /*
 GetLeaderboardConfigurationsAdminV3Short list all leaderboards by given namespace
 
-
 This endpoint return all leaderboard configurations
 */
 func (a *Client) GetLeaderboardConfigurationsAdminV3Short(params *GetLeaderboardConfigurationsAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsAdminV3Response, error) {
@@ -130,34 +129,33 @@ func (a *Client) GetLeaderboardConfigurationsAdminV3Short(params *GetLeaderboard
 /*
 CreateLeaderboardConfigurationAdminV3Short create new leaderboard
 
-
- Fields :
-
+	Fields :
 
 
 
-  * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
+
+	 * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
 
 
-  * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
+	 * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
 
 
-  * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
+	 * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
 
 
-  * iconURL: leaderboard icon image url. (optional).
+	 * iconURL: leaderboard icon image url. (optional).
 
 
-  * allTime: if true, all time leaderboard will be created. (required).
+	 * allTime: if true, all time leaderboard will be created. (required).
 
 
-  * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
+	 * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
 
 
-  * statCode: Stat Code is related with statistic code in statistic service. (required).
+	 * statCode: Stat Code is related with statistic code in statistic service. (required).
 
 
-  * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
+	 * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
 */
 func (a *Client) CreateLeaderboardConfigurationAdminV3Short(params *CreateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationAdminV3Response, error) {
 	// TODO: Validate the params before sending
@@ -247,7 +245,6 @@ func (a *Client) CreateLeaderboardConfigurationAdminV3Short(params *CreateLeader
 /*
 DeleteBulkLeaderboardConfigurationAdminV3Short delete bulk leaderboards. response body will contains failed leaderboard with the reason why it's failed to delete
 
-
 This endpoint delete multiple leaderboards configuration in one request
 */
 func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBulkLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteBulkLeaderboardConfigurationAdminV3Response, error) {
@@ -330,7 +327,6 @@ func (a *Client) DeleteBulkLeaderboardConfigurationAdminV3Short(params *DeleteBu
 
 /*
 GetLeaderboardConfigurationAdminV3Short get leaderboard by leaderboardcode
-
 
 This endpoint returns a leaderboard configuration
 */
@@ -422,34 +418,33 @@ func (a *Client) GetLeaderboardConfigurationAdminV3Short(params *GetLeaderboardC
 /*
 UpdateLeaderboardConfigurationAdminV3Short update leaderboard by leaderboardcode
 
-
- Fields :
-
+	Fields :
 
 
 
-  * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
+
+	 * leaderboardCode: unique leaderboard config code must be lowercase and maximum length is 48 characters. (required).
 
 
-  * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
+	 * name: leaderboard name, maximum length for leaderboard name is 128 characters. (required).
 
 
-  * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
+	 * description: leaderboard description, maximum length for leaderboard description is 2048 characters. (optional).
 
 
-  * iconURL: leaderboard icon image url. (optional).
+	 * iconURL: leaderboard icon image url. (optional).
 
 
-  * allTime: if true, all time leaderboard will be created. (required).
+	 * allTime: if true, all time leaderboard will be created. (required).
 
 
-  * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
+	 * descending: leaderboard order. If true, the points will be sorted in descending order. (required).
 
 
-  * statCode: Stat Code is related with statistic code in statistic service. (required).
+	 * statCode: Stat Code is related with statistic code in statistic service. (required).
 
 
-  * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
+	 * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
 */
 func (a *Client) UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLeaderboardConfigurationAdminV3Response, error) {
 	// TODO: Validate the params before sending
@@ -546,7 +541,6 @@ func (a *Client) UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeader
 /*
 DeleteLeaderboardConfigurationAdminV3Short delete leaderboard by leaderboardcode
 
-
 This endpoint delete a leaderboard configuration
 */
 func (a *Client) DeleteLeaderboardConfigurationAdminV3Short(params *DeleteLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteLeaderboardConfigurationAdminV3Response, error) {
@@ -636,21 +630,11 @@ func (a *Client) DeleteLeaderboardConfigurationAdminV3Short(params *DeleteLeader
 /*
 HardDeleteLeaderboardAdminV3Short hard delete leaderboard config and data by leaderboard code
 
-
- [Test Facility Only]
-
-
-
+	[Test Facility Only]
 
 Required permission 'ADMIN:NAMESPACE:{namespace}:LEADERBOARD:HARDDELETE [DELETE]'
 
-
-
-
-This endpoint will delete leaderboard configuration and its data
-
-
-
+# This endpoint will delete leaderboard configuration and its data
 
 Note: this endpoint only works on development environment, you might want to use archive endpoint instead hard delete.
 */
@@ -741,7 +725,6 @@ func (a *Client) HardDeleteLeaderboardAdminV3Short(params *HardDeleteLeaderboard
 /*
 GetLeaderboardConfigurationsPublicV3Short list all leaderboards by given namespace
 
-
 This endpoint return all leaderboard configurations
 */
 func (a *Client) GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboardConfigurationsPublicV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetLeaderboardConfigurationsPublicV3Response, error) {
@@ -824,7 +807,6 @@ func (a *Client) GetLeaderboardConfigurationsPublicV3Short(params *GetLeaderboar
 
 /*
 GetLeaderboardConfigurationPublicV3Short get leaderboard by leaderboardcode
-
 
 This endpoint returns a leaderboard configuration
 */

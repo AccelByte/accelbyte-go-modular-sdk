@@ -57,7 +57,8 @@ func NewAdminGetItemReferencesParamsWithHTTPClient(client *http.Client) *AdminGe
 	}
 }
 
-/*AdminGetItemReferencesParams contains all the parameters to send to the API endpoint
+/*
+AdminGetItemReferencesParams contains all the parameters to send to the API endpoint
 for the admin get item references operation typically these are written to a http.Request
 */
 type AdminGetItemReferencesParams struct {

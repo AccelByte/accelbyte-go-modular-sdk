@@ -57,7 +57,8 @@ func NewGetStoreParamsWithHTTPClient(client *http.Client) *GetStoreParams {
 	}
 }
 
-/*GetStoreParams contains all the parameters to send to the API endpoint
+/*
+GetStoreParams contains all the parameters to send to the API endpoint
 for the get store operation typically these are written to a http.Request
 */
 type GetStoreParams struct {

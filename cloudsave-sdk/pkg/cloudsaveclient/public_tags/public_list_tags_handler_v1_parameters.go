@@ -78,7 +78,8 @@ func NewPublicListTagsHandlerV1ParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicListTagsHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+PublicListTagsHandlerV1Params contains all the parameters to send to the API endpoint
 for the public list tags handler v1 operation typically these are written to a http.Request
 */
 type PublicListTagsHandlerV1Params struct {

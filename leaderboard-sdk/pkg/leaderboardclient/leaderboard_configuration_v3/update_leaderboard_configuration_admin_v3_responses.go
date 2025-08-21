@@ -160,9 +160,10 @@ func NewUpdateLeaderboardConfigurationAdminV3OK() *UpdateLeaderboardConfiguratio
 	return &UpdateLeaderboardConfigurationAdminV3OK{}
 }
 
-/*UpdateLeaderboardConfigurationAdminV3OK handles this case with default header values.
+/*
+UpdateLeaderboardConfigurationAdminV3OK handles this case with default header values.
 
-  Leaderboard updated
+	Leaderboard updated
 */
 type UpdateLeaderboardConfigurationAdminV3OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardConfigRespV3
@@ -214,9 +215,10 @@ func NewUpdateLeaderboardConfigurationAdminV3BadRequest() *UpdateLeaderboardConf
 	return &UpdateLeaderboardConfigurationAdminV3BadRequest{}
 }
 
-/*UpdateLeaderboardConfigurationAdminV3BadRequest handles this case with default header values.
+/*
+UpdateLeaderboardConfigurationAdminV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>71243</td><td>cycle doesn't belong to the stat code</td></tr><tr><td>71244</td><td>cycle is already stopped</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>71243</td><td>cycle doesn't belong to the stat code</td></tr><tr><td>71244</td><td>cycle is already stopped</td></tr></table>
 */
 type UpdateLeaderboardConfigurationAdminV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -268,9 +270,10 @@ func NewUpdateLeaderboardConfigurationAdminV3Unauthorized() *UpdateLeaderboardCo
 	return &UpdateLeaderboardConfigurationAdminV3Unauthorized{}
 }
 
-/*UpdateLeaderboardConfigurationAdminV3Unauthorized handles this case with default header values.
+/*
+UpdateLeaderboardConfigurationAdminV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateLeaderboardConfigurationAdminV3Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -322,9 +325,10 @@ func NewUpdateLeaderboardConfigurationAdminV3Forbidden() *UpdateLeaderboardConfi
 	return &UpdateLeaderboardConfigurationAdminV3Forbidden{}
 }
 
-/*UpdateLeaderboardConfigurationAdminV3Forbidden handles this case with default header values.
+/*
+UpdateLeaderboardConfigurationAdminV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateLeaderboardConfigurationAdminV3Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -376,9 +380,10 @@ func NewUpdateLeaderboardConfigurationAdminV3NotFound() *UpdateLeaderboardConfig
 	return &UpdateLeaderboardConfigurationAdminV3NotFound{}
 }
 
-/*UpdateLeaderboardConfigurationAdminV3NotFound handles this case with default header values.
+/*
+UpdateLeaderboardConfigurationAdminV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr><tr><td>71242</td><td>stat code not found in namespace</td></tr><tr><td>71133</td><td>leaderboard configuration deleted</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71130</td><td>leaderboard config not found</td></tr><tr><td>71242</td><td>stat code not found in namespace</td></tr><tr><td>71133</td><td>leaderboard configuration deleted</td></tr></table>
 */
 type UpdateLeaderboardConfigurationAdminV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -430,9 +435,10 @@ func NewUpdateLeaderboardConfigurationAdminV3Conflict() *UpdateLeaderboardConfig
 	return &UpdateLeaderboardConfigurationAdminV3Conflict{}
 }
 
-/*UpdateLeaderboardConfigurationAdminV3Conflict handles this case with default header values.
+/*
+UpdateLeaderboardConfigurationAdminV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71132</td><td>leaderboard configuration already exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71132</td><td>leaderboard configuration already exist</td></tr></table>
 */
 type UpdateLeaderboardConfigurationAdminV3Conflict struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -484,9 +490,10 @@ func NewUpdateLeaderboardConfigurationAdminV3InternalServerError() *UpdateLeader
 	return &UpdateLeaderboardConfigurationAdminV3InternalServerError{}
 }
 
-/*UpdateLeaderboardConfigurationAdminV3InternalServerError handles this case with default header values.
+/*
+UpdateLeaderboardConfigurationAdminV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type UpdateLeaderboardConfigurationAdminV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

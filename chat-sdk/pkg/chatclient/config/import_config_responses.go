@@ -115,9 +115,10 @@ func NewImportConfigOK() *ImportConfigOK {
 	return &ImportConfigOK{}
 }
 
-/*ImportConfigOK handles this case with default header values.
+/*
+ImportConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type ImportConfigOK struct {
 	Payload *chatclientmodels.ModelsImportConfigResponse
@@ -169,9 +170,10 @@ func NewImportConfigUnauthorized() *ImportConfigUnauthorized {
 	return &ImportConfigUnauthorized{}
 }
 
-/*ImportConfigUnauthorized handles this case with default header values.
+/*
+ImportConfigUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type ImportConfigUnauthorized struct {
 	Payload *chatclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewImportConfigForbidden() *ImportConfigForbidden {
 	return &ImportConfigForbidden{}
 }
 
-/*ImportConfigForbidden handles this case with default header values.
+/*
+ImportConfigForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type ImportConfigForbidden struct {
 	Payload *chatclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewImportConfigInternalServerError() *ImportConfigInternalServerError {
 	return &ImportConfigInternalServerError{}
 }
 
-/*ImportConfigInternalServerError handles this case with default header values.
+/*
+ImportConfigInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ImportConfigInternalServerError struct {
 	Payload *chatclientmodels.ResponseError

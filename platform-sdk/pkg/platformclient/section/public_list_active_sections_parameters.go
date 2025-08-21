@@ -70,7 +70,8 @@ func NewPublicListActiveSectionsParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*PublicListActiveSectionsParams contains all the parameters to send to the API endpoint
+/*
+PublicListActiveSectionsParams contains all the parameters to send to the API endpoint
 for the public list active sections operation typically these are written to a http.Request
 */
 type PublicListActiveSectionsParams struct {

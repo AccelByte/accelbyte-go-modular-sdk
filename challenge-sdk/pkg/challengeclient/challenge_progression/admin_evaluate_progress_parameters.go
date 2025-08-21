@@ -59,7 +59,8 @@ func NewAdminEvaluateProgressParamsWithHTTPClient(client *http.Client) *AdminEva
 	}
 }
 
-/*AdminEvaluateProgressParams contains all the parameters to send to the API endpoint
+/*
+AdminEvaluateProgressParams contains all the parameters to send to the API endpoint
 for the admin evaluate progress operation typically these are written to a http.Request
 */
 type AdminEvaluateProgressParams struct {

@@ -85,10 +85,9 @@ func NewPublicListReasonGroupsOK() *PublicListReasonGroupsOK {
 	return &PublicListReasonGroupsOK{}
 }
 
-/*PublicListReasonGroupsOK handles this case with default header values.
-
-
- */
+/*
+PublicListReasonGroupsOK handles this case with default header values.
+*/
 type PublicListReasonGroupsOK struct {
 	Payload *reportingclientmodels.RestapiReasonGroupListResponse
 }
@@ -139,10 +138,9 @@ func NewPublicListReasonGroupsInternalServerError() *PublicListReasonGroupsInter
 	return &PublicListReasonGroupsInternalServerError{}
 }
 
-/*PublicListReasonGroupsInternalServerError handles this case with default header values.
-
-
- */
+/*
+PublicListReasonGroupsInternalServerError handles this case with default header values.
+*/
 type PublicListReasonGroupsInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

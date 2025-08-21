@@ -100,9 +100,10 @@ func NewPublicBulkClaimUserRewardsOK() *PublicBulkClaimUserRewardsOK {
 	return &PublicBulkClaimUserRewardsOK{}
 }
 
-/*PublicBulkClaimUserRewardsOK handles this case with default header values.
+/*
+PublicBulkClaimUserRewardsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicBulkClaimUserRewardsOK struct {
 	Payload *seasonpassclientmodels.ClaimableRewards
@@ -154,9 +155,10 @@ func NewPublicBulkClaimUserRewardsBadRequest() *PublicBulkClaimUserRewardsBadReq
 	return &PublicBulkClaimUserRewardsBadRequest{}
 }
 
-/*PublicBulkClaimUserRewardsBadRequest handles this case with default header values.
+/*
+PublicBulkClaimUserRewardsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49124</td><td>Manual claim not supported</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49124</td><td>Manual claim not supported</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type PublicBulkClaimUserRewardsBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewPublicBulkClaimUserRewardsNotFound() *PublicBulkClaimUserRewardsNotFound
 	return &PublicBulkClaimUserRewardsNotFound{}
 }
 
-/*PublicBulkClaimUserRewardsNotFound handles this case with default header values.
+/*
+PublicBulkClaimUserRewardsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49148</td><td>User season does not exist</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49148</td><td>User season does not exist</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
 */
 type PublicBulkClaimUserRewardsNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

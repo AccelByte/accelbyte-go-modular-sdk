@@ -57,7 +57,8 @@ func NewRetrieveEligibilitiesPublicParamsWithHTTPClient(client *http.Client) *Re
 	}
 }
 
-/*RetrieveEligibilitiesPublicParams contains all the parameters to send to the API endpoint
+/*
+RetrieveEligibilitiesPublicParams contains all the parameters to send to the API endpoint
 for the retrieve eligibilities public operation typically these are written to a http.Request
 */
 type RetrieveEligibilitiesPublicParams struct {

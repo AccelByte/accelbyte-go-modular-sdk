@@ -145,9 +145,10 @@ func NewAdminPutGameBinaryRecorMetadataV1OK() *AdminPutGameBinaryRecorMetadataV1
 	return &AdminPutGameBinaryRecorMetadataV1OK{}
 }
 
-/*AdminPutGameBinaryRecorMetadataV1OK handles this case with default header values.
+/*
+AdminPutGameBinaryRecorMetadataV1OK handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type AdminPutGameBinaryRecorMetadataV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsGameBinaryRecordAdminResponse
@@ -199,9 +200,10 @@ func NewAdminPutGameBinaryRecorMetadataV1BadRequest() *AdminPutGameBinaryRecorMe
 	return &AdminPutGameBinaryRecorMetadataV1BadRequest{}
 }
 
-/*AdminPutGameBinaryRecorMetadataV1BadRequest handles this case with default header values.
+/*
+AdminPutGameBinaryRecorMetadataV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18316</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18316</td><td>invalid request body</td></tr></table>
 */
 type AdminPutGameBinaryRecorMetadataV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewAdminPutGameBinaryRecorMetadataV1Unauthorized() *AdminPutGameBinaryRecor
 	return &AdminPutGameBinaryRecorMetadataV1Unauthorized{}
 }
 
-/*AdminPutGameBinaryRecorMetadataV1Unauthorized handles this case with default header values.
+/*
+AdminPutGameBinaryRecorMetadataV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPutGameBinaryRecorMetadataV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewAdminPutGameBinaryRecorMetadataV1Forbidden() *AdminPutGameBinaryRecorMet
 	return &AdminPutGameBinaryRecorMetadataV1Forbidden{}
 }
 
-/*AdminPutGameBinaryRecorMetadataV1Forbidden handles this case with default header values.
+/*
+AdminPutGameBinaryRecorMetadataV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminPutGameBinaryRecorMetadataV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewAdminPutGameBinaryRecorMetadataV1NotFound() *AdminPutGameBinaryRecorMeta
 	return &AdminPutGameBinaryRecorMetadataV1NotFound{}
 }
 
-/*AdminPutGameBinaryRecorMetadataV1NotFound handles this case with default header values.
+/*
+AdminPutGameBinaryRecorMetadataV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18317</td><td>record not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18317</td><td>record not found</td></tr></table>
 */
 type AdminPutGameBinaryRecorMetadataV1NotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewAdminPutGameBinaryRecorMetadataV1InternalServerError() *AdminPutGameBina
 	return &AdminPutGameBinaryRecorMetadataV1InternalServerError{}
 }
 
-/*AdminPutGameBinaryRecorMetadataV1InternalServerError handles this case with default header values.
+/*
+AdminPutGameBinaryRecorMetadataV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18318</td><td>unable to update record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18318</td><td>unable to update record</td></tr></table>
 */
 type AdminPutGameBinaryRecorMetadataV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

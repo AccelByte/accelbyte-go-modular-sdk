@@ -100,9 +100,10 @@ func NewAdminListClientTemplatesOK() *AdminListClientTemplatesOK {
 	return &AdminListClientTemplatesOK{}
 }
 
-/*AdminListClientTemplatesOK handles this case with default header values.
+/*
+AdminListClientTemplatesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListClientTemplatesOK struct {
 	Payload *iamclientmodels.ClientmodelListTemplatesResponse
@@ -154,9 +155,10 @@ func NewAdminListClientTemplatesUnauthorized() *AdminListClientTemplatesUnauthor
 	return &AdminListClientTemplatesUnauthorized{}
 }
 
-/*AdminListClientTemplatesUnauthorized handles this case with default header values.
+/*
+AdminListClientTemplatesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListClientTemplatesUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -208,9 +210,10 @@ func NewAdminListClientTemplatesForbidden() *AdminListClientTemplatesForbidden {
 	return &AdminListClientTemplatesForbidden{}
 }
 
-/*AdminListClientTemplatesForbidden handles this case with default header values.
+/*
+AdminListClientTemplatesForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminListClientTemplatesForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

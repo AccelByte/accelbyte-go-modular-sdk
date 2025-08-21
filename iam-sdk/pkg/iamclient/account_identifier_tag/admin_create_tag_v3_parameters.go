@@ -59,7 +59,8 @@ func NewAdminCreateTagV3ParamsWithHTTPClient(client *http.Client) *AdminCreateTa
 	}
 }
 
-/*AdminCreateTagV3Params contains all the parameters to send to the API endpoint
+/*
+AdminCreateTagV3Params contains all the parameters to send to the API endpoint
 for the admin create tag v3 operation typically these are written to a http.Request
 */
 type AdminCreateTagV3Params struct {

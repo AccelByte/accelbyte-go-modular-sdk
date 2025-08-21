@@ -87,9 +87,10 @@ func NewRevokeTokenOK() *RevokeTokenOK {
 	return &RevokeTokenOK{}
 }
 
-/*RevokeTokenOK handles this case with default header values.
+/*
+RevokeTokenOK handles this case with default header values.
 
-  Token revoked or does not exist
+	Token revoked or does not exist
 */
 type RevokeTokenOK struct {
 }
@@ -114,9 +115,10 @@ func NewRevokeTokenBadRequest() *RevokeTokenBadRequest {
 	return &RevokeTokenBadRequest{}
 }
 
-/*RevokeTokenBadRequest handles this case with default header values.
+/*
+RevokeTokenBadRequest handles this case with default header values.
 
-  Invalid input
+	Invalid input
 */
 type RevokeTokenBadRequest struct {
 }
@@ -141,9 +143,10 @@ func NewRevokeTokenUnauthorized() *RevokeTokenUnauthorized {
 	return &RevokeTokenUnauthorized{}
 }
 
-/*RevokeTokenUnauthorized handles this case with default header values.
+/*
+RevokeTokenUnauthorized handles this case with default header values.
 
-  Invalid basic auth header
+	Invalid basic auth header
 */
 type RevokeTokenUnauthorized struct {
 }

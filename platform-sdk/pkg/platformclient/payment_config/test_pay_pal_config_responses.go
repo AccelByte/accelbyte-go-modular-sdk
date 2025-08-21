@@ -69,9 +69,10 @@ func NewTestPayPalConfigOK() *TestPayPalConfigOK {
 	return &TestPayPalConfigOK{}
 }
 
-/*TestPayPalConfigOK handles this case with default header values.
+/*
+TestPayPalConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestPayPalConfigOK struct {
 	Payload *platformclientmodels.TestResult

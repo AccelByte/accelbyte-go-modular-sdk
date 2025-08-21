@@ -145,9 +145,10 @@ func NewAdminPostGameBinaryRecordV1Created() *AdminPostGameBinaryRecordV1Created
 	return &AdminPostGameBinaryRecordV1Created{}
 }
 
-/*AdminPostGameBinaryRecordV1Created handles this case with default header values.
+/*
+AdminPostGameBinaryRecordV1Created handles this case with default header values.
 
-  Record in namespace-level created
+	Record in namespace-level created
 */
 type AdminPostGameBinaryRecordV1Created struct {
 	Payload *cloudsaveclientmodels.ModelsUploadBinaryRecordResponse
@@ -199,9 +200,10 @@ func NewAdminPostGameBinaryRecordV1BadRequest() *AdminPostGameBinaryRecordV1BadR
 	return &AdminPostGameBinaryRecordV1BadRequest{}
 }
 
-/*AdminPostGameBinaryRecordV1BadRequest handles this case with default header values.
+/*
+AdminPostGameBinaryRecordV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18305</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18305</td><td>invalid request body</td></tr></table>
 */
 type AdminPostGameBinaryRecordV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -253,9 +255,10 @@ func NewAdminPostGameBinaryRecordV1Unauthorized() *AdminPostGameBinaryRecordV1Un
 	return &AdminPostGameBinaryRecordV1Unauthorized{}
 }
 
-/*AdminPostGameBinaryRecordV1Unauthorized handles this case with default header values.
+/*
+AdminPostGameBinaryRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPostGameBinaryRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -307,9 +310,10 @@ func NewAdminPostGameBinaryRecordV1Forbidden() *AdminPostGameBinaryRecordV1Forbi
 	return &AdminPostGameBinaryRecordV1Forbidden{}
 }
 
-/*AdminPostGameBinaryRecordV1Forbidden handles this case with default header values.
+/*
+AdminPostGameBinaryRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminPostGameBinaryRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -361,9 +365,10 @@ func NewAdminPostGameBinaryRecordV1Conflict() *AdminPostGameBinaryRecordV1Confli
 	return &AdminPostGameBinaryRecordV1Conflict{}
 }
 
-/*AdminPostGameBinaryRecordV1Conflict handles this case with default header values.
+/*
+AdminPostGameBinaryRecordV1Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18309</td><td>key already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18309</td><td>key already exists</td></tr></table>
 */
 type AdminPostGameBinaryRecordV1Conflict struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -415,9 +420,10 @@ func NewAdminPostGameBinaryRecordV1InternalServerError() *AdminPostGameBinaryRec
 	return &AdminPostGameBinaryRecordV1InternalServerError{}
 }
 
-/*AdminPostGameBinaryRecordV1InternalServerError handles this case with default header values.
+/*
+AdminPostGameBinaryRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18301</td><td>unable to get record</td></tr><tr><td>18307</td><td>unable to save record</td></tr><tr><td>18310</td><td>unable to get presigned URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18301</td><td>unable to get record</td></tr><tr><td>18307</td><td>unable to save record</td></tr><tr><td>18310</td><td>unable to get presigned URL</td></tr></table>
 */
 type AdminPostGameBinaryRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

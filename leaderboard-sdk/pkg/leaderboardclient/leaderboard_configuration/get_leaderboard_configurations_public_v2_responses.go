@@ -130,9 +130,10 @@ func NewGetLeaderboardConfigurationsPublicV2OK() *GetLeaderboardConfigurationsPu
 	return &GetLeaderboardConfigurationsPublicV2OK{}
 }
 
-/*GetLeaderboardConfigurationsPublicV2OK handles this case with default header values.
+/*
+GetLeaderboardConfigurationsPublicV2OK handles this case with default header values.
 
-  Leaderboards retrieved
+	Leaderboards retrieved
 */
 type GetLeaderboardConfigurationsPublicV2OK struct {
 	Payload *leaderboardclientmodels.V2GetAllLeaderboardConfigsPublicResp
@@ -184,9 +185,10 @@ func NewGetLeaderboardConfigurationsPublicV2BadRequest() *GetLeaderboardConfigur
 	return &GetLeaderboardConfigurationsPublicV2BadRequest{}
 }
 
-/*GetLeaderboardConfigurationsPublicV2BadRequest handles this case with default header values.
+/*
+GetLeaderboardConfigurationsPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetLeaderboardConfigurationsPublicV2BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetLeaderboardConfigurationsPublicV2Unauthorized() *GetLeaderboardConfig
 	return &GetLeaderboardConfigurationsPublicV2Unauthorized{}
 }
 
-/*GetLeaderboardConfigurationsPublicV2Unauthorized handles this case with default header values.
+/*
+GetLeaderboardConfigurationsPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetLeaderboardConfigurationsPublicV2Unauthorized struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetLeaderboardConfigurationsPublicV2Forbidden() *GetLeaderboardConfigura
 	return &GetLeaderboardConfigurationsPublicV2Forbidden{}
 }
 
-/*GetLeaderboardConfigurationsPublicV2Forbidden handles this case with default header values.
+/*
+GetLeaderboardConfigurationsPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetLeaderboardConfigurationsPublicV2Forbidden struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetLeaderboardConfigurationsPublicV2InternalServerError() *GetLeaderboar
 	return &GetLeaderboardConfigurationsPublicV2InternalServerError{}
 }
 
-/*GetLeaderboardConfigurationsPublicV2InternalServerError handles this case with default header values.
+/*
+GetLeaderboardConfigurationsPublicV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetLeaderboardConfigurationsPublicV2InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

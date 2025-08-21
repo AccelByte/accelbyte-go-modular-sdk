@@ -144,9 +144,10 @@ func NewPublicGameSessionRejectNoContent() *PublicGameSessionRejectNoContent {
 	return &PublicGameSessionRejectNoContent{}
 }
 
-/*PublicGameSessionRejectNoContent handles this case with default header values.
+/*
+PublicGameSessionRejectNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicGameSessionRejectNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicGameSessionRejectBadRequest() *PublicGameSessionRejectBadRequest {
 	return &PublicGameSessionRejectBadRequest{}
 }
 
-/*PublicGameSessionRejectBadRequest handles this case with default header values.
+/*
+PublicGameSessionRejectBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGameSessionRejectBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewPublicGameSessionRejectUnauthorized() *PublicGameSessionRejectUnauthoriz
 	return &PublicGameSessionRejectUnauthorized{}
 }
 
-/*PublicGameSessionRejectUnauthorized handles this case with default header values.
+/*
+PublicGameSessionRejectUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGameSessionRejectUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewPublicGameSessionRejectForbidden() *PublicGameSessionRejectForbidden {
 	return &PublicGameSessionRejectForbidden{}
 }
 
-/*PublicGameSessionRejectForbidden handles this case with default header values.
+/*
+PublicGameSessionRejectForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicGameSessionRejectForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewPublicGameSessionRejectNotFound() *PublicGameSessionRejectNotFound {
 	return &PublicGameSessionRejectNotFound{}
 }
 
-/*PublicGameSessionRejectNotFound handles this case with default header values.
+/*
+PublicGameSessionRejectNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGameSessionRejectNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewPublicGameSessionRejectInternalServerError() *PublicGameSessionRejectInt
 	return &PublicGameSessionRejectInternalServerError{}
 }
 
-/*PublicGameSessionRejectInternalServerError handles this case with default header values.
+/*
+PublicGameSessionRejectInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGameSessionRejectInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -117,7 +117,7 @@ func (a *Client) GetGlobalStatItemsShort(params *GetGlobalStatItemsParams, authI
 GetGlobalStatItemByStatCodeShort get global statitem by stat code
 Get global statItem by stat code.
 Other detail info:
-        *  Returns : global stat item
+  - Returns : global stat item
 */
 func (a *Client) GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemByStatCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -201,7 +201,7 @@ func (a *Client) GetGlobalStatItemByStatCodeShort(params *GetGlobalStatItemBySta
 GetGlobalStatItems1Short list global statitems
 List global statItems by pagination.
 Other detail info:
-        *  Returns : stat items
+  - Returns : stat items
 */
 func (a *Client) GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItems1Response, error) {
 	// TODO: Validate the params before sending
@@ -278,7 +278,7 @@ func (a *Client) GetGlobalStatItems1Short(params *GetGlobalStatItems1Params, aut
 GetGlobalStatItemByStatCode1Short get global statitem by stat code
 Get global statItem by stat code.
 Other detail info:
-        *  Returns : global stat item
+  - Returns : global stat item
 */
 func (a *Client) GetGlobalStatItemByStatCode1Short(params *GetGlobalStatItemByStatCode1Params, authInfo runtime.ClientAuthInfoWriter) (*GetGlobalStatItemByStatCode1Response, error) {
 	// TODO: Validate the params before sending

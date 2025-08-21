@@ -59,7 +59,8 @@ func NewPublicSubscribeSubscriptionParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*PublicSubscribeSubscriptionParams contains all the parameters to send to the API endpoint
+/*
+PublicSubscribeSubscriptionParams contains all the parameters to send to the API endpoint
 for the public subscribe subscription operation typically these are written to a http.Request
 */
 type PublicSubscribeSubscriptionParams struct {

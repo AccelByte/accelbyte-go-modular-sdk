@@ -115,9 +115,10 @@ func NewAdminGetSpecificContentOK() *AdminGetSpecificContentOK {
 	return &AdminGetSpecificContentOK{}
 }
 
-/*AdminGetSpecificContentOK handles this case with default header values.
+/*
+AdminGetSpecificContentOK handles this case with default header values.
 
-  Get user specific content
+	Get user specific content
 */
 type AdminGetSpecificContentOK struct {
 	Payload *ugcclientmodels.ModelsContentDownloadResponse
@@ -169,9 +170,10 @@ func NewAdminGetSpecificContentUnauthorized() *AdminGetSpecificContentUnauthoriz
 	return &AdminGetSpecificContentUnauthorized{}
 }
 
-/*AdminGetSpecificContentUnauthorized handles this case with default header values.
+/*
+AdminGetSpecificContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetSpecificContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetSpecificContentNotFound() *AdminGetSpecificContentNotFound {
 	return &AdminGetSpecificContentNotFound{}
 }
 
-/*AdminGetSpecificContentNotFound handles this case with default header values.
+/*
+AdminGetSpecificContentNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773200</td><td>ugc content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773200</td><td>ugc content not found</td></tr></table>
 */
 type AdminGetSpecificContentNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetSpecificContentInternalServerError() *AdminGetSpecificContentInt
 	return &AdminGetSpecificContentInternalServerError{}
 }
 
-/*AdminGetSpecificContentInternalServerError handles this case with default header values.
+/*
+AdminGetSpecificContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773201</td><td>Unable to get ugc content/Unable to get creator/Unable to get included group</td></tr><tr><td>773203</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773201</td><td>Unable to get ugc content/Unable to get creator/Unable to get included group</td></tr><tr><td>773203</td><td>Failed generate download URL</td></tr></table>
 */
 type AdminGetSpecificContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

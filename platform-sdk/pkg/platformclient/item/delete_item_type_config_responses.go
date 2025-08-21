@@ -84,9 +84,10 @@ func NewDeleteItemTypeConfigNoContent() *DeleteItemTypeConfigNoContent {
 	return &DeleteItemTypeConfigNoContent{}
 }
 
-/*DeleteItemTypeConfigNoContent handles this case with default header values.
+/*
+DeleteItemTypeConfigNoContent handles this case with default header values.
 
-  Delete item successfully
+	Delete item successfully
 */
 type DeleteItemTypeConfigNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewDeleteItemTypeConfigNotFound() *DeleteItemTypeConfigNotFound {
 	return &DeleteItemTypeConfigNotFound{}
 }
 
-/*DeleteItemTypeConfigNotFound handles this case with default header values.
+/*
+DeleteItemTypeConfigNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30541</td><td>Item type config [{id}] doesn't exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30541</td><td>Item type config [{id}] doesn't exist</td></tr></table>
 */
 type DeleteItemTypeConfigNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

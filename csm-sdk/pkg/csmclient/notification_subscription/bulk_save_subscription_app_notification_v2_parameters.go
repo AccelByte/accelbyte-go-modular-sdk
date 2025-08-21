@@ -59,7 +59,8 @@ func NewBulkSaveSubscriptionAppNotificationV2ParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*BulkSaveSubscriptionAppNotificationV2Params contains all the parameters to send to the API endpoint
+/*
+BulkSaveSubscriptionAppNotificationV2Params contains all the parameters to send to the API endpoint
 for the bulk save subscription app notification v2 operation typically these are written to a http.Request
 */
 type BulkSaveSubscriptionAppNotificationV2Params struct {

@@ -85,9 +85,10 @@ func NewUpdateSteamIAPConfigOK() *UpdateSteamIAPConfigOK {
 	return &UpdateSteamIAPConfigOK{}
 }
 
-/*UpdateSteamIAPConfigOK handles this case with default header values.
+/*
+UpdateSteamIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateSteamIAPConfigOK struct {
 	Payload *platformclientmodels.SteamIAPConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateSteamIAPConfigBadRequest() *UpdateSteamIAPConfigBadRequest {
 	return &UpdateSteamIAPConfigBadRequest{}
 }
 
-/*UpdateSteamIAPConfigBadRequest handles this case with default header values.
+/*
+UpdateSteamIAPConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39128</td><td>Steam publisher key is invalid</td></tr><tr><td>39129</td><td>Steam app id is invalid</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39128</td><td>Steam publisher key is invalid</td></tr><tr><td>39129</td><td>Steam app id is invalid</td></tr></table>
 */
 type UpdateSteamIAPConfigBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -130,9 +130,10 @@ func NewUpdateSecretV1OK() *UpdateSecretV1OK {
 	return &UpdateSecretV1OK{}
 }
 
-/*UpdateSecretV1OK handles this case with default header values.
+/*
+UpdateSecretV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateSecretV1OK struct {
 	Payload *csmclientmodels.GeneratedUpdateConfigurationV1Response
@@ -184,9 +185,10 @@ func NewUpdateSecretV1BadRequest() *UpdateSecretV1BadRequest {
 	return &UpdateSecretV1BadRequest{}
 }
 
-/*UpdateSecretV1BadRequest handles this case with default header values.
+/*
+UpdateSecretV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateSecretV1BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewUpdateSecretV1Unauthorized() *UpdateSecretV1Unauthorized {
 	return &UpdateSecretV1Unauthorized{}
 }
 
-/*UpdateSecretV1Unauthorized handles this case with default header values.
+/*
+UpdateSecretV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateSecretV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewUpdateSecretV1Forbidden() *UpdateSecretV1Forbidden {
 	return &UpdateSecretV1Forbidden{}
 }
 
-/*UpdateSecretV1Forbidden handles this case with default header values.
+/*
+UpdateSecretV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateSecretV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewUpdateSecretV1InternalServerError() *UpdateSecretV1InternalServerError {
 	return &UpdateSecretV1InternalServerError{}
 }
 
-/*UpdateSecretV1InternalServerError handles this case with default header values.
+/*
+UpdateSecretV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateSecretV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

@@ -145,9 +145,10 @@ func NewPublicPartyKickOK() *PublicPartyKickOK {
 	return &PublicPartyKickOK{}
 }
 
-/*PublicPartyKickOK handles this case with default header values.
+/*
+PublicPartyKickOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicPartyKickOK struct {
 	Payload *sessionclientmodels.ApimodelsKickResponse
@@ -199,9 +200,10 @@ func NewPublicPartyKickBadRequest() *PublicPartyKickBadRequest {
 	return &PublicPartyKickBadRequest{}
 }
 
-/*PublicPartyKickBadRequest handles this case with default header values.
+/*
+PublicPartyKickBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicPartyKickBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewPublicPartyKickUnauthorized() *PublicPartyKickUnauthorized {
 	return &PublicPartyKickUnauthorized{}
 }
 
-/*PublicPartyKickUnauthorized handles this case with default header values.
+/*
+PublicPartyKickUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicPartyKickUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewPublicPartyKickForbidden() *PublicPartyKickForbidden {
 	return &PublicPartyKickForbidden{}
 }
 
-/*PublicPartyKickForbidden handles this case with default header values.
+/*
+PublicPartyKickForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicPartyKickForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewPublicPartyKickNotFound() *PublicPartyKickNotFound {
 	return &PublicPartyKickNotFound{}
 }
 
-/*PublicPartyKickNotFound handles this case with default header values.
+/*
+PublicPartyKickNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicPartyKickNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicPartyKickInternalServerError() *PublicPartyKickInternalServerError
 	return &PublicPartyKickInternalServerError{}
 }
 
-/*PublicPartyKickInternalServerError handles this case with default header values.
+/*
+PublicPartyKickInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicPartyKickInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

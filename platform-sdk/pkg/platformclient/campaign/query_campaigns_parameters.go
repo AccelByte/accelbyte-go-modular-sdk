@@ -78,7 +78,8 @@ func NewQueryCampaignsParamsWithHTTPClient(client *http.Client) *QueryCampaignsP
 	}
 }
 
-/*QueryCampaignsParams contains all the parameters to send to the API endpoint
+/*
+QueryCampaignsParams contains all the parameters to send to the API endpoint
 for the query campaigns operation typically these are written to a http.Request
 */
 type QueryCampaignsParams struct {

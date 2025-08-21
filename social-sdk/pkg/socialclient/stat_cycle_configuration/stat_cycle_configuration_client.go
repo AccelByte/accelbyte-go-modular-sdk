@@ -52,7 +52,7 @@ type ClientService interface {
 GetStatCyclesShort list stat cycles
 List stat cycles by pagination.
 Other detail info:
-        *  Returns : stat cycles
+  - Returns : stat cycles
 */
 func (a *Client) GetStatCyclesShort(params *GetStatCyclesParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCyclesResponse, error) {
 	// TODO: Validate the params before sending
@@ -129,17 +129,18 @@ func (a *Client) GetStatCyclesShort(params *GetStatCyclesParams, authInfo runtim
 CreateStatCycleShort create stat cycle
 Create stat cycle.
 Fields:
-        * id: Cycle id, consist of alphanumeric characters with a maximum of 32 characters. if not provided will be generated. (optional).
-        * name: Cycle name, maximum length is 128 characters. (required).
-        * resetTime: Reset time must follow hours:minutes in 24 hours format e.g. 01:30, 23:15. (required)
-        * resetDay: Reset Day follows the ISO-8601 standard, from 1 (Monday) to 7 (Sunday). Required when cycleType is WEEKLY.
-        * resetDate: Reset Date must be a number 1 - 31. Required when cycleType is MONTHLY or ANNUALLY.
-        * resetMonth: Reset Month must be a number 1 - 12. Required when cycleType is ANNUALLY.
-        * seasonPeriod: Season period must be a number greater than or equal to 1 (days). Required when cycleType is SEASONAL.
-        * start: Start time must follow RFC3339 standard. e.g. 2023-02-24T05:10:24.865Z. (required)
-        * end: End time must follow RFC3339 standard. e.g. 2023-02-24T05:10:24.865Z.
+  - id: Cycle id, consist of alphanumeric characters with a maximum of 32 characters. if not provided will be generated. (optional).
+  - name: Cycle name, maximum length is 128 characters. (required).
+  - resetTime: Reset time must follow hours:minutes in 24 hours format e.g. 01:30, 23:15. (required)
+  - resetDay: Reset Day follows the ISO-8601 standard, from 1 (Monday) to 7 (Sunday). Required when cycleType is WEEKLY.
+  - resetDate: Reset Date must be a number 1 - 31. Required when cycleType is MONTHLY or ANNUALLY.
+  - resetMonth: Reset Month must be a number 1 - 12. Required when cycleType is ANNUALLY.
+  - seasonPeriod: Season period must be a number greater than or equal to 1 (days). Required when cycleType is SEASONAL.
+  - start: Start time must follow RFC3339 standard. e.g. 2023-02-24T05:10:24.865Z. (required)
+  - end: End time must follow RFC3339 standard. e.g. 2023-02-24T05:10:24.865Z.
+
 Other detail info:
-        *  Returns : created stat cycle
+  - Returns : created stat cycle
 */
 func (a *Client) CreateStatCycleShort(params *CreateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*CreateStatCycleResponse, error) {
 	// TODO: Validate the params before sending
@@ -237,7 +238,7 @@ func (a *Client) CreateStatCycleShort(params *CreateStatCycleParams, authInfo ru
 BulkGetStatCycleShort bulk get stat cycle
 Bulk get stat cycle.
 Other detail info:
-        *  Returns : list of stat cycles
+  - Returns : list of stat cycles
 */
 func (a *Client) BulkGetStatCycleShort(params *BulkGetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycleResponse, error) {
 	// TODO: Validate the params before sending
@@ -485,7 +486,7 @@ func (a *Client) ImportStatCycleShort(params *ImportStatCycleParams, authInfo ru
 GetStatCycleShort get stat cycle
 Get stat cycle.
 Other detail info:
-        *  Returns : stat cycle info
+  - Returns : stat cycle info
 */
 func (a *Client) GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycleResponse, error) {
 	// TODO: Validate the params before sending
@@ -569,7 +570,7 @@ func (a *Client) GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.
 UpdateStatCycleShort update stat cycle
 Update stat cycle.
 Other detail info:
-        *  Returns : updated stat cycle
+  - Returns : updated stat cycle
 */
 func (a *Client) UpdateStatCycleShort(params *UpdateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatCycleResponse, error) {
 	// TODO: Validate the params before sending
@@ -851,7 +852,7 @@ func (a *Client) BulkAddStatsShort(params *BulkAddStatsParams, authInfo runtime.
 StopStatCycleShort stop stat cycle
 Stop stat cycle.
 Other detail info:
-        *  Returns : updated stat cycle
+  - Returns : updated stat cycle
 */
 func (a *Client) StopStatCycleShort(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleResponse, error) {
 	// TODO: Validate the params before sending
@@ -942,7 +943,7 @@ func (a *Client) StopStatCycleShort(params *StopStatCycleParams, authInfo runtim
 GetStatCycles1Short list stat cycles
 List stat cycles by pagination.
 Other detail info:
-        *  Returns : stat cycles
+  - Returns : stat cycles
 */
 func (a *Client) GetStatCycles1Short(params *GetStatCycles1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycles1Response, error) {
 	// TODO: Validate the params before sending
@@ -1019,7 +1020,7 @@ func (a *Client) GetStatCycles1Short(params *GetStatCycles1Params, authInfo runt
 BulkGetStatCycle1Short bulk get stat cycle
 Bulk get stat cycle.
 Other detail info:
-        *  Returns : list of stat cycles
+  - Returns : list of stat cycles
 */
 func (a *Client) BulkGetStatCycle1Short(params *BulkGetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*BulkGetStatCycle1Response, error) {
 	// TODO: Validate the params before sending
@@ -1110,7 +1111,7 @@ func (a *Client) BulkGetStatCycle1Short(params *BulkGetStatCycle1Params, authInf
 GetStatCycle1Short get stat cycle
 Get stat cycle.
 Other detail info:
-        *  Returns : stat cycle info
+  - Returns : stat cycle info
 */
 func (a *Client) GetStatCycle1Short(params *GetStatCycle1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycle1Response, error) {
 	// TODO: Validate the params before sending

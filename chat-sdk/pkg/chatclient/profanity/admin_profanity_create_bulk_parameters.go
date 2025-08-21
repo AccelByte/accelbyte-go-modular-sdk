@@ -59,7 +59,8 @@ func NewAdminProfanityCreateBulkParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminProfanityCreateBulkParams contains all the parameters to send to the API endpoint
+/*
+AdminProfanityCreateBulkParams contains all the parameters to send to the API endpoint
 for the admin profanity create bulk operation typically these are written to a http.Request
 */
 type AdminProfanityCreateBulkParams struct {

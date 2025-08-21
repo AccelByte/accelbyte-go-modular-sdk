@@ -57,7 +57,8 @@ func NewGetOculusIAPConfigParamsWithHTTPClient(client *http.Client) *GetOculusIA
 	}
 }
 
-/*GetOculusIAPConfigParams contains all the parameters to send to the API endpoint
+/*
+GetOculusIAPConfigParams contains all the parameters to send to the API endpoint
 for the get oculus iap config operation typically these are written to a http.Request
 */
 type GetOculusIAPConfigParams struct {

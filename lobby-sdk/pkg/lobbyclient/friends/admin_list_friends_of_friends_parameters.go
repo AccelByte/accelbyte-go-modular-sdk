@@ -86,7 +86,8 @@ func NewAdminListFriendsOfFriendsParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminListFriendsOfFriendsParams contains all the parameters to send to the API endpoint
+/*
+AdminListFriendsOfFriendsParams contains all the parameters to send to the API endpoint
 for the admin list friends of friends operation typically these are written to a http.Request
 */
 type AdminListFriendsOfFriendsParams struct {

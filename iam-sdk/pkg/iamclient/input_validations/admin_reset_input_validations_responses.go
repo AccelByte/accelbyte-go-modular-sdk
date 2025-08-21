@@ -114,9 +114,10 @@ func NewAdminResetInputValidationsNoContent() *AdminResetInputValidationsNoConte
 	return &AdminResetInputValidationsNoContent{}
 }
 
-/*AdminResetInputValidationsNoContent handles this case with default header values.
+/*
+AdminResetInputValidationsNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminResetInputValidationsNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminResetInputValidationsUnauthorized() *AdminResetInputValidationsUnau
 	return &AdminResetInputValidationsUnauthorized{}
 }
 
-/*AdminResetInputValidationsUnauthorized handles this case with default header values.
+/*
+AdminResetInputValidationsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminResetInputValidationsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -195,9 +197,10 @@ func NewAdminResetInputValidationsForbidden() *AdminResetInputValidationsForbidd
 	return &AdminResetInputValidationsForbidden{}
 }
 
-/*AdminResetInputValidationsForbidden handles this case with default header values.
+/*
+AdminResetInputValidationsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminResetInputValidationsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -249,9 +252,10 @@ func NewAdminResetInputValidationsNotFound() *AdminResetInputValidationsNotFound
 	return &AdminResetInputValidationsNotFound{}
 }
 
-/*AdminResetInputValidationsNotFound handles this case with default header values.
+/*
+AdminResetInputValidationsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10188</td><td>input validation field not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10188</td><td>input validation field not found</td></tr></table>
 */
 type AdminResetInputValidationsNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

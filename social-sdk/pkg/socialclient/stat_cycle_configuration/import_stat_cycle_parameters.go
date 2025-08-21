@@ -58,7 +58,8 @@ func NewImportStatCycleParamsWithHTTPClient(client *http.Client) *ImportStatCycl
 	}
 }
 
-/*ImportStatCycleParams contains all the parameters to send to the API endpoint
+/*
+ImportStatCycleParams contains all the parameters to send to the API endpoint
 for the import stat cycle operation typically these are written to a http.Request
 */
 type ImportStatCycleParams struct {

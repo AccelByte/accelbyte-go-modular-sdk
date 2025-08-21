@@ -57,7 +57,8 @@ func NewS2SGeneratePersonalDataURLParamsWithHTTPClient(client *http.Client) *S2S
 	}
 }
 
-/*S2SGeneratePersonalDataURLParams contains all the parameters to send to the API endpoint
+/*
+S2SGeneratePersonalDataURLParams contains all the parameters to send to the API endpoint
 for the s2s generate personal data url operation typically these are written to a http.Request
 */
 type S2SGeneratePersonalDataURLParams struct {

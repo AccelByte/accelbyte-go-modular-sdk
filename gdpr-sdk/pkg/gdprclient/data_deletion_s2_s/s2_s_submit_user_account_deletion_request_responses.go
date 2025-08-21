@@ -145,9 +145,10 @@ func NewS2SSubmitUserAccountDeletionRequestCreated() *S2SSubmitUserAccountDeleti
 	return &S2SSubmitUserAccountDeletionRequestCreated{}
 }
 
-/*S2SSubmitUserAccountDeletionRequestCreated handles this case with default header values.
+/*
+S2SSubmitUserAccountDeletionRequestCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type S2SSubmitUserAccountDeletionRequestCreated struct {
 	Payload *gdprclientmodels.ModelsS2SRequestDeleteResponse
@@ -199,9 +200,10 @@ func NewS2SSubmitUserAccountDeletionRequestUnauthorized() *S2SSubmitUserAccountD
 	return &S2SSubmitUserAccountDeletionRequestUnauthorized{}
 }
 
-/*S2SSubmitUserAccountDeletionRequestUnauthorized handles this case with default header values.
+/*
+S2SSubmitUserAccountDeletionRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type S2SSubmitUserAccountDeletionRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewS2SSubmitUserAccountDeletionRequestForbidden() *S2SSubmitUserAccountDele
 	return &S2SSubmitUserAccountDeletionRequestForbidden{}
 }
 
-/*S2SSubmitUserAccountDeletionRequestForbidden handles this case with default header values.
+/*
+S2SSubmitUserAccountDeletionRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type S2SSubmitUserAccountDeletionRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewS2SSubmitUserAccountDeletionRequestNotFound() *S2SSubmitUserAccountDelet
 	return &S2SSubmitUserAccountDeletionRequestNotFound{}
 }
 
-/*S2SSubmitUserAccountDeletionRequestNotFound handles this case with default header values.
+/*
+S2SSubmitUserAccountDeletionRequestNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type S2SSubmitUserAccountDeletionRequestNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewS2SSubmitUserAccountDeletionRequestConflict() *S2SSubmitUserAccountDelet
 	return &S2SSubmitUserAccountDeletionRequestConflict{}
 }
 
-/*S2SSubmitUserAccountDeletionRequestConflict handles this case with default header values.
+/*
+S2SSubmitUserAccountDeletionRequestConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type S2SSubmitUserAccountDeletionRequestConflict struct {
 	Payload *gdprclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewS2SSubmitUserAccountDeletionRequestInternalServerError() *S2SSubmitUserA
 	return &S2SSubmitUserAccountDeletionRequestInternalServerError{}
 }
 
-/*S2SSubmitUserAccountDeletionRequestInternalServerError handles this case with default header values.
+/*
+S2SSubmitUserAccountDeletionRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type S2SSubmitUserAccountDeletionRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

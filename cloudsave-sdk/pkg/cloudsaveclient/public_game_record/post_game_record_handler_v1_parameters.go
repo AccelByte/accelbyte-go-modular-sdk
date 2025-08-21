@@ -59,7 +59,8 @@ func NewPostGameRecordHandlerV1ParamsWithHTTPClient(client *http.Client) *PostGa
 	}
 }
 
-/*PostGameRecordHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+PostGameRecordHandlerV1Params contains all the parameters to send to the API endpoint
 for the post game record handler v1 operation typically these are written to a http.Request
 */
 type PostGameRecordHandlerV1Params struct {

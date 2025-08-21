@@ -57,7 +57,8 @@ func NewListCategoriesBasicParamsWithHTTPClient(client *http.Client) *ListCatego
 	}
 }
 
-/*ListCategoriesBasicParams contains all the parameters to send to the API endpoint
+/*
+ListCategoriesBasicParams contains all the parameters to send to the API endpoint
 for the list categories basic operation typically these are written to a http.Request
 */
 type ListCategoriesBasicParams struct {

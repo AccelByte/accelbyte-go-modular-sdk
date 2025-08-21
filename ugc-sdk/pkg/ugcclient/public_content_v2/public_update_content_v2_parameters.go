@@ -59,7 +59,8 @@ func NewPublicUpdateContentV2ParamsWithHTTPClient(client *http.Client) *PublicUp
 	}
 }
 
-/*PublicUpdateContentV2Params contains all the parameters to send to the API endpoint
+/*
+PublicUpdateContentV2Params contains all the parameters to send to the API endpoint
 for the public update content v2 operation typically these are written to a http.Request
 */
 type PublicUpdateContentV2Params struct {

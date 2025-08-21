@@ -99,9 +99,10 @@ func NewDeleteViewNoContent() *DeleteViewNoContent {
 	return &DeleteViewNoContent{}
 }
 
-/*DeleteViewNoContent handles this case with default header values.
+/*
+DeleteViewNoContent handles this case with default header values.
 
-  Delete view successfully
+	Delete view successfully
 */
 type DeleteViewNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewDeleteViewNotFound() *DeleteViewNotFound {
 	return &DeleteViewNotFound{}
 }
 
-/*DeleteViewNotFound handles this case with default header values.
+/*
+DeleteViewNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30641</td><td>View [{viewId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30641</td><td>View [{viewId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DeleteViewNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewDeleteViewConflict() *DeleteViewConflict {
 	return &DeleteViewConflict{}
 }
 
-/*DeleteViewConflict handles this case with default header values.
+/*
+DeleteViewConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type DeleteViewConflict struct {
 	Payload *platformclientmodels.ErrorEntity

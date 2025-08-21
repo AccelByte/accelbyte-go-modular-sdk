@@ -57,7 +57,8 @@ func NewDeleteTwitchIAPConfigParamsWithHTTPClient(client *http.Client) *DeleteTw
 	}
 }
 
-/*DeleteTwitchIAPConfigParams contains all the parameters to send to the API endpoint
+/*
+DeleteTwitchIAPConfigParams contains all the parameters to send to the API endpoint
 for the delete twitch iap config operation typically these are written to a http.Request
 */
 type DeleteTwitchIAPConfigParams struct {

@@ -59,7 +59,8 @@ func NewAdminUpdateUserInventoriesByInventoryCodeParamsWithHTTPClient(client *ht
 	}
 }
 
-/*AdminUpdateUserInventoriesByInventoryCodeParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateUserInventoriesByInventoryCodeParams contains all the parameters to send to the API endpoint
 for the admin update user inventories by inventory code operation typically these are written to a http.Request
 */
 type AdminUpdateUserInventoriesByInventoryCodeParams struct {

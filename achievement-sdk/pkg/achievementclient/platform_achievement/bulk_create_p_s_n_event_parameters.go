@@ -59,7 +59,8 @@ func NewBulkCreatePSNEventParamsWithHTTPClient(client *http.Client) *BulkCreateP
 	}
 }
 
-/*BulkCreatePSNEventParams contains all the parameters to send to the API endpoint
+/*
+BulkCreatePSNEventParams contains all the parameters to send to the API endpoint
 for the bulk create psn event operation typically these are written to a http.Request
 */
 type BulkCreatePSNEventParams struct {

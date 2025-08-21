@@ -114,9 +114,10 @@ func NewSendMultipleUsersFreeformNotificationV1AdminNoContent() *SendMultipleUse
 	return &SendMultipleUsersFreeformNotificationV1AdminNoContent{}
 }
 
-/*SendMultipleUsersFreeformNotificationV1AdminNoContent handles this case with default header values.
+/*
+SendMultipleUsersFreeformNotificationV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type SendMultipleUsersFreeformNotificationV1AdminNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewSendMultipleUsersFreeformNotificationV1AdminBadRequest() *SendMultipleUs
 	return &SendMultipleUsersFreeformNotificationV1AdminBadRequest{}
 }
 
-/*SendMultipleUsersFreeformNotificationV1AdminBadRequest handles this case with default header values.
+/*
+SendMultipleUsersFreeformNotificationV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type SendMultipleUsersFreeformNotificationV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -195,9 +197,10 @@ func NewSendMultipleUsersFreeformNotificationV1AdminUnauthorized() *SendMultiple
 	return &SendMultipleUsersFreeformNotificationV1AdminUnauthorized{}
 }
 
-/*SendMultipleUsersFreeformNotificationV1AdminUnauthorized handles this case with default header values.
+/*
+SendMultipleUsersFreeformNotificationV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type SendMultipleUsersFreeformNotificationV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -249,9 +252,10 @@ func NewSendMultipleUsersFreeformNotificationV1AdminForbidden() *SendMultipleUse
 	return &SendMultipleUsersFreeformNotificationV1AdminForbidden{}
 }
 
-/*SendMultipleUsersFreeformNotificationV1AdminForbidden handles this case with default header values.
+/*
+SendMultipleUsersFreeformNotificationV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type SendMultipleUsersFreeformNotificationV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

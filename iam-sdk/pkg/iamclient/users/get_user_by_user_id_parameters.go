@@ -57,7 +57,8 @@ func NewGetUserByUserIDParamsWithHTTPClient(client *http.Client) *GetUserByUserI
 	}
 }
 
-/*GetUserByUserIDParams contains all the parameters to send to the API endpoint
+/*
+GetUserByUserIDParams contains all the parameters to send to the API endpoint
 for the get user by user id operation typically these are written to a http.Request
 */
 type GetUserByUserIDParams struct {

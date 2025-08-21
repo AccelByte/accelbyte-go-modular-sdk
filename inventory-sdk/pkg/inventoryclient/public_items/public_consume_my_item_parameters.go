@@ -59,7 +59,8 @@ func NewPublicConsumeMyItemParamsWithHTTPClient(client *http.Client) *PublicCons
 	}
 }
 
-/*PublicConsumeMyItemParams contains all the parameters to send to the API endpoint
+/*
+PublicConsumeMyItemParams contains all the parameters to send to the API endpoint
 for the public consume my item operation typically these are written to a http.Request
 */
 type PublicConsumeMyItemParams struct {

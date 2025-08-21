@@ -100,9 +100,10 @@ func NewPreCheckFulfillItemOK() *PreCheckFulfillItemOK {
 	return &PreCheckFulfillItemOK{}
 }
 
-/*PreCheckFulfillItemOK handles this case with default header values.
+/*
+PreCheckFulfillItemOK handles this case with default header values.
 
-  Successful retrieval
+	Successful retrieval
 */
 type PreCheckFulfillItemOK struct {
 	Payload []*platformclientmodels.FulfillmentItem
@@ -152,9 +153,10 @@ func NewPreCheckFulfillItemBadRequest() *PreCheckFulfillItemBadRequest {
 	return &PreCheckFulfillItemBadRequest{}
 }
 
-/*PreCheckFulfillItemBadRequest handles this case with default header values.
+/*
+PreCheckFulfillItemBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr></table>
 */
 type PreCheckFulfillItemBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewPreCheckFulfillItemNotFound() *PreCheckFulfillItemNotFound {
 	return &PreCheckFulfillItemNotFound{}
 }
 
-/*PreCheckFulfillItemNotFound handles this case with default header values.
+/*
+PreCheckFulfillItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PreCheckFulfillItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

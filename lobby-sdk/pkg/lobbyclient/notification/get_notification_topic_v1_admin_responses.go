@@ -130,9 +130,10 @@ func NewGetNotificationTopicV1AdminOK() *GetNotificationTopicV1AdminOK {
 	return &GetNotificationTopicV1AdminOK{}
 }
 
-/*GetNotificationTopicV1AdminOK handles this case with default header values.
+/*
+GetNotificationTopicV1AdminOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetNotificationTopicV1AdminOK struct {
 	Payload *lobbyclientmodels.ModelNotificationTopicResponseV1
@@ -184,9 +185,10 @@ func NewGetNotificationTopicV1AdminUnauthorized() *GetNotificationTopicV1AdminUn
 	return &GetNotificationTopicV1AdminUnauthorized{}
 }
 
-/*GetNotificationTopicV1AdminUnauthorized handles this case with default header values.
+/*
+GetNotificationTopicV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetNotificationTopicV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -238,9 +240,10 @@ func NewGetNotificationTopicV1AdminForbidden() *GetNotificationTopicV1AdminForbi
 	return &GetNotificationTopicV1AdminForbidden{}
 }
 
-/*GetNotificationTopicV1AdminForbidden handles this case with default header values.
+/*
+GetNotificationTopicV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetNotificationTopicV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -292,9 +295,10 @@ func NewGetNotificationTopicV1AdminNotFound() *GetNotificationTopicV1AdminNotFou
 	return &GetNotificationTopicV1AdminNotFound{}
 }
 
-/*GetNotificationTopicV1AdminNotFound handles this case with default header values.
+/*
+GetNotificationTopicV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetNotificationTopicV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -346,9 +350,10 @@ func NewGetNotificationTopicV1AdminInternalServerError() *GetNotificationTopicV1
 	return &GetNotificationTopicV1AdminInternalServerError{}
 }
 
-/*GetNotificationTopicV1AdminInternalServerError handles this case with default header values.
+/*
+GetNotificationTopicV1AdminInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetNotificationTopicV1AdminInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

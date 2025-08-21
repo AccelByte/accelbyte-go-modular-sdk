@@ -130,9 +130,10 @@ func NewGetListGroupByIDsV2OK() *GetListGroupByIDsV2OK {
 	return &GetListGroupByIDsV2OK{}
 }
 
-/*GetListGroupByIDsV2OK handles this case with default header values.
+/*
+GetListGroupByIDsV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetListGroupByIDsV2OK struct {
 	Payload *groupclientmodels.ModelsGetGroupsResponseV1
@@ -184,9 +185,10 @@ func NewGetListGroupByIDsV2BadRequest() *GetListGroupByIDsV2BadRequest {
 	return &GetListGroupByIDsV2BadRequest{}
 }
 
-/*GetListGroupByIDsV2BadRequest handles this case with default header values.
+/*
+GetListGroupByIDsV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetListGroupByIDsV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewGetListGroupByIDsV2Unauthorized() *GetListGroupByIDsV2Unauthorized {
 	return &GetListGroupByIDsV2Unauthorized{}
 }
 
-/*GetListGroupByIDsV2Unauthorized handles this case with default header values.
+/*
+GetListGroupByIDsV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetListGroupByIDsV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewGetListGroupByIDsV2Forbidden() *GetListGroupByIDsV2Forbidden {
 	return &GetListGroupByIDsV2Forbidden{}
 }
 
-/*GetListGroupByIDsV2Forbidden handles this case with default header values.
+/*
+GetListGroupByIDsV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type GetListGroupByIDsV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewGetListGroupByIDsV2InternalServerError() *GetListGroupByIDsV2InternalSer
 	return &GetListGroupByIDsV2InternalServerError{}
 }
 
-/*GetListGroupByIDsV2InternalServerError handles this case with default header values.
+/*
+GetListGroupByIDsV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetListGroupByIDsV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

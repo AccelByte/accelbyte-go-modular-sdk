@@ -84,9 +84,10 @@ func NewCheckBalanceOK() *CheckBalanceOK {
 	return &CheckBalanceOK{}
 }
 
-/*CheckBalanceOK handles this case with default header values.
+/*
+CheckBalanceOK handles this case with default header values.
 
-  Successfully determined if user has enough balance.
+	Successfully determined if user has enough balance.
 */
 type CheckBalanceOK struct {
 }
@@ -111,9 +112,10 @@ func NewCheckBalanceBadRequest() *CheckBalanceBadRequest {
 	return &CheckBalanceBadRequest{}
 }
 
-/*CheckBalanceBadRequest handles this case with default header values.
+/*
+CheckBalanceBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>35124</td><td>Wallet [{currencyCode}] has insufficient balance</td></tr></table>
 */
 type CheckBalanceBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity

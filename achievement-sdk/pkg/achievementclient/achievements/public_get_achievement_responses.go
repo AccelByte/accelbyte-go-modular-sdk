@@ -130,9 +130,10 @@ func NewPublicGetAchievementOK() *PublicGetAchievementOK {
 	return &PublicGetAchievementOK{}
 }
 
-/*PublicGetAchievementOK handles this case with default header values.
+/*
+PublicGetAchievementOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetAchievementOK struct {
 	Payload *achievementclientmodels.ModelsPublicAchievementResponse
@@ -184,9 +185,10 @@ func NewPublicGetAchievementBadRequest() *PublicGetAchievementBadRequest {
 	return &PublicGetAchievementBadRequest{}
 }
 
-/*PublicGetAchievementBadRequest handles this case with default header values.
+/*
+PublicGetAchievementBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetAchievementBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicGetAchievementUnauthorized() *PublicGetAchievementUnauthorized {
 	return &PublicGetAchievementUnauthorized{}
 }
 
-/*PublicGetAchievementUnauthorized handles this case with default header values.
+/*
+PublicGetAchievementUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetAchievementUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicGetAchievementNotFound() *PublicGetAchievementNotFound {
 	return &PublicGetAchievementNotFound{}
 }
 
-/*PublicGetAchievementNotFound handles this case with default header values.
+/*
+PublicGetAchievementNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetAchievementNotFound struct {
 	Payload *achievementclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicGetAchievementInternalServerError() *PublicGetAchievementInternalS
 	return &PublicGetAchievementInternalServerError{}
 }
 
-/*PublicGetAchievementInternalServerError handles this case with default header values.
+/*
+PublicGetAchievementInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetAchievementInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

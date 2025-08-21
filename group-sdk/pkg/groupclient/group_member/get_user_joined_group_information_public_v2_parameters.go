@@ -58,7 +58,8 @@ func NewGetUserJoinedGroupInformationPublicV2ParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*GetUserJoinedGroupInformationPublicV2Params contains all the parameters to send to the API endpoint
+/*
+GetUserJoinedGroupInformationPublicV2Params contains all the parameters to send to the API endpoint
 for the get user joined group information public v2 operation typically these are written to a http.Request
 */
 type GetUserJoinedGroupInformationPublicV2Params struct {

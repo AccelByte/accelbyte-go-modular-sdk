@@ -57,7 +57,8 @@ func NewPortalHealthCheckParamsWithHTTPClient(client *http.Client) *PortalHealth
 	}
 }
 
-/*PortalHealthCheckParams contains all the parameters to send to the API endpoint
+/*
+PortalHealthCheckParams contains all the parameters to send to the API endpoint
 for the portal health check operation typically these are written to a http.Request
 */
 type PortalHealthCheckParams struct {

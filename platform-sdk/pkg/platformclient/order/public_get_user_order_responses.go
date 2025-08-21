@@ -85,9 +85,10 @@ func NewPublicGetUserOrderOK() *PublicGetUserOrderOK {
 	return &PublicGetUserOrderOK{}
 }
 
-/*PublicGetUserOrderOK handles this case with default header values.
+/*
+PublicGetUserOrderOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetUserOrderOK struct {
 	Payload *platformclientmodels.OrderInfo
@@ -139,9 +140,10 @@ func NewPublicGetUserOrderNotFound() *PublicGetUserOrderNotFound {
 	return &PublicGetUserOrderNotFound{}
 }
 
-/*PublicGetUserOrderNotFound handles this case with default header values.
+/*
+PublicGetUserOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>32141</td><td>Order [{orderNo}] does not exist</td></tr></table>
 */
 type PublicGetUserOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewUplodLootBoxPluginConfigCertParamsWithHTTPClient(client *http.Client) *U
 	}
 }
 
-/*UplodLootBoxPluginConfigCertParams contains all the parameters to send to the API endpoint
+/*
+UplodLootBoxPluginConfigCertParams contains all the parameters to send to the API endpoint
 for the uplod loot box plugin config cert operation typically these are written to a http.Request
 */
 type UplodLootBoxPluginConfigCertParams struct {

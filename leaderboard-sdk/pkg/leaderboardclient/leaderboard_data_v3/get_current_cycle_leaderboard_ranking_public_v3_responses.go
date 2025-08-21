@@ -115,9 +115,10 @@ func NewGetCurrentCycleLeaderboardRankingPublicV3OK() *GetCurrentCycleLeaderboar
 	return &GetCurrentCycleLeaderboardRankingPublicV3OK{}
 }
 
-/*GetCurrentCycleLeaderboardRankingPublicV3OK handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingPublicV3OK handles this case with default header values.
 
-  Cycle leaderboard ranking data retrieved
+	Cycle leaderboard ranking data retrieved
 */
 type GetCurrentCycleLeaderboardRankingPublicV3OK struct {
 	Payload *leaderboardclientmodels.ModelsGetLeaderboardRankingResp
@@ -169,9 +170,10 @@ func NewGetCurrentCycleLeaderboardRankingPublicV3BadRequest() *GetCurrentCycleLe
 	return &GetCurrentCycleLeaderboardRankingPublicV3BadRequest{}
 }
 
-/*GetCurrentCycleLeaderboardRankingPublicV3BadRequest handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingPublicV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetCurrentCycleLeaderboardRankingPublicV3BadRequest struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -223,9 +225,10 @@ func NewGetCurrentCycleLeaderboardRankingPublicV3NotFound() *GetCurrentCycleLead
 	return &GetCurrentCycleLeaderboardRankingPublicV3NotFound{}
 }
 
-/*GetCurrentCycleLeaderboardRankingPublicV3NotFound handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingPublicV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>71230</td><td>leaderboard configuration not found</td></tr><tr><td>71235</td><td>leaderboard ranking not found</td></tr></table>
 */
 type GetCurrentCycleLeaderboardRankingPublicV3NotFound struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse
@@ -277,9 +280,10 @@ func NewGetCurrentCycleLeaderboardRankingPublicV3InternalServerError() *GetCurre
 	return &GetCurrentCycleLeaderboardRankingPublicV3InternalServerError{}
 }
 
-/*GetCurrentCycleLeaderboardRankingPublicV3InternalServerError handles this case with default header values.
+/*
+GetCurrentCycleLeaderboardRankingPublicV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>71236</td><td>leaderboard ranking count failed</td></tr></table>
 */
 type GetCurrentCycleLeaderboardRankingPublicV3InternalServerError struct {
 	Payload *leaderboardclientmodels.ResponseErrorResponse

@@ -69,9 +69,10 @@ func NewQueryCodesOK() *QueryCodesOK {
 	return &QueryCodesOK{}
 }
 
-/*QueryCodesOK handles this case with default header values.
+/*
+QueryCodesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryCodesOK struct {
 	Payload *platformclientmodels.CodeInfoPagingSlicedResult

@@ -85,9 +85,10 @@ func NewGrantUserExpOK() *GrantUserExpOK {
 	return &GrantUserExpOK{}
 }
 
-/*GrantUserExpOK handles this case with default header values.
+/*
+GrantUserExpOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GrantUserExpOK struct {
 	Payload *seasonpassclientmodels.UserSeasonSummary
@@ -139,9 +140,10 @@ func NewGrantUserExpBadRequest() *GrantUserExpBadRequest {
 	return &GrantUserExpBadRequest{}
 }
 
-/*GrantUserExpBadRequest handles this case with default header values.
+/*
+GrantUserExpBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type GrantUserExpBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity

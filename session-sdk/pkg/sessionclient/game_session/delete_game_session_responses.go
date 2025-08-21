@@ -114,9 +114,10 @@ func NewDeleteGameSessionNoContent() *DeleteGameSessionNoContent {
 	return &DeleteGameSessionNoContent{}
 }
 
-/*DeleteGameSessionNoContent handles this case with default header values.
+/*
+DeleteGameSessionNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteGameSessionNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewDeleteGameSessionUnauthorized() *DeleteGameSessionUnauthorized {
 	return &DeleteGameSessionUnauthorized{}
 }
 
-/*DeleteGameSessionUnauthorized handles this case with default header values.
+/*
+DeleteGameSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteGameSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewDeleteGameSessionForbidden() *DeleteGameSessionForbidden {
 	return &DeleteGameSessionForbidden{}
 }
 
-/*DeleteGameSessionForbidden handles this case with default header values.
+/*
+DeleteGameSessionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteGameSessionForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewDeleteGameSessionInternalServerError() *DeleteGameSessionInternalServerE
 	return &DeleteGameSessionInternalServerError{}
 }
 
-/*DeleteGameSessionInternalServerError handles this case with default header values.
+/*
+DeleteGameSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteGameSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

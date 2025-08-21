@@ -66,9 +66,10 @@ func NewDeletePlatformDLCConfigNoContent() *DeletePlatformDLCConfigNoContent {
 	return &DeletePlatformDLCConfigNoContent{}
 }
 
-/*DeletePlatformDLCConfigNoContent handles this case with default header values.
+/*
+DeletePlatformDLCConfigNoContent handles this case with default header values.
 
-  Delete successfully
+	Delete successfully
 */
 type DeletePlatformDLCConfigNoContent struct {
 }

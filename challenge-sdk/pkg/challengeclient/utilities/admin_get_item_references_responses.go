@@ -130,9 +130,10 @@ func NewAdminGetItemReferencesOK() *AdminGetItemReferencesOK {
 	return &AdminGetItemReferencesOK{}
 }
 
-/*AdminGetItemReferencesOK handles this case with default header values.
+/*
+AdminGetItemReferencesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetItemReferencesOK struct {
 	Payload *challengeclientmodels.ModelItemReferenceResponse
@@ -184,9 +185,10 @@ func NewAdminGetItemReferencesBadRequest() *AdminGetItemReferencesBadRequest {
 	return &AdminGetItemReferencesBadRequest{}
 }
 
-/*AdminGetItemReferencesBadRequest handles this case with default header values.
+/*
+AdminGetItemReferencesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminGetItemReferencesBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetItemReferencesUnauthorized() *AdminGetItemReferencesUnauthorized
 	return &AdminGetItemReferencesUnauthorized{}
 }
 
-/*AdminGetItemReferencesUnauthorized handles this case with default header values.
+/*
+AdminGetItemReferencesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetItemReferencesUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetItemReferencesForbidden() *AdminGetItemReferencesForbidden {
 	return &AdminGetItemReferencesForbidden{}
 }
 
-/*AdminGetItemReferencesForbidden handles this case with default header values.
+/*
+AdminGetItemReferencesForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetItemReferencesForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetItemReferencesInternalServerError() *AdminGetItemReferencesInter
 	return &AdminGetItemReferencesInternalServerError{}
 }
 
-/*AdminGetItemReferencesInternalServerError handles this case with default header values.
+/*
+AdminGetItemReferencesInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminGetItemReferencesInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

@@ -78,7 +78,8 @@ func NewGetMyNotificationsParamsWithHTTPClient(client *http.Client) *GetMyNotifi
 	}
 }
 
-/*GetMyNotificationsParams contains all the parameters to send to the API endpoint
+/*
+GetMyNotificationsParams contains all the parameters to send to the API endpoint
 for the get my notifications operation typically these are written to a http.Request
 */
 type GetMyNotificationsParams struct {

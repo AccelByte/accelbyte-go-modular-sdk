@@ -130,9 +130,10 @@ func NewAdminUnbanTopicMembersOK() *AdminUnbanTopicMembersOK {
 	return &AdminUnbanTopicMembersOK{}
 }
 
-/*AdminUnbanTopicMembersOK handles this case with default header values.
+/*
+AdminUnbanTopicMembersOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUnbanTopicMembersOK struct {
 	Payload *chatclientmodels.ModelsUnbanTopicMemberResult
@@ -184,9 +185,10 @@ func NewAdminUnbanTopicMembersBadRequest() *AdminUnbanTopicMembersBadRequest {
 	return &AdminUnbanTopicMembersBadRequest{}
 }
 
-/*AdminUnbanTopicMembersBadRequest handles this case with default header values.
+/*
+AdminUnbanTopicMembersBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminUnbanTopicMembersBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminUnbanTopicMembersUnauthorized() *AdminUnbanTopicMembersUnauthorized
 	return &AdminUnbanTopicMembersUnauthorized{}
 }
 
-/*AdminUnbanTopicMembersUnauthorized handles this case with default header values.
+/*
+AdminUnbanTopicMembersUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminUnbanTopicMembersUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminUnbanTopicMembersForbidden() *AdminUnbanTopicMembersForbidden {
 	return &AdminUnbanTopicMembersForbidden{}
 }
 
-/*AdminUnbanTopicMembersForbidden handles this case with default header values.
+/*
+AdminUnbanTopicMembersForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminUnbanTopicMembersForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminUnbanTopicMembersInternalServerError() *AdminUnbanTopicMembersInter
 	return &AdminUnbanTopicMembersInternalServerError{}
 }
 
-/*AdminUnbanTopicMembersInternalServerError handles this case with default header values.
+/*
+AdminUnbanTopicMembersInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminUnbanTopicMembersInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

@@ -41,7 +41,7 @@ type ClientService interface {
 DownloadInvoiceDetailsShort download invoice details
 Download invoice details as a csv file.
 Other detail info:
-              * Returns : invoice details csv file
+  - Returns : invoice details csv file
 */
 func (a *Client) DownloadInvoiceDetailsShort(params *DownloadInvoiceDetailsParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*DownloadInvoiceDetailsResponse, error) {
 	// TODO: Validate the params before sending
@@ -97,7 +97,7 @@ func (a *Client) DownloadInvoiceDetailsShort(params *DownloadInvoiceDetailsParam
 GenerateInvoiceSummaryShort generate invoice summary
 Generate invoice summary.
 Other detail info:
-              * Returns : query orders
+  - Returns : query orders
 */
 func (a *Client) GenerateInvoiceSummaryShort(params *GenerateInvoiceSummaryParams, authInfo runtime.ClientAuthInfoWriter) (*GenerateInvoiceSummaryResponse, error) {
 	// TODO: Validate the params before sending

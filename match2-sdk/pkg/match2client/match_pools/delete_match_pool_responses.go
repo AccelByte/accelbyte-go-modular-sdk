@@ -129,9 +129,10 @@ func NewDeleteMatchPoolNoContent() *DeleteMatchPoolNoContent {
 	return &DeleteMatchPoolNoContent{}
 }
 
-/*DeleteMatchPoolNoContent handles this case with default header values.
+/*
+DeleteMatchPoolNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteMatchPoolNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteMatchPoolUnauthorized() *DeleteMatchPoolUnauthorized {
 	return &DeleteMatchPoolUnauthorized{}
 }
 
-/*DeleteMatchPoolUnauthorized handles this case with default header values.
+/*
+DeleteMatchPoolUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteMatchPoolUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewDeleteMatchPoolForbidden() *DeleteMatchPoolForbidden {
 	return &DeleteMatchPoolForbidden{}
 }
 
-/*DeleteMatchPoolForbidden handles this case with default header values.
+/*
+DeleteMatchPoolForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteMatchPoolForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewDeleteMatchPoolNotFound() *DeleteMatchPoolNotFound {
 	return &DeleteMatchPoolNotFound{}
 }
 
-/*DeleteMatchPoolNotFound handles this case with default header values.
+/*
+DeleteMatchPoolNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteMatchPoolNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewDeleteMatchPoolInternalServerError() *DeleteMatchPoolInternalServerError
 	return &DeleteMatchPoolInternalServerError{}
 }
 
-/*DeleteMatchPoolInternalServerError handles this case with default header values.
+/*
+DeleteMatchPoolInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteMatchPoolInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

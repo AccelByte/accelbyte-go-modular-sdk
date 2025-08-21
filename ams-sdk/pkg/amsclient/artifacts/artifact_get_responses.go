@@ -130,9 +130,10 @@ func NewArtifactGetOK() *ArtifactGetOK {
 	return &ArtifactGetOK{}
 }
 
-/*ArtifactGetOK handles this case with default header values.
+/*
+ArtifactGetOK handles this case with default header values.
 
-  success
+	success
 */
 type ArtifactGetOK struct {
 	Payload *amsclientmodels.APIArtifactListResponse
@@ -184,9 +185,10 @@ func NewArtifactGetBadRequest() *ArtifactGetBadRequest {
 	return &ArtifactGetBadRequest{}
 }
 
-/*ArtifactGetBadRequest handles this case with default header values.
+/*
+ArtifactGetBadRequest handles this case with default header values.
 
-  invalid data in request
+	invalid data in request
 */
 type ArtifactGetBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -238,9 +240,10 @@ func NewArtifactGetUnauthorized() *ArtifactGetUnauthorized {
 	return &ArtifactGetUnauthorized{}
 }
 
-/*ArtifactGetUnauthorized handles this case with default header values.
+/*
+ArtifactGetUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type ArtifactGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -292,9 +295,10 @@ func NewArtifactGetForbidden() *ArtifactGetForbidden {
 	return &ArtifactGetForbidden{}
 }
 
-/*ArtifactGetForbidden handles this case with default header values.
+/*
+ArtifactGetForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type ArtifactGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -346,9 +350,10 @@ func NewArtifactGetInternalServerError() *ArtifactGetInternalServerError {
 	return &ArtifactGetInternalServerError{}
 }
 
-/*ArtifactGetInternalServerError handles this case with default header values.
+/*
+ArtifactGetInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type ArtifactGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

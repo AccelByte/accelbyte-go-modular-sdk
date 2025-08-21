@@ -100,9 +100,10 @@ func NewPublicUpdateUserNamespaceSlotOK() *PublicUpdateUserNamespaceSlotOK {
 	return &PublicUpdateUserNamespaceSlotOK{}
 }
 
-/*PublicUpdateUserNamespaceSlotOK handles this case with default header values.
+/*
+PublicUpdateUserNamespaceSlotOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicUpdateUserNamespaceSlotOK struct {
 	Payload *socialclientmodels.SlotInfo
@@ -154,9 +155,10 @@ func NewPublicUpdateUserNamespaceSlotBadRequest() *PublicUpdateUserNamespaceSlot
 	return &PublicUpdateUserNamespaceSlotBadRequest{}
 }
 
-/*PublicUpdateUserNamespaceSlotBadRequest handles this case with default header values.
+/*
+PublicUpdateUserNamespaceSlotBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12121</td><td>Checksum mismatch for [{filename}]</td></tr><tr><td>12122</td><td>[{filename}] exceeds the upload limit size of [{sizeLimit}] bytes</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12121</td><td>Checksum mismatch for [{filename}]</td></tr><tr><td>12122</td><td>[{filename}] exceeds the upload limit size of [{sizeLimit}] bytes</td></tr></table>
 */
 type PublicUpdateUserNamespaceSlotBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewPublicUpdateUserNamespaceSlotNotFound() *PublicUpdateUserNamespaceSlotNo
 	return &PublicUpdateUserNamespaceSlotNotFound{}
 }
 
-/*PublicUpdateUserNamespaceSlotNotFound handles this case with default header values.
+/*
+PublicUpdateUserNamespaceSlotNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12141</td><td>Slot [{slotId}] not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12141</td><td>Slot [{slotId}] not found in namespace [{namespace}]</td></tr></table>
 */
 type PublicUpdateUserNamespaceSlotNotFound struct {
 	Payload *socialclientmodels.ErrorEntity

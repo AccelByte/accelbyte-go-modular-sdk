@@ -124,9 +124,10 @@ func NewDeleteRolePermissionNoContent() *DeleteRolePermissionNoContent {
 	return &DeleteRolePermissionNoContent{}
 }
 
-/*DeleteRolePermissionNoContent handles this case with default header values.
+/*
+DeleteRolePermissionNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type DeleteRolePermissionNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewDeleteRolePermissionBadRequest() *DeleteRolePermissionBadRequest {
 	return &DeleteRolePermissionBadRequest{}
 }
 
-/*DeleteRolePermissionBadRequest handles this case with default header values.
+/*
+DeleteRolePermissionBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type DeleteRolePermissionBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewDeleteRolePermissionUnauthorized() *DeleteRolePermissionUnauthorized {
 	return &DeleteRolePermissionUnauthorized{}
 }
 
-/*DeleteRolePermissionUnauthorized handles this case with default header values.
+/*
+DeleteRolePermissionUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteRolePermissionUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewDeleteRolePermissionForbidden() *DeleteRolePermissionForbidden {
 	return &DeleteRolePermissionForbidden{}
 }
 
-/*DeleteRolePermissionForbidden handles this case with default header values.
+/*
+DeleteRolePermissionForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteRolePermissionForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewDeleteRolePermissionNotFound() *DeleteRolePermissionNotFound {
 	return &DeleteRolePermissionNotFound{}
 }
 
-/*DeleteRolePermissionNotFound handles this case with default header values.
+/*
+DeleteRolePermissionNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type DeleteRolePermissionNotFound struct {
 }

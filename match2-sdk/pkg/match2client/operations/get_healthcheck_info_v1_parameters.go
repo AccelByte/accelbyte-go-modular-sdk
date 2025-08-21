@@ -57,7 +57,8 @@ func NewGetHealthcheckInfoV1ParamsWithHTTPClient(client *http.Client) *GetHealth
 	}
 }
 
-/*GetHealthcheckInfoV1Params contains all the parameters to send to the API endpoint
+/*
+GetHealthcheckInfoV1Params contains all the parameters to send to the API endpoint
 for the get healthcheck info v1 operation typically these are written to a http.Request
 */
 type GetHealthcheckInfoV1Params struct {

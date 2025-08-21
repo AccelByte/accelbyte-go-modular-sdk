@@ -68,7 +68,8 @@ func NewAdminSyncPlatformCredentialsParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminSyncPlatformCredentialsParams contains all the parameters to send to the API endpoint
+/*
+AdminSyncPlatformCredentialsParams contains all the parameters to send to the API endpoint
 for the admin sync platform credentials operation typically these are written to a http.Request
 */
 type AdminSyncPlatformCredentialsParams struct {

@@ -100,9 +100,10 @@ func NewQueryPassesOK() *QueryPassesOK {
 	return &QueryPassesOK{}
 }
 
-/*QueryPassesOK handles this case with default header values.
+/*
+QueryPassesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryPassesOK struct {
 	Payload []*seasonpassclientmodels.PassInfo
@@ -152,9 +153,10 @@ func NewQueryPassesBadRequest() *QueryPassesBadRequest {
 	return &QueryPassesBadRequest{}
 }
 
-/*QueryPassesBadRequest handles this case with default header values.
+/*
+QueryPassesBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type QueryPassesBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewQueryPassesNotFound() *QueryPassesNotFound {
 	return &QueryPassesNotFound{}
 }
 
-/*QueryPassesNotFound handles this case with default header values.
+/*
+QueryPassesNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type QueryPassesNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

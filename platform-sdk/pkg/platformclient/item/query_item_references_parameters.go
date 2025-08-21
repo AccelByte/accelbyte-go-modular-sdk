@@ -79,7 +79,8 @@ func NewQueryItemReferencesParamsWithHTTPClient(client *http.Client) *QueryItemR
 	}
 }
 
-/*QueryItemReferencesParams contains all the parameters to send to the API endpoint
+/*
+QueryItemReferencesParams contains all the parameters to send to the API endpoint
 for the query item references operation typically these are written to a http.Request
 */
 type QueryItemReferencesParams struct {

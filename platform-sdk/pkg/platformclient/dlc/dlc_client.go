@@ -237,7 +237,7 @@ func (a *Client) GetDLCItemConfigShort(params *GetDLCItemConfigParams, authInfo 
 /*
 UpdateDLCItemConfigShort update dlc item config
 Update DLC item config. Other detail info:
-  * Returns : updated DLC item config
+  - Returns : updated DLC item config
 */
 func (a *Client) UpdateDLCItemConfigShort(params *UpdateDLCItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateDLCItemConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -434,25 +434,19 @@ func (a *Client) GetPlatformDLCConfigShort(params *GetPlatformDLCConfigParams, a
 /*
 UpdatePlatformDLCConfigShort update platform dlc config
 Update Platform DLC config. Other detail info:
-  * Returns : updated Platform DLC config
-
-
+  - Returns : updated Platform DLC config
 
 ## Restrictions for platform dlc map
-
 
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
-
+	{ "data.2": "value" }
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+	{ "$data": "value" }
 */
 func (a *Client) UpdatePlatformDLCConfigShort(params *UpdatePlatformDLCConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlatformDLCConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -569,7 +563,7 @@ GetUserDLCByPlatformShort get user dlc by platform
 Get user dlc by platform.
 Other detail info:
 
-  * Returns : user dlc
+  - Returns : user dlc
 */
 func (a *Client) GetUserDLCByPlatformShort(params *GetUserDLCByPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCByPlatformResponse, error) {
 	// TODO: Validate the params before sending
@@ -627,7 +621,7 @@ Get user dlc records.
 Note: includeAllNamespaces means this endpoint will return user dlcs from all namespace, example scenario isadmin may need to check the user dlcs before unlink a 3rd party account, so the user dlcs should be from all namespaces because unlinking is a platform level action
 Other detail info:
 
-  * Returns : user dlc
+  - Returns : user dlc
 */
 func (a *Client) GetUserDLCShort(params *GetUserDLCParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserDLCResponse, error) {
 	// TODO: Validate the params before sending
@@ -877,7 +871,7 @@ func (a *Client) SyncOculusDLCShort(params *SyncOculusDLCParams, authInfo runtim
 /*
 PublicSyncPsnDLCInventoryShort synchronize with dlc entitlements in psn store.
 Synchronize with dlc entitlements in PSN Store.Other detail info:
-  * Returns : result of synchronization
+  - Returns : result of synchronization
 */
 func (a *Client) PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -945,7 +939,7 @@ func (a *Client) PublicSyncPsnDLCInventoryShort(params *PublicSyncPsnDLCInventor
 /*
 PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort synchronize with dlc entitlements in psn store with multiple service labels.
 Synchronize with dlc entitlements in PSN Store with multiple service labels.Other detail info:
-  * Returns : result of synchronization
+  - Returns : result of synchronization
 */
 func (a *Client) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(params *PublicSyncPsnDLCInventoryWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSyncPsnDLCInventoryWithMultipleServiceLabelsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1149,7 +1143,7 @@ PublicGetMyDLCContentShort get user dlc reward contents
 Get user dlc reward contents. If includeAllNamespaces is false, will only return the dlc synced from the current namespace
 Other detail info:
 
-  * Returns : user dlc
+  - Returns : user dlc
 */
 func (a *Client) PublicGetMyDLCContentShort(params *PublicGetMyDLCContentParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyDLCContentResponse, error) {
 	// TODO: Validate the params before sending

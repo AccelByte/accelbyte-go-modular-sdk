@@ -130,9 +130,10 @@ func NewGetTopicByTopicNameOK() *GetTopicByTopicNameOK {
 	return &GetTopicByTopicNameOK{}
 }
 
-/*GetTopicByTopicNameOK handles this case with default header values.
+/*
+GetTopicByTopicNameOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetTopicByTopicNameOK struct {
 	Payload *lobbyclientmodels.ModelNotificationTopicResponse
@@ -184,9 +185,10 @@ func NewGetTopicByTopicNameUnauthorized() *GetTopicByTopicNameUnauthorized {
 	return &GetTopicByTopicNameUnauthorized{}
 }
 
-/*GetTopicByTopicNameUnauthorized handles this case with default header values.
+/*
+GetTopicByTopicNameUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetTopicByTopicNameUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewGetTopicByTopicNameForbidden() *GetTopicByTopicNameForbidden {
 	return &GetTopicByTopicNameForbidden{}
 }
 
-/*GetTopicByTopicNameForbidden handles this case with default header values.
+/*
+GetTopicByTopicNameForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetTopicByTopicNameForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewGetTopicByTopicNameNotFound() *GetTopicByTopicNameNotFound {
 	return &GetTopicByTopicNameNotFound{}
 }
 
-/*GetTopicByTopicNameNotFound handles this case with default header values.
+/*
+GetTopicByTopicNameNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetTopicByTopicNameNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewGetTopicByTopicNameInternalServerError() *GetTopicByTopicNameInternalSer
 	return &GetTopicByTopicNameInternalServerError{}
 }
 
-/*GetTopicByTopicNameInternalServerError handles this case with default header values.
+/*
+GetTopicByTopicNameInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetTopicByTopicNameInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

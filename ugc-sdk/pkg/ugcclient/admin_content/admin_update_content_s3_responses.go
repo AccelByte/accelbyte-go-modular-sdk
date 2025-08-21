@@ -160,9 +160,10 @@ func NewAdminUpdateContentS3OK() *AdminUpdateContentS3OK {
 	return &AdminUpdateContentS3OK{}
 }
 
-/*AdminUpdateContentS3OK handles this case with default header values.
+/*
+AdminUpdateContentS3OK handles this case with default header values.
 
-  Content updated at s3
+	Content updated at s3
 */
 type AdminUpdateContentS3OK struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponse
@@ -214,9 +215,10 @@ func NewAdminUpdateContentS3BadRequest() *AdminUpdateContentS3BadRequest {
 	return &AdminUpdateContentS3BadRequest{}
 }
 
-/*AdminUpdateContentS3BadRequest handles this case with default header values.
+/*
+AdminUpdateContentS3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
 */
 type AdminUpdateContentS3BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewAdminUpdateContentS3Unauthorized() *AdminUpdateContentS3Unauthorized {
 	return &AdminUpdateContentS3Unauthorized{}
 }
 
-/*AdminUpdateContentS3Unauthorized handles this case with default header values.
+/*
+AdminUpdateContentS3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateContentS3Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewAdminUpdateContentS3Forbidden() *AdminUpdateContentS3Forbidden {
 	return &AdminUpdateContentS3Forbidden{}
 }
 
-/*AdminUpdateContentS3Forbidden handles this case with default header values.
+/*
+AdminUpdateContentS3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type AdminUpdateContentS3Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewAdminUpdateContentS3NotFound() *AdminUpdateContentS3NotFound {
 	return &AdminUpdateContentS3NotFound{}
 }
 
-/*AdminUpdateContentS3NotFound handles this case with default header values.
+/*
+AdminUpdateContentS3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type AdminUpdateContentS3NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewAdminUpdateContentS3Conflict() *AdminUpdateContentS3Conflict {
 	return &AdminUpdateContentS3Conflict{}
 }
 
-/*AdminUpdateContentS3Conflict handles this case with default header values.
+/*
+AdminUpdateContentS3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772606</td><td>Share code already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772606</td><td>Share code already used</td></tr></table>
 */
 type AdminUpdateContentS3Conflict struct {
 	Payload *ugcclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewAdminUpdateContentS3InternalServerError() *AdminUpdateContentS3InternalS
 	return &AdminUpdateContentS3InternalServerError{}
 }
 
-/*AdminUpdateContentS3InternalServerError handles this case with default header values.
+/*
+AdminUpdateContentS3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type AdminUpdateContentS3InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewAdminGetPlatformAccountClosureServicesConfigurationParamsWithHTTPClient(
 	}
 }
 
-/*AdminGetPlatformAccountClosureServicesConfigurationParams contains all the parameters to send to the API endpoint
+/*
+AdminGetPlatformAccountClosureServicesConfigurationParams contains all the parameters to send to the API endpoint
 for the admin get platform account closure services configuration operation typically these are written to a http.Request
 */
 type AdminGetPlatformAccountClosureServicesConfigurationParams struct {

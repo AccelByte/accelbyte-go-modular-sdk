@@ -69,9 +69,10 @@ func NewGetLootBoxPluginConfigOK() *GetLootBoxPluginConfigOK {
 	return &GetLootBoxPluginConfigOK{}
 }
 
-/*GetLootBoxPluginConfigOK handles this case with default header values.
+/*
+GetLootBoxPluginConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetLootBoxPluginConfigOK struct {
 	Payload *platformclientmodels.LootBoxPluginConfigInfo

@@ -100,9 +100,10 @@ func NewGrantUserTierOK() *GrantUserTierOK {
 	return &GrantUserTierOK{}
 }
 
-/*GrantUserTierOK handles this case with default header values.
+/*
+GrantUserTierOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GrantUserTierOK struct {
 	Payload *seasonpassclientmodels.UserSeasonSummary
@@ -154,9 +155,10 @@ func NewGrantUserTierBadRequest() *GrantUserTierBadRequest {
 	return &GrantUserTierBadRequest{}
 }
 
-/*GrantUserTierBadRequest handles this case with default header values.
+/*
+GrantUserTierBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type GrantUserTierBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewGrantUserTierNotFound() *GrantUserTierNotFound {
 	return &GrantUserTierNotFound{}
 }
 
-/*GrantUserTierNotFound handles this case with default header values.
+/*
+GrantUserTierNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49148</td><td>User season does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49148</td><td>User season does not exist</td></tr></table>
 */
 type GrantUserTierNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

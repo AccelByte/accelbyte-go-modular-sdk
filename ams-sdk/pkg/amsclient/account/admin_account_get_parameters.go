@@ -57,7 +57,8 @@ func NewAdminAccountGetParamsWithHTTPClient(client *http.Client) *AdminAccountGe
 	}
 }
 
-/*AdminAccountGetParams contains all the parameters to send to the API endpoint
+/*
+AdminAccountGetParams contains all the parameters to send to the API endpoint
 for the admin account get operation typically these are written to a http.Request
 */
 type AdminAccountGetParams struct {

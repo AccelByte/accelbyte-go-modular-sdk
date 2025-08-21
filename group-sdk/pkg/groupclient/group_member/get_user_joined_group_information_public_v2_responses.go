@@ -145,9 +145,10 @@ func NewGetUserJoinedGroupInformationPublicV2OK() *GetUserJoinedGroupInformation
 	return &GetUserJoinedGroupInformationPublicV2OK{}
 }
 
-/*GetUserJoinedGroupInformationPublicV2OK handles this case with default header values.
+/*
+GetUserJoinedGroupInformationPublicV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserJoinedGroupInformationPublicV2OK struct {
 	Payload *groupclientmodels.ModelsGetGroupMemberListResponseV1
@@ -199,9 +200,10 @@ func NewGetUserJoinedGroupInformationPublicV2BadRequest() *GetUserJoinedGroupInf
 	return &GetUserJoinedGroupInformationPublicV2BadRequest{}
 }
 
-/*GetUserJoinedGroupInformationPublicV2BadRequest handles this case with default header values.
+/*
+GetUserJoinedGroupInformationPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetUserJoinedGroupInformationPublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewGetUserJoinedGroupInformationPublicV2Unauthorized() *GetUserJoinedGroupI
 	return &GetUserJoinedGroupInformationPublicV2Unauthorized{}
 }
 
-/*GetUserJoinedGroupInformationPublicV2Unauthorized handles this case with default header values.
+/*
+GetUserJoinedGroupInformationPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserJoinedGroupInformationPublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewGetUserJoinedGroupInformationPublicV2Forbidden() *GetUserJoinedGroupInfo
 	return &GetUserJoinedGroupInformationPublicV2Forbidden{}
 }
 
-/*GetUserJoinedGroupInformationPublicV2Forbidden handles this case with default header values.
+/*
+GetUserJoinedGroupInformationPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type GetUserJoinedGroupInformationPublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewGetUserJoinedGroupInformationPublicV2NotFound() *GetUserJoinedGroupInfor
 	return &GetUserJoinedGroupInformationPublicV2NotFound{}
 }
 
-/*GetUserJoinedGroupInformationPublicV2NotFound handles this case with default header values.
+/*
+GetUserJoinedGroupInformationPublicV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73034</td><td>user not belong to any group</td></tr></table>
 */
 type GetUserJoinedGroupInformationPublicV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewGetUserJoinedGroupInformationPublicV2InternalServerError() *GetUserJoine
 	return &GetUserJoinedGroupInformationPublicV2InternalServerError{}
 }
 
-/*GetUserJoinedGroupInformationPublicV2InternalServerError handles this case with default header values.
+/*
+GetUserJoinedGroupInformationPublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetUserJoinedGroupInformationPublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

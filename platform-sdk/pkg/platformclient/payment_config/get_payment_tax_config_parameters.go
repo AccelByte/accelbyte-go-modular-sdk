@@ -57,7 +57,8 @@ func NewGetPaymentTaxConfigParamsWithHTTPClient(client *http.Client) *GetPayment
 	}
 }
 
-/*GetPaymentTaxConfigParams contains all the parameters to send to the API endpoint
+/*
+GetPaymentTaxConfigParams contains all the parameters to send to the API endpoint
 for the get payment tax config operation typically these are written to a http.Request
 */
 type GetPaymentTaxConfigParams struct {

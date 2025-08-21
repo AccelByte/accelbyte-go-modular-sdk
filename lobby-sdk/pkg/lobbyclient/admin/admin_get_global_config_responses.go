@@ -145,9 +145,10 @@ func NewAdminGetGlobalConfigOK() *AdminGetGlobalConfigOK {
 	return &AdminGetGlobalConfigOK{}
 }
 
-/*AdminGetGlobalConfigOK handles this case with default header values.
+/*
+AdminGetGlobalConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetGlobalConfigOK struct {
 	Payload *lobbyclientmodels.ModelGlobalConfiguration
@@ -199,9 +200,10 @@ func NewAdminGetGlobalConfigBadRequest() *AdminGetGlobalConfigBadRequest {
 	return &AdminGetGlobalConfigBadRequest{}
 }
 
-/*AdminGetGlobalConfigBadRequest handles this case with default header values.
+/*
+AdminGetGlobalConfigBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetGlobalConfigBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetGlobalConfigUnauthorized() *AdminGetGlobalConfigUnauthorized {
 	return &AdminGetGlobalConfigUnauthorized{}
 }
 
-/*AdminGetGlobalConfigUnauthorized handles this case with default header values.
+/*
+AdminGetGlobalConfigUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetGlobalConfigUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetGlobalConfigForbidden() *AdminGetGlobalConfigForbidden {
 	return &AdminGetGlobalConfigForbidden{}
 }
 
-/*AdminGetGlobalConfigForbidden handles this case with default header values.
+/*
+AdminGetGlobalConfigForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetGlobalConfigForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetGlobalConfigNotFound() *AdminGetGlobalConfigNotFound {
 	return &AdminGetGlobalConfigNotFound{}
 }
 
-/*AdminGetGlobalConfigNotFound handles this case with default header values.
+/*
+AdminGetGlobalConfigNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetGlobalConfigNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetGlobalConfigInternalServerError() *AdminGetGlobalConfigInternalS
 	return &AdminGetGlobalConfigInternalServerError{}
 }
 
-/*AdminGetGlobalConfigInternalServerError handles this case with default header values.
+/*
+AdminGetGlobalConfigInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetGlobalConfigInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

@@ -69,9 +69,10 @@ func NewRetrieveLocalizedPolicyVersionsOK() *RetrieveLocalizedPolicyVersionsOK {
 	return &RetrieveLocalizedPolicyVersionsOK{}
 }
 
-/*RetrieveLocalizedPolicyVersionsOK handles this case with default header values.
+/*
+RetrieveLocalizedPolicyVersionsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveLocalizedPolicyVersionsOK struct {
 	Payload []*legalclientmodels.RetrieveLocalizedPolicyVersionResponse

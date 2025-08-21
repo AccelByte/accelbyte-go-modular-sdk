@@ -145,9 +145,10 @@ func NewAdminUpdateScreenshotsOK() *AdminUpdateScreenshotsOK {
 	return &AdminUpdateScreenshotsOK{}
 }
 
-/*AdminUpdateScreenshotsOK handles this case with default header values.
+/*
+AdminUpdateScreenshotsOK handles this case with default header values.
 
-  Screenshot updated
+	Screenshot updated
 */
 type AdminUpdateScreenshotsOK struct {
 	Payload *ugcclientmodels.ModelsUpdateScreenshotResponse
@@ -199,9 +200,10 @@ func NewAdminUpdateScreenshotsBadRequest() *AdminUpdateScreenshotsBadRequest {
 	return &AdminUpdateScreenshotsBadRequest{}
 }
 
-/*AdminUpdateScreenshotsBadRequest handles this case with default header values.
+/*
+AdminUpdateScreenshotsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
 */
 type AdminUpdateScreenshotsBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUpdateScreenshotsUnauthorized() *AdminUpdateScreenshotsUnauthorized
 	return &AdminUpdateScreenshotsUnauthorized{}
 }
 
-/*AdminUpdateScreenshotsUnauthorized handles this case with default header values.
+/*
+AdminUpdateScreenshotsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateScreenshotsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUpdateScreenshotsForbidden() *AdminUpdateScreenshotsForbidden {
 	return &AdminUpdateScreenshotsForbidden{}
 }
 
-/*AdminUpdateScreenshotsForbidden handles this case with default header values.
+/*
+AdminUpdateScreenshotsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type AdminUpdateScreenshotsForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUpdateScreenshotsNotFound() *AdminUpdateScreenshotsNotFound {
 	return &AdminUpdateScreenshotsNotFound{}
 }
 
-/*AdminUpdateScreenshotsNotFound handles this case with default header values.
+/*
+AdminUpdateScreenshotsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
 */
 type AdminUpdateScreenshotsNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUpdateScreenshotsInternalServerError() *AdminUpdateScreenshotsInter
 	return &AdminUpdateScreenshotsInternalServerError{}
 }
 
-/*AdminUpdateScreenshotsInternalServerError handles this case with default header values.
+/*
+AdminUpdateScreenshotsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type AdminUpdateScreenshotsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

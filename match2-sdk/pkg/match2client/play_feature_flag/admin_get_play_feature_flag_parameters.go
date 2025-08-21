@@ -57,7 +57,8 @@ func NewAdminGetPlayFeatureFlagParamsWithHTTPClient(client *http.Client) *AdminG
 	}
 }
 
-/*AdminGetPlayFeatureFlagParams contains all the parameters to send to the API endpoint
+/*
+AdminGetPlayFeatureFlagParams contains all the parameters to send to the API endpoint
 for the admin get play feature flag operation typically these are written to a http.Request
 */
 type AdminGetPlayFeatureFlagParams struct {

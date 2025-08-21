@@ -46,13 +46,11 @@ type ClientService interface {
 /*
 GetUserNamespaceSlotsShort returns list of slots for given user
 
-
 ## The endpoint is going to be deprecated
-
 
 Get slots for a given user.
 Other detail info:
-        *  Returns : list of slots
+  - Returns : list of slots
 */
 func (a *Client) GetUserNamespaceSlotsShort(params *GetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserNamespaceSlotsResponse, error) {
 	// TODO: Validate the params before sending
@@ -107,13 +105,11 @@ func (a *Client) GetUserNamespaceSlotsShort(params *GetUserNamespaceSlotsParams,
 /*
 GetSlotDataShort returns slot data
 
-
 ## The endpoint is going to be deprecated
-
 
 Get slot data.
 Other detail info:
-        *  Returns : slot data
+  - Returns : slot data
 */
 func (a *Client) GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*GetSlotDataResponse, error) {
 	// TODO: Validate the params before sending
@@ -175,13 +171,11 @@ func (a *Client) GetSlotDataShort(params *GetSlotDataParams, authInfo runtime.Cl
 /*
 PublicGetUserNamespaceSlotsShort returns slots for given user
 
-
 ## The endpoint is going to be deprecated
-
 
 Get list of slots for a given user in namespace.
 Other detail info:
-        *  Returns : list of slots
+  - Returns : list of slots
 */
 func (a *Client) PublicGetUserNamespaceSlotsShort(params *PublicGetUserNamespaceSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserNamespaceSlotsResponse, error) {
 	// TODO: Validate the params before sending
@@ -236,13 +230,11 @@ func (a *Client) PublicGetUserNamespaceSlotsShort(params *PublicGetUserNamespace
 /*
 PublicCreateUserNamespaceSlotShort creates a slot
 
-
 ## The endpoint is going to be deprecated
-
 
 Creates a slot.
 Other detail info:
-        *  Returns : created slot info
+  - Returns : created slot info
 */
 func (a *Client) PublicCreateUserNamespaceSlotShort(params *PublicCreateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserNamespaceSlotResponse, error) {
 	// TODO: Validate the params before sending
@@ -310,13 +302,11 @@ func (a *Client) PublicCreateUserNamespaceSlotShort(params *PublicCreateUserName
 /*
 PublicGetSlotDataShort returns slot data
 
-
 ## The endpoint is going to be deprecated
-
 
 Get slot data.
 Other detail info:
-        *  Returns : slot data
+  - Returns : slot data
 */
 func (a *Client) PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicGetSlotDataResponse, error) {
 	// TODO: Validate the params before sending
@@ -378,13 +368,11 @@ func (a *Client) PublicGetSlotDataShort(params *PublicGetSlotDataParams, authInf
 /*
 PublicUpdateUserNamespaceSlotShort updates a slot
 
-
 ## The endpoint is going to be deprecated
-
 
 Updates a slot.
 Other detail info:
-        *  Returns : updated slot
+  - Returns : updated slot
 */
 func (a *Client) PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserNamespaceSlotParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotResponse, error) {
 	// TODO: Validate the params before sending
@@ -453,9 +441,7 @@ func (a *Client) PublicUpdateUserNamespaceSlotShort(params *PublicUpdateUserName
 /*
 PublicDeleteUserNamespaceSlotShort deletes the slot
 
-
 ## The endpoint is going to be deprecated
-
 
 Deletes the slot.
 Other detail info:
@@ -519,13 +505,11 @@ func (a *Client) PublicDeleteUserNamespaceSlotShort(params *PublicDeleteUserName
 /*
 PublicUpdateUserNamespaceSlotMetadataShort updates the slot metadata
 
-
 ## The endpoint is going to be deprecated
-
 
 Updates the slot metadata.
 Other detail info:
-        *  Returns : updated slot
+  - Returns : updated slot
 */
 func (a *Client) PublicUpdateUserNamespaceSlotMetadataShort(params *PublicUpdateUserNamespaceSlotMetadataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserNamespaceSlotMetadataResponse, error) {
 	// TODO: Validate the params before sending

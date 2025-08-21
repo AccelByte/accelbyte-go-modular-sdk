@@ -145,9 +145,10 @@ func NewBulkResetUserStatItem1OK() *BulkResetUserStatItem1OK {
 	return &BulkResetUserStatItem1OK{}
 }
 
-/*BulkResetUserStatItem1OK handles this case with default header values.
+/*
+BulkResetUserStatItem1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkResetUserStatItem1OK struct {
 	Payload []*socialclientmodels.BulkStatOperationResult
@@ -197,9 +198,10 @@ func NewBulkResetUserStatItem1BadRequest() *BulkResetUserStatItem1BadRequest {
 	return &BulkResetUserStatItem1BadRequest{}
 }
 
-/*BulkResetUserStatItem1BadRequest handles this case with default header values.
+/*
+BulkResetUserStatItem1BadRequest handles this case with default header values.
 
-  Bad request
+	Bad request
 */
 type BulkResetUserStatItem1BadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -251,9 +253,10 @@ func NewBulkResetUserStatItem1Unauthorized() *BulkResetUserStatItem1Unauthorized
 	return &BulkResetUserStatItem1Unauthorized{}
 }
 
-/*BulkResetUserStatItem1Unauthorized handles this case with default header values.
+/*
+BulkResetUserStatItem1Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type BulkResetUserStatItem1Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -305,9 +308,10 @@ func NewBulkResetUserStatItem1Forbidden() *BulkResetUserStatItem1Forbidden {
 	return &BulkResetUserStatItem1Forbidden{}
 }
 
-/*BulkResetUserStatItem1Forbidden handles this case with default header values.
+/*
+BulkResetUserStatItem1Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkResetUserStatItem1Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -359,9 +363,10 @@ func NewBulkResetUserStatItem1UnprocessableEntity() *BulkResetUserStatItem1Unpro
 	return &BulkResetUserStatItem1UnprocessableEntity{}
 }
 
-/*BulkResetUserStatItem1UnprocessableEntity handles this case with default header values.
+/*
+BulkResetUserStatItem1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkResetUserStatItem1UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -413,9 +418,10 @@ func NewBulkResetUserStatItem1InternalServerError() *BulkResetUserStatItem1Inter
 	return &BulkResetUserStatItem1InternalServerError{}
 }
 
-/*BulkResetUserStatItem1InternalServerError handles this case with default header values.
+/*
+BulkResetUserStatItem1InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type BulkResetUserStatItem1InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

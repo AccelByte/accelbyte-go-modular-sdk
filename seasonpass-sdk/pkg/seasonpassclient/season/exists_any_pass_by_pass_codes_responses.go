@@ -85,9 +85,10 @@ func NewExistsAnyPassByPassCodesOK() *ExistsAnyPassByPassCodesOK {
 	return &ExistsAnyPassByPassCodesOK{}
 }
 
-/*ExistsAnyPassByPassCodesOK handles this case with default header values.
+/*
+ExistsAnyPassByPassCodesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ExistsAnyPassByPassCodesOK struct {
 	Payload *seasonpassclientmodels.Ownership
@@ -139,9 +140,10 @@ func NewExistsAnyPassByPassCodesBadRequest() *ExistsAnyPassByPassCodesBadRequest
 	return &ExistsAnyPassByPassCodesBadRequest{}
 }
 
-/*ExistsAnyPassByPassCodesBadRequest handles this case with default header values.
+/*
+ExistsAnyPassByPassCodesBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type ExistsAnyPassByPassCodesBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity

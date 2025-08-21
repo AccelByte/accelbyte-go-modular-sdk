@@ -115,9 +115,10 @@ func NewAdminGetCountryListV3OK() *AdminGetCountryListV3OK {
 	return &AdminGetCountryListV3OK{}
 }
 
-/*AdminGetCountryListV3OK handles this case with default header values.
+/*
+AdminGetCountryListV3OK handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminGetCountryListV3OK struct {
 	Payload []*iamclientmodels.ModelCountryResponse
@@ -167,9 +168,10 @@ func NewAdminGetCountryListV3Unauthorized() *AdminGetCountryListV3Unauthorized {
 	return &AdminGetCountryListV3Unauthorized{}
 }
 
-/*AdminGetCountryListV3Unauthorized handles this case with default header values.
+/*
+AdminGetCountryListV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetCountryListV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -221,9 +223,10 @@ func NewAdminGetCountryListV3Forbidden() *AdminGetCountryListV3Forbidden {
 	return &AdminGetCountryListV3Forbidden{}
 }
 
-/*AdminGetCountryListV3Forbidden handles this case with default header values.
+/*
+AdminGetCountryListV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetCountryListV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -275,9 +278,10 @@ func NewAdminGetCountryListV3InternalServerError() *AdminGetCountryListV3Interna
 	return &AdminGetCountryListV3InternalServerError{}
 }
 
-/*AdminGetCountryListV3InternalServerError handles this case with default header values.
+/*
+AdminGetCountryListV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetCountryListV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

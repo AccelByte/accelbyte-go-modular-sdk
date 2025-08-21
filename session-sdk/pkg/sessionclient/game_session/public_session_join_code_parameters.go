@@ -59,7 +59,8 @@ func NewPublicSessionJoinCodeParamsWithHTTPClient(client *http.Client) *PublicSe
 	}
 }
 
-/*PublicSessionJoinCodeParams contains all the parameters to send to the API endpoint
+/*
+PublicSessionJoinCodeParams contains all the parameters to send to the API endpoint
 for the public session join code operation typically these are written to a http.Request
 */
 type PublicSessionJoinCodeParams struct {

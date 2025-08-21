@@ -130,9 +130,10 @@ func NewRollbackContentVersionV2OK() *RollbackContentVersionV2OK {
 	return &RollbackContentVersionV2OK{}
 }
 
-/*RollbackContentVersionV2OK handles this case with default header values.
+/*
+RollbackContentVersionV2OK handles this case with default header values.
 
-  Rollback content's payload version
+	Rollback content's payload version
 */
 type RollbackContentVersionV2OK struct {
 	Payload *ugcclientmodels.ModelsContentDownloadResponse
@@ -184,9 +185,10 @@ func NewRollbackContentVersionV2Unauthorized() *RollbackContentVersionV2Unauthor
 	return &RollbackContentVersionV2Unauthorized{}
 }
 
-/*RollbackContentVersionV2Unauthorized handles this case with default header values.
+/*
+RollbackContentVersionV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type RollbackContentVersionV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewRollbackContentVersionV2NotFound() *RollbackContentVersionV2NotFound {
 	return &RollbackContentVersionV2NotFound{}
 }
 
-/*RollbackContentVersionV2NotFound handles this case with default header values.
+/*
+RollbackContentVersionV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774101</td><td>ugc content not found</td></tr><tr><td>774102</td><td>version not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774101</td><td>ugc content not found</td></tr><tr><td>774102</td><td>version not found</td></tr></table>
 */
 type RollbackContentVersionV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewRollbackContentVersionV2UnprocessableEntity() *RollbackContentVersionV2U
 	return &RollbackContentVersionV2UnprocessableEntity{}
 }
 
-/*RollbackContentVersionV2UnprocessableEntity handles this case with default header values.
+/*
+RollbackContentVersionV2UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774103</td><td>unable to get ugc content/content cannot be restored using the current content version</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774103</td><td>unable to get ugc content/content cannot be restored using the current content version</td></tr></table>
 */
 type RollbackContentVersionV2UnprocessableEntity struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewRollbackContentVersionV2InternalServerError() *RollbackContentVersionV2I
 	return &RollbackContentVersionV2InternalServerError{}
 }
 
-/*RollbackContentVersionV2InternalServerError handles this case with default header values.
+/*
+RollbackContentVersionV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774103</td><td>unable to get ugc content/content cannot be restored using the current content version</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774103</td><td>unable to get ugc content/content cannot be restored using the current content version</td></tr></table>
 */
 type RollbackContentVersionV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

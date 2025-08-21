@@ -100,9 +100,10 @@ func NewRetrieveEligibilitiesPublicOK() *RetrieveEligibilitiesPublicOK {
 	return &RetrieveEligibilitiesPublicOK{}
 }
 
-/*RetrieveEligibilitiesPublicOK handles this case with default header values.
+/*
+RetrieveEligibilitiesPublicOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RetrieveEligibilitiesPublicOK struct {
 	Payload []*legalclientmodels.RetrieveUserEligibilitiesResponse
@@ -152,9 +153,10 @@ func NewRetrieveEligibilitiesPublicBadRequest() *RetrieveEligibilitiesPublicBadR
 	return &RetrieveEligibilitiesPublicBadRequest{}
 }
 
-/*RetrieveEligibilitiesPublicBadRequest handles this case with default header values.
+/*
+RetrieveEligibilitiesPublicBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr></table>
 */
 type RetrieveEligibilitiesPublicBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewRetrieveEligibilitiesPublicNotFound() *RetrieveEligibilitiesPublicNotFou
 	return &RetrieveEligibilitiesPublicNotFound{}
 }
 
-/*RetrieveEligibilitiesPublicNotFound handles this case with default header values.
+/*
+RetrieveEligibilitiesPublicNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40041</td><td>errors.net.accelbyte.platform.legal.policy_not_found</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40041</td><td>errors.net.accelbyte.platform.legal.policy_not_found</td></tr></table>
 */
 type RetrieveEligibilitiesPublicNotFound struct {
 	Payload *legalclientmodels.ErrorEntity

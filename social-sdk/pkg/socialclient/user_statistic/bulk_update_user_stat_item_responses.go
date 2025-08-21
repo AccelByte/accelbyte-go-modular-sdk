@@ -145,9 +145,10 @@ func NewBulkUpdateUserStatItemOK() *BulkUpdateUserStatItemOK {
 	return &BulkUpdateUserStatItemOK{}
 }
 
-/*BulkUpdateUserStatItemOK handles this case with default header values.
+/*
+BulkUpdateUserStatItemOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkUpdateUserStatItemOK struct {
 	Payload []*socialclientmodels.BulkStatOperationResult
@@ -197,9 +198,10 @@ func NewBulkUpdateUserStatItemBadRequest() *BulkUpdateUserStatItemBadRequest {
 	return &BulkUpdateUserStatItemBadRequest{}
 }
 
-/*BulkUpdateUserStatItemBadRequest handles this case with default header values.
+/*
+BulkUpdateUserStatItemBadRequest handles this case with default header values.
 
-  Bad request
+	Bad request
 */
 type BulkUpdateUserStatItemBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -251,9 +253,10 @@ func NewBulkUpdateUserStatItemUnauthorized() *BulkUpdateUserStatItemUnauthorized
 	return &BulkUpdateUserStatItemUnauthorized{}
 }
 
-/*BulkUpdateUserStatItemUnauthorized handles this case with default header values.
+/*
+BulkUpdateUserStatItemUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type BulkUpdateUserStatItemUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -305,9 +308,10 @@ func NewBulkUpdateUserStatItemForbidden() *BulkUpdateUserStatItemForbidden {
 	return &BulkUpdateUserStatItemForbidden{}
 }
 
-/*BulkUpdateUserStatItemForbidden handles this case with default header values.
+/*
+BulkUpdateUserStatItemForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkUpdateUserStatItemForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -359,9 +363,10 @@ func NewBulkUpdateUserStatItemUnprocessableEntity() *BulkUpdateUserStatItemUnpro
 	return &BulkUpdateUserStatItemUnprocessableEntity{}
 }
 
-/*BulkUpdateUserStatItemUnprocessableEntity handles this case with default header values.
+/*
+BulkUpdateUserStatItemUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkUpdateUserStatItemUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -413,9 +418,10 @@ func NewBulkUpdateUserStatItemInternalServerError() *BulkUpdateUserStatItemInter
 	return &BulkUpdateUserStatItemInternalServerError{}
 }
 
-/*BulkUpdateUserStatItemInternalServerError handles this case with default header values.
+/*
+BulkUpdateUserStatItemInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type BulkUpdateUserStatItemInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

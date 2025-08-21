@@ -57,7 +57,8 @@ func NewGetPassParamsWithHTTPClient(client *http.Client) *GetPassParams {
 	}
 }
 
-/*GetPassParams contains all the parameters to send to the API endpoint
+/*
+GetPassParams contains all the parameters to send to the API endpoint
 for the get pass operation typically these are written to a http.Request
 */
 type GetPassParams struct {

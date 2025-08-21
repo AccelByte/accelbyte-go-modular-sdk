@@ -144,9 +144,10 @@ func NewUpdateTemplateLocalizationV1AdminNoContent() *UpdateTemplateLocalization
 	return &UpdateTemplateLocalizationV1AdminNoContent{}
 }
 
-/*UpdateTemplateLocalizationV1AdminNoContent handles this case with default header values.
+/*
+UpdateTemplateLocalizationV1AdminNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type UpdateTemplateLocalizationV1AdminNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewUpdateTemplateLocalizationV1AdminBadRequest() *UpdateTemplateLocalizatio
 	return &UpdateTemplateLocalizationV1AdminBadRequest{}
 }
 
-/*UpdateTemplateLocalizationV1AdminBadRequest handles this case with default header values.
+/*
+UpdateTemplateLocalizationV1AdminBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateTemplateLocalizationV1AdminBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -225,9 +227,10 @@ func NewUpdateTemplateLocalizationV1AdminUnauthorized() *UpdateTemplateLocalizat
 	return &UpdateTemplateLocalizationV1AdminUnauthorized{}
 }
 
-/*UpdateTemplateLocalizationV1AdminUnauthorized handles this case with default header values.
+/*
+UpdateTemplateLocalizationV1AdminUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateTemplateLocalizationV1AdminUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -279,9 +282,10 @@ func NewUpdateTemplateLocalizationV1AdminForbidden() *UpdateTemplateLocalization
 	return &UpdateTemplateLocalizationV1AdminForbidden{}
 }
 
-/*UpdateTemplateLocalizationV1AdminForbidden handles this case with default header values.
+/*
+UpdateTemplateLocalizationV1AdminForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateTemplateLocalizationV1AdminForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -333,9 +337,10 @@ func NewUpdateTemplateLocalizationV1AdminNotFound() *UpdateTemplateLocalizationV
 	return &UpdateTemplateLocalizationV1AdminNotFound{}
 }
 
-/*UpdateTemplateLocalizationV1AdminNotFound handles this case with default header values.
+/*
+UpdateTemplateLocalizationV1AdminNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UpdateTemplateLocalizationV1AdminNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1
@@ -387,9 +392,10 @@ func NewUpdateTemplateLocalizationV1AdminInternalServerError() *UpdateTemplateLo
 	return &UpdateTemplateLocalizationV1AdminInternalServerError{}
 }
 
-/*UpdateTemplateLocalizationV1AdminInternalServerError handles this case with default header values.
+/*
+UpdateTemplateLocalizationV1AdminInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateTemplateLocalizationV1AdminInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseV1

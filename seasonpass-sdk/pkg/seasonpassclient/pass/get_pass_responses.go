@@ -100,9 +100,10 @@ func NewGetPassOK() *GetPassOK {
 	return &GetPassOK{}
 }
 
-/*GetPassOK handles this case with default header values.
+/*
+GetPassOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPassOK struct {
 	Payload *seasonpassclientmodels.PassInfo
@@ -154,9 +155,10 @@ func NewGetPassBadRequest() *GetPassBadRequest {
 	return &GetPassBadRequest{}
 }
 
-/*GetPassBadRequest handles this case with default header values.
+/*
+GetPassBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type GetPassBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewGetPassNotFound() *GetPassNotFound {
 	return &GetPassNotFound{}
 }
 
-/*GetPassNotFound handles this case with default header values.
+/*
+GetPassNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49145</td><td>Pass [{code}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49145</td><td>Pass [{code}] does not exist</td></tr></table>
 */
 type GetPassNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

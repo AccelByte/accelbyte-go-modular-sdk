@@ -80,7 +80,8 @@ func NewGetUserEntitlementOwnershipByItemIDParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*GetUserEntitlementOwnershipByItemIDParams contains all the parameters to send to the API endpoint
+/*
+GetUserEntitlementOwnershipByItemIDParams contains all the parameters to send to the API endpoint
 for the get user entitlement ownership by item id operation typically these are written to a http.Request
 */
 type GetUserEntitlementOwnershipByItemIDParams struct {

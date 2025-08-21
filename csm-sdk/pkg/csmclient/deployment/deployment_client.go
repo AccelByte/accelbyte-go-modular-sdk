@@ -42,7 +42,7 @@ type ClientService interface {
 CreateDeploymentV1Short creates deployment
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [CREATE]`
 
-Creates Deployment for extend service
+# Creates Deployment for extend service
 
 This endpoint intended to apply the helm release or deploying the custom service image.
 Logic in this endpoint:
@@ -144,7 +144,7 @@ func (a *Client) CreateDeploymentV1Short(params *CreateDeploymentV1Params, authI
 GetListOfDeploymentV1Short fetches the list of deployments
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [READ]`
 
-Filters the List of Deployments
+# Filters the List of Deployments
 
 This endpoint intended to get list of Deployment done for the given publisher and game.
 
@@ -232,7 +232,7 @@ func (a *Client) GetListOfDeploymentV1Short(params *GetListOfDeploymentV1Params,
 GetDeploymentV1Short get deployment by deployment id
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [READ]`
 
-Get Deployment information by given DeploymentID
+# Get Deployment information by given DeploymentID
 
 This endpoint intended to get Deployment information by given Deployment ID from Deployment Table.
 
@@ -320,7 +320,7 @@ func (a *Client) GetDeploymentV1Short(params *GetDeploymentV1Params, authInfo ru
 DeleteDeploymentV1Short delete deployment by deployment id
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [DELETE]`
 
-Delete Deployment information by given DeploymentID
+# Delete Deployment information by given DeploymentID
 
 This endpoint intended to delete helm release object and update the deleted_at in DB by given Deployment ID.
 

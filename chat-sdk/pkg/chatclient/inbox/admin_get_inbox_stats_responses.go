@@ -130,9 +130,10 @@ func NewAdminGetInboxStatsOK() *AdminGetInboxStatsOK {
 	return &AdminGetInboxStatsOK{}
 }
 
-/*AdminGetInboxStatsOK handles this case with default header values.
+/*
+AdminGetInboxStatsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetInboxStatsOK struct {
 	Payload *chatclientmodels.ModelsGetInboxStatsResponse
@@ -184,9 +185,10 @@ func NewAdminGetInboxStatsBadRequest() *AdminGetInboxStatsBadRequest {
 	return &AdminGetInboxStatsBadRequest{}
 }
 
-/*AdminGetInboxStatsBadRequest handles this case with default header values.
+/*
+AdminGetInboxStatsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetInboxStatsBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminGetInboxStatsUnauthorized() *AdminGetInboxStatsUnauthorized {
 	return &AdminGetInboxStatsUnauthorized{}
 }
 
-/*AdminGetInboxStatsUnauthorized handles this case with default header values.
+/*
+AdminGetInboxStatsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetInboxStatsUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminGetInboxStatsForbidden() *AdminGetInboxStatsForbidden {
 	return &AdminGetInboxStatsForbidden{}
 }
 
-/*AdminGetInboxStatsForbidden handles this case with default header values.
+/*
+AdminGetInboxStatsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetInboxStatsForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminGetInboxStatsInternalServerError() *AdminGetInboxStatsInternalServe
 	return &AdminGetInboxStatsInternalServerError{}
 }
 
-/*AdminGetInboxStatsInternalServerError handles this case with default header values.
+/*
+AdminGetInboxStatsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetInboxStatsInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

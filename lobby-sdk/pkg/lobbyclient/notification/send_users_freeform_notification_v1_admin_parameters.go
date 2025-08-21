@@ -59,7 +59,8 @@ func NewSendUsersFreeformNotificationV1AdminParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*SendUsersFreeformNotificationV1AdminParams contains all the parameters to send to the API endpoint
+/*
+SendUsersFreeformNotificationV1AdminParams contains all the parameters to send to the API endpoint
 for the send users freeform notification v1 admin operation typically these are written to a http.Request
 */
 type SendUsersFreeformNotificationV1AdminParams struct {

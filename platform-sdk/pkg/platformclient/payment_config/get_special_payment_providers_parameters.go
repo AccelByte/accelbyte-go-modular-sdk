@@ -57,7 +57,8 @@ func NewGetSpecialPaymentProvidersParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*GetSpecialPaymentProvidersParams contains all the parameters to send to the API endpoint
+/*
+GetSpecialPaymentProvidersParams contains all the parameters to send to the API endpoint
 for the get special payment providers operation typically these are written to a http.Request
 */
 type GetSpecialPaymentProvidersParams struct {

@@ -69,9 +69,10 @@ func NewQueryRevocationHistoriesOK() *QueryRevocationHistoriesOK {
 	return &QueryRevocationHistoriesOK{}
 }
 
-/*QueryRevocationHistoriesOK handles this case with default header values.
+/*
+QueryRevocationHistoriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryRevocationHistoriesOK struct {
 	Payload *platformclientmodels.RevocationHistoryPagingSlicedResult

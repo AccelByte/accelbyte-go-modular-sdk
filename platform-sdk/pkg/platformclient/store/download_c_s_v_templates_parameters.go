@@ -57,7 +57,8 @@ func NewDownloadCSVTemplatesParamsWithHTTPClient(client *http.Client) *DownloadC
 	}
 }
 
-/*DownloadCSVTemplatesParams contains all the parameters to send to the API endpoint
+/*
+DownloadCSVTemplatesParams contains all the parameters to send to the API endpoint
 for the download csv templates operation typically these are written to a http.Request
 */
 type DownloadCSVTemplatesParams struct {

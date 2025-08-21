@@ -115,9 +115,10 @@ func NewSearchChannelSpecificContentOK() *SearchChannelSpecificContentOK {
 	return &SearchChannelSpecificContentOK{}
 }
 
-/*SearchChannelSpecificContentOK handles this case with default header values.
+/*
+SearchChannelSpecificContentOK handles this case with default header values.
 
-  Search contents specific to a channel
+	Search contents specific to a channel
 */
 type SearchChannelSpecificContentOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponse
@@ -169,9 +170,10 @@ func NewSearchChannelSpecificContentBadRequest() *SearchChannelSpecificContentBa
 	return &SearchChannelSpecificContentBadRequest{}
 }
 
-/*SearchChannelSpecificContentBadRequest handles this case with default header values.
+/*
+SearchChannelSpecificContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
 */
 type SearchChannelSpecificContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewSearchChannelSpecificContentUnauthorized() *SearchChannelSpecificContent
 	return &SearchChannelSpecificContentUnauthorized{}
 }
 
-/*SearchChannelSpecificContentUnauthorized handles this case with default header values.
+/*
+SearchChannelSpecificContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SearchChannelSpecificContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewSearchChannelSpecificContentInternalServerError() *SearchChannelSpecific
 	return &SearchChannelSpecificContentInternalServerError{}
 }
 
-/*SearchChannelSpecificContentInternalServerError handles this case with default header values.
+/*
+SearchChannelSpecificContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
 */
 type SearchChannelSpecificContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewFleetServerInfoParamsWithHTTPClient(client *http.Client) *FleetServerInf
 	}
 }
 
-/*FleetServerInfoParams contains all the parameters to send to the API endpoint
+/*
+FleetServerInfoParams contains all the parameters to send to the API endpoint
 for the fleet server info operation typically these are written to a http.Request
 */
 type FleetServerInfoParams struct {

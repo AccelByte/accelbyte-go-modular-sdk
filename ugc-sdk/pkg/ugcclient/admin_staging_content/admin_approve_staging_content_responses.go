@@ -145,9 +145,10 @@ func NewAdminApproveStagingContentOK() *AdminApproveStagingContentOK {
 	return &AdminApproveStagingContentOK{}
 }
 
-/*AdminApproveStagingContentOK handles this case with default header values.
+/*
+AdminApproveStagingContentOK handles this case with default header values.
 
-  content approval created
+	content approval created
 */
 type AdminApproveStagingContentOK struct {
 	Payload *ugcclientmodels.ModelsStagingContentResponse
@@ -199,9 +200,10 @@ func NewAdminApproveStagingContentBadRequest() *AdminApproveStagingContentBadReq
 	return &AdminApproveStagingContentBadRequest{}
 }
 
-/*AdminApproveStagingContentBadRequest handles this case with default header values.
+/*
+AdminApproveStagingContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774405</td><td>Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774405</td><td>Invalid request body</td></tr></table>
 */
 type AdminApproveStagingContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminApproveStagingContentUnauthorized() *AdminApproveStagingContentUnau
 	return &AdminApproveStagingContentUnauthorized{}
 }
 
-/*AdminApproveStagingContentUnauthorized handles this case with default header values.
+/*
+AdminApproveStagingContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminApproveStagingContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminApproveStagingContentForbidden() *AdminApproveStagingContentForbidd
 	return &AdminApproveStagingContentForbidden{}
 }
 
-/*AdminApproveStagingContentForbidden handles this case with default header values.
+/*
+AdminApproveStagingContentForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminApproveStagingContentForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminApproveStagingContentNotFound() *AdminApproveStagingContentNotFound
 	return &AdminApproveStagingContentNotFound{}
 }
 
-/*AdminApproveStagingContentNotFound handles this case with default header values.
+/*
+AdminApproveStagingContentNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774406</td><td>staging content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774406</td><td>staging content not found</td></tr></table>
 */
 type AdminApproveStagingContentNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminApproveStagingContentInternalServerError() *AdminApproveStagingCont
 	return &AdminApproveStagingContentInternalServerError{}
 }
 
-/*AdminApproveStagingContentInternalServerError handles this case with default header values.
+/*
+AdminApproveStagingContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774407</td><td>unable to approve staging content</td></tr><tr><td>774408</td><td>nable to save ugc content: shareCode exceed the limit</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774407</td><td>unable to approve staging content</td></tr><tr><td>774408</td><td>nable to save ugc content: shareCode exceed the limit</td></tr></table>
 */
 type AdminApproveStagingContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

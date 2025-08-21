@@ -115,9 +115,10 @@ func NewAdminGetAllConfigV1OK() *AdminGetAllConfigV1OK {
 	return &AdminGetAllConfigV1OK{}
 }
 
-/*AdminGetAllConfigV1OK handles this case with default header values.
+/*
+AdminGetAllConfigV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetAllConfigV1OK struct {
 	Payload *match2clientmodels.APINamespaceConfigList
@@ -169,9 +170,10 @@ func NewAdminGetAllConfigV1Unauthorized() *AdminGetAllConfigV1Unauthorized {
 	return &AdminGetAllConfigV1Unauthorized{}
 }
 
-/*AdminGetAllConfigV1Unauthorized handles this case with default header values.
+/*
+AdminGetAllConfigV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetAllConfigV1Unauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetAllConfigV1Forbidden() *AdminGetAllConfigV1Forbidden {
 	return &AdminGetAllConfigV1Forbidden{}
 }
 
-/*AdminGetAllConfigV1Forbidden handles this case with default header values.
+/*
+AdminGetAllConfigV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetAllConfigV1Forbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetAllConfigV1InternalServerError() *AdminGetAllConfigV1InternalSer
 	return &AdminGetAllConfigV1InternalServerError{}
 }
 
-/*AdminGetAllConfigV1InternalServerError handles this case with default header values.
+/*
+AdminGetAllConfigV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetAllConfigV1InternalServerError struct {
 	Payload *match2clientmodels.ResponseError

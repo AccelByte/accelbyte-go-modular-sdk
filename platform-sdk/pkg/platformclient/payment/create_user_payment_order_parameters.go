@@ -59,7 +59,8 @@ func NewCreateUserPaymentOrderParamsWithHTTPClient(client *http.Client) *CreateU
 	}
 }
 
-/*CreateUserPaymentOrderParams contains all the parameters to send to the API endpoint
+/*
+CreateUserPaymentOrderParams contains all the parameters to send to the API endpoint
 for the create user payment order operation typically these are written to a http.Request
 */
 type CreateUserPaymentOrderParams struct {

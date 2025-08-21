@@ -114,9 +114,10 @@ func NewAdminDeleteTagNoContent() *AdminDeleteTagNoContent {
 	return &AdminDeleteTagNoContent{}
 }
 
-/*AdminDeleteTagNoContent handles this case with default header values.
+/*
+AdminDeleteTagNoContent handles this case with default header values.
 
-  Tags deleted
+	Tags deleted
 */
 type AdminDeleteTagNoContent struct {
 }
@@ -141,9 +142,10 @@ func NewAdminDeleteTagUnauthorized() *AdminDeleteTagUnauthorized {
 	return &AdminDeleteTagUnauthorized{}
 }
 
-/*AdminDeleteTagUnauthorized handles this case with default header values.
+/*
+AdminDeleteTagUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteTagUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -195,9 +197,10 @@ func NewAdminDeleteTagNotFound() *AdminDeleteTagNotFound {
 	return &AdminDeleteTagNotFound{}
 }
 
-/*AdminDeleteTagNotFound handles this case with default header values.
+/*
+AdminDeleteTagNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772003</td><td>Tag not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772003</td><td>Tag not found</td></tr></table>
 */
 type AdminDeleteTagNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -249,9 +252,10 @@ func NewAdminDeleteTagInternalServerError() *AdminDeleteTagInternalServerError {
 	return &AdminDeleteTagInternalServerError{}
 }
 
-/*AdminDeleteTagInternalServerError handles this case with default header values.
+/*
+AdminDeleteTagInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772002</td><td>Unable delete tag</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772002</td><td>Unable delete tag</td></tr></table>
 */
 type AdminDeleteTagInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -85,10 +85,9 @@ func NewGetOK() *GetOK {
 	return &GetOK{}
 }
 
-/*GetOK handles this case with default header values.
-
-
- */
+/*
+GetOK handles this case with default header values.
+*/
 type GetOK struct {
 	Payload *reportingclientmodels.RestapiConfigResponse
 }
@@ -139,10 +138,9 @@ func NewGetInternalServerError() *GetInternalServerError {
 	return &GetInternalServerError{}
 }
 
-/*GetInternalServerError handles this case with default header values.
-
-
- */
+/*
+GetInternalServerError handles this case with default header values.
+*/
 type GetInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

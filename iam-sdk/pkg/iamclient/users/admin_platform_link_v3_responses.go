@@ -144,9 +144,10 @@ func NewAdminPlatformLinkV3NoContent() *AdminPlatformLinkV3NoContent {
 	return &AdminPlatformLinkV3NoContent{}
 }
 
-/*AdminPlatformLinkV3NoContent handles this case with default header values.
+/*
+AdminPlatformLinkV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminPlatformLinkV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminPlatformLinkV3BadRequest() *AdminPlatformLinkV3BadRequest {
 	return &AdminPlatformLinkV3BadRequest{}
 }
 
-/*AdminPlatformLinkV3BadRequest handles this case with default header values.
+/*
+AdminPlatformLinkV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminPlatformLinkV3BadRequest struct {
 }
@@ -198,9 +200,10 @@ func NewAdminPlatformLinkV3Unauthorized() *AdminPlatformLinkV3Unauthorized {
 	return &AdminPlatformLinkV3Unauthorized{}
 }
 
-/*AdminPlatformLinkV3Unauthorized handles this case with default header values.
+/*
+AdminPlatformLinkV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPlatformLinkV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -252,9 +255,10 @@ func NewAdminPlatformLinkV3Forbidden() *AdminPlatformLinkV3Forbidden {
 	return &AdminPlatformLinkV3Forbidden{}
 }
 
-/*AdminPlatformLinkV3Forbidden handles this case with default header values.
+/*
+AdminPlatformLinkV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminPlatformLinkV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -306,9 +310,10 @@ func NewAdminPlatformLinkV3NotFound() *AdminPlatformLinkV3NotFound {
 	return &AdminPlatformLinkV3NotFound{}
 }
 
-/*AdminPlatformLinkV3NotFound handles this case with default header values.
+/*
+AdminPlatformLinkV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminPlatformLinkV3NotFound struct {
 }
@@ -333,9 +338,10 @@ func NewAdminPlatformLinkV3Conflict() *AdminPlatformLinkV3Conflict {
 	return &AdminPlatformLinkV3Conflict{}
 }
 
-/*AdminPlatformLinkV3Conflict handles this case with default header values.
+/*
+AdminPlatformLinkV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr></table>
 */
 type AdminPlatformLinkV3Conflict struct {
 }
@@ -360,9 +366,10 @@ func NewAdminPlatformLinkV3InternalServerError() *AdminPlatformLinkV3InternalSer
 	return &AdminPlatformLinkV3InternalServerError{}
 }
 
-/*AdminPlatformLinkV3InternalServerError handles this case with default header values.
+/*
+AdminPlatformLinkV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminPlatformLinkV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

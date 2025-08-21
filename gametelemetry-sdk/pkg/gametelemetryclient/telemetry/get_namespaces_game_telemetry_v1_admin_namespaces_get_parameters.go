@@ -57,7 +57,8 @@ func NewGetNamespacesGameTelemetryV1AdminNamespacesGetParamsWithHTTPClient(clien
 	}
 }
 
-/*GetNamespacesGameTelemetryV1AdminNamespacesGetParams contains all the parameters to send to the API endpoint
+/*
+GetNamespacesGameTelemetryV1AdminNamespacesGetParams contains all the parameters to send to the API endpoint
 for the get namespaces game telemetry v1 admin namespaces get operation typically these are written to a http.Request
 */
 type GetNamespacesGameTelemetryV1AdminNamespacesGetParams struct {

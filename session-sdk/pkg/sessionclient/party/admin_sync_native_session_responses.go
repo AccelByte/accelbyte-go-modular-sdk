@@ -129,9 +129,10 @@ func NewAdminSyncNativeSessionOK() *AdminSyncNativeSessionOK {
 	return &AdminSyncNativeSessionOK{}
 }
 
-/*AdminSyncNativeSessionOK handles this case with default header values.
+/*
+AdminSyncNativeSessionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminSyncNativeSessionOK struct {
 }
@@ -156,9 +157,10 @@ func NewAdminSyncNativeSessionBadRequest() *AdminSyncNativeSessionBadRequest {
 	return &AdminSyncNativeSessionBadRequest{}
 }
 
-/*AdminSyncNativeSessionBadRequest handles this case with default header values.
+/*
+AdminSyncNativeSessionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminSyncNativeSessionBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewAdminSyncNativeSessionUnauthorized() *AdminSyncNativeSessionUnauthorized
 	return &AdminSyncNativeSessionUnauthorized{}
 }
 
-/*AdminSyncNativeSessionUnauthorized handles this case with default header values.
+/*
+AdminSyncNativeSessionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminSyncNativeSessionUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewAdminSyncNativeSessionForbidden() *AdminSyncNativeSessionForbidden {
 	return &AdminSyncNativeSessionForbidden{}
 }
 
-/*AdminSyncNativeSessionForbidden handles this case with default header values.
+/*
+AdminSyncNativeSessionForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminSyncNativeSessionForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewAdminSyncNativeSessionInternalServerError() *AdminSyncNativeSessionInter
 	return &AdminSyncNativeSessionInternalServerError{}
 }
 
-/*AdminSyncNativeSessionInternalServerError handles this case with default header values.
+/*
+AdminSyncNativeSessionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSyncNativeSessionInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

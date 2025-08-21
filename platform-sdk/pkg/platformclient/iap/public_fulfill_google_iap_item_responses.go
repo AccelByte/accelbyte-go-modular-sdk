@@ -115,9 +115,10 @@ func NewPublicFulfillGoogleIAPItemOK() *PublicFulfillGoogleIAPItemOK {
 	return &PublicFulfillGoogleIAPItemOK{}
 }
 
-/*PublicFulfillGoogleIAPItemOK handles this case with default header values.
+/*
+PublicFulfillGoogleIAPItemOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type PublicFulfillGoogleIAPItemOK struct {
 	Payload *platformclientmodels.GoogleReceiptResolveResult
@@ -169,9 +170,10 @@ func NewPublicFulfillGoogleIAPItemBadRequest() *PublicFulfillGoogleIAPItemBadReq
 	return &PublicFulfillGoogleIAPItemBadRequest{}
 }
 
-/*PublicFulfillGoogleIAPItemBadRequest handles this case with default header values.
+/*
+PublicFulfillGoogleIAPItemBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39122</td><td>Google iap receipt is invalid with status code [{statusCode}] and error message [{message}]</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>38122</td><td>Subscription endDate required</td></tr><tr><td>39135</td><td>Invalid Google IAP config under namespace [{namespace}]: [{message}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39122</td><td>Google iap receipt is invalid with status code [{statusCode}] and error message [{message}]</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>38122</td><td>Subscription endDate required</td></tr><tr><td>39135</td><td>Invalid Google IAP config under namespace [{namespace}]: [{message}]</td></tr></table>
 */
 type PublicFulfillGoogleIAPItemBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewPublicFulfillGoogleIAPItemNotFound() *PublicFulfillGoogleIAPItemNotFound
 	return &PublicFulfillGoogleIAPItemNotFound{}
 }
 
-/*PublicFulfillGoogleIAPItemNotFound handles this case with default header values.
+/*
+PublicFulfillGoogleIAPItemNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>39148</td><td>Google IAP config not found in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>39148</td><td>Google IAP config not found in namespace [{namespace}].</td></tr></table>
 */
 type PublicFulfillGoogleIAPItemNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewPublicFulfillGoogleIAPItemConflict() *PublicFulfillGoogleIAPItemConflict
 	return &PublicFulfillGoogleIAPItemConflict{}
 }
 
-/*PublicFulfillGoogleIAPItemConflict handles this case with default header values.
+/*
+PublicFulfillGoogleIAPItemConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39172</td><td>The order id in namespace [{namespace}] expect [{expected}] but was [{actual}]</td></tr><tr><td>39173</td><td>The purchase status of google play order [{orderId}] in namespace [{namespace}] expect [{expected}] but was [{actual}]</td></tr><tr><td>39174</td><td>The google iap purchase time of order [{orderId}] in namespace [{namespace}] expect [{expected}] but was [{actual}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39172</td><td>The order id in namespace [{namespace}] expect [{expected}] but was [{actual}]</td></tr><tr><td>39173</td><td>The purchase status of google play order [{orderId}] in namespace [{namespace}] expect [{expected}] but was [{actual}]</td></tr><tr><td>39174</td><td>The google iap purchase time of order [{orderId}] in namespace [{namespace}] expect [{expected}] but was [{actual}]</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type PublicFulfillGoogleIAPItemConflict struct {
 	Payload *platformclientmodels.ErrorEntity

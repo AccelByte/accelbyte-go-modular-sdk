@@ -145,9 +145,10 @@ func NewCancelGroupJoinRequestV1OK() *CancelGroupJoinRequestV1OK {
 	return &CancelGroupJoinRequestV1OK{}
 }
 
-/*CancelGroupJoinRequestV1OK handles this case with default header values.
+/*
+CancelGroupJoinRequestV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type CancelGroupJoinRequestV1OK struct {
 	Payload *groupclientmodels.ModelsMemberRequestGroupResponseV1
@@ -199,9 +200,10 @@ func NewCancelGroupJoinRequestV1BadRequest() *CancelGroupJoinRequestV1BadRequest
 	return &CancelGroupJoinRequestV1BadRequest{}
 }
 
-/*CancelGroupJoinRequestV1BadRequest handles this case with default header values.
+/*
+CancelGroupJoinRequestV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CancelGroupJoinRequestV1BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewCancelGroupJoinRequestV1Unauthorized() *CancelGroupJoinRequestV1Unauthor
 	return &CancelGroupJoinRequestV1Unauthorized{}
 }
 
-/*CancelGroupJoinRequestV1Unauthorized handles this case with default header values.
+/*
+CancelGroupJoinRequestV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CancelGroupJoinRequestV1Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewCancelGroupJoinRequestV1Forbidden() *CancelGroupJoinRequestV1Forbidden {
 	return &CancelGroupJoinRequestV1Forbidden{}
 }
 
-/*CancelGroupJoinRequestV1Forbidden handles this case with default header values.
+/*
+CancelGroupJoinRequestV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type CancelGroupJoinRequestV1Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewCancelGroupJoinRequestV1NotFound() *CancelGroupJoinRequestV1NotFound {
 	return &CancelGroupJoinRequestV1NotFound{}
 }
 
-/*CancelGroupJoinRequestV1NotFound handles this case with default header values.
+/*
+CancelGroupJoinRequestV1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73443</td><td>member request not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73443</td><td>member request not found</td></tr></table>
 */
 type CancelGroupJoinRequestV1NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewCancelGroupJoinRequestV1InternalServerError() *CancelGroupJoinRequestV1I
 	return &CancelGroupJoinRequestV1InternalServerError{}
 }
 
-/*CancelGroupJoinRequestV1InternalServerError handles this case with default header values.
+/*
+CancelGroupJoinRequestV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type CancelGroupJoinRequestV1InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

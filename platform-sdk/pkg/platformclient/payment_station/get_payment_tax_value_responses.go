@@ -100,9 +100,10 @@ func NewGetPaymentTaxValueOK() *GetPaymentTaxValueOK {
 	return &GetPaymentTaxValueOK{}
 }
 
-/*GetPaymentTaxValueOK handles this case with default header values.
+/*
+GetPaymentTaxValueOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPaymentTaxValueOK struct {
 	Payload *platformclientmodels.TaxResult
@@ -154,9 +155,10 @@ func NewGetPaymentTaxValueBadRequest() *GetPaymentTaxValueBadRequest {
 	return &GetPaymentTaxValueBadRequest{}
 }
 
-/*GetPaymentTaxValueBadRequest handles this case with default header values.
+/*
+GetPaymentTaxValueBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33123</td><td>Invalid zipcode</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33123</td><td>Invalid zipcode</td></tr></table>
 */
 type GetPaymentTaxValueBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewGetPaymentTaxValueNotFound() *GetPaymentTaxValueNotFound {
 	return &GetPaymentTaxValueNotFound{}
 }
 
-/*GetPaymentTaxValueNotFound handles this case with default header values.
+/*
+GetPaymentTaxValueNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
 */
 type GetPaymentTaxValueNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

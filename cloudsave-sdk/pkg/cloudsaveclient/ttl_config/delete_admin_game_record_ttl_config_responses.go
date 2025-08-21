@@ -144,9 +144,10 @@ func NewDeleteAdminGameRecordTTLConfigNoContent() *DeleteAdminGameRecordTTLConfi
 	return &DeleteAdminGameRecordTTLConfigNoContent{}
 }
 
-/*DeleteAdminGameRecordTTLConfigNoContent handles this case with default header values.
+/*
+DeleteAdminGameRecordTTLConfigNoContent handles this case with default header values.
 
-  TTL config deleted
+	TTL config deleted
 */
 type DeleteAdminGameRecordTTLConfigNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteAdminGameRecordTTLConfigBadRequest() *DeleteAdminGameRecordTTLConf
 	return &DeleteAdminGameRecordTTLConfigBadRequest{}
 }
 
-/*DeleteAdminGameRecordTTLConfigBadRequest handles this case with default header values.
+/*
+DeleteAdminGameRecordTTLConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DeleteAdminGameRecordTTLConfigBadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -225,9 +227,10 @@ func NewDeleteAdminGameRecordTTLConfigUnauthorized() *DeleteAdminGameRecordTTLCo
 	return &DeleteAdminGameRecordTTLConfigUnauthorized{}
 }
 
-/*DeleteAdminGameRecordTTLConfigUnauthorized handles this case with default header values.
+/*
+DeleteAdminGameRecordTTLConfigUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteAdminGameRecordTTLConfigUnauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -279,9 +282,10 @@ func NewDeleteAdminGameRecordTTLConfigForbidden() *DeleteAdminGameRecordTTLConfi
 	return &DeleteAdminGameRecordTTLConfigForbidden{}
 }
 
-/*DeleteAdminGameRecordTTLConfigForbidden handles this case with default header values.
+/*
+DeleteAdminGameRecordTTLConfigForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteAdminGameRecordTTLConfigForbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -333,10 +337,9 @@ func NewDeleteAdminGameRecordTTLConfigNotFound() *DeleteAdminGameRecordTTLConfig
 	return &DeleteAdminGameRecordTTLConfigNotFound{}
 }
 
-/*DeleteAdminGameRecordTTLConfigNotFound handles this case with default header values.
-
-
- */
+/*
+DeleteAdminGameRecordTTLConfigNotFound handles this case with default header values.
+*/
 type DeleteAdminGameRecordTTLConfigNotFound struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
 }
@@ -387,10 +390,9 @@ func NewDeleteAdminGameRecordTTLConfigInternalServerError() *DeleteAdminGameReco
 	return &DeleteAdminGameRecordTTLConfigInternalServerError{}
 }
 
-/*DeleteAdminGameRecordTTLConfigInternalServerError handles this case with default header values.
-
-
- */
+/*
+DeleteAdminGameRecordTTLConfigInternalServerError handles this case with default header values.
+*/
 type DeleteAdminGameRecordTTLConfigInternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
 }

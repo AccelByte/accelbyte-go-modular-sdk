@@ -46,7 +46,7 @@ This process will run sequentially
 4. create item process
 if toSpecificInventory set as true, then inventoryId field will be mandatory, vice versa
 
-The behavior of each process is same with current admin level endpoint
+# The behavior of each process is same with current admin level endpoint
 
 requestId: Request id(Optional), client should provide a unique request id to perform at most once execution, When a request id is resubmitted,
 it will return original successful response

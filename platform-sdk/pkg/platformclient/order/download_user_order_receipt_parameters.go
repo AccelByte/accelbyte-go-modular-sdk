@@ -57,7 +57,8 @@ func NewDownloadUserOrderReceiptParamsWithHTTPClient(client *http.Client) *Downl
 	}
 }
 
-/*DownloadUserOrderReceiptParams contains all the parameters to send to the API endpoint
+/*
+DownloadUserOrderReceiptParams contains all the parameters to send to the API endpoint
 for the download user order receipt operation typically these are written to a http.Request
 */
 type DownloadUserOrderReceiptParams struct {

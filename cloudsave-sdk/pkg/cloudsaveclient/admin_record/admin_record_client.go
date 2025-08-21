@@ -321,8 +321,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Record Metadata
 
 Metadata allows user to define the behaviour of the record.
@@ -459,7 +457,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -472,7 +469,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
 
 ## Record Metadata
 
@@ -1034,8 +1030,6 @@ Example
 
 `{ "data2": "new value" }`
 
-
-
 ## Record Metadata
 
 Metadata allows user to define the behaviour of the record.
@@ -1172,7 +1166,6 @@ Example 1
 
 `{ "data1": "value", "data2": "new value" }`
 
-
 Example 2
 - Existing JSON:
 
@@ -1185,7 +1178,6 @@ Example 2
 - Result:
 
 `{ "data1": { "data2": "value", "data3": "new value" }`
-
 
 ## Record Metadata
 

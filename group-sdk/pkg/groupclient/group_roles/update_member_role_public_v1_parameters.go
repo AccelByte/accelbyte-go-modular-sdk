@@ -59,7 +59,8 @@ func NewUpdateMemberRolePublicV1ParamsWithHTTPClient(client *http.Client) *Updat
 	}
 }
 
-/*UpdateMemberRolePublicV1Params contains all the parameters to send to the API endpoint
+/*
+UpdateMemberRolePublicV1Params contains all the parameters to send to the API endpoint
 for the update member role public v1 operation typically these are written to a http.Request
 */
 type UpdateMemberRolePublicV1Params struct {

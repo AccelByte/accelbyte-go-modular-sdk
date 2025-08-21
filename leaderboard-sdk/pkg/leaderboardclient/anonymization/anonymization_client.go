@@ -38,7 +38,6 @@ type ClientService interface {
 /*
 AdminAnonymizeUserLeaderboardAdminV1Short anonymize user's leaderboard
 
-
 This API will delete specified user leaderboard
 */
 func (a *Client) AdminAnonymizeUserLeaderboardAdminV1Short(params *AdminAnonymizeUserLeaderboardAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAnonymizeUserLeaderboardAdminV1Response, error) {

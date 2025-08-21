@@ -130,9 +130,10 @@ func NewSingleAdminGetGroupContentsOK() *SingleAdminGetGroupContentsOK {
 	return &SingleAdminGetGroupContentsOK{}
 }
 
-/*SingleAdminGetGroupContentsOK handles this case with default header values.
+/*
+SingleAdminGetGroupContentsOK handles this case with default header values.
 
-  Get contents belong to a group
+	Get contents belong to a group
 */
 type SingleAdminGetGroupContentsOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponse
@@ -184,9 +185,10 @@ func NewSingleAdminGetGroupContentsBadRequest() *SingleAdminGetGroupContentsBadR
 	return &SingleAdminGetGroupContentsBadRequest{}
 }
 
-/*SingleAdminGetGroupContentsBadRequest handles this case with default header values.
+/*
+SingleAdminGetGroupContentsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773101</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773101</td><td>invalid paging parameter</td></tr></table>
 */
 type SingleAdminGetGroupContentsBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewSingleAdminGetGroupContentsUnauthorized() *SingleAdminGetGroupContentsUn
 	return &SingleAdminGetGroupContentsUnauthorized{}
 }
 
-/*SingleAdminGetGroupContentsUnauthorized handles this case with default header values.
+/*
+SingleAdminGetGroupContentsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SingleAdminGetGroupContentsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewSingleAdminGetGroupContentsNotFound() *SingleAdminGetGroupContentsNotFou
 	return &SingleAdminGetGroupContentsNotFound{}
 }
 
-/*SingleAdminGetGroupContentsNotFound handles this case with default header values.
+/*
+SingleAdminGetGroupContentsNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773103</td><td>No group content was found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773103</td><td>No group content was found</td></tr></table>
 */
 type SingleAdminGetGroupContentsNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewSingleAdminGetGroupContentsInternalServerError() *SingleAdminGetGroupCon
 	return &SingleAdminGetGroupContentsInternalServerError{}
 }
 
-/*SingleAdminGetGroupContentsInternalServerError handles this case with default header values.
+/*
+SingleAdminGetGroupContentsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773102</td><td>Unable to get ugc content: database error</td></tr><tr><td>770901</td><td>Unable to get ugc content: database error/Unable to get creator</td></tr><tr><td>770903</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>773102</td><td>Unable to get ugc content: database error</td></tr><tr><td>770901</td><td>Unable to get ugc content: database error/Unable to get creator</td></tr><tr><td>770903</td><td>Failed generate download URL</td></tr></table>
 */
 type SingleAdminGetGroupContentsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

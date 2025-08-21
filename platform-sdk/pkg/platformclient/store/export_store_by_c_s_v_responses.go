@@ -118,9 +118,10 @@ func NewExportStoreByCSVOK(writer io.Writer) *ExportStoreByCSVOK {
 	}
 }
 
-/*ExportStoreByCSVOK handles this case with default header values.
+/*
+ExportStoreByCSVOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type ExportStoreByCSVOK struct {
 	Payload io.Writer
@@ -170,9 +171,10 @@ func NewExportStoreByCSVBadRequest() *ExportStoreByCSVBadRequest {
 	return &ExportStoreByCSVBadRequest{}
 }
 
-/*ExportStoreByCSVBadRequest handles this case with default header values.
+/*
+ExportStoreByCSVBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30025</td><td>[{header}] is required by CSV import/export for catalogType [{catalogType}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30025</td><td>[{header}] is required by CSV import/export for catalogType [{catalogType}]</td></tr></table>
 */
 type ExportStoreByCSVBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -224,9 +226,10 @@ func NewExportStoreByCSVNotFound() *ExportStoreByCSVNotFound {
 	return &ExportStoreByCSVNotFound{}
 }
 
-/*ExportStoreByCSVNotFound handles this case with default header values.
+/*
+ExportStoreByCSVNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type ExportStoreByCSVNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -278,9 +281,10 @@ func NewExportStoreByCSVConflict() *ExportStoreByCSVConflict {
 	return &ExportStoreByCSVConflict{}
 }
 
-/*ExportStoreByCSVConflict handles this case with default header values.
+/*
+ExportStoreByCSVConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30076</td><td>CSV header [{headerName}] is not supported for CatalogType [{catalogType}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30076</td><td>CSV header [{headerName}] is not supported for CatalogType [{catalogType}]</td></tr></table>
 */
 type ExportStoreByCSVConflict struct {
 	Payload *platformclientmodels.ErrorEntity

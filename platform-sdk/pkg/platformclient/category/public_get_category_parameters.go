@@ -57,7 +57,8 @@ func NewPublicGetCategoryParamsWithHTTPClient(client *http.Client) *PublicGetCat
 	}
 }
 
-/*PublicGetCategoryParams contains all the parameters to send to the API endpoint
+/*
+PublicGetCategoryParams contains all the parameters to send to the API endpoint
 for the public get category operation typically these are written to a http.Request
 */
 type PublicGetCategoryParams struct {

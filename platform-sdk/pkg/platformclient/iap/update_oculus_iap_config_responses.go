@@ -69,9 +69,10 @@ func NewUpdateOculusIAPConfigOK() *UpdateOculusIAPConfigOK {
 	return &UpdateOculusIAPConfigOK{}
 }
 
-/*UpdateOculusIAPConfigOK handles this case with default header values.
+/*
+UpdateOculusIAPConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateOculusIAPConfigOK struct {
 	Payload *platformclientmodels.OculusIAPConfigInfo

@@ -130,9 +130,10 @@ func NewCreateRewardCreated() *CreateRewardCreated {
 	return &CreateRewardCreated{}
 }
 
-/*CreateRewardCreated handles this case with default header values.
+/*
+CreateRewardCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateRewardCreated struct {
 	Payload *seasonpassclientmodels.RewardInfo
@@ -184,9 +185,10 @@ func NewCreateRewardBadRequest() *CreateRewardBadRequest {
 	return &CreateRewardBadRequest{}
 }
 
-/*CreateRewardBadRequest handles this case with default header values.
+/*
+CreateRewardBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49143</td><td>Item type not match</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49143</td><td>Item type not match</td></tr></table>
 */
 type CreateRewardBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewCreateRewardNotFound() *CreateRewardNotFound {
 	return &CreateRewardNotFound{}
 }
 
-/*CreateRewardNotFound handles this case with default header values.
+/*
+CreateRewardNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CreateRewardNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewCreateRewardConflict() *CreateRewardConflict {
 	return &CreateRewardConflict{}
 }
 
-/*CreateRewardConflict handles this case with default header values.
+/*
+CreateRewardConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49173</td><td>Reward [{code}] already exists in the season</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49173</td><td>Reward [{code}] already exists in the season</td></tr></table>
 */
 type CreateRewardConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewCreateRewardUnprocessableEntity() *CreateRewardUnprocessableEntity {
 	return &CreateRewardUnprocessableEntity{}
 }
 
-/*CreateRewardUnprocessableEntity handles this case with default header values.
+/*
+CreateRewardUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateRewardUnprocessableEntity struct {
 	Payload *seasonpassclientmodels.ValidationErrorEntity

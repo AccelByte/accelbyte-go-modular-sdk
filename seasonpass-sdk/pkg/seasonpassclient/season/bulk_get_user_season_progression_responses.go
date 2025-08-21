@@ -100,9 +100,10 @@ func NewBulkGetUserSeasonProgressionOK() *BulkGetUserSeasonProgressionOK {
 	return &BulkGetUserSeasonProgressionOK{}
 }
 
-/*BulkGetUserSeasonProgressionOK handles this case with default header values.
+/*
+BulkGetUserSeasonProgressionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkGetUserSeasonProgressionOK struct {
 	Payload []*seasonpassclientmodels.UserSeasonSummary
@@ -152,9 +153,10 @@ func NewBulkGetUserSeasonProgressionBadRequest() *BulkGetUserSeasonProgressionBa
 	return &BulkGetUserSeasonProgressionBadRequest{}
 }
 
-/*BulkGetUserSeasonProgressionBadRequest handles this case with default header values.
+/*
+BulkGetUserSeasonProgressionBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type BulkGetUserSeasonProgressionBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -206,9 +208,10 @@ func NewBulkGetUserSeasonProgressionNotFound() *BulkGetUserSeasonProgressionNotF
 	return &BulkGetUserSeasonProgressionNotFound{}
 }
 
-/*BulkGetUserSeasonProgressionNotFound handles this case with default header values.
+/*
+BulkGetUserSeasonProgressionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49147</td><td>Published season does not exist</td></tr></table>
 */
 type BulkGetUserSeasonProgressionNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

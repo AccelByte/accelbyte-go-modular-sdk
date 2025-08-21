@@ -99,9 +99,10 @@ func NewSyncSteamInventoryNoContent() *SyncSteamInventoryNoContent {
 	return &SyncSteamInventoryNoContent{}
 }
 
-/*SyncSteamInventoryNoContent handles this case with default header values.
+/*
+SyncSteamInventoryNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type SyncSteamInventoryNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewSyncSteamInventoryBadRequest() *SyncSteamInventoryBadRequest {
 	return &SyncSteamInventoryBadRequest{}
 }
 
-/*SyncSteamInventoryBadRequest handles this case with default header values.
+/*
+SyncSteamInventoryBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39123</td><td>IAP request is not in valid application</td></tr><tr><td>39124</td><td>IAP request platform [{platformId}] user id is not linked with current user</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39123</td><td>IAP request is not in valid application</td></tr><tr><td>39124</td><td>IAP request platform [{platformId}] user id is not linked with current user</td></tr></table>
 */
 type SyncSteamInventoryBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewSyncSteamInventoryNotFound() *SyncSteamInventoryNotFound {
 	return &SyncSteamInventoryNotFound{}
 }
 
-/*SyncSteamInventoryNotFound handles this case with default header values.
+/*
+SyncSteamInventoryNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39144</td><td>Steam IAP config not found in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39144</td><td>Steam IAP config not found in namespace [{namespace}].</td></tr></table>
 */
 type SyncSteamInventoryNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

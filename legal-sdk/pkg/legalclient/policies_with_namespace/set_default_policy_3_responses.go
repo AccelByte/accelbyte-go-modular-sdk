@@ -84,9 +84,10 @@ func NewSetDefaultPolicy3OK() *SetDefaultPolicy3OK {
 	return &SetDefaultPolicy3OK{}
 }
 
-/*SetDefaultPolicy3OK handles this case with default header values.
+/*
+SetDefaultPolicy3OK handles this case with default header values.
 
-  operation successful
+	operation successful
 */
 type SetDefaultPolicy3OK struct {
 }
@@ -111,9 +112,10 @@ func NewSetDefaultPolicy3BadRequest() *SetDefaultPolicy3BadRequest {
 	return &SetDefaultPolicy3BadRequest{}
 }
 
-/*SetDefaultPolicy3BadRequest handles this case with default header values.
+/*
+SetDefaultPolicy3BadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy_id</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40033</td><td>errors.net.accelbyte.platform.legal.invalid_policy_id</td></tr></table>
 */
 type SetDefaultPolicy3BadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

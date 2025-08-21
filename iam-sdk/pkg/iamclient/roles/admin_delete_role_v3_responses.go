@@ -159,9 +159,10 @@ func NewAdminDeleteRoleV3NoContent() *AdminDeleteRoleV3NoContent {
 	return &AdminDeleteRoleV3NoContent{}
 }
 
-/*AdminDeleteRoleV3NoContent handles this case with default header values.
+/*
+AdminDeleteRoleV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDeleteRoleV3NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewAdminDeleteRoleV3BadRequest() *AdminDeleteRoleV3BadRequest {
 	return &AdminDeleteRoleV3BadRequest{}
 }
 
-/*AdminDeleteRoleV3BadRequest handles this case with default header values.
+/*
+AdminDeleteRoleV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminDeleteRoleV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewAdminDeleteRoleV3Unauthorized() *AdminDeleteRoleV3Unauthorized {
 	return &AdminDeleteRoleV3Unauthorized{}
 }
 
-/*AdminDeleteRoleV3Unauthorized handles this case with default header values.
+/*
+AdminDeleteRoleV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteRoleV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewAdminDeleteRoleV3Forbidden() *AdminDeleteRoleV3Forbidden {
 	return &AdminDeleteRoleV3Forbidden{}
 }
 
-/*AdminDeleteRoleV3Forbidden handles this case with default header values.
+/*
+AdminDeleteRoleV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeleteRoleV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewAdminDeleteRoleV3NotFound() *AdminDeleteRoleV3NotFound {
 	return &AdminDeleteRoleV3NotFound{}
 }
 
-/*AdminDeleteRoleV3NotFound handles this case with default header values.
+/*
+AdminDeleteRoleV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminDeleteRoleV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewAdminDeleteRoleV3Conflict() *AdminDeleteRoleV3Conflict {
 	return &AdminDeleteRoleV3Conflict{}
 }
 
-/*AdminDeleteRoleV3Conflict handles this case with default header values.
+/*
+AdminDeleteRoleV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20009</td><td>request_conflict</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20009</td><td>request_conflict</td></tr></table>
 */
 type AdminDeleteRoleV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewAdminDeleteRoleV3InternalServerError() *AdminDeleteRoleV3InternalServerE
 	return &AdminDeleteRoleV3InternalServerError{}
 }
 
-/*AdminDeleteRoleV3InternalServerError handles this case with default header values.
+/*
+AdminDeleteRoleV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDeleteRoleV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

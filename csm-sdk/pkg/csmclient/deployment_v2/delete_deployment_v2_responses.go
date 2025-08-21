@@ -129,10 +129,9 @@ func NewDeleteDeploymentV2NoContent() *DeleteDeploymentV2NoContent {
 	return &DeleteDeploymentV2NoContent{}
 }
 
-/*DeleteDeploymentV2NoContent handles this case with default header values.
-
-
- */
+/*
+DeleteDeploymentV2NoContent handles this case with default header values.
+*/
 type DeleteDeploymentV2NoContent struct {
 }
 
@@ -156,9 +155,10 @@ func NewDeleteDeploymentV2Unauthorized() *DeleteDeploymentV2Unauthorized {
 	return &DeleteDeploymentV2Unauthorized{}
 }
 
-/*DeleteDeploymentV2Unauthorized handles this case with default header values.
+/*
+DeleteDeploymentV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteDeploymentV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -210,9 +210,10 @@ func NewDeleteDeploymentV2Forbidden() *DeleteDeploymentV2Forbidden {
 	return &DeleteDeploymentV2Forbidden{}
 }
 
-/*DeleteDeploymentV2Forbidden handles this case with default header values.
+/*
+DeleteDeploymentV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteDeploymentV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -264,9 +265,10 @@ func NewDeleteDeploymentV2NotFound() *DeleteDeploymentV2NotFound {
 	return &DeleteDeploymentV2NotFound{}
 }
 
-/*DeleteDeploymentV2NotFound handles this case with default header values.
+/*
+DeleteDeploymentV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteDeploymentV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -318,9 +320,10 @@ func NewDeleteDeploymentV2InternalServerError() *DeleteDeploymentV2InternalServe
 	return &DeleteDeploymentV2InternalServerError{}
 }
 
-/*DeleteDeploymentV2InternalServerError handles this case with default header values.
+/*
+DeleteDeploymentV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteDeploymentV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

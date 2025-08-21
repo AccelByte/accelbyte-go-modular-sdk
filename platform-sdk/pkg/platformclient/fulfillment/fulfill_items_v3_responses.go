@@ -100,9 +100,10 @@ func NewFulfillItemsV3OK() *FulfillItemsV3OK {
 	return &FulfillItemsV3OK{}
 }
 
-/*FulfillItemsV3OK handles this case with default header values.
+/*
+FulfillItemsV3OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type FulfillItemsV3OK struct {
 	Payload *platformclientmodels.FulfillmentV2Result
@@ -154,9 +155,10 @@ func NewFulfillItemsV3BadRequest() *FulfillItemsV3BadRequest {
 	return &FulfillItemsV3BadRequest{}
 }
 
-/*FulfillItemsV3BadRequest handles this case with default header values.
+/*
+FulfillItemsV3BadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>38122</td><td>Subscription endDate required</td></tr><tr><td>38128</td><td>Cannot retry fulfillment with different payload. Please check the items list.</td></tr><tr><td>38129</td><td>Cannot combine same item [{itemId}] with different [{fieldName}] value</td></tr><tr><td>38130</td><td>Cannot fulfill item with type [{itemType}] in item [{itemIdentity}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>35123</td><td>Wallet [{walletId}] is inactive</td></tr><tr><td>38121</td><td>Duplicate permanent item exists</td></tr><tr><td>38122</td><td>Subscription endDate required</td></tr><tr><td>38128</td><td>Cannot retry fulfillment with different payload. Please check the items list.</td></tr><tr><td>38129</td><td>Cannot combine same item [{itemId}] with different [{fieldName}] value</td></tr><tr><td>38130</td><td>Cannot fulfill item with type [{itemType}] in item [{itemIdentity}]</td></tr></table>
 */
 type FulfillItemsV3BadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewFulfillItemsV3NotFound() *FulfillItemsV3NotFound {
 	return &FulfillItemsV3NotFound{}
 }
 
-/*FulfillItemsV3NotFound handles this case with default header values.
+/*
+FulfillItemsV3NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{sku}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30343</td><td>Item of sku [{sku}] does not exist</td></tr></table>
 */
 type FulfillItemsV3NotFound struct {
 	Payload *platformclientmodels.ErrorEntity

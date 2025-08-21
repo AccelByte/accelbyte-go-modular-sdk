@@ -59,7 +59,8 @@ func NewAdminCreateModActionParamsWithHTTPClient(client *http.Client) *AdminCrea
 	}
 }
 
-/*AdminCreateModActionParams contains all the parameters to send to the API endpoint
+/*
+AdminCreateModActionParams contains all the parameters to send to the API endpoint
 for the admin create mod action operation typically these are written to a http.Request
 */
 type AdminCreateModActionParams struct {

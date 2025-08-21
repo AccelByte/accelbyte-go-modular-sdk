@@ -59,7 +59,8 @@ func NewSaveVariableV1ParamsWithHTTPClient(client *http.Client) *SaveVariableV1P
 	}
 }
 
-/*SaveVariableV1Params contains all the parameters to send to the API endpoint
+/*
+SaveVariableV1Params contains all the parameters to send to the API endpoint
 for the save variable v1 operation typically these are written to a http.Request
 */
 type SaveVariableV1Params struct {

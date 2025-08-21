@@ -85,11 +85,12 @@ type ClientService interface {
 
 /*
 ListItemTypeConfigsShort get all item type configs
- [Not supported yet in AGS Shared Cloud] This API is used to get all item type configs.
+
+	[Not supported yet in AGS Shared Cloud] This API is used to get all item type configs.
 
 Other detail info:
 
-  * Returns : the list of items
+  - Returns : the list of items
 */
 func (a *Client) ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, authInfo runtime.ClientAuthInfoWriter) (*ListItemTypeConfigsResponse, error) {
 	// TODO: Validate the params before sending
@@ -143,7 +144,8 @@ func (a *Client) ListItemTypeConfigsShort(params *ListItemTypeConfigsParams, aut
 
 /*
 CreateItemTypeConfigShort create an item type config
- [Not supported yet in AGS Shared Cloud] This API is used to create an item type config.
+
+	[Not supported yet in AGS Shared Cloud] This API is used to create an item type config.
 
 *  Returns : item type config data
 */
@@ -219,11 +221,12 @@ func (a *Client) CreateItemTypeConfigShort(params *CreateItemTypeConfigParams, a
 
 /*
 SearchItemTypeConfigShort get an item type config
- [Not supported yet in AGS Shared Cloud] This API is used to get an item type config.
+
+	[Not supported yet in AGS Shared Cloud] This API is used to get an item type config.
 
 Other detail info:
 
-  * Returns : item type config data
+  - Returns : item type config data
 */
 func (a *Client) SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemTypeConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -284,11 +287,12 @@ func (a *Client) SearchItemTypeConfigShort(params *SearchItemTypeConfigParams, a
 
 /*
 GetItemTypeConfigShort get an item type config
- [Not supported yet in AGS Shared Cloud] This API is used to get an item type config.
+
+	[Not supported yet in AGS Shared Cloud] This API is used to get an item type config.
 
 Other detail info:
 
-  * Returns : item type config data
+  - Returns : item type config data
 */
 func (a *Client) GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemTypeConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -349,7 +353,8 @@ func (a *Client) GetItemTypeConfigShort(params *GetItemTypeConfigParams, authInf
 
 /*
 UpdateItemTypeConfigShort update an item type config
- [Not supported yet in AGS Shared Cloud] This API is used to update an item type config.
+
+	[Not supported yet in AGS Shared Cloud] This API is used to update an item type config.
 
 *  Returns : item type config data
 */
@@ -426,7 +431,8 @@ func (a *Client) UpdateItemTypeConfigShort(params *UpdateItemTypeConfigParams, a
 
 /*
 DeleteItemTypeConfigShort delete an item type config
- [Not supported yet in AGS Shared Cloud] This API is used to delete an item type config permanently.
+
+	[Not supported yet in AGS Shared Cloud] This API is used to delete an item type config permanently.
 */
 func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteItemTypeConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -486,13 +492,14 @@ func (a *Client) DeleteItemTypeConfigShort(params *DeleteItemTypeConfigParams, a
 
 /*
 SyncInGameItemShort sync an in game item
- [Not supported yet in AGS Shared Cloud] This API is used to sync an in game item in game namespace to publisher namespace, only INGAMEITEM, CODE, COINS and SEASON are supported
+
+	[Not supported yet in AGS Shared Cloud] This API is used to sync an in game item in game namespace to publisher namespace, only INGAMEITEM, CODE, COINS and SEASON are supported
 
 The synced item has an additional field targetItemId besides targetNamespace, mostly this item should not modified manually again.
 
 Other detail info:
 
-  * Returns : item data
+  - Returns : item data
 */
 func (a *Client) SyncInGameItemShort(params *SyncInGameItemParams, authInfo runtime.ClientAuthInfoWriter) (*SyncInGameItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -578,238 +585,231 @@ This API is used to create an item. APP item only can created in publisher names
 
 An item create example:
 
+	{
 
-    {
+	   "categoryPath": "/games",
 
-       "categoryPath": "/games",
+	   "localizations": {
 
-       "localizations": {
+	       "en": {
 
-           "en": {
+	           "title":"required",
 
-               "title":"required",
+	           "description":"optional",
 
-               "description":"optional",
+	           "longDescription":"optional",
 
-               "longDescription":"optional",
+	           "localExt": {
 
-               "localExt": {
+	                  "properties":[
 
-                      "properties":[
+	                                   {
 
-                                       {
+	                                       "key1":"value1",
 
-                                           "key1":"value1",
+	                                       "key2":"value2"
 
-                                           "key2":"value2"
+	                                   }
 
-                                       }
+	                  ],
 
-                      ],
+	                  "functions":[
 
-                      "functions":[
+	                                   {
 
-                                       {
+	                                       "key1":"value1",
 
-                                           "key1":"value1",
+	                                       "key2":"value2"
 
-                                           "key2":"value2"
+	                                   }
 
-                                       }
+	                 ]
 
-                     ]
+	           }
 
-               }
+	        }
 
-            }
+	   },
 
-       },
+	   "images": [
 
-       "images": [
+	     {
 
-         {
+	           "as":"optional, image for",
 
-               "as":"optional, image for",
+	           "caption":"optional",
 
-               "caption":"optional",
+	           "height":10,
 
-               "height":10,
+	           "width":10,
 
-               "width":10,
+	           "imageUrl":"http://img-url-required",
 
-               "imageUrl":"http://img-url-required",
+	           "smallImageUrl":"http://small-img-url-required"
 
-               "smallImageUrl":"http://small-img-url-required"
+	     }
 
-         }
+	   ],
 
-       ],
+	   "thumbnailUrl": "optional, thumbnail url",
 
-       "thumbnailUrl": "optional, thumbnail url",
+	   "status": "ACTIVE",
 
-       "status": "ACTIVE",
+	   "listable": true,
 
-       "listable": true,
+	   "purchasable": true,
 
-       "purchasable": true,
+	   "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
 
-       "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
+	   "name": "required, also will be used as entitlement name",
 
-       "name": "required, also will be used as entitlement name",
+	   "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
 
-       "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
+	   "useCount": 1(optional, required if the entitlement type is consumable),
 
-       "useCount": 1(optional, required if the entitlement type is consumable),
+	   "stackable": false,
 
-       "stackable": false,
+	   "appId": "optional, required if itemType is APP",
 
-       "appId": "optional, required if itemType is APP",
+	   "appType": "GAME(optional, required if itemType is APP)",
 
-       "appType": "GAME(optional, required if itemType is APP)",
+	   "seasonType": "PASS(optional, required if itemType is SEASON)",
 
-       "seasonType": "PASS(optional, required if itemType is SEASON)",
+	   "baseAppId": "optional, set value of game app id if you want to link to a game",
 
-       "baseAppId": "optional, set value of game app id if you want to link to a game",
+	   "targetCurrencyCode": "optional, required if itemType is COINS",
 
-       "targetCurrencyCode": "optional, required if itemType is COINS",
+	   "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
 
-       "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
+	   created belongs to the publisher namespace",
 
-       created belongs to the publisher namespace",
+	   "sku": "optional, commonly unique item code",
 
-       "sku": "optional, commonly unique item code",
+	   "regionData": {
 
-       "regionData": {
+	       "US(store's default region is required)": [
 
-           "US(store's default region is required)": [
+	         {
 
-             {
+	            "price":10,
 
-                "price":10,
+	            "discountPercentage": 0(integer, optional, range[0,100], discountedPrice = price  * ((100 - discountPercentage) * 0.01),
 
-                "discountPercentage": 0(integer, optional, range[0,100], discountedPrice = price  * ((100 - discountPercentage) * 0.01),
+	              will use it to calculate discounted price if it is not 0),
 
-                  will use it to calculate discounted price if it is not 0),
+	            "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
 
-                "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
+	            "currencyCode":"code(required, example: USD)",
 
-                "currencyCode":"code(required, example: USD)",
+	            "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
 
-                "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
+	            "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
 
-                "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
+	            "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-                "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	            "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-                "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	            "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-                "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	            "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-                "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+	         }
 
-             }
+	       ]
 
-           ]
+	   },
 
-       },
+	   "itemIds": [
 
-       "itemIds": [
+	       "itemId"
 
-           "itemId"
+	   ],
 
-       ],
+	   "itemQty": {
 
-       "itemQty": {
+	       "itemId":1
 
-           "itemId":1
+	   },
 
-       },
+	   "recurring": {
 
-       "recurring": {
+	       "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
 
-           "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
+	       "fixedFreeDays":0(integer, fixed free days, 0 means not set),
 
-           "fixedFreeDays":0(integer, fixed free days, 0 means not set),
+	       "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
 
-           "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
+	       "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
 
-           "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
+	   },
 
-       },
+	   "tags": [
 
-       "tags": [
+	       "exampleTag24"
 
-           "exampleTag24"
+	   ],
 
-       ],
+	   "features": [
 
-       "features": [
+	       "feature"
 
-           "feature"
+	   ],
 
-       ],
+	   "clazz": "weapon",
 
-       "clazz": "weapon",
+	   "boothName": "C_campaign1",
 
-       "boothName": "C_campaign1",
+	   "displayOrder": 1000,
 
-       "displayOrder": 1000,
+	   "ext": {
 
-       "ext": {
+	       "properties":[
 
-           "properties":[
+	           {
 
-               {
+	               "key1":"value1",
 
-                   "key1":"value1",
+	               "key2":"value2"
 
-                   "key2":"value2"
+	           }
 
-               }
+	       ],
 
-           ],
+	       "functions":[
 
-           "functions":[
+	           {
 
-               {
+	               "key1":"value1",
 
-                   "key1":"value1",
+	               "key2":"value2"
 
-                   "key2":"value2"
+	           }
 
-               }
+	       ]
 
-           ]
+	   },
 
-       },
+	   "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
 
-       "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
+	   "maxCount": 1(integer, optional, -1 means UNLIMITED, unset when itemType is CODE)
 
-       "maxCount": 1(integer, optional, -1 means UNLIMITED, unset when itemType is CODE)
-
-    }
+	}
 
 Other detail info:
 
-  * Returns : created item data
-
-
+  - Returns : created item data
 
 ## Restrictions for item extension and localization extension and inventory config custom attributes
-
 
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
-
+	{ "data.2": "value" }
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+	{ "$data": "value" }
 */
 func (a *Client) CreateItemShort(params *CreateItemParams, authInfo runtime.ClientAuthInfoWriter) (*CreateItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -895,7 +895,7 @@ This API is used to get the item by appId.
 
 Other detail info:
 
-  * Returns : the item with that appId
+  - Returns : the item with that appId
 */
 func (a *Client) GetItemByAppIDShort(params *GetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemByAppIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -960,7 +960,7 @@ This API is used to query items by criteria within a store.
 
 Other detail info:
 
-  * Returns : the list of items
+  - Returns : the list of items
 */
 func (a *Client) QueryItemsShort(params *QueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1028,11 +1028,12 @@ func (a *Client) QueryItemsShort(params *QueryItemsParams, authInfo runtime.Clie
 
 /*
 ListBasicItemsByFeaturesShort list basic items by features
- [SERVICE COMMUNICATION ONLY] This API is used to list basic items by features.
+
+	[SERVICE COMMUNICATION ONLY] This API is used to list basic items by features.
 
 Other detail info:
 
-  * Returns : the list of basic items
+  - Returns : the list of basic items
 */
 func (a *Client) ListBasicItemsByFeaturesShort(params *ListBasicItemsByFeaturesParams, authInfo runtime.ClientAuthInfoWriter) (*ListBasicItemsByFeaturesResponse, error) {
 	// TODO: Validate the params before sending
@@ -1090,7 +1091,7 @@ This API is used to get items.
 
 Other detail info:
 
-  * Returns : the list of items info
+  - Returns : the list of items info
 */
 func (a *Client) GetItemsShort(params *GetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1155,7 +1156,7 @@ This API is used to get the item by sku.
 
 Other detail info:
 
-  * Returns : the item with sku
+  - Returns : the item with sku
 */
 func (a *Client) GetItemBySkuShort(params *GetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemBySkuResponse, error) {
 	// TODO: Validate the params before sending
@@ -1220,7 +1221,7 @@ This API is used to get an item by sku in specific locale. If item not exist in 
 
 Other detail info:
 
-  * Returns : item data
+  - Returns : item data
 */
 func (a *Client) GetLocaleItemBySkuShort(params *GetLocaleItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemBySkuResponse, error) {
 	// TODO: Validate the params before sending
@@ -1342,11 +1343,12 @@ func (a *Client) GetEstimatedPriceShort(params *GetEstimatedPriceParams, authInf
 
 /*
 GetItemIDBySkuShort get itemid by sku
- [SERVICE COMMUNICATION ONLY] This API is used to get the itemId by sku.
+
+	[SERVICE COMMUNICATION ONLY] This API is used to get the itemId by sku.
 
 Other detail info:
 
-  * Returns : the itemId with sku
+  - Returns : the itemId with sku
 */
 func (a *Client) GetItemIDBySkuShort(params *GetItemIDBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemIDBySkuResponse, error) {
 	// TODO: Validate the params before sending
@@ -1411,7 +1413,7 @@ This API is used to get an list of itemId by list of sku.
 
 Other detail info:
 
-  * Returns : item data
+  - Returns : item data
 */
 func (a *Client) GetBulkItemIDBySkusShort(params *GetBulkItemIDBySkusParams, authInfo runtime.ClientAuthInfoWriter) (*GetBulkItemIDBySkusResponse, error) {
 	// TODO: Validate the params before sending
@@ -1469,7 +1471,7 @@ This API is used to bulk get locale items. If item not exist in specific region,
 
 Other detail info:
 
-  * Returns : the list of items info
+  - Returns : the list of items info
 */
 func (a *Client) BulkGetLocaleItemsShort(params *BulkGetLocaleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkGetLocaleItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1533,7 +1535,7 @@ GetAvailablePredicateTypesShort get available predicate types
 Get available predicate types.
 Other detail info:
 
-  * Returns : available predicate types
+  - Returns : available predicate types
 */
 func (a *Client) GetAvailablePredicateTypesShort(params *GetAvailablePredicateTypesParams, authInfo runtime.ClientAuthInfoWriter) (*GetAvailablePredicateTypesResponse, error) {
 	// TODO: Validate the params before sending
@@ -1740,7 +1742,7 @@ This API is used to search items by keyword in title, description and long descr
 
 Other detail info:
 
-  * Returns : the list of items
+  - Returns : the list of items
 */
 func (a *Client) SearchItemsShort(params *SearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*SearchItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1805,7 +1807,7 @@ This API is used to query uncategorized items within a store.
 
 Other detail info:
 
-  * Returns : the list of uncategorized items
+  - Returns : the list of uncategorized items
 */
 func (a *Client) QueryUncategorizedItemsShort(params *QueryUncategorizedItemsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUncategorizedItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -1877,7 +1879,7 @@ This API is used to get an item.
 
 Other detail info:
 
-  * Returns : item data
+  - Returns : item data
 */
 func (a *Client) GetItemShort(params *GetItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -1942,240 +1944,233 @@ This API is used to update an item.
 
 An item update example:
 
+	{
 
-    {
+	    "categoryPath": "/games",
 
-        "categoryPath": "/games",
+	    "localizations": {
 
-        "localizations": {
+	       "en": {
 
-           "en": {
+	           "title":"required",
 
-               "title":"required",
+	           "description":"optional",
 
-               "description":"optional",
+	           "longDescription":"optional",
 
-               "longDescription":"optional",
+	           "localExt": {
 
-               "localExt": {
+	                  "properties":[
 
-                      "properties":[
+	                                   {
 
-                                       {
+	                                       "key1":"value1",
 
-                                           "key1":"value1",
+	                                       "key2":"value2"
 
-                                           "key2":"value2"
+	                                   }
 
-                                       }
+	                  ],
 
-                      ],
+	                  "functions":[
 
-                      "functions":[
+	                                   {
 
-                                       {
+	                                       "key1":"value1",
 
-                                           "key1":"value1",
+	                                       "key2":"value2"
 
-                                           "key2":"value2"
+	                                   }
 
-                                       }
+	                 ]
 
-                     ]
+	           }
 
-               }
+	       }
 
-           }
+	   },
 
-       },
+	   "images": [
 
-       "images": [
+	     {
 
-         {
+	           "as":"optional, image for",
 
-               "as":"optional, image for",
+	           "caption":"optional",
 
-               "caption":"optional",
+	           "height":10,
 
-               "height":10,
+	           "width":10,
 
-               "width":10,
+	           "imageUrl":"http://img-url-required",
 
-               "imageUrl":"http://img-url-required",
+	           "smallImageUrl":"http://small-img-url-required"
 
-               "smallImageUrl":"http://small-img-url-required"
+	     }
 
-         }
+	   ],
 
-       ],
+	   "thumbnailUrl": "optional, thumbnail url",
 
-       "thumbnailUrl": "optional, thumbnail url",
+	   "status": "ACTIVE",
 
-       "status": "ACTIVE",
+	   "listable": true,
 
-       "listable": true,
+	   "purchasable": true,
 
-       "purchasable": true,
+	   "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
 
-       "itemType": "APP(allowed: [APP,COINS,INGAMEITEM,CODE,BUNDLE])",
+	   "name": "optional",
 
-       "name": "optional",
+	   "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
 
-       "entitlementType": "DURABLE(allowed:[DURABLE,CONSUMABLE], should be CONSUMABLE when item type is COINS)",
+	   "useCount": 1(optional, required if the entitlement type is consumable),
 
-       "useCount": 1(optional, required if the entitlement type is consumable),
+	   "stackable": false,
 
-       "stackable": false,
+	   "appId": "optional, required if itemType is APP",
 
-       "appId": "optional, required if itemType is APP",
+	   "baseAppId": "optional, set value of game app id if you want to link to a game",
 
-       "baseAppId": "optional, set value of game app id if you want to link to a game",
+	   "appType": "GAME(optional, required if itemType is APP)",
 
-       "appType": "GAME(optional, required if itemType is APP)",
+	   "seasonType": "PASS(optional, required if itemType is SEASON)",
 
-       "seasonType": "PASS(optional, required if itemType is SEASON)",
+	   "sku": "optional, commonly unique item code",
 
-       "sku": "optional, commonly unique item code",
+	   "targetCurrencyCode": "optional, required if itemType is COINS",
 
-       "targetCurrencyCode": "optional, required if itemType is COINS",
+	   "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
 
-       "targetNamespace": "optional, required when itemType is INGAMEITEM, the targetNamespace will only take effect when the item
+	   created belongs to the publisher namespace",
 
-       created belongs to the publisher namespace",
+	   "regionData": {
 
-       "regionData": {
+	       "US(store's default region is required)": [
 
-           "US(store's default region is required)": [
+	         {
 
-             {
+	            "price":10,
 
-                "price":10,
+	            "discountPercentage":0(integer, optional, range[0,100], discountedPrice = price*((100 - discountPercentage) * 0.01),
 
-                "discountPercentage":0(integer, optional, range[0,100], discountedPrice = price*((100 - discountPercentage) * 0.01),
+	              if it is not 0, will use it to calculate discounted price),
 
-                  if it is not 0, will use it to calculate discounted price),
+	            "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
 
-                "discountAmount":0(integer, optional, range[0,itemPrice], will use it to calculate discounted price if discountPercentage is 0),
+	            "currencyCode":"code(required, example: USD)",
 
-                "currencyCode":"code(required, example: USD)",
+	            "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
 
-                "currencyNamespace":"test-ns-required(allow publisher namespace if namespace is publisher namespace, allow publisher and game namespace if namespace is not publisher namespace)",
+	            "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
 
-                "trialPrice":5(required while fixedTrialCycles set, should >=0 and <= price, will same as price if not present),
+	            "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-                "purchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	            "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-                "expireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	            "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
 
-                "discountPurchaseAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+	            "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-                "discountExpireAt":"optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+	         }
 
-             }
+	       ]
 
-           ]
+	   },
 
-       },
+	   "itemIds": [
 
-       "itemIds": [
+	       "itemId"
 
-           "itemId"
+	   ],
 
-       ],
+	   "itemQty": {
 
-       "itemQty": {
+	       "itemId":1
 
-           "itemId":1
+	   },
 
-       },
+	   "recurring": {
 
-       "recurring": {
+	       "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
 
-           "cycle":"MONTHLY(allowed: [WEEKLY,MONTHLY,QUARTERLY,YEARLY])",
+	       "fixedFreeDays":0(integer, fixed free days, 0 means not set),
 
-           "fixedFreeDays":0(integer, fixed free days, 0 means not set),
+	       "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
 
-           "fixedTrialCycles":0(integer, fixed trial cycles, 0 means not set, will not take effect if fixedFreeDays set),
+	       "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
 
-           "graceDays":7(integer, recurring grace days, retry recurring charge within configured days if charge fail, default 7)
+	   },
 
-       },
+	   "tags": [
 
-       "tags": [
+	       "exampleTag24"
 
-           "exampleTag24"
+	   ],
 
-       ],
+	   "features": [
 
-       "features": [
+	       "feature"
 
-           "feature"
+	   ],
 
-       ],
+	   "clazz": "weapon",
 
-       "clazz": "weapon",
+	   "boothName": "C_campaign1",
 
-       "boothName": "C_campaign1",
+	   "displayOrder": 1000,
 
-       "displayOrder": 1000,
+	   "ext": {
 
-       "ext": {
+	       "properties":[
 
-           "properties":[
+	           {
 
-               {
+	               "key1":"value1",
 
-                   "key1":"value1",
+	               "key2":"value2"
 
-                   "key2":"value2"
+	           }
 
-               }
+	       ],
 
-           ],
+	       "functions":[
 
-           "functions":[
+	           {
 
-               {
+	               "key1":"value1",
 
-                   "key1":"value1",
+	               "key2":"value2"
 
-                   "key2":"value2"
+	           }
 
-               }
+	       ]
 
-           ]
+	   },
 
-       },
+	   "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
 
-       "maxCountPerUser": 1(integer, optional, -1 means UNLIMITED),
+	   "maxCount": 1(integer, optional, -1 means UNLIMITED, new value should >= old value if both old value and new value is
 
-       "maxCount": 1(integer, optional, -1 means UNLIMITED, new value should >= old value if both old value and new value is
+	   limited, unset when item type is CODE)
 
-       limited, unset when item type is CODE)
-
-    }
+	}
 
 Other detail info:
 
-  * Returns : updated item data
-
-
+  - Returns : updated item data
 
 ## Restrictions for item extension and localization extension
-
 
 1. Cannot use "." as the key name
 -
 
-
-    { "data.2": "value" }
-
+	{ "data.2": "value" }
 
 2. Cannot use "$" as the prefix in key names
 -
 
-
-    { "$data": "value" }
+	{ "$data": "value" }
 */
 func (a *Client) UpdateItemShort(params *UpdateItemParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2328,10 +2323,12 @@ func (a *Client) DeleteItemShort(params *DeleteItemParams, authInfo runtime.Clie
 
 /*
 AcquireItemShort acquire item
- [SERVICE COMMUNICATION ONLY] This api is used for acquiring a published item while the item is maxCount limited, it will decrease the sale available count.
+
+	[SERVICE COMMUNICATION ONLY] This api is used for acquiring a published item while the item is maxCount limited, it will decrease the sale available count.
+
 Other detail info:
 
-  * Returns : acquire result
+  - Returns : acquire result
 */
 func (a *Client) AcquireItemShort(params *AcquireItemParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2396,7 +2393,7 @@ This API is used to get an app info.
 
 Other detail info:
 
-  * Returns : app data
+  - Returns : app data
 */
 func (a *Client) GetAppShort(params *GetAppParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppResponse, error) {
 	// TODO: Validate the params before sending
@@ -2454,94 +2451,93 @@ This API is used to update an app.
 
 An app update example:
 
+	{
 
-    {
+	  "developer": "accelbyte",
 
-      "developer": "accelbyte",
+	  "publisher": "accelbyte",
 
-      "publisher": "accelbyte",
+	  "websiteUrl": "http://accelbyte.io",
 
-      "websiteUrl": "http://accelbyte.io",
+	  "forumUrl": "http://accelbyte.io",
 
-      "forumUrl": "http://accelbyte.io",
+	  "platforms": ["Windows(allowed values: Windows, MacOS, Linux, IOS, Android)"],
 
-      "platforms": ["Windows(allowed values: Windows, MacOS, Linux, IOS, Android)"],
+	  "platformRequirements": {
 
-      "platformRequirements": {
+	    "Windows": [
 
-        "Windows": [
+	      {
 
-          {
+	        "label":"minimum(can be minimum or recommended)",
 
-            "label":"minimum(can be minimum or recommended)",
+	        "osVersion":"os version",
 
-            "osVersion":"os version",
+	        "processor":"processor",
 
-            "processor":"processor",
+	        "ram":"RAM",
 
-            "ram":"RAM",
+	        "graphics":"graphics",
 
-            "graphics":"graphics",
+	        "directXVersion":"directXVersion",
 
-            "directXVersion":"directXVersion",
+	        "diskSpace":"diskSpace",
 
-            "diskSpace":"diskSpace",
+	        "soundCard":"soundCard",
 
-            "soundCard":"soundCard",
+	        "additionals":"additionals"
 
-            "additionals":"additionals"
+	      }
 
-          }
+	     ]
 
-         ]
+	  },
 
-      },
+	  "carousel": [
 
-      "carousel": [
+	    {
 
-        {
+	      "type":"image(allowed values: image, video)",
 
-          "type":"image(allowed values: image, video)",
+	      "videoSource":"generic(allowed values:generic, youtube, viemo)",
 
-          "videoSource":"generic(allowed values:generic, youtube, viemo)",
+	      "url":"url",
 
-          "url":"url",
+	      "alt":"alternative url or text",
 
-          "alt":"alternative url or text",
+	      "thumbnailUrl":"thumbnail url",
 
-          "thumbnailUrl":"thumbnail url",
+	      "previewUrl":"preview url",
 
-          "previewUrl":"preview url",
+	    }
 
-        }
+	  ],
 
-      ],
+	  "localizations": {
 
-      "localizations": {
+	    "en": {
 
-        "en": {
+	      "slogan":"slogan",
 
-          "slogan":"slogan",
+	      "announcement":"announcement",
 
-          "announcement":"announcement",
+	    }
 
-        }
+	  },
 
-      },
+	  "primaryGenre": "Action",
 
-      "primaryGenre": "Action",
+	  "genres": ["Action", "Adventure"],
 
-      "genres": ["Action", "Adventure"],
+	  "players": ["Single"],
 
-      "players": ["Single"],
+	  "releaseDate": "optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-      "releaseDate": "optional yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-
-    }
+	}
 
 Other detail info:
 
-  * Returns : updated app data
+  - Returns : updated app data
 */
 func (a *Client) UpdateAppShort(params *UpdateAppParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResponse, error) {
 	// TODO: Validate the params before sending
@@ -2619,7 +2615,7 @@ DisableItemShort disable an item
 Disable an item.
 Other detail info:
 
-  * Returns : updated item
+  - Returns : updated item
 */
 func (a *Client) DisableItemShort(params *DisableItemParams, authInfo runtime.ClientAuthInfoWriter) (*DisableItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2690,7 +2686,7 @@ GetItemDynamicDataShort get item dynamic data
 Get item dynamic data for published item.
 Other detail info:
 
-  * Returns : item dynamic data
+  - Returns : item dynamic data
 */
 func (a *Client) GetItemDynamicDataShort(params *GetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemDynamicDataResponse, error) {
 	// TODO: Validate the params before sending
@@ -2754,7 +2750,7 @@ EnableItemShort enable an item
 Enable an item.
 Other detail info:
 
-  * Returns : updated item
+  - Returns : updated item
 */
 func (a *Client) EnableItemShort(params *EnableItemParams, authInfo runtime.ClientAuthInfoWriter) (*EnableItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2825,7 +2821,7 @@ FeatureItemShort feature an item
 Add a feature to an item.
 Other detail info:
 
-  * Returns : updated item
+  - Returns : updated item
 */
 func (a *Client) FeatureItemShort(params *FeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*FeatureItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2896,7 +2892,7 @@ DefeatureItemShort defeature an item
 Remove a feature from an item.
 Other detail info:
 
-  * Returns : updated item
+  - Returns : updated item
 */
 func (a *Client) DefeatureItemShort(params *DefeatureItemParams, authInfo runtime.ClientAuthInfoWriter) (*DefeatureItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2968,7 +2964,7 @@ This API is used to get an item in specific locale. If item not exist in specifi
 
 Other detail info:
 
-  * Returns : item data
+  - Returns : item data
 */
 func (a *Client) GetLocaleItemShort(params *GetLocaleItemParams, authInfo runtime.ClientAuthInfoWriter) (*GetLocaleItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -3172,7 +3168,8 @@ func (a *Client) QueryItemReferencesShort(params *QueryItemReferencesParams, aut
 
 /*
 ReturnItemShort return item
- [SERVICE COMMUNICATION ONLY] This api is used for returning a published item while the item is maxCount limited, it will increase the sale available count if orderNo already acquired.
+
+	[SERVICE COMMUNICATION ONLY] This api is used for returning a published item while the item is maxCount limited, it will increase the sale available count if orderNo already acquired.
 */
 func (a *Client) ReturnItemShort(params *ReturnItemParams, authInfo runtime.ClientAuthInfoWriter) (*ReturnItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -3243,9 +3240,9 @@ This API is used to get item by appId.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  *  Returns : the item with that appId
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  - Returns : the item with that appId
 */
 func (a *Client) PublicGetItemByAppIDShort(params *PublicGetItemByAppIDParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemByAppIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -3310,9 +3307,9 @@ This API is used to query items by criteria within a store. If item not exist in
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  *  Returns : the list of items
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  - Returns : the list of items
 */
 func (a *Client) PublicQueryItemsShort(params *PublicQueryItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -3384,9 +3381,9 @@ This API is used to get the item by sku.
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  *  Returns : the item with sku
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  - Returns : the item with sku
 */
 func (a *Client) PublicGetItemBySkuShort(params *PublicGetItemBySkuParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemBySkuResponse, error) {
 	// TODO: Validate the params before sending
@@ -3512,9 +3509,9 @@ This API is used to bulk get locale items. If item not exist in specific region,
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store items)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store items)
-  *  Returns : the list of items info
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store items)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store items)
+  - Returns : the list of items info
 */
 func (a *Client) PublicBulkGetItemsShort(params *PublicBulkGetItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicBulkGetItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -3640,9 +3637,9 @@ This API is used to search items by keyword in title, description and long descr
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  *  Returns : the list of items
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  - Returns : the list of items
 */
 func (a *Client) PublicSearchItemsShort(params *PublicSearchItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSearchItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -3707,9 +3704,9 @@ This API is used to get an app in locale. If app not exist in specific region, d
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store app)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store app)
-  *  Returns : app data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store app)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store app)
+  - Returns : app data
 */
 func (a *Client) PublicGetAppShort(params *PublicGetAppParams) (*PublicGetAppResponse, error) {
 	// TODO: Validate the params before sending
@@ -3772,7 +3769,7 @@ PublicGetItemDynamicDataShort get item dynamic data
 Get item dynamic data for a published item.
 Other detail info:
 
-  * Returns : item dynamic data
+  - Returns : item dynamic data
 */
 func (a *Client) PublicGetItemDynamicDataShort(params *PublicGetItemDynamicDataParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemDynamicDataResponse, error) {
 	// TODO: Validate the params before sending
@@ -3837,9 +3834,9 @@ This API is used to get an item in locale. If item not exist in specific region,
 
 Other detail info:
 
-  * Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
-  *  Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
-  *  Returns : item data
+  - Optional permission : resource="PREVIEW", action=1(CREATE) (user with this permission can view draft store item)
+  - Optional permission : resource="SANDBOX", action=1(CREATE) (user with this permission can view draft store item)
+  - Returns : item data
 */
 func (a *Client) PublicGetItemShort(params *PublicGetItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -3908,7 +3905,7 @@ The behaviour for itemStatus query parameter:
 * Not provided: show both ACTIVE and INACTIVE items
 Other detail info:
 
-  * Returns : the list of items
+  - Returns : the list of items
 */
 func (a *Client) QueryItemsV2Short(params *QueryItemsV2Params, authInfo runtime.ClientAuthInfoWriter) (*QueryItemsV2Response, error) {
 	// TODO: Validate the params before sending

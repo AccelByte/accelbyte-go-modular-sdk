@@ -144,9 +144,10 @@ func NewPublicGenerateBackupCodesV4NoContent() *PublicGenerateBackupCodesV4NoCon
 	return &PublicGenerateBackupCodesV4NoContent{}
 }
 
-/*PublicGenerateBackupCodesV4NoContent handles this case with default header values.
+/*
+PublicGenerateBackupCodesV4NoContent handles this case with default header values.
 
-  Backup codes sent to email
+	Backup codes sent to email
 */
 type PublicGenerateBackupCodesV4NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicGenerateBackupCodesV4BadRequest() *PublicGenerateBackupCodesV4BadR
 	return &PublicGenerateBackupCodesV4BadRequest{}
 }
 
-/*PublicGenerateBackupCodesV4BadRequest handles this case with default header values.
+/*
+PublicGenerateBackupCodesV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type PublicGenerateBackupCodesV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewPublicGenerateBackupCodesV4Unauthorized() *PublicGenerateBackupCodesV4Un
 	return &PublicGenerateBackupCodesV4Unauthorized{}
 }
 
-/*PublicGenerateBackupCodesV4Unauthorized handles this case with default header values.
+/*
+PublicGenerateBackupCodesV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGenerateBackupCodesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewPublicGenerateBackupCodesV4Forbidden() *PublicGenerateBackupCodesV4Forbi
 	return &PublicGenerateBackupCodesV4Forbidden{}
 }
 
-/*PublicGenerateBackupCodesV4Forbidden handles this case with default header values.
+/*
+PublicGenerateBackupCodesV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGenerateBackupCodesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewPublicGenerateBackupCodesV4NotFound() *PublicGenerateBackupCodesV4NotFou
 	return &PublicGenerateBackupCodesV4NotFound{}
 }
 
-/*PublicGenerateBackupCodesV4NotFound handles this case with default header values.
+/*
+PublicGenerateBackupCodesV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicGenerateBackupCodesV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewPublicGenerateBackupCodesV4InternalServerError() *PublicGenerateBackupCo
 	return &PublicGenerateBackupCodesV4InternalServerError{}
 }
 
-/*PublicGenerateBackupCodesV4InternalServerError handles this case with default header values.
+/*
+PublicGenerateBackupCodesV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGenerateBackupCodesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

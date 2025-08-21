@@ -41,9 +41,8 @@ type ClientService interface {
 DeletePolicyShort delete policy
 Delete policy.Can only be deleted if match these criteria:
 
-
-  * Policy is not default policy
-  * Policy version under policy has never been accepted by any user
+  - Policy is not default policy
+  - Policy version under policy has never been accepted by any user
 */
 func (a *Client) DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyResponse, error) {
 	// TODO: Validate the params before sending

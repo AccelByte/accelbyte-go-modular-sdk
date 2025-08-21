@@ -100,10 +100,9 @@ func NewAdminFindExtensionCategoryListOK() *AdminFindExtensionCategoryListOK {
 	return &AdminFindExtensionCategoryListOK{}
 }
 
-/*AdminFindExtensionCategoryListOK handles this case with default header values.
-
-
- */
+/*
+AdminFindExtensionCategoryListOK handles this case with default header values.
+*/
 type AdminFindExtensionCategoryListOK struct {
 	Payload *reportingclientmodels.RestapiExtensionCategoryListAPIResponse
 }
@@ -154,10 +153,9 @@ func NewAdminFindExtensionCategoryListBadRequest() *AdminFindExtensionCategoryLi
 	return &AdminFindExtensionCategoryListBadRequest{}
 }
 
-/*AdminFindExtensionCategoryListBadRequest handles this case with default header values.
-
-
- */
+/*
+AdminFindExtensionCategoryListBadRequest handles this case with default header values.
+*/
 type AdminFindExtensionCategoryListBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -208,10 +206,9 @@ func NewAdminFindExtensionCategoryListInternalServerError() *AdminFindExtensionC
 	return &AdminFindExtensionCategoryListInternalServerError{}
 }
 
-/*AdminFindExtensionCategoryListInternalServerError handles this case with default header values.
-
-
- */
+/*
+AdminFindExtensionCategoryListInternalServerError handles this case with default header values.
+*/
 type AdminFindExtensionCategoryListInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

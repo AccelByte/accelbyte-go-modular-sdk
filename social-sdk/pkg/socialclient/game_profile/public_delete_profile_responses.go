@@ -129,9 +129,10 @@ func NewPublicDeleteProfileNoContent() *PublicDeleteProfileNoContent {
 	return &PublicDeleteProfileNoContent{}
 }
 
-/*PublicDeleteProfileNoContent handles this case with default header values.
+/*
+PublicDeleteProfileNoContent handles this case with default header values.
 
-  Game profile has been deleted
+	Game profile has been deleted
 */
 type PublicDeleteProfileNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicDeleteProfileUnauthorized() *PublicDeleteProfileUnauthorized {
 	return &PublicDeleteProfileUnauthorized{}
 }
 
-/*PublicDeleteProfileUnauthorized handles this case with default header values.
+/*
+PublicDeleteProfileUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicDeleteProfileUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -210,9 +212,10 @@ func NewPublicDeleteProfileForbidden() *PublicDeleteProfileForbidden {
 	return &PublicDeleteProfileForbidden{}
 }
 
-/*PublicDeleteProfileForbidden handles this case with default header values.
+/*
+PublicDeleteProfileForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicDeleteProfileForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -264,9 +267,10 @@ func NewPublicDeleteProfileNotFound() *PublicDeleteProfileNotFound {
 	return &PublicDeleteProfileNotFound{}
 }
 
-/*PublicDeleteProfileNotFound handles this case with default header values.
+/*
+PublicDeleteProfileNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12041</td><td>Game profile with id [{profileId}] is not found</td></tr></table>
 */
 type PublicDeleteProfileNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -318,9 +322,10 @@ func NewPublicDeleteProfileInternalServerError() *PublicDeleteProfileInternalSer
 	return &PublicDeleteProfileInternalServerError{}
 }
 
-/*PublicDeleteProfileInternalServerError handles this case with default header values.
+/*
+PublicDeleteProfileInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicDeleteProfileInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

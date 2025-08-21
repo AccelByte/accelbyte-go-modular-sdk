@@ -69,9 +69,10 @@ func NewUpdateNamespaceSlotConfigOK() *UpdateNamespaceSlotConfigOK {
 	return &UpdateNamespaceSlotConfigOK{}
 }
 
-/*UpdateNamespaceSlotConfigOK handles this case with default header values.
+/*
+UpdateNamespaceSlotConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateNamespaceSlotConfigOK struct {
 	Payload *socialclientmodels.NamespaceSlotConfigInfo

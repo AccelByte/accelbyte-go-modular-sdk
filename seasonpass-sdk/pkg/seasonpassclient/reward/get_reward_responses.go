@@ -100,9 +100,10 @@ func NewGetRewardOK() *GetRewardOK {
 	return &GetRewardOK{}
 }
 
-/*GetRewardOK handles this case with default header values.
+/*
+GetRewardOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetRewardOK struct {
 	Payload *seasonpassclientmodels.RewardInfo
@@ -154,9 +155,10 @@ func NewGetRewardBadRequest() *GetRewardBadRequest {
 	return &GetRewardBadRequest{}
 }
 
-/*GetRewardBadRequest handles this case with default header values.
+/*
+GetRewardBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type GetRewardBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewGetRewardNotFound() *GetRewardNotFound {
 	return &GetRewardNotFound{}
 }
 
-/*GetRewardNotFound handles this case with default header values.
+/*
+GetRewardNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr></table>
 */
 type GetRewardNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity

@@ -58,7 +58,8 @@ func NewPublicCreateUserNamespaceSlotParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicCreateUserNamespaceSlotParams contains all the parameters to send to the API endpoint
+/*
+PublicCreateUserNamespaceSlotParams contains all the parameters to send to the API endpoint
 for the public create user namespace slot operation typically these are written to a http.Request
 */
 type PublicCreateUserNamespaceSlotParams struct {

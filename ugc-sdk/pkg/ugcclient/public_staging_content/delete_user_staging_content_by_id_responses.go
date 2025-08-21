@@ -129,9 +129,10 @@ func NewDeleteUserStagingContentByIDNoContent() *DeleteUserStagingContentByIDNoC
 	return &DeleteUserStagingContentByIDNoContent{}
 }
 
-/*DeleteUserStagingContentByIDNoContent handles this case with default header values.
+/*
+DeleteUserStagingContentByIDNoContent handles this case with default header values.
 
-  staging content deleted
+	staging content deleted
 */
 type DeleteUserStagingContentByIDNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteUserStagingContentByIDUnauthorized() *DeleteUserStagingContentByID
 	return &DeleteUserStagingContentByIDUnauthorized{}
 }
 
-/*DeleteUserStagingContentByIDUnauthorized handles this case with default header values.
+/*
+DeleteUserStagingContentByIDUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteUserStagingContentByIDUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewDeleteUserStagingContentByIDForbidden() *DeleteUserStagingContentByIDFor
 	return &DeleteUserStagingContentByIDForbidden{}
 }
 
-/*DeleteUserStagingContentByIDForbidden handles this case with default header values.
+/*
+DeleteUserStagingContentByIDForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteUserStagingContentByIDForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewDeleteUserStagingContentByIDNotFound() *DeleteUserStagingContentByIDNotF
 	return &DeleteUserStagingContentByIDNotFound{}
 }
 
-/*DeleteUserStagingContentByIDNotFound handles this case with default header values.
+/*
+DeleteUserStagingContentByIDNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774417</td><td>staging content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774417</td><td>staging content not found</td></tr></table>
 */
 type DeleteUserStagingContentByIDNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewDeleteUserStagingContentByIDInternalServerError() *DeleteUserStagingCont
 	return &DeleteUserStagingContentByIDInternalServerError{}
 }
 
-/*DeleteUserStagingContentByIDInternalServerError handles this case with default header values.
+/*
+DeleteUserStagingContentByIDInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774418</td><td>unable to delete staging content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774418</td><td>unable to delete staging content</td></tr></table>
 */
 type DeleteUserStagingContentByIDInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

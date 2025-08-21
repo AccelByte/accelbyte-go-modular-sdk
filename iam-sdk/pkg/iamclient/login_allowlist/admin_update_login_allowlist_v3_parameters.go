@@ -59,7 +59,8 @@ func NewAdminUpdateLoginAllowlistV3ParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminUpdateLoginAllowlistV3Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateLoginAllowlistV3Params contains all the parameters to send to the API endpoint
 for the admin update login allowlist v3 operation typically these are written to a http.Request
 */
 type AdminUpdateLoginAllowlistV3Params struct {

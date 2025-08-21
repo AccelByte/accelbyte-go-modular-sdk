@@ -129,9 +129,10 @@ func NewAdminDeletePlatformLinkV2NoContent() *AdminDeletePlatformLinkV2NoContent
 	return &AdminDeletePlatformLinkV2NoContent{}
 }
 
-/*AdminDeletePlatformLinkV2NoContent handles this case with default header values.
+/*
+AdminDeletePlatformLinkV2NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDeletePlatformLinkV2NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDeletePlatformLinkV2BadRequest() *AdminDeletePlatformLinkV2BadReque
 	return &AdminDeletePlatformLinkV2BadRequest{}
 }
 
-/*AdminDeletePlatformLinkV2BadRequest handles this case with default header values.
+/*
+AdminDeletePlatformLinkV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminDeletePlatformLinkV2BadRequest struct {
 }
@@ -183,9 +185,10 @@ func NewAdminDeletePlatformLinkV2Unauthorized() *AdminDeletePlatformLinkV2Unauth
 	return &AdminDeletePlatformLinkV2Unauthorized{}
 }
 
-/*AdminDeletePlatformLinkV2Unauthorized handles this case with default header values.
+/*
+AdminDeletePlatformLinkV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeletePlatformLinkV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -237,9 +240,10 @@ func NewAdminDeletePlatformLinkV2Forbidden() *AdminDeletePlatformLinkV2Forbidden
 	return &AdminDeletePlatformLinkV2Forbidden{}
 }
 
-/*AdminDeletePlatformLinkV2Forbidden handles this case with default header values.
+/*
+AdminDeletePlatformLinkV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeletePlatformLinkV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -291,9 +295,10 @@ func NewAdminDeletePlatformLinkV2NotFound() *AdminDeletePlatformLinkV2NotFound {
 	return &AdminDeletePlatformLinkV2NotFound{}
 }
 
-/*AdminDeletePlatformLinkV2NotFound handles this case with default header values.
+/*
+AdminDeletePlatformLinkV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminDeletePlatformLinkV2NotFound struct {
 }
@@ -318,9 +323,10 @@ func NewAdminDeletePlatformLinkV2InternalServerError() *AdminDeletePlatformLinkV
 	return &AdminDeletePlatformLinkV2InternalServerError{}
 }
 
-/*AdminDeletePlatformLinkV2InternalServerError handles this case with default header values.
+/*
+AdminDeletePlatformLinkV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDeletePlatformLinkV2InternalServerError struct {
 }

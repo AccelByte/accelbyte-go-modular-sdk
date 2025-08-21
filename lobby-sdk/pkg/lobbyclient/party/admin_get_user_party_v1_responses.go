@@ -145,9 +145,10 @@ func NewAdminGetUserPartyV1OK() *AdminGetUserPartyV1OK {
 	return &AdminGetUserPartyV1OK{}
 }
 
-/*AdminGetUserPartyV1OK handles this case with default header values.
+/*
+AdminGetUserPartyV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserPartyV1OK struct {
 	Payload *lobbyclientmodels.ModelsPartyData
@@ -199,9 +200,10 @@ func NewAdminGetUserPartyV1BadRequest() *AdminGetUserPartyV1BadRequest {
 	return &AdminGetUserPartyV1BadRequest{}
 }
 
-/*AdminGetUserPartyV1BadRequest handles this case with default header values.
+/*
+AdminGetUserPartyV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetUserPartyV1BadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetUserPartyV1Unauthorized() *AdminGetUserPartyV1Unauthorized {
 	return &AdminGetUserPartyV1Unauthorized{}
 }
 
-/*AdminGetUserPartyV1Unauthorized handles this case with default header values.
+/*
+AdminGetUserPartyV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetUserPartyV1Unauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetUserPartyV1Forbidden() *AdminGetUserPartyV1Forbidden {
 	return &AdminGetUserPartyV1Forbidden{}
 }
 
-/*AdminGetUserPartyV1Forbidden handles this case with default header values.
+/*
+AdminGetUserPartyV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetUserPartyV1Forbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetUserPartyV1NotFound() *AdminGetUserPartyV1NotFound {
 	return &AdminGetUserPartyV1NotFound{}
 }
 
-/*AdminGetUserPartyV1NotFound handles this case with default header values.
+/*
+AdminGetUserPartyV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetUserPartyV1NotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetUserPartyV1InternalServerError() *AdminGetUserPartyV1InternalSer
 	return &AdminGetUserPartyV1InternalServerError{}
 }
 
-/*AdminGetUserPartyV1InternalServerError handles this case with default header values.
+/*
+AdminGetUserPartyV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetUserPartyV1InternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

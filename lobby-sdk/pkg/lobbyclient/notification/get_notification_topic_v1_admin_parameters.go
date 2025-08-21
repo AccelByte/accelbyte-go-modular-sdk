@@ -57,7 +57,8 @@ func NewGetNotificationTopicV1AdminParamsWithHTTPClient(client *http.Client) *Ge
 	}
 }
 
-/*GetNotificationTopicV1AdminParams contains all the parameters to send to the API endpoint
+/*
+GetNotificationTopicV1AdminParams contains all the parameters to send to the API endpoint
 for the get notification topic v1 admin operation typically these are written to a http.Request
 */
 type GetNotificationTopicV1AdminParams struct {

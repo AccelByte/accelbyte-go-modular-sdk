@@ -41,8 +41,7 @@ type ClientService interface {
 /*
 AdminListSchedulesByGoalShort get goal's schedules
 
-
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 
 List schedules of given goal in a challenge for specific user.
 */
@@ -134,7 +133,7 @@ func (a *Client) AdminListSchedulesByGoalShort(params *AdminListSchedulesByGoalP
 /*
 AdminListSchedulesShort get challenge's schedules
 
-  * Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+  - Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
 
 List schedules of given challenge for specific user. To query schedules prior to specific date time, use dateTime parameter.
 */
@@ -226,7 +225,7 @@ func (a *Client) AdminListSchedulesShort(params *AdminListSchedulesParams, authI
 /*
 PublicListSchedulesByGoalShort get goal's schedules
 
-  * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+  - Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 
 List schedules of given goal in a challenge for specific user.
 */
@@ -318,7 +317,7 @@ func (a *Client) PublicListSchedulesByGoalShort(params *PublicListSchedulesByGoa
 /*
 PublicListSchedulesShort get challenge's schedules
 
-  * Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
+  - Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 
 List schedules of given challenge for specific user. To query schedules prior to specific date time, use dateTime parameter.
 */

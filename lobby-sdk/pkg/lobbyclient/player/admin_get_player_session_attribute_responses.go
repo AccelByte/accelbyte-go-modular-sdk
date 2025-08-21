@@ -145,9 +145,10 @@ func NewAdminGetPlayerSessionAttributeOK() *AdminGetPlayerSessionAttributeOK {
 	return &AdminGetPlayerSessionAttributeOK{}
 }
 
-/*AdminGetPlayerSessionAttributeOK handles this case with default header values.
+/*
+AdminGetPlayerSessionAttributeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetPlayerSessionAttributeOK struct {
 	Payload *lobbyclientmodels.ModelsGetPlayerSessionAttributeResponse
@@ -199,9 +200,10 @@ func NewAdminGetPlayerSessionAttributeBadRequest() *AdminGetPlayerSessionAttribu
 	return &AdminGetPlayerSessionAttributeBadRequest{}
 }
 
-/*AdminGetPlayerSessionAttributeBadRequest handles this case with default header values.
+/*
+AdminGetPlayerSessionAttributeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetPlayerSessionAttributeBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetPlayerSessionAttributeUnauthorized() *AdminGetPlayerSessionAttri
 	return &AdminGetPlayerSessionAttributeUnauthorized{}
 }
 
-/*AdminGetPlayerSessionAttributeUnauthorized handles this case with default header values.
+/*
+AdminGetPlayerSessionAttributeUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetPlayerSessionAttributeUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetPlayerSessionAttributeForbidden() *AdminGetPlayerSessionAttribut
 	return &AdminGetPlayerSessionAttributeForbidden{}
 }
 
-/*AdminGetPlayerSessionAttributeForbidden handles this case with default header values.
+/*
+AdminGetPlayerSessionAttributeForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetPlayerSessionAttributeForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetPlayerSessionAttributeNotFound() *AdminGetPlayerSessionAttribute
 	return &AdminGetPlayerSessionAttributeNotFound{}
 }
 
-/*AdminGetPlayerSessionAttributeNotFound handles this case with default header values.
+/*
+AdminGetPlayerSessionAttributeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetPlayerSessionAttributeNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetPlayerSessionAttributeInternalServerError() *AdminGetPlayerSessi
 	return &AdminGetPlayerSessionAttributeInternalServerError{}
 }
 
-/*AdminGetPlayerSessionAttributeInternalServerError handles this case with default header values.
+/*
+AdminGetPlayerSessionAttributeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetPlayerSessionAttributeInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

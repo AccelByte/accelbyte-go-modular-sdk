@@ -59,7 +59,8 @@ func NewUpdateTicketResolutionsParamsWithHTTPClient(client *http.Client) *Update
 	}
 }
 
-/*UpdateTicketResolutionsParams contains all the parameters to send to the API endpoint
+/*
+UpdateTicketResolutionsParams contains all the parameters to send to the API endpoint
 for the update ticket resolutions operation typically these are written to a http.Request
 */
 type UpdateTicketResolutionsParams struct {

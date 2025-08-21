@@ -58,7 +58,6 @@ type ClientService interface {
 /*
 AdminGetArchivedLeaderboardRankingDataV1HandlerShort admin get signed url for archive all time leaderboard ranking data
 
-
 Admin Get signed url in an all time leaderboard that archived. Notes: This will be a bulk endpoint to get sign url
 */
 func (a *Client) AdminGetArchivedLeaderboardRankingDataV1HandlerShort(params *AdminGetArchivedLeaderboardRankingDataV1HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetArchivedLeaderboardRankingDataV1HandlerResponse, error) {
@@ -149,7 +148,6 @@ func (a *Client) AdminGetArchivedLeaderboardRankingDataV1HandlerShort(params *Ad
 /*
 CreateArchivedLeaderboardRankingDataV1HandlerShort archive a leadeboard data ranking
 
-
 Archive leaderboard ranking data for specified leaderboard codes. NOTE: This will remove all data of the leaderboard on every slug,
 remove the leaderboard code on stat mapping, and remove the leaderboard on the queue reset. This will be a bulk endpoint
 */
@@ -232,7 +230,6 @@ func (a *Client) CreateArchivedLeaderboardRankingDataV1HandlerShort(params *Crea
 
 /*
 GetAllTimeLeaderboardRankingAdminV1Short get all time leaderboard ranking data
-
 
 Get rankings in an all time leaderboard.
 */
@@ -324,7 +321,6 @@ func (a *Client) GetAllTimeLeaderboardRankingAdminV1Short(params *GetAllTimeLead
 /*
 GetCurrentMonthLeaderboardRankingAdminV1Short get current month leaderboard ranking data
 
-
 Get rankings in current month leaderboard.
 */
 func (a *Client) GetCurrentMonthLeaderboardRankingAdminV1Short(params *GetCurrentMonthLeaderboardRankingAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentMonthLeaderboardRankingAdminV1Response, error) {
@@ -415,11 +411,7 @@ func (a *Client) GetCurrentMonthLeaderboardRankingAdminV1Short(params *GetCurren
 /*
 DeleteUserRankingByLeaderboardCodeAdminV1Short delete all user ranking by leaderboard code
 
-
-This endpoint will delete user ranking by leaderboard code
-
-
-
+# This endpoint will delete user ranking by leaderboard code
 
 Warning : This will permanently delete your data. Make sure to back up anything important before continuing.
 */
@@ -502,7 +494,6 @@ func (a *Client) DeleteUserRankingByLeaderboardCodeAdminV1Short(params *DeleteUs
 
 /*
 GetCurrentSeasonLeaderboardRankingAdminV1Short get current season leaderboard ranking data
-
 
 Get rankings in current season leaderboard.
 */
@@ -594,7 +585,6 @@ func (a *Client) GetCurrentSeasonLeaderboardRankingAdminV1Short(params *GetCurre
 /*
 GetTodayLeaderboardRankingAdminV1Short get today leaderboard ranking data
 
-
 Get rankings in today leaderboard.
 */
 func (a *Client) GetTodayLeaderboardRankingAdminV1Short(params *GetTodayLeaderboardRankingAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetTodayLeaderboardRankingAdminV1Response, error) {
@@ -685,7 +675,6 @@ func (a *Client) GetTodayLeaderboardRankingAdminV1Short(params *GetTodayLeaderbo
 /*
 GetUserRankingAdminV1Short get user ranking
 
-
 Get user ranking in leaderboard
 */
 func (a *Client) GetUserRankingAdminV1Short(params *GetUserRankingAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserRankingAdminV1Response, error) {
@@ -769,20 +758,11 @@ func (a *Client) GetUserRankingAdminV1Short(params *GetUserRankingAdminV1Params,
 /*
 UpdateUserPointAdminV1Short update user point
 
-
 Update user point in a leaderboard. This endpoint uses for test utility only.
-
-
-
 
 Other detail info:
 
-
-
-
-
-
-  * Returns: user ranking
+  - Returns: user ranking
 */
 func (a *Client) UpdateUserPointAdminV1Short(params *UpdateUserPointAdminV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserPointAdminV1Response, error) {
 	// TODO: Validate the params before sending
@@ -956,7 +936,6 @@ func (a *Client) DeleteUserRankingAdminV1Short(params *DeleteUserRankingAdminV1P
 
 /*
 GetCurrentWeekLeaderboardRankingAdminV1Short get current week leaderboard ranking data
-
 
 Get rankings in current week leaderboard.
 */
@@ -1288,7 +1267,6 @@ func (a *Client) GetArchivedLeaderboardRankingDataV1HandlerShort(params *GetArch
 /*
 GetCurrentMonthLeaderboardRankingPublicV1Short get current month leaderboard ranking data
 
-
 Get rankings in current month leaderboard.
 */
 func (a *Client) GetCurrentMonthLeaderboardRankingPublicV1Short(params *GetCurrentMonthLeaderboardRankingPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetCurrentMonthLeaderboardRankingPublicV1Response, error) {
@@ -1364,7 +1342,6 @@ func (a *Client) GetCurrentMonthLeaderboardRankingPublicV1Short(params *GetCurre
 
 /*
 GetCurrentSeasonLeaderboardRankingPublicV1Short get current season leaderboard ranking data
-
 
 Get rankings in current season leaderboard.
 */
@@ -1442,7 +1419,6 @@ func (a *Client) GetCurrentSeasonLeaderboardRankingPublicV1Short(params *GetCurr
 /*
 GetTodayLeaderboardRankingPublicV1Short get today leaderboard ranking data
 
-
 Get rankings in today leaderboard.
 */
 func (a *Client) GetTodayLeaderboardRankingPublicV1Short(params *GetTodayLeaderboardRankingPublicV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetTodayLeaderboardRankingPublicV1Response, error) {
@@ -1518,7 +1494,6 @@ func (a *Client) GetTodayLeaderboardRankingPublicV1Short(params *GetTodayLeaderb
 
 /*
 GetUserRankingPublicV1Short get user ranking
-
 
 Get user ranking in leaderboard
 */
@@ -1687,7 +1662,6 @@ func (a *Client) DeleteUserRankingPublicV1Short(params *DeleteUserRankingPublicV
 
 /*
 GetCurrentWeekLeaderboardRankingPublicV1Short get current week leaderboard ranking data
-
 
 Get rankings in current week leaderboard.
 */

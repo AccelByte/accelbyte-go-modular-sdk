@@ -40,7 +40,7 @@ AnonymizeUserProfileShort anonymize user profile
 Anonymize user profile.
 Other detail info:
 
-  * Action code : 11501
+  - Action code : 11501
 */
 func (a *Client) AnonymizeUserProfileShort(params *AnonymizeUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*AnonymizeUserProfileResponse, error) {
 	// TODO: Validate the params before sending

@@ -41,7 +41,7 @@ This API is used to get season pass ecommerce item references.
 
 Other detail info:
 
-  * Returns : item references data
+  - Returns : item references data
 */
 func (a *Client) GetItemReferencesShort(params *GetItemReferencesParams, authInfo runtime.ClientAuthInfoWriter) (*GetItemReferencesResponse, error) {
 	// TODO: Validate the params before sending

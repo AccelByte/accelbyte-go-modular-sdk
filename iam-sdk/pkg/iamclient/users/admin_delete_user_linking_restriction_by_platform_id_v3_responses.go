@@ -144,9 +144,10 @@ func NewAdminDeleteUserLinkingRestrictionByPlatformIDV3NoContent() *AdminDeleteU
 	return &AdminDeleteUserLinkingRestrictionByPlatformIDV3NoContent{}
 }
 
-/*AdminDeleteUserLinkingRestrictionByPlatformIDV3NoContent handles this case with default header values.
+/*
+AdminDeleteUserLinkingRestrictionByPlatformIDV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDeleteUserLinkingRestrictionByPlatformIDV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeleteUserLinkingRestrictionByPlatformIDV3BadRequest() *AdminDelete
 	return &AdminDeleteUserLinkingRestrictionByPlatformIDV3BadRequest{}
 }
 
-/*AdminDeleteUserLinkingRestrictionByPlatformIDV3BadRequest handles this case with default header values.
+/*
+AdminDeleteUserLinkingRestrictionByPlatformIDV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminDeleteUserLinkingRestrictionByPlatformIDV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminDeleteUserLinkingRestrictionByPlatformIDV3Unauthorized() *AdminDele
 	return &AdminDeleteUserLinkingRestrictionByPlatformIDV3Unauthorized{}
 }
 
-/*AdminDeleteUserLinkingRestrictionByPlatformIDV3Unauthorized handles this case with default header values.
+/*
+AdminDeleteUserLinkingRestrictionByPlatformIDV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteUserLinkingRestrictionByPlatformIDV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminDeleteUserLinkingRestrictionByPlatformIDV3Forbidden() *AdminDeleteU
 	return &AdminDeleteUserLinkingRestrictionByPlatformIDV3Forbidden{}
 }
 
-/*AdminDeleteUserLinkingRestrictionByPlatformIDV3Forbidden handles this case with default header values.
+/*
+AdminDeleteUserLinkingRestrictionByPlatformIDV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeleteUserLinkingRestrictionByPlatformIDV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminDeleteUserLinkingRestrictionByPlatformIDV3NotFound() *AdminDeleteUs
 	return &AdminDeleteUserLinkingRestrictionByPlatformIDV3NotFound{}
 }
 
-/*AdminDeleteUserLinkingRestrictionByPlatformIDV3NotFound handles this case with default header values.
+/*
+AdminDeleteUserLinkingRestrictionByPlatformIDV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminDeleteUserLinkingRestrictionByPlatformIDV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminDeleteUserLinkingRestrictionByPlatformIDV3InternalServerError() *Ad
 	return &AdminDeleteUserLinkingRestrictionByPlatformIDV3InternalServerError{}
 }
 
-/*AdminDeleteUserLinkingRestrictionByPlatformIDV3InternalServerError handles this case with default header values.
+/*
+AdminDeleteUserLinkingRestrictionByPlatformIDV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDeleteUserLinkingRestrictionByPlatformIDV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

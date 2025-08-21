@@ -129,9 +129,10 @@ func NewFreeFormNotificationByUserIDNoContent() *FreeFormNotificationByUserIDNoC
 	return &FreeFormNotificationByUserIDNoContent{}
 }
 
-/*FreeFormNotificationByUserIDNoContent handles this case with default header values.
+/*
+FreeFormNotificationByUserIDNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type FreeFormNotificationByUserIDNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewFreeFormNotificationByUserIDBadRequest() *FreeFormNotificationByUserIDBa
 	return &FreeFormNotificationByUserIDBadRequest{}
 }
 
-/*FreeFormNotificationByUserIDBadRequest handles this case with default header values.
+/*
+FreeFormNotificationByUserIDBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type FreeFormNotificationByUserIDBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewFreeFormNotificationByUserIDUnauthorized() *FreeFormNotificationByUserID
 	return &FreeFormNotificationByUserIDUnauthorized{}
 }
 
-/*FreeFormNotificationByUserIDUnauthorized handles this case with default header values.
+/*
+FreeFormNotificationByUserIDUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type FreeFormNotificationByUserIDUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewFreeFormNotificationByUserIDForbidden() *FreeFormNotificationByUserIDFor
 	return &FreeFormNotificationByUserIDForbidden{}
 }
 
-/*FreeFormNotificationByUserIDForbidden handles this case with default header values.
+/*
+FreeFormNotificationByUserIDForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type FreeFormNotificationByUserIDForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewFreeFormNotificationByUserIDNotFound() *FreeFormNotificationByUserIDNotF
 	return &FreeFormNotificationByUserIDNotFound{}
 }
 
-/*FreeFormNotificationByUserIDNotFound handles this case with default header values.
+/*
+FreeFormNotificationByUserIDNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type FreeFormNotificationByUserIDNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

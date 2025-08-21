@@ -115,9 +115,10 @@ func NewPublicGetContentByUserIDV2OK() *PublicGetContentByUserIDV2OK {
 	return &PublicGetContentByUserIDV2OK{}
 }
 
-/*PublicGetContentByUserIDV2OK handles this case with default header values.
+/*
+PublicGetContentByUserIDV2OK handles this case with default header values.
 
-  Get content by user ID
+	Get content by user ID
 */
 type PublicGetContentByUserIDV2OK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponseV2
@@ -169,9 +170,10 @@ func NewPublicGetContentByUserIDV2BadRequest() *PublicGetContentByUserIDV2BadReq
 	return &PublicGetContentByUserIDV2BadRequest{}
 }
 
-/*PublicGetContentByUserIDV2BadRequest handles this case with default header values.
+/*
+PublicGetContentByUserIDV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770900</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770900</td><td>invalid paging parameter</td></tr></table>
 */
 type PublicGetContentByUserIDV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicGetContentByUserIDV2Unauthorized() *PublicGetContentByUserIDV2Unau
 	return &PublicGetContentByUserIDV2Unauthorized{}
 }
 
-/*PublicGetContentByUserIDV2Unauthorized handles this case with default header values.
+/*
+PublicGetContentByUserIDV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetContentByUserIDV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicGetContentByUserIDV2InternalServerError() *PublicGetContentByUserI
 	return &PublicGetContentByUserIDV2InternalServerError{}
 }
 
-/*PublicGetContentByUserIDV2InternalServerError handles this case with default header values.
+/*
+PublicGetContentByUserIDV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770901</td><td>Unable to get ugc content: database error/Unable to get creator</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770903</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770901</td><td>Unable to get ugc content: database error/Unable to get creator</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770903</td><td>Failed generate download URL</td></tr></table>
 */
 type PublicGetContentByUserIDV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

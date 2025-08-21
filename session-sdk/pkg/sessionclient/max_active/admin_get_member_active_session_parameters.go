@@ -57,7 +57,8 @@ func NewAdminGetMemberActiveSessionParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminGetMemberActiveSessionParams contains all the parameters to send to the API endpoint
+/*
+AdminGetMemberActiveSessionParams contains all the parameters to send to the API endpoint
 for the admin get member active session operation typically these are written to a http.Request
 */
 type AdminGetMemberActiveSessionParams struct {

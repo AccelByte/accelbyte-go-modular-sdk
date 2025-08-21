@@ -130,9 +130,10 @@ func NewAdminCreateNewAchievementCreated() *AdminCreateNewAchievementCreated {
 	return &AdminCreateNewAchievementCreated{}
 }
 
-/*AdminCreateNewAchievementCreated handles this case with default header values.
+/*
+AdminCreateNewAchievementCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateNewAchievementCreated struct {
 	Payload *achievementclientmodels.ModelsAchievementResponse
@@ -184,9 +185,10 @@ func NewAdminCreateNewAchievementBadRequest() *AdminCreateNewAchievementBadReque
 	return &AdminCreateNewAchievementBadRequest{}
 }
 
-/*AdminCreateNewAchievementBadRequest handles this case with default header values.
+/*
+AdminCreateNewAchievementBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminCreateNewAchievementBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminCreateNewAchievementUnauthorized() *AdminCreateNewAchievementUnauth
 	return &AdminCreateNewAchievementUnauthorized{}
 }
 
-/*AdminCreateNewAchievementUnauthorized handles this case with default header values.
+/*
+AdminCreateNewAchievementUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminCreateNewAchievementUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminCreateNewAchievementTooManyRequests() *AdminCreateNewAchievementToo
 	return &AdminCreateNewAchievementTooManyRequests{}
 }
 
-/*AdminCreateNewAchievementTooManyRequests handles this case with default header values.
+/*
+AdminCreateNewAchievementTooManyRequests handles this case with default header values.
 
-  Too Many Requests
+	Too Many Requests
 */
 type AdminCreateNewAchievementTooManyRequests struct {
 	Payload *achievementclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminCreateNewAchievementInternalServerError() *AdminCreateNewAchievemen
 	return &AdminCreateNewAchievementInternalServerError{}
 }
 
-/*AdminCreateNewAchievementInternalServerError handles this case with default header values.
+/*
+AdminCreateNewAchievementInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminCreateNewAchievementInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

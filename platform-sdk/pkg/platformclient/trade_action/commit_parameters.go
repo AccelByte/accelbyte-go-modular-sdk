@@ -59,7 +59,8 @@ func NewCommitParamsWithHTTPClient(client *http.Client) *CommitParams {
 	}
 }
 
-/*CommitParams contains all the parameters to send to the API endpoint
+/*
+CommitParams contains all the parameters to send to the API endpoint
 for the commit operation typically these are written to a http.Request
 */
 type CommitParams struct {

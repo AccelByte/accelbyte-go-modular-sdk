@@ -115,9 +115,10 @@ func NewListGlobalAchievementContributorsOK() *ListGlobalAchievementContributors
 	return &ListGlobalAchievementContributorsOK{}
 }
 
-/*ListGlobalAchievementContributorsOK handles this case with default header values.
+/*
+ListGlobalAchievementContributorsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type ListGlobalAchievementContributorsOK struct {
 	Payload *achievementclientmodels.ModelsPaginatedContributorResponse
@@ -169,9 +170,10 @@ func NewListGlobalAchievementContributorsBadRequest() *ListGlobalAchievementCont
 	return &ListGlobalAchievementContributorsBadRequest{}
 }
 
-/*ListGlobalAchievementContributorsBadRequest handles this case with default header values.
+/*
+ListGlobalAchievementContributorsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type ListGlobalAchievementContributorsBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewListGlobalAchievementContributorsUnauthorized() *ListGlobalAchievementCo
 	return &ListGlobalAchievementContributorsUnauthorized{}
 }
 
-/*ListGlobalAchievementContributorsUnauthorized handles this case with default header values.
+/*
+ListGlobalAchievementContributorsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type ListGlobalAchievementContributorsUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewListGlobalAchievementContributorsInternalServerError() *ListGlobalAchiev
 	return &ListGlobalAchievementContributorsInternalServerError{}
 }
 
-/*ListGlobalAchievementContributorsInternalServerError handles this case with default header values.
+/*
+ListGlobalAchievementContributorsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type ListGlobalAchievementContributorsInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

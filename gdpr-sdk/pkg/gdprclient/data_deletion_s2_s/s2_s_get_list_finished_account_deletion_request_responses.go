@@ -130,9 +130,10 @@ func NewS2SGetListFinishedAccountDeletionRequestOK() *S2SGetListFinishedAccountD
 	return &S2SGetListFinishedAccountDeletionRequestOK{}
 }
 
-/*S2SGetListFinishedAccountDeletionRequestOK handles this case with default header values.
+/*
+S2SGetListFinishedAccountDeletionRequestOK handles this case with default header values.
 
-  OK
+	OK
 */
 type S2SGetListFinishedAccountDeletionRequestOK struct {
 	Payload *gdprclientmodels.DTOListFinishedDataDeletion
@@ -184,9 +185,10 @@ func NewS2SGetListFinishedAccountDeletionRequestBadRequest() *S2SGetListFinished
 	return &S2SGetListFinishedAccountDeletionRequestBadRequest{}
 }
 
-/*S2SGetListFinishedAccountDeletionRequestBadRequest handles this case with default header values.
+/*
+S2SGetListFinishedAccountDeletionRequestBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type S2SGetListFinishedAccountDeletionRequestBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewS2SGetListFinishedAccountDeletionRequestUnauthorized() *S2SGetListFinish
 	return &S2SGetListFinishedAccountDeletionRequestUnauthorized{}
 }
 
-/*S2SGetListFinishedAccountDeletionRequestUnauthorized handles this case with default header values.
+/*
+S2SGetListFinishedAccountDeletionRequestUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type S2SGetListFinishedAccountDeletionRequestUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewS2SGetListFinishedAccountDeletionRequestForbidden() *S2SGetListFinishedA
 	return &S2SGetListFinishedAccountDeletionRequestForbidden{}
 }
 
-/*S2SGetListFinishedAccountDeletionRequestForbidden handles this case with default header values.
+/*
+S2SGetListFinishedAccountDeletionRequestForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type S2SGetListFinishedAccountDeletionRequestForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewS2SGetListFinishedAccountDeletionRequestInternalServerError() *S2SGetLis
 	return &S2SGetListFinishedAccountDeletionRequestInternalServerError{}
 }
 
-/*S2SGetListFinishedAccountDeletionRequestInternalServerError handles this case with default header values.
+/*
+S2SGetListFinishedAccountDeletionRequestInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type S2SGetListFinishedAccountDeletionRequestInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

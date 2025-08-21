@@ -57,7 +57,8 @@ func NewGetXblUserAchievementsParamsWithHTTPClient(client *http.Client) *GetXblU
 	}
 }
 
-/*GetXblUserAchievementsParams contains all the parameters to send to the API endpoint
+/*
+GetXblUserAchievementsParams contains all the parameters to send to the API endpoint
 for the get xbl user achievements operation typically these are written to a http.Request
 */
 type GetXblUserAchievementsParams struct {

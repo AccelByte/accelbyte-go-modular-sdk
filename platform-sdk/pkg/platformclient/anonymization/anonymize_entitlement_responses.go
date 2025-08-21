@@ -66,9 +66,10 @@ func NewAnonymizeEntitlementNoContent() *AnonymizeEntitlementNoContent {
 	return &AnonymizeEntitlementNoContent{}
 }
 
-/*AnonymizeEntitlementNoContent handles this case with default header values.
+/*
+AnonymizeEntitlementNoContent handles this case with default header values.
 
-  Anonymize successfully
+	Anonymize successfully
 */
 type AnonymizeEntitlementNoContent struct {
 }

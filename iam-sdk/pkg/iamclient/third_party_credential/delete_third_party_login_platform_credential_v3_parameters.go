@@ -57,7 +57,8 @@ func NewDeleteThirdPartyLoginPlatformCredentialV3ParamsWithHTTPClient(client *ht
 	}
 }
 
-/*DeleteThirdPartyLoginPlatformCredentialV3Params contains all the parameters to send to the API endpoint
+/*
+DeleteThirdPartyLoginPlatformCredentialV3Params contains all the parameters to send to the API endpoint
 for the delete third party login platform credential v3 operation typically these are written to a http.Request
 */
 type DeleteThirdPartyLoginPlatformCredentialV3Params struct {

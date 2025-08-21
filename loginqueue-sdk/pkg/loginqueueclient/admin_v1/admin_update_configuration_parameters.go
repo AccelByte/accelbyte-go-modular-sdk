@@ -59,7 +59,8 @@ func NewAdminUpdateConfigurationParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminUpdateConfigurationParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateConfigurationParams contains all the parameters to send to the API endpoint
 for the admin update configuration operation typically these are written to a http.Request
 */
 type AdminUpdateConfigurationParams struct {
@@ -69,7 +70,7 @@ type AdminUpdateConfigurationParams struct {
 	/*Body*/
 	Body *loginqueueclientmodels.ApimodelsConfigurationRequest
 	/*Namespace
-	  namespace of the game
+	  Namespace, only accept alphabet and numeric
 
 	*/
 	Namespace string

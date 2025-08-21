@@ -59,7 +59,8 @@ func NewIndirectBulkAcceptVersionedPolicy1ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*IndirectBulkAcceptVersionedPolicy1Params contains all the parameters to send to the API endpoint
+/*
+IndirectBulkAcceptVersionedPolicy1Params contains all the parameters to send to the API endpoint
 for the indirect bulk accept versioned policy 1 operation typically these are written to a http.Request
 */
 type IndirectBulkAcceptVersionedPolicy1Params struct {

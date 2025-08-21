@@ -129,9 +129,10 @@ func NewDeleteStatNoContent() *DeleteStatNoContent {
 	return &DeleteStatNoContent{}
 }
 
-/*DeleteStatNoContent handles this case with default header values.
+/*
+DeleteStatNoContent handles this case with default header values.
 
-  Successful delete of stat
+	Successful delete of stat
 */
 type DeleteStatNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteStatUnauthorized() *DeleteStatUnauthorized {
 	return &DeleteStatUnauthorized{}
 }
 
-/*DeleteStatUnauthorized handles this case with default header values.
+/*
+DeleteStatUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type DeleteStatUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -210,9 +212,10 @@ func NewDeleteStatForbidden() *DeleteStatForbidden {
 	return &DeleteStatForbidden{}
 }
 
-/*DeleteStatForbidden handles this case with default header values.
+/*
+DeleteStatForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteStatForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -264,9 +267,10 @@ func NewDeleteStatNotFound() *DeleteStatNotFound {
 	return &DeleteStatNotFound{}
 }
 
-/*DeleteStatNotFound handles this case with default header values.
+/*
+DeleteStatNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type DeleteStatNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -318,9 +322,10 @@ func NewDeleteStatInternalServerError() *DeleteStatInternalServerError {
 	return &DeleteStatInternalServerError{}
 }
 
-/*DeleteStatInternalServerError handles this case with default header values.
+/*
+DeleteStatInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type DeleteStatInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

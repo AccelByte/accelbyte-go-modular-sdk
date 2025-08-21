@@ -115,9 +115,10 @@ func NewAdminGetBannedDevicesV4OK() *AdminGetBannedDevicesV4OK {
 	return &AdminGetBannedDevicesV4OK{}
 }
 
-/*AdminGetBannedDevicesV4OK handles this case with default header values.
+/*
+AdminGetBannedDevicesV4OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminGetBannedDevicesV4OK struct {
 	Payload *iamclientmodels.ModelDeviceBannedResponseV4
@@ -169,9 +170,10 @@ func NewAdminGetBannedDevicesV4Unauthorized() *AdminGetBannedDevicesV4Unauthoriz
 	return &AdminGetBannedDevicesV4Unauthorized{}
 }
 
-/*AdminGetBannedDevicesV4Unauthorized handles this case with default header values.
+/*
+AdminGetBannedDevicesV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetBannedDevicesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetBannedDevicesV4Forbidden() *AdminGetBannedDevicesV4Forbidden {
 	return &AdminGetBannedDevicesV4Forbidden{}
 }
 
-/*AdminGetBannedDevicesV4Forbidden handles this case with default header values.
+/*
+AdminGetBannedDevicesV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetBannedDevicesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetBannedDevicesV4InternalServerError() *AdminGetBannedDevicesV4Int
 	return &AdminGetBannedDevicesV4InternalServerError{}
 }
 
-/*AdminGetBannedDevicesV4InternalServerError handles this case with default header values.
+/*
+AdminGetBannedDevicesV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetBannedDevicesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

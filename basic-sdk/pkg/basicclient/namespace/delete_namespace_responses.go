@@ -145,9 +145,10 @@ func NewDeleteNamespaceOK() *DeleteNamespaceOK {
 	return &DeleteNamespaceOK{}
 }
 
-/*DeleteNamespaceOK handles this case with default header values.
+/*
+DeleteNamespaceOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type DeleteNamespaceOK struct {
 	Payload *basicclientmodels.NamespaceInfo
@@ -199,9 +200,10 @@ func NewDeleteNamespaceBadRequest() *DeleteNamespaceBadRequest {
 	return &DeleteNamespaceBadRequest{}
 }
 
-/*DeleteNamespaceBadRequest handles this case with default header values.
+/*
+DeleteNamespaceBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DeleteNamespaceBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -253,9 +255,10 @@ func NewDeleteNamespaceUnauthorized() *DeleteNamespaceUnauthorized {
 	return &DeleteNamespaceUnauthorized{}
 }
 
-/*DeleteNamespaceUnauthorized handles this case with default header values.
+/*
+DeleteNamespaceUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type DeleteNamespaceUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -307,9 +310,10 @@ func NewDeleteNamespaceForbidden() *DeleteNamespaceForbidden {
 	return &DeleteNamespaceForbidden{}
 }
 
-/*DeleteNamespaceForbidden handles this case with default header values.
+/*
+DeleteNamespaceForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteNamespaceForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -361,9 +365,10 @@ func NewDeleteNamespaceNotFound() *DeleteNamespaceNotFound {
 	return &DeleteNamespaceNotFound{}
 }
 
-/*DeleteNamespaceNotFound handles this case with default header values.
+/*
+DeleteNamespaceNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
 */
 type DeleteNamespaceNotFound struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -415,9 +420,10 @@ func NewDeleteNamespaceConflict() *DeleteNamespaceConflict {
 	return &DeleteNamespaceConflict{}
 }
 
-/*DeleteNamespaceConflict handles this case with default header values.
+/*
+DeleteNamespaceConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type DeleteNamespaceConflict struct {
 	Payload *basicclientmodels.ErrorEntity

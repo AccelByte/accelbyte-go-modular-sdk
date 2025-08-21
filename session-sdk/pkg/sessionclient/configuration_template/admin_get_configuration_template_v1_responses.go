@@ -145,9 +145,10 @@ func NewAdminGetConfigurationTemplateV1OK() *AdminGetConfigurationTemplateV1OK {
 	return &AdminGetConfigurationTemplateV1OK{}
 }
 
-/*AdminGetConfigurationTemplateV1OK handles this case with default header values.
+/*
+AdminGetConfigurationTemplateV1OK handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminGetConfigurationTemplateV1OK struct {
 	Payload *sessionclientmodels.ApimodelsConfigurationTemplateResponse
@@ -199,9 +200,10 @@ func NewAdminGetConfigurationTemplateV1BadRequest() *AdminGetConfigurationTempla
 	return &AdminGetConfigurationTemplateV1BadRequest{}
 }
 
-/*AdminGetConfigurationTemplateV1BadRequest handles this case with default header values.
+/*
+AdminGetConfigurationTemplateV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetConfigurationTemplateV1BadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminGetConfigurationTemplateV1Unauthorized() *AdminGetConfigurationTemp
 	return &AdminGetConfigurationTemplateV1Unauthorized{}
 }
 
-/*AdminGetConfigurationTemplateV1Unauthorized handles this case with default header values.
+/*
+AdminGetConfigurationTemplateV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetConfigurationTemplateV1Unauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminGetConfigurationTemplateV1Forbidden() *AdminGetConfigurationTemplat
 	return &AdminGetConfigurationTemplateV1Forbidden{}
 }
 
-/*AdminGetConfigurationTemplateV1Forbidden handles this case with default header values.
+/*
+AdminGetConfigurationTemplateV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetConfigurationTemplateV1Forbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminGetConfigurationTemplateV1NotFound() *AdminGetConfigurationTemplate
 	return &AdminGetConfigurationTemplateV1NotFound{}
 }
 
-/*AdminGetConfigurationTemplateV1NotFound handles this case with default header values.
+/*
+AdminGetConfigurationTemplateV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetConfigurationTemplateV1NotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminGetConfigurationTemplateV1InternalServerError() *AdminGetConfigurat
 	return &AdminGetConfigurationTemplateV1InternalServerError{}
 }
 
-/*AdminGetConfigurationTemplateV1InternalServerError handles this case with default header values.
+/*
+AdminGetConfigurationTemplateV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetConfigurationTemplateV1InternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

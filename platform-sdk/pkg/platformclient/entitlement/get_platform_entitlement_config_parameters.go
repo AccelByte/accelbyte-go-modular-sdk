@@ -84,7 +84,8 @@ func NewGetPlatformEntitlementConfigParamsWithHTTPClient(client *http.Client) *G
 	}
 }
 
-/*GetPlatformEntitlementConfigParams contains all the parameters to send to the API endpoint
+/*
+GetPlatformEntitlementConfigParams contains all the parameters to send to the API endpoint
 for the get platform entitlement config operation typically these are written to a http.Request
 */
 type GetPlatformEntitlementConfigParams struct {

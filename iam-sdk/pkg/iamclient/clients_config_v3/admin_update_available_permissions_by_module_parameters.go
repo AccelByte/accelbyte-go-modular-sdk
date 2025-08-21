@@ -60,7 +60,8 @@ func NewAdminUpdateAvailablePermissionsByModuleParamsWithHTTPClient(client *http
 	}
 }
 
-/*AdminUpdateAvailablePermissionsByModuleParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateAvailablePermissionsByModuleParams contains all the parameters to send to the API endpoint
 for the admin update available permissions by module operation typically these are written to a http.Request
 */
 type AdminUpdateAvailablePermissionsByModuleParams struct {

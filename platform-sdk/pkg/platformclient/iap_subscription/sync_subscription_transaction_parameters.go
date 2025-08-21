@@ -57,7 +57,8 @@ func NewSyncSubscriptionTransactionParamsWithHTTPClient(client *http.Client) *Sy
 	}
 }
 
-/*SyncSubscriptionTransactionParams contains all the parameters to send to the API endpoint
+/*
+SyncSubscriptionTransactionParams contains all the parameters to send to the API endpoint
 for the sync subscription transaction operation typically these are written to a http.Request
 */
 type SyncSubscriptionTransactionParams struct {

@@ -144,9 +144,10 @@ func NewAdminProfanityCreateBulkNoContent() *AdminProfanityCreateBulkNoContent {
 	return &AdminProfanityCreateBulkNoContent{}
 }
 
-/*AdminProfanityCreateBulkNoContent handles this case with default header values.
+/*
+AdminProfanityCreateBulkNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminProfanityCreateBulkNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminProfanityCreateBulkBadRequest() *AdminProfanityCreateBulkBadRequest
 	return &AdminProfanityCreateBulkBadRequest{}
 }
 
-/*AdminProfanityCreateBulkBadRequest handles this case with default header values.
+/*
+AdminProfanityCreateBulkBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminProfanityCreateBulkBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -225,9 +227,10 @@ func NewAdminProfanityCreateBulkUnauthorized() *AdminProfanityCreateBulkUnauthor
 	return &AdminProfanityCreateBulkUnauthorized{}
 }
 
-/*AdminProfanityCreateBulkUnauthorized handles this case with default header values.
+/*
+AdminProfanityCreateBulkUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminProfanityCreateBulkUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -279,9 +282,10 @@ func NewAdminProfanityCreateBulkForbidden() *AdminProfanityCreateBulkForbidden {
 	return &AdminProfanityCreateBulkForbidden{}
 }
 
-/*AdminProfanityCreateBulkForbidden handles this case with default header values.
+/*
+AdminProfanityCreateBulkForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminProfanityCreateBulkForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -333,9 +337,10 @@ func NewAdminProfanityCreateBulkNotFound() *AdminProfanityCreateBulkNotFound {
 	return &AdminProfanityCreateBulkNotFound{}
 }
 
-/*AdminProfanityCreateBulkNotFound handles this case with default header values.
+/*
+AdminProfanityCreateBulkNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminProfanityCreateBulkNotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -387,9 +392,10 @@ func NewAdminProfanityCreateBulkInternalServerError() *AdminProfanityCreateBulkI
 	return &AdminProfanityCreateBulkInternalServerError{}
 }
 
-/*AdminProfanityCreateBulkInternalServerError handles this case with default header values.
+/*
+AdminProfanityCreateBulkInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminProfanityCreateBulkInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

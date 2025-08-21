@@ -115,9 +115,10 @@ func NewAdminGetContentOK() *AdminGetContentOK {
 	return &AdminGetContentOK{}
 }
 
-/*AdminGetContentOK handles this case with default header values.
+/*
+AdminGetContentOK handles this case with default header values.
 
-  Get user's generated contents
+	Get user's generated contents
 */
 type AdminGetContentOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponse
@@ -169,9 +170,10 @@ func NewAdminGetContentBadRequest() *AdminGetContentBadRequest {
 	return &AdminGetContentBadRequest{}
 }
 
-/*AdminGetContentBadRequest handles this case with default header values.
+/*
+AdminGetContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770900</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770900</td><td>invalid paging parameter</td></tr></table>
 */
 type AdminGetContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminGetContentUnauthorized() *AdminGetContentUnauthorized {
 	return &AdminGetContentUnauthorized{}
 }
 
-/*AdminGetContentUnauthorized handles this case with default header values.
+/*
+AdminGetContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminGetContentInternalServerError() *AdminGetContentInternalServerError
 	return &AdminGetContentInternalServerError{}
 }
 
-/*AdminGetContentInternalServerError handles this case with default header values.
+/*
+AdminGetContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770901</td><td>Unable to get ugc content: database error/Unable to get creator</td></tr><tr><td>770903</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770901</td><td>Unable to get ugc content: database error/Unable to get creator</td></tr><tr><td>770903</td><td>Failed generate download URL</td></tr></table>
 */
 type AdminGetContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

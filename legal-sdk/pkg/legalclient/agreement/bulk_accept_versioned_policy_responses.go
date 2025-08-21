@@ -85,9 +85,10 @@ func NewBulkAcceptVersionedPolicyCreated() *BulkAcceptVersionedPolicyCreated {
 	return &BulkAcceptVersionedPolicyCreated{}
 }
 
-/*BulkAcceptVersionedPolicyCreated handles this case with default header values.
+/*
+BulkAcceptVersionedPolicyCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkAcceptVersionedPolicyCreated struct {
 	Payload *legalclientmodels.AcceptAgreementResponse
@@ -139,9 +140,10 @@ func NewBulkAcceptVersionedPolicyBadRequest() *BulkAcceptVersionedPolicyBadReque
 	return &BulkAcceptVersionedPolicyBadRequest{}
 }
 
-/*BulkAcceptVersionedPolicyBadRequest handles this case with default header values.
+/*
+BulkAcceptVersionedPolicyBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_localize_policy_version_id</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40045</td><td>errors.net.accelbyte.platform.legal.user_id_needed</td></tr><tr><td>40035</td><td>errors.net.accelbyte.platform.legal.invalid_localize_policy_version_id</td></tr></table>
 */
 type BulkAcceptVersionedPolicyBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity

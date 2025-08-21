@@ -57,7 +57,8 @@ func NewAdminUpdateGameSessionMemberParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminUpdateGameSessionMemberParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateGameSessionMemberParams contains all the parameters to send to the API endpoint
 for the admin update game session member operation typically these are written to a http.Request
 */
 type AdminUpdateGameSessionMemberParams struct {

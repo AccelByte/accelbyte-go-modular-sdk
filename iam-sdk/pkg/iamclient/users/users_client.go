@@ -312,7 +312,7 @@ GetAdminUsersByRoleIDShort get admin users by roleid
 - **Note:**
 difference in V3 response, format difference: Pascal case => Camel case
 
-This endpoint search admin users which have the roleId
+# This endpoint search admin users which have the roleId
 
 Notes : this endpoint only accept admin role. Admin Role is role which have admin status and members.
 Use endpoint [GET] /roles/{roleId}/admin to check the role status
@@ -2513,7 +2513,7 @@ GetUserJusticePlatformAccountShort get the justice linked accounts on the design
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/justice/{targetNamespace} [GET]_**
 
-This endpoint requires the client access token as the bearer token
+# This endpoint requires the client access token as the bearer token
 
 The endpoint returns user Justice platform account linked with the given user. If the user Justice platform account doesn't exist in the designated namespace, the endpoint is going to *create and return the new Justice platform account.*
 The newly user Justice platform account is going to be forced to perform token grant through the given user and can't perform password update
@@ -9267,7 +9267,6 @@ AdminGetUserPlatformAccountsV3Short get platform accounts linked to the user
 Gets platform accounts that are already linked with user account.
 Action code : 10128
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -10074,7 +10073,6 @@ Unlink user's account from third platform in all namespaces.
 Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
 example: to unlink steam third party account, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -10670,7 +10668,6 @@ func (a *Client) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminG
 /*
 AdminGetUserSinglePlatformAccountShort admin get user single platform account metadata
 This endpoint gets user single platform account metadata.
-
 
 **Supported Platforms:**
 - Steam group (steamnetwork):
@@ -11793,7 +11790,6 @@ Several platforms are grouped under account groups, you can use either platform 
 example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 **Note**: this is deprecated, substitute endpoint: /iam/v4/public/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -11998,7 +11994,6 @@ Step when searching by 3rd party platform display name:
 1. set __by__ to __thirdPartyPlatform__
 2. set __platformId__ to the _supported platform id_
 3. set __platformBy__ to __platformDisplayName__
-
 
 **Supported Platforms:**
 - Steam group (steamnetwork):
@@ -13818,7 +13813,6 @@ Unlink user's account from third platform in all namespaces.
 Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
 example: to unlink steam third party account, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -14531,7 +14525,6 @@ Notes:
 - This endpoint retrieve the first page of the data if after and before parameters is empty
 - **The pagination is not working yet**
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
@@ -14625,7 +14618,6 @@ PublicListUserAllPlatformAccountsDistinctV3Short get distinct platform accounts 
 This endpoint retrieves platform accounts linked to user.
 It will query all linked platform accounts. The results will be distinct and grouped by platform, and for each platform, we will select the oldest linked one.
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
@@ -14718,7 +14710,6 @@ func (a *Client) PublicListUserAllPlatformAccountsDistinctV3Short(params *Public
 PublicGetUserInformationV3Short get user's information v3
 This endpoint retrieves user info and linked platform accounts.
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
@@ -14808,7 +14799,6 @@ Notes for this endpoint:
 - This endpoint retrieve the next page of the data if we provide `after` parameters with valid Unix timestamp.
 - This endpoint retrieve the previous page of the data if we provide `before` parameter with valid data Unix timestamp.
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
@@ -14886,7 +14876,6 @@ func (a *Client) PublicGetUserLoginHistoriesV3Short(params *PublicGetUserLoginHi
 PublicGetUserPlatformAccountsV3Short get platform accounts linked to the user
 This endpoint retrieves platform accounts linked to user.
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -14922,7 +14911,6 @@ This endpoint retrieves platform accounts linked to user.
 Note:
 - You can use either platform id or platform group as **platformId** parameter.
 - **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
-
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -15017,7 +15005,6 @@ func (a *Client) PublicGetUserPlatformAccountsV3Short(params *PublicGetUserPlatf
 /*
 PublicListJusticePlatformAccountsV3Short get user justice platform accounts
 This endpoint gets list justice platform account by providing publisher namespace and publisher userID.
-
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -15115,7 +15102,6 @@ Update Platform Account relation to current User Account.
 Note: Game progression data (statistics, reward, etc) associated with previous User Account will not be
 transferred. If the data is tight to game user ID, the user will have the game progression data.
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
@@ -15201,7 +15187,6 @@ PublicForceLinkPlatformWithProgressionShort force link 3rd platform account and 
 Force update other account's Platform Account relation to current User Account.
 This endpoint can transfer progression from 3rd platform binding account's to current account.
 This endpoint need the same requestID which also used in [Get link status](#operations-Users-PublicGetAsyncStatus).
-
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -15369,7 +15354,6 @@ func (a *Client) PublicGetPublisherUserV3Short(params *PublicGetPublisherUserV3P
 PublicValidateUserByUserIDAndPasswordV3Short validate user password by user id and password
 This endpoint is used to validate the user password.
 This endpoint validate the user password by specifying the userId and password.
-
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.

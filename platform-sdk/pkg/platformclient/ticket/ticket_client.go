@@ -41,9 +41,11 @@ type ClientService interface {
 
 /*
 GetTicketDynamicShort get ticket dynamic
- [SERVICE COMMUNICATION ONLY] Get ticket(code/key) dynamic based on booth name.
+
+	[SERVICE COMMUNICATION ONLY] Get ticket(code/key) dynamic based on booth name.
+
 Other detail info:
-            * Returns : ticket dynamic
+  - Returns : ticket dynamic
 */
 func (a *Client) GetTicketDynamicShort(params *GetTicketDynamicParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketDynamicResponse, error) {
 	// TODO: Validate the params before sending
@@ -104,7 +106,8 @@ func (a *Client) GetTicketDynamicShort(params *GetTicketDynamicParams, authInfo 
 
 /*
 DecreaseTicketSaleShort decrease ticket sale
- [SERVICE COMMUNICATION ONLY] Decrease ticket(code/key) sale if requested orderNo is already increased.
+
+	[SERVICE COMMUNICATION ONLY] Decrease ticket(code/key) sale if requested orderNo is already increased.
 */
 func (a *Client) DecreaseTicketSaleShort(params *DecreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*DecreaseTicketSaleResponse, error) {
 	// TODO: Validate the params before sending
@@ -173,7 +176,7 @@ func (a *Client) DecreaseTicketSaleShort(params *DecreaseTicketSaleParams, authI
 GetTicketBoothIDShort get ticket booth id
 Get ticket(code/key) booth ID.
 Other detail info:
-            * Returns : ticket booth id
+  - Returns : ticket booth id
 */
 func (a *Client) GetTicketBoothIDShort(params *GetTicketBoothIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetTicketBoothIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -234,9 +237,11 @@ func (a *Client) GetTicketBoothIDShort(params *GetTicketBoothIDParams, authInfo 
 
 /*
 IncreaseTicketSaleShort increase ticket sale
- [SERVICE COMMUNICATION ONLY] increase ticket(code/key) sale.
+
+	[SERVICE COMMUNICATION ONLY] increase ticket(code/key) sale.
+
 Other detail info:
-            * Returns : Ticket sale increment result
+  - Returns : Ticket sale increment result
 */
 func (a *Client) IncreaseTicketSaleShort(params *IncreaseTicketSaleParams, authInfo runtime.ClientAuthInfoWriter) (*IncreaseTicketSaleResponse, error) {
 	// TODO: Validate the params before sending
@@ -304,9 +309,11 @@ func (a *Client) IncreaseTicketSaleShort(params *IncreaseTicketSaleParams, authI
 
 /*
 AcquireUserTicketShort acquire ticket
- [SERVICE COMMUNICATION ONLY] Acquire ticket(code/key) based on booth name.
+
+	[SERVICE COMMUNICATION ONLY] Acquire ticket(code/key) based on booth name.
+
 Other detail info:
-            * Returns : acquire result
+  - Returns : acquire result
 */
 func (a *Client) AcquireUserTicketShort(params *AcquireUserTicketParams, authInfo runtime.ClientAuthInfoWriter) (*AcquireUserTicketResponse, error) {
 	// TODO: Validate the params before sending

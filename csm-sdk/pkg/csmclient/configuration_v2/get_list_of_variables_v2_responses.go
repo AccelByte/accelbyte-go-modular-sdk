@@ -145,10 +145,9 @@ func NewGetListOfVariablesV2OK() *GetListOfVariablesV2OK {
 	return &GetListOfVariablesV2OK{}
 }
 
-/*GetListOfVariablesV2OK handles this case with default header values.
-
-
- */
+/*
+GetListOfVariablesV2OK handles this case with default header values.
+*/
 type GetListOfVariablesV2OK struct {
 	Payload *csmclientmodels.ApimodelGetListOfConfigurationsV2Response
 }
@@ -199,9 +198,10 @@ func NewGetListOfVariablesV2BadRequest() *GetListOfVariablesV2BadRequest {
 	return &GetListOfVariablesV2BadRequest{}
 }
 
-/*GetListOfVariablesV2BadRequest handles this case with default header values.
+/*
+GetListOfVariablesV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetListOfVariablesV2BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -253,9 +253,10 @@ func NewGetListOfVariablesV2Unauthorized() *GetListOfVariablesV2Unauthorized {
 	return &GetListOfVariablesV2Unauthorized{}
 }
 
-/*GetListOfVariablesV2Unauthorized handles this case with default header values.
+/*
+GetListOfVariablesV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetListOfVariablesV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -307,9 +308,10 @@ func NewGetListOfVariablesV2Forbidden() *GetListOfVariablesV2Forbidden {
 	return &GetListOfVariablesV2Forbidden{}
 }
 
-/*GetListOfVariablesV2Forbidden handles this case with default header values.
+/*
+GetListOfVariablesV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetListOfVariablesV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -361,9 +363,10 @@ func NewGetListOfVariablesV2NotFound() *GetListOfVariablesV2NotFound {
 	return &GetListOfVariablesV2NotFound{}
 }
 
-/*GetListOfVariablesV2NotFound handles this case with default header values.
+/*
+GetListOfVariablesV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetListOfVariablesV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -415,9 +418,10 @@ func NewGetListOfVariablesV2InternalServerError() *GetListOfVariablesV2InternalS
 	return &GetListOfVariablesV2InternalServerError{}
 }
 
-/*GetListOfVariablesV2InternalServerError handles this case with default header values.
+/*
+GetListOfVariablesV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetListOfVariablesV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

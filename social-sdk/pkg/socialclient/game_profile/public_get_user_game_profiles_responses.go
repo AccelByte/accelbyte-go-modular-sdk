@@ -130,9 +130,10 @@ func NewPublicGetUserGameProfilesOK() *PublicGetUserGameProfilesOK {
 	return &PublicGetUserGameProfilesOK{}
 }
 
-/*PublicGetUserGameProfilesOK handles this case with default header values.
+/*
+PublicGetUserGameProfilesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetUserGameProfilesOK struct {
 	Payload []*socialclientmodels.UserGameProfiles
@@ -182,9 +183,10 @@ func NewPublicGetUserGameProfilesBadRequest() *PublicGetUserGameProfilesBadReque
 	return &PublicGetUserGameProfilesBadRequest{}
 }
 
-/*PublicGetUserGameProfilesBadRequest handles this case with default header values.
+/*
+PublicGetUserGameProfilesBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12021</td><td>{totalUser} users is requested. Cannot retrieve more than {limitUser} users at once</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12021</td><td>{totalUser} users is requested. Cannot retrieve more than {limitUser} users at once</td></tr></table>
 */
 type PublicGetUserGameProfilesBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -236,9 +238,10 @@ func NewPublicGetUserGameProfilesUnauthorized() *PublicGetUserGameProfilesUnauth
 	return &PublicGetUserGameProfilesUnauthorized{}
 }
 
-/*PublicGetUserGameProfilesUnauthorized handles this case with default header values.
+/*
+PublicGetUserGameProfilesUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicGetUserGameProfilesUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -290,9 +293,10 @@ func NewPublicGetUserGameProfilesForbidden() *PublicGetUserGameProfilesForbidden
 	return &PublicGetUserGameProfilesForbidden{}
 }
 
-/*PublicGetUserGameProfilesForbidden handles this case with default header values.
+/*
+PublicGetUserGameProfilesForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGetUserGameProfilesForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -344,9 +348,10 @@ func NewPublicGetUserGameProfilesInternalServerError() *PublicGetUserGameProfile
 	return &PublicGetUserGameProfilesInternalServerError{}
 }
 
-/*PublicGetUserGameProfilesInternalServerError handles this case with default header values.
+/*
+PublicGetUserGameProfilesInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicGetUserGameProfilesInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

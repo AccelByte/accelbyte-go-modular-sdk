@@ -130,9 +130,10 @@ func NewAdminPostAdminGameRecordV1Created() *AdminPostAdminGameRecordV1Created {
 	return &AdminPostAdminGameRecordV1Created{}
 }
 
-/*AdminPostAdminGameRecordV1Created handles this case with default header values.
+/*
+AdminPostAdminGameRecordV1Created handles this case with default header values.
 
-  Record in namespace-level saved
+	Record in namespace-level saved
 */
 type AdminPostAdminGameRecordV1Created struct {
 	Payload *cloudsaveclientmodels.ModelsAdminGameRecordResponse
@@ -184,9 +185,10 @@ func NewAdminPostAdminGameRecordV1BadRequest() *AdminPostAdminGameRecordV1BadReq
 	return &AdminPostAdminGameRecordV1BadRequest{}
 }
 
-/*AdminPostAdminGameRecordV1BadRequest handles this case with default header values.
+/*
+AdminPostAdminGameRecordV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18134</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18136</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18134</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18136</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr></table>
 */
 type AdminPostAdminGameRecordV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewAdminPostAdminGameRecordV1Unauthorized() *AdminPostAdminGameRecordV1Unau
 	return &AdminPostAdminGameRecordV1Unauthorized{}
 }
 
-/*AdminPostAdminGameRecordV1Unauthorized handles this case with default header values.
+/*
+AdminPostAdminGameRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPostAdminGameRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewAdminPostAdminGameRecordV1Forbidden() *AdminPostAdminGameRecordV1Forbidd
 	return &AdminPostAdminGameRecordV1Forbidden{}
 }
 
-/*AdminPostAdminGameRecordV1Forbidden handles this case with default header values.
+/*
+AdminPostAdminGameRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminPostAdminGameRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewAdminPostAdminGameRecordV1InternalServerError() *AdminPostAdminGameRecor
 	return &AdminPostAdminGameRecordV1InternalServerError{}
 }
 
-/*AdminPostAdminGameRecordV1InternalServerError handles this case with default header values.
+/*
+AdminPostAdminGameRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18135</td><td>unable to marshal request body</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18013</td><td>unable to save record</td></tr><tr><td>18165</td><td>unable to decode record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18135</td><td>unable to marshal request body</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18013</td><td>unable to save record</td></tr><tr><td>18165</td><td>unable to decode record</td></tr></table>
 */
 type AdminPostAdminGameRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

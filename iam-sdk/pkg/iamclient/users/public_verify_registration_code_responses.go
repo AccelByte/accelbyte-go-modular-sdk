@@ -84,9 +84,10 @@ func NewPublicVerifyRegistrationCodeNoContent() *PublicVerifyRegistrationCodeNoC
 	return &PublicVerifyRegistrationCodeNoContent{}
 }
 
-/*PublicVerifyRegistrationCodeNoContent handles this case with default header values.
+/*
+PublicVerifyRegistrationCodeNoContent handles this case with default header values.
 
-  Code is valid
+	Code is valid
 */
 type PublicVerifyRegistrationCodeNoContent struct {
 }
@@ -111,9 +112,10 @@ func NewPublicVerifyRegistrationCodeBadRequest() *PublicVerifyRegistrationCodeBa
 	return &PublicVerifyRegistrationCodeBadRequest{}
 }
 
-/*PublicVerifyRegistrationCodeBadRequest handles this case with default header values.
+/*
+PublicVerifyRegistrationCodeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10138</td><td>code not match</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10138</td><td>code not match</td></tr></table>
 */
 type PublicVerifyRegistrationCodeBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse

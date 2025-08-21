@@ -59,7 +59,8 @@ func NewFulfillItemsV3ParamsWithHTTPClient(client *http.Client) *FulfillItemsV3P
 	}
 }
 
-/*FulfillItemsV3Params contains all the parameters to send to the API endpoint
+/*
+FulfillItemsV3Params contains all the parameters to send to the API endpoint
 for the fulfill items v3 operation typically these are written to a http.Request
 */
 type FulfillItemsV3Params struct {

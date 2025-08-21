@@ -69,9 +69,10 @@ func NewGetPaymentCustomizationOK() *GetPaymentCustomizationOK {
 	return &GetPaymentCustomizationOK{}
 }
 
-/*GetPaymentCustomizationOK handles this case with default header values.
+/*
+GetPaymentCustomizationOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPaymentCustomizationOK struct {
 	Payload *platformclientmodels.Customization

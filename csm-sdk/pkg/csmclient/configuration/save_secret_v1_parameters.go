@@ -59,7 +59,8 @@ func NewSaveSecretV1ParamsWithHTTPClient(client *http.Client) *SaveSecretV1Param
 	}
 }
 
-/*SaveSecretV1Params contains all the parameters to send to the API endpoint
+/*
+SaveSecretV1Params contains all the parameters to send to the API endpoint
 for the save secret v1 operation typically these are written to a http.Request
 */
 type SaveSecretV1Params struct {

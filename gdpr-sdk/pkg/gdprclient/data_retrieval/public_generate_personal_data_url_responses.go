@@ -130,9 +130,10 @@ func NewPublicGeneratePersonalDataURLOK() *PublicGeneratePersonalDataURLOK {
 	return &PublicGeneratePersonalDataURLOK{}
 }
 
-/*PublicGeneratePersonalDataURLOK handles this case with default header values.
+/*
+PublicGeneratePersonalDataURLOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGeneratePersonalDataURLOK struct {
 	Payload *gdprclientmodels.ModelsUserDataURL
@@ -184,9 +185,10 @@ func NewPublicGeneratePersonalDataURLBadRequest() *PublicGeneratePersonalDataURL
 	return &PublicGeneratePersonalDataURLBadRequest{}
 }
 
-/*PublicGeneratePersonalDataURLBadRequest handles this case with default header values.
+/*
+PublicGeneratePersonalDataURLBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGeneratePersonalDataURLBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicGeneratePersonalDataURLUnauthorized() *PublicGeneratePersonalDataU
 	return &PublicGeneratePersonalDataURLUnauthorized{}
 }
 
-/*PublicGeneratePersonalDataURLUnauthorized handles this case with default header values.
+/*
+PublicGeneratePersonalDataURLUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGeneratePersonalDataURLUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicGeneratePersonalDataURLNotFound() *PublicGeneratePersonalDataURLNo
 	return &PublicGeneratePersonalDataURLNotFound{}
 }
 
-/*PublicGeneratePersonalDataURLNotFound handles this case with default header values.
+/*
+PublicGeneratePersonalDataURLNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGeneratePersonalDataURLNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicGeneratePersonalDataURLInternalServerError() *PublicGeneratePerson
 	return &PublicGeneratePersonalDataURLInternalServerError{}
 }
 
-/*PublicGeneratePersonalDataURLInternalServerError handles this case with default header values.
+/*
+PublicGeneratePersonalDataURLInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGeneratePersonalDataURLInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

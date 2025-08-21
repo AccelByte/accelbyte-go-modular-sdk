@@ -100,9 +100,10 @@ func NewPartialUpdatePolicyOK() *PartialUpdatePolicyOK {
 	return &PartialUpdatePolicyOK{}
 }
 
-/*PartialUpdatePolicyOK handles this case with default header values.
+/*
+PartialUpdatePolicyOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PartialUpdatePolicyOK struct {
 	Payload *legalclientmodels.UpdateBasePolicyResponse
@@ -154,9 +155,10 @@ func NewPartialUpdatePolicyBadRequest() *PartialUpdatePolicyBadRequest {
 	return &PartialUpdatePolicyBadRequest{}
 }
 
-/*PartialUpdatePolicyBadRequest handles this case with default header values.
+/*
+PartialUpdatePolicyBadRequest handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40032</td><td>errors.net.accelbyte.platform.legal.invalid_base_policy</td></tr><tr><td>40038</td><td>errors.net.accelbyte.platform.legal.invalid_affected_client_id</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40032</td><td>errors.net.accelbyte.platform.legal.invalid_base_policy</td></tr><tr><td>40038</td><td>errors.net.accelbyte.platform.legal.invalid_affected_client_id</td></tr></table>
 */
 type PartialUpdatePolicyBadRequest struct {
 	Payload *legalclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewPartialUpdatePolicyNotFound() *PartialUpdatePolicyNotFound {
 	return &PartialUpdatePolicyNotFound{}
 }
 
-/*PartialUpdatePolicyNotFound handles this case with default header values.
+/*
+PartialUpdatePolicyNotFound handles this case with default header values.
 
-  <table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40030</td><td>errors.net.accelbyte.platform.legal.policy_type_not_exist</td></tr></table>
+	<table><tr><td>NumericErrorCode</td><td>ErrorCode</td></tr><tr><td>40030</td><td>errors.net.accelbyte.platform.legal.policy_type_not_exist</td></tr></table>
 */
 type PartialUpdatePolicyNotFound struct {
 	Payload *legalclientmodels.ErrorEntity

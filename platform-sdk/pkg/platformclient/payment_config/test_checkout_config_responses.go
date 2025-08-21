@@ -69,9 +69,10 @@ func NewTestCheckoutConfigOK() *TestCheckoutConfigOK {
 	return &TestCheckoutConfigOK{}
 }
 
-/*TestCheckoutConfigOK handles this case with default header values.
+/*
+TestCheckoutConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type TestCheckoutConfigOK struct {
 	Payload *platformclientmodels.TestResult

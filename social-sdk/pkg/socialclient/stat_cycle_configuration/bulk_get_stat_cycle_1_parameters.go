@@ -59,7 +59,8 @@ func NewBulkGetStatCycle1ParamsWithHTTPClient(client *http.Client) *BulkGetStatC
 	}
 }
 
-/*BulkGetStatCycle1Params contains all the parameters to send to the API endpoint
+/*
+BulkGetStatCycle1Params contains all the parameters to send to the API endpoint
 for the bulk get stat cycle 1 operation typically these are written to a http.Request
 */
 type BulkGetStatCycle1Params struct {

@@ -115,9 +115,10 @@ func NewGetStatItemsOK() *GetStatItemsOK {
 	return &GetStatItemsOK{}
 }
 
-/*GetStatItemsOK handles this case with default header values.
+/*
+GetStatItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetStatItemsOK struct {
 	Payload *socialclientmodels.StatItemValuePagingSlicedResult
@@ -169,9 +170,10 @@ func NewGetStatItemsUnauthorized() *GetStatItemsUnauthorized {
 	return &GetStatItemsUnauthorized{}
 }
 
-/*GetStatItemsUnauthorized handles this case with default header values.
+/*
+GetStatItemsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type GetStatItemsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewGetStatItemsForbidden() *GetStatItemsForbidden {
 	return &GetStatItemsForbidden{}
 }
 
-/*GetStatItemsForbidden handles this case with default header values.
+/*
+GetStatItemsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetStatItemsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewGetStatItemsInternalServerError() *GetStatItemsInternalServerError {
 	return &GetStatItemsInternalServerError{}
 }
 
-/*GetStatItemsInternalServerError handles this case with default header values.
+/*
+GetStatItemsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type GetStatItemsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

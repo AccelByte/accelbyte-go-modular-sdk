@@ -115,9 +115,10 @@ func NewSyncSteamAbnormalTransactionOK() *SyncSteamAbnormalTransactionOK {
 	return &SyncSteamAbnormalTransactionOK{}
 }
 
-/*SyncSteamAbnormalTransactionOK handles this case with default header values.
+/*
+SyncSteamAbnormalTransactionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type SyncSteamAbnormalTransactionOK struct {
 	Payload *platformclientmodels.IAPOrderShortInfo
@@ -169,9 +170,10 @@ func NewSyncSteamAbnormalTransactionBadRequest() *SyncSteamAbnormalTransactionBa
 	return &SyncSteamAbnormalTransactionBadRequest{}
 }
 
-/*SyncSteamAbnormalTransactionBadRequest handles this case with default header values.
+/*
+SyncSteamAbnormalTransactionBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39124</td><td>IAP request platform [{platformId}] user id is not linked with current user</td></tr><tr><td>39621</td><td>Steam api common exception with status code [statusCode] details: [details]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39124</td><td>IAP request platform [{platformId}] user id is not linked with current user</td></tr><tr><td>39621</td><td>Steam api common exception with status code [statusCode] details: [details]</td></tr></table>
 */
 type SyncSteamAbnormalTransactionBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewSyncSteamAbnormalTransactionNotFound() *SyncSteamAbnormalTransactionNotF
 	return &SyncSteamAbnormalTransactionNotFound{}
 }
 
-/*SyncSteamAbnormalTransactionNotFound handles this case with default header values.
+/*
+SyncSteamAbnormalTransactionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39144</td><td>Steam IAP config not found in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39144</td><td>Steam IAP config not found in namespace [{namespace}].</td></tr></table>
 */
 type SyncSteamAbnormalTransactionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewSyncSteamAbnormalTransactionConflict() *SyncSteamAbnormalTransactionConf
 	return &SyncSteamAbnormalTransactionConflict{}
 }
 
-/*SyncSteamAbnormalTransactionConflict handles this case with default header values.
+/*
+SyncSteamAbnormalTransactionConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39184</td><td>Steam api exception with error code [{statusCode}] and error message [{message}]</td></tr><tr><td>39185</td><td>This endpoint only works on sync mode [{workSyncMode}], but current steam iap config sync mode is [{currentSyncMode}] under namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39184</td><td>Steam api exception with error code [{statusCode}] and error message [{message}]</td></tr><tr><td>39185</td><td>This endpoint only works on sync mode [{workSyncMode}], but current steam iap config sync mode is [{currentSyncMode}] under namespace [{namespace}]</td></tr></table>
 */
 type SyncSteamAbnormalTransactionConflict struct {
 	Payload *platformclientmodels.ErrorEntity

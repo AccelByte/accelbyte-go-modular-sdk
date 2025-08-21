@@ -57,7 +57,8 @@ func NewSyncSubscriptionParamsWithHTTPClient(client *http.Client) *SyncSubscript
 	}
 }
 
-/*SyncSubscriptionParams contains all the parameters to send to the API endpoint
+/*
+SyncSubscriptionParams contains all the parameters to send to the API endpoint
 for the sync subscription operation typically these are written to a http.Request
 */
 type SyncSubscriptionParams struct {

@@ -98,7 +98,7 @@ type ClientService interface {
 GetAppleIAPConfigShort get apple iap config
 Get apple iap config.
 Other detail info:
-              * Returns : apple iap config
+  - Returns : apple iap config
 */
 func (a *Client) GetAppleIAPConfigShort(params *GetAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -153,7 +153,7 @@ func (a *Client) GetAppleIAPConfigShort(params *GetAppleIAPConfigParams, authInf
 /*
 UpdateAppleIAPConfigShort update apple iap config
 Update apple iap config. Other detail info:
-              * Returns : updated apple iap config
+  - Returns : updated apple iap config
 */
 func (a *Client) UpdateAppleIAPConfigShort(params *UpdateAppleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -262,7 +262,7 @@ func (a *Client) DeleteAppleIAPConfigShort(params *DeleteAppleIAPConfigParams, a
 UpdateAppleP8FileShort upload apple store p8 file
 Upload Apple Store p8 file.
 Other detail info:
-              * Returns : updated apple iap config
+  - Returns : updated apple iap config
 */
 func (a *Client) UpdateAppleP8FileShort(params *UpdateAppleP8FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppleP8FileResponse, error) {
 	// TODO: Validate the params before sending
@@ -318,7 +318,7 @@ func (a *Client) UpdateAppleP8FileShort(params *UpdateAppleP8FileParams, authInf
 GetEpicGamesIAPConfigShort get epicgames iap config
 Get epic games iap config.
 Other detail info:
-              * Returns : epic games iap config
+  - Returns : epic games iap config
 */
 func (a *Client) GetEpicGamesIAPConfigShort(params *GetEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetEpicGamesIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -373,7 +373,7 @@ func (a *Client) GetEpicGamesIAPConfigShort(params *GetEpicGamesIAPConfigParams,
 /*
 UpdateEpicGamesIAPConfigShort update epic games iap config
 Update epic games iap config. Other detail info:
-              * Returns : updated epic games iap config
+  - Returns : updated epic games iap config
 */
 func (a *Client) UpdateEpicGamesIAPConfigShort(params *UpdateEpicGamesIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateEpicGamesIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -482,7 +482,7 @@ func (a *Client) DeleteEpicGamesIAPConfigShort(params *DeleteEpicGamesIAPConfigP
 GetGoogleIAPConfigShort get google iap config
 Get google iap config.
 Other detail info:
-              * Returns : google iap config
+  - Returns : google iap config
 */
 func (a *Client) GetGoogleIAPConfigShort(params *GetGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetGoogleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -537,7 +537,7 @@ func (a *Client) GetGoogleIAPConfigShort(params *GetGoogleIAPConfigParams, authI
 /*
 UpdateGoogleIAPConfigShort update google iap config
 Update google iap config. Other detail info:
-              * Returns : updated google iap config
+  - Returns : updated google iap config
 */
 func (a *Client) UpdateGoogleIAPConfigShort(params *UpdateGoogleIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -646,7 +646,7 @@ func (a *Client) DeleteGoogleIAPConfigShort(params *DeleteGoogleIAPConfigParams,
 UpdateGoogleP12FileShort upload google play p12 file
 Upload google play p12 file.
 Other detail info:
-              * Returns : updated google iap config
+  - Returns : updated google iap config
 */
 func (a *Client) UpdateGoogleP12FileShort(params *UpdateGoogleP12FileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateGoogleP12FileResponse, error) {
 	// TODO: Validate the params before sending
@@ -762,7 +762,7 @@ func (a *Client) GetIAPItemConfigShort(params *GetIAPItemConfigParams, authInfo 
 /*
 UpdateIAPItemConfigShort update iap item config
 Update iap item config. Other detail info:
-              * Returns : updated iap item config
+  - Returns : updated iap item config
 */
 func (a *Client) UpdateIAPItemConfigShort(params *UpdateIAPItemConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateIAPItemConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -892,7 +892,7 @@ func (a *Client) DeleteIAPItemConfigShort(params *DeleteIAPItemConfigParams, aut
 GetOculusIAPConfigShort get oculus iap config
 Get oculus iap config.
 Other detail info:
-              * Returns : steam iap config
+  - Returns : steam iap config
 */
 func (a *Client) GetOculusIAPConfigShort(params *GetOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetOculusIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -947,7 +947,7 @@ func (a *Client) GetOculusIAPConfigShort(params *GetOculusIAPConfigParams, authI
 /*
 UpdateOculusIAPConfigShort update oculus iap config
 Update oculus iap config. Other detail info:
-              * Returns : updated steam iap config
+  - Returns : updated steam iap config
 */
 func (a *Client) UpdateOculusIAPConfigShort(params *UpdateOculusIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateOculusIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1056,7 +1056,7 @@ func (a *Client) DeleteOculusIAPConfigShort(params *DeleteOculusIAPConfigParams,
 GetPlayStationIAPConfigShort get playstation iap config
 Get playstation iap config.
 Other detail info:
-              * Returns : playstation iap config
+  - Returns : playstation iap config
 */
 func (a *Client) GetPlayStationIAPConfigShort(params *GetPlayStationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPlayStationIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1111,7 +1111,7 @@ func (a *Client) GetPlayStationIAPConfigShort(params *GetPlayStationIAPConfigPar
 /*
 UpdatePlaystationIAPConfigShort update playstation iap config
 Update playstation iap config. Other detail info:
-              * Returns : updated playstation iap config
+  - Returns : updated playstation iap config
 */
 func (a *Client) UpdatePlaystationIAPConfigShort(params *UpdatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePlaystationIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1226,7 +1226,7 @@ func (a *Client) DeletePlaystationIAPConfigShort(params *DeletePlaystationIAPCon
 /*
 ValidateExistedPlaystationIAPConfigShort validate existed playstation iap config
 Validate playstation iap config. Other detail info:
-              * Returns : Test Results
+  - Returns : Test Results
 */
 func (a *Client) ValidateExistedPlaystationIAPConfigShort(params *ValidateExistedPlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidateExistedPlaystationIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1281,7 +1281,7 @@ func (a *Client) ValidateExistedPlaystationIAPConfigShort(params *ValidateExiste
 /*
 ValidatePlaystationIAPConfigShort validate playstation iap config
 Validate playstation iap config. Other detail info:
-              * Returns : Test Results
+  - Returns : Test Results
 */
 func (a *Client) ValidatePlaystationIAPConfigShort(params *ValidatePlaystationIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*ValidatePlaystationIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1337,7 +1337,7 @@ func (a *Client) ValidatePlaystationIAPConfigShort(params *ValidatePlaystationIA
 GetSteamIAPConfigShort get steam iap config
 Get steam iap config.
 Other detail info:
-              * Returns : steam iap config
+  - Returns : steam iap config
 */
 func (a *Client) GetSteamIAPConfigShort(params *GetSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetSteamIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1392,7 +1392,7 @@ func (a *Client) GetSteamIAPConfigShort(params *GetSteamIAPConfigParams, authInf
 /*
 UpdateSteamIAPConfigShort update steam iap config
 Update steam iap config. Other detail info:
-              * Returns : updated steam iap config
+  - Returns : updated steam iap config
 */
 func (a *Client) UpdateSteamIAPConfigShort(params *UpdateSteamIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateSteamIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1508,7 +1508,7 @@ func (a *Client) DeleteSteamIAPConfigShort(params *DeleteSteamIAPConfigParams, a
 GetTwitchIAPConfigShort get twitch iap config
 Get twitch iap config.
 Other detail info:
-              * Returns : twitch iap config
+  - Returns : twitch iap config
 */
 func (a *Client) GetTwitchIAPConfigShort(params *GetTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetTwitchIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1563,7 +1563,7 @@ func (a *Client) GetTwitchIAPConfigShort(params *GetTwitchIAPConfigParams, authI
 /*
 UpdateTwitchIAPConfigShort update twitch iap config
 Update twitch iap config. Other detail info:
-              * Returns : updated twitch iap config
+  - Returns : updated twitch iap config
 */
 func (a *Client) UpdateTwitchIAPConfigShort(params *UpdateTwitchIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTwitchIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1672,7 +1672,7 @@ func (a *Client) DeleteTwitchIAPConfigShort(params *DeleteTwitchIAPConfigParams,
 GetXblIAPConfigShort get xbox iap config
 Get xbox iap config.
 Other detail info:
-              * Returns : xbox iap config
+  - Returns : xbox iap config
 */
 func (a *Client) GetXblIAPConfigShort(params *GetXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetXblIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1727,7 +1727,7 @@ func (a *Client) GetXblIAPConfigShort(params *GetXblIAPConfigParams, authInfo ru
 /*
 UpdateXblIAPConfigShort update xbl iap config
 Update xbl iap config. Other detail info:
-              * Returns : updated xbl iap config
+  - Returns : updated xbl iap config
 */
 func (a *Client) UpdateXblIAPConfigShort(params *UpdateXblIAPConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblIAPConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -1836,7 +1836,7 @@ func (a *Client) DeleteXblAPConfigShort(params *DeleteXblAPConfigParams, authInf
 UpdateXblBPCertFileShort upload xbl business partner cert file
 Upload xbl business partner cert file.
 Other detail info:
-              * Returns : updated xbl iap config
+  - Returns : updated xbl iap config
 */
 func (a *Client) UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateXblBPCertFileResponse, error) {
 	// TODO: Validate the params before sending
@@ -1897,7 +1897,6 @@ func (a *Client) UpdateXblBPCertFileShort(params *UpdateXblBPCertFileParams, aut
 
 /*
 QueryAbnormalTransactionsShort query steam abnormal transactions
-
 */
 func (a *Client) QueryAbnormalTransactionsShort(params *QueryAbnormalTransactionsParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAbnormalTransactionsResponse, error) {
 	// TODO: Validate the params before sending
@@ -2005,7 +2004,6 @@ func (a *Client) AdminGetSteamJobInfoShort(params *AdminGetSteamJobInfoParams, a
 
 /*
 AdminResetSteamJobTimeShort reset steam report job with a special time
-
 */
 func (a *Client) AdminResetSteamJobTimeShort(params *AdminResetSteamJobTimeParams, authInfo runtime.ClientAuthInfoWriter) (*AdminResetSteamJobTimeResponse, error) {
 	// TODO: Validate the params before sending
@@ -2140,7 +2138,6 @@ func (a *Client) AdminRefundIAPOrderShort(params *AdminRefundIAPOrderParams, aut
 
 /*
 QuerySteamReportHistoriesShort get iap steam report process histories, default sort by created at
-
 */
 func (a *Client) QuerySteamReportHistoriesShort(params *QuerySteamReportHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*QuerySteamReportHistoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -2250,7 +2247,7 @@ func (a *Client) GetIAPOrderConsumeDetailsShort(params *GetIAPOrderConsumeDetail
 QueryUserIAPOrdersShort query iap orders
 Query IAP orders.
 Other detail info:
-              * Returns : paginated iap orders
+  - Returns : paginated iap orders
 */
 func (a *Client) QueryUserIAPOrdersShort(params *QueryUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPOrdersResponse, error) {
 	// TODO: Validate the params before sending
@@ -2306,7 +2303,7 @@ func (a *Client) QueryUserIAPOrdersShort(params *QueryUserIAPOrdersParams, authI
 QueryAllUserIAPOrdersShort query all user iap orders
 Query all user IAP orders.
 Other detail info:
-              * Returns : list of iap orders
+  - Returns : list of iap orders
 */
 func (a *Client) QueryAllUserIAPOrdersShort(params *QueryAllUserIAPOrdersParams, authInfo runtime.ClientAuthInfoWriter) (*QueryAllUserIAPOrdersResponse, error) {
 	// TODO: Validate the params before sending
@@ -2362,7 +2359,7 @@ func (a *Client) QueryAllUserIAPOrdersShort(params *QueryAllUserIAPOrdersParams,
 QueryUserIAPConsumeHistoryShort query iap consume history
 Query IAP consume history.
 Other detail info:
-              * Returns : paginated iap consume history
+  - Returns : paginated iap consume history
 */
 func (a *Client) QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserIAPConsumeHistoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -2416,8 +2413,9 @@ func (a *Client) QueryUserIAPConsumeHistoryShort(params *QueryUserIAPConsumeHist
 
 /*
 MockFulfillIAPItemShort mock fulfill iap item.
- [TEST FACILITY ONLY] Forbidden in live environment. Mock fulfill iap item without validate receipt.Other detail info:
-              * Returns :
+
+	[TEST FACILITY ONLY] Forbidden in live environment. Mock fulfill iap item without validate receipt.Other detail info:
+	             * Returns :
 */
 func (a *Client) MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*MockFulfillIAPItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2493,7 +2491,7 @@ func (a *Client) MockFulfillIAPItemShort(params *MockFulfillIAPItemParams, authI
 AdminGetIAPOrderLineItemsShort query iap order line items
 Query IAP order ine items.
 Other detail info:
-              * Returns : paginated iap orders
+  - Returns : paginated iap orders
 */
 func (a *Client) AdminGetIAPOrderLineItemsShort(params *AdminGetIAPOrderLineItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetIAPOrderLineItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -2547,7 +2545,6 @@ func (a *Client) AdminGetIAPOrderLineItemsShort(params *AdminGetIAPOrderLineItem
 
 /*
 AdminSyncSteamAbnormalTransactionShort sync abnormal transaction, sync steam order by transaction. only works when steam sync mode is transaction.
-
 */
 func (a *Client) AdminSyncSteamAbnormalTransactionShort(params *AdminSyncSteamAbnormalTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncSteamAbnormalTransactionResponse, error) {
 	// TODO: Validate the params before sending
@@ -2622,7 +2619,6 @@ func (a *Client) AdminSyncSteamAbnormalTransactionShort(params *AdminSyncSteamAb
 
 /*
 AdminSyncSteamIAPByTransactionShort manual sync steam transaction. only works when steam sync mode is transaction.
-
 */
 func (a *Client) AdminSyncSteamIAPByTransactionShort(params *AdminSyncSteamIAPByTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncSteamIAPByTransactionResponse, error) {
 	// TODO: Validate the params before sending
@@ -2881,7 +2877,7 @@ func (a *Client) SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlem
 /*
 PublicFulfillAppleIAPItemShort fulfill apple iap item.
 Verify apple iap receipt and fulfill item. don't support subscriptionOther detail info:
-              * Returns :
+  - Returns :
 */
 func (a *Client) PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillAppleIAPItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -2956,7 +2952,7 @@ func (a *Client) PublicFulfillAppleIAPItemShort(params *PublicFulfillAppleIAPIte
 /*
 SyncEpicGamesInventoryShort sync epic games inventory.
 Sync epic games inventory's items.Other detail info:
-              * Returns :
+  - Returns :
 */
 func (a *Client) SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncEpicGamesInventoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -3025,7 +3021,7 @@ func (a *Client) SyncEpicGamesInventoryShort(params *SyncEpicGamesInventoryParam
 /*
 PublicFulfillGoogleIAPItemShort fulfill google iap item.
 Verify google iap receipt and fulfill item.Other detail info:
-              * Returns :
+  - Returns :
 */
 func (a *Client) PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*PublicFulfillGoogleIAPItemResponse, error) {
 	// TODO: Validate the params before sending
@@ -3101,7 +3097,7 @@ func (a *Client) PublicFulfillGoogleIAPItemShort(params *PublicFulfillGoogleIAPI
 /*
 SyncOculusConsumableEntitlementsShort sync oculus entitlements.
 Sync Oculus entitlements.Other detail info:
-              * Returns :
+  - Returns :
 */
 func (a *Client) SyncOculusConsumableEntitlementsShort(params *SyncOculusConsumableEntitlementsParams, authInfo runtime.ClientAuthInfoWriter) (*SyncOculusConsumableEntitlementsResponse, error) {
 	// TODO: Validate the params before sending
@@ -3170,7 +3166,7 @@ func (a *Client) SyncOculusConsumableEntitlementsShort(params *SyncOculusConsuma
 /*
 PublicReconcilePlayStationStoreShort synchronize with entitlements in psn store.
 Synchronize with entitlements in PSN Store.Other detail info:
-              * Returns : result of synchronization
+  - Returns : result of synchronization
 */
 func (a *Client) PublicReconcilePlayStationStoreShort(params *PublicReconcilePlayStationStoreParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreResponse, error) {
 	// TODO: Validate the params before sending
@@ -3239,7 +3235,7 @@ func (a *Client) PublicReconcilePlayStationStoreShort(params *PublicReconcilePla
 /*
 PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort synchronize with entitlements in psn store with multiple service labels.
 Synchronize with entitlements in PSN Store with multiple service labels.Other detail info:
-              * Returns : result of synchronization
+  - Returns : result of synchronization
 */
 func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(params *PublicReconcilePlayStationStoreWithMultipleServiceLabelsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicReconcilePlayStationStoreWithMultipleServiceLabelsResponse, error) {
 	// TODO: Validate the params before sending
@@ -3308,7 +3304,7 @@ func (a *Client) PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(p
 /*
 SyncSteamInventoryShort sync steam inventory.
 Sync steam inventory's items.Other detail info:
-              * Returns :
+  - Returns :
 */
 func (a *Client) SyncSteamInventoryShort(params *SyncSteamInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamInventoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -3375,7 +3371,6 @@ func (a *Client) SyncSteamInventoryShort(params *SyncSteamInventoryParams, authI
 
 /*
 SyncSteamAbnormalTransactionShort sync abnormal transaction, sync steam order by transaction. only works when steam sync mode is transaction.
-
 */
 func (a *Client) SyncSteamAbnormalTransactionShort(params *SyncSteamAbnormalTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamAbnormalTransactionResponse, error) {
 	// TODO: Validate the params before sending
@@ -3451,7 +3446,7 @@ func (a *Client) SyncSteamAbnormalTransactionShort(params *SyncSteamAbnormalTran
 /*
 SyncSteamIAPByTransactionShort sync steam in app purchase by transaction.
 Sync steam in app purchase by transaction.Other detail info:
-              * Returns :
+  - Returns :
 */
 func (a *Client) SyncSteamIAPByTransactionShort(params *SyncSteamIAPByTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*SyncSteamIAPByTransactionResponse, error) {
 	// TODO: Validate the params before sending
@@ -3527,7 +3522,7 @@ func (a *Client) SyncSteamIAPByTransactionShort(params *SyncSteamIAPByTransactio
 /*
 SyncTwitchDropsEntitlement1Short sync twitch drops entitlements.
 Sync twitch drops entitlements.Other detail info:
-              * Returns :
+  - Returns :
 */
 func (a *Client) SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitlement1Params, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlement1Response, error) {
 	// TODO: Validate the params before sending
@@ -3588,7 +3583,7 @@ func (a *Client) SyncTwitchDropsEntitlement1Short(params *SyncTwitchDropsEntitle
 /*
 SyncXboxInventoryShort sync xbox inventory.
 Sync Xbox inventory's items.Other detail info:
-              * Returns :
+  - Returns :
 */
 func (a *Client) SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInfo runtime.ClientAuthInfoWriter) (*SyncXboxInventoryResponse, error) {
 	// TODO: Validate the params before sending
@@ -3657,7 +3652,7 @@ func (a *Client) SyncXboxInventoryShort(params *SyncXboxInventoryParams, authInf
 /*
 V2PublicFulfillAppleIAPItemShort fulfill apple iap item v2.
 Verify apple iap transaction and fulfill item, support subscriptionOther detail info:
-              * Returns :
+  - Returns :
 */
 func (a *Client) V2PublicFulfillAppleIAPItemShort(params *V2PublicFulfillAppleIAPItemParams, authInfo runtime.ClientAuthInfoWriter) (*V2PublicFulfillAppleIAPItemResponse, error) {
 	// TODO: Validate the params before sending

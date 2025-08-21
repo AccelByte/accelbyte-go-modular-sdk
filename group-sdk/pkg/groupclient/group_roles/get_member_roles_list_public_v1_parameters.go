@@ -58,7 +58,8 @@ func NewGetMemberRolesListPublicV1ParamsWithHTTPClient(client *http.Client) *Get
 	}
 }
 
-/*GetMemberRolesListPublicV1Params contains all the parameters to send to the API endpoint
+/*
+GetMemberRolesListPublicV1Params contains all the parameters to send to the API endpoint
 for the get member roles list public v1 operation typically these are written to a http.Request
 */
 type GetMemberRolesListPublicV1Params struct {

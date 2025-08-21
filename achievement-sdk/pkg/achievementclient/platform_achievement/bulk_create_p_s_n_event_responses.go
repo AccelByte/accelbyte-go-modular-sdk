@@ -115,9 +115,10 @@ func NewBulkCreatePSNEventOK() *BulkCreatePSNEventOK {
 	return &BulkCreatePSNEventOK{}
 }
 
-/*BulkCreatePSNEventOK handles this case with default header values.
+/*
+BulkCreatePSNEventOK handles this case with default header values.
 
-  OK
+	OK
 */
 type BulkCreatePSNEventOK struct {
 	Payload *achievementclientmodels.ModelsBulkCreatePSNEventResponse
@@ -169,9 +170,10 @@ func NewBulkCreatePSNEventUnauthorized() *BulkCreatePSNEventUnauthorized {
 	return &BulkCreatePSNEventUnauthorized{}
 }
 
-/*BulkCreatePSNEventUnauthorized handles this case with default header values.
+/*
+BulkCreatePSNEventUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type BulkCreatePSNEventUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewBulkCreatePSNEventForbidden() *BulkCreatePSNEventForbidden {
 	return &BulkCreatePSNEventForbidden{}
 }
 
-/*BulkCreatePSNEventForbidden handles this case with default header values.
+/*
+BulkCreatePSNEventForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type BulkCreatePSNEventForbidden struct {
 	Payload *achievementclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewBulkCreatePSNEventInternalServerError() *BulkCreatePSNEventInternalServe
 	return &BulkCreatePSNEventInternalServerError{}
 }
 
-/*BulkCreatePSNEventInternalServerError handles this case with default header values.
+/*
+BulkCreatePSNEventInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type BulkCreatePSNEventInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

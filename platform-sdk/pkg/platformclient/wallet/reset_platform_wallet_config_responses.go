@@ -69,9 +69,10 @@ func NewResetPlatformWalletConfigOK() *ResetPlatformWalletConfigOK {
 	return &ResetPlatformWalletConfigOK{}
 }
 
-/*ResetPlatformWalletConfigOK handles this case with default header values.
+/*
+ResetPlatformWalletConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ResetPlatformWalletConfigOK struct {
 	Payload *platformclientmodels.PlatformWalletConfigInfo

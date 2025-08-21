@@ -57,7 +57,8 @@ func NewAdminKickGameSessionMemberParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminKickGameSessionMemberParams contains all the parameters to send to the API endpoint
+/*
+AdminKickGameSessionMemberParams contains all the parameters to send to the API endpoint
 for the admin kick game session member operation typically these are written to a http.Request
 */
 type AdminKickGameSessionMemberParams struct {

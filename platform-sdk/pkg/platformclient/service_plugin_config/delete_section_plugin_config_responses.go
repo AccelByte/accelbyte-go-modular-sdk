@@ -66,9 +66,10 @@ func NewDeleteSectionPluginConfigNoContent() *DeleteSectionPluginConfigNoContent
 	return &DeleteSectionPluginConfigNoContent{}
 }
 
-/*DeleteSectionPluginConfigNoContent handles this case with default header values.
+/*
+DeleteSectionPluginConfigNoContent handles this case with default header values.
 
-  Delete successfully
+	Delete successfully
 */
 type DeleteSectionPluginConfigNoContent struct {
 }

@@ -69,9 +69,10 @@ func NewListKeysOK() *ListKeysOK {
 	return &ListKeysOK{}
 }
 
-/*ListKeysOK handles this case with default header values.
+/*
+ListKeysOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ListKeysOK struct {
 	Payload *platformclientmodels.KeyPagingSliceResult

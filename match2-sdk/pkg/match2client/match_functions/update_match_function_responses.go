@@ -145,9 +145,10 @@ func NewUpdateMatchFunctionOK() *UpdateMatchFunctionOK {
 	return &UpdateMatchFunctionOK{}
 }
 
-/*UpdateMatchFunctionOK handles this case with default header values.
+/*
+UpdateMatchFunctionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateMatchFunctionOK struct {
 	Payload *match2clientmodels.APIMatchFunctionConfig
@@ -199,9 +200,10 @@ func NewUpdateMatchFunctionBadRequest() *UpdateMatchFunctionBadRequest {
 	return &UpdateMatchFunctionBadRequest{}
 }
 
-/*UpdateMatchFunctionBadRequest handles this case with default header values.
+/*
+UpdateMatchFunctionBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateMatchFunctionBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewUpdateMatchFunctionUnauthorized() *UpdateMatchFunctionUnauthorized {
 	return &UpdateMatchFunctionUnauthorized{}
 }
 
-/*UpdateMatchFunctionUnauthorized handles this case with default header values.
+/*
+UpdateMatchFunctionUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateMatchFunctionUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewUpdateMatchFunctionNotFound() *UpdateMatchFunctionNotFound {
 	return &UpdateMatchFunctionNotFound{}
 }
 
-/*UpdateMatchFunctionNotFound handles this case with default header values.
+/*
+UpdateMatchFunctionNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type UpdateMatchFunctionNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewUpdateMatchFunctionConflict() *UpdateMatchFunctionConflict {
 	return &UpdateMatchFunctionConflict{}
 }
 
-/*UpdateMatchFunctionConflict handles this case with default header values.
+/*
+UpdateMatchFunctionConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type UpdateMatchFunctionConflict struct {
 	Payload *match2clientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewUpdateMatchFunctionInternalServerError() *UpdateMatchFunctionInternalSer
 	return &UpdateMatchFunctionInternalServerError{}
 }
 
-/*UpdateMatchFunctionInternalServerError handles this case with default header values.
+/*
+UpdateMatchFunctionInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateMatchFunctionInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

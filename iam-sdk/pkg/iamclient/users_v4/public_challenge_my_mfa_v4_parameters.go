@@ -57,7 +57,8 @@ func NewPublicChallengeMyMFAV4ParamsWithHTTPClient(client *http.Client) *PublicC
 	}
 }
 
-/*PublicChallengeMyMFAV4Params contains all the parameters to send to the API endpoint
+/*
+PublicChallengeMyMFAV4Params contains all the parameters to send to the API endpoint
 for the public challenge my mfav4 operation typically these are written to a http.Request
 */
 type PublicChallengeMyMFAV4Params struct {

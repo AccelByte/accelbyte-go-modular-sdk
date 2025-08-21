@@ -85,9 +85,10 @@ func NewRegisterXblSessionsOK() *RegisterXblSessionsOK {
 	return &RegisterXblSessionsOK{}
 }
 
-/*RegisterXblSessionsOK handles this case with default header values.
+/*
+RegisterXblSessionsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type RegisterXblSessionsOK struct {
 	Payload map[string]interface{}
@@ -137,9 +138,10 @@ func NewRegisterXblSessionsBadRequest() *RegisterXblSessionsBadRequest {
 	return &RegisterXblSessionsBadRequest{}
 }
 
-/*RegisterXblSessionsBadRequest handles this case with default header values.
+/*
+RegisterXblSessionsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type RegisterXblSessionsBadRequest struct {
 	Payload *platformclientmodels.ValidationErrorEntity

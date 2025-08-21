@@ -144,9 +144,10 @@ func NewRejectBackfillOK() *RejectBackfillOK {
 	return &RejectBackfillOK{}
 }
 
-/*RejectBackfillOK handles this case with default header values.
+/*
+RejectBackfillOK handles this case with default header values.
 
-  OK
+	OK
 */
 type RejectBackfillOK struct {
 }
@@ -171,9 +172,10 @@ func NewRejectBackfillBadRequest() *RejectBackfillBadRequest {
 	return &RejectBackfillBadRequest{}
 }
 
-/*RejectBackfillBadRequest handles this case with default header values.
+/*
+RejectBackfillBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type RejectBackfillBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewRejectBackfillUnauthorized() *RejectBackfillUnauthorized {
 	return &RejectBackfillUnauthorized{}
 }
 
-/*RejectBackfillUnauthorized handles this case with default header values.
+/*
+RejectBackfillUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type RejectBackfillUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewRejectBackfillForbidden() *RejectBackfillForbidden {
 	return &RejectBackfillForbidden{}
 }
 
-/*RejectBackfillForbidden handles this case with default header values.
+/*
+RejectBackfillForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type RejectBackfillForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewRejectBackfillNotFound() *RejectBackfillNotFound {
 	return &RejectBackfillNotFound{}
 }
 
-/*RejectBackfillNotFound handles this case with default header values.
+/*
+RejectBackfillNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type RejectBackfillNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewRejectBackfillInternalServerError() *RejectBackfillInternalServerError {
 	return &RejectBackfillInternalServerError{}
 }
 
-/*RejectBackfillInternalServerError handles this case with default header values.
+/*
+RejectBackfillInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type RejectBackfillInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

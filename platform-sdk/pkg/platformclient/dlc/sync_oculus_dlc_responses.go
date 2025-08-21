@@ -99,9 +99,10 @@ func NewSyncOculusDLCNoContent() *SyncOculusDLCNoContent {
 	return &SyncOculusDLCNoContent{}
 }
 
-/*SyncOculusDLCNoContent handles this case with default header values.
+/*
+SyncOculusDLCNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type SyncOculusDLCNoContent struct {
 }
@@ -126,9 +127,10 @@ func NewSyncOculusDLCBadRequest() *SyncOculusDLCBadRequest {
 	return &SyncOculusDLCBadRequest{}
 }
 
-/*SyncOculusDLCBadRequest handles this case with default header values.
+/*
+SyncOculusDLCBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39134</td><td>Invalid Oculus IAP config under namespace [{namespace}]: [{message}]</td></tr><tr><td>39133</td><td>Bad request for Oculus: [{reason}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39126</td><td>User id [{}] in namespace [{}] doesn't link platform [{}]</td></tr><tr><td>39134</td><td>Invalid Oculus IAP config under namespace [{namespace}]: [{message}]</td></tr><tr><td>39133</td><td>Bad request for Oculus: [{reason}]</td></tr></table>
 */
 type SyncOculusDLCBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -180,9 +182,10 @@ func NewSyncOculusDLCNotFound() *SyncOculusDLCNotFound {
 	return &SyncOculusDLCNotFound{}
 }
 
-/*SyncOculusDLCNotFound handles this case with default header values.
+/*
+SyncOculusDLCNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39146</td><td>Oculus IAP config not found in namespace [{namespace}].</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>39146</td><td>Oculus IAP config not found in namespace [{namespace}].</td></tr></table>
 */
 type SyncOculusDLCNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

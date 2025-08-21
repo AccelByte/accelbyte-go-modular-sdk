@@ -115,9 +115,10 @@ func NewRefundUserPaymentOrderOK() *RefundUserPaymentOrderOK {
 	return &RefundUserPaymentOrderOK{}
 }
 
-/*RefundUserPaymentOrderOK handles this case with default header values.
+/*
+RefundUserPaymentOrderOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type RefundUserPaymentOrderOK struct {
 	Payload *platformclientmodels.PaymentOrderInfo
@@ -169,9 +170,10 @@ func NewRefundUserPaymentOrderNotFound() *RefundUserPaymentOrderNotFound {
 	return &RefundUserPaymentOrderNotFound{}
 }
 
-/*RefundUserPaymentOrderNotFound handles this case with default header values.
+/*
+RefundUserPaymentOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr></table>
 */
 type RefundUserPaymentOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewRefundUserPaymentOrderConflict() *RefundUserPaymentOrderConflict {
 	return &RefundUserPaymentOrderConflict{}
 }
 
-/*RefundUserPaymentOrderConflict handles this case with default header values.
+/*
+RefundUserPaymentOrderConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33172</td><td>Payment order [{paymentOrderNo}] is not refundable</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33172</td><td>Payment order [{paymentOrderNo}] is not refundable</td></tr></table>
 */
 type RefundUserPaymentOrderConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewRefundUserPaymentOrderUnprocessableEntity() *RefundUserPaymentOrderUnpro
 	return &RefundUserPaymentOrderUnprocessableEntity{}
 }
 
-/*RefundUserPaymentOrderUnprocessableEntity handles this case with default header values.
+/*
+RefundUserPaymentOrderUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type RefundUserPaymentOrderUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

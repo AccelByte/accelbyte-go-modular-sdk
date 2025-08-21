@@ -115,9 +115,10 @@ func NewPublicStorePlayerAttributesOK() *PublicStorePlayerAttributesOK {
 	return &PublicStorePlayerAttributesOK{}
 }
 
-/*PublicStorePlayerAttributesOK handles this case with default header values.
+/*
+PublicStorePlayerAttributesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicStorePlayerAttributesOK struct {
 	Payload *sessionclientmodels.ApimodelsPlayerAttributesResponseBody
@@ -169,9 +170,10 @@ func NewPublicStorePlayerAttributesBadRequest() *PublicStorePlayerAttributesBadR
 	return &PublicStorePlayerAttributesBadRequest{}
 }
 
-/*PublicStorePlayerAttributesBadRequest handles this case with default header values.
+/*
+PublicStorePlayerAttributesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicStorePlayerAttributesBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicStorePlayerAttributesUnauthorized() *PublicStorePlayerAttributesUn
 	return &PublicStorePlayerAttributesUnauthorized{}
 }
 
-/*PublicStorePlayerAttributesUnauthorized handles this case with default header values.
+/*
+PublicStorePlayerAttributesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicStorePlayerAttributesUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicStorePlayerAttributesInternalServerError() *PublicStorePlayerAttri
 	return &PublicStorePlayerAttributesInternalServerError{}
 }
 
-/*PublicStorePlayerAttributesInternalServerError handles this case with default header values.
+/*
+PublicStorePlayerAttributesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicStorePlayerAttributesInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

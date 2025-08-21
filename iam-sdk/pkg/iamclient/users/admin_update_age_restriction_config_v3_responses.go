@@ -130,9 +130,10 @@ func NewAdminUpdateAgeRestrictionConfigV3OK() *AdminUpdateAgeRestrictionConfigV3
 	return &AdminUpdateAgeRestrictionConfigV3OK{}
 }
 
-/*AdminUpdateAgeRestrictionConfigV3OK handles this case with default header values.
+/*
+AdminUpdateAgeRestrictionConfigV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateAgeRestrictionConfigV3OK struct {
 	Payload *iamclientmodels.ModelAgeRestrictionResponseV3
@@ -184,9 +185,10 @@ func NewAdminUpdateAgeRestrictionConfigV3BadRequest() *AdminUpdateAgeRestriction
 	return &AdminUpdateAgeRestrictionConfigV3BadRequest{}
 }
 
-/*AdminUpdateAgeRestrictionConfigV3BadRequest handles this case with default header values.
+/*
+AdminUpdateAgeRestrictionConfigV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminUpdateAgeRestrictionConfigV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminUpdateAgeRestrictionConfigV3Unauthorized() *AdminUpdateAgeRestricti
 	return &AdminUpdateAgeRestrictionConfigV3Unauthorized{}
 }
 
-/*AdminUpdateAgeRestrictionConfigV3Unauthorized handles this case with default header values.
+/*
+AdminUpdateAgeRestrictionConfigV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateAgeRestrictionConfigV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminUpdateAgeRestrictionConfigV3Forbidden() *AdminUpdateAgeRestrictionC
 	return &AdminUpdateAgeRestrictionConfigV3Forbidden{}
 }
 
-/*AdminUpdateAgeRestrictionConfigV3Forbidden handles this case with default header values.
+/*
+AdminUpdateAgeRestrictionConfigV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateAgeRestrictionConfigV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminUpdateAgeRestrictionConfigV3InternalServerError() *AdminUpdateAgeRe
 	return &AdminUpdateAgeRestrictionConfigV3InternalServerError{}
 }
 
-/*AdminUpdateAgeRestrictionConfigV3InternalServerError handles this case with default header values.
+/*
+AdminUpdateAgeRestrictionConfigV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpdateAgeRestrictionConfigV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

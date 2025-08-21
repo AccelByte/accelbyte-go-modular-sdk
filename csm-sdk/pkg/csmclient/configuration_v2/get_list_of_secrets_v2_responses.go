@@ -145,10 +145,9 @@ func NewGetListOfSecretsV2OK() *GetListOfSecretsV2OK {
 	return &GetListOfSecretsV2OK{}
 }
 
-/*GetListOfSecretsV2OK handles this case with default header values.
-
-
- */
+/*
+GetListOfSecretsV2OK handles this case with default header values.
+*/
 type GetListOfSecretsV2OK struct {
 	Payload *csmclientmodels.ApimodelGetListOfConfigurationsV2Response
 }
@@ -199,9 +198,10 @@ func NewGetListOfSecretsV2BadRequest() *GetListOfSecretsV2BadRequest {
 	return &GetListOfSecretsV2BadRequest{}
 }
 
-/*GetListOfSecretsV2BadRequest handles this case with default header values.
+/*
+GetListOfSecretsV2BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type GetListOfSecretsV2BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -253,9 +253,10 @@ func NewGetListOfSecretsV2Unauthorized() *GetListOfSecretsV2Unauthorized {
 	return &GetListOfSecretsV2Unauthorized{}
 }
 
-/*GetListOfSecretsV2Unauthorized handles this case with default header values.
+/*
+GetListOfSecretsV2Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetListOfSecretsV2Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -307,9 +308,10 @@ func NewGetListOfSecretsV2Forbidden() *GetListOfSecretsV2Forbidden {
 	return &GetListOfSecretsV2Forbidden{}
 }
 
-/*GetListOfSecretsV2Forbidden handles this case with default header values.
+/*
+GetListOfSecretsV2Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetListOfSecretsV2Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -361,9 +363,10 @@ func NewGetListOfSecretsV2NotFound() *GetListOfSecretsV2NotFound {
 	return &GetListOfSecretsV2NotFound{}
 }
 
-/*GetListOfSecretsV2NotFound handles this case with default header values.
+/*
+GetListOfSecretsV2NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetListOfSecretsV2NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -415,9 +418,10 @@ func NewGetListOfSecretsV2InternalServerError() *GetListOfSecretsV2InternalServe
 	return &GetListOfSecretsV2InternalServerError{}
 }
 
-/*GetListOfSecretsV2InternalServerError handles this case with default header values.
+/*
+GetListOfSecretsV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetListOfSecretsV2InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

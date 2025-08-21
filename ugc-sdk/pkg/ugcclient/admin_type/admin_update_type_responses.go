@@ -145,9 +145,10 @@ func NewAdminUpdateTypeOK() *AdminUpdateTypeOK {
 	return &AdminUpdateTypeOK{}
 }
 
-/*AdminUpdateTypeOK handles this case with default header values.
+/*
+AdminUpdateTypeOK handles this case with default header values.
 
-  Types updated
+	Types updated
 */
 type AdminUpdateTypeOK struct {
 	Payload *ugcclientmodels.ModelsCreateTypeResponse
@@ -199,9 +200,10 @@ func NewAdminUpdateTypeBadRequest() *AdminUpdateTypeBadRequest {
 	return &AdminUpdateTypeBadRequest{}
 }
 
-/*AdminUpdateTypeBadRequest handles this case with default header values.
+/*
+AdminUpdateTypeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771901</td><td>Malformed request/Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771901</td><td>Malformed request/Invalid request body</td></tr></table>
 */
 type AdminUpdateTypeBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminUpdateTypeUnauthorized() *AdminUpdateTypeUnauthorized {
 	return &AdminUpdateTypeUnauthorized{}
 }
 
-/*AdminUpdateTypeUnauthorized handles this case with default header values.
+/*
+AdminUpdateTypeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateTypeUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminUpdateTypeNotFound() *AdminUpdateTypeNotFound {
 	return &AdminUpdateTypeNotFound{}
 }
 
-/*AdminUpdateTypeNotFound handles this case with default header values.
+/*
+AdminUpdateTypeNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771903</td><td>Type not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771903</td><td>Type not found</td></tr></table>
 */
 type AdminUpdateTypeNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminUpdateTypeConflict() *AdminUpdateTypeConflict {
 	return &AdminUpdateTypeConflict{}
 }
 
-/*AdminUpdateTypeConflict handles this case with default header values.
+/*
+AdminUpdateTypeConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771904</td><td>Proposed Type already exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771904</td><td>Proposed Type already exist</td></tr></table>
 */
 type AdminUpdateTypeConflict struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminUpdateTypeInternalServerError() *AdminUpdateTypeInternalServerError
 	return &AdminUpdateTypeInternalServerError{}
 }
 
-/*AdminUpdateTypeInternalServerError handles this case with default header values.
+/*
+AdminUpdateTypeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771902</td><td>Unable update types</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>771902</td><td>Unable update types</td></tr></table>
 */
 type AdminUpdateTypeInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

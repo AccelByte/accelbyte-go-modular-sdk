@@ -57,7 +57,8 @@ func NewGetGameRecordHandlerV1ParamsWithHTTPClient(client *http.Client) *GetGame
 	}
 }
 
-/*GetGameRecordHandlerV1Params contains all the parameters to send to the API endpoint
+/*
+GetGameRecordHandlerV1Params contains all the parameters to send to the API endpoint
 for the get game record handler v1 operation typically these are written to a http.Request
 */
 type GetGameRecordHandlerV1Params struct {

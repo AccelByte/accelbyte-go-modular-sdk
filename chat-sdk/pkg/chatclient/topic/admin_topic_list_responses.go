@@ -130,9 +130,10 @@ func NewAdminTopicListOK() *AdminTopicListOK {
 	return &AdminTopicListOK{}
 }
 
-/*AdminTopicListOK handles this case with default header values.
+/*
+AdminTopicListOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminTopicListOK struct {
 	Payload []*chatclientmodels.ModelsTopicResponse
@@ -182,9 +183,10 @@ func NewAdminTopicListBadRequest() *AdminTopicListBadRequest {
 	return &AdminTopicListBadRequest{}
 }
 
-/*AdminTopicListBadRequest handles this case with default header values.
+/*
+AdminTopicListBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminTopicListBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewAdminTopicListUnauthorized() *AdminTopicListUnauthorized {
 	return &AdminTopicListUnauthorized{}
 }
 
-/*AdminTopicListUnauthorized handles this case with default header values.
+/*
+AdminTopicListUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminTopicListUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewAdminTopicListForbidden() *AdminTopicListForbidden {
 	return &AdminTopicListForbidden{}
 }
 
-/*AdminTopicListForbidden handles this case with default header values.
+/*
+AdminTopicListForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminTopicListForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewAdminTopicListInternalServerError() *AdminTopicListInternalServerError {
 	return &AdminTopicListInternalServerError{}
 }
 
-/*AdminTopicListInternalServerError handles this case with default header values.
+/*
+AdminTopicListInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminTopicListInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

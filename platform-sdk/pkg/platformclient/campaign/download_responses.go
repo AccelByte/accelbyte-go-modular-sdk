@@ -72,9 +72,10 @@ func NewDownloadOK(writer io.Writer) *DownloadOK {
 	}
 }
 
-/*DownloadOK handles this case with default header values.
+/*
+DownloadOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type DownloadOK struct {
 	Payload io.Writer

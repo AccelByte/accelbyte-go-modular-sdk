@@ -69,9 +69,10 @@ func NewGetCatalogConfigOK() *GetCatalogConfigOK {
 	return &GetCatalogConfigOK{}
 }
 
-/*GetCatalogConfigOK handles this case with default header values.
+/*
+GetCatalogConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCatalogConfigOK struct {
 	Payload *platformclientmodels.CatalogConfigInfo

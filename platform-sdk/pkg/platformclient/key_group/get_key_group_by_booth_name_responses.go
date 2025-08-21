@@ -85,9 +85,10 @@ func NewGetKeyGroupByBoothNameOK() *GetKeyGroupByBoothNameOK {
 	return &GetKeyGroupByBoothNameOK{}
 }
 
-/*GetKeyGroupByBoothNameOK handles this case with default header values.
+/*
+GetKeyGroupByBoothNameOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetKeyGroupByBoothNameOK struct {
 	Payload *platformclientmodels.KeyGroupInfo
@@ -139,9 +140,10 @@ func NewGetKeyGroupByBoothNameNotFound() *GetKeyGroupByBoothNameNotFound {
 	return &GetKeyGroupByBoothNameNotFound{}
 }
 
-/*GetKeyGroupByBoothNameNotFound handles this case with default header values.
+/*
+GetKeyGroupByBoothNameNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37041</td><td>Ticket booth [{boothName}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetKeyGroupByBoothNameNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

@@ -85,9 +85,10 @@ func NewQuerySeasonsOK() *QuerySeasonsOK {
 	return &QuerySeasonsOK{}
 }
 
-/*QuerySeasonsOK handles this case with default header values.
+/*
+QuerySeasonsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QuerySeasonsOK struct {
 	Payload *seasonpassclientmodels.ListSeasonInfoPagingSlicedResult
@@ -139,9 +140,10 @@ func NewQuerySeasonsBadRequest() *QuerySeasonsBadRequest {
 	return &QuerySeasonsBadRequest{}
 }
 
-/*QuerySeasonsBadRequest handles this case with default header values.
+/*
+QuerySeasonsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr></table>
 */
 type QuerySeasonsBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity

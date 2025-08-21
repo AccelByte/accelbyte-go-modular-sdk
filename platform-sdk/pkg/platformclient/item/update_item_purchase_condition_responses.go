@@ -130,9 +130,10 @@ func NewUpdateItemPurchaseConditionOK() *UpdateItemPurchaseConditionOK {
 	return &UpdateItemPurchaseConditionOK{}
 }
 
-/*UpdateItemPurchaseConditionOK handles this case with default header values.
+/*
+UpdateItemPurchaseConditionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateItemPurchaseConditionOK struct {
 	Payload *platformclientmodels.FullItemInfo
@@ -184,9 +185,10 @@ func NewUpdateItemPurchaseConditionBadRequest() *UpdateItemPurchaseConditionBadR
 	return &UpdateItemPurchaseConditionBadRequest{}
 }
 
-/*UpdateItemPurchaseConditionBadRequest handles this case with default header values.
+/*
+UpdateItemPurchaseConditionBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30331</td><td>Invalid purchase condition</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30331</td><td>Invalid purchase condition</td></tr></table>
 */
 type UpdateItemPurchaseConditionBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewUpdateItemPurchaseConditionNotFound() *UpdateItemPurchaseConditionNotFou
 	return &UpdateItemPurchaseConditionNotFound{}
 }
 
-/*UpdateItemPurchaseConditionNotFound handles this case with default header values.
+/*
+UpdateItemPurchaseConditionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateItemPurchaseConditionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewUpdateItemPurchaseConditionConflict() *UpdateItemPurchaseConditionConfli
 	return &UpdateItemPurchaseConditionConflict{}
 }
 
-/*UpdateItemPurchaseConditionConflict handles this case with default header values.
+/*
+UpdateItemPurchaseConditionConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type UpdateItemPurchaseConditionConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewUpdateItemPurchaseConditionUnprocessableEntity() *UpdateItemPurchaseCond
 	return &UpdateItemPurchaseConditionUnprocessableEntity{}
 }
 
-/*UpdateItemPurchaseConditionUnprocessableEntity handles this case with default header values.
+/*
+UpdateItemPurchaseConditionUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateItemPurchaseConditionUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

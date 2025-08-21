@@ -145,9 +145,10 @@ func NewPublicGeneratePartyCodeOK() *PublicGeneratePartyCodeOK {
 	return &PublicGeneratePartyCodeOK{}
 }
 
-/*PublicGeneratePartyCodeOK handles this case with default header values.
+/*
+PublicGeneratePartyCodeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGeneratePartyCodeOK struct {
 	Payload *sessionclientmodels.ApimodelsPartySessionResponse
@@ -199,9 +200,10 @@ func NewPublicGeneratePartyCodeBadRequest() *PublicGeneratePartyCodeBadRequest {
 	return &PublicGeneratePartyCodeBadRequest{}
 }
 
-/*PublicGeneratePartyCodeBadRequest handles this case with default header values.
+/*
+PublicGeneratePartyCodeBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGeneratePartyCodeBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewPublicGeneratePartyCodeUnauthorized() *PublicGeneratePartyCodeUnauthoriz
 	return &PublicGeneratePartyCodeUnauthorized{}
 }
 
-/*PublicGeneratePartyCodeUnauthorized handles this case with default header values.
+/*
+PublicGeneratePartyCodeUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGeneratePartyCodeUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewPublicGeneratePartyCodeForbidden() *PublicGeneratePartyCodeForbidden {
 	return &PublicGeneratePartyCodeForbidden{}
 }
 
-/*PublicGeneratePartyCodeForbidden handles this case with default header values.
+/*
+PublicGeneratePartyCodeForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicGeneratePartyCodeForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewPublicGeneratePartyCodeNotFound() *PublicGeneratePartyCodeNotFound {
 	return &PublicGeneratePartyCodeNotFound{}
 }
 
-/*PublicGeneratePartyCodeNotFound handles this case with default header values.
+/*
+PublicGeneratePartyCodeNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGeneratePartyCodeNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewPublicGeneratePartyCodeInternalServerError() *PublicGeneratePartyCodeInt
 	return &PublicGeneratePartyCodeInternalServerError{}
 }
 
-/*PublicGeneratePartyCodeInternalServerError handles this case with default header values.
+/*
+PublicGeneratePartyCodeInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGeneratePartyCodeInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

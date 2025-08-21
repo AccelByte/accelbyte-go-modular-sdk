@@ -145,9 +145,10 @@ func NewUpdateStagingContentOK() *UpdateStagingContentOK {
 	return &UpdateStagingContentOK{}
 }
 
-/*UpdateStagingContentOK handles this case with default header values.
+/*
+UpdateStagingContentOK handles this case with default header values.
 
-  staging content updated
+	staging content updated
 */
 type UpdateStagingContentOK struct {
 	Payload *ugcclientmodels.ModelsStagingContentResponse
@@ -199,9 +200,10 @@ func NewUpdateStagingContentBadRequest() *UpdateStagingContentBadRequest {
 	return &UpdateStagingContentBadRequest{}
 }
 
-/*UpdateStagingContentBadRequest handles this case with default header values.
+/*
+UpdateStagingContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774411</td><td>Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774411</td><td>Invalid request body</td></tr></table>
 */
 type UpdateStagingContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewUpdateStagingContentUnauthorized() *UpdateStagingContentUnauthorized {
 	return &UpdateStagingContentUnauthorized{}
 }
 
-/*UpdateStagingContentUnauthorized handles this case with default header values.
+/*
+UpdateStagingContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateStagingContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewUpdateStagingContentForbidden() *UpdateStagingContentForbidden {
 	return &UpdateStagingContentForbidden{}
 }
 
-/*UpdateStagingContentForbidden handles this case with default header values.
+/*
+UpdateStagingContentForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774412</td><td>user has been banned to update content</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774412</td><td>user has been banned to update content</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdateStagingContentForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewUpdateStagingContentNotFound() *UpdateStagingContentNotFound {
 	return &UpdateStagingContentNotFound{}
 }
 
-/*UpdateStagingContentNotFound handles this case with default header values.
+/*
+UpdateStagingContentNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774413</td><td>staging content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774413</td><td>staging content not found</td></tr></table>
 */
 type UpdateStagingContentNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewUpdateStagingContentInternalServerError() *UpdateStagingContentInternalS
 	return &UpdateStagingContentInternalServerError{}
 }
 
-/*UpdateStagingContentInternalServerError handles this case with default header values.
+/*
+UpdateStagingContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774414</td><td>unable to update staging content</td></tr><tr><td>774415</td><td>unable to generate presigned URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>774414</td><td>unable to update staging content</td></tr><tr><td>774415</td><td>unable to generate presigned URL</td></tr></table>
 */
 type UpdateStagingContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

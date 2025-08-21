@@ -135,9 +135,10 @@ func NewPublicGameSessionInviteCreated() *PublicGameSessionInviteCreated {
 	return &PublicGameSessionInviteCreated{}
 }
 
-/*PublicGameSessionInviteCreated handles this case with default header values.
+/*
+PublicGameSessionInviteCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicGameSessionInviteCreated struct {
 }
@@ -162,9 +163,10 @@ func NewPublicGameSessionInviteNoContent() *PublicGameSessionInviteNoContent {
 	return &PublicGameSessionInviteNoContent{}
 }
 
-/*PublicGameSessionInviteNoContent handles this case with default header values.
+/*
+PublicGameSessionInviteNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicGameSessionInviteNoContent struct {
 }
@@ -189,9 +191,10 @@ func NewPublicGameSessionInviteBadRequest() *PublicGameSessionInviteBadRequest {
 	return &PublicGameSessionInviteBadRequest{}
 }
 
-/*PublicGameSessionInviteBadRequest handles this case with default header values.
+/*
+PublicGameSessionInviteBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGameSessionInviteBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -243,9 +246,10 @@ func NewPublicGameSessionInviteUnauthorized() *PublicGameSessionInviteUnauthoriz
 	return &PublicGameSessionInviteUnauthorized{}
 }
 
-/*PublicGameSessionInviteUnauthorized handles this case with default header values.
+/*
+PublicGameSessionInviteUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGameSessionInviteUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -297,9 +301,10 @@ func NewPublicGameSessionInviteNotFound() *PublicGameSessionInviteNotFound {
 	return &PublicGameSessionInviteNotFound{}
 }
 
-/*PublicGameSessionInviteNotFound handles this case with default header values.
+/*
+PublicGameSessionInviteNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGameSessionInviteNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -351,9 +356,10 @@ func NewPublicGameSessionInviteInternalServerError() *PublicGameSessionInviteInt
 	return &PublicGameSessionInviteInternalServerError{}
 }
 
-/*PublicGameSessionInviteInternalServerError handles this case with default header values.
+/*
+PublicGameSessionInviteInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGameSessionInviteInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

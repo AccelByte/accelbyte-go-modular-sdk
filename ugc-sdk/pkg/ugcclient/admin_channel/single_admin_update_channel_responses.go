@@ -130,9 +130,10 @@ func NewSingleAdminUpdateChannelOK() *SingleAdminUpdateChannelOK {
 	return &SingleAdminUpdateChannelOK{}
 }
 
-/*SingleAdminUpdateChannelOK handles this case with default header values.
+/*
+SingleAdminUpdateChannelOK handles this case with default header values.
 
-  Channel updated
+	Channel updated
 */
 type SingleAdminUpdateChannelOK struct {
 	Payload *ugcclientmodels.ModelsChannelResponse
@@ -184,9 +185,10 @@ func NewSingleAdminUpdateChannelBadRequest() *SingleAdminUpdateChannelBadRequest
 	return &SingleAdminUpdateChannelBadRequest{}
 }
 
-/*SingleAdminUpdateChannelBadRequest handles this case with default header values.
+/*
+SingleAdminUpdateChannelBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770600</td><td>Invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770600</td><td>Invalid request body</td></tr></table>
 */
 type SingleAdminUpdateChannelBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewSingleAdminUpdateChannelUnauthorized() *SingleAdminUpdateChannelUnauthor
 	return &SingleAdminUpdateChannelUnauthorized{}
 }
 
-/*SingleAdminUpdateChannelUnauthorized handles this case with default header values.
+/*
+SingleAdminUpdateChannelUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SingleAdminUpdateChannelUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewSingleAdminUpdateChannelNotFound() *SingleAdminUpdateChannelNotFound {
 	return &SingleAdminUpdateChannelNotFound{}
 }
 
-/*SingleAdminUpdateChannelNotFound handles this case with default header values.
+/*
+SingleAdminUpdateChannelNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770603</td><td>Channel was not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770603</td><td>Channel was not found</td></tr></table>
 */
 type SingleAdminUpdateChannelNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewSingleAdminUpdateChannelInternalServerError() *SingleAdminUpdateChannelI
 	return &SingleAdminUpdateChannelInternalServerError{}
 }
 
-/*SingleAdminUpdateChannelInternalServerError handles this case with default header values.
+/*
+SingleAdminUpdateChannelInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770602</td><td>Unable to save channel</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770602</td><td>Unable to save channel</td></tr></table>
 */
 type SingleAdminUpdateChannelInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

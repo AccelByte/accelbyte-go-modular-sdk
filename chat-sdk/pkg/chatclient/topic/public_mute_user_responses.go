@@ -129,9 +129,10 @@ func NewPublicMuteUserNoContent() *PublicMuteUserNoContent {
 	return &PublicMuteUserNoContent{}
 }
 
-/*PublicMuteUserNoContent handles this case with default header values.
+/*
+PublicMuteUserNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type PublicMuteUserNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicMuteUserBadRequest() *PublicMuteUserBadRequest {
 	return &PublicMuteUserBadRequest{}
 }
 
-/*PublicMuteUserBadRequest handles this case with default header values.
+/*
+PublicMuteUserBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicMuteUserBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -210,9 +212,10 @@ func NewPublicMuteUserUnauthorized() *PublicMuteUserUnauthorized {
 	return &PublicMuteUserUnauthorized{}
 }
 
-/*PublicMuteUserUnauthorized handles this case with default header values.
+/*
+PublicMuteUserUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicMuteUserUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -264,9 +267,10 @@ func NewPublicMuteUserForbidden() *PublicMuteUserForbidden {
 	return &PublicMuteUserForbidden{}
 }
 
-/*PublicMuteUserForbidden handles this case with default header values.
+/*
+PublicMuteUserForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PublicMuteUserForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -318,9 +322,10 @@ func NewPublicMuteUserInternalServerError() *PublicMuteUserInternalServerError {
 	return &PublicMuteUserInternalServerError{}
 }
 
-/*PublicMuteUserInternalServerError handles this case with default header values.
+/*
+PublicMuteUserInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicMuteUserInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

@@ -59,7 +59,8 @@ func NewAdminCreateChainingOperationsParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*AdminCreateChainingOperationsParams contains all the parameters to send to the API endpoint
+/*
+AdminCreateChainingOperationsParams contains all the parameters to send to the API endpoint
 for the admin create chaining operations operation typically these are written to a http.Request
 */
 type AdminCreateChainingOperationsParams struct {

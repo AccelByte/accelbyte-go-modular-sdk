@@ -115,9 +115,10 @@ func NewGetChannelsOK() *GetChannelsOK {
 	return &GetChannelsOK{}
 }
 
-/*GetChannelsOK handles this case with default header values.
+/*
+GetChannelsOK handles this case with default header values.
 
-  Channel in namespace-level retrieved
+	Channel in namespace-level retrieved
 */
 type GetChannelsOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedGetChannelResponse
@@ -169,9 +170,10 @@ func NewGetChannelsBadRequest() *GetChannelsBadRequest {
 	return &GetChannelsBadRequest{}
 }
 
-/*GetChannelsBadRequest handles this case with default header values.
+/*
+GetChannelsBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770702</td><td>invalid paging parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770702</td><td>invalid paging parameter</td></tr></table>
 */
 type GetChannelsBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewGetChannelsUnauthorized() *GetChannelsUnauthorized {
 	return &GetChannelsUnauthorized{}
 }
 
-/*GetChannelsUnauthorized handles this case with default header values.
+/*
+GetChannelsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetChannelsUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewGetChannelsInternalServerError() *GetChannelsInternalServerError {
 	return &GetChannelsInternalServerError{}
 }
 
-/*GetChannelsInternalServerError handles this case with default header values.
+/*
+GetChannelsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770700</td><td>Unable get user channels</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770700</td><td>Unable get user channels</td></tr></table>
 */
 type GetChannelsInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewGetUserEntitlementHistoriesParamsWithHTTPClient(client *http.Client) *Ge
 	}
 }
 
-/*GetUserEntitlementHistoriesParams contains all the parameters to send to the API endpoint
+/*
+GetUserEntitlementHistoriesParams contains all the parameters to send to the API endpoint
 for the get user entitlement histories operation typically these are written to a http.Request
 */
 type GetUserEntitlementHistoriesParams struct {

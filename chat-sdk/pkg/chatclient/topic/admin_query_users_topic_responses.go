@@ -130,9 +130,10 @@ func NewAdminQueryUsersTopicOK() *AdminQueryUsersTopicOK {
 	return &AdminQueryUsersTopicOK{}
 }
 
-/*AdminQueryUsersTopicOK handles this case with default header values.
+/*
+AdminQueryUsersTopicOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminQueryUsersTopicOK struct {
 	Payload *chatclientmodels.ModelsTopicLogWithPaginationResponse
@@ -184,9 +185,10 @@ func NewAdminQueryUsersTopicBadRequest() *AdminQueryUsersTopicBadRequest {
 	return &AdminQueryUsersTopicBadRequest{}
 }
 
-/*AdminQueryUsersTopicBadRequest handles this case with default header values.
+/*
+AdminQueryUsersTopicBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminQueryUsersTopicBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -238,9 +240,10 @@ func NewAdminQueryUsersTopicUnauthorized() *AdminQueryUsersTopicUnauthorized {
 	return &AdminQueryUsersTopicUnauthorized{}
 }
 
-/*AdminQueryUsersTopicUnauthorized handles this case with default header values.
+/*
+AdminQueryUsersTopicUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminQueryUsersTopicUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -292,9 +295,10 @@ func NewAdminQueryUsersTopicForbidden() *AdminQueryUsersTopicForbidden {
 	return &AdminQueryUsersTopicForbidden{}
 }
 
-/*AdminQueryUsersTopicForbidden handles this case with default header values.
+/*
+AdminQueryUsersTopicForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminQueryUsersTopicForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -346,9 +350,10 @@ func NewAdminQueryUsersTopicInternalServerError() *AdminQueryUsersTopicInternalS
 	return &AdminQueryUsersTopicInternalServerError{}
 }
 
-/*AdminQueryUsersTopicInternalServerError handles this case with default header values.
+/*
+AdminQueryUsersTopicInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminQueryUsersTopicInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

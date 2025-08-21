@@ -59,7 +59,8 @@ func NewAdminResetSteamJobTimeParamsWithHTTPClient(client *http.Client) *AdminRe
 	}
 }
 
-/*AdminResetSteamJobTimeParams contains all the parameters to send to the API endpoint
+/*
+AdminResetSteamJobTimeParams contains all the parameters to send to the API endpoint
 for the admin reset steam job time operation typically these are written to a http.Request
 */
 type AdminResetSteamJobTimeParams struct {

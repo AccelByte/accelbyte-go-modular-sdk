@@ -100,9 +100,10 @@ func NewDeleteCategoryOK() *DeleteCategoryOK {
 	return &DeleteCategoryOK{}
 }
 
-/*DeleteCategoryOK handles this case with default header values.
+/*
+DeleteCategoryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type DeleteCategoryOK struct {
 	Payload *platformclientmodels.FullCategoryInfo
@@ -154,9 +155,10 @@ func NewDeleteCategoryNotFound() *DeleteCategoryNotFound {
 	return &DeleteCategoryNotFound{}
 }
 
-/*DeleteCategoryNotFound handles this case with default header values.
+/*
+DeleteCategoryNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30241</td><td>Category [{categoryPath}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type DeleteCategoryNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewDeleteCategoryConflict() *DeleteCategoryConflict {
 	return &DeleteCategoryConflict{}
 }
 
-/*DeleteCategoryConflict handles this case with default header values.
+/*
+DeleteCategoryConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30272</td><td>Category [{categoryPath}] is not empty in namespace [{namespace}]</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30272</td><td>Category [{categoryPath}] is not empty in namespace [{namespace}]</td></tr><tr><td>30173</td><td>Published store can't modify content</td></tr></table>
 */
 type DeleteCategoryConflict struct {
 	Payload *platformclientmodels.ErrorEntity

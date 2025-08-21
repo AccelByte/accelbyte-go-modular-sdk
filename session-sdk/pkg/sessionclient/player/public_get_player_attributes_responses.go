@@ -130,9 +130,10 @@ func NewPublicGetPlayerAttributesOK() *PublicGetPlayerAttributesOK {
 	return &PublicGetPlayerAttributesOK{}
 }
 
-/*PublicGetPlayerAttributesOK handles this case with default header values.
+/*
+PublicGetPlayerAttributesOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetPlayerAttributesOK struct {
 	Payload *sessionclientmodels.ApimodelsPlayerAttributesResponseBody
@@ -184,9 +185,10 @@ func NewPublicGetPlayerAttributesBadRequest() *PublicGetPlayerAttributesBadReque
 	return &PublicGetPlayerAttributesBadRequest{}
 }
 
-/*PublicGetPlayerAttributesBadRequest handles this case with default header values.
+/*
+PublicGetPlayerAttributesBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicGetPlayerAttributesBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewPublicGetPlayerAttributesUnauthorized() *PublicGetPlayerAttributesUnauth
 	return &PublicGetPlayerAttributesUnauthorized{}
 }
 
-/*PublicGetPlayerAttributesUnauthorized handles this case with default header values.
+/*
+PublicGetPlayerAttributesUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicGetPlayerAttributesUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewPublicGetPlayerAttributesNotFound() *PublicGetPlayerAttributesNotFound {
 	return &PublicGetPlayerAttributesNotFound{}
 }
 
-/*PublicGetPlayerAttributesNotFound handles this case with default header values.
+/*
+PublicGetPlayerAttributesNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetPlayerAttributesNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewPublicGetPlayerAttributesInternalServerError() *PublicGetPlayerAttribute
 	return &PublicGetPlayerAttributesInternalServerError{}
 }
 
-/*PublicGetPlayerAttributesInternalServerError handles this case with default header values.
+/*
+PublicGetPlayerAttributesInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicGetPlayerAttributesInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

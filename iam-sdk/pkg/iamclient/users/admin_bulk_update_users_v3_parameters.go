@@ -59,7 +59,8 @@ func NewAdminBulkUpdateUsersV3ParamsWithHTTPClient(client *http.Client) *AdminBu
 	}
 }
 
-/*AdminBulkUpdateUsersV3Params contains all the parameters to send to the API endpoint
+/*
+AdminBulkUpdateUsersV3Params contains all the parameters to send to the API endpoint
 for the admin bulk update users v3 operation typically these are written to a http.Request
 */
 type AdminBulkUpdateUsersV3Params struct {

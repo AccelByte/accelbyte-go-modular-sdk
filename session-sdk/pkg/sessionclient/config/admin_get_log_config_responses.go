@@ -100,9 +100,10 @@ func NewAdminGetLogConfigOK() *AdminGetLogConfigOK {
 	return &AdminGetLogConfigOK{}
 }
 
-/*AdminGetLogConfigOK handles this case with default header values.
+/*
+AdminGetLogConfigOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetLogConfigOK struct {
 	Payload *sessionclientmodels.LogconfigConfiguration
@@ -154,9 +155,10 @@ func NewAdminGetLogConfigUnauthorized() *AdminGetLogConfigUnauthorized {
 	return &AdminGetLogConfigUnauthorized{}
 }
 
-/*AdminGetLogConfigUnauthorized handles this case with default header values.
+/*
+AdminGetLogConfigUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetLogConfigUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -208,9 +210,10 @@ func NewAdminGetLogConfigForbidden() *AdminGetLogConfigForbidden {
 	return &AdminGetLogConfigForbidden{}
 }
 
-/*AdminGetLogConfigForbidden handles this case with default header values.
+/*
+AdminGetLogConfigForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetLogConfigForbidden struct {
 	Payload *sessionclientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewRetryFulfillItemsV3ParamsWithHTTPClient(client *http.Client) *RetryFulfi
 	}
 }
 
-/*RetryFulfillItemsV3Params contains all the parameters to send to the API endpoint
+/*
+RetryFulfillItemsV3Params contains all the parameters to send to the API endpoint
 for the retry fulfill items v3 operation typically these are written to a http.Request
 */
 type RetryFulfillItemsV3Params struct {

@@ -129,9 +129,10 @@ func NewDeleteRuleSetNoContent() *DeleteRuleSetNoContent {
 	return &DeleteRuleSetNoContent{}
 }
 
-/*DeleteRuleSetNoContent handles this case with default header values.
+/*
+DeleteRuleSetNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type DeleteRuleSetNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteRuleSetUnauthorized() *DeleteRuleSetUnauthorized {
 	return &DeleteRuleSetUnauthorized{}
 }
 
-/*DeleteRuleSetUnauthorized handles this case with default header values.
+/*
+DeleteRuleSetUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type DeleteRuleSetUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -210,9 +212,10 @@ func NewDeleteRuleSetForbidden() *DeleteRuleSetForbidden {
 	return &DeleteRuleSetForbidden{}
 }
 
-/*DeleteRuleSetForbidden handles this case with default header values.
+/*
+DeleteRuleSetForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type DeleteRuleSetForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -264,9 +267,10 @@ func NewDeleteRuleSetNotFound() *DeleteRuleSetNotFound {
 	return &DeleteRuleSetNotFound{}
 }
 
-/*DeleteRuleSetNotFound handles this case with default header values.
+/*
+DeleteRuleSetNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type DeleteRuleSetNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -318,9 +322,10 @@ func NewDeleteRuleSetInternalServerError() *DeleteRuleSetInternalServerError {
 	return &DeleteRuleSetInternalServerError{}
 }
 
-/*DeleteRuleSetInternalServerError handles this case with default header values.
+/*
+DeleteRuleSetInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type DeleteRuleSetInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

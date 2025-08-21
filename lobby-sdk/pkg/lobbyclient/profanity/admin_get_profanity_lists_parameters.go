@@ -57,7 +57,8 @@ func NewAdminGetProfanityListsParamsWithHTTPClient(client *http.Client) *AdminGe
 	}
 }
 
-/*AdminGetProfanityListsParams contains all the parameters to send to the API endpoint
+/*
+AdminGetProfanityListsParams contains all the parameters to send to the API endpoint
 for the admin get profanity lists operation typically these are written to a http.Request
 */
 type AdminGetProfanityListsParams struct {

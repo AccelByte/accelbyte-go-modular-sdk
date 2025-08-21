@@ -58,7 +58,8 @@ func NewPublicUpdateUserNamespaceSlotParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicUpdateUserNamespaceSlotParams contains all the parameters to send to the API endpoint
+/*
+PublicUpdateUserNamespaceSlotParams contains all the parameters to send to the API endpoint
 for the public update user namespace slot operation typically these are written to a http.Request
 */
 type PublicUpdateUserNamespaceSlotParams struct {

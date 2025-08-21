@@ -144,9 +144,10 @@ func NewAdminBulkUpdateUserAccountTypeV4NoContent() *AdminBulkUpdateUserAccountT
 	return &AdminBulkUpdateUserAccountTypeV4NoContent{}
 }
 
-/*AdminBulkUpdateUserAccountTypeV4NoContent handles this case with default header values.
+/*
+AdminBulkUpdateUserAccountTypeV4NoContent handles this case with default header values.
 
-  Account type updated to test
+	Account type updated to test
 */
 type AdminBulkUpdateUserAccountTypeV4NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminBulkUpdateUserAccountTypeV4BadRequest() *AdminBulkUpdateUserAccount
 	return &AdminBulkUpdateUserAccountTypeV4BadRequest{}
 }
 
-/*AdminBulkUpdateUserAccountTypeV4BadRequest handles this case with default header values.
+/*
+AdminBulkUpdateUserAccountTypeV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminBulkUpdateUserAccountTypeV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminBulkUpdateUserAccountTypeV4Unauthorized() *AdminBulkUpdateUserAccou
 	return &AdminBulkUpdateUserAccountTypeV4Unauthorized{}
 }
 
-/*AdminBulkUpdateUserAccountTypeV4Unauthorized handles this case with default header values.
+/*
+AdminBulkUpdateUserAccountTypeV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminBulkUpdateUserAccountTypeV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminBulkUpdateUserAccountTypeV4Forbidden() *AdminBulkUpdateUserAccountT
 	return &AdminBulkUpdateUserAccountTypeV4Forbidden{}
 }
 
-/*AdminBulkUpdateUserAccountTypeV4Forbidden handles this case with default header values.
+/*
+AdminBulkUpdateUserAccountTypeV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminBulkUpdateUserAccountTypeV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminBulkUpdateUserAccountTypeV4NotFound() *AdminBulkUpdateUserAccountTy
 	return &AdminBulkUpdateUserAccountTypeV4NotFound{}
 }
 
-/*AdminBulkUpdateUserAccountTypeV4NotFound handles this case with default header values.
+/*
+AdminBulkUpdateUserAccountTypeV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminBulkUpdateUserAccountTypeV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminBulkUpdateUserAccountTypeV4InternalServerError() *AdminBulkUpdateUs
 	return &AdminBulkUpdateUserAccountTypeV4InternalServerError{}
 }
 
-/*AdminBulkUpdateUserAccountTypeV4InternalServerError handles this case with default header values.
+/*
+AdminBulkUpdateUserAccountTypeV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminBulkUpdateUserAccountTypeV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -145,9 +145,10 @@ func NewAdminProfanityUpdateOK() *AdminProfanityUpdateOK {
 	return &AdminProfanityUpdateOK{}
 }
 
-/*AdminProfanityUpdateOK handles this case with default header values.
+/*
+AdminProfanityUpdateOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminProfanityUpdateOK struct {
 	Payload *chatclientmodels.ModelsDictionary
@@ -199,9 +200,10 @@ func NewAdminProfanityUpdateBadRequest() *AdminProfanityUpdateBadRequest {
 	return &AdminProfanityUpdateBadRequest{}
 }
 
-/*AdminProfanityUpdateBadRequest handles this case with default header values.
+/*
+AdminProfanityUpdateBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminProfanityUpdateBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminProfanityUpdateUnauthorized() *AdminProfanityUpdateUnauthorized {
 	return &AdminProfanityUpdateUnauthorized{}
 }
 
-/*AdminProfanityUpdateUnauthorized handles this case with default header values.
+/*
+AdminProfanityUpdateUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminProfanityUpdateUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminProfanityUpdateForbidden() *AdminProfanityUpdateForbidden {
 	return &AdminProfanityUpdateForbidden{}
 }
 
-/*AdminProfanityUpdateForbidden handles this case with default header values.
+/*
+AdminProfanityUpdateForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminProfanityUpdateForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminProfanityUpdateNotFound() *AdminProfanityUpdateNotFound {
 	return &AdminProfanityUpdateNotFound{}
 }
 
-/*AdminProfanityUpdateNotFound handles this case with default header values.
+/*
+AdminProfanityUpdateNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminProfanityUpdateNotFound struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminProfanityUpdateInternalServerError() *AdminProfanityUpdateInternalS
 	return &AdminProfanityUpdateInternalServerError{}
 }
 
-/*AdminProfanityUpdateInternalServerError handles this case with default header values.
+/*
+AdminProfanityUpdateInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminProfanityUpdateInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

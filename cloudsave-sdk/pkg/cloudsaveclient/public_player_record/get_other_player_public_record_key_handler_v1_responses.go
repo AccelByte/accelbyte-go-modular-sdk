@@ -130,9 +130,10 @@ func NewGetOtherPlayerPublicRecordKeyHandlerV1OK() *GetOtherPlayerPublicRecordKe
 	return &GetOtherPlayerPublicRecordKeyHandlerV1OK{}
 }
 
-/*GetOtherPlayerPublicRecordKeyHandlerV1OK handles this case with default header values.
+/*
+GetOtherPlayerPublicRecordKeyHandlerV1OK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type GetOtherPlayerPublicRecordKeyHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsListPlayerRecordKeysResponse
@@ -184,9 +185,10 @@ func NewGetOtherPlayerPublicRecordKeyHandlerV1BadRequest() *GetOtherPlayerPublic
 	return &GetOtherPlayerPublicRecordKeyHandlerV1BadRequest{}
 }
 
-/*GetOtherPlayerPublicRecordKeyHandlerV1BadRequest handles this case with default header values.
+/*
+GetOtherPlayerPublicRecordKeyHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18113</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18113</td><td>invalid request body</td></tr></table>
 */
 type GetOtherPlayerPublicRecordKeyHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewGetOtherPlayerPublicRecordKeyHandlerV1Unauthorized() *GetOtherPlayerPubl
 	return &GetOtherPlayerPublicRecordKeyHandlerV1Unauthorized{}
 }
 
-/*GetOtherPlayerPublicRecordKeyHandlerV1Unauthorized handles this case with default header values.
+/*
+GetOtherPlayerPublicRecordKeyHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetOtherPlayerPublicRecordKeyHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewGetOtherPlayerPublicRecordKeyHandlerV1Forbidden() *GetOtherPlayerPublicR
 	return &GetOtherPlayerPublicRecordKeyHandlerV1Forbidden{}
 }
 
-/*GetOtherPlayerPublicRecordKeyHandlerV1Forbidden handles this case with default header values.
+/*
+GetOtherPlayerPublicRecordKeyHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetOtherPlayerPublicRecordKeyHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewGetOtherPlayerPublicRecordKeyHandlerV1InternalServerError() *GetOtherPla
 	return &GetOtherPlayerPublicRecordKeyHandlerV1InternalServerError{}
 }
 
-/*GetOtherPlayerPublicRecordKeyHandlerV1InternalServerError handles this case with default header values.
+/*
+GetOtherPlayerPublicRecordKeyHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18114</td><td>unable to retrieve list of key records</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18114</td><td>unable to retrieve list of key records</td></tr></table>
 */
 type GetOtherPlayerPublicRecordKeyHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

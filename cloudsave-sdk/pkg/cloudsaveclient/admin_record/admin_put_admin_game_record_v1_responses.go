@@ -130,9 +130,10 @@ func NewAdminPutAdminGameRecordV1OK() *AdminPutAdminGameRecordV1OK {
 	return &AdminPutAdminGameRecordV1OK{}
 }
 
-/*AdminPutAdminGameRecordV1OK handles this case with default header values.
+/*
+AdminPutAdminGameRecordV1OK handles this case with default header values.
 
-  Record saved
+	Record saved
 */
 type AdminPutAdminGameRecordV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsAdminGameRecordResponse
@@ -184,9 +185,10 @@ func NewAdminPutAdminGameRecordV1BadRequest() *AdminPutAdminGameRecordV1BadReque
 	return &AdminPutAdminGameRecordV1BadRequest{}
 }
 
-/*AdminPutAdminGameRecordV1BadRequest handles this case with default header values.
+/*
+AdminPutAdminGameRecordV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18144</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18146</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18144</td><td>invalid request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>18146</td><td>invalid request body: size of the request body must be less than [%d]MB</td></tr></table>
 */
 type AdminPutAdminGameRecordV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewAdminPutAdminGameRecordV1Unauthorized() *AdminPutAdminGameRecordV1Unauth
 	return &AdminPutAdminGameRecordV1Unauthorized{}
 }
 
-/*AdminPutAdminGameRecordV1Unauthorized handles this case with default header values.
+/*
+AdminPutAdminGameRecordV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPutAdminGameRecordV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewAdminPutAdminGameRecordV1Forbidden() *AdminPutAdminGameRecordV1Forbidden
 	return &AdminPutAdminGameRecordV1Forbidden{}
 }
 
-/*AdminPutAdminGameRecordV1Forbidden handles this case with default header values.
+/*
+AdminPutAdminGameRecordV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminPutAdminGameRecordV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewAdminPutAdminGameRecordV1InternalServerError() *AdminPutAdminGameRecordV
 	return &AdminPutAdminGameRecordV1InternalServerError{}
 }
 
-/*AdminPutAdminGameRecordV1InternalServerError handles this case with default header values.
+/*
+AdminPutAdminGameRecordV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18145</td><td>unable to marshal request body</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18164</td><td>unable to decode record</td></tr><tr><td>18147</td><td>unable to update record</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18145</td><td>unable to marshal request body</td></tr><tr><td>20000</td><td>internal server error</td></tr><tr><td>18164</td><td>unable to decode record</td></tr><tr><td>18147</td><td>unable to update record</td></tr></table>
 */
 type AdminPutAdminGameRecordV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

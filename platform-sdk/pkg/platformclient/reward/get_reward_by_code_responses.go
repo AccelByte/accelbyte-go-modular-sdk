@@ -85,9 +85,10 @@ func NewGetRewardByCodeOK() *GetRewardByCodeOK {
 	return &GetRewardByCodeOK{}
 }
 
-/*GetRewardByCodeOK handles this case with default header values.
+/*
+GetRewardByCodeOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetRewardByCodeOK struct {
 	Payload *platformclientmodels.RewardInfo
@@ -139,9 +140,10 @@ func NewGetRewardByCodeNotFound() *GetRewardByCodeNotFound {
 	return &GetRewardByCodeNotFound{}
 }
 
-/*GetRewardByCodeNotFound handles this case with default header values.
+/*
+GetRewardByCodeNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34043</td><td>Reward with code [{rewardCode}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>34043</td><td>Reward with code [{rewardCode}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type GetRewardByCodeNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

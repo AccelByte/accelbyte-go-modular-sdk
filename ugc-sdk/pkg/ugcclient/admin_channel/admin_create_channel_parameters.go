@@ -59,7 +59,8 @@ func NewAdminCreateChannelParamsWithHTTPClient(client *http.Client) *AdminCreate
 	}
 }
 
-/*AdminCreateChannelParams contains all the parameters to send to the API endpoint
+/*
+AdminCreateChannelParams contains all the parameters to send to the API endpoint
 for the admin create channel operation typically these are written to a http.Request
 */
 type AdminCreateChannelParams struct {

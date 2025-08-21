@@ -160,9 +160,10 @@ func NewPublicUpdateContentByShareCodeOK() *PublicUpdateContentByShareCodeOK {
 	return &PublicUpdateContentByShareCodeOK{}
 }
 
-/*PublicUpdateContentByShareCodeOK handles this case with default header values.
+/*
+PublicUpdateContentByShareCodeOK handles this case with default header values.
 
-  Content updated at s3
+	Content updated at s3
 */
 type PublicUpdateContentByShareCodeOK struct {
 	Payload *ugcclientmodels.ModelsCreateContentResponse
@@ -214,9 +215,10 @@ func NewPublicUpdateContentByShareCodeBadRequest() *PublicUpdateContentByShareCo
 	return &PublicUpdateContentByShareCodeBadRequest{}
 }
 
-/*PublicUpdateContentByShareCodeBadRequest handles this case with default header values.
+/*
+PublicUpdateContentByShareCodeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772601</td><td>Malformed request</td></tr></table>
 */
 type PublicUpdateContentByShareCodeBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -268,9 +270,10 @@ func NewPublicUpdateContentByShareCodeUnauthorized() *PublicUpdateContentByShare
 	return &PublicUpdateContentByShareCodeUnauthorized{}
 }
 
-/*PublicUpdateContentByShareCodeUnauthorized handles this case with default header values.
+/*
+PublicUpdateContentByShareCodeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicUpdateContentByShareCodeUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -322,9 +325,10 @@ func NewPublicUpdateContentByShareCodeForbidden() *PublicUpdateContentByShareCod
 	return &PublicUpdateContentByShareCodeForbidden{}
 }
 
-/*PublicUpdateContentByShareCodeForbidden handles this case with default header values.
+/*
+PublicUpdateContentByShareCodeForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicUpdateContentByShareCodeForbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -376,9 +380,10 @@ func NewPublicUpdateContentByShareCodeNotFound() *PublicUpdateContentByShareCode
 	return &PublicUpdateContentByShareCodeNotFound{}
 }
 
-/*PublicUpdateContentByShareCodeNotFound handles this case with default header values.
+/*
+PublicUpdateContentByShareCodeNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr></table>
 */
 type PublicUpdateContentByShareCodeNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -430,9 +435,10 @@ func NewPublicUpdateContentByShareCodeConflict() *PublicUpdateContentByShareCode
 	return &PublicUpdateContentByShareCodeConflict{}
 }
 
-/*PublicUpdateContentByShareCodeConflict handles this case with default header values.
+/*
+PublicUpdateContentByShareCodeConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772606</td><td>Share code already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772606</td><td>Share code already used</td></tr></table>
 */
 type PublicUpdateContentByShareCodeConflict struct {
 	Payload *ugcclientmodels.ResponseError
@@ -484,9 +490,10 @@ func NewPublicUpdateContentByShareCodeInternalServerError() *PublicUpdateContent
 	return &PublicUpdateContentByShareCodeInternalServerError{}
 }
 
-/*PublicUpdateContentByShareCodeInternalServerError handles this case with default header values.
+/*
+PublicUpdateContentByShareCodeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr><tr><td>772605</td><td>Unable to save ugc content: failed generate upload URL</td></tr></table>
 */
 type PublicUpdateContentByShareCodeInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

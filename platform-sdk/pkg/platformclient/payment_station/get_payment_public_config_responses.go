@@ -69,9 +69,10 @@ func NewGetPaymentPublicConfigOK() *GetPaymentPublicConfigOK {
 	return &GetPaymentPublicConfigOK{}
 }
 
-/*GetPaymentPublicConfigOK handles this case with default header values.
+/*
+GetPaymentPublicConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetPaymentPublicConfigOK struct {
 	Payload map[string]interface{}

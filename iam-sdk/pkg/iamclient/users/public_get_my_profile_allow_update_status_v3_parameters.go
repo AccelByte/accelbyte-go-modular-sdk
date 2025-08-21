@@ -57,7 +57,8 @@ func NewPublicGetMyProfileAllowUpdateStatusV3ParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*PublicGetMyProfileAllowUpdateStatusV3Params contains all the parameters to send to the API endpoint
+/*
+PublicGetMyProfileAllowUpdateStatusV3Params contains all the parameters to send to the API endpoint
 for the public get my profile allow update status v3 operation typically these are written to a http.Request
 */
 type PublicGetMyProfileAllowUpdateStatusV3Params struct {

@@ -145,9 +145,10 @@ func NewAdminSyncPlatformCredentialsOK() *AdminSyncPlatformCredentialsOK {
 	return &AdminSyncPlatformCredentialsOK{}
 }
 
-/*AdminSyncPlatformCredentialsOK handles this case with default header values.
+/*
+AdminSyncPlatformCredentialsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminSyncPlatformCredentialsOK struct {
 	Payload *sessionclientmodels.ApimodelsXblCertificateResponseBody
@@ -199,9 +200,10 @@ func NewAdminSyncPlatformCredentialsBadRequest() *AdminSyncPlatformCredentialsBa
 	return &AdminSyncPlatformCredentialsBadRequest{}
 }
 
-/*AdminSyncPlatformCredentialsBadRequest handles this case with default header values.
+/*
+AdminSyncPlatformCredentialsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminSyncPlatformCredentialsBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminSyncPlatformCredentialsUnauthorized() *AdminSyncPlatformCredentials
 	return &AdminSyncPlatformCredentialsUnauthorized{}
 }
 
-/*AdminSyncPlatformCredentialsUnauthorized handles this case with default header values.
+/*
+AdminSyncPlatformCredentialsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminSyncPlatformCredentialsUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminSyncPlatformCredentialsForbidden() *AdminSyncPlatformCredentialsFor
 	return &AdminSyncPlatformCredentialsForbidden{}
 }
 
-/*AdminSyncPlatformCredentialsForbidden handles this case with default header values.
+/*
+AdminSyncPlatformCredentialsForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminSyncPlatformCredentialsForbidden struct {
 	Payload *sessionclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminSyncPlatformCredentialsNotFound() *AdminSyncPlatformCredentialsNotF
 	return &AdminSyncPlatformCredentialsNotFound{}
 }
 
-/*AdminSyncPlatformCredentialsNotFound handles this case with default header values.
+/*
+AdminSyncPlatformCredentialsNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminSyncPlatformCredentialsNotFound struct {
 	Payload *sessionclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminSyncPlatformCredentialsInternalServerError() *AdminSyncPlatformCred
 	return &AdminSyncPlatformCredentialsInternalServerError{}
 }
 
-/*AdminSyncPlatformCredentialsInternalServerError handles this case with default header values.
+/*
+AdminSyncPlatformCredentialsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminSyncPlatformCredentialsInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

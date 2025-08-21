@@ -59,7 +59,8 @@ func NewUpdateGroupPredefinedRulePublicV1ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*UpdateGroupPredefinedRulePublicV1Params contains all the parameters to send to the API endpoint
+/*
+UpdateGroupPredefinedRulePublicV1Params contains all the parameters to send to the API endpoint
 for the update group predefined rule public v1 operation typically these are written to a http.Request
 */
 type UpdateGroupPredefinedRulePublicV1Params struct {

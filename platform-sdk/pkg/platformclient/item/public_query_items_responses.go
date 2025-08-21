@@ -100,9 +100,10 @@ func NewPublicQueryItemsOK() *PublicQueryItemsOK {
 	return &PublicQueryItemsOK{}
 }
 
-/*PublicQueryItemsOK handles this case with default header values.
+/*
+PublicQueryItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicQueryItemsOK struct {
 	Payload *platformclientmodels.ItemPagingSlicedResult
@@ -154,9 +155,10 @@ func NewPublicQueryItemsNotFound() *PublicQueryItemsNotFound {
 	return &PublicQueryItemsNotFound{}
 }
 
-/*PublicQueryItemsNotFound handles this case with default header values.
+/*
+PublicQueryItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicQueryItemsNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewPublicQueryItemsUnprocessableEntity() *PublicQueryItemsUnprocessableEnti
 	return &PublicQueryItemsUnprocessableEntity{}
 }
 
-/*PublicQueryItemsUnprocessableEntity handles this case with default header values.
+/*
+PublicQueryItemsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicQueryItemsUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

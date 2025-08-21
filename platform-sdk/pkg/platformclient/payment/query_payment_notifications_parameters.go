@@ -122,7 +122,8 @@ func NewQueryPaymentNotificationsParamsWithHTTPClient(client *http.Client) *Quer
 	}
 }
 
-/*QueryPaymentNotificationsParams contains all the parameters to send to the API endpoint
+/*
+QueryPaymentNotificationsParams contains all the parameters to send to the API endpoint
 for the query payment notifications operation typically these are written to a http.Request
 */
 type QueryPaymentNotificationsParams struct {

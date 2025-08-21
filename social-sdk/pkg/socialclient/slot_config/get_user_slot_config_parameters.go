@@ -57,7 +57,8 @@ func NewGetUserSlotConfigParamsWithHTTPClient(client *http.Client) *GetUserSlotC
 	}
 }
 
-/*GetUserSlotConfigParams contains all the parameters to send to the API endpoint
+/*
+GetUserSlotConfigParams contains all the parameters to send to the API endpoint
 for the get user slot config operation typically these are written to a http.Request
 */
 type GetUserSlotConfigParams struct {

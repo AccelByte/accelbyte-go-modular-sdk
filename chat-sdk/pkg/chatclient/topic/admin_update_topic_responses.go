@@ -69,10 +69,9 @@ func NewAdminUpdateTopicOK() *AdminUpdateTopicOK {
 	return &AdminUpdateTopicOK{}
 }
 
-/*AdminUpdateTopicOK handles this case with default header values.
-
-
- */
+/*
+AdminUpdateTopicOK handles this case with default header values.
+*/
 type AdminUpdateTopicOK struct {
 	Payload *chatclientmodels.APICreateTopicResponse
 }

@@ -100,9 +100,10 @@ func NewPublicGetUnpaidPaymentOrderOK() *PublicGetUnpaidPaymentOrderOK {
 	return &PublicGetUnpaidPaymentOrderOK{}
 }
 
-/*PublicGetUnpaidPaymentOrderOK handles this case with default header values.
+/*
+PublicGetUnpaidPaymentOrderOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetUnpaidPaymentOrderOK struct {
 	Payload *platformclientmodels.PaymentOrderDetails
@@ -154,9 +155,10 @@ func NewPublicGetUnpaidPaymentOrderNotFound() *PublicGetUnpaidPaymentOrderNotFou
 	return &PublicGetUnpaidPaymentOrderNotFound{}
 }
 
-/*PublicGetUnpaidPaymentOrderNotFound handles this case with default header values.
+/*
+PublicGetUnpaidPaymentOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type PublicGetUnpaidPaymentOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewPublicGetUnpaidPaymentOrderConflict() *PublicGetUnpaidPaymentOrderConfli
 	return &PublicGetUnpaidPaymentOrderConflict{}
 }
 
-/*PublicGetUnpaidPaymentOrderConflict handles this case with default header values.
+/*
+PublicGetUnpaidPaymentOrderConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33171</td><td>Invalid payment order status [{status}] for payment order [{paymentOrderNo}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33171</td><td>Invalid payment order status [{status}] for payment order [{paymentOrderNo}]</td></tr></table>
 */
 type PublicGetUnpaidPaymentOrderConflict struct {
 	Payload *platformclientmodels.ErrorEntity

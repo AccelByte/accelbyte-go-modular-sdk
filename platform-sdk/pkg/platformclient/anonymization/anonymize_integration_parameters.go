@@ -57,7 +57,8 @@ func NewAnonymizeIntegrationParamsWithHTTPClient(client *http.Client) *Anonymize
 	}
 }
 
-/*AnonymizeIntegrationParams contains all the parameters to send to the API endpoint
+/*
+AnonymizeIntegrationParams contains all the parameters to send to the API endpoint
 for the anonymize integration operation typically these are written to a http.Request
 */
 type AnonymizeIntegrationParams struct {

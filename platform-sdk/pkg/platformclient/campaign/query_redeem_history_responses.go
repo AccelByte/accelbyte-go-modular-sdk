@@ -69,9 +69,10 @@ func NewQueryRedeemHistoryOK() *QueryRedeemHistoryOK {
 	return &QueryRedeemHistoryOK{}
 }
 
-/*QueryRedeemHistoryOK handles this case with default header values.
+/*
+QueryRedeemHistoryOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type QueryRedeemHistoryOK struct {
 	Payload *platformclientmodels.RedeemHistoryPagingSlicedResult

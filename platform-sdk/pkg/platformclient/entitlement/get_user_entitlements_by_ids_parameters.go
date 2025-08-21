@@ -58,7 +58,8 @@ func NewGetUserEntitlementsByIdsParamsWithHTTPClient(client *http.Client) *GetUs
 	}
 }
 
-/*GetUserEntitlementsByIdsParams contains all the parameters to send to the API endpoint
+/*
+GetUserEntitlementsByIdsParams contains all the parameters to send to the API endpoint
 for the get user entitlements by ids operation typically these are written to a http.Request
 */
 type GetUserEntitlementsByIdsParams struct {

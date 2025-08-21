@@ -145,9 +145,10 @@ func NewUpdatePutSingleGroupPublicV2OK() *UpdatePutSingleGroupPublicV2OK {
 	return &UpdatePutSingleGroupPublicV2OK{}
 }
 
-/*UpdatePutSingleGroupPublicV2OK handles this case with default header values.
+/*
+UpdatePutSingleGroupPublicV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdatePutSingleGroupPublicV2OK struct {
 	Payload *groupclientmodels.ModelsGroupResponseV1
@@ -199,9 +200,10 @@ func NewUpdatePutSingleGroupPublicV2BadRequest() *UpdatePutSingleGroupPublicV2Ba
 	return &UpdatePutSingleGroupPublicV2BadRequest{}
 }
 
-/*UpdatePutSingleGroupPublicV2BadRequest handles this case with default header values.
+/*
+UpdatePutSingleGroupPublicV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdatePutSingleGroupPublicV2BadRequest struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewUpdatePutSingleGroupPublicV2Unauthorized() *UpdatePutSingleGroupPublicV2
 	return &UpdatePutSingleGroupPublicV2Unauthorized{}
 }
 
-/*UpdatePutSingleGroupPublicV2Unauthorized handles this case with default header values.
+/*
+UpdatePutSingleGroupPublicV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdatePutSingleGroupPublicV2Unauthorized struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewUpdatePutSingleGroupPublicV2Forbidden() *UpdatePutSingleGroupPublicV2For
 	return &UpdatePutSingleGroupPublicV2Forbidden{}
 }
 
-/*UpdatePutSingleGroupPublicV2Forbidden handles this case with default header values.
+/*
+UpdatePutSingleGroupPublicV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20022</td><td>token is not user token</td></tr><tr><td>73036</td><td>insufficient member role permission</td></tr></table>
 */
 type UpdatePutSingleGroupPublicV2Forbidden struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewUpdatePutSingleGroupPublicV2NotFound() *UpdatePutSingleGroupPublicV2NotF
 	return &UpdatePutSingleGroupPublicV2NotFound{}
 }
 
-/*UpdatePutSingleGroupPublicV2NotFound handles this case with default header values.
+/*
+UpdatePutSingleGroupPublicV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>73333</td><td>group not found</td></tr></table>
 */
 type UpdatePutSingleGroupPublicV2NotFound struct {
 	Payload *groupclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewUpdatePutSingleGroupPublicV2InternalServerError() *UpdatePutSingleGroupP
 	return &UpdatePutSingleGroupPublicV2InternalServerError{}
 }
 
-/*UpdatePutSingleGroupPublicV2InternalServerError handles this case with default header values.
+/*
+UpdatePutSingleGroupPublicV2InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdatePutSingleGroupPublicV2InternalServerError struct {
 	Payload *groupclientmodels.ResponseErrorResponse

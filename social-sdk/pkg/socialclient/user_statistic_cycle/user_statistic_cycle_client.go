@@ -41,7 +41,7 @@ type ClientService interface {
 GetUserStatCycleItemsShort list user's statcycleitems by statcycle
 List user's statCycleItems by statCycle.
 Other detail info:
-            *  Returns : stat cycle items
+  - Returns : stat cycle items
 */
 func (a *Client) GetUserStatCycleItemsShort(params *GetUserStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -132,7 +132,7 @@ func (a *Client) GetUserStatCycleItemsShort(params *GetUserStatCycleItemsParams,
 PublicListMyStatCycleItemsShort list user's statcycleitems by statcycle
 List user's statCycleItems by statCycle.
 Other detail info:
-            *  Returns : stat cycle items
+  - Returns : stat cycle items
 */
 func (a *Client) PublicListMyStatCycleItemsShort(params *PublicListMyStatCycleItemsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicListMyStatCycleItemsResponse, error) {
 	// TODO: Validate the params before sending
@@ -223,7 +223,7 @@ func (a *Client) PublicListMyStatCycleItemsShort(params *PublicListMyStatCycleIt
 GetUserStatCycleItems1Short list user's statcycleitems by statcycle
 List user's statCycleItems by statCycle.
 Other detail info:
-            *  Returns : stat cycle items
+  - Returns : stat cycle items
 */
 func (a *Client) GetUserStatCycleItems1Short(params *GetUserStatCycleItems1Params, authInfo runtime.ClientAuthInfoWriter) (*GetUserStatCycleItems1Response, error) {
 	// TODO: Validate the params before sending

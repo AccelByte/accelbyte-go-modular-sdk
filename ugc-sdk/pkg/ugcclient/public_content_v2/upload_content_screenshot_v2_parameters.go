@@ -59,7 +59,8 @@ func NewUploadContentScreenshotV2ParamsWithHTTPClient(client *http.Client) *Uplo
 	}
 }
 
-/*UploadContentScreenshotV2Params contains all the parameters to send to the API endpoint
+/*
+UploadContentScreenshotV2Params contains all the parameters to send to the API endpoint
 for the upload content screenshot v2 operation typically these are written to a http.Request
 */
 type UploadContentScreenshotV2Params struct {

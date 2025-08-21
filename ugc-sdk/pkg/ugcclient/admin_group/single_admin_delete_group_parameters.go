@@ -57,7 +57,8 @@ func NewSingleAdminDeleteGroupParamsWithHTTPClient(client *http.Client) *SingleA
 	}
 }
 
-/*SingleAdminDeleteGroupParams contains all the parameters to send to the API endpoint
+/*
+SingleAdminDeleteGroupParams contains all the parameters to send to the API endpoint
 for the single admin delete group operation typically these are written to a http.Request
 */
 type SingleAdminDeleteGroupParams struct {

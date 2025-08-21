@@ -129,9 +129,10 @@ func NewUpdatePasswordNoContent() *UpdatePasswordNoContent {
 	return &UpdatePasswordNoContent{}
 }
 
-/*UpdatePasswordNoContent handles this case with default header values.
+/*
+UpdatePasswordNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type UpdatePasswordNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewUpdatePasswordBadRequest() *UpdatePasswordBadRequest {
 	return &UpdatePasswordBadRequest{}
 }
 
-/*UpdatePasswordBadRequest handles this case with default header values.
+/*
+UpdatePasswordBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr><tr><td>10143</td><td>password not match</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr><tr><td>10143</td><td>password not match</td></tr></table>
 */
 type UpdatePasswordBadRequest struct {
 }
@@ -183,9 +185,10 @@ func NewUpdatePasswordUnauthorized() *UpdatePasswordUnauthorized {
 	return &UpdatePasswordUnauthorized{}
 }
 
-/*UpdatePasswordUnauthorized handles this case with default header values.
+/*
+UpdatePasswordUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdatePasswordUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -237,9 +240,10 @@ func NewUpdatePasswordForbidden() *UpdatePasswordForbidden {
 	return &UpdatePasswordForbidden{}
 }
 
-/*UpdatePasswordForbidden handles this case with default header values.
+/*
+UpdatePasswordForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdatePasswordForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -291,9 +295,10 @@ func NewUpdatePasswordNotFound() *UpdatePasswordNotFound {
 	return &UpdatePasswordNotFound{}
 }
 
-/*UpdatePasswordNotFound handles this case with default header values.
+/*
+UpdatePasswordNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type UpdatePasswordNotFound struct {
 }
@@ -318,9 +323,10 @@ func NewUpdatePasswordInternalServerError() *UpdatePasswordInternalServerError {
 	return &UpdatePasswordInternalServerError{}
 }
 
-/*UpdatePasswordInternalServerError handles this case with default header values.
+/*
+UpdatePasswordInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type UpdatePasswordInternalServerError struct {
 }

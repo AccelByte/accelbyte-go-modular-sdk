@@ -144,9 +144,10 @@ func NewPublicForcePlatformLinkV3NoContent() *PublicForcePlatformLinkV3NoContent
 	return &PublicForcePlatformLinkV3NoContent{}
 }
 
-/*PublicForcePlatformLinkV3NoContent handles this case with default header values.
+/*
+PublicForcePlatformLinkV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicForcePlatformLinkV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicForcePlatformLinkV3BadRequest() *PublicForcePlatformLinkV3BadReque
 	return &PublicForcePlatformLinkV3BadRequest{}
 }
 
-/*PublicForcePlatformLinkV3BadRequest handles this case with default header values.
+/*
+PublicForcePlatformLinkV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicForcePlatformLinkV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewPublicForcePlatformLinkV3Unauthorized() *PublicForcePlatformLinkV3Unauth
 	return &PublicForcePlatformLinkV3Unauthorized{}
 }
 
-/*PublicForcePlatformLinkV3Unauthorized handles this case with default header values.
+/*
+PublicForcePlatformLinkV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicForcePlatformLinkV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewPublicForcePlatformLinkV3NotFound() *PublicForcePlatformLinkV3NotFound {
 	return &PublicForcePlatformLinkV3NotFound{}
 }
 
-/*PublicForcePlatformLinkV3NotFound handles this case with default header values.
+/*
+PublicForcePlatformLinkV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10174</td><td>platform client not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10174</td><td>platform client not found</td></tr></table>
 */
 type PublicForcePlatformLinkV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewPublicForcePlatformLinkV3Conflict() *PublicForcePlatformLinkV3Conflict {
 	return &PublicForcePlatformLinkV3Conflict{}
 }
 
-/*PublicForcePlatformLinkV3Conflict handles this case with default header values.
+/*
+PublicForcePlatformLinkV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr><tr><td>10172</td><td>platform user is already linked with the account</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr><tr><td>10172</td><td>platform user is already linked with the account</td></tr></table>
 */
 type PublicForcePlatformLinkV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewPublicForcePlatformLinkV3InternalServerError() *PublicForcePlatformLinkV
 	return &PublicForcePlatformLinkV3InternalServerError{}
 }
 
-/*PublicForcePlatformLinkV3InternalServerError handles this case with default header values.
+/*
+PublicForcePlatformLinkV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicForcePlatformLinkV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

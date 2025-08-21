@@ -57,7 +57,8 @@ func NewPublicReadPartySessionStorageParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*PublicReadPartySessionStorageParams contains all the parameters to send to the API endpoint
+/*
+PublicReadPartySessionStorageParams contains all the parameters to send to the API endpoint
 for the public read party session storage operation typically these are written to a http.Request
 */
 type PublicReadPartySessionStorageParams struct {

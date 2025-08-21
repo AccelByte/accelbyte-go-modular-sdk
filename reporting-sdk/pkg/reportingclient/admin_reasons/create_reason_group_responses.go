@@ -115,10 +115,9 @@ func NewCreateReasonGroupCreated() *CreateReasonGroupCreated {
 	return &CreateReasonGroupCreated{}
 }
 
-/*CreateReasonGroupCreated handles this case with default header values.
-
-
- */
+/*
+CreateReasonGroupCreated handles this case with default header values.
+*/
 type CreateReasonGroupCreated struct {
 	Payload *reportingclientmodels.RestapiReasonGroupResponse
 }
@@ -169,10 +168,9 @@ func NewCreateReasonGroupBadRequest() *CreateReasonGroupBadRequest {
 	return &CreateReasonGroupBadRequest{}
 }
 
-/*CreateReasonGroupBadRequest handles this case with default header values.
-
-
- */
+/*
+CreateReasonGroupBadRequest handles this case with default header values.
+*/
 type CreateReasonGroupBadRequest struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -223,10 +221,9 @@ func NewCreateReasonGroupConflict() *CreateReasonGroupConflict {
 	return &CreateReasonGroupConflict{}
 }
 
-/*CreateReasonGroupConflict handles this case with default header values.
-
-
- */
+/*
+CreateReasonGroupConflict handles this case with default header values.
+*/
 type CreateReasonGroupConflict struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -277,10 +274,9 @@ func NewCreateReasonGroupInternalServerError() *CreateReasonGroupInternalServerE
 	return &CreateReasonGroupInternalServerError{}
 }
 
-/*CreateReasonGroupInternalServerError handles this case with default header values.
-
-
- */
+/*
+CreateReasonGroupInternalServerError handles this case with default header values.
+*/
 type CreateReasonGroupInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

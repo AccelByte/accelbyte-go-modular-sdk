@@ -100,9 +100,10 @@ func NewUploadKeysOK() *UploadKeysOK {
 	return &UploadKeysOK{}
 }
 
-/*UploadKeysOK handles this case with default header values.
+/*
+UploadKeysOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UploadKeysOK struct {
 	Payload *platformclientmodels.BulkOperationResult
@@ -154,9 +155,10 @@ func NewUploadKeysBadRequest() *UploadKeysBadRequest {
 	return &UploadKeysBadRequest{}
 }
 
-/*UploadKeysBadRequest handles this case with default header values.
+/*
+UploadKeysBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37221</td><td>Invalid key file</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37221</td><td>Invalid key file</td></tr></table>
 */
 type UploadKeysBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewUploadKeysNotFound() *UploadKeysNotFound {
 	return &UploadKeysNotFound{}
 }
 
-/*UploadKeysNotFound handles this case with default header values.
+/*
+UploadKeysNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37241</td><td>Key group [{keyGroupId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>37241</td><td>Key group [{keyGroupId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UploadKeysNotFound struct {
 	Payload *platformclientmodels.ErrorEntity

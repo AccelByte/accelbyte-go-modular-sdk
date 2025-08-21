@@ -90,9 +90,10 @@ func NewGetUserByUserIDOK() *GetUserByUserIDOK {
 	return &GetUserByUserIDOK{}
 }
 
-/*GetUserByUserIDOK handles this case with default header values.
+/*
+GetUserByUserIDOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserByUserIDOK struct {
 	Payload *iamclientmodels.ModelUserResponse
@@ -144,9 +145,10 @@ func NewGetUserByUserIDNotFound() *GetUserByUserIDNotFound {
 	return &GetUserByUserIDNotFound{}
 }
 
-/*GetUserByUserIDNotFound handles this case with default header values.
+/*
+GetUserByUserIDNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type GetUserByUserIDNotFound struct {
 }
@@ -171,9 +173,10 @@ func NewGetUserByUserIDInternalServerError() *GetUserByUserIDInternalServerError
 	return &GetUserByUserIDInternalServerError{}
 }
 
-/*GetUserByUserIDInternalServerError handles this case with default header values.
+/*
+GetUserByUserIDInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetUserByUserIDInternalServerError struct {
 }

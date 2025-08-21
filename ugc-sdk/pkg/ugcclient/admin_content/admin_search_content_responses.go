@@ -115,9 +115,10 @@ func NewAdminSearchContentOK() *AdminSearchContentOK {
 	return &AdminSearchContentOK{}
 }
 
-/*AdminSearchContentOK handles this case with default header values.
+/*
+AdminSearchContentOK handles this case with default header values.
 
-  Search contents
+	Search contents
 */
 type AdminSearchContentOK struct {
 	Payload *ugcclientmodels.ModelsPaginatedContentDownloadResponse
@@ -169,9 +170,10 @@ func NewAdminSearchContentBadRequest() *AdminSearchContentBadRequest {
 	return &AdminSearchContentBadRequest{}
 }
 
-/*AdminSearchContentBadRequest handles this case with default header values.
+/*
+AdminSearchContentBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770800</td><td>invalid paging parameter/max allowed number of tags is {maxTags}/invalid official parameter/invalid ishidden parameter</td></tr></table>
 */
 type AdminSearchContentBadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewAdminSearchContentUnauthorized() *AdminSearchContentUnauthorized {
 	return &AdminSearchContentUnauthorized{}
 }
 
-/*AdminSearchContentUnauthorized handles this case with default header values.
+/*
+AdminSearchContentUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminSearchContentUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewAdminSearchContentInternalServerError() *AdminSearchContentInternalServe
 	return &AdminSearchContentInternalServerError{}
 }
 
-/*AdminSearchContentInternalServerError handles this case with default header values.
+/*
+AdminSearchContentInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770801</td><td>Unable to get ugc content: database/Unable to get creator</td></tr><tr><td>770803</td><td>Failed generate download URL</td></tr></table>
 */
 type AdminSearchContentInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

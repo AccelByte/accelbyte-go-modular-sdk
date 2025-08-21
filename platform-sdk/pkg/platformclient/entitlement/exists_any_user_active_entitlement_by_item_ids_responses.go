@@ -69,9 +69,10 @@ func NewExistsAnyUserActiveEntitlementByItemIdsOK() *ExistsAnyUserActiveEntitlem
 	return &ExistsAnyUserActiveEntitlementByItemIdsOK{}
 }
 
-/*ExistsAnyUserActiveEntitlementByItemIdsOK handles this case with default header values.
+/*
+ExistsAnyUserActiveEntitlementByItemIdsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type ExistsAnyUserActiveEntitlementByItemIdsOK struct {
 	Payload *platformclientmodels.Ownership

@@ -130,9 +130,10 @@ func NewUpdateSeasonOK() *UpdateSeasonOK {
 	return &UpdateSeasonOK{}
 }
 
-/*UpdateSeasonOK handles this case with default header values.
+/*
+UpdateSeasonOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateSeasonOK struct {
 	Payload *seasonpassclientmodels.SeasonInfo
@@ -184,9 +185,10 @@ func NewUpdateSeasonBadRequest() *UpdateSeasonBadRequest {
 	return &UpdateSeasonBadRequest{}
 }
 
-/*UpdateSeasonBadRequest handles this case with default header values.
+/*
+UpdateSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49121</td><td>Default language [{language}] required in localizations</td></tr><tr><td>49122</td><td>Invalid time range</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49121</td><td>Default language [{language}] required in localizations</td></tr><tr><td>49122</td><td>Invalid time range</td></tr></table>
 */
 type UpdateSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewUpdateSeasonNotFound() *UpdateSeasonNotFound {
 	return &UpdateSeasonNotFound{}
 }
 
-/*UpdateSeasonNotFound handles this case with default header values.
+/*
+UpdateSeasonNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49141</td><td>Tier item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30141</td><td>Store [{storeId}] does not exist in namespace [{namespace}]</td></tr><tr><td>49141</td><td>Tier item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type UpdateSeasonNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewUpdateSeasonConflict() *UpdateSeasonConflict {
 	return &UpdateSeasonConflict{}
 }
 
-/*UpdateSeasonConflict handles this case with default header values.
+/*
+UpdateSeasonConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr></table>
 */
 type UpdateSeasonConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewUpdateSeasonUnprocessableEntity() *UpdateSeasonUnprocessableEntity {
 	return &UpdateSeasonUnprocessableEntity{}
 }
 
-/*UpdateSeasonUnprocessableEntity handles this case with default header values.
+/*
+UpdateSeasonUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateSeasonUnprocessableEntity struct {
 	Payload *seasonpassclientmodels.ValidationErrorEntity

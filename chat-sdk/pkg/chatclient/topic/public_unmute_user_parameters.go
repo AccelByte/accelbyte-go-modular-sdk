@@ -59,7 +59,8 @@ func NewPublicUnmuteUserParamsWithHTTPClient(client *http.Client) *PublicUnmuteU
 	}
 }
 
-/*PublicUnmuteUserParams contains all the parameters to send to the API endpoint
+/*
+PublicUnmuteUserParams contains all the parameters to send to the API endpoint
 for the public unmute user operation typically these are written to a http.Request
 */
 type PublicUnmuteUserParams struct {

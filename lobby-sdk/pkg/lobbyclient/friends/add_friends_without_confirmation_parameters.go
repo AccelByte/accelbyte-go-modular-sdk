@@ -59,7 +59,8 @@ func NewAddFriendsWithoutConfirmationParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*AddFriendsWithoutConfirmationParams contains all the parameters to send to the API endpoint
+/*
+AddFriendsWithoutConfirmationParams contains all the parameters to send to the API endpoint
 for the add friends without confirmation operation typically these are written to a http.Request
 */
 type AddFriendsWithoutConfirmationParams struct {

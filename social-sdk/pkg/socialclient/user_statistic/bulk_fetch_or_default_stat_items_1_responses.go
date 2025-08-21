@@ -145,9 +145,10 @@ func NewBulkFetchOrDefaultStatItems1OK() *BulkFetchOrDefaultStatItems1OK {
 	return &BulkFetchOrDefaultStatItems1OK{}
 }
 
-/*BulkFetchOrDefaultStatItems1OK handles this case with default header values.
+/*
+BulkFetchOrDefaultStatItems1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkFetchOrDefaultStatItems1OK struct {
 	Payload []*socialclientmodels.ADTOObjectForUserStatItemValue
@@ -197,9 +198,10 @@ func NewBulkFetchOrDefaultStatItems1Unauthorized() *BulkFetchOrDefaultStatItems1
 	return &BulkFetchOrDefaultStatItems1Unauthorized{}
 }
 
-/*BulkFetchOrDefaultStatItems1Unauthorized handles this case with default header values.
+/*
+BulkFetchOrDefaultStatItems1Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type BulkFetchOrDefaultStatItems1Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -251,9 +253,10 @@ func NewBulkFetchOrDefaultStatItems1Forbidden() *BulkFetchOrDefaultStatItems1For
 	return &BulkFetchOrDefaultStatItems1Forbidden{}
 }
 
-/*BulkFetchOrDefaultStatItems1Forbidden handles this case with default header values.
+/*
+BulkFetchOrDefaultStatItems1Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type BulkFetchOrDefaultStatItems1Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -305,9 +308,10 @@ func NewBulkFetchOrDefaultStatItems1NotFound() *BulkFetchOrDefaultStatItems1NotF
 	return &BulkFetchOrDefaultStatItems1NotFound{}
 }
 
-/*BulkFetchOrDefaultStatItems1NotFound handles this case with default header values.
+/*
+BulkFetchOrDefaultStatItems1NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type BulkFetchOrDefaultStatItems1NotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -359,9 +363,10 @@ func NewBulkFetchOrDefaultStatItems1UnprocessableEntity() *BulkFetchOrDefaultSta
 	return &BulkFetchOrDefaultStatItems1UnprocessableEntity{}
 }
 
-/*BulkFetchOrDefaultStatItems1UnprocessableEntity handles this case with default header values.
+/*
+BulkFetchOrDefaultStatItems1UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type BulkFetchOrDefaultStatItems1UnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -413,9 +418,10 @@ func NewBulkFetchOrDefaultStatItems1InternalServerError() *BulkFetchOrDefaultSta
 	return &BulkFetchOrDefaultStatItems1InternalServerError{}
 }
 
-/*BulkFetchOrDefaultStatItems1InternalServerError handles this case with default header values.
+/*
+BulkFetchOrDefaultStatItems1InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type BulkFetchOrDefaultStatItems1InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

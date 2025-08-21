@@ -145,9 +145,10 @@ func NewAdminValidateXboxBPCertFileOK() *AdminValidateXboxBPCertFileOK {
 	return &AdminValidateXboxBPCertFileOK{}
 }
 
-/*AdminValidateXboxBPCertFileOK handles this case with default header values.
+/*
+AdminValidateXboxBPCertFileOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminValidateXboxBPCertFileOK struct {
 	Payload *gdprclientmodels.DTOXboxBPCertValidationResponse
@@ -199,9 +200,10 @@ func NewAdminValidateXboxBPCertFileBadRequest() *AdminValidateXboxBPCertFileBadR
 	return &AdminValidateXboxBPCertFileBadRequest{}
 }
 
-/*AdminValidateXboxBPCertFileBadRequest handles this case with default header values.
+/*
+AdminValidateXboxBPCertFileBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminValidateXboxBPCertFileBadRequest struct {
 	Payload *gdprclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminValidateXboxBPCertFileUnauthorized() *AdminValidateXboxBPCertFileUn
 	return &AdminValidateXboxBPCertFileUnauthorized{}
 }
 
-/*AdminValidateXboxBPCertFileUnauthorized handles this case with default header values.
+/*
+AdminValidateXboxBPCertFileUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminValidateXboxBPCertFileUnauthorized struct {
 	Payload *gdprclientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewAdminValidateXboxBPCertFileForbidden() *AdminValidateXboxBPCertFileForbi
 	return &AdminValidateXboxBPCertFileForbidden{}
 }
 
-/*AdminValidateXboxBPCertFileForbidden handles this case with default header values.
+/*
+AdminValidateXboxBPCertFileForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminValidateXboxBPCertFileForbidden struct {
 	Payload *gdprclientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewAdminValidateXboxBPCertFileNotFound() *AdminValidateXboxBPCertFileNotFou
 	return &AdminValidateXboxBPCertFileNotFound{}
 }
 
-/*AdminValidateXboxBPCertFileNotFound handles this case with default header values.
+/*
+AdminValidateXboxBPCertFileNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminValidateXboxBPCertFileNotFound struct {
 	Payload *gdprclientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewAdminValidateXboxBPCertFileInternalServerError() *AdminValidateXboxBPCer
 	return &AdminValidateXboxBPCertFileInternalServerError{}
 }
 
-/*AdminValidateXboxBPCertFileInternalServerError handles this case with default header values.
+/*
+AdminValidateXboxBPCertFileInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminValidateXboxBPCertFileInternalServerError struct {
 	Payload *gdprclientmodels.ResponseError

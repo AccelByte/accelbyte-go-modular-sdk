@@ -78,7 +78,8 @@ func NewQueryStatsParamsWithHTTPClient(client *http.Client) *QueryStatsParams {
 	}
 }
 
-/*QueryStatsParams contains all the parameters to send to the API endpoint
+/*
+QueryStatsParams contains all the parameters to send to the API endpoint
 for the query stats operation typically these are written to a http.Request
 */
 type QueryStatsParams struct {

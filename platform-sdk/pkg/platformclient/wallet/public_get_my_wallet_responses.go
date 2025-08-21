@@ -69,9 +69,10 @@ func NewPublicGetMyWalletOK() *PublicGetMyWalletOK {
 	return &PublicGetMyWalletOK{}
 }
 
-/*PublicGetMyWalletOK handles this case with default header values.
+/*
+PublicGetMyWalletOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetMyWalletOK struct {
 	Payload *platformclientmodels.PlatformWallet

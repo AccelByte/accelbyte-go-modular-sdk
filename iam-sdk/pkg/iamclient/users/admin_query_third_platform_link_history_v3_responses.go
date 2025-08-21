@@ -130,9 +130,10 @@ func NewAdminQueryThirdPlatformLinkHistoryV3OK() *AdminQueryThirdPlatformLinkHis
 	return &AdminQueryThirdPlatformLinkHistoryV3OK{}
 }
 
-/*AdminQueryThirdPlatformLinkHistoryV3OK handles this case with default header values.
+/*
+AdminQueryThirdPlatformLinkHistoryV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminQueryThirdPlatformLinkHistoryV3OK struct {
 	Payload *iamclientmodels.ModelLinkingHistoryResponseWithPaginationV3
@@ -184,9 +185,10 @@ func NewAdminQueryThirdPlatformLinkHistoryV3BadRequest() *AdminQueryThirdPlatfor
 	return &AdminQueryThirdPlatformLinkHistoryV3BadRequest{}
 }
 
-/*AdminQueryThirdPlatformLinkHistoryV3BadRequest handles this case with default header values.
+/*
+AdminQueryThirdPlatformLinkHistoryV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminQueryThirdPlatformLinkHistoryV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminQueryThirdPlatformLinkHistoryV3Unauthorized() *AdminQueryThirdPlatf
 	return &AdminQueryThirdPlatformLinkHistoryV3Unauthorized{}
 }
 
-/*AdminQueryThirdPlatformLinkHistoryV3Unauthorized handles this case with default header values.
+/*
+AdminQueryThirdPlatformLinkHistoryV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminQueryThirdPlatformLinkHistoryV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminQueryThirdPlatformLinkHistoryV3Forbidden() *AdminQueryThirdPlatform
 	return &AdminQueryThirdPlatformLinkHistoryV3Forbidden{}
 }
 
-/*AdminQueryThirdPlatformLinkHistoryV3Forbidden handles this case with default header values.
+/*
+AdminQueryThirdPlatformLinkHistoryV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminQueryThirdPlatformLinkHistoryV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminQueryThirdPlatformLinkHistoryV3InternalServerError() *AdminQueryThi
 	return &AdminQueryThirdPlatformLinkHistoryV3InternalServerError{}
 }
 
-/*AdminQueryThirdPlatformLinkHistoryV3InternalServerError handles this case with default header values.
+/*
+AdminQueryThirdPlatformLinkHistoryV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminQueryThirdPlatformLinkHistoryV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

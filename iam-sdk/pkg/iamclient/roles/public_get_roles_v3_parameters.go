@@ -58,7 +58,8 @@ func NewPublicGetRolesV3ParamsWithHTTPClient(client *http.Client) *PublicGetRole
 	}
 }
 
-/*PublicGetRolesV3Params contains all the parameters to send to the API endpoint
+/*
+PublicGetRolesV3Params contains all the parameters to send to the API endpoint
 for the public get roles v3 operation typically these are written to a http.Request
 */
 type PublicGetRolesV3Params struct {

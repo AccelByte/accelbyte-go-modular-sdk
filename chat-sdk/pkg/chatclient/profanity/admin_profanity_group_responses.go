@@ -130,9 +130,10 @@ func NewAdminProfanityGroupOK() *AdminProfanityGroupOK {
 	return &AdminProfanityGroupOK{}
 }
 
-/*AdminProfanityGroupOK handles this case with default header values.
+/*
+AdminProfanityGroupOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminProfanityGroupOK struct {
 	Payload []*chatclientmodels.ModelsDictionaryGroup
@@ -182,9 +183,10 @@ func NewAdminProfanityGroupBadRequest() *AdminProfanityGroupBadRequest {
 	return &AdminProfanityGroupBadRequest{}
 }
 
-/*AdminProfanityGroupBadRequest handles this case with default header values.
+/*
+AdminProfanityGroupBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminProfanityGroupBadRequest struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -236,9 +238,10 @@ func NewAdminProfanityGroupUnauthorized() *AdminProfanityGroupUnauthorized {
 	return &AdminProfanityGroupUnauthorized{}
 }
 
-/*AdminProfanityGroupUnauthorized handles this case with default header values.
+/*
+AdminProfanityGroupUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminProfanityGroupUnauthorized struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -290,9 +293,10 @@ func NewAdminProfanityGroupForbidden() *AdminProfanityGroupForbidden {
 	return &AdminProfanityGroupForbidden{}
 }
 
-/*AdminProfanityGroupForbidden handles this case with default header values.
+/*
+AdminProfanityGroupForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminProfanityGroupForbidden struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody
@@ -344,9 +348,10 @@ func NewAdminProfanityGroupInternalServerError() *AdminProfanityGroupInternalSer
 	return &AdminProfanityGroupInternalServerError{}
 }
 
-/*AdminProfanityGroupInternalServerError handles this case with default header values.
+/*
+AdminProfanityGroupInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminProfanityGroupInternalServerError struct {
 	Payload *chatclientmodels.RestapiErrorResponseBody

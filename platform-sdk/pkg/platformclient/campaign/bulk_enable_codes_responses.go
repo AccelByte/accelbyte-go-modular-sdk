@@ -69,9 +69,10 @@ func NewBulkEnableCodesOK() *BulkEnableCodesOK {
 	return &BulkEnableCodesOK{}
 }
 
-/*BulkEnableCodesOK handles this case with default header values.
+/*
+BulkEnableCodesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type BulkEnableCodesOK struct {
 	Payload *platformclientmodels.BulkOperationResult

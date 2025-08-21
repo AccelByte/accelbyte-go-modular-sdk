@@ -100,9 +100,10 @@ func NewPublicGetReasonsOK() *PublicGetReasonsOK {
 	return &PublicGetReasonsOK{}
 }
 
-/*PublicGetReasonsOK handles this case with default header values.
+/*
+PublicGetReasonsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetReasonsOK struct {
 	Payload *reportingclientmodels.RestapiPublicReasonListResponse
@@ -154,10 +155,9 @@ func NewPublicGetReasonsNotFound() *PublicGetReasonsNotFound {
 	return &PublicGetReasonsNotFound{}
 }
 
-/*PublicGetReasonsNotFound handles this case with default header values.
-
-
- */
+/*
+PublicGetReasonsNotFound handles this case with default header values.
+*/
 type PublicGetReasonsNotFound struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }
@@ -208,10 +208,9 @@ func NewPublicGetReasonsInternalServerError() *PublicGetReasonsInternalServerErr
 	return &PublicGetReasonsInternalServerError{}
 }
 
-/*PublicGetReasonsInternalServerError handles this case with default header values.
-
-
- */
+/*
+PublicGetReasonsInternalServerError handles this case with default header values.
+*/
 type PublicGetReasonsInternalServerError struct {
 	Payload *reportingclientmodels.RestapiErrorResponse
 }

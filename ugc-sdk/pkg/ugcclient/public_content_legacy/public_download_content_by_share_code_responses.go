@@ -115,9 +115,10 @@ func NewPublicDownloadContentByShareCodeOK() *PublicDownloadContentByShareCodeOK
 	return &PublicDownloadContentByShareCodeOK{}
 }
 
-/*PublicDownloadContentByShareCodeOK handles this case with default header values.
+/*
+PublicDownloadContentByShareCodeOK handles this case with default header values.
 
-  Get content by sharecode
+	Get content by sharecode
 */
 type PublicDownloadContentByShareCodeOK struct {
 	Payload *ugcclientmodels.ModelsContentDownloadResponse
@@ -169,9 +170,10 @@ func NewPublicDownloadContentByShareCodeUnauthorized() *PublicDownloadContentByS
 	return &PublicDownloadContentByShareCodeUnauthorized{}
 }
 
-/*PublicDownloadContentByShareCodeUnauthorized handles this case with default header values.
+/*
+PublicDownloadContentByShareCodeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicDownloadContentByShareCodeUnauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicDownloadContentByShareCodeNotFound() *PublicDownloadContentByShare
 	return &PublicDownloadContentByShareCodeNotFound{}
 }
 
-/*PublicDownloadContentByShareCodeNotFound handles this case with default header values.
+/*
+PublicDownloadContentByShareCodeNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770300</td><td>ugc content not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770300</td><td>ugc content not found</td></tr></table>
 */
 type PublicDownloadContentByShareCodeNotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicDownloadContentByShareCodeInternalServerError() *PublicDownloadCon
 	return &PublicDownloadContentByShareCodeInternalServerError{}
 }
 
-/*PublicDownloadContentByShareCodeInternalServerError handles this case with default header values.
+/*
+PublicDownloadContentByShareCodeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770301</td><td>Unable to get ugc content/Unable to get creator</td></tr><tr><td>770303</td><td>Failed generate download URL</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>770301</td><td>Unable to get ugc content/Unable to get creator</td></tr><tr><td>770303</td><td>Failed generate download URL</td></tr></table>
 */
 type PublicDownloadContentByShareCodeInternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

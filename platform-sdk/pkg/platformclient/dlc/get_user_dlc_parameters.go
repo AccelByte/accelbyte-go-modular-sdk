@@ -92,7 +92,8 @@ func NewGetUserDLCParamsWithHTTPClient(client *http.Client) *GetUserDLCParams {
 	}
 }
 
-/*GetUserDLCParams contains all the parameters to send to the API endpoint
+/*
+GetUserDLCParams contains all the parameters to send to the API endpoint
 for the get user dlc operation typically these are written to a http.Request
 */
 type GetUserDLCParams struct {

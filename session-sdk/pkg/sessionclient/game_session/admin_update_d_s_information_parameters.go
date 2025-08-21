@@ -59,7 +59,8 @@ func NewAdminUpdateDSInformationParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminUpdateDSInformationParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateDSInformationParams contains all the parameters to send to the API endpoint
 for the admin update ds information operation typically these are written to a http.Request
 */
 type AdminUpdateDSInformationParams struct {

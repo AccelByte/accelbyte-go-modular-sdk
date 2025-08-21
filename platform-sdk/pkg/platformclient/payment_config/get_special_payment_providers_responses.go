@@ -69,9 +69,10 @@ func NewGetSpecialPaymentProvidersOK() *GetSpecialPaymentProvidersOK {
 	return &GetSpecialPaymentProvidersOK{}
 }
 
-/*GetSpecialPaymentProvidersOK handles this case with default header values.
+/*
+GetSpecialPaymentProvidersOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetSpecialPaymentProvidersOK struct {
 	Payload []string

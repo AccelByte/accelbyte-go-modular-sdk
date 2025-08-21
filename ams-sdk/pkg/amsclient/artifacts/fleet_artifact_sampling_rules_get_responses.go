@@ -145,9 +145,10 @@ func NewFleetArtifactSamplingRulesGetOK() *FleetArtifactSamplingRulesGetOK {
 	return &FleetArtifactSamplingRulesGetOK{}
 }
 
-/*FleetArtifactSamplingRulesGetOK handles this case with default header values.
+/*
+FleetArtifactSamplingRulesGetOK handles this case with default header values.
 
-  success
+	success
 */
 type FleetArtifactSamplingRulesGetOK struct {
 	Payload *amsclientmodels.APIFleetArtifactsSampleRules
@@ -199,9 +200,10 @@ func NewFleetArtifactSamplingRulesGetBadRequest() *FleetArtifactSamplingRulesGet
 	return &FleetArtifactSamplingRulesGetBadRequest{}
 }
 
-/*FleetArtifactSamplingRulesGetBadRequest handles this case with default header values.
+/*
+FleetArtifactSamplingRulesGetBadRequest handles this case with default header values.
 
-  invalid fleet ID
+	invalid fleet ID
 */
 type FleetArtifactSamplingRulesGetBadRequest struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewFleetArtifactSamplingRulesGetUnauthorized() *FleetArtifactSamplingRulesG
 	return &FleetArtifactSamplingRulesGetUnauthorized{}
 }
 
-/*FleetArtifactSamplingRulesGetUnauthorized handles this case with default header values.
+/*
+FleetArtifactSamplingRulesGetUnauthorized handles this case with default header values.
 
-  no authorization provided
+	no authorization provided
 */
 type FleetArtifactSamplingRulesGetUnauthorized struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewFleetArtifactSamplingRulesGetForbidden() *FleetArtifactSamplingRulesGetF
 	return &FleetArtifactSamplingRulesGetForbidden{}
 }
 
-/*FleetArtifactSamplingRulesGetForbidden handles this case with default header values.
+/*
+FleetArtifactSamplingRulesGetForbidden handles this case with default header values.
 
-  insufficient permissions
+	insufficient permissions
 */
 type FleetArtifactSamplingRulesGetForbidden struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewFleetArtifactSamplingRulesGetNotFound() *FleetArtifactSamplingRulesGetNo
 	return &FleetArtifactSamplingRulesGetNotFound{}
 }
 
-/*FleetArtifactSamplingRulesGetNotFound handles this case with default header values.
+/*
+FleetArtifactSamplingRulesGetNotFound handles this case with default header values.
 
-  artifact sampling rules not found for fleet
+	artifact sampling rules not found for fleet
 */
 type FleetArtifactSamplingRulesGetNotFound struct {
 	Payload *amsclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewFleetArtifactSamplingRulesGetInternalServerError() *FleetArtifactSamplin
 	return &FleetArtifactSamplingRulesGetInternalServerError{}
 }
 
-/*FleetArtifactSamplingRulesGetInternalServerError handles this case with default header values.
+/*
+FleetArtifactSamplingRulesGetInternalServerError handles this case with default header values.
 
-  internal server error
+	internal server error
 */
 type FleetArtifactSamplingRulesGetInternalServerError struct {
 	Payload *amsclientmodels.ResponseErrorResponse

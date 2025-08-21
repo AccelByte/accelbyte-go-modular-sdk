@@ -130,9 +130,10 @@ func NewGetStatOK() *GetStatOK {
 	return &GetStatOK{}
 }
 
-/*GetStatOK handles this case with default header values.
+/*
+GetStatOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetStatOK struct {
 	Payload *socialclientmodels.StatInfo
@@ -184,9 +185,10 @@ func NewGetStatUnauthorized() *GetStatUnauthorized {
 	return &GetStatUnauthorized{}
 }
 
-/*GetStatUnauthorized handles this case with default header values.
+/*
+GetStatUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type GetStatUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewGetStatForbidden() *GetStatForbidden {
 	return &GetStatForbidden{}
 }
 
-/*GetStatForbidden handles this case with default header values.
+/*
+GetStatForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetStatForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewGetStatNotFound() *GetStatNotFound {
 	return &GetStatNotFound{}
 }
 
-/*GetStatNotFound handles this case with default header values.
+/*
+GetStatNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12241</td><td>Stat [{statCode}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type GetStatNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewGetStatInternalServerError() *GetStatInternalServerError {
 	return &GetStatInternalServerError{}
 }
 
-/*GetStatInternalServerError handles this case with default header values.
+/*
+GetStatInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type GetStatInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

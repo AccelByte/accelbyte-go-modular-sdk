@@ -80,9 +80,10 @@ func NewGetRevocationListOK() *GetRevocationListOK {
 	return &GetRevocationListOK{}
 }
 
-/*GetRevocationListOK handles this case with default header values.
+/*
+GetRevocationListOK handles this case with default header values.
 
-  revocation list returned
+	revocation list returned
 */
 type GetRevocationListOK struct {
 	Payload *iamclientmodels.OauthapiRevocationList
@@ -134,9 +135,10 @@ func NewGetRevocationListUnauthorized() *GetRevocationListUnauthorized {
 	return &GetRevocationListUnauthorized{}
 }
 
-/*GetRevocationListUnauthorized handles this case with default header values.
+/*
+GetRevocationListUnauthorized handles this case with default header values.
 
-  Invalid basic auth header
+	Invalid basic auth header
 */
 type GetRevocationListUnauthorized struct {
 }

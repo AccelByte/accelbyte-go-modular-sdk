@@ -59,7 +59,8 @@ func NewMockPlayStationStreamEventParamsWithHTTPClient(client *http.Client) *Moc
 	}
 }
 
-/*MockPlayStationStreamEventParams contains all the parameters to send to the API endpoint
+/*
+MockPlayStationStreamEventParams contains all the parameters to send to the API endpoint
 for the mock play station stream event operation typically these are written to a http.Request
 */
 type MockPlayStationStreamEventParams struct {

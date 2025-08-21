@@ -144,9 +144,10 @@ func NewDeleteContentScreenshotV2NoContent() *DeleteContentScreenshotV2NoContent
 	return &DeleteContentScreenshotV2NoContent{}
 }
 
-/*DeleteContentScreenshotV2NoContent handles this case with default header values.
+/*
+DeleteContentScreenshotV2NoContent handles this case with default header values.
 
-  Screenshot deleted
+	Screenshot deleted
 */
 type DeleteContentScreenshotV2NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteContentScreenshotV2BadRequest() *DeleteContentScreenshotV2BadReque
 	return &DeleteContentScreenshotV2BadRequest{}
 }
 
-/*DeleteContentScreenshotV2BadRequest handles this case with default header values.
+/*
+DeleteContentScreenshotV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type DeleteContentScreenshotV2BadRequest struct {
 	Payload *ugcclientmodels.ResponseError
@@ -225,9 +227,10 @@ func NewDeleteContentScreenshotV2Unauthorized() *DeleteContentScreenshotV2Unauth
 	return &DeleteContentScreenshotV2Unauthorized{}
 }
 
-/*DeleteContentScreenshotV2Unauthorized handles this case with default header values.
+/*
+DeleteContentScreenshotV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteContentScreenshotV2Unauthorized struct {
 	Payload *ugcclientmodels.ResponseError
@@ -279,9 +282,10 @@ func NewDeleteContentScreenshotV2Forbidden() *DeleteContentScreenshotV2Forbidden
 	return &DeleteContentScreenshotV2Forbidden{}
 }
 
-/*DeleteContentScreenshotV2Forbidden handles this case with default header values.
+/*
+DeleteContentScreenshotV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772604</td><td>User has been banned to update content</td></tr></table>
 */
 type DeleteContentScreenshotV2Forbidden struct {
 	Payload *ugcclientmodels.ResponseError
@@ -333,9 +337,10 @@ func NewDeleteContentScreenshotV2NotFound() *DeleteContentScreenshotV2NotFound {
 	return &DeleteContentScreenshotV2NotFound{}
 }
 
-/*DeleteContentScreenshotV2NotFound handles this case with default header values.
+/*
+DeleteContentScreenshotV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772603</td><td>Content not found</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type DeleteContentScreenshotV2NotFound struct {
 	Payload *ugcclientmodels.ResponseError
@@ -387,9 +392,10 @@ func NewDeleteContentScreenshotV2InternalServerError() *DeleteContentScreenshotV
 	return &DeleteContentScreenshotV2InternalServerError{}
 }
 
-/*DeleteContentScreenshotV2InternalServerError handles this case with default header values.
+/*
+DeleteContentScreenshotV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>772602</td><td>Unable to check user ban status/Unable to get updated ugc content</td></tr></table>
 */
 type DeleteContentScreenshotV2InternalServerError struct {
 	Payload *ugcclientmodels.ResponseError

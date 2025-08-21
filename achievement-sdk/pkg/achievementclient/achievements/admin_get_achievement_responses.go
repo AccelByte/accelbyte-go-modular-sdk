@@ -130,9 +130,10 @@ func NewAdminGetAchievementOK() *AdminGetAchievementOK {
 	return &AdminGetAchievementOK{}
 }
 
-/*AdminGetAchievementOK handles this case with default header values.
+/*
+AdminGetAchievementOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetAchievementOK struct {
 	Payload *achievementclientmodels.ModelsAchievementResponse
@@ -184,9 +185,10 @@ func NewAdminGetAchievementBadRequest() *AdminGetAchievementBadRequest {
 	return &AdminGetAchievementBadRequest{}
 }
 
-/*AdminGetAchievementBadRequest handles this case with default header values.
+/*
+AdminGetAchievementBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetAchievementBadRequest struct {
 	Payload *achievementclientmodels.ResponseError
@@ -238,9 +240,10 @@ func NewAdminGetAchievementUnauthorized() *AdminGetAchievementUnauthorized {
 	return &AdminGetAchievementUnauthorized{}
 }
 
-/*AdminGetAchievementUnauthorized handles this case with default header values.
+/*
+AdminGetAchievementUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetAchievementUnauthorized struct {
 	Payload *achievementclientmodels.ResponseError
@@ -292,9 +295,10 @@ func NewAdminGetAchievementNotFound() *AdminGetAchievementNotFound {
 	return &AdminGetAchievementNotFound{}
 }
 
-/*AdminGetAchievementNotFound handles this case with default header values.
+/*
+AdminGetAchievementNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetAchievementNotFound struct {
 	Payload *achievementclientmodels.ResponseError
@@ -346,9 +350,10 @@ func NewAdminGetAchievementInternalServerError() *AdminGetAchievementInternalSer
 	return &AdminGetAchievementInternalServerError{}
 }
 
-/*AdminGetAchievementInternalServerError handles this case with default header values.
+/*
+AdminGetAchievementInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetAchievementInternalServerError struct {
 	Payload *achievementclientmodels.ResponseError

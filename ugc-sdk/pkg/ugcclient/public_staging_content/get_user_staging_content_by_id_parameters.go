@@ -57,7 +57,8 @@ func NewGetUserStagingContentByIDParamsWithHTTPClient(client *http.Client) *GetU
 	}
 }
 
-/*GetUserStagingContentByIDParams contains all the parameters to send to the API endpoint
+/*
+GetUserStagingContentByIDParams contains all the parameters to send to the API endpoint
 for the get user staging content by id operation typically these are written to a http.Request
 */
 type GetUserStagingContentByIDParams struct {

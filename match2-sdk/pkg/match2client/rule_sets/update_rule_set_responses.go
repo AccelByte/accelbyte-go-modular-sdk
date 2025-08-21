@@ -145,9 +145,10 @@ func NewUpdateRuleSetOK() *UpdateRuleSetOK {
 	return &UpdateRuleSetOK{}
 }
 
-/*UpdateRuleSetOK handles this case with default header values.
+/*
+UpdateRuleSetOK handles this case with default header values.
 
-  OK
+	OK
 */
 type UpdateRuleSetOK struct {
 	Payload *match2clientmodels.APIRuleSetPayload
@@ -199,9 +200,10 @@ func NewUpdateRuleSetBadRequest() *UpdateRuleSetBadRequest {
 	return &UpdateRuleSetBadRequest{}
 }
 
-/*UpdateRuleSetBadRequest handles this case with default header values.
+/*
+UpdateRuleSetBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type UpdateRuleSetBadRequest struct {
 	Payload *match2clientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewUpdateRuleSetUnauthorized() *UpdateRuleSetUnauthorized {
 	return &UpdateRuleSetUnauthorized{}
 }
 
-/*UpdateRuleSetUnauthorized handles this case with default header values.
+/*
+UpdateRuleSetUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type UpdateRuleSetUnauthorized struct {
 	Payload *match2clientmodels.ResponseError
@@ -307,9 +310,10 @@ func NewUpdateRuleSetForbidden() *UpdateRuleSetForbidden {
 	return &UpdateRuleSetForbidden{}
 }
 
-/*UpdateRuleSetForbidden handles this case with default header values.
+/*
+UpdateRuleSetForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateRuleSetForbidden struct {
 	Payload *match2clientmodels.ResponseError
@@ -361,9 +365,10 @@ func NewUpdateRuleSetNotFound() *UpdateRuleSetNotFound {
 	return &UpdateRuleSetNotFound{}
 }
 
-/*UpdateRuleSetNotFound handles this case with default header values.
+/*
+UpdateRuleSetNotFound handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type UpdateRuleSetNotFound struct {
 	Payload *match2clientmodels.ResponseError
@@ -415,9 +420,10 @@ func NewUpdateRuleSetInternalServerError() *UpdateRuleSetInternalServerError {
 	return &UpdateRuleSetInternalServerError{}
 }
 
-/*UpdateRuleSetInternalServerError handles this case with default header values.
+/*
+UpdateRuleSetInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type UpdateRuleSetInternalServerError struct {
 	Payload *match2clientmodels.ResponseError

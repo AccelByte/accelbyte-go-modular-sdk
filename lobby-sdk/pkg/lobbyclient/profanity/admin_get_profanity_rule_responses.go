@@ -145,9 +145,10 @@ func NewAdminGetProfanityRuleOK() *AdminGetProfanityRuleOK {
 	return &AdminGetProfanityRuleOK{}
 }
 
-/*AdminGetProfanityRuleOK handles this case with default header values.
+/*
+AdminGetProfanityRuleOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetProfanityRuleOK struct {
 	Payload *lobbyclientmodels.ModelsProfanityRule
@@ -199,9 +200,10 @@ func NewAdminGetProfanityRuleBadRequest() *AdminGetProfanityRuleBadRequest {
 	return &AdminGetProfanityRuleBadRequest{}
 }
 
-/*AdminGetProfanityRuleBadRequest handles this case with default header values.
+/*
+AdminGetProfanityRuleBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type AdminGetProfanityRuleBadRequest struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -253,9 +255,10 @@ func NewAdminGetProfanityRuleUnauthorized() *AdminGetProfanityRuleUnauthorized {
 	return &AdminGetProfanityRuleUnauthorized{}
 }
 
-/*AdminGetProfanityRuleUnauthorized handles this case with default header values.
+/*
+AdminGetProfanityRuleUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type AdminGetProfanityRuleUnauthorized struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -307,9 +310,10 @@ func NewAdminGetProfanityRuleForbidden() *AdminGetProfanityRuleForbidden {
 	return &AdminGetProfanityRuleForbidden{}
 }
 
-/*AdminGetProfanityRuleForbidden handles this case with default header values.
+/*
+AdminGetProfanityRuleForbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type AdminGetProfanityRuleForbidden struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -361,9 +365,10 @@ func NewAdminGetProfanityRuleNotFound() *AdminGetProfanityRuleNotFound {
 	return &AdminGetProfanityRuleNotFound{}
 }
 
-/*AdminGetProfanityRuleNotFound handles this case with default header values.
+/*
+AdminGetProfanityRuleNotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type AdminGetProfanityRuleNotFound struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody
@@ -415,9 +420,10 @@ func NewAdminGetProfanityRuleInternalServerError() *AdminGetProfanityRuleInterna
 	return &AdminGetProfanityRuleInternalServerError{}
 }
 
-/*AdminGetProfanityRuleInternalServerError handles this case with default header values.
+/*
+AdminGetProfanityRuleInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type AdminGetProfanityRuleInternalServerError struct {
 	Payload *lobbyclientmodels.RestapiErrorResponseBody

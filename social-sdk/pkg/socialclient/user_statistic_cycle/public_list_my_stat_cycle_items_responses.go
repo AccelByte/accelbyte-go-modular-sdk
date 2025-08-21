@@ -145,9 +145,10 @@ func NewPublicListMyStatCycleItemsOK() *PublicListMyStatCycleItemsOK {
 	return &PublicListMyStatCycleItemsOK{}
 }
 
-/*PublicListMyStatCycleItemsOK handles this case with default header values.
+/*
+PublicListMyStatCycleItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicListMyStatCycleItemsOK struct {
 	Payload *socialclientmodels.UserStatCycleItemPagingSlicedResult
@@ -199,9 +200,10 @@ func NewPublicListMyStatCycleItemsUnauthorized() *PublicListMyStatCycleItemsUnau
 	return &PublicListMyStatCycleItemsUnauthorized{}
 }
 
-/*PublicListMyStatCycleItemsUnauthorized handles this case with default header values.
+/*
+PublicListMyStatCycleItemsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type PublicListMyStatCycleItemsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -253,9 +255,10 @@ func NewPublicListMyStatCycleItemsForbidden() *PublicListMyStatCycleItemsForbidd
 	return &PublicListMyStatCycleItemsForbidden{}
 }
 
-/*PublicListMyStatCycleItemsForbidden handles this case with default header values.
+/*
+PublicListMyStatCycleItemsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicListMyStatCycleItemsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -307,9 +310,10 @@ func NewPublicListMyStatCycleItemsNotFound() *PublicListMyStatCycleItemsNotFound
 	return &PublicListMyStatCycleItemsNotFound{}
 }
 
-/*PublicListMyStatCycleItemsNotFound handles this case with default header values.
+/*
+PublicListMyStatCycleItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type PublicListMyStatCycleItemsNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -361,9 +365,10 @@ func NewPublicListMyStatCycleItemsUnprocessableEntity() *PublicListMyStatCycleIt
 	return &PublicListMyStatCycleItemsUnprocessableEntity{}
 }
 
-/*PublicListMyStatCycleItemsUnprocessableEntity handles this case with default header values.
+/*
+PublicListMyStatCycleItemsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicListMyStatCycleItemsUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -415,9 +420,10 @@ func NewPublicListMyStatCycleItemsInternalServerError() *PublicListMyStatCycleIt
 	return &PublicListMyStatCycleItemsInternalServerError{}
 }
 
-/*PublicListMyStatCycleItemsInternalServerError handles this case with default header values.
+/*
+PublicListMyStatCycleItemsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type PublicListMyStatCycleItemsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

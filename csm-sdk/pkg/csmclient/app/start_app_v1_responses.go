@@ -145,9 +145,10 @@ func NewStartAppV1OK() *StartAppV1OK {
 	return &StartAppV1OK{}
 }
 
-/*StartAppV1OK handles this case with default header values.
+/*
+StartAppV1OK handles this case with default header values.
 
-  OK
+	OK
 */
 type StartAppV1OK struct {
 	Payload *csmclientmodels.GeneratedStartAppV1Response
@@ -199,9 +200,10 @@ func NewStartAppV1BadRequest() *StartAppV1BadRequest {
 	return &StartAppV1BadRequest{}
 }
 
-/*StartAppV1BadRequest handles this case with default header values.
+/*
+StartAppV1BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type StartAppV1BadRequest struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -253,9 +255,10 @@ func NewStartAppV1Unauthorized() *StartAppV1Unauthorized {
 	return &StartAppV1Unauthorized{}
 }
 
-/*StartAppV1Unauthorized handles this case with default header values.
+/*
+StartAppV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type StartAppV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -307,9 +310,10 @@ func NewStartAppV1Forbidden() *StartAppV1Forbidden {
 	return &StartAppV1Forbidden{}
 }
 
-/*StartAppV1Forbidden handles this case with default header values.
+/*
+StartAppV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type StartAppV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -361,9 +365,10 @@ func NewStartAppV1NotFound() *StartAppV1NotFound {
 	return &StartAppV1NotFound{}
 }
 
-/*StartAppV1NotFound handles this case with default header values.
+/*
+StartAppV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type StartAppV1NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -415,9 +420,10 @@ func NewStartAppV1InternalServerError() *StartAppV1InternalServerError {
 	return &StartAppV1InternalServerError{}
 }
 
-/*StartAppV1InternalServerError handles this case with default header values.
+/*
+StartAppV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type StartAppV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse

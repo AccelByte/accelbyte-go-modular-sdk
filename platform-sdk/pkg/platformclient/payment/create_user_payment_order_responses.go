@@ -145,9 +145,10 @@ func NewCreateUserPaymentOrderCreated() *CreateUserPaymentOrderCreated {
 	return &CreateUserPaymentOrderCreated{}
 }
 
-/*CreateUserPaymentOrderCreated handles this case with default header values.
+/*
+CreateUserPaymentOrderCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreateUserPaymentOrderCreated struct {
 	Payload *platformclientmodels.PaymentOrderInfo
@@ -199,9 +200,10 @@ func NewCreateUserPaymentOrderBadRequest() *CreateUserPaymentOrderBadRequest {
 	return &CreateUserPaymentOrderBadRequest{}
 }
 
-/*CreateUserPaymentOrderBadRequest handles this case with default header values.
+/*
+CreateUserPaymentOrderBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33121</td><td>Recurring payment failed with code: [{errorCode}] and message: [{errorMessage}] by provider: [{provider}]</td></tr><tr><td>33122</td><td>Subscription not match when create payment order</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33121</td><td>Recurring payment failed with code: [{errorCode}] and message: [{errorMessage}] by provider: [{provider}]</td></tr><tr><td>33122</td><td>Subscription not match when create payment order</td></tr></table>
 */
 type CreateUserPaymentOrderBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -253,9 +255,10 @@ func NewCreateUserPaymentOrderForbidden() *CreateUserPaymentOrderForbidden {
 	return &CreateUserPaymentOrderForbidden{}
 }
 
-/*CreateUserPaymentOrderForbidden handles this case with default header values.
+/*
+CreateUserPaymentOrderForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20016</td><td>action is banned</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20016</td><td>action is banned</td></tr></table>
 */
 type CreateUserPaymentOrderForbidden struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -307,9 +310,10 @@ func NewCreateUserPaymentOrderNotFound() *CreateUserPaymentOrderNotFound {
 	return &CreateUserPaymentOrderNotFound{}
 }
 
-/*CreateUserPaymentOrderNotFound handles this case with default header values.
+/*
+CreateUserPaymentOrderNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr><tr><td>33145</td><td>Recurring token not found</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr><tr><td>33141</td><td>Payment Order [{paymentOrderNo}] does not exist</td></tr><tr><td>33145</td><td>Recurring token not found</td></tr><tr><td>20008</td><td>user [{userId}] does not exist in namespace [{namespace}]</td></tr></table>
 */
 type CreateUserPaymentOrderNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -361,9 +365,10 @@ func NewCreateUserPaymentOrderConflict() *CreateUserPaymentOrderConflict {
 	return &CreateUserPaymentOrderConflict{}
 }
 
-/*CreateUserPaymentOrderConflict handles this case with default header values.
+/*
+CreateUserPaymentOrderConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type CreateUserPaymentOrderConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -415,9 +420,10 @@ func NewCreateUserPaymentOrderUnprocessableEntity() *CreateUserPaymentOrderUnpro
 	return &CreateUserPaymentOrderUnprocessableEntity{}
 }
 
-/*CreateUserPaymentOrderUnprocessableEntity handles this case with default header values.
+/*
+CreateUserPaymentOrderUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreateUserPaymentOrderUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

@@ -100,9 +100,10 @@ func NewCancelSubscriptionOK() *CancelSubscriptionOK {
 	return &CancelSubscriptionOK{}
 }
 
-/*CancelSubscriptionOK handles this case with default header values.
+/*
+CancelSubscriptionOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CancelSubscriptionOK struct {
 	Payload *platformclientmodels.SubscriptionInfo
@@ -154,9 +155,10 @@ func NewCancelSubscriptionNotFound() *CancelSubscriptionNotFound {
 	return &CancelSubscriptionNotFound{}
 }
 
-/*CancelSubscriptionNotFound handles this case with default header values.
+/*
+CancelSubscriptionNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40141</td><td>Subscription [{subscriptionId}] does not exist</td></tr></table>
 */
 type CancelSubscriptionNotFound struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -208,9 +210,10 @@ func NewCancelSubscriptionConflict() *CancelSubscriptionConflict {
 	return &CancelSubscriptionConflict{}
 }
 
-/*CancelSubscriptionConflict handles this case with default header values.
+/*
+CancelSubscriptionConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40171</td><td>Subscription [{subscriptionId}] is not active</td></tr><tr><td>40172</td><td>Subscription [{subscriptionId}] is charging, waiting for payment notification</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>40171</td><td>Subscription [{subscriptionId}] is not active</td></tr><tr><td>40172</td><td>Subscription [{subscriptionId}] is charging, waiting for payment notification</td></tr></table>
 */
 type CancelSubscriptionConflict struct {
 	Payload *platformclientmodels.ErrorEntity

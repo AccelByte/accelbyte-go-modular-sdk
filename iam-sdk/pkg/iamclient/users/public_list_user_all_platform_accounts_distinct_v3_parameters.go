@@ -57,7 +57,8 @@ func NewPublicListUserAllPlatformAccountsDistinctV3ParamsWithHTTPClient(client *
 	}
 }
 
-/*PublicListUserAllPlatformAccountsDistinctV3Params contains all the parameters to send to the API endpoint
+/*
+PublicListUserAllPlatformAccountsDistinctV3Params contains all the parameters to send to the API endpoint
 for the public list user all platform accounts distinct v3 operation typically these are written to a http.Request
 */
 type PublicListUserAllPlatformAccountsDistinctV3Params struct {

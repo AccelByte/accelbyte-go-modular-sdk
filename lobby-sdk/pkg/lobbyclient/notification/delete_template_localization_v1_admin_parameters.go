@@ -57,7 +57,8 @@ func NewDeleteTemplateLocalizationV1AdminParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*DeleteTemplateLocalizationV1AdminParams contains all the parameters to send to the API endpoint
+/*
+DeleteTemplateLocalizationV1AdminParams contains all the parameters to send to the API endpoint
 for the delete template localization v1 admin operation typically these are written to a http.Request
 */
 type DeleteTemplateLocalizationV1AdminParams struct {

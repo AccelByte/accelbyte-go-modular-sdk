@@ -41,7 +41,7 @@ type ClientService interface {
 QueryIAPClawbackHistoryShort query clawback history
 Query clawback history.
 Other detail info:
-              * Returns : paginated clawback history
+  - Returns : paginated clawback history
 */
 func (a *Client) QueryIAPClawbackHistoryShort(params *QueryIAPClawbackHistoryParams, authInfo runtime.ClientAuthInfoWriter) (*QueryIAPClawbackHistoryResponse, error) {
 	// TODO: Validate the params before sending

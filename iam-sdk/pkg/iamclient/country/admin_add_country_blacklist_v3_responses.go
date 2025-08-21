@@ -129,9 +129,10 @@ func NewAdminAddCountryBlacklistV3NoContent() *AdminAddCountryBlacklistV3NoConte
 	return &AdminAddCountryBlacklistV3NoContent{}
 }
 
-/*AdminAddCountryBlacklistV3NoContent handles this case with default header values.
+/*
+AdminAddCountryBlacklistV3NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminAddCountryBlacklistV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminAddCountryBlacklistV3BadRequest() *AdminAddCountryBlacklistV3BadReq
 	return &AdminAddCountryBlacklistV3BadRequest{}
 }
 
-/*AdminAddCountryBlacklistV3BadRequest handles this case with default header values.
+/*
+AdminAddCountryBlacklistV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminAddCountryBlacklistV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,9 +212,10 @@ func NewAdminAddCountryBlacklistV3Unauthorized() *AdminAddCountryBlacklistV3Unau
 	return &AdminAddCountryBlacklistV3Unauthorized{}
 }
 
-/*AdminAddCountryBlacklistV3Unauthorized handles this case with default header values.
+/*
+AdminAddCountryBlacklistV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminAddCountryBlacklistV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +267,10 @@ func NewAdminAddCountryBlacklistV3Forbidden() *AdminAddCountryBlacklistV3Forbidd
 	return &AdminAddCountryBlacklistV3Forbidden{}
 }
 
-/*AdminAddCountryBlacklistV3Forbidden handles this case with default header values.
+/*
+AdminAddCountryBlacklistV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminAddCountryBlacklistV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +322,10 @@ func NewAdminAddCountryBlacklistV3InternalServerError() *AdminAddCountryBlacklis
 	return &AdminAddCountryBlacklistV3InternalServerError{}
 }
 
-/*AdminAddCountryBlacklistV3InternalServerError handles this case with default header values.
+/*
+AdminAddCountryBlacklistV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminAddCountryBlacklistV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

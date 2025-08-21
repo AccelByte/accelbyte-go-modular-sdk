@@ -57,7 +57,8 @@ func NewPublicGetPlayerBlockedByPlayersV1ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*PublicGetPlayerBlockedByPlayersV1Params contains all the parameters to send to the API endpoint
+/*
+PublicGetPlayerBlockedByPlayersV1Params contains all the parameters to send to the API endpoint
 for the public get player blocked by players v1 operation typically these are written to a http.Request
 */
 type PublicGetPlayerBlockedByPlayersV1Params struct {

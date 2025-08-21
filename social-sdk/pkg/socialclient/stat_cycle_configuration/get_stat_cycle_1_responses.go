@@ -130,9 +130,10 @@ func NewGetStatCycle1OK() *GetStatCycle1OK {
 	return &GetStatCycle1OK{}
 }
 
-/*GetStatCycle1OK handles this case with default header values.
+/*
+GetStatCycle1OK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetStatCycle1OK struct {
 	Payload *socialclientmodels.StatCycleInfo
@@ -184,9 +185,10 @@ func NewGetStatCycle1Unauthorized() *GetStatCycle1Unauthorized {
 	return &GetStatCycle1Unauthorized{}
 }
 
-/*GetStatCycle1Unauthorized handles this case with default header values.
+/*
+GetStatCycle1Unauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>Unauthorized</td></tr></table>
 */
 type GetStatCycle1Unauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewGetStatCycle1Forbidden() *GetStatCycle1Forbidden {
 	return &GetStatCycle1Forbidden{}
 }
 
-/*GetStatCycle1Forbidden handles this case with default header values.
+/*
+GetStatCycle1Forbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetStatCycle1Forbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewGetStatCycle1NotFound() *GetStatCycle1NotFound {
 	return &GetStatCycle1NotFound{}
 }
 
-/*GetStatCycle1NotFound handles this case with default header values.
+/*
+GetStatCycle1NotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12245</td><td>Stat cycle [{id}] cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type GetStatCycle1NotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewGetStatCycle1InternalServerError() *GetStatCycle1InternalServerError {
 	return &GetStatCycle1InternalServerError{}
 }
 
-/*GetStatCycle1InternalServerError handles this case with default header values.
+/*
+GetStatCycle1InternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type GetStatCycle1InternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

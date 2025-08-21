@@ -160,9 +160,10 @@ func NewAdminListUsersStatItemsOK() *AdminListUsersStatItemsOK {
 	return &AdminListUsersStatItemsOK{}
 }
 
-/*AdminListUsersStatItemsOK handles this case with default header values.
+/*
+AdminListUsersStatItemsOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AdminListUsersStatItemsOK struct {
 	Payload []*socialclientmodels.ADTOObjectForUserStatItemValue
@@ -212,9 +213,10 @@ func NewAdminListUsersStatItemsBadRequest() *AdminListUsersStatItemsBadRequest {
 	return &AdminListUsersStatItemsBadRequest{}
 }
 
-/*AdminListUsersStatItemsBadRequest handles this case with default header values.
+/*
+AdminListUsersStatItemsBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12223</td><td>Invalid stat codes in namespace [{namespace}]: [{statCodes}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12223</td><td>Invalid stat codes in namespace [{namespace}]: [{statCodes}]</td></tr></table>
 */
 type AdminListUsersStatItemsBadRequest struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -266,9 +268,10 @@ func NewAdminListUsersStatItemsUnauthorized() *AdminListUsersStatItemsUnauthoriz
 	return &AdminListUsersStatItemsUnauthorized{}
 }
 
-/*AdminListUsersStatItemsUnauthorized handles this case with default header values.
+/*
+AdminListUsersStatItemsUnauthorized handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListUsersStatItemsUnauthorized struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -320,9 +323,10 @@ func NewAdminListUsersStatItemsForbidden() *AdminListUsersStatItemsForbidden {
 	return &AdminListUsersStatItemsForbidden{}
 }
 
-/*AdminListUsersStatItemsForbidden handles this case with default header values.
+/*
+AdminListUsersStatItemsForbidden handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminListUsersStatItemsForbidden struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -374,9 +378,10 @@ func NewAdminListUsersStatItemsNotFound() *AdminListUsersStatItemsNotFound {
 	return &AdminListUsersStatItemsNotFound{}
 }
 
-/*AdminListUsersStatItemsNotFound handles this case with default header values.
+/*
+AdminListUsersStatItemsNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12243</td><td>Stats cannot be found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>12243</td><td>Stats cannot be found in namespace [{namespace}]</td></tr></table>
 */
 type AdminListUsersStatItemsNotFound struct {
 	Payload *socialclientmodels.ErrorEntity
@@ -428,9 +433,10 @@ func NewAdminListUsersStatItemsUnprocessableEntity() *AdminListUsersStatItemsUnp
 	return &AdminListUsersStatItemsUnprocessableEntity{}
 }
 
-/*AdminListUsersStatItemsUnprocessableEntity handles this case with default header values.
+/*
+AdminListUsersStatItemsUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminListUsersStatItemsUnprocessableEntity struct {
 	Payload *socialclientmodels.ValidationErrorEntity
@@ -482,9 +488,10 @@ func NewAdminListUsersStatItemsInternalServerError() *AdminListUsersStatItemsInt
 	return &AdminListUsersStatItemsInternalServerError{}
 }
 
-/*AdminListUsersStatItemsInternalServerError handles this case with default header values.
+/*
+AdminListUsersStatItemsInternalServerError handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20000</td><td>Internal server error</td></tr></table>
 */
 type AdminListUsersStatItemsInternalServerError struct {
 	Payload *socialclientmodels.ErrorEntity

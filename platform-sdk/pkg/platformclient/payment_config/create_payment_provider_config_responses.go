@@ -115,9 +115,10 @@ func NewCreatePaymentProviderConfigOK() *CreatePaymentProviderConfigOK {
 	return &CreatePaymentProviderConfigOK{}
 }
 
-/*CreatePaymentProviderConfigOK handles this case with default header values.
+/*
+CreatePaymentProviderConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type CreatePaymentProviderConfigOK struct {
 	Payload *platformclientmodels.PaymentProviderConfigInfo
@@ -169,9 +170,10 @@ func NewCreatePaymentProviderConfigBadRequest() *CreatePaymentProviderConfigBadR
 	return &CreatePaymentProviderConfigBadRequest{}
 }
 
-/*CreatePaymentProviderConfigBadRequest handles this case with default header values.
+/*
+CreatePaymentProviderConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33221</td><td>TaxJar api token required</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33221</td><td>TaxJar api token required</td></tr></table>
 */
 type CreatePaymentProviderConfigBadRequest struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewCreatePaymentProviderConfigConflict() *CreatePaymentProviderConfigConfli
 	return &CreatePaymentProviderConfigConflict{}
 }
 
-/*CreatePaymentProviderConfigConflict handles this case with default header values.
+/*
+CreatePaymentProviderConfigConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33271</td><td>Payment provider config for namespace [{namespace}] and region [{region}] already exists</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>33271</td><td>Payment provider config for namespace [{namespace}] and region [{region}] already exists</td></tr></table>
 */
 type CreatePaymentProviderConfigConflict struct {
 	Payload *platformclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewCreatePaymentProviderConfigUnprocessableEntity() *CreatePaymentProviderC
 	return &CreatePaymentProviderConfigUnprocessableEntity{}
 }
 
-/*CreatePaymentProviderConfigUnprocessableEntity handles this case with default header values.
+/*
+CreatePaymentProviderConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CreatePaymentProviderConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

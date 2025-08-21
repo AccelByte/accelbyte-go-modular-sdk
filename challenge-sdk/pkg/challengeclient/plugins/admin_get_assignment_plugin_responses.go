@@ -145,9 +145,10 @@ func NewAdminGetAssignmentPluginOK() *AdminGetAssignmentPluginOK {
 	return &AdminGetAssignmentPluginOK{}
 }
 
-/*AdminGetAssignmentPluginOK handles this case with default header values.
+/*
+AdminGetAssignmentPluginOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetAssignmentPluginOK struct {
 	Payload *challengeclientmodels.ModelPluginAssignmentResponse
@@ -199,9 +200,10 @@ func NewAdminGetAssignmentPluginBadRequest() *AdminGetAssignmentPluginBadRequest
 	return &AdminGetAssignmentPluginBadRequest{}
 }
 
-/*AdminGetAssignmentPluginBadRequest handles this case with default header values.
+/*
+AdminGetAssignmentPluginBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20018</td><td>bad request: {{message}}</td></tr></table>
 */
 type AdminGetAssignmentPluginBadRequest struct {
 	Payload *challengeclientmodels.ResponseError
@@ -253,9 +255,10 @@ func NewAdminGetAssignmentPluginUnauthorized() *AdminGetAssignmentPluginUnauthor
 	return &AdminGetAssignmentPluginUnauthorized{}
 }
 
-/*AdminGetAssignmentPluginUnauthorized handles this case with default header values.
+/*
+AdminGetAssignmentPluginUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetAssignmentPluginUnauthorized struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -307,9 +310,10 @@ func NewAdminGetAssignmentPluginForbidden() *AdminGetAssignmentPluginForbidden {
 	return &AdminGetAssignmentPluginForbidden{}
 }
 
-/*AdminGetAssignmentPluginForbidden handles this case with default header values.
+/*
+AdminGetAssignmentPluginForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AdminGetAssignmentPluginForbidden struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -361,9 +365,10 @@ func NewAdminGetAssignmentPluginNotFound() *AdminGetAssignmentPluginNotFound {
 	return &AdminGetAssignmentPluginNotFound{}
 }
 
-/*AdminGetAssignmentPluginNotFound handles this case with default header values.
+/*
+AdminGetAssignmentPluginNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20029</td><td>not found</td></tr></table>
 */
 type AdminGetAssignmentPluginNotFound struct {
 	Payload *challengeclientmodels.IamErrorResponse
@@ -415,9 +420,10 @@ func NewAdminGetAssignmentPluginInternalServerError() *AdminGetAssignmentPluginI
 	return &AdminGetAssignmentPluginInternalServerError{}
 }
 
-/*AdminGetAssignmentPluginInternalServerError handles this case with default header values.
+/*
+AdminGetAssignmentPluginInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error: {{message}}</td></tr></table>
 */
 type AdminGetAssignmentPluginInternalServerError struct {
 	Payload *challengeclientmodels.ResponseError

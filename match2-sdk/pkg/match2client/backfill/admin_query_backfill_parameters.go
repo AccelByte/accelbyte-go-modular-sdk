@@ -70,7 +70,8 @@ func NewAdminQueryBackfillParamsWithHTTPClient(client *http.Client) *AdminQueryB
 	}
 }
 
-/*AdminQueryBackfillParams contains all the parameters to send to the API endpoint
+/*
+AdminQueryBackfillParams contains all the parameters to send to the API endpoint
 for the admin query backfill operation typically these are written to a http.Request
 */
 type AdminQueryBackfillParams struct {

@@ -115,9 +115,10 @@ func NewPublicQueryMyGameSessionsOK() *PublicQueryMyGameSessionsOK {
 	return &PublicQueryMyGameSessionsOK{}
 }
 
-/*PublicQueryMyGameSessionsOK handles this case with default header values.
+/*
+PublicQueryMyGameSessionsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicQueryMyGameSessionsOK struct {
 	Payload *sessionclientmodels.ApimodelsGameSessionQueryResponse
@@ -169,9 +170,10 @@ func NewPublicQueryMyGameSessionsBadRequest() *PublicQueryMyGameSessionsBadReque
 	return &PublicQueryMyGameSessionsBadRequest{}
 }
 
-/*PublicQueryMyGameSessionsBadRequest handles this case with default header values.
+/*
+PublicQueryMyGameSessionsBadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type PublicQueryMyGameSessionsBadRequest struct {
 	Payload *sessionclientmodels.ResponseError
@@ -223,9 +225,10 @@ func NewPublicQueryMyGameSessionsUnauthorized() *PublicQueryMyGameSessionsUnauth
 	return &PublicQueryMyGameSessionsUnauthorized{}
 }
 
-/*PublicQueryMyGameSessionsUnauthorized handles this case with default header values.
+/*
+PublicQueryMyGameSessionsUnauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type PublicQueryMyGameSessionsUnauthorized struct {
 	Payload *sessionclientmodels.ResponseError
@@ -277,9 +280,10 @@ func NewPublicQueryMyGameSessionsInternalServerError() *PublicQueryMyGameSession
 	return &PublicQueryMyGameSessionsInternalServerError{}
 }
 
-/*PublicQueryMyGameSessionsInternalServerError handles this case with default header values.
+/*
+PublicQueryMyGameSessionsInternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type PublicQueryMyGameSessionsInternalServerError struct {
 	Payload *sessionclientmodels.ResponseError

@@ -57,7 +57,8 @@ func NewAdminGetDSMCConfigurationDefaultParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*AdminGetDSMCConfigurationDefaultParams contains all the parameters to send to the API endpoint
+/*
+AdminGetDSMCConfigurationDefaultParams contains all the parameters to send to the API endpoint
 for the admin get dsmc configuration default operation typically these are written to a http.Request
 */
 type AdminGetDSMCConfigurationDefaultParams struct {

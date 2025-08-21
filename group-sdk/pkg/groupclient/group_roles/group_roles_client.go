@@ -136,8 +136,6 @@ This endpoint is used to create new member role
 
 Action Code: 73202
 
-
-
 memberRolePermissions example value :
 
 "action": 1
@@ -502,8 +500,6 @@ This endpoint is used to update member role permission. It will replace the exis
 
 Action Code: 73205
 
-
-
 memberRolePermissions example value :
 
 "action": 2
@@ -601,7 +597,7 @@ func (a *Client) UpdateMemberRolePermissionAdminV1Short(params *UpdateMemberRole
 GetMemberRolesListPublicV1Short get all list of member roles
 Required Member Role Permission: "GROUP:ROLE [READ]"
 
-This endpoint is used to get list of member roles
+# This endpoint is used to get list of member roles
 
 Action Code: 73201
 */
@@ -687,7 +683,7 @@ func (a *Client) GetMemberRolesListPublicV1Short(params *GetMemberRolesListPubli
 UpdateMemberRolePublicV1Short assign role to group member
 Required Member Role Permission: "GROUP:ROLE [UPDATE]
 
-This endpoint is used to assign role to group member
+# This endpoint is used to assign role to group member
 
 Action Code: 73204
 */
@@ -780,7 +776,7 @@ func (a *Client) UpdateMemberRolePublicV1Short(params *UpdateMemberRolePublicV1P
 DeleteMemberRolePublicV1Short remove role from group member
 Required Member Role Permission: "GROUP:ROLE [UPDATE]"
 
-This endpoint is used to remove role from group member
+# This endpoint is used to remove role from group member
 
 Action Code: 73204
 */
@@ -963,7 +959,7 @@ func (a *Client) GetMemberRolesListPublicV2Short(params *GetMemberRolesListPubli
 UpdateMemberRolePublicV2Short assign role to group member
 Required Member Role Permission: "GROUP:ROLE [UPDATE]
 
-This endpoint is used to assign role to group member
+# This endpoint is used to assign role to group member
 
 Action Code: 73204
 */
@@ -1056,7 +1052,7 @@ func (a *Client) UpdateMemberRolePublicV2Short(params *UpdateMemberRolePublicV2P
 DeleteMemberRolePublicV2Short remove role from group member
 Required Member Role Permission: "GROUP:ROLE [UPDATE]"
 
-This endpoint is used to remove role from group member
+# This endpoint is used to remove role from group member
 
 Action Code: 73204
 */

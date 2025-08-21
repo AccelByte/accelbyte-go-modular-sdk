@@ -59,7 +59,8 @@ func NewUpdateSectionParamsWithHTTPClient(client *http.Client) *UpdateSectionPar
 	}
 }
 
-/*UpdateSectionParams contains all the parameters to send to the API endpoint
+/*
+UpdateSectionParams contains all the parameters to send to the API endpoint
 for the update section operation typically these are written to a http.Request
 */
 type UpdateSectionParams struct {

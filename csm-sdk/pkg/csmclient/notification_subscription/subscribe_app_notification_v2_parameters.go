@@ -59,7 +59,8 @@ func NewSubscribeAppNotificationV2ParamsWithHTTPClient(client *http.Client) *Sub
 	}
 }
 
-/*SubscribeAppNotificationV2Params contains all the parameters to send to the API endpoint
+/*
+SubscribeAppNotificationV2Params contains all the parameters to send to the API endpoint
 for the subscribe app notification v2 operation typically these are written to a http.Request
 */
 type SubscribeAppNotificationV2Params struct {

@@ -115,9 +115,10 @@ func NewPublishSeasonOK() *PublishSeasonOK {
 	return &PublishSeasonOK{}
 }
 
-/*PublishSeasonOK handles this case with default header values.
+/*
+PublishSeasonOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublishSeasonOK struct {
 	Payload *seasonpassclientmodels.SeasonInfo
@@ -169,9 +170,10 @@ func NewPublishSeasonBadRequest() *PublishSeasonBadRequest {
 	return &PublishSeasonBadRequest{}
 }
 
-/*PublishSeasonBadRequest handles this case with default header values.
+/*
+PublishSeasonBadRequest handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49121</td><td>Default language [{language}] required in localizations</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20026</td><td>publisher namespace not allowed</td></tr><tr><td>49121</td><td>Default language [{language}] required in localizations</td></tr></table>
 */
 type PublishSeasonBadRequest struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -223,9 +225,10 @@ func NewPublishSeasonNotFound() *PublishSeasonNotFound {
 	return &PublishSeasonNotFound{}
 }
 
-/*PublishSeasonNotFound handles this case with default header values.
+/*
+PublishSeasonNotFound handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>49141</td><td>Tier item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>49142</td><td>Pass item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49143</td><td>Season [{seasonId}] does not exist in namespace [{namespace}]</td></tr><tr><td>30142</td><td>Published store does not exist in namespace [{namespace}]</td></tr><tr><td>49141</td><td>Tier item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>49142</td><td>Pass item does not exist in the store of namespace [{namespace}]</td></tr><tr><td>30341</td><td>Item [{itemId}] does not exist in namespace [{namespace}]</td></tr><tr><td>36141</td><td>Currency [{currencyCode}] does not exist in namespace [{namespace}]</td></tr><tr><td>49144</td><td>Reward [{code}] does not exist</td></tr></table>
 */
 type PublishSeasonNotFound struct {
 	Payload *seasonpassclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewPublishSeasonConflict() *PublishSeasonConflict {
 	return &PublishSeasonConflict{}
 }
 
-/*PublishSeasonConflict handles this case with default header values.
+/*
+PublishSeasonConflict handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49172</td><td>Season is already ended</td></tr><tr><td>49175</td><td>Published season already exists in namespace [{namespace}]</td></tr><tr><td>49176</td><td>Rewards are not provided</td></tr><tr><td>49177</td><td>Passes are not provided</td></tr><tr><td>49178</td><td>Tiers are not provided</td></tr><tr><td>49189</td><td>Duplicate season name [{name}] for publishing in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>49171</td><td>Invalid season status [{status}]</td></tr><tr><td>49172</td><td>Season is already ended</td></tr><tr><td>49175</td><td>Published season already exists in namespace [{namespace}]</td></tr><tr><td>49176</td><td>Rewards are not provided</td></tr><tr><td>49177</td><td>Passes are not provided</td></tr><tr><td>49178</td><td>Tiers are not provided</td></tr><tr><td>49189</td><td>Duplicate season name [{name}] for publishing in namespace [{namespace}]</td></tr></table>
 */
 type PublishSeasonConflict struct {
 	Payload *seasonpassclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewAdminDeleteAllUserGroupParamsWithHTTPClient(client *http.Client) *AdminD
 	}
 }
 
-/*AdminDeleteAllUserGroupParams contains all the parameters to send to the API endpoint
+/*
+AdminDeleteAllUserGroupParams contains all the parameters to send to the API endpoint
 for the admin delete all user group operation typically these are written to a http.Request
 */
 type AdminDeleteAllUserGroupParams struct {

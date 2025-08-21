@@ -85,9 +85,10 @@ func NewUpdateCatalogConfigOK() *UpdateCatalogConfigOK {
 	return &UpdateCatalogConfigOK{}
 }
 
-/*UpdateCatalogConfigOK handles this case with default header values.
+/*
+UpdateCatalogConfigOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type UpdateCatalogConfigOK struct {
 	Payload *platformclientmodels.CatalogConfigInfo
@@ -139,9 +140,10 @@ func NewUpdateCatalogConfigUnprocessableEntity() *UpdateCatalogConfigUnprocessab
 	return &UpdateCatalogConfigUnprocessableEntity{}
 }
 
-/*UpdateCatalogConfigUnprocessableEntity handles this case with default header values.
+/*
+UpdateCatalogConfigUnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>ErrorCode</td><td>ErrorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type UpdateCatalogConfigUnprocessableEntity struct {
 	Payload *platformclientmodels.ValidationErrorEntity

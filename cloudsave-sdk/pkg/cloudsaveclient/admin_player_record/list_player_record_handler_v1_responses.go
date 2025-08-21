@@ -130,9 +130,10 @@ func NewListPlayerRecordHandlerV1OK() *ListPlayerRecordHandlerV1OK {
 	return &ListPlayerRecordHandlerV1OK{}
 }
 
-/*ListPlayerRecordHandlerV1OK handles this case with default header values.
+/*
+ListPlayerRecordHandlerV1OK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type ListPlayerRecordHandlerV1OK struct {
 	Payload *cloudsaveclientmodels.ModelsListPlayerRecordKeysResponse
@@ -184,9 +185,10 @@ func NewListPlayerRecordHandlerV1BadRequest() *ListPlayerRecordHandlerV1BadReque
 	return &ListPlayerRecordHandlerV1BadRequest{}
 }
 
-/*ListPlayerRecordHandlerV1BadRequest handles this case with default header values.
+/*
+ListPlayerRecordHandlerV1BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18113</td><td>invalid request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18113</td><td>invalid request body</td></tr></table>
 */
 type ListPlayerRecordHandlerV1BadRequest struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -238,9 +240,10 @@ func NewListPlayerRecordHandlerV1Unauthorized() *ListPlayerRecordHandlerV1Unauth
 	return &ListPlayerRecordHandlerV1Unauthorized{}
 }
 
-/*ListPlayerRecordHandlerV1Unauthorized handles this case with default header values.
+/*
+ListPlayerRecordHandlerV1Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type ListPlayerRecordHandlerV1Unauthorized struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -292,9 +295,10 @@ func NewListPlayerRecordHandlerV1Forbidden() *ListPlayerRecordHandlerV1Forbidden
 	return &ListPlayerRecordHandlerV1Forbidden{}
 }
 
-/*ListPlayerRecordHandlerV1Forbidden handles this case with default header values.
+/*
+ListPlayerRecordHandlerV1Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type ListPlayerRecordHandlerV1Forbidden struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError
@@ -346,9 +350,10 @@ func NewListPlayerRecordHandlerV1InternalServerError() *ListPlayerRecordHandlerV
 	return &ListPlayerRecordHandlerV1InternalServerError{}
 }
 
-/*ListPlayerRecordHandlerV1InternalServerError handles this case with default header values.
+/*
+ListPlayerRecordHandlerV1InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18114</td><td>unable to retrieve list of key records</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>18114</td><td>unable to retrieve list of key records</td></tr></table>
 */
 type ListPlayerRecordHandlerV1InternalServerError struct {
 	Payload *cloudsaveclientmodels.ModelsResponseError

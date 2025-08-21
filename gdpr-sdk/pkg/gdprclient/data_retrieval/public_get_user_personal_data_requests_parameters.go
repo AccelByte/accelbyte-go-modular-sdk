@@ -58,7 +58,8 @@ func NewPublicGetUserPersonalDataRequestsParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*PublicGetUserPersonalDataRequestsParams contains all the parameters to send to the API endpoint
+/*
+PublicGetUserPersonalDataRequestsParams contains all the parameters to send to the API endpoint
 for the public get user personal data requests operation typically these are written to a http.Request
 */
 type PublicGetUserPersonalDataRequestsParams struct {

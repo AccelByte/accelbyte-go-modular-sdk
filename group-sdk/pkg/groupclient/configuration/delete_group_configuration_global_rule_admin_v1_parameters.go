@@ -57,7 +57,8 @@ func NewDeleteGroupConfigurationGlobalRuleAdminV1ParamsWithHTTPClient(client *ht
 	}
 }
 
-/*DeleteGroupConfigurationGlobalRuleAdminV1Params contains all the parameters to send to the API endpoint
+/*
+DeleteGroupConfigurationGlobalRuleAdminV1Params contains all the parameters to send to the API endpoint
 for the delete group configuration global rule admin v1 operation typically these are written to a http.Request
 */
 type DeleteGroupConfigurationGlobalRuleAdminV1Params struct {

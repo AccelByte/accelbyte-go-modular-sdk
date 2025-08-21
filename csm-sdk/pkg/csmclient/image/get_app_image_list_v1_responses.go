@@ -130,10 +130,9 @@ func NewGetAppImageListV1OK() *GetAppImageListV1OK {
 	return &GetAppImageListV1OK{}
 }
 
-/*GetAppImageListV1OK handles this case with default header values.
-
-
- */
+/*
+GetAppImageListV1OK handles this case with default header values.
+*/
 type GetAppImageListV1OK struct {
 	Payload *csmclientmodels.GeneratedGetAppImageListV1Response
 }
@@ -184,9 +183,10 @@ func NewGetAppImageListV1Unauthorized() *GetAppImageListV1Unauthorized {
 	return &GetAppImageListV1Unauthorized{}
 }
 
-/*GetAppImageListV1Unauthorized handles this case with default header values.
+/*
+GetAppImageListV1Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type GetAppImageListV1Unauthorized struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -238,9 +238,10 @@ func NewGetAppImageListV1Forbidden() *GetAppImageListV1Forbidden {
 	return &GetAppImageListV1Forbidden{}
 }
 
-/*GetAppImageListV1Forbidden handles this case with default header values.
+/*
+GetAppImageListV1Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type GetAppImageListV1Forbidden struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -292,9 +293,10 @@ func NewGetAppImageListV1NotFound() *GetAppImageListV1NotFound {
 	return &GetAppImageListV1NotFound{}
 }
 
-/*GetAppImageListV1NotFound handles this case with default header values.
+/*
+GetAppImageListV1NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type GetAppImageListV1NotFound struct {
 	Payload *csmclientmodels.ResponseErrorResponse
@@ -346,9 +348,10 @@ func NewGetAppImageListV1InternalServerError() *GetAppImageListV1InternalServerE
 	return &GetAppImageListV1InternalServerError{}
 }
 
-/*GetAppImageListV1InternalServerError handles this case with default header values.
+/*
+GetAppImageListV1InternalServerError handles this case with default header values.
 
-  Internal Server Error
+	Internal Server Error
 */
 type GetAppImageListV1InternalServerError struct {
 	Payload *csmclientmodels.ResponseErrorResponse
