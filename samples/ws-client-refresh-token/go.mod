@@ -13,7 +13,7 @@ replace (
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.0.0-00010101000000-000000000000
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
 	github.com/sirupsen/logrus v1.9.0
 )
 
@@ -37,7 +37,7 @@ require (
 	github.com/go-openapi/validate v0.21.0 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/google/uuid v1.3.0 // indirect
-	github.com/gorilla/websocket v1.5.0 // indirect
+	github.com/gorilla/websocket v1.5.3 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mitchellh/mapstructure v1.4.3 // indirect

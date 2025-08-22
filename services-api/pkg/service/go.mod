@@ -7,7 +7,7 @@ replace github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobb
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
-	github.com/gorilla/websocket v1.5.0
+	github.com/gorilla/websocket v1.5.3
 	github.com/sirupsen/logrus v1.9.0
 )
 
@@ -39,6 +39,7 @@ require (
 	go.opentelemetry.io/otel v1.14.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.14.0 // indirect
 	go.opentelemetry.io/otel/trace v1.14.0 // indirect
+	golang.org/x/crypto v0.31.0 // indirect
 	golang.org/x/net v0.33.0 // indirect
 	golang.org/x/sys v0.28.0 // indirect
 	golang.org/x/text v0.21.0 // indirect

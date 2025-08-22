@@ -52,12 +52,12 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.1.0-alpha.1
-	github.com/gorilla/websocket v1.5.0
+	github.com/gorilla/websocket v1.5.3
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/sirupsen/logrus v1.9.0
 	github.com/spf13/cobra v1.1.3

@@ -57,6 +57,7 @@ require (
 	github.com/go-openapi/runtime v0.19.29
 	github.com/go-openapi/strfmt v0.21.1
 	github.com/google/uuid v1.3.0
+	github.com/gorilla/websocket v1.5.3
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.2
 )
@@ -87,7 +88,6 @@ require (
 	github.com/go-openapi/swag v0.21.1 // indirect
 	github.com/go-openapi/validate v0.21.0 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
-	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
