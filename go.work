@@ -31,7 +31,6 @@ use (
 	samples/custom-operation
 	samples/getting-started
 	samples/oidc-web
-	samples/ondemand-refresh-token
 	samples/tic-tac-toe/aws-lambda
 	samples/tic-tac-toe/client
 
