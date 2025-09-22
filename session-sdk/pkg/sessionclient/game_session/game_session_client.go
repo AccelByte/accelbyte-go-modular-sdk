@@ -2317,6 +2317,7 @@ In the Response you will get following:
 If there is error:
 - 400 Invalid path parameters
 - 401 unauthorized
+- 403 status forbidden, The User is not active in session
 - 404 StatusNotFound
 - 500 Internal server error
 */
@@ -2374,6 +2375,13 @@ func (a *Client) GetSessionServerSecretShort(params *GetSessionServerSecretParam
 	case *GetSessionServerSecretUnauthorized:
 		response := &GetSessionServerSecretResponse{}
 		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *GetSessionServerSecretForbidden:
+		response := &GetSessionServerSecretResponse{}
+		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 

@@ -34,9 +34,16 @@ var AdminEvaluateProgressCmd = &cobra.Command{
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
+		challengeCodeString := cmd.Flag("challengeCode").Value.String()
+		var challengeCode []string
+		errChallengeCode := json.Unmarshal([]byte(challengeCodeString), &challengeCode)
+		if errChallengeCode != nil {
+			return errChallengeCode
+		}
 		input := &challenge_progression.AdminEvaluateProgressParams{
-			Body:      body,
-			Namespace: namespace,
+			Body:          body,
+			Namespace:     namespace,
+			ChallengeCode: challengeCode,
 		}
 		errNoContent := challengeProgressionService.AdminEvaluateProgressShort(input)
 		if errNoContent != nil {
@@ -56,4 +63,5 @@ func init() {
 	_ = AdminEvaluateProgressCmd.MarkFlagRequired("body")
 	AdminEvaluateProgressCmd.Flags().String("namespace", "", "Namespace")
 	_ = AdminEvaluateProgressCmd.MarkFlagRequired("namespace")
+	AdminEvaluateProgressCmd.Flags().String("challengeCode", "", "Challenge code")
 }

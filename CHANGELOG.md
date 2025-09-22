@@ -4,6 +4,91 @@
 - **lobby:** update lobby test
 
 
+<a name="ags//v2025.7"></a>
+## [For AGS v2025.7]
+### chore
+- **:** add readme for response error
+- **loginqueue:** add spec for login queue service
+- **loginqueue:** regenerate sdk, cli, docs
+- **sdk:** generated from openapi spec commit: 79683a20ff945862cdc0c4aef8d903a0f30bf2f5
+- **integration:** fix the challenge test
+- **docs:** add migration guide for ags 2025.1
+- **sdk:** update version for 2025.1
+- **:** update go work for csm
+- **:** version bump
+- **:** go mod tidy
+- **docs:** update CHANGELOG
+- **sdk:** generated from openapi spec commit: c9a1cf2c1d884560ad92b44673ca85cd10c2b23a
+- **sdk:** update version for 2025.2
+- **docs:** add migration guide for ags 2025.2
+- **:** version bump
+- **makefile:** test_broken_link - update docs portal url
+- **samples:** getting started - update iam-sdk dependency
+- **sdk:** add a clearer message for error in token validation
+- **sdk:** - generated from openapi spec commit: a2c66653b15e9f6a946f1b0f72073f508f4f1299 - fix csm integration test: updated model name - add csm migration guide
+- **sdk:** update user agent version for 2025.3
+- **:** version bump + go mod tidy
+- **:** revert empty variables, create new file for empty variables
+- **sdk:** generated from openapi spec commit: 9ca5e9e83b5d18a9479f3a3c3c340a4d678b10ef
+- **:** tidy modules
+- **:** restore session browser
+- **sdk:** generated from openapi spec commit: fef3c1c943d88ac8d7f32f66bb1ecba464bfb503
+- **:** refresh gitignore
+- **sdk:** generated from openapi spec commit: bd085b93730e32909c685723c9c75ab51167b912
+- **:** version bump
+- **:** mod tidy leftover modules
+- **:** remove irrelevant sample apps
+### docs
+- **readme:** update doc links
+- **common use cases:** update
+- **:** fix url
+- **:** add method comments for LoginOrRefresh*
+- **:** add mention of WithContext login functions
+- **common-use-case:** update
+- **readme:** remove broken link
+### feat
+- **loginqueue:** add, version, gowork, cli gomod
+- **loginqueue:** integration - add login queue test
+- **:** remove app client id on extend app deletion
+- **auth:** add WithContext variants of login functions
+- **wsm:** move WSConnection and other related structs to services-api
+- **:** add some util functions
+### test
+- **integration:** gametelemetry - remove deprecated endpoints
+- **integration:** fix configuration template shared name randomization
+- **integration:** change achievement stat code
+- **integration:** remove create user v3 test
+- **ws:** add delay in test
+- **lobby:** update lobby test
+### fix
+- **token-validation:** remove log.Fatal in token validation
+- **:** - tag other usages that will need changing function signature with todo
+- **test:** use create test user endpoint for integration test
+- **services-api:** fix upload http method
+- **auth:** fix lint error
+- **:** bring back removed variable
+- **ws:** fix reading from closed connections
+- **:** concurrent map access by using rwmutex
+- **:** change default refresh token rate to 0.8
+- **wsm:** fix core implementation and code-generated parts of the wsm packages
+### ci
+- **lint:** disable godox linter
+- **:** consolidate extend-builder-batch linux-amd64
+- **github:** change label to extend-builder-ci
+- **generate:** remove cli and integration test stage
+- **nightly:** add params for cli and integration test
+- **nightly-starter:** remove redundant Jenkinsfile.nightly-starter
+- **lint:** upgrade the linter version
+- **github:** better utilize all available build machines
+- **:** consolidate job channel
+
+
+<a name="lobby-sdk//v0.2.1"></a>
+## [For AGS v0.2.1]
+### test
+- **lobby:** update lobby test
+
+
 <a name="services-api//v0.1.1"></a>
 ## [For AGS v0.1.1]
 ### test

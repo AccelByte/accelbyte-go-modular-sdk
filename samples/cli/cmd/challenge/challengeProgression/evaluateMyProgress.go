@@ -7,6 +7,8 @@
 package challengeProgression
 
 import (
+	"encoding/json"
+
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/challenge_progression"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -25,8 +27,15 @@ var EvaluateMyProgressCmd = &cobra.Command{
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
+		challengeCodeString := cmd.Flag("challengeCode").Value.String()
+		var challengeCode []string
+		errChallengeCode := json.Unmarshal([]byte(challengeCodeString), &challengeCode)
+		if errChallengeCode != nil {
+			return errChallengeCode
+		}
 		input := &challenge_progression.EvaluateMyProgressParams{
-			Namespace: namespace,
+			Namespace:     namespace,
+			ChallengeCode: challengeCode,
 		}
 		errNoContent := challengeProgressionService.EvaluateMyProgressShort(input)
 		if errNoContent != nil {
@@ -44,4 +53,5 @@ var EvaluateMyProgressCmd = &cobra.Command{
 func init() {
 	EvaluateMyProgressCmd.Flags().String("namespace", "", "Namespace")
 	_ = EvaluateMyProgressCmd.MarkFlagRequired("namespace")
+	EvaluateMyProgressCmd.Flags().String("challengeCode", "", "Challenge code")
 }

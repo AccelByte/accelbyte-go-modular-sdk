@@ -384,10 +384,12 @@ func (a *Client) AdminGetNamespaceUserInvitationHistoryV4Short(params *AdminGetN
 /*
 AdminCreateTestUsersV4Short [test facility only]create test users
 Create test users and not send verification code email.
-Note:
-- count : Enter the number of test users you want to create in the count field. The maximum value of the user count is 100.
-- userInfo(optional) :
+
+**Request Body Note:**
+- **count**: Enter the number of test users you want to create in the count field. The maximum value of the user count is 100.
+- **userInfo** (optional):
 - country: you can specify country for the test user. Country use ISO3166-1 alpha-2 two letter, e.g. US
+- **acceptedPolicies** (optional): Contains the list of accepted agreements for the created users.
 */
 func (a *Client) AdminCreateTestUsersV4Short(params *AdminCreateTestUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTestUsersV4Response, error) {
 	// TODO: Validate the params before sending

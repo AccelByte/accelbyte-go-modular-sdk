@@ -145,6 +145,8 @@ var (
 	Error18354 = ApiError{Code: "18354", Message: "records amount exceeded max limit"}
 	Error18355 = ApiError{Code: "18355", Message: "unable to marshal request body"}
 	Error18356 = ApiError{Code: "18356", Message: "invalid request body: size of the request body must be less than [%d]MB"}
+	Error18361 = ApiError{Code: "18361", Message: "record not found"}
+	Error18362 = ApiError{Code: "18362", Message: "unable to update record"}
 	Error18401 = ApiError{Code: "18401", Message: "invalid request body"}
 	Error18402 = ApiError{Code: "18402", Message: "plugins already configured"}
 	Error18404 = ApiError{Code: "18404", Message: "plugins not found"}

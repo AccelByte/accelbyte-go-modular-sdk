@@ -38,36 +38,6 @@ func (aaa *EntitlementService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *EntitlementService) QueryEntitlements1Short(input *entitlement.QueryEntitlements1Params) (*entitlement.QueryEntitlements1Response, error) {
-	authInfoWriter := input.AuthInfoWriter
-	if authInfoWriter == nil {
-		security := [][]string{
-			{"bearer"},
-		}
-		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
-	}
-	if input.RetryPolicy == nil {
-		input.RetryPolicy = &utils.Retry{
-			MaxTries:   utils.MaxTries,
-			Backoff:    utils.NewConstantBackoff(0),
-			Transport:  aaa.Client.Runtime.Transport,
-			RetryCodes: utils.RetryCodes,
-		}
-	}
-	if tempFlightIdEntitlement != nil {
-		input.XFlightId = tempFlightIdEntitlement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
-	}
-
-	ok, err := aaa.Client.Entitlement.QueryEntitlements1Short(input, authInfoWriter)
-	if err != nil {
-		return nil, err
-	}
-
-	return ok, nil
-}
-
 func (aaa *EntitlementService) QueryEntitlementsShort(input *entitlement.QueryEntitlementsParams) (*entitlement.QueryEntitlementsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -91,6 +61,36 @@ func (aaa *EntitlementService) QueryEntitlementsShort(input *entitlement.QueryEn
 	}
 
 	ok, err := aaa.Client.Entitlement.QueryEntitlementsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
+func (aaa *EntitlementService) QueryEntitlementsByItemIdsShort(input *entitlement.QueryEntitlementsByItemIdsParams) (*entitlement.QueryEntitlementsByItemIdsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdEntitlement != nil {
+		input.XFlightId = tempFlightIdEntitlement
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Entitlement.QueryEntitlementsByItemIdsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
