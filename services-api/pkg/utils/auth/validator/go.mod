@@ -8,7 +8,7 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.7.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.8.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam v0.1.0-alpha.15
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922
 	github.com/AccelByte/go-jose v2.1.4+incompatible
