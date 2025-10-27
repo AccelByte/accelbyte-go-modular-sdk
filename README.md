@@ -134,14 +134,24 @@ Use the following to get SDK instance with automatic token refresh functionality
 
 ```go
 oAuth20Service = &iam.OAuth20Service{
-		Client:           factory.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository: auth.DefaultConfigRepositoryImpl(),
-		TokenRepository:  auth.DefaultTokenRepositoryImpl(),
-		RefreshTokenRepository: &auth.RefreshTokenImpl{ // override the default refresh token. For example, enable the AutoRefresh functionality or change RefreshRate
-			RefreshRate: 0.5,
-			AutoRefresh: true,
-		},
-	}
+    Client:           factory.NewIamClient(auth.DefaultConfigRepositoryImpl()),
+    ConfigRepository: auth.DefaultConfigRepositoryImpl(),
+    TokenRepository:  auth.DefaultTokenRepositoryImpl(),
+    RefreshTokenRepository: &auth.RefreshTokenImpl{ // override the default refresh token. For example, enable the AutoRefresh functionality or change RefreshRate
+        RefreshRate: 0.5, // refresh when 50% of the token’s lifetime remains.
+        AutoRefresh: true, // automatically refresh the token in the background.
+    }
+}
+```
+
+If no need to customize the behavior, use the default refresh token configuration.
+The default RefreshRate is `0.8`, which means the SDK will refresh the token when 20% of its lifetime remains.
+
+```go
+oAuth20Service = &iam.OAuth20Service{
+    ...
+    RefreshTokenRepository: auth.DefaultRefreshTokenImpl(), // use the default value
+}
 ```
 Use the `repository` to access all functions for refresh token.
 
