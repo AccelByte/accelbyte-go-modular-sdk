@@ -26,6 +26,7 @@ type PublicUnbanTopicMembersResponse struct {
 	Error400 *chatclientmodels.RestapiErrorResponseBody
 	Error401 *chatclientmodels.RestapiErrorResponseBody
 	Error403 *chatclientmodels.RestapiErrorResponseBody
+	Error404 *chatclientmodels.RestapiErrorResponseBody
 	Error500 *chatclientmodels.RestapiErrorResponseBody
 }
 
@@ -54,6 +55,14 @@ func (m *PublicUnbanTopicMembersResponse) Unpack() (*chatclientmodels.ModelsPubl
 
 		case 403:
 			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
 			if err != nil {
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
@@ -104,6 +113,12 @@ func (o *PublicUnbanTopicMembersReader) ReadResponse(response runtime.ClientResp
 		return result, nil
 	case 403:
 		result := NewPublicUnbanTopicMembersForbidden()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	case 404:
+		result := NewPublicUnbanTopicMembersNotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -326,6 +341,61 @@ func (o *PublicUnbanTopicMembersForbidden) GetPayload() *chatclientmodels.Restap
 }
 
 func (o *PublicUnbanTopicMembersForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// handle file responses
+	contentDisposition := response.GetHeader("Content-Disposition")
+	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
+		consumer = runtime.ByteStreamConsumer()
+	}
+
+	o.Payload = new(chatclientmodels.RestapiErrorResponseBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPublicUnbanTopicMembersNotFound creates a PublicUnbanTopicMembersNotFound with default headers values
+func NewPublicUnbanTopicMembersNotFound() *PublicUnbanTopicMembersNotFound {
+	return &PublicUnbanTopicMembersNotFound{}
+}
+
+/*
+PublicUnbanTopicMembersNotFound handles this case with default header values.
+
+	Not Found
+*/
+type PublicUnbanTopicMembersNotFound struct {
+	Payload *chatclientmodels.RestapiErrorResponseBody
+}
+
+func (o *PublicUnbanTopicMembersNotFound) Error() string {
+	return fmt.Sprintf("[POST /chat/public/namespaces/{namespace}/topic/{topic}/unban-members][%d] publicUnbanTopicMembersNotFound  %+v", 404, o.ToJSONString())
+}
+
+func (o *PublicUnbanTopicMembersNotFound) ToJSONString() string {
+	if o.Payload == nil {
+		return "{}"
+	}
+
+	b, err := json.Marshal(o.Payload)
+	if err != nil {
+		fmt.Println(err)
+
+		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
+	}
+
+	return fmt.Sprintf("%+v", string(b))
+}
+
+func (o *PublicUnbanTopicMembersNotFound) GetPayload() *chatclientmodels.RestapiErrorResponseBody {
+	return o.Payload
+}
+
+func (o *PublicUnbanTopicMembersNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// handle file responses
 	contentDisposition := response.GetHeader("Content-Disposition")

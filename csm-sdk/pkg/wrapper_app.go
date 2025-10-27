@@ -63,6 +63,10 @@ func (aaa *AppService) GetAppListV1Short(input *app.GetAppListV1Params) (*app.Ge
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *AppService) GetAppV1Short(input *app.GetAppV1Params) (*app.GetAppV1Re
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *AppService) CreateAppV1Short(input *app.CreateAppV1Params) (*app.Crea
 	ok, err := aaa.Client.App.CreateAppV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +195,10 @@ func (aaa *AppService) UpdateAppV1Short(input *app.UpdateAppV1Params) (*app.Upda
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +227,10 @@ func (aaa *AppService) GetAppReleaseV1Short(input *app.GetAppReleaseV1Params) (*
 	ok, err := aaa.Client.App.GetAppReleaseV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +263,10 @@ func (aaa *AppService) StartAppV1Short(input *app.StartAppV1Params) (*app.StartA
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +295,10 @@ func (aaa *AppService) StopAppV1Short(input *app.StopAppV1Params) (*app.StopAppV
 	ok, err := aaa.Client.App.StopAppV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

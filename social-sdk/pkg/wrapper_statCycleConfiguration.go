@@ -65,6 +65,10 @@ func (aaa *StatCycleConfigurationService) GetStatCyclesShort(input *stat_cycle_c
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *StatCycleConfigurationService) CreateStatCycleShort(input *stat_cycle
 	created, err := aaa.Client.StatCycleConfiguration.CreateStatCycleShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -125,6 +133,10 @@ func (aaa *StatCycleConfigurationService) BulkGetStatCycleShort(input *stat_cycl
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +165,10 @@ func (aaa *StatCycleConfigurationService) ExportStatCycleShort(input *stat_cycle
 	ok, err := aaa.Client.StatCycleConfiguration.ExportStatCycleShort(input, authInfoWriter, writer)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -185,6 +201,10 @@ func (aaa *StatCycleConfigurationService) ImportStatCycleShort(input *stat_cycle
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -215,6 +235,10 @@ func (aaa *StatCycleConfigurationService) GetStatCycleShort(input *stat_cycle_co
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -243,6 +267,10 @@ func (aaa *StatCycleConfigurationService) UpdateStatCycleShort(input *stat_cycle
 	ok, err := aaa.Client.StatCycleConfiguration.UpdateStatCycleShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -305,6 +333,10 @@ func (aaa *StatCycleConfigurationService) BulkAddStatsShort(input *stat_cycle_co
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -333,6 +365,10 @@ func (aaa *StatCycleConfigurationService) StopStatCycleShort(input *stat_cycle_c
 	ok, err := aaa.Client.StatCycleConfiguration.StopStatCycleShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -365,6 +401,10 @@ func (aaa *StatCycleConfigurationService) GetStatCycles1Short(input *stat_cycle_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -395,6 +435,10 @@ func (aaa *StatCycleConfigurationService) BulkGetStatCycle1Short(input *stat_cyc
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -423,6 +467,10 @@ func (aaa *StatCycleConfigurationService) GetStatCycle1Short(input *stat_cycle_c
 	ok, err := aaa.Client.StatCycleConfiguration.GetStatCycle1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

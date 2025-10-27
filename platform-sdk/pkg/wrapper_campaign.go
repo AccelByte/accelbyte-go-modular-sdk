@@ -65,6 +65,10 @@ func (aaa *CampaignService) QueryCampaignsShort(input *campaign.QueryCampaignsPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *CampaignService) CreateCampaignShort(input *campaign.CreateCampaignPa
 	created, err := aaa.Client.Campaign.CreateCampaignShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -125,6 +133,10 @@ func (aaa *CampaignService) GetCampaignShort(input *campaign.GetCampaignParams) 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +165,10 @@ func (aaa *CampaignService) UpdateCampaignShort(input *campaign.UpdateCampaignPa
 	ok, err := aaa.Client.Campaign.UpdateCampaignShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -215,6 +231,10 @@ func (aaa *CampaignService) QueryCampaignBatchNamesShort(input *campaign.QueryCa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -243,6 +263,10 @@ func (aaa *CampaignService) GetCampaignDynamicShort(input *campaign.GetCampaignD
 	ok, err := aaa.Client.Campaign.GetCampaignDynamicShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -275,6 +299,10 @@ func (aaa *CampaignService) QueryCodesShort(input *campaign.QueryCodesParams) (*
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -303,6 +331,10 @@ func (aaa *CampaignService) CreateCodesShort(input *campaign.CreateCodesParams) 
 	created, err := aaa.Client.Campaign.CreateCodesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -335,6 +367,10 @@ func (aaa *CampaignService) DownloadShort(input *campaign.DownloadParams, writer
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -363,6 +399,10 @@ func (aaa *CampaignService) BulkDisableCodesShort(input *campaign.BulkDisableCod
 	ok, err := aaa.Client.Campaign.BulkDisableCodesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -395,6 +435,10 @@ func (aaa *CampaignService) BulkEnableCodesShort(input *campaign.BulkEnableCodes
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -423,6 +467,10 @@ func (aaa *CampaignService) QueryRedeemHistoryShort(input *campaign.QueryRedeemH
 	ok, err := aaa.Client.Campaign.QueryRedeemHistoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -455,6 +503,10 @@ func (aaa *CampaignService) GetCodeShort(input *campaign.GetCodeParams) (*campai
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -483,6 +535,10 @@ func (aaa *CampaignService) DisableCodeShort(input *campaign.DisableCodeParams) 
 	ok, err := aaa.Client.Campaign.DisableCodeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -515,6 +571,10 @@ func (aaa *CampaignService) EnableCodeShort(input *campaign.EnableCodeParams) (*
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -543,6 +603,10 @@ func (aaa *CampaignService) ApplyUserRedemptionShort(input *campaign.ApplyUserRe
 	ok, err := aaa.Client.Campaign.ApplyUserRedemptionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

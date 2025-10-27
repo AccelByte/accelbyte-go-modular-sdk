@@ -63,6 +63,10 @@ func (aaa *PublicStagingContentService) ListUserStagingContentsShort(input *publ
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *PublicStagingContentService) GetUserStagingContentByIDShort(input *pu
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *PublicStagingContentService) UpdateStagingContentShort(input *public_
 	ok, err := aaa.Client.PublicStagingContent.UpdateStagingContentShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

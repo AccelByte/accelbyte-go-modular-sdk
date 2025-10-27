@@ -65,6 +65,10 @@ func (aaa *SlotService) GetUserNamespaceSlotsShort(input *slot.GetUserNamespaceS
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -95,6 +99,10 @@ func (aaa *SlotService) GetSlotDataShort(input *slot.GetSlotDataParams, writer i
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -123,6 +131,10 @@ func (aaa *SlotService) PublicGetUserNamespaceSlotsShort(input *slot.PublicGetUs
 	ok, err := aaa.Client.Slot.PublicGetUserNamespaceSlotsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -185,6 +197,10 @@ func (aaa *SlotService) PublicGetSlotDataShort(input *slot.PublicGetSlotDataPara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -213,6 +229,10 @@ func (aaa *SlotService) PublicUpdateUserNamespaceSlotShort(input *slot.PublicUpd
 	ok, err := aaa.Client.Slot.PublicUpdateUserNamespaceSlotShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -273,6 +293,10 @@ func (aaa *SlotService) PublicUpdateUserNamespaceSlotMetadataShort(input *slot.P
 	ok, err := aaa.Client.Slot.PublicUpdateUserNamespaceSlotMetadataShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

@@ -63,6 +63,10 @@ func (aaa *CategoryService) GetRootCategoriesShort(input *category.GetRootCatego
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *CategoryService) CreateCategoryShort(input *category.CreateCategoryPa
 	created, err := aaa.Client.Category.CreateCategoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *CategoryService) ListCategoriesBasicShort(input *category.ListCategor
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *CategoryService) GetCategoryShort(input *category.GetCategoryParams) 
 	ok, err := aaa.Client.Category.GetCategoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *CategoryService) UpdateCategoryShort(input *category.UpdateCategoryPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *CategoryService) DeleteCategoryShort(input *category.DeleteCategoryPa
 	ok, err := aaa.Client.Category.DeleteCategoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *CategoryService) GetChildCategoriesShort(input *category.GetChildCate
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -273,6 +301,10 @@ func (aaa *CategoryService) GetDescendantCategoriesShort(input *category.GetDesc
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -294,6 +326,10 @@ func (aaa *CategoryService) PublicGetRootCategoriesShort(input *category.PublicG
 	ok, err := aaa.Client.Category.PublicGetRootCategoriesShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -319,6 +355,10 @@ func (aaa *CategoryService) DownloadCategoriesShort(input *category.DownloadCate
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -340,6 +380,10 @@ func (aaa *CategoryService) PublicGetCategoryShort(input *category.PublicGetCate
 	ok, err := aaa.Client.Category.PublicGetCategoryShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -365,6 +409,10 @@ func (aaa *CategoryService) PublicGetChildCategoriesShort(input *category.Public
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -386,6 +434,10 @@ func (aaa *CategoryService) PublicGetDescendantCategoriesShort(input *category.P
 	ok, err := aaa.Client.Category.PublicGetDescendantCategoriesShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

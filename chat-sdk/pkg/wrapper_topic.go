@@ -63,6 +63,10 @@ func (aaa *TopicService) AdminFilterChatMessageShort(input *topic.AdminFilterCha
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *TopicService) AdminChatHistoryShort(input *topic.AdminChatHistoryPara
 	ok, err := aaa.Client.Topic.AdminChatHistoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *TopicService) AdminCreateNamespaceTopicShort(input *topic.AdminCreate
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *TopicService) AdminTopicListShort(input *topic.AdminTopicListParams) 
 	ok, err := aaa.Client.Topic.AdminTopicListShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *TopicService) AdminCreateTopicShort(input *topic.AdminCreateTopicPara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *TopicService) AdminChannelTopicListShort(input *topic.AdminChannelTop
 	ok, err := aaa.Client.Topic.AdminChannelTopicListShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *TopicService) AdminChannelTopicSummaryShort(input *topic.AdminChannel
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +299,10 @@ func (aaa *TopicService) AdminQueryTopicLogShort(input *topic.AdminQueryTopicLog
 	ok, err := aaa.Client.Topic.AdminQueryTopicLogShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +335,10 @@ func (aaa *TopicService) AdminUpdateTopicShort(input *topic.AdminUpdateTopicPara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +367,10 @@ func (aaa *TopicService) AdminDeleteTopicShort(input *topic.AdminDeleteTopicPara
 	ok, err := aaa.Client.Topic.AdminDeleteTopicShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +403,10 @@ func (aaa *TopicService) AdminBanTopicMembersShort(input *topic.AdminBanTopicMem
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -391,6 +435,10 @@ func (aaa *TopicService) AdminChannelTopicInfoShort(input *topic.AdminChannelTop
 	ok, err := aaa.Client.Topic.AdminChannelTopicInfoShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -423,6 +471,10 @@ func (aaa *TopicService) AdminTopicChatHistoryShort(input *topic.AdminTopicChatH
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -451,6 +503,10 @@ func (aaa *TopicService) AdminSendChatShort(input *topic.AdminSendChatParams) (*
 	ok, err := aaa.Client.Topic.AdminSendChatShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -513,6 +569,10 @@ func (aaa *TopicService) AdminTopicMembersShort(input *topic.AdminTopicMembersPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -541,6 +601,10 @@ func (aaa *TopicService) AdminTopicShardsShort(input *topic.AdminTopicShardsPara
 	ok, err := aaa.Client.Topic.AdminTopicShardsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -573,6 +637,10 @@ func (aaa *TopicService) AdminUnbanTopicMembersShort(input *topic.AdminUnbanTopi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -601,6 +669,10 @@ func (aaa *TopicService) AdminAddTopicMemberShort(input *topic.AdminAddTopicMemb
 	ok, err := aaa.Client.Topic.AdminAddTopicMemberShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -633,6 +705,10 @@ func (aaa *TopicService) AdminRemoveTopicMemberShort(input *topic.AdminRemoveTop
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -661,6 +737,10 @@ func (aaa *TopicService) AdminQueryTopicShort(input *topic.AdminQueryTopicParams
 	ok, err := aaa.Client.Topic.AdminQueryTopicShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -693,6 +773,10 @@ func (aaa *TopicService) AdminQueryUsersTopicShort(input *topic.AdminQueryUsersT
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -721,6 +805,10 @@ func (aaa *TopicService) PublicGetMutedTopicsShort(input *topic.PublicGetMutedTo
 	ok, err := aaa.Client.Topic.PublicGetMutedTopicsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -753,6 +841,10 @@ func (aaa *TopicService) PublicTopicListShort(input *topic.PublicTopicListParams
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -783,6 +875,10 @@ func (aaa *TopicService) PublicBanTopicMembersShort(input *topic.PublicBanTopicM
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -811,6 +907,10 @@ func (aaa *TopicService) PublicChatHistoryShort(input *topic.PublicChatHistoryPa
 	ok, err := aaa.Client.Topic.PublicChatHistoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -901,6 +1001,10 @@ func (aaa *TopicService) PublicUnbanTopicMembersShort(input *topic.PublicUnbanTo
 	ok, err := aaa.Client.Topic.PublicUnbanTopicMembersShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

@@ -34,17 +34,19 @@ var ImageListCmd = &cobra.Command{
 		sortDirection, _ := cmd.Flags().GetString("sortDirection")
 		status, _ := cmd.Flags().GetString("status")
 		tag, _ := cmd.Flags().GetString("tag")
+		targetArchitecture, _ := cmd.Flags().GetString("targetArchitecture")
 		input := &images.ImageListParams{
-			Namespace:     namespace,
-			Count:         &count,
-			InUse:         &inUse,
-			IsProtected:   &isProtected,
-			Name:          &name,
-			Offset:        &offset,
-			SortBy:        &sortBy,
-			SortDirection: &sortDirection,
-			Status:        &status,
-			Tag:           &tag,
+			Namespace:          namespace,
+			Count:              &count,
+			InUse:              &inUse,
+			IsProtected:        &isProtected,
+			Name:               &name,
+			Offset:             &offset,
+			SortBy:             &sortBy,
+			SortDirection:      &sortDirection,
+			Status:             &status,
+			Tag:                &tag,
+			TargetArchitecture: &targetArchitecture,
 		}
 		ok, errOK := imagesService.ImageListShort(input)
 		if errOK != nil {
@@ -71,4 +73,5 @@ func init() {
 	ImageListCmd.Flags().String("sortDirection", "", "Sort direction")
 	ImageListCmd.Flags().String("status", "", "Status")
 	ImageListCmd.Flags().String("tag", "", "Tag")
+	ImageListCmd.Flags().String("targetArchitecture", "", "Target architecture")
 }

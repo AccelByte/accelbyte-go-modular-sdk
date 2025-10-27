@@ -63,6 +63,10 @@ func (aaa *AdminChannelService) SingleAdminGetChannelShort(input *admin_channel.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *AdminChannelService) AdminCreateChannelShort(input *admin_channel.Adm
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *AdminChannelService) SingleAdminUpdateChannelShort(input *admin_chann
 	ok, err := aaa.Client.AdminChannel.SingleAdminUpdateChannelShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +195,10 @@ func (aaa *AdminChannelService) AdminGetChannelShort(input *admin_channel.AdminG
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +227,10 @@ func (aaa *AdminChannelService) AdminUpdateChannelShort(input *admin_channel.Adm
 	ok, err := aaa.Client.AdminChannel.AdminUpdateChannelShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

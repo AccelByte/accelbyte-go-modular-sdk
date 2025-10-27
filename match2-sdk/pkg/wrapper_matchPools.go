@@ -63,6 +63,10 @@ func (aaa *MatchPoolsService) MatchPoolListShort(input *match_pools.MatchPoolLis
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -123,6 +127,10 @@ func (aaa *MatchPoolsService) MatchPoolDetailsShort(input *match_pools.MatchPool
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +159,10 @@ func (aaa *MatchPoolsService) UpdateMatchPoolShort(input *match_pools.UpdateMatc
 	ok, err := aaa.Client.MatchPools.UpdateMatchPoolShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +225,10 @@ func (aaa *MatchPoolsService) MatchPoolMetricShort(input *match_pools.MatchPoolM
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -273,6 +289,10 @@ func (aaa *MatchPoolsService) GetPlayerMetricShort(input *match_pools.GetPlayerM
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -303,6 +323,10 @@ func (aaa *MatchPoolsService) AdminGetMatchPoolTicketsShort(input *match_pools.A
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +355,10 @@ func (aaa *MatchPoolsService) PublicGetPlayerMetricShort(input *match_pools.Publ
 	ok, err := aaa.Client.MatchPools.PublicGetPlayerMetricShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

@@ -63,6 +63,10 @@ func (aaa *ConfigService) CreateConfigShort(input *config.CreateConfigParams) (*
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *ConfigService) GetConfigShort(input *config.GetConfigParams) (*config
 	ok, err := aaa.Client.Config.GetConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -153,6 +161,10 @@ func (aaa *ConfigService) UpdateConfigShort(input *config.UpdateConfigParams) (*
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +193,10 @@ func (aaa *ConfigService) GetPublisherConfigShort(input *config.GetPublisherConf
 	ok, err := aaa.Client.Config.GetPublisherConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

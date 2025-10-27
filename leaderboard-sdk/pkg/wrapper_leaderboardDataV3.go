@@ -63,6 +63,10 @@ func (aaa *LeaderboardDataV3Service) GetAllTimeLeaderboardRankingAdminV3Short(in
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *LeaderboardDataV3Service) GetCurrentCycleLeaderboardRankingAdminV3Sho
 	ok, err := aaa.Client.LeaderboardDataV3.GetCurrentCycleLeaderboardRankingAdminV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +221,10 @@ func (aaa *LeaderboardDataV3Service) GetUserRankingAdminV3Short(input *leaderboa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -303,6 +315,10 @@ func (aaa *LeaderboardDataV3Service) GetAllTimeLeaderboardRankingPublicV3Short(i
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +347,10 @@ func (aaa *LeaderboardDataV3Service) GetCurrentCycleLeaderboardRankingPublicV3Sh
 	ok, err := aaa.Client.LeaderboardDataV3.GetCurrentCycleLeaderboardRankingPublicV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +383,10 @@ func (aaa *LeaderboardDataV3Service) BulkGetUsersRankingPublicV3Short(input *lea
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -391,6 +415,10 @@ func (aaa *LeaderboardDataV3Service) GetUserRankingPublicV3Short(input *leaderbo
 	ok, err := aaa.Client.LeaderboardDataV3.GetUserRankingPublicV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

@@ -63,6 +63,10 @@ func (aaa *ImageService) GetAppImageListV1Short(input *image.GetAppImageListV1Pa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 

@@ -63,6 +63,10 @@ func (aaa *RolesService) GetRolesShort(input *roles.GetRolesParams) (*roles.GetR
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *RolesService) CreateRoleShort(input *roles.CreateRoleParams) (*roles.
 	created, err := aaa.Client.Roles.CreateRoleShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *RolesService) GetRoleShort(input *roles.GetRoleParams) (*roles.GetRol
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *RolesService) UpdateRoleShort(input *roles.UpdateRoleParams) (*roles.
 	ok, err := aaa.Client.Roles.UpdateRoleShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -211,6 +227,10 @@ func (aaa *RolesService) GetRoleAdminStatusShort(input *roles.GetRoleAdminStatus
 	ok, err := aaa.Client.Roles.GetRoleAdminStatusShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +323,10 @@ func (aaa *RolesService) GetRoleManagersShort(input *roles.GetRoleManagersParams
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -391,6 +415,10 @@ func (aaa *RolesService) GetRoleMembersShort(input *roles.GetRoleMembersParams) 
 	ok, err := aaa.Client.Roles.GetRoleMembersShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -573,6 +601,10 @@ func (aaa *RolesService) AdminGetRolesV3Short(input *roles.AdminGetRolesV3Params
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -603,6 +635,10 @@ func (aaa *RolesService) AdminCreateRoleV3Short(input *roles.AdminCreateRoleV3Pa
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -631,6 +667,10 @@ func (aaa *RolesService) AdminGetRoleV3Short(input *roles.AdminGetRoleV3Params) 
 	ok, err := aaa.Client.Roles.AdminGetRoleV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -693,6 +733,10 @@ func (aaa *RolesService) AdminUpdateRoleV3Short(input *roles.AdminUpdateRoleV3Pa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -721,6 +765,10 @@ func (aaa *RolesService) AdminGetRoleAdminStatusV3Short(input *roles.AdminGetRol
 	ok, err := aaa.Client.Roles.AdminGetRoleAdminStatusV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -813,6 +861,10 @@ func (aaa *RolesService) AdminGetRoleManagersV3Short(input *roles.AdminGetRoleMa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -901,6 +953,10 @@ func (aaa *RolesService) AdminGetRoleMembersV3Short(input *roles.AdminGetRoleMem
 	ok, err := aaa.Client.Roles.AdminGetRoleMembersV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1113,6 +1169,10 @@ func (aaa *RolesService) PublicGetRolesV3Short(input *roles.PublicGetRolesV3Para
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1141,6 +1201,10 @@ func (aaa *RolesService) PublicGetRoleV3Short(input *roles.PublicGetRoleV3Params
 	ok, err := aaa.Client.Roles.PublicGetRoleV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1173,6 +1237,10 @@ func (aaa *RolesService) AdminGetRolesV4Short(input *roles.AdminGetRolesV4Params
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1203,6 +1271,10 @@ func (aaa *RolesService) AdminCreateRoleV4Short(input *roles.AdminCreateRoleV4Pa
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -1231,6 +1303,10 @@ func (aaa *RolesService) AdminGetRoleV4Short(input *roles.AdminGetRoleV4Params) 
 	ok, err := aaa.Client.Roles.AdminGetRoleV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1293,6 +1369,10 @@ func (aaa *RolesService) AdminUpdateRoleV4Short(input *roles.AdminUpdateRoleV4Pa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1323,6 +1403,10 @@ func (aaa *RolesService) AdminUpdateRolePermissionsV4Short(input *roles.AdminUpd
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1351,6 +1435,10 @@ func (aaa *RolesService) AdminAddRolePermissionsV4Short(input *roles.AdminAddRol
 	ok, err := aaa.Client.Roles.AdminAddRolePermissionsV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1413,6 +1501,10 @@ func (aaa *RolesService) AdminListAssignedUsersV4Short(input *roles.AdminListAss
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1441,6 +1533,10 @@ func (aaa *RolesService) AdminAssignUserToRoleV4Short(input *roles.AdminAssignUs
 	created, err := aaa.Client.Roles.AdminAssignUserToRoleV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

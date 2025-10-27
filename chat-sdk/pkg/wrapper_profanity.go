@@ -63,6 +63,10 @@ func (aaa *ProfanityService) AdminProfanityQueryShort(input *profanity.AdminProf
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *ProfanityService) AdminProfanityCreateShort(input *profanity.AdminPro
 	ok, err := aaa.Client.Profanity.AdminProfanityCreateShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -153,6 +161,10 @@ func (aaa *ProfanityService) AdminProfanityExportShort(input *profanity.AdminPro
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +193,10 @@ func (aaa *ProfanityService) AdminProfanityGroupShort(input *profanity.AdminProf
 	ok, err := aaa.Client.Profanity.AdminProfanityGroupShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +229,10 @@ func (aaa *ProfanityService) AdminProfanityImportShort(input *profanity.AdminPro
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *ProfanityService) AdminProfanityUpdateShort(input *profanity.AdminPro
 	ok, err := aaa.Client.Profanity.AdminProfanityUpdateShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

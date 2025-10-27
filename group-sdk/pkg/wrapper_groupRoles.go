@@ -63,6 +63,10 @@ func (aaa *GroupRolesService) GetMemberRolesListAdminV1Short(input *group_roles.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *GroupRolesService) CreateMemberRoleAdminV1Short(input *group_roles.Cr
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *GroupRolesService) GetSingleMemberRoleAdminV1Short(input *group_roles
 	ok, err := aaa.Client.GroupRoles.GetSingleMemberRoleAdminV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +195,10 @@ func (aaa *GroupRolesService) UpdateMemberRoleAdminV1Short(input *group_roles.Up
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +227,10 @@ func (aaa *GroupRolesService) UpdateMemberRolePermissionAdminV1Short(input *grou
 	ok, err := aaa.Client.GroupRoles.UpdateMemberRolePermissionAdminV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +263,10 @@ func (aaa *GroupRolesService) GetMemberRolesListPublicV1Short(input *group_roles
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +295,10 @@ func (aaa *GroupRolesService) UpdateMemberRolePublicV1Short(input *group_roles.U
 	ok, err := aaa.Client.GroupRoles.UpdateMemberRolePublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -333,6 +361,10 @@ func (aaa *GroupRolesService) GetMemberRolesListPublicV2Short(input *group_roles
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -361,6 +393,10 @@ func (aaa *GroupRolesService) UpdateMemberRolePublicV2Short(input *group_roles.U
 	ok, err := aaa.Client.GroupRoles.UpdateMemberRolePublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

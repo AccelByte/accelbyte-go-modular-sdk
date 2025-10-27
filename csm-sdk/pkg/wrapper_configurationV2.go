@@ -63,6 +63,10 @@ func (aaa *ConfigurationV2Service) GetListOfSecretsV2Short(input *configuration_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *ConfigurationV2Service) SaveSecretV2Short(input *configuration_v2.Sav
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *ConfigurationV2Service) UpdateSecretV2Short(input *configuration_v2.U
 	ok, err := aaa.Client.ConfigurationV2.UpdateSecretV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +195,10 @@ func (aaa *ConfigurationV2Service) GetListOfVariablesV2Short(input *configuratio
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -213,6 +229,10 @@ func (aaa *ConfigurationV2Service) SaveVariableV2Short(input *configuration_v2.S
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *ConfigurationV2Service) UpdateVariableV2Short(input *configuration_v2
 	ok, err := aaa.Client.ConfigurationV2.UpdateVariableV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

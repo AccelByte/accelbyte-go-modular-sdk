@@ -63,5 +63,9 @@ func (aaa *BlocksService) SyncNativeBlockedUserShort(input *blocks.SyncNativeBlo
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }

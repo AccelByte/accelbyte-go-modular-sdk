@@ -63,6 +63,10 @@ func (aaa *RuleSetsService) RuleSetListShort(input *rule_sets.RuleSetListParams)
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -123,6 +127,10 @@ func (aaa *RuleSetsService) RuleSetDetailsShort(input *rule_sets.RuleSetDetailsP
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +159,10 @@ func (aaa *RuleSetsService) UpdateRuleSetShort(input *rule_sets.UpdateRuleSetPar
 	ok, err := aaa.Client.RuleSets.UpdateRuleSetShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

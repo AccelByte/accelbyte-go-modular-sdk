@@ -65,6 +65,10 @@ func (aaa *OrderService) QueryOrdersShort(input *order.QueryOrdersParams) (*orde
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *OrderService) GetOrderStatisticsShort(input *order.GetOrderStatistics
 	ok, err := aaa.Client.Order.GetOrderStatisticsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -125,6 +133,10 @@ func (aaa *OrderService) GetOrderShort(input *order.GetOrderParams) (*order.GetO
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +165,10 @@ func (aaa *OrderService) RefundOrderShort(input *order.RefundOrderParams) (*orde
 	ok, err := aaa.Client.Order.RefundOrderShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -185,6 +201,10 @@ func (aaa *OrderService) QueryUserOrdersShort(input *order.QueryUserOrdersParams
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -213,6 +233,10 @@ func (aaa *OrderService) AdminCreateUserOrderShort(input *order.AdminCreateUserO
 	created, err := aaa.Client.Order.AdminCreateUserOrderShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -245,6 +269,10 @@ func (aaa *OrderService) CountOfPurchasedItemShort(input *order.CountOfPurchased
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -273,6 +301,10 @@ func (aaa *OrderService) GetUserOrderShort(input *order.GetUserOrderParams) (*or
 	ok, err := aaa.Client.Order.GetUserOrderShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -305,6 +337,10 @@ func (aaa *OrderService) UpdateUserOrderStatusShort(input *order.UpdateUserOrder
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -333,6 +369,10 @@ func (aaa *OrderService) FulfillUserOrderShort(input *order.FulfillUserOrderPara
 	ok, err := aaa.Client.Order.FulfillUserOrderShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -365,6 +405,10 @@ func (aaa *OrderService) GetUserOrderGrantShort(input *order.GetUserOrderGrantPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -393,6 +437,10 @@ func (aaa *OrderService) GetUserOrderHistoriesShort(input *order.GetUserOrderHis
 	ok, err := aaa.Client.Order.GetUserOrderHistoriesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -455,6 +503,10 @@ func (aaa *OrderService) DownloadUserOrderReceiptShort(input *order.DownloadUser
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -483,6 +535,10 @@ func (aaa *OrderService) PublicQueryUserOrdersShort(input *order.PublicQueryUser
 	ok, err := aaa.Client.Order.PublicQueryUserOrdersShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -515,6 +571,10 @@ func (aaa *OrderService) PublicCreateUserOrderShort(input *order.PublicCreateUse
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -543,6 +603,10 @@ func (aaa *OrderService) PublicPreviewOrderPriceShort(input *order.PublicPreview
 	ok, err := aaa.Client.Order.PublicPreviewOrderPriceShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -575,6 +639,10 @@ func (aaa *OrderService) PublicGetUserOrderShort(input *order.PublicGetUserOrder
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -603,6 +671,10 @@ func (aaa *OrderService) PublicCancelUserOrderShort(input *order.PublicCancelUse
 	ok, err := aaa.Client.Order.PublicCancelUserOrderShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -635,6 +707,10 @@ func (aaa *OrderService) PublicGetUserOrderHistoriesShort(input *order.PublicGet
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -663,6 +739,10 @@ func (aaa *OrderService) PublicDownloadUserOrderReceiptShort(input *order.Public
 	ok, err := aaa.Client.Order.PublicDownloadUserOrderReceiptShort(input, authInfoWriter, writer)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

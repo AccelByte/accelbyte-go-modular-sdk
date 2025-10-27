@@ -57,7 +57,7 @@ eval_tap $? 2 'AdminGetConfiguration' test.out
 #- 3 AdminUpdateConfiguration
 samples/cli/sample-apps Loginqueue adminUpdateConfiguration \
     --namespace $AB_NAMESPACE \
-    --body '{"enabled": false, "maxConcurrency": 28, "maxLoginRate": 57, "minActivationPeriodInSecond": 30, "playerPollingTimeInSecond": 36, "playerReconnectGracePeriodInSecond": 35, "queueReconnectGracePeriodInSecond": 40, "safetyMarginPercentage": 90}' \
+    --body '{"enabled": true, "maxConcurrency": 22, "maxLoginRate": 7, "minActivationPeriodInSecond": 59, "playerPollingTimeInSecond": 64, "playerReconnectGracePeriodInSecond": 83, "queueReconnectGracePeriodInSecond": 24, "safetyMarginPercentage": 31}' \
     > test.out 2>&1
 eval_tap $? 3 'AdminUpdateConfiguration' test.out
 

@@ -63,6 +63,10 @@ func (aaa *GameProfileService) GetUserProfilesShort(input *game_profile.GetUserP
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *GameProfileService) GetProfileShort(input *game_profile.GetProfilePar
 	ok, err := aaa.Client.GameProfile.GetProfileShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *GameProfileService) PublicGetUserGameProfilesShort(input *game_profil
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *GameProfileService) PublicGetUserProfilesShort(input *game_profile.Pu
 	ok, err := aaa.Client.GameProfile.PublicGetUserProfilesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +229,10 @@ func (aaa *GameProfileService) PublicGetProfileShort(input *game_profile.PublicG
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *GameProfileService) PublicUpdateProfileShort(input *game_profile.Publ
 	ok, err := aaa.Client.GameProfile.PublicUpdateProfileShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +327,10 @@ func (aaa *GameProfileService) PublicGetProfileAttributeShort(input *game_profil
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +359,10 @@ func (aaa *GameProfileService) PublicUpdateAttributeShort(input *game_profile.Pu
 	ok, err := aaa.Client.GameProfile.PublicUpdateAttributeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

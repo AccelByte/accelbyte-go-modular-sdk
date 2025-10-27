@@ -96,6 +96,10 @@ func (aaa *GametelemetryOperationsService) ProtectedGetPlaytimeGameTelemetryV1Pr
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -125,6 +129,10 @@ func (aaa *GametelemetryOperationsService) ProtectedUpdatePlaytimeGameTelemetryV
 	ok, err := aaa.Client.GametelemetryOperations.ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

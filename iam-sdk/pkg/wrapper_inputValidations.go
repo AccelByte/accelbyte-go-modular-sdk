@@ -63,6 +63,10 @@ func (aaa *InputValidationsService) AdminGetInputValidationsShort(input *input_v
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -146,6 +150,10 @@ func (aaa *InputValidationsService) PublicGetInputValidationsShort(input *input_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -174,6 +182,10 @@ func (aaa *InputValidationsService) PublicGetInputValidationByFieldShort(input *
 	ok, err := aaa.Client.InputValidations.PublicGetInputValidationByFieldShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

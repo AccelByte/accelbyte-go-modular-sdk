@@ -63,6 +63,10 @@ func (aaa *SSOCredentialService) RetrieveAllSSOLoginPlatformCredentialV3Short(in
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *SSOCredentialService) RetrieveSSOLoginPlatformCredentialShort(input *
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *SSOCredentialService) AddSSOLoginPlatformCredentialShort(input *sso_c
 	created, err := aaa.Client.SSOCredential.AddSSOLoginPlatformCredentialShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -181,6 +193,10 @@ func (aaa *SSOCredentialService) UpdateSSOPlatformCredentialShort(input *sso_cre
 	ok, err := aaa.Client.SSOCredential.UpdateSSOPlatformCredentialShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

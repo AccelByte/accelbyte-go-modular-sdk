@@ -63,6 +63,10 @@ func (aaa *PresenceService) UsersPresenceHandlerV1Short(input *presence.UsersPre
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PresenceService) UsersPresenceHandlerV2Short(input *presence.UsersPre
 	ok, err := aaa.Client.Presence.UsersPresenceHandlerV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

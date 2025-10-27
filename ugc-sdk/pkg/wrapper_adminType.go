@@ -63,6 +63,10 @@ func (aaa *AdminTypeService) AdminGetTypeShort(input *admin_type.AdminGetTypePar
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *AdminTypeService) AdminCreateTypeShort(input *admin_type.AdminCreateT
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *AdminTypeService) AdminUpdateTypeShort(input *admin_type.AdminUpdateT
 	ok, err := aaa.Client.AdminType.AdminUpdateTypeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

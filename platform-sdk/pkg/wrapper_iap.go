@@ -63,6 +63,10 @@ func (aaa *IAPService) GetAppleIAPConfigShort(input *iap.GetAppleIAPConfigParams
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *IAPService) UpdateAppleIAPConfigShort(input *iap.UpdateAppleIAPConfig
 	ok, err := aaa.Client.IAP.UpdateAppleIAPConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -153,6 +161,10 @@ func (aaa *IAPService) UpdateAppleP8FileShort(input *iap.UpdateAppleP8FileParams
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -183,6 +195,10 @@ func (aaa *IAPService) GetEpicGamesIAPConfigShort(input *iap.GetEpicGamesIAPConf
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +227,10 @@ func (aaa *IAPService) UpdateEpicGamesIAPConfigShort(input *iap.UpdateEpicGamesI
 	ok, err := aaa.Client.IAP.UpdateEpicGamesIAPConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -273,6 +293,10 @@ func (aaa *IAPService) GetGoogleIAPConfigShort(input *iap.GetGoogleIAPConfigPara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -301,6 +325,10 @@ func (aaa *IAPService) UpdateGoogleIAPConfigShort(input *iap.UpdateGoogleIAPConf
 	ok, err := aaa.Client.IAP.UpdateGoogleIAPConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +391,10 @@ func (aaa *IAPService) UpdateGoogleP12FileShort(input *iap.UpdateGoogleP12FilePa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -393,6 +425,10 @@ func (aaa *IAPService) GetIAPItemConfigShort(input *iap.GetIAPItemConfigParams) 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -421,6 +457,10 @@ func (aaa *IAPService) UpdateIAPItemConfigShort(input *iap.UpdateIAPItemConfigPa
 	ok, err := aaa.Client.IAP.UpdateIAPItemConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -483,6 +523,10 @@ func (aaa *IAPService) GetOculusIAPConfigShort(input *iap.GetOculusIAPConfigPara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -511,6 +555,10 @@ func (aaa *IAPService) UpdateOculusIAPConfigShort(input *iap.UpdateOculusIAPConf
 	ok, err := aaa.Client.IAP.UpdateOculusIAPConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -573,6 +621,10 @@ func (aaa *IAPService) GetPlayStationIAPConfigShort(input *iap.GetPlayStationIAP
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -601,6 +653,10 @@ func (aaa *IAPService) UpdatePlaystationIAPConfigShort(input *iap.UpdatePlaystat
 	ok, err := aaa.Client.IAP.UpdatePlaystationIAPConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -663,6 +719,10 @@ func (aaa *IAPService) ValidateExistedPlaystationIAPConfigShort(input *iap.Valid
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -691,6 +751,10 @@ func (aaa *IAPService) ValidatePlaystationIAPConfigShort(input *iap.ValidatePlay
 	ok, err := aaa.Client.IAP.ValidatePlaystationIAPConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -723,6 +787,10 @@ func (aaa *IAPService) GetSteamIAPConfigShort(input *iap.GetSteamIAPConfigParams
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -751,6 +819,10 @@ func (aaa *IAPService) UpdateSteamIAPConfigShort(input *iap.UpdateSteamIAPConfig
 	ok, err := aaa.Client.IAP.UpdateSteamIAPConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -813,6 +885,10 @@ func (aaa *IAPService) GetTwitchIAPConfigShort(input *iap.GetTwitchIAPConfigPara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -841,6 +917,10 @@ func (aaa *IAPService) UpdateTwitchIAPConfigShort(input *iap.UpdateTwitchIAPConf
 	ok, err := aaa.Client.IAP.UpdateTwitchIAPConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -903,6 +983,10 @@ func (aaa *IAPService) GetXblIAPConfigShort(input *iap.GetXblIAPConfigParams) (*
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -931,6 +1015,10 @@ func (aaa *IAPService) UpdateXblIAPConfigShort(input *iap.UpdateXblIAPConfigPara
 	ok, err := aaa.Client.IAP.UpdateXblIAPConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -993,6 +1081,10 @@ func (aaa *IAPService) UpdateXblBPCertFileShort(input *iap.UpdateXblBPCertFilePa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1021,6 +1113,10 @@ func (aaa *IAPService) QueryAbnormalTransactionsShort(input *iap.QueryAbnormalTr
 	ok, err := aaa.Client.IAP.QueryAbnormalTransactionsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1053,6 +1149,10 @@ func (aaa *IAPService) AdminGetSteamJobInfoShort(input *iap.AdminGetSteamJobInfo
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1081,6 +1181,10 @@ func (aaa *IAPService) AdminResetSteamJobTimeShort(input *iap.AdminResetSteamJob
 	ok, err := aaa.Client.IAP.AdminResetSteamJobTimeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1113,6 +1217,10 @@ func (aaa *IAPService) AdminRefundIAPOrderShort(input *iap.AdminRefundIAPOrderPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1141,6 +1249,10 @@ func (aaa *IAPService) QuerySteamReportHistoriesShort(input *iap.QuerySteamRepor
 	ok, err := aaa.Client.IAP.QuerySteamReportHistoriesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1173,6 +1285,10 @@ func (aaa *IAPService) GetIAPOrderConsumeDetailsShort(input *iap.GetIAPOrderCons
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1201,6 +1317,10 @@ func (aaa *IAPService) QueryUserIAPOrdersShort(input *iap.QueryUserIAPOrdersPara
 	ok, err := aaa.Client.IAP.QueryUserIAPOrdersShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1233,6 +1353,10 @@ func (aaa *IAPService) QueryAllUserIAPOrdersShort(input *iap.QueryAllUserIAPOrde
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1261,6 +1385,10 @@ func (aaa *IAPService) QueryUserIAPConsumeHistoryShort(input *iap.QueryUserIAPCo
 	ok, err := aaa.Client.IAP.QueryUserIAPConsumeHistoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1296,6 +1424,40 @@ func (aaa *IAPService) MockFulfillIAPItemShort(input *iap.MockFulfillIAPItemPara
 	return nil
 }
 
+func (aaa *IAPService) AdminSyncOculusSubscriptionsShort(input *iap.AdminSyncOculusSubscriptionsParams) (*iap.AdminSyncOculusSubscriptionsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAP != nil {
+		input.XFlightId = tempFlightIdIAP
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.IAP.AdminSyncOculusSubscriptionsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
 func (aaa *IAPService) AdminGetIAPOrderLineItemsShort(input *iap.AdminGetIAPOrderLineItemsParams) (*iap.AdminGetIAPOrderLineItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -1321,6 +1483,10 @@ func (aaa *IAPService) AdminGetIAPOrderLineItemsShort(input *iap.AdminGetIAPOrde
 	ok, err := aaa.Client.IAP.AdminGetIAPOrderLineItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1353,6 +1519,10 @@ func (aaa *IAPService) AdminSyncSteamAbnormalTransactionShort(input *iap.AdminSy
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1381,6 +1551,10 @@ func (aaa *IAPService) AdminSyncSteamIAPByTransactionShort(input *iap.AdminSyncS
 	ok, err := aaa.Client.IAP.AdminSyncSteamIAPByTransactionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1413,6 +1587,10 @@ func (aaa *IAPService) GetAppleConfigVersionShort(input *iap.GetAppleConfigVersi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1443,6 +1621,10 @@ func (aaa *IAPService) GetIAPItemMappingShort(input *iap.GetIAPItemMappingParams
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1471,6 +1653,10 @@ func (aaa *IAPService) SyncTwitchDropsEntitlementShort(input *iap.SyncTwitchDrop
 	ok, err := aaa.Client.IAP.SyncTwitchDropsEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1533,6 +1719,10 @@ func (aaa *IAPService) SyncEpicGamesInventoryShort(input *iap.SyncEpicGamesInven
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1561,6 +1751,44 @@ func (aaa *IAPService) PublicFulfillGoogleIAPItemShort(input *iap.PublicFulfillG
 	ok, err := aaa.Client.IAP.PublicFulfillGoogleIAPItemShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
+func (aaa *IAPService) SyncOculusSubscriptionsShort(input *iap.SyncOculusSubscriptionsParams) (*iap.SyncOculusSubscriptionsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAP != nil {
+		input.XFlightId = tempFlightIdIAP
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.IAP.SyncOculusSubscriptionsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1593,6 +1821,10 @@ func (aaa *IAPService) SyncOculusConsumableEntitlementsShort(input *iap.SyncOcul
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1623,6 +1855,10 @@ func (aaa *IAPService) PublicReconcilePlayStationStoreShort(input *iap.PublicRec
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1651,6 +1887,10 @@ func (aaa *IAPService) PublicReconcilePlayStationStoreWithMultipleServiceLabelsS
 	ok, err := aaa.Client.IAP.PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1713,6 +1953,10 @@ func (aaa *IAPService) SyncSteamAbnormalTransactionShort(input *iap.SyncSteamAbn
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1741,6 +1985,10 @@ func (aaa *IAPService) SyncSteamIAPByTransactionShort(input *iap.SyncSteamIAPByT
 	ok, err := aaa.Client.IAP.SyncSteamIAPByTransactionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1801,6 +2049,10 @@ func (aaa *IAPService) SyncXboxInventoryShort(input *iap.SyncXboxInventoryParams
 	ok, err := aaa.Client.IAP.SyncXboxInventoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

@@ -22,6 +22,11 @@ import (
 type AdminRemoveTopicMemberResponse struct {
 	chatclientmodels.ApiResponse
 	Data *chatclientmodels.MessageActionAddUserToTopicResult
+
+	Error401 *chatclientmodels.RestapiErrorResponseBody
+	Error403 *chatclientmodels.RestapiErrorResponseBody
+	Error404 *chatclientmodels.RestapiErrorResponseBody
+	Error500 *chatclientmodels.RestapiErrorResponseBody
 }
 
 func (m *AdminRemoveTopicMemberResponse) Unpack() (*chatclientmodels.MessageActionAddUserToTopicResult, *chatclientmodels.ApiError) {
@@ -30,6 +35,38 @@ func (m *AdminRemoveTopicMemberResponse) Unpack() (*chatclientmodels.MessageActi
 		errCode = m.StatusCode
 
 		switch errCode {
+
+		case 401:
+			e, err := m.Error401.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 403:
+			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
 
 		default:
 			return nil, &chatclientmodels.ApiError{Code: "500", Message: "Unknown error"}
@@ -49,6 +86,30 @@ func (o *AdminRemoveTopicMemberReader) ReadResponse(response runtime.ClientRespo
 	switch response.Code() {
 	case 200:
 		result := NewAdminRemoveTopicMemberOK()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	case 401:
+		result := NewAdminRemoveTopicMemberUnauthorized()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	case 403:
+		result := NewAdminRemoveTopicMemberForbidden()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	case 404:
+		result := NewAdminRemoveTopicMemberNotFound()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	case 500:
+		result := NewAdminRemoveTopicMemberInternalServerError()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -108,6 +169,226 @@ func (o *AdminRemoveTopicMemberOK) readResponse(response runtime.ClientResponse,
 	}
 
 	o.Payload = new(chatclientmodels.MessageActionAddUserToTopicResult)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAdminRemoveTopicMemberUnauthorized creates a AdminRemoveTopicMemberUnauthorized with default headers values
+func NewAdminRemoveTopicMemberUnauthorized() *AdminRemoveTopicMemberUnauthorized {
+	return &AdminRemoveTopicMemberUnauthorized{}
+}
+
+/*
+AdminRemoveTopicMemberUnauthorized handles this case with default header values.
+
+	Unauthorized
+*/
+type AdminRemoveTopicMemberUnauthorized struct {
+	Payload *chatclientmodels.RestapiErrorResponseBody
+}
+
+func (o *AdminRemoveTopicMemberUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /chat/admin/namespaces/{namespace}/topic/{topic}/user/{userId}][%d] adminRemoveTopicMemberUnauthorized  %+v", 401, o.ToJSONString())
+}
+
+func (o *AdminRemoveTopicMemberUnauthorized) ToJSONString() string {
+	if o.Payload == nil {
+		return "{}"
+	}
+
+	b, err := json.Marshal(o.Payload)
+	if err != nil {
+		fmt.Println(err)
+
+		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
+	}
+
+	return fmt.Sprintf("%+v", string(b))
+}
+
+func (o *AdminRemoveTopicMemberUnauthorized) GetPayload() *chatclientmodels.RestapiErrorResponseBody {
+	return o.Payload
+}
+
+func (o *AdminRemoveTopicMemberUnauthorized) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// handle file responses
+	contentDisposition := response.GetHeader("Content-Disposition")
+	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
+		consumer = runtime.ByteStreamConsumer()
+	}
+
+	o.Payload = new(chatclientmodels.RestapiErrorResponseBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAdminRemoveTopicMemberForbidden creates a AdminRemoveTopicMemberForbidden with default headers values
+func NewAdminRemoveTopicMemberForbidden() *AdminRemoveTopicMemberForbidden {
+	return &AdminRemoveTopicMemberForbidden{}
+}
+
+/*
+AdminRemoveTopicMemberForbidden handles this case with default header values.
+
+	Forbidden
+*/
+type AdminRemoveTopicMemberForbidden struct {
+	Payload *chatclientmodels.RestapiErrorResponseBody
+}
+
+func (o *AdminRemoveTopicMemberForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /chat/admin/namespaces/{namespace}/topic/{topic}/user/{userId}][%d] adminRemoveTopicMemberForbidden  %+v", 403, o.ToJSONString())
+}
+
+func (o *AdminRemoveTopicMemberForbidden) ToJSONString() string {
+	if o.Payload == nil {
+		return "{}"
+	}
+
+	b, err := json.Marshal(o.Payload)
+	if err != nil {
+		fmt.Println(err)
+
+		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
+	}
+
+	return fmt.Sprintf("%+v", string(b))
+}
+
+func (o *AdminRemoveTopicMemberForbidden) GetPayload() *chatclientmodels.RestapiErrorResponseBody {
+	return o.Payload
+}
+
+func (o *AdminRemoveTopicMemberForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// handle file responses
+	contentDisposition := response.GetHeader("Content-Disposition")
+	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
+		consumer = runtime.ByteStreamConsumer()
+	}
+
+	o.Payload = new(chatclientmodels.RestapiErrorResponseBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAdminRemoveTopicMemberNotFound creates a AdminRemoveTopicMemberNotFound with default headers values
+func NewAdminRemoveTopicMemberNotFound() *AdminRemoveTopicMemberNotFound {
+	return &AdminRemoveTopicMemberNotFound{}
+}
+
+/*
+AdminRemoveTopicMemberNotFound handles this case with default header values.
+
+	Not Found
+*/
+type AdminRemoveTopicMemberNotFound struct {
+	Payload *chatclientmodels.RestapiErrorResponseBody
+}
+
+func (o *AdminRemoveTopicMemberNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /chat/admin/namespaces/{namespace}/topic/{topic}/user/{userId}][%d] adminRemoveTopicMemberNotFound  %+v", 404, o.ToJSONString())
+}
+
+func (o *AdminRemoveTopicMemberNotFound) ToJSONString() string {
+	if o.Payload == nil {
+		return "{}"
+	}
+
+	b, err := json.Marshal(o.Payload)
+	if err != nil {
+		fmt.Println(err)
+
+		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
+	}
+
+	return fmt.Sprintf("%+v", string(b))
+}
+
+func (o *AdminRemoveTopicMemberNotFound) GetPayload() *chatclientmodels.RestapiErrorResponseBody {
+	return o.Payload
+}
+
+func (o *AdminRemoveTopicMemberNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// handle file responses
+	contentDisposition := response.GetHeader("Content-Disposition")
+	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
+		consumer = runtime.ByteStreamConsumer()
+	}
+
+	o.Payload = new(chatclientmodels.RestapiErrorResponseBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAdminRemoveTopicMemberInternalServerError creates a AdminRemoveTopicMemberInternalServerError with default headers values
+func NewAdminRemoveTopicMemberInternalServerError() *AdminRemoveTopicMemberInternalServerError {
+	return &AdminRemoveTopicMemberInternalServerError{}
+}
+
+/*
+AdminRemoveTopicMemberInternalServerError handles this case with default header values.
+
+	Internal Server Error
+*/
+type AdminRemoveTopicMemberInternalServerError struct {
+	Payload *chatclientmodels.RestapiErrorResponseBody
+}
+
+func (o *AdminRemoveTopicMemberInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /chat/admin/namespaces/{namespace}/topic/{topic}/user/{userId}][%d] adminRemoveTopicMemberInternalServerError  %+v", 500, o.ToJSONString())
+}
+
+func (o *AdminRemoveTopicMemberInternalServerError) ToJSONString() string {
+	if o.Payload == nil {
+		return "{}"
+	}
+
+	b, err := json.Marshal(o.Payload)
+	if err != nil {
+		fmt.Println(err)
+
+		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
+	}
+
+	return fmt.Sprintf("%+v", string(b))
+}
+
+func (o *AdminRemoveTopicMemberInternalServerError) GetPayload() *chatclientmodels.RestapiErrorResponseBody {
+	return o.Payload
+}
+
+func (o *AdminRemoveTopicMemberInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// handle file responses
+	contentDisposition := response.GetHeader("Content-Disposition")
+	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
+		consumer = runtime.ByteStreamConsumer()
+	}
+
+	o.Payload = new(chatclientmodels.RestapiErrorResponseBody)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

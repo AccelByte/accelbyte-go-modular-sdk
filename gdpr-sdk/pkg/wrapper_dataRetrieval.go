@@ -63,6 +63,10 @@ func (aaa *DataRetrievalService) AdminGetListPersonalDataRequestShort(input *dat
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *DataRetrievalService) AdminGetUserPersonalDataRequestsShort(input *da
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *DataRetrievalService) AdminRequestDataRetrievalShort(input *data_retr
 	created, err := aaa.Client.DataRetrieval.AdminRequestDataRetrievalShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -183,6 +195,10 @@ func (aaa *DataRetrievalService) AdminGeneratePersonalDataURLShort(input *data_r
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -213,6 +229,10 @@ func (aaa *DataRetrievalService) PublicGetUserPersonalDataRequestsShort(input *d
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *DataRetrievalService) PublicRequestDataRetrievalShort(input *data_ret
 	created, err := aaa.Client.DataRetrieval.PublicRequestDataRetrievalShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -301,6 +325,10 @@ func (aaa *DataRetrievalService) PublicGeneratePersonalDataURLShort(input *data_
 	ok, err := aaa.Client.DataRetrieval.PublicGeneratePersonalDataURLShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

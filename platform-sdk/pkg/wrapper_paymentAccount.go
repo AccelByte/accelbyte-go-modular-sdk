@@ -63,6 +63,10 @@ func (aaa *PaymentAccountService) PublicGetPaymentAccountsShort(input *payment_a
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 

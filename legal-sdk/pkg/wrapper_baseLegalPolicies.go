@@ -63,10 +63,14 @@ func (aaa *BaseLegalPoliciesService) RetrieveAllLegalPoliciesShort(input *base_l
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesService) CreatePolicyShort(input *base_legal_policies.CreatePolicyParams) (*base_legal_policies.CreatePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesService) OldCreatePolicyShort(input *base_legal_policies.OldCreatePolicyParams) (*base_legal_policies.OldCreatePolicyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -88,15 +92,19 @@ func (aaa *BaseLegalPoliciesService) CreatePolicyShort(input *base_legal_policie
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	created, err := aaa.Client.BaseLegalPolicies.CreatePolicyShort(input, authInfoWriter)
+	created, err := aaa.Client.BaseLegalPolicies.OldCreatePolicyShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
 }
 
-func (aaa *BaseLegalPoliciesService) RetrieveSinglePolicyShort(input *base_legal_policies.RetrieveSinglePolicyParams) (*base_legal_policies.RetrieveSinglePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesService) OldRetrieveSinglePolicyShort(input *base_legal_policies.OldRetrieveSinglePolicyParams) (*base_legal_policies.OldRetrieveSinglePolicyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -118,15 +126,19 @@ func (aaa *BaseLegalPoliciesService) RetrieveSinglePolicyShort(input *base_legal
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.BaseLegalPolicies.RetrieveSinglePolicyShort(input, authInfoWriter)
+	ok, err := aaa.Client.BaseLegalPolicies.OldRetrieveSinglePolicyShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesService) PartialUpdatePolicyShort(input *base_legal_policies.PartialUpdatePolicyParams) (*base_legal_policies.PartialUpdatePolicyResponse, error) {
+func (aaa *BaseLegalPoliciesService) OldPartialUpdatePolicyShort(input *base_legal_policies.OldPartialUpdatePolicyParams) (*base_legal_policies.OldPartialUpdatePolicyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -148,15 +160,19 @@ func (aaa *BaseLegalPoliciesService) PartialUpdatePolicyShort(input *base_legal_
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.BaseLegalPolicies.PartialUpdatePolicyShort(input, authInfoWriter)
+	ok, err := aaa.Client.BaseLegalPolicies.OldPartialUpdatePolicyShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesService) RetrievePolicyCountryShort(input *base_legal_policies.RetrievePolicyCountryParams) (*base_legal_policies.RetrievePolicyCountryResponse, error) {
+func (aaa *BaseLegalPoliciesService) OldRetrievePolicyCountryShort(input *base_legal_policies.OldRetrievePolicyCountryParams) (*base_legal_policies.OldRetrievePolicyCountryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -178,15 +194,19 @@ func (aaa *BaseLegalPoliciesService) RetrievePolicyCountryShort(input *base_lega
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.BaseLegalPolicies.RetrievePolicyCountryShort(input, authInfoWriter)
+	ok, err := aaa.Client.BaseLegalPolicies.OldRetrievePolicyCountryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesService) RetrieveAllPolicyTypesShort(input *base_legal_policies.RetrieveAllPolicyTypesParams) (*base_legal_policies.RetrieveAllPolicyTypesResponse, error) {
+func (aaa *BaseLegalPoliciesService) OldRetrieveAllPolicyTypesShort(input *base_legal_policies.OldRetrieveAllPolicyTypesParams) (*base_legal_policies.OldRetrieveAllPolicyTypesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -208,9 +228,13 @@ func (aaa *BaseLegalPoliciesService) RetrieveAllPolicyTypesShort(input *base_leg
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.BaseLegalPolicies.RetrieveAllPolicyTypesShort(input, authInfoWriter)
+	ok, err := aaa.Client.BaseLegalPolicies.OldRetrieveAllPolicyTypesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

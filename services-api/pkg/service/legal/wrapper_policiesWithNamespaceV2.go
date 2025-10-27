@@ -38,7 +38,7 @@ func (aaa *PoliciesWithNamespaceV2Service) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PoliciesWithNamespaceV2Service) RetrieveLatestPoliciesByNamespaceAndCountryPublic1Short(input *policies_with_namespace_v2.RetrieveLatestPoliciesByNamespaceAndCountryPublic1Params) (*policies_with_namespace_v2.RetrieveLatestPoliciesByNamespaceAndCountryPublic1Response, error) {
+func (aaa *PoliciesWithNamespaceV2Service) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(input *policies_with_namespace_v2.RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*policies_with_namespace_v2.RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -53,7 +53,7 @@ func (aaa *PoliciesWithNamespaceV2Service) RetrieveLatestPoliciesByNamespaceAndC
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.PoliciesWithNamespaceV2.RetrieveLatestPoliciesByNamespaceAndCountryPublic1Short(input)
+	ok, err := aaa.Client.PoliciesWithNamespaceV2.RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(input)
 	if err != nil {
 		return nil, err
 	}

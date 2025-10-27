@@ -65,6 +65,10 @@ func (aaa *UsersV4Service) AdminListInvitationHistoriesV4Short(input *users_v4.A
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *UsersV4Service) AdminGetNamespaceInvitationHistoryV4Short(input *user
 	ok, err := aaa.Client.UsersV4.AdminGetNamespaceInvitationHistoryV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -125,6 +133,10 @@ func (aaa *UsersV4Service) AdminGetNamespaceUserInvitationHistoryV4Short(input *
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -155,6 +167,10 @@ func (aaa *UsersV4Service) AdminCreateTestUsersV4Short(input *users_v4.AdminCrea
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -183,6 +199,10 @@ func (aaa *UsersV4Service) AdminCreateUserV4Short(input *users_v4.AdminCreateUse
 	created, err := aaa.Client.UsersV4.AdminCreateUserV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -245,6 +265,10 @@ func (aaa *UsersV4Service) AdminBulkCheckValidUserIDV4Short(input *users_v4.Admi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -273,6 +297,10 @@ func (aaa *UsersV4Service) AdminUpdateUserV4Short(input *users_v4.AdminUpdateUse
 	ok, err := aaa.Client.UsersV4.AdminUpdateUserV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -365,6 +393,10 @@ func (aaa *UsersV4Service) AdminGetUserMFAStatusV4Short(input *users_v4.AdminGet
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -393,6 +425,10 @@ func (aaa *UsersV4Service) AdminListUserRolesV4Short(input *users_v4.AdminListUs
 	ok, err := aaa.Client.UsersV4.AdminListUserRolesV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -425,6 +461,10 @@ func (aaa *UsersV4Service) AdminUpdateUserRoleV4Short(input *users_v4.AdminUpdat
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -453,6 +493,10 @@ func (aaa *UsersV4Service) AdminAddUserRoleV4Short(input *users_v4.AdminAddUserR
 	ok, err := aaa.Client.UsersV4.AdminAddUserRoleV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -515,6 +559,10 @@ func (aaa *UsersV4Service) AdminInviteUserNewV4Short(input *users_v4.AdminInvite
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -543,6 +591,10 @@ func (aaa *UsersV4Service) AdminUpdateMyUserV4Short(input *users_v4.AdminUpdateM
 	ok, err := aaa.Client.UsersV4.AdminUpdateMyUserV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -635,6 +687,10 @@ func (aaa *UsersV4Service) AdminGenerateMyAuthenticatorKeyV4Short(input *users_v
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -665,6 +721,10 @@ func (aaa *UsersV4Service) AdminGetMyBackupCodesV4Short(input *users_v4.AdminGet
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -693,6 +753,10 @@ func (aaa *UsersV4Service) AdminGenerateMyBackupCodesV4Short(input *users_v4.Adm
 	ok, err := aaa.Client.UsersV4.AdminGenerateMyBackupCodesV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -755,6 +819,10 @@ func (aaa *UsersV4Service) AdminDownloadMyBackupCodesV4Short(input *users_v4.Adm
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -783,6 +851,10 @@ func (aaa *UsersV4Service) AdminEnableMyBackupCodesV4Short(input *users_v4.Admin
 	ok, err := aaa.Client.UsersV4.AdminEnableMyBackupCodesV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -905,6 +977,10 @@ func (aaa *UsersV4Service) AdminChallengeMyMFAV4Short(input *users_v4.AdminChall
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1025,6 +1101,10 @@ func (aaa *UsersV4Service) AdminGetMyEnabledFactorsV4Short(input *users_v4.Admin
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1085,6 +1165,10 @@ func (aaa *UsersV4Service) AdminGetMyOwnMFAStatusV4Short(input *users_v4.AdminGe
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1113,6 +1197,10 @@ func (aaa *UsersV4Service) AdminGetMyMFAStatusV4Short(input *users_v4.AdminGetMy
 	ok, err := aaa.Client.UsersV4.AdminGetMyMFAStatusV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1145,6 +1233,10 @@ func (aaa *UsersV4Service) AdminInviteUserV4Short(input *users_v4.AdminInviteUse
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -1173,6 +1265,10 @@ func (aaa *UsersV4Service) PublicListUserIDByPlatformUserIDsV4Short(input *users
 	ok, err := aaa.Client.UsersV4.PublicListUserIDByPlatformUserIDsV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1205,6 +1301,10 @@ func (aaa *UsersV4Service) PublicGetUserByPlatformUserIDV4Short(input *users_v4.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1233,6 +1333,10 @@ func (aaa *UsersV4Service) PublicCreateTestUserV4Short(input *users_v4.PublicCre
 	created, err := aaa.Client.UsersV4.PublicCreateTestUserV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -1265,6 +1369,10 @@ func (aaa *UsersV4Service) PublicCreateUserV4Short(input *users_v4.PublicCreateU
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -1295,6 +1403,10 @@ func (aaa *UsersV4Service) CreateUserFromInvitationV4Short(input *users_v4.Creat
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -1323,6 +1435,10 @@ func (aaa *UsersV4Service) PublicUpdateUserV4Short(input *users_v4.PublicUpdateU
 	ok, err := aaa.Client.UsersV4.PublicUpdateUserV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1385,6 +1501,10 @@ func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountWithVerificationCodeV4Sho
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1413,6 +1533,10 @@ func (aaa *UsersV4Service) PublicUpgradeHeadlessAccountV4Short(input *users_v4.P
 	ok, err := aaa.Client.UsersV4.PublicUpgradeHeadlessAccountV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1505,6 +1629,10 @@ func (aaa *UsersV4Service) PublicGenerateMyAuthenticatorKeyV4Short(input *users_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1535,6 +1663,10 @@ func (aaa *UsersV4Service) PublicGetMyBackupCodesV4Short(input *users_v4.PublicG
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1563,6 +1695,10 @@ func (aaa *UsersV4Service) PublicGenerateMyBackupCodesV4Short(input *users_v4.Pu
 	ok, err := aaa.Client.UsersV4.PublicGenerateMyBackupCodesV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1625,6 +1761,10 @@ func (aaa *UsersV4Service) PublicDownloadMyBackupCodesV4Short(input *users_v4.Pu
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1653,6 +1793,10 @@ func (aaa *UsersV4Service) PublicEnableMyBackupCodesV4Short(input *users_v4.Publ
 	ok, err := aaa.Client.UsersV4.PublicEnableMyBackupCodesV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1773,6 +1917,10 @@ func (aaa *UsersV4Service) PublicChallengeMyMFAV4Short(input *users_v4.PublicCha
 	ok, err := aaa.Client.UsersV4.PublicChallengeMyMFAV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1925,6 +2073,10 @@ func (aaa *UsersV4Service) PublicGetMyEnabledFactorsV4Short(input *users_v4.Publ
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1985,6 +2137,10 @@ func (aaa *UsersV4Service) PublicGetMyOwnMFAStatusV4Short(input *users_v4.Public
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -2013,6 +2169,10 @@ func (aaa *UsersV4Service) PublicGetMyMFAStatusV4Short(input *users_v4.PublicGet
 	ok, err := aaa.Client.UsersV4.PublicGetMyMFAStatusV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -2045,6 +2205,10 @@ func (aaa *UsersV4Service) PublicGetUserPublicInfoByUserIDV4Short(input *users_v
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -2073,6 +2237,10 @@ func (aaa *UsersV4Service) PublicInviteUserV4Short(input *users_v4.PublicInviteU
 	created, err := aaa.Client.UsersV4.PublicInviteUserV4Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

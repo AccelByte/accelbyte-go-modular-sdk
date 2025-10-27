@@ -183,6 +183,10 @@ func (aaa *NotificationService) GetAllNotificationTemplatesV1AdminShort(input *n
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -273,6 +277,10 @@ func (aaa *NotificationService) GetTemplateSlugLocalizationsTemplateV1AdminShort
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +339,10 @@ func (aaa *NotificationService) GetSingleTemplateLocalizationV1AdminShort(input 
 	ok, err := aaa.Client.Notification.GetSingleTemplateLocalizationV1AdminShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -453,6 +465,10 @@ func (aaa *NotificationService) GetAllNotificationTopicsV1AdminShort(input *noti
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -511,6 +527,10 @@ func (aaa *NotificationService) GetNotificationTopicV1AdminShort(input *notifica
 	ok, err := aaa.Client.Notification.GetNotificationTopicV1AdminShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -663,6 +683,10 @@ func (aaa *NotificationService) GetMyNotificationsShort(input *notification.GetM
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -693,6 +717,10 @@ func (aaa *NotificationService) GetMyOfflineNotificationsShort(input *notificati
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -721,6 +749,10 @@ func (aaa *NotificationService) GetTopicByNamespaceShort(input *notification.Get
 	ok, err := aaa.Client.Notification.GetTopicByNamespaceShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -781,6 +813,10 @@ func (aaa *NotificationService) GetTopicByTopicNameShort(input *notification.Get
 	ok, err := aaa.Client.Notification.GetTopicByTopicNameShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

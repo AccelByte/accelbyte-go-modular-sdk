@@ -63,6 +63,10 @@ func (aaa *CurrencyService) ListCurrenciesShort(input *currency.ListCurrenciesPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *CurrencyService) CreateCurrencyShort(input *currency.CreateCurrencyPa
 	ok, err := aaa.Client.Currency.CreateCurrencyShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *CurrencyService) UpdateCurrencyShort(input *currency.UpdateCurrencyPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *CurrencyService) DeleteCurrencyShort(input *currency.DeleteCurrencyPa
 	ok, err := aaa.Client.Currency.DeleteCurrencyShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *CurrencyService) GetCurrencyConfigShort(input *currency.GetCurrencyCo
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -213,6 +233,10 @@ func (aaa *CurrencyService) GetCurrencySummaryShort(input *currency.GetCurrencyS
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -234,6 +258,10 @@ func (aaa *CurrencyService) PublicListCurrenciesShort(input *currency.PublicList
 	ok, err := aaa.Client.Currency.PublicListCurrenciesShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

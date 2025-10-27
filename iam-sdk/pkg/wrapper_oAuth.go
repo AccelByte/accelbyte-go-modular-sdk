@@ -93,6 +93,10 @@ func (aaa *OAuthService) GetJWKSShort(input *o_auth.GetJWKSParams) (*o_auth.GetJ
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +125,10 @@ func (aaa *OAuthService) PlatformTokenRequestHandlerShort(input *o_auth.Platform
 	ok, err := aaa.Client.OAuth.PlatformTokenRequestHandlerShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -181,6 +189,10 @@ func (aaa *OAuthService) GetRevocationListShort(input *o_auth.GetRevocationListP
 	ok, err := aaa.Client.OAuth.GetRevocationListShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -273,6 +285,10 @@ func (aaa *OAuthService) TokenGrantShort(input *o_auth.TokenGrantParams) (*o_aut
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -301,6 +317,10 @@ func (aaa *OAuthService) VerifyTokenShort(input *o_auth.VerifyTokenParams) (*o_a
 	ok, err := aaa.Client.OAuth.VerifyTokenShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

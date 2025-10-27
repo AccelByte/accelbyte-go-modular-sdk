@@ -63,6 +63,10 @@ func (aaa *UserAchievementsService) AdminListUserAchievementsShort(input *user_a
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *UserAchievementsService) AdminBulkUnlockAchievementShort(input *user_
 	ok, err := aaa.Client.UserAchievements.AdminBulkUnlockAchievementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +191,10 @@ func (aaa *UserAchievementsService) PublicListUserAchievementsShort(input *user_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +223,10 @@ func (aaa *UserAchievementsService) PublicBulkUnlockAchievementShort(input *user
 	ok, err := aaa.Client.UserAchievements.PublicBulkUnlockAchievementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

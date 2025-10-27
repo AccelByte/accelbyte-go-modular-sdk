@@ -63,6 +63,10 @@ func (aaa *FulfillmentService) QueryFulfillmentHistoriesShort(input *fulfillment
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *FulfillmentService) FulfillItemShort(input *fulfillment.FulfillItemPa
 	ok, err := aaa.Client.Fulfillment.FulfillItemShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *FulfillmentService) RedeemCodeShort(input *fulfillment.RedeemCodePara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *FulfillmentService) PreCheckFulfillItemShort(input *fulfillment.PreCh
 	ok, err := aaa.Client.Fulfillment.PreCheckFulfillItemShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +229,10 @@ func (aaa *FulfillmentService) PublicRedeemCodeShort(input *fulfillment.PublicRe
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *FulfillmentService) QueryFulfillmentsShort(input *fulfillment.QueryFu
 	ok, err := aaa.Client.Fulfillment.QueryFulfillmentsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -273,6 +297,10 @@ func (aaa *FulfillmentService) FulfillRewardsV2Short(input *fulfillment.FulfillR
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -301,6 +329,10 @@ func (aaa *FulfillmentService) FulfillItemsShort(input *fulfillment.FulfillItems
 	ok, err := aaa.Client.Fulfillment.FulfillItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -333,6 +365,10 @@ func (aaa *FulfillmentService) RetryFulfillItemsShort(input *fulfillment.RetryFu
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -361,6 +397,10 @@ func (aaa *FulfillmentService) RevokeItemsShort(input *fulfillment.RevokeItemsPa
 	ok, err := aaa.Client.Fulfillment.RevokeItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -393,6 +433,10 @@ func (aaa *FulfillmentService) FulfillItemsV3Short(input *fulfillment.FulfillIte
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -423,6 +467,10 @@ func (aaa *FulfillmentService) RetryFulfillItemsV3Short(input *fulfillment.Retry
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -451,6 +499,10 @@ func (aaa *FulfillmentService) RevokeItemsV3Short(input *fulfillment.RevokeItems
 	ok, err := aaa.Client.Fulfillment.RevokeItemsV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

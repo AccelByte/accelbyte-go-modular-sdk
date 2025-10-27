@@ -68,7 +68,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) DeleteLocalizedPolicySho
 	return nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyVersions1Short(input *localized_policy_versions_with_namespace.RetrieveLocalizedPolicyVersions1Params) (*localized_policy_versions_with_namespace.RetrieveLocalizedPolicyVersions1Response, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyVersionsShort(input *localized_policy_versions_with_namespace.RetrieveLocalizedPolicyVersionsParams) (*localized_policy_versions_with_namespace.RetrieveLocalizedPolicyVersionsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -90,7 +90,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyV
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveLocalizedPolicyVersions1Short(input, authInfoWriter)
+	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveLocalizedPolicyVersionsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +98,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveLocalizedPolicyV
 	return ok, nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) CreateLocalizedPolicyVersion1Short(input *localized_policy_versions_with_namespace.CreateLocalizedPolicyVersion1Params) (*localized_policy_versions_with_namespace.CreateLocalizedPolicyVersion1Response, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) CreateLocalizedPolicyVersionShort(input *localized_policy_versions_with_namespace.CreateLocalizedPolicyVersionParams) (*localized_policy_versions_with_namespace.CreateLocalizedPolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -120,7 +120,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) CreateLocalizedPolicyVer
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	created, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.CreateLocalizedPolicyVersion1Short(input, authInfoWriter)
+	created, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.CreateLocalizedPolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -128,7 +128,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) CreateLocalizedPolicyVer
 	return created, nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedPolicyVersion1Short(input *localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion1Params) (*localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion1Response, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedPolicyVersionShort(input *localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersionParams) (*localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -150,7 +150,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedP
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveSingleLocalizedPolicyVersion1Short(input, authInfoWriter)
+	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveSingleLocalizedPolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -158,7 +158,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedP
 	return ok, nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateLocalizedPolicyVersion1Short(input *localized_policy_versions_with_namespace.UpdateLocalizedPolicyVersion1Params) (*localized_policy_versions_with_namespace.UpdateLocalizedPolicyVersion1Response, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateLocalizedPolicyVersionShort(input *localized_policy_versions_with_namespace.UpdateLocalizedPolicyVersionParams) (*localized_policy_versions_with_namespace.UpdateLocalizedPolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -180,7 +180,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateLocalizedPolicyVer
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.UpdateLocalizedPolicyVersion1Short(input, authInfoWriter)
+	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.UpdateLocalizedPolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -188,7 +188,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) UpdateLocalizedPolicyVer
 	return ok, nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RequestPresignedURL1Short(input *localized_policy_versions_with_namespace.RequestPresignedURL1Params) (*localized_policy_versions_with_namespace.RequestPresignedURL1Response, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) RequestPresignedURLShort(input *localized_policy_versions_with_namespace.RequestPresignedURLParams) (*localized_policy_versions_with_namespace.RequestPresignedURLResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -210,7 +210,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RequestPresignedURL1Shor
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	created, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RequestPresignedURL1Short(input, authInfoWriter)
+	created, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RequestPresignedURLShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -218,7 +218,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RequestPresignedURL1Shor
 	return created, nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) SetDefaultPolicy1Short(input *localized_policy_versions_with_namespace.SetDefaultPolicy1Params) error {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) SetDefaultLocalizedPolicyShort(input *localized_policy_versions_with_namespace.SetDefaultLocalizedPolicyParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -240,7 +240,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) SetDefaultPolicy1Short(i
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	_, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.SetDefaultPolicy1Short(input, authInfoWriter)
+	_, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.SetDefaultLocalizedPolicyShort(input, authInfoWriter)
 	if err != nil {
 		return err
 	}
@@ -248,7 +248,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) SetDefaultPolicy1Short(i
 	return nil
 }
 
-func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedPolicyVersion3Short(input *localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion3Params) (*localized_policy_versions_with_namespace.RetrieveSingleLocalizedPolicyVersion3Response, error) {
+func (aaa *LocalizedPolicyVersionsWithNamespaceService) PublicRetrieveSingleLocalizedPolicyVersionShort(input *localized_policy_versions_with_namespace.PublicRetrieveSingleLocalizedPolicyVersionParams) (*localized_policy_versions_with_namespace.PublicRetrieveSingleLocalizedPolicyVersionResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -263,7 +263,7 @@ func (aaa *LocalizedPolicyVersionsWithNamespaceService) RetrieveSingleLocalizedP
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.RetrieveSingleLocalizedPolicyVersion3Short(input)
+	ok, err := aaa.Client.LocalizedPolicyVersionsWithNamespace.PublicRetrieveSingleLocalizedPolicyVersionShort(input)
 	if err != nil {
 		return nil, err
 	}

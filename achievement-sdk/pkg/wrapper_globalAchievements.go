@@ -63,6 +63,10 @@ func (aaa *GlobalAchievementsService) AdminListGlobalAchievementsShort(input *gl
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *GlobalAchievementsService) AdminListGlobalAchievementContributorsShor
 	ok, err := aaa.Client.GlobalAchievements.AdminListGlobalAchievementContributorsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -153,6 +161,10 @@ func (aaa *GlobalAchievementsService) AdminListUserContributionsShort(input *glo
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +193,10 @@ func (aaa *GlobalAchievementsService) PublicListGlobalAchievementsShort(input *g
 	ok, err := aaa.Client.GlobalAchievements.PublicListGlobalAchievementsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +229,10 @@ func (aaa *GlobalAchievementsService) ListGlobalAchievementContributorsShort(inp
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *GlobalAchievementsService) ListUserContributionsShort(input *global_a
 	ok, err := aaa.Client.GlobalAchievements.ListUserContributionsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

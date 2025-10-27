@@ -63,6 +63,10 @@ func (aaa *UserProfileService) GetUserProfileInfoByPublicIDShort(input *user_pro
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *UserProfileService) AdminGetUserProfilePublicInfoByIdsShort(input *us
 	ok, err := aaa.Client.UserProfile.AdminGetUserProfilePublicInfoByIdsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *UserProfileService) GetUserProfileInfoShort(input *user_profile.GetUs
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *UserProfileService) UpdateUserProfileShort(input *user_profile.Update
 	ok, err := aaa.Client.UserProfile.UpdateUserProfileShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *UserProfileService) DeleteUserProfileShort(input *user_profile.Delete
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *UserProfileService) GetCustomAttributesInfoShort(input *user_profile.
 	ok, err := aaa.Client.UserProfile.GetCustomAttributesInfoShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *UserProfileService) UpdateCustomAttributesPartiallyShort(input *user_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +299,10 @@ func (aaa *UserProfileService) GetPrivateCustomAttributesInfoShort(input *user_p
 	ok, err := aaa.Client.UserProfile.GetPrivateCustomAttributesInfoShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +335,10 @@ func (aaa *UserProfileService) UpdatePrivateCustomAttributesPartiallyShort(input
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -333,6 +369,10 @@ func (aaa *UserProfileService) UpdateUserProfileStatusShort(input *user_profile.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -354,6 +394,10 @@ func (aaa *UserProfileService) PublicGetUserProfilePublicInfoByIdsShort(input *u
 	ok, err := aaa.Client.UserProfile.PublicGetUserProfilePublicInfoByIdsShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -379,6 +423,10 @@ func (aaa *UserProfileService) PublicBulkGetUserProfilePublicInfoShort(input *us
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -400,6 +448,10 @@ func (aaa *UserProfileService) PublicGetUserProfileInfoByPublicIDShort(input *us
 	ok, err := aaa.Client.UserProfile.PublicGetUserProfileInfoByPublicIDShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -432,6 +484,10 @@ func (aaa *UserProfileService) GetMyProfileInfoShort(input *user_profile.GetMyPr
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -460,6 +516,10 @@ func (aaa *UserProfileService) UpdateMyProfileShort(input *user_profile.UpdateMy
 	ok, err := aaa.Client.UserProfile.UpdateMyProfileShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -492,6 +552,10 @@ func (aaa *UserProfileService) CreateMyProfileShort(input *user_profile.CreateMy
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -520,6 +584,10 @@ func (aaa *UserProfileService) GetMyPrivateCustomAttributesInfoShort(input *user
 	ok, err := aaa.Client.UserProfile.GetMyPrivateCustomAttributesInfoShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -552,6 +620,10 @@ func (aaa *UserProfileService) UpdateMyPrivateCustomAttributesPartiallyShort(inp
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -580,6 +652,10 @@ func (aaa *UserProfileService) GetMyZipCodeShort(input *user_profile.GetMyZipCod
 	ok, err := aaa.Client.UserProfile.GetMyZipCodeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -612,6 +688,10 @@ func (aaa *UserProfileService) UpdateMyZipCodeShort(input *user_profile.UpdateMy
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -640,6 +720,10 @@ func (aaa *UserProfileService) PublicGetUserProfileInfoShort(input *user_profile
 	ok, err := aaa.Client.UserProfile.PublicGetUserProfileInfoShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -672,6 +756,10 @@ func (aaa *UserProfileService) PublicUpdateUserProfileShort(input *user_profile.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -702,6 +790,10 @@ func (aaa *UserProfileService) PublicCreateUserProfileShort(input *user_profile.
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -723,6 +815,10 @@ func (aaa *UserProfileService) PublicGetCustomAttributesInfoShort(input *user_pr
 	ok, err := aaa.Client.UserProfile.PublicGetCustomAttributesInfoShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -755,6 +851,10 @@ func (aaa *UserProfileService) PublicUpdateCustomAttributesPartiallyShort(input 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -776,6 +876,10 @@ func (aaa *UserProfileService) PublicGetUserProfilePublicInfoShort(input *user_p
 	ok, err := aaa.Client.UserProfile.PublicGetUserProfilePublicInfoShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -806,6 +910,10 @@ func (aaa *UserProfileService) PublicUpdateUserProfileStatusShort(input *user_pr
 	ok, err := aaa.Client.UserProfile.PublicUpdateUserProfileStatusShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

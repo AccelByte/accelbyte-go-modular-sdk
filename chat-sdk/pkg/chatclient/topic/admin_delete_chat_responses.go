@@ -25,6 +25,7 @@ type AdminDeleteChatResponse struct {
 	Error400 *chatclientmodels.RestapiErrorResponseBody
 	Error401 *chatclientmodels.RestapiErrorResponseBody
 	Error403 *chatclientmodels.RestapiErrorResponseBody
+	Error404 *chatclientmodels.RestapiErrorResponseBody
 	Error500 *chatclientmodels.RestapiErrorResponseBody
 }
 
@@ -53,6 +54,14 @@ func (m *AdminDeleteChatResponse) Unpack() *chatclientmodels.ApiError {
 
 		case 403:
 			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
 			if err != nil {
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
@@ -103,6 +112,12 @@ func (o *AdminDeleteChatReader) ReadResponse(response runtime.ClientResponse, co
 		return result, nil
 	case 403:
 		result := NewAdminDeleteChatForbidden()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	case 404:
+		result := NewAdminDeleteChatNotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -300,6 +315,61 @@ func (o *AdminDeleteChatForbidden) GetPayload() *chatclientmodels.RestapiErrorRe
 }
 
 func (o *AdminDeleteChatForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// handle file responses
+	contentDisposition := response.GetHeader("Content-Disposition")
+	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
+		consumer = runtime.ByteStreamConsumer()
+	}
+
+	o.Payload = new(chatclientmodels.RestapiErrorResponseBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAdminDeleteChatNotFound creates a AdminDeleteChatNotFound with default headers values
+func NewAdminDeleteChatNotFound() *AdminDeleteChatNotFound {
+	return &AdminDeleteChatNotFound{}
+}
+
+/*
+AdminDeleteChatNotFound handles this case with default header values.
+
+	Not Found
+*/
+type AdminDeleteChatNotFound struct {
+	Payload *chatclientmodels.RestapiErrorResponseBody
+}
+
+func (o *AdminDeleteChatNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /chat/admin/namespaces/{namespace}/topic/{topic}/chats/{chatId}][%d] adminDeleteChatNotFound  %+v", 404, o.ToJSONString())
+}
+
+func (o *AdminDeleteChatNotFound) ToJSONString() string {
+	if o.Payload == nil {
+		return "{}"
+	}
+
+	b, err := json.Marshal(o.Payload)
+	if err != nil {
+		fmt.Println(err)
+
+		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
+	}
+
+	return fmt.Sprintf("%+v", string(b))
+}
+
+func (o *AdminDeleteChatNotFound) GetPayload() *chatclientmodels.RestapiErrorResponseBody {
+	return o.Payload
+}
+
+func (o *AdminDeleteChatNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// handle file responses
 	contentDisposition := response.GetHeader("Content-Disposition")

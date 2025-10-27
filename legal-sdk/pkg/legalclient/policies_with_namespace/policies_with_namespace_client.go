@@ -31,8 +31,8 @@ type Client struct {
 // ClientService is the interface for Client methods
 type ClientService interface {
 	DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*DeletePolicyResponse, error)
-	UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicy1Response, error)
-	SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy3Response, error)
+	UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyResponse, error)
+	SetDefaultPolicyShort(params *SetDefaultPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicyResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -101,13 +101,13 @@ func (a *Client) DeletePolicyShort(params *DeletePolicyParams, authInfo runtime.
 }
 
 /*
-UpdatePolicy1Short update country-specific policy
+UpdatePolicyShort update country-specific policy
 Update country-specific and country-group policy.
 */
-func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicy1Response, error) {
+func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdatePolicy1Params()
+		params = NewUpdatePolicyParams()
 	}
 
 	if params.Context == nil {
@@ -123,14 +123,14 @@ func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtim
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "updatePolicy_1",
+		ID:                 "updatePolicy",
 		Method:             "PATCH",
 		PathPattern:        "/agreement/admin/namespaces/{namespace}/policies/{policyId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &UpdatePolicy1Reader{formats: a.formats},
+		Reader:             &UpdatePolicyReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -141,14 +141,14 @@ func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtim
 
 	switch v := result.(type) {
 
-	case *UpdatePolicy1OK:
-		response := &UpdatePolicy1Response{}
+	case *UpdatePolicyOK:
+		response := &UpdatePolicyResponse{}
 
 		response.IsSuccess = true
 
 		return response, nil
-	case *UpdatePolicy1BadRequest:
-		response := &UpdatePolicy1Response{}
+	case *UpdatePolicyBadRequest:
+		response := &UpdatePolicyResponse{}
 		response.Error400 = v.Payload
 
 		response.IsSuccess = false
@@ -161,13 +161,13 @@ func (a *Client) UpdatePolicy1Short(params *UpdatePolicy1Params, authInfo runtim
 }
 
 /*
-SetDefaultPolicy3Short set default policy
+SetDefaultPolicyShort set default policy
 Update a policy to be the default.
 */
-func (a *Client) SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy3Response, error) {
+func (a *Client) SetDefaultPolicyShort(params *SetDefaultPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSetDefaultPolicy3Params()
+		params = NewSetDefaultPolicyParams()
 	}
 
 	if params.Context == nil {
@@ -183,14 +183,14 @@ func (a *Client) SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInf
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "setDefaultPolicy_3",
+		ID:                 "setDefaultPolicy",
 		Method:             "PATCH",
 		PathPattern:        "/agreement/admin/namespaces/{namespace}/policies/{policyId}/default",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &SetDefaultPolicy3Reader{formats: a.formats},
+		Reader:             &SetDefaultPolicyReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -201,14 +201,14 @@ func (a *Client) SetDefaultPolicy3Short(params *SetDefaultPolicy3Params, authInf
 
 	switch v := result.(type) {
 
-	case *SetDefaultPolicy3OK:
-		response := &SetDefaultPolicy3Response{}
+	case *SetDefaultPolicyOK:
+		response := &SetDefaultPolicyResponse{}
 
 		response.IsSuccess = true
 
 		return response, nil
-	case *SetDefaultPolicy3BadRequest:
-		response := &SetDefaultPolicy3Response{}
+	case *SetDefaultPolicyBadRequest:
+		response := &SetDefaultPolicyResponse{}
 		response.Error400 = v.Payload
 
 		response.IsSuccess = false

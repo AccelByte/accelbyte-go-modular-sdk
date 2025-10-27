@@ -63,6 +63,10 @@ func (aaa *AdminStagingContentService) AdminListStagingContentsShort(input *admi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AdminStagingContentService) AdminGetStagingContentByIDShort(input *ad
 	ok, err := aaa.Client.AdminStagingContent.AdminGetStagingContentByIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *AdminStagingContentService) AdminApproveStagingContentShort(input *ad
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *AdminStagingContentService) AdminListUserStagingContentsShort(input *
 	ok, err := aaa.Client.AdminStagingContent.AdminListUserStagingContentsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

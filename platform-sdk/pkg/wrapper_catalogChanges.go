@@ -63,6 +63,10 @@ func (aaa *CatalogChangesService) QueryChangesShort(input *catalog_changes.Query
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *CatalogChangesService) PublishAllShort(input *catalog_changes.Publish
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *CatalogChangesService) PublishSelectedShort(input *catalog_changes.Pu
 	ok, err := aaa.Client.CatalogChanges.PublishSelectedShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -211,6 +223,10 @@ func (aaa *CatalogChangesService) GetStatisticShort(input *catalog_changes.GetSt
 	ok, err := aaa.Client.CatalogChanges.GetStatisticShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

@@ -30,6 +30,12 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	ListOculusSubscriptionGroupsShort(params *ListOculusSubscriptionGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*ListOculusSubscriptionGroupsResponse, error)
+	CreateOculusSubscriptionGroupShort(params *CreateOculusSubscriptionGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateOculusSubscriptionGroupResponse, error)
+	DeleteOculusSubscriptionGroupShort(params *DeleteOculusSubscriptionGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusSubscriptionGroupResponse, error)
+	ListOculusSubscriptionGroupTierShort(params *ListOculusSubscriptionGroupTierParams, authInfo runtime.ClientAuthInfoWriter) (*ListOculusSubscriptionGroupTierResponse, error)
+	AddTierIntoMetaQuestSubscriptionGroupShort(params *AddTierIntoMetaQuestSubscriptionGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AddTierIntoMetaQuestSubscriptionGroupResponse, error)
+	DeleteOculusSubscriptionTierShort(params *DeleteOculusSubscriptionTierParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusSubscriptionTierResponse, error)
 	QueryThirdPartySubscriptionShort(params *QueryThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryThirdPartySubscriptionResponse, error)
 	QueryUserThirdPartySubscriptionShort(params *QueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*QueryUserThirdPartySubscriptionResponse, error)
 	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(params *GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetThirdPartyPlatformSubscriptionOwnershipByGroupIDResponse, error)
@@ -43,6 +49,369 @@ type ClientService interface {
 	PublicQueryUserThirdPartySubscriptionShort(params *PublicQueryUserThirdPartySubscriptionParams, authInfo runtime.ClientAuthInfoWriter) (*PublicQueryUserThirdPartySubscriptionResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+ListOculusSubscriptionGroupsShort list all of ags meta quest(oculus) subscriptions group
+List Meta Quest(Oculus) subscriptions group
+*/
+func (a *Client) ListOculusSubscriptionGroupsShort(params *ListOculusSubscriptionGroupsParams, authInfo runtime.ClientAuthInfoWriter) (*ListOculusSubscriptionGroupsResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListOculusSubscriptionGroupsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "listOculusSubscriptionGroups",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/iap/config/oculus/subscription/group",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListOculusSubscriptionGroupsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *ListOculusSubscriptionGroupsOK:
+		response := &ListOculusSubscriptionGroupsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+CreateOculusSubscriptionGroupShort create ags meta quest(oculus) subscriptions group
+Create subscriptions group
+*/
+func (a *Client) CreateOculusSubscriptionGroupShort(params *CreateOculusSubscriptionGroupParams, authInfo runtime.ClientAuthInfoWriter) (*CreateOculusSubscriptionGroupResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateOculusSubscriptionGroupParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "createOculusSubscriptionGroup",
+		Method:             "POST",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/iap/config/oculus/subscription/group",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateOculusSubscriptionGroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *CreateOculusSubscriptionGroupOK:
+		response := &CreateOculusSubscriptionGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *CreateOculusSubscriptionGroupConflict:
+		response := &CreateOculusSubscriptionGroupResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+DeleteOculusSubscriptionGroupShort delete a ags meta quest(oculus) subscriptions group
+can't delete it if this subscription group is used.
+*/
+func (a *Client) DeleteOculusSubscriptionGroupShort(params *DeleteOculusSubscriptionGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusSubscriptionGroupResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteOculusSubscriptionGroupParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOculusSubscriptionGroup",
+		Method:             "DELETE",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/iap/config/oculus/subscription/group/{sku}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOculusSubscriptionGroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *DeleteOculusSubscriptionGroupNoContent:
+		response := &DeleteOculusSubscriptionGroupResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *DeleteOculusSubscriptionGroupNotFound:
+		response := &DeleteOculusSubscriptionGroupResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *DeleteOculusSubscriptionGroupConflict:
+		response := &DeleteOculusSubscriptionGroupResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+ListOculusSubscriptionGroupTierShort list all tier of ags meta quest(oculus) subscriptions group
+List All Tier of AGS Meta Quest(Oculus) subscriptions group
+*/
+func (a *Client) ListOculusSubscriptionGroupTierShort(params *ListOculusSubscriptionGroupTierParams, authInfo runtime.ClientAuthInfoWriter) (*ListOculusSubscriptionGroupTierResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewListOculusSubscriptionGroupTierParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "listOculusSubscriptionGroupTier",
+		Method:             "GET",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/iap/config/oculus/subscription/group/{sku}/tiers",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ListOculusSubscriptionGroupTierReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *ListOculusSubscriptionGroupTierOK:
+		response := &ListOculusSubscriptionGroupTierResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AddTierIntoMetaQuestSubscriptionGroupShort create meta quest(oculus) subscriptions tier
+Create Meta Quest(Oculus) subscriptions tier
+*/
+func (a *Client) AddTierIntoMetaQuestSubscriptionGroupShort(params *AddTierIntoMetaQuestSubscriptionGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AddTierIntoMetaQuestSubscriptionGroupResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAddTierIntoMetaQuestSubscriptionGroupParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "addTierIntoMetaQuestSubscriptionGroup",
+		Method:             "POST",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/iap/config/oculus/subscription/tier",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AddTierIntoMetaQuestSubscriptionGroupReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AddTierIntoMetaQuestSubscriptionGroupOK:
+		response := &AddTierIntoMetaQuestSubscriptionGroupResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AddTierIntoMetaQuestSubscriptionGroupConflict:
+		response := &AddTierIntoMetaQuestSubscriptionGroupResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+DeleteOculusSubscriptionTierShort delete a ags meta quest(oculus) subscriptions tier
+*/
+func (a *Client) DeleteOculusSubscriptionTierShort(params *DeleteOculusSubscriptionTierParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusSubscriptionTierResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewDeleteOculusSubscriptionTierParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOculusSubscriptionTier",
+		Method:             "DELETE",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/iap/config/oculus/subscription/tier/{sku}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOculusSubscriptionTierReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *DeleteOculusSubscriptionTierNoContent:
+		response := &DeleteOculusSubscriptionTierResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *DeleteOculusSubscriptionTierNotFound:
+		response := &DeleteOculusSubscriptionTierResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *DeleteOculusSubscriptionTierConflict:
+		response := &DeleteOculusSubscriptionTierResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
 }
 
 /*

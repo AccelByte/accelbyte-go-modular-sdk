@@ -63,6 +63,10 @@ func (aaa *NamespaceService) GetNamespacesShort(input *namespace.GetNamespacesPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *NamespaceService) CreateNamespaceShort(input *namespace.CreateNamespa
 	created, err := aaa.Client.Namespace.CreateNamespaceShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *NamespaceService) GetNamespaceShort(input *namespace.GetNamespacePara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *NamespaceService) DeleteNamespaceShort(input *namespace.DeleteNamespa
 	ok, err := aaa.Client.Namespace.DeleteNamespaceShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *NamespaceService) UpdateNamespaceShort(input *namespace.UpdateNamespa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *NamespaceService) GetChildNamespacesShort(input *namespace.GetChildNa
 	ok, err := aaa.Client.Namespace.GetChildNamespacesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *NamespaceService) GetNamespaceContextShort(input *namespace.GetNamesp
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +299,10 @@ func (aaa *NamespaceService) GetGameNamespacesShort(input *namespace.GetGameName
 	ok, err := aaa.Client.Namespace.GetGameNamespacesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +335,10 @@ func (aaa *NamespaceService) GetNamespacePublisherShort(input *namespace.GetName
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +367,10 @@ func (aaa *NamespaceService) ChangeNamespaceStatusShort(input *namespace.ChangeN
 	ok, err := aaa.Client.Namespace.ChangeNamespaceStatusShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +403,10 @@ func (aaa *NamespaceService) PublicGetNamespacesShort(input *namespace.PublicGet
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -384,6 +428,10 @@ func (aaa *NamespaceService) GetNamespace1Short(input *namespace.GetNamespace1Pa
 	ok, err := aaa.Client.Namespace.GetNamespace1Short(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -414,6 +462,10 @@ func (aaa *NamespaceService) PublicGetNamespacePublisherShort(input *namespace.P
 	ok, err := aaa.Client.Namespace.PublicGetNamespacePublisherShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

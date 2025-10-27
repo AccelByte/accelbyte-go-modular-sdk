@@ -63,6 +63,10 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemsShort(input *global_statist
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCodeShort(input *globa
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItemByStatCodeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *GlobalStatisticService) GetGlobalStatItems1Short(input *global_statis
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCode1Short(input *glob
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItemByStatCode1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

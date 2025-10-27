@@ -63,6 +63,10 @@ func (aaa *PassService) QueryPassesShort(input *pass.QueryPassesParams) (*pass.Q
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *PassService) CreatePassShort(input *pass.CreatePassParams) (*pass.Cre
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *PassService) GetPassShort(input *pass.GetPassParams) (*pass.GetPassRe
 	ok, err := aaa.Client.Pass.GetPassShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +195,10 @@ func (aaa *PassService) UpdatePassShort(input *pass.UpdatePassParams) (*pass.Upd
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +227,10 @@ func (aaa *PassService) GrantUserPassShort(input *pass.GrantUserPassParams) (*pa
 	ok, err := aaa.Client.Pass.GrantUserPassShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

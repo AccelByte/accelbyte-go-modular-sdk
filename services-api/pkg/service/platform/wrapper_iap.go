@@ -1298,6 +1298,36 @@ func (aaa *IAPService) MockFulfillIAPItemShort(input *iap.MockFulfillIAPItemPara
 	return nil
 }
 
+func (aaa *IAPService) AdminSyncOculusSubscriptionsShort(input *iap.AdminSyncOculusSubscriptionsParams) (*iap.AdminSyncOculusSubscriptionsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAP != nil {
+		input.XFlightId = tempFlightIdIAP
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.IAP.AdminSyncOculusSubscriptionsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *IAPService) AdminGetIAPOrderLineItemsShort(input *iap.AdminGetIAPOrderLineItemsParams) (*iap.AdminGetIAPOrderLineItemsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -1561,6 +1591,36 @@ func (aaa *IAPService) PublicFulfillGoogleIAPItemShort(input *iap.PublicFulfillG
 	}
 
 	ok, err := aaa.Client.IAP.PublicFulfillGoogleIAPItemShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
+func (aaa *IAPService) SyncOculusSubscriptionsShort(input *iap.SyncOculusSubscriptionsParams) (*iap.SyncOculusSubscriptionsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAP != nil {
+		input.XFlightId = tempFlightIdIAP
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.IAP.SyncOculusSubscriptionsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

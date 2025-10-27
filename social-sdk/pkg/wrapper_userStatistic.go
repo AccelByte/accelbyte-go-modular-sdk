@@ -63,6 +63,10 @@ func (aaa *UserStatisticService) BulkFetchStatItemsShort(input *user_statistic.B
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *UserStatisticService) BulkIncUserStatItemShort(input *user_statistic.
 	ok, err := aaa.Client.UserStatistic.BulkIncUserStatItemShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *UserStatisticService) BulkIncUserStatItemValueShort(input *user_stati
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *UserStatisticService) BulkFetchOrDefaultStatItemsShort(input *user_st
 	ok, err := aaa.Client.UserStatistic.BulkFetchOrDefaultStatItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *UserStatisticService) BulkResetUserStatItemShort(input *user_statisti
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *UserStatisticService) GetStatItemsShort(input *user_statistic.GetStat
 	ok, err := aaa.Client.UserStatistic.GetStatItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *UserStatisticService) GetUserStatItemsShort(input *user_statistic.Get
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +299,10 @@ func (aaa *UserStatisticService) BulkCreateUserStatItemsShort(input *user_statis
 	ok, err := aaa.Client.UserStatistic.BulkCreateUserStatItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +335,10 @@ func (aaa *UserStatisticService) BulkIncUserStatItem1Short(input *user_statistic
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -333,6 +369,10 @@ func (aaa *UserStatisticService) BulkIncUserStatItemValue1Short(input *user_stat
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -361,6 +401,10 @@ func (aaa *UserStatisticService) BulkResetUserStatItem1Short(input *user_statist
 	ok, err := aaa.Client.UserStatistic.BulkResetUserStatItem1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -453,6 +497,10 @@ func (aaa *UserStatisticService) IncUserStatItemValueShort(input *user_statistic
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -481,6 +529,10 @@ func (aaa *UserStatisticService) ResetUserStatItemValueShort(input *user_statist
 	ok, err := aaa.Client.UserStatistic.ResetUserStatItemValueShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -513,6 +565,10 @@ func (aaa *UserStatisticService) BulkFetchStatItems1Short(input *user_statistic.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -541,6 +597,10 @@ func (aaa *UserStatisticService) PublicBulkIncUserStatItemShort(input *user_stat
 	ok, err := aaa.Client.UserStatistic.PublicBulkIncUserStatItemShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -573,6 +633,10 @@ func (aaa *UserStatisticService) PublicBulkIncUserStatItemValueShort(input *user
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -601,6 +665,10 @@ func (aaa *UserStatisticService) BulkResetUserStatItem2Short(input *user_statist
 	ok, err := aaa.Client.UserStatistic.BulkResetUserStatItem2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -633,6 +701,10 @@ func (aaa *UserStatisticService) PublicListMyStatItemsShort(input *user_statisti
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -661,6 +733,10 @@ func (aaa *UserStatisticService) PublicListAllMyStatItemsShort(input *user_stati
 	ok, err := aaa.Client.UserStatistic.PublicListAllMyStatItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -693,6 +769,10 @@ func (aaa *UserStatisticService) PublicQueryUserStatItems1Short(input *user_stat
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -721,6 +801,10 @@ func (aaa *UserStatisticService) PublicBulkCreateUserStatItemsShort(input *user_
 	ok, err := aaa.Client.UserStatistic.PublicBulkCreateUserStatItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -753,6 +837,10 @@ func (aaa *UserStatisticService) PublicQueryUserStatItemsShort(input *user_stati
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -781,6 +869,10 @@ func (aaa *UserStatisticService) PublicBulkIncUserStatItem1Short(input *user_sta
 	ok, err := aaa.Client.UserStatistic.PublicBulkIncUserStatItem1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -813,6 +905,10 @@ func (aaa *UserStatisticService) BulkIncUserStatItemValue2Short(input *user_stat
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -841,6 +937,10 @@ func (aaa *UserStatisticService) BulkResetUserStatItem3Short(input *user_statist
 	ok, err := aaa.Client.UserStatistic.BulkResetUserStatItem3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -933,6 +1033,10 @@ func (aaa *UserStatisticService) PublicIncUserStatItemShort(input *user_statisti
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -961,6 +1065,10 @@ func (aaa *UserStatisticService) PublicIncUserStatItemValueShort(input *user_sta
 	ok, err := aaa.Client.UserStatistic.PublicIncUserStatItemValueShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -993,6 +1101,10 @@ func (aaa *UserStatisticService) ResetUserStatItemValue1Short(input *user_statis
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1021,6 +1133,10 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItemV2Short(input *user_stati
 	ok, err := aaa.Client.UserStatistic.BulkUpdateUserStatItemV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1053,6 +1169,10 @@ func (aaa *UserStatisticService) BulkFetchOrDefaultStatItems1Short(input *user_s
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1081,6 +1201,10 @@ func (aaa *UserStatisticService) AdminListUsersStatItemsShort(input *user_statis
 	ok, err := aaa.Client.UserStatistic.AdminListUsersStatItemsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1113,6 +1237,10 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItemShort(input *user_statist
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1143,6 +1271,10 @@ func (aaa *UserStatisticService) BulkGetOrDefaultByUserIDShort(input *user_stati
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1171,6 +1303,10 @@ func (aaa *UserStatisticService) BulkResetUserStatItemValuesShort(input *user_st
 	ok, err := aaa.Client.UserStatistic.BulkResetUserStatItemValuesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1233,6 +1369,10 @@ func (aaa *UserStatisticService) UpdateUserStatItemValueShort(input *user_statis
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1261,6 +1401,10 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItem1Short(input *user_statis
 	ok, err := aaa.Client.UserStatistic.BulkUpdateUserStatItem1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1293,6 +1437,10 @@ func (aaa *UserStatisticService) PublicQueryUserStatItems2Short(input *user_stat
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1323,6 +1471,10 @@ func (aaa *UserStatisticService) BulkUpdateUserStatItem2Short(input *user_statis
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1351,6 +1503,10 @@ func (aaa *UserStatisticService) UpdateUserStatItemValue1Short(input *user_stati
 	ok, err := aaa.Client.UserStatistic.UpdateUserStatItemValue1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

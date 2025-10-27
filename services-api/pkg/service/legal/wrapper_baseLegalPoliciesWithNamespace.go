@@ -68,7 +68,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllLegalPoliciesByName
 	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicy1Short(input *base_legal_policies_with_namespace.CreatePolicy1Params) (*base_legal_policies_with_namespace.CreatePolicy1Response, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicyShort(input *base_legal_policies_with_namespace.CreatePolicyParams) (*base_legal_policies_with_namespace.CreatePolicyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -90,7 +90,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicy1Short(input *base
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	created, err := aaa.Client.BaseLegalPoliciesWithNamespace.CreatePolicy1Short(input, authInfoWriter)
+	created, err := aaa.Client.BaseLegalPoliciesWithNamespace.CreatePolicyShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +98,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicy1Short(input *base
 	return created, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveSinglePolicy1Short(input *base_legal_policies_with_namespace.RetrieveSinglePolicy1Params) (*base_legal_policies_with_namespace.RetrieveSinglePolicy1Response, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveSinglePolicyShort(input *base_legal_policies_with_namespace.RetrieveSinglePolicyParams) (*base_legal_policies_with_namespace.RetrieveSinglePolicyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -120,7 +120,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveSinglePolicy1Short(inp
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveSinglePolicy1Short(input, authInfoWriter)
+	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveSinglePolicyShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -158,7 +158,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) DeleteBasePolicyShort(input *b
 	return nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) PartialUpdatePolicy1Short(input *base_legal_policies_with_namespace.PartialUpdatePolicy1Params) (*base_legal_policies_with_namespace.PartialUpdatePolicy1Response, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) PartialUpdatePolicyShort(input *base_legal_policies_with_namespace.PartialUpdatePolicyParams) (*base_legal_policies_with_namespace.PartialUpdatePolicyResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -180,7 +180,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) PartialUpdatePolicy1Short(inpu
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.PartialUpdatePolicy1Short(input, authInfoWriter)
+	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.PartialUpdatePolicyShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -188,7 +188,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) PartialUpdatePolicy1Short(inpu
 	return ok, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrievePolicyCountry1Short(input *base_legal_policies_with_namespace.RetrievePolicyCountry1Params) (*base_legal_policies_with_namespace.RetrievePolicyCountry1Response, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) RetrievePolicyCountryShort(input *base_legal_policies_with_namespace.RetrievePolicyCountryParams) (*base_legal_policies_with_namespace.RetrievePolicyCountryResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -210,7 +210,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrievePolicyCountry1Short(in
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrievePolicyCountry1Short(input, authInfoWriter)
+	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrievePolicyCountryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -278,7 +278,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicyUnderBasePolicySho
 	return created, nil
 }
 
-func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPolicyTypes1Short(input *base_legal_policies_with_namespace.RetrieveAllPolicyTypes1Params) (*base_legal_policies_with_namespace.RetrieveAllPolicyTypes1Response, error) {
+func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPolicyTypesShort(input *base_legal_policies_with_namespace.RetrieveAllPolicyTypesParams) (*base_legal_policies_with_namespace.RetrieveAllPolicyTypesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -300,7 +300,7 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPolicyTypes1Short(i
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveAllPolicyTypes1Short(input, authInfoWriter)
+	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveAllPolicyTypesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

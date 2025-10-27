@@ -63,6 +63,10 @@ func (aaa *FriendsService) GetUserFriendsUpdatedShort(input *friends.GetUserFrie
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *FriendsService) GetUserIncomingFriendsShort(input *friends.GetUserInc
 	ok, err := aaa.Client.Friends.GetUserIncomingFriendsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *FriendsService) GetUserIncomingFriendsWithTimeShort(input *friends.Ge
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *FriendsService) GetUserOutgoingFriendsShort(input *friends.GetUserOut
 	ok, err := aaa.Client.Friends.GetUserOutgoingFriendsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *FriendsService) GetUserOutgoingFriendsWithTimeShort(input *friends.Ge
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *FriendsService) GetUserFriendsWithPlatformShort(input *friends.GetUse
 	ok, err := aaa.Client.Friends.GetUserFriendsWithPlatformShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +387,10 @@ func (aaa *FriendsService) UserGetFriendshipStatusShort(input *friends.UserGetFr
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -453,6 +481,10 @@ func (aaa *FriendsService) BulkDeleteFriendsShort(input *friends.BulkDeleteFrien
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -481,6 +513,10 @@ func (aaa *FriendsService) SyncNativeFriendsShort(input *friends.SyncNativeFrien
 	ok, err := aaa.Client.Friends.SyncNativeFriendsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -513,6 +549,10 @@ func (aaa *FriendsService) GetListOfFriendsShort(input *friends.GetListOfFriends
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -541,6 +581,10 @@ func (aaa *FriendsService) GetIncomingFriendRequestsShort(input *friends.GetInco
 	ok, err := aaa.Client.Friends.GetIncomingFriendRequestsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -573,6 +617,10 @@ func (aaa *FriendsService) AdminListFriendsOfFriendsShort(input *friends.AdminLi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -601,6 +649,10 @@ func (aaa *FriendsService) GetOutgoingFriendRequestsShort(input *friends.GetOutg
 	ok, err := aaa.Client.Friends.GetOutgoingFriendRequestsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

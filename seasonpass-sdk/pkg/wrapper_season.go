@@ -63,6 +63,10 @@ func (aaa *SeasonService) QuerySeasonsShort(input *season.QuerySeasonsParams) (*
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *SeasonService) CreateSeasonShort(input *season.CreateSeasonParams) (*
 	created, err := aaa.Client.Season.CreateSeasonShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *SeasonService) GetCurrentSeasonShort(input *season.GetCurrentSeasonPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +165,10 @@ func (aaa *SeasonService) BulkGetUserSeasonProgressionShort(input *season.BulkGe
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +197,10 @@ func (aaa *SeasonService) GetSeasonShort(input *season.GetSeasonParams) (*season
 	ok, err := aaa.Client.Season.GetSeasonShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +263,10 @@ func (aaa *SeasonService) UpdateSeasonShort(input *season.UpdateSeasonParams) (*
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +295,10 @@ func (aaa *SeasonService) CloneSeasonShort(input *season.CloneSeasonParams) (*se
 	ok, err := aaa.Client.Season.CloneSeasonShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +331,10 @@ func (aaa *SeasonService) GetFullSeasonShort(input *season.GetFullSeasonParams) 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +363,10 @@ func (aaa *SeasonService) PublishSeasonShort(input *season.PublishSeasonParams) 
 	ok, err := aaa.Client.Season.PublishSeasonShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +399,10 @@ func (aaa *SeasonService) RetireSeasonShort(input *season.RetireSeasonParams) (*
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -391,6 +431,10 @@ func (aaa *SeasonService) UnpublishSeasonShort(input *season.UnpublishSeasonPara
 	ok, err := aaa.Client.Season.UnpublishSeasonShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -423,6 +467,10 @@ func (aaa *SeasonService) GetUserParticipatedSeasonsShort(input *season.GetUserP
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -453,6 +501,10 @@ func (aaa *SeasonService) ExistsAnyPassByPassCodesShort(input *season.ExistsAnyP
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -481,6 +533,10 @@ func (aaa *SeasonService) GetCurrentUserSeasonProgressionShort(input *season.Get
 	ok, err := aaa.Client.Season.GetCurrentUserSeasonProgressionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -573,6 +629,10 @@ func (aaa *SeasonService) QueryUserExpGrantHistoryShort(input *season.QueryUserE
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -601,6 +661,10 @@ func (aaa *SeasonService) QueryUserExpGrantHistoryTagShort(input *season.QueryUs
 	ok, err := aaa.Client.Season.QueryUserExpGrantHistoryTagShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -633,6 +697,10 @@ func (aaa *SeasonService) GetUserSeasonShort(input *season.GetUserSeasonParams) 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -661,6 +729,10 @@ func (aaa *SeasonService) PublicGetCurrentSeasonShort(input *season.PublicGetCur
 	ok, err := aaa.Client.Season.PublicGetCurrentSeasonShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -693,6 +765,10 @@ func (aaa *SeasonService) PublicGetCurrentUserSeasonShort(input *season.PublicGe
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -721,6 +797,10 @@ func (aaa *SeasonService) PublicGetUserSeasonShort(input *season.PublicGetUserSe
 	ok, err := aaa.Client.Season.PublicGetUserSeasonShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

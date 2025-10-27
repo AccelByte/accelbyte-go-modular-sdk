@@ -63,6 +63,10 @@ func (aaa *AdminConfigService) AdminGetConfigsShort(input *admin_config.AdminGet
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 

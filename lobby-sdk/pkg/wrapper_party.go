@@ -63,6 +63,10 @@ func (aaa *PartyService) AdminGetPartyDataV1Short(input *party.AdminGetPartyData
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PartyService) AdminGetUserPartyV1Short(input *party.AdminGetUserParty
 	ok, err := aaa.Client.Party.AdminGetUserPartyV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *PartyService) PublicGetPartyDataV1Short(input *party.PublicGetPartyDa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *PartyService) PublicUpdatePartyAttributesV1Short(input *party.PublicU
 	ok, err := aaa.Client.Party.PublicUpdatePartyAttributesV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

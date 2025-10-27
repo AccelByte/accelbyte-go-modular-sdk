@@ -63,6 +63,10 @@ func (aaa *AccountService) AdminAccountGetShort(input *account.AdminAccountGetPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AccountService) AdminAccountCreateShort(input *account.AdminAccountCr
 	created, err := aaa.Client.Account.AdminAccountCreateShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *AccountService) AdminAccountLinkTokenGetShort(input *account.AdminAcc
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +165,10 @@ func (aaa *AccountService) AdminAccountLinkShort(input *account.AdminAccountLink
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -181,6 +197,10 @@ func (aaa *AccountService) AccountGetShort(input *account.AccountGetParams) (*ac
 	ok, err := aaa.Client.Account.AccountGetShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

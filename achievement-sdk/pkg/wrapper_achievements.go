@@ -65,6 +65,10 @@ func (aaa *AchievementsService) AdminListAchievementsShort(input *achievements.A
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *AchievementsService) AdminCreateNewAchievementShort(input *achievemen
 	created, err := aaa.Client.Achievements.AdminCreateNewAchievementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -125,6 +133,10 @@ func (aaa *AchievementsService) ExportAchievementsShort(input *achievements.Expo
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +165,10 @@ func (aaa *AchievementsService) ImportAchievementsShort(input *achievements.Impo
 	ok, err := aaa.Client.Achievements.ImportAchievementsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -185,6 +201,10 @@ func (aaa *AchievementsService) AdminGetAchievementShort(input *achievements.Adm
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -213,6 +233,10 @@ func (aaa *AchievementsService) AdminUpdateAchievementShort(input *achievements.
 	ok, err := aaa.Client.Achievements.AdminUpdateAchievementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -305,6 +329,10 @@ func (aaa *AchievementsService) PublicListAchievementsShort(input *achievements.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -333,6 +361,10 @@ func (aaa *AchievementsService) PublicGetAchievementShort(input *achievements.Pu
 	ok, err := aaa.Client.Achievements.PublicGetAchievementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

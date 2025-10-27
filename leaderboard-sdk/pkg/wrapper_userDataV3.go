@@ -63,5 +63,9 @@ func (aaa *UserDataV3Service) GetUserLeaderboardRankingsAdminV3Short(input *user
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }

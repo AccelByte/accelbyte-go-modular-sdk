@@ -63,10 +63,14 @@ func (aaa *AgreementWithNamespaceService) RetrieveAcceptedAgreementsForMultiUser
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
-func (aaa *AgreementWithNamespaceService) RetrieveAcceptedAgreements1Short(input *agreement_with_namespace.RetrieveAcceptedAgreements1Params) (*agreement_with_namespace.RetrieveAcceptedAgreements1Response, error) {
+func (aaa *AgreementWithNamespaceService) RetrieveAcceptedAgreementsShort(input *agreement_with_namespace.RetrieveAcceptedAgreementsParams) (*agreement_with_namespace.RetrieveAcceptedAgreementsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -88,15 +92,19 @@ func (aaa *AgreementWithNamespaceService) RetrieveAcceptedAgreements1Short(input
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.AgreementWithNamespace.RetrieveAcceptedAgreements1Short(input, authInfoWriter)
+	ok, err := aaa.Client.AgreementWithNamespace.RetrieveAcceptedAgreementsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
 }
 
-func (aaa *AgreementWithNamespaceService) RetrieveAllUsersByPolicyVersion1Short(input *agreement_with_namespace.RetrieveAllUsersByPolicyVersion1Params) (*agreement_with_namespace.RetrieveAllUsersByPolicyVersion1Response, error) {
+func (aaa *AgreementWithNamespaceService) RetrieveAllUsersByPolicyVersionShort(input *agreement_with_namespace.RetrieveAllUsersByPolicyVersionParams) (*agreement_with_namespace.RetrieveAllUsersByPolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -118,9 +126,13 @@ func (aaa *AgreementWithNamespaceService) RetrieveAllUsersByPolicyVersion1Short(
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.AgreementWithNamespace.RetrieveAllUsersByPolicyVersion1Short(input, authInfoWriter)
+	ok, err := aaa.Client.AgreementWithNamespace.RetrieveAllUsersByPolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -153,6 +165,10 @@ func (aaa *AgreementWithNamespaceService) DownloadExportedAgreementsInCSVShort(i
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +197,10 @@ func (aaa *AgreementWithNamespaceService) InitiateExportAgreementsToCSVShort(inp
 	ok, err := aaa.Client.AgreementWithNamespace.InitiateExportAgreementsToCSVShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

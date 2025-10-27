@@ -63,6 +63,10 @@ func (aaa *EntitlementService) QueryEntitlementsShort(input *entitlement.QueryEn
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *EntitlementService) QueryEntitlementsByItemIdsShort(input *entitlemen
 	ok, err := aaa.Client.Entitlement.QueryEntitlementsByItemIdsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *EntitlementService) EnableEntitlementOriginFeatureShort(input *entitl
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *EntitlementService) GetEntitlementConfigInfoShort(input *entitlement.
 	ok, err := aaa.Client.Entitlement.GetEntitlementConfigInfoShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *EntitlementService) GrantEntitlementsShort(input *entitlement.GrantEn
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *EntitlementService) RevokeEntitlementsShort(input *entitlement.Revoke
 	ok, err := aaa.Client.Entitlement.RevokeEntitlementsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *EntitlementService) GetEntitlementShort(input *entitlement.GetEntitle
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +299,10 @@ func (aaa *EntitlementService) GetPlatformEntitlementConfigShort(input *entitlem
 	ok, err := aaa.Client.Entitlement.GetPlatformEntitlementConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +335,10 @@ func (aaa *EntitlementService) UpdatePlatformEntitlementConfigShort(input *entit
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +367,10 @@ func (aaa *EntitlementService) QueryUserEntitlementsShort(input *entitlement.Que
 	ok, err := aaa.Client.Entitlement.QueryUserEntitlementsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +403,10 @@ func (aaa *EntitlementService) GrantUserEntitlementShort(input *entitlement.Gran
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -391,6 +435,10 @@ func (aaa *EntitlementService) GetUserAppEntitlementByAppIDShort(input *entitlem
 	ok, err := aaa.Client.Entitlement.GetUserAppEntitlementByAppIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -423,6 +471,10 @@ func (aaa *EntitlementService) QueryUserEntitlementsByAppTypeShort(input *entitl
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -451,6 +503,10 @@ func (aaa *EntitlementService) GetUserEntitlementsByIdsShort(input *entitlement.
 	ok, err := aaa.Client.Entitlement.GetUserEntitlementsByIdsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -483,6 +539,10 @@ func (aaa *EntitlementService) GetUserEntitlementByItemIDShort(input *entitlemen
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -511,6 +571,10 @@ func (aaa *EntitlementService) GetUserActiveEntitlementsByItemIdsShort(input *en
 	ok, err := aaa.Client.Entitlement.GetUserActiveEntitlementsByItemIdsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -543,6 +607,10 @@ func (aaa *EntitlementService) GetUserEntitlementBySkuShort(input *entitlement.G
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -571,6 +639,10 @@ func (aaa *EntitlementService) ExistsAnyUserActiveEntitlementShort(input *entitl
 	ok, err := aaa.Client.Entitlement.ExistsAnyUserActiveEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -603,6 +675,10 @@ func (aaa *EntitlementService) ExistsAnyUserActiveEntitlementByItemIdsShort(inpu
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -631,6 +707,10 @@ func (aaa *EntitlementService) GetUserAppEntitlementOwnershipByAppIDShort(input 
 	ok, err := aaa.Client.Entitlement.GetUserAppEntitlementOwnershipByAppIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -663,6 +743,10 @@ func (aaa *EntitlementService) GetUserEntitlementOwnershipByItemIDShort(input *e
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -691,6 +775,10 @@ func (aaa *EntitlementService) GetUserEntitlementOwnershipByItemIdsShort(input *
 	ok, err := aaa.Client.Entitlement.GetUserEntitlementOwnershipByItemIdsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -723,6 +811,10 @@ func (aaa *EntitlementService) GetUserEntitlementOwnershipBySkuShort(input *enti
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -751,6 +843,10 @@ func (aaa *EntitlementService) RevokeAllEntitlementsShort(input *entitlement.Rev
 	ok, err := aaa.Client.Entitlement.RevokeAllEntitlementsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -783,6 +879,10 @@ func (aaa *EntitlementService) RevokeUserEntitlementsShort(input *entitlement.Re
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -811,6 +911,10 @@ func (aaa *EntitlementService) GetUserEntitlementShort(input *entitlement.GetUse
 	ok, err := aaa.Client.Entitlement.GetUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -843,6 +947,10 @@ func (aaa *EntitlementService) UpdateUserEntitlementShort(input *entitlement.Upd
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -871,6 +979,10 @@ func (aaa *EntitlementService) ConsumeUserEntitlementShort(input *entitlement.Co
 	ok, err := aaa.Client.Entitlement.ConsumeUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -903,6 +1015,10 @@ func (aaa *EntitlementService) DisableUserEntitlementShort(input *entitlement.Di
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -931,6 +1047,10 @@ func (aaa *EntitlementService) EnableUserEntitlementShort(input *entitlement.Ena
 	ok, err := aaa.Client.Entitlement.EnableUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -963,6 +1083,10 @@ func (aaa *EntitlementService) GetUserEntitlementHistoriesShort(input *entitleme
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -991,6 +1115,10 @@ func (aaa *EntitlementService) RevokeUserEntitlementShort(input *entitlement.Rev
 	ok, err := aaa.Client.Entitlement.RevokeUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1023,6 +1151,10 @@ func (aaa *EntitlementService) RevokeUserEntitlementByUseCountShort(input *entit
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1051,6 +1183,10 @@ func (aaa *EntitlementService) PreCheckRevokeUserEntitlementByUseCountShort(inpu
 	ok, err := aaa.Client.Entitlement.PreCheckRevokeUserEntitlementByUseCountShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1083,6 +1219,10 @@ func (aaa *EntitlementService) RevokeUseCountShort(input *entitlement.RevokeUseC
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1111,6 +1251,10 @@ func (aaa *EntitlementService) SellUserEntitlementShort(input *entitlement.SellU
 	ok, err := aaa.Client.Entitlement.SellUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1143,6 +1287,10 @@ func (aaa *EntitlementService) PublicExistsAnyMyActiveEntitlementShort(input *en
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1171,6 +1319,10 @@ func (aaa *EntitlementService) PublicGetMyAppEntitlementOwnershipByAppIDShort(in
 	ok, err := aaa.Client.Entitlement.PublicGetMyAppEntitlementOwnershipByAppIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1203,6 +1355,10 @@ func (aaa *EntitlementService) PublicGetMyEntitlementOwnershipByItemIDShort(inpu
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1231,6 +1387,10 @@ func (aaa *EntitlementService) PublicGetMyEntitlementOwnershipBySkuShort(input *
 	ok, err := aaa.Client.Entitlement.PublicGetMyEntitlementOwnershipBySkuShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1263,6 +1423,10 @@ func (aaa *EntitlementService) PublicGetEntitlementOwnershipTokenShort(input *en
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1291,6 +1455,10 @@ func (aaa *EntitlementService) PublicQueryUserEntitlementsShort(input *entitleme
 	ok, err := aaa.Client.Entitlement.PublicQueryUserEntitlementsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1323,6 +1491,10 @@ func (aaa *EntitlementService) PublicGetUserAppEntitlementByAppIDShort(input *en
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1351,6 +1523,10 @@ func (aaa *EntitlementService) PublicQueryUserEntitlementsByAppTypeShort(input *
 	ok, err := aaa.Client.Entitlement.PublicQueryUserEntitlementsByAppTypeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1383,6 +1559,10 @@ func (aaa *EntitlementService) PublicGetUserEntitlementsByIdsShort(input *entitl
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1411,6 +1591,10 @@ func (aaa *EntitlementService) PublicGetUserEntitlementByItemIDShort(input *enti
 	ok, err := aaa.Client.Entitlement.PublicGetUserEntitlementByItemIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1443,6 +1627,10 @@ func (aaa *EntitlementService) PublicGetUserEntitlementBySkuShort(input *entitle
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1471,6 +1659,10 @@ func (aaa *EntitlementService) PublicUserEntitlementHistoryShort(input *entitlem
 	ok, err := aaa.Client.Entitlement.PublicUserEntitlementHistoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1503,6 +1695,10 @@ func (aaa *EntitlementService) PublicExistsAnyUserActiveEntitlementShort(input *
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1531,6 +1727,10 @@ func (aaa *EntitlementService) PublicGetUserAppEntitlementOwnershipByAppIDShort(
 	ok, err := aaa.Client.Entitlement.PublicGetUserAppEntitlementOwnershipByAppIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1563,6 +1763,10 @@ func (aaa *EntitlementService) PublicGetUserEntitlementOwnershipByItemIDShort(in
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1591,6 +1795,10 @@ func (aaa *EntitlementService) PublicGetUserEntitlementOwnershipByItemIdsShort(i
 	ok, err := aaa.Client.Entitlement.PublicGetUserEntitlementOwnershipByItemIdsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1623,6 +1831,10 @@ func (aaa *EntitlementService) PublicGetUserEntitlementOwnershipBySkuShort(input
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1651,6 +1863,10 @@ func (aaa *EntitlementService) PublicGetUserEntitlementShort(input *entitlement.
 	ok, err := aaa.Client.Entitlement.PublicGetUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1683,6 +1899,10 @@ func (aaa *EntitlementService) PublicConsumeUserEntitlementShort(input *entitlem
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1711,6 +1931,10 @@ func (aaa *EntitlementService) PublicSellUserEntitlementShort(input *entitlement
 	ok, err := aaa.Client.Entitlement.PublicSellUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1743,6 +1967,10 @@ func (aaa *EntitlementService) PublicSplitUserEntitlementShort(input *entitlemen
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1771,6 +1999,10 @@ func (aaa *EntitlementService) PublicTransferUserEntitlementShort(input *entitle
 	ok, err := aaa.Client.Entitlement.PublicTransferUserEntitlementShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

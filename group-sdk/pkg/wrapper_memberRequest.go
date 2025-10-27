@@ -63,6 +63,10 @@ func (aaa *MemberRequestService) GetGroupJoinRequestPublicV1Short(input *member_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *MemberRequestService) GetGroupInvitationRequestPublicV1Short(input *m
 	ok, err := aaa.Client.MemberRequest.GetGroupInvitationRequestPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *MemberRequestService) GetGroupInviteRequestPublicV2Short(input *membe
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +165,10 @@ func (aaa *MemberRequestService) GetGroupJoinRequestPublicV2Short(input *member_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +197,10 @@ func (aaa *MemberRequestService) GetMyGroupJoinRequestV2Short(input *member_requ
 	ok, err := aaa.Client.MemberRequest.GetMyGroupJoinRequestV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

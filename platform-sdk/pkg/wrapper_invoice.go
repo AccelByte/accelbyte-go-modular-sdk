@@ -65,6 +65,10 @@ func (aaa *InvoiceService) DownloadInvoiceDetailsShort(input *invoice.DownloadIn
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *InvoiceService) GenerateInvoiceSummaryShort(input *invoice.GenerateIn
 	ok, err := aaa.Client.Invoice.GenerateInvoiceSummaryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

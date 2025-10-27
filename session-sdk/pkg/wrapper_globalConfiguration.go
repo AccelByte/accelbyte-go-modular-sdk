@@ -63,6 +63,10 @@ func (aaa *GlobalConfigurationService) AdminListGlobalConfigurationShort(input *
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *GlobalConfigurationService) AdminUpdateGlobalConfigurationShort(input
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *GlobalConfigurationService) AdminDeleteGlobalConfigurationShort(input
 	noContent, err := aaa.Client.GlobalConfiguration.AdminDeleteGlobalConfigurationShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if noContent == nil {
+		return nil, nil
 	}
 
 	return noContent, nil

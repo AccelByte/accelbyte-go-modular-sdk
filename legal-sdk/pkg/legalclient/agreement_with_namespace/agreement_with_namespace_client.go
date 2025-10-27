@@ -31,8 +31,8 @@ type Client struct {
 // ClientService is the interface for Client methods
 type ClientService interface {
 	RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAcceptedAgreementsForMultiUsersParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsForMultiUsersResponse, error)
-	RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreements1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreements1Response, error)
-	RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersByPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersion1Response, error)
+	RetrieveAcceptedAgreementsShort(params *RetrieveAcceptedAgreementsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsResponse, error)
+	RetrieveAllUsersByPolicyVersionShort(params *RetrieveAllUsersByPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersionResponse, error)
 	DownloadExportedAgreementsInCSVShort(params *DownloadExportedAgreementsInCSVParams, authInfo runtime.ClientAuthInfoWriter) (*DownloadExportedAgreementsInCSVResponse, error)
 	InitiateExportAgreementsToCSVShort(params *InitiateExportAgreementsToCSVParams, authInfo runtime.ClientAuthInfoWriter) (*InitiateExportAgreementsToCSVResponse, error)
 
@@ -94,13 +94,13 @@ func (a *Client) RetrieveAcceptedAgreementsForMultiUsersShort(params *RetrieveAc
 }
 
 /*
-RetrieveAcceptedAgreements1Short retrieve accepted legal agreements
+RetrieveAcceptedAgreementsShort retrieve accepted legal agreements
 This API will return all accepted Legal Agreements for specified user.
 */
-func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreements1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreements1Response, error) {
+func (a *Client) RetrieveAcceptedAgreementsShort(params *RetrieveAcceptedAgreementsParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAcceptedAgreementsResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewRetrieveAcceptedAgreements1Params()
+		params = NewRetrieveAcceptedAgreementsParams()
 	}
 
 	if params.Context == nil {
@@ -116,14 +116,14 @@ func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreem
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "retrieveAcceptedAgreements_1",
+		ID:                 "retrieveAcceptedAgreements",
 		Method:             "GET",
 		PathPattern:        "/agreement/admin/namespaces/{namespace}/agreements/policies/users/{userId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &RetrieveAcceptedAgreements1Reader{formats: a.formats},
+		Reader:             &RetrieveAcceptedAgreementsReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -134,8 +134,8 @@ func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreem
 
 	switch v := result.(type) {
 
-	case *RetrieveAcceptedAgreements1OK:
-		response := &RetrieveAcceptedAgreements1Response{}
+	case *RetrieveAcceptedAgreementsOK:
+		response := &RetrieveAcceptedAgreementsResponse{}
 		response.Data = v.Payload
 
 		response.IsSuccess = true
@@ -148,13 +148,13 @@ func (a *Client) RetrieveAcceptedAgreements1Short(params *RetrieveAcceptedAgreem
 }
 
 /*
-RetrieveAllUsersByPolicyVersion1Short retrieve users accepting legal agreements
+RetrieveAllUsersByPolicyVersionShort retrieve users accepting legal agreements
 This API will return all users who has accepted a specific policy version.
 */
-func (a *Client) RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersByPolicyVersion1Params, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersion1Response, error) {
+func (a *Client) RetrieveAllUsersByPolicyVersionShort(params *RetrieveAllUsersByPolicyVersionParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllUsersByPolicyVersionResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewRetrieveAllUsersByPolicyVersion1Params()
+		params = NewRetrieveAllUsersByPolicyVersionParams()
 	}
 
 	if params.Context == nil {
@@ -170,14 +170,14 @@ func (a *Client) RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersB
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "retrieveAllUsersByPolicyVersion_1",
+		ID:                 "retrieveAllUsersByPolicyVersion",
 		Method:             "GET",
 		PathPattern:        "/agreement/admin/namespaces/{namespace}/agreements/policy-versions/users",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &RetrieveAllUsersByPolicyVersion1Reader{formats: a.formats},
+		Reader:             &RetrieveAllUsersByPolicyVersionReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -188,15 +188,15 @@ func (a *Client) RetrieveAllUsersByPolicyVersion1Short(params *RetrieveAllUsersB
 
 	switch v := result.(type) {
 
-	case *RetrieveAllUsersByPolicyVersion1OK:
-		response := &RetrieveAllUsersByPolicyVersion1Response{}
+	case *RetrieveAllUsersByPolicyVersionOK:
+		response := &RetrieveAllUsersByPolicyVersionResponse{}
 		response.Data = v.Payload
 
 		response.IsSuccess = true
 
 		return response, nil
-	case *RetrieveAllUsersByPolicyVersion1NotFound:
-		response := &RetrieveAllUsersByPolicyVersion1Response{}
+	case *RetrieveAllUsersByPolicyVersionNotFound:
+		response := &RetrieveAllUsersByPolicyVersionResponse{}
 		response.Error404 = v.Payload
 
 		response.IsSuccess = false

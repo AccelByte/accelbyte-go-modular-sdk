@@ -229,9 +229,9 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [CREATE]`
 # Creates new App for AB-Extend Customers
 
 Available scenario:
-- scenario 1: `function-override`
 - scenario 2: `service-extension`
 - scenario 3: `event-handler`
+- scenario 1: `function-override`
 
 Default: `function-override`
 */

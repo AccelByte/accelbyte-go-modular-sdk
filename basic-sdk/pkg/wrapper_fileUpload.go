@@ -63,6 +63,10 @@ func (aaa *FileUploadService) GeneratedUploadURLShort(input *file_upload.Generat
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *FileUploadService) GeneratedUserUploadContentURLShort(input *file_upl
 	ok, err := aaa.Client.FileUpload.GeneratedUserUploadContentURLShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *FileUploadService) PublicGeneratedUploadURLShort(input *file_upload.P
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *FileUploadService) PublicGeneratedUserUploadContentURLShort(input *fi
 	ok, err := aaa.Client.FileUpload.PublicGeneratedUserUploadContentURLShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

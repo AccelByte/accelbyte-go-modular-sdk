@@ -63,6 +63,10 @@ func (aaa *AdminReportsService) ListReportsShort(input *admin_reports.ListReport
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AdminReportsService) AdminSubmitReportShort(input *admin_reports.Admi
 	created, err := aaa.Client.AdminReports.AdminSubmitReportShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

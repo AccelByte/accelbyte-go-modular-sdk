@@ -63,6 +63,10 @@ func (aaa *AccountIdentifierTagService) AdminQueryTagV3Short(input *account_iden
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *AccountIdentifierTagService) AdminCreateTagV3Short(input *account_ide
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *AccountIdentifierTagService) AdminUpdateTagV3Short(input *account_ide
 	ok, err := aaa.Client.AccountIdentifierTag.AdminUpdateTagV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

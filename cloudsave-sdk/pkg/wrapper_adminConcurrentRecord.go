@@ -123,6 +123,10 @@ func (aaa *AdminConcurrentRecordService) AdminPutAdminPlayerRecordConcurrentHand
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +157,10 @@ func (aaa *AdminConcurrentRecordService) AdminPutPlayerRecordConcurrentHandlerV1
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +189,10 @@ func (aaa *AdminConcurrentRecordService) AdminPutPlayerPublicRecordConcurrentHan
 	ok, err := aaa.Client.AdminConcurrentRecord.AdminPutPlayerPublicRecordConcurrentHandlerV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

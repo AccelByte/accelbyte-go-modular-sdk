@@ -63,6 +63,10 @@ func (aaa *PublicPlayerRecordService) BulkGetPlayerPublicRecordHandlerV1Short(in
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *PublicPlayerRecordService) RetrievePlayerRecordsShort(input *public_p
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *PublicPlayerRecordService) GetPlayerRecordsBulkHandlerV1Short(input *
 	ok, err := aaa.Client.PublicPlayerRecord.GetPlayerRecordsBulkHandlerV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +195,10 @@ func (aaa *PublicPlayerRecordService) GetOtherPlayerPublicRecordKeyHandlerV1Shor
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +227,10 @@ func (aaa *PublicPlayerRecordService) GetOtherPlayerPublicRecordHandlerV1Short(i
 	ok, err := aaa.Client.PublicPlayerRecord.GetOtherPlayerPublicRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +263,10 @@ func (aaa *PublicPlayerRecordService) GetPlayerRecordHandlerV1Short(input *publi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -273,6 +297,10 @@ func (aaa *PublicPlayerRecordService) PutPlayerRecordHandlerV1Short(input *publi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -301,6 +329,10 @@ func (aaa *PublicPlayerRecordService) PostPlayerRecordHandlerV1Short(input *publ
 	created, err := aaa.Client.PublicPlayerRecord.PostPlayerRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -363,6 +395,10 @@ func (aaa *PublicPlayerRecordService) GetPlayerPublicRecordHandlerV1Short(input 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -393,6 +429,10 @@ func (aaa *PublicPlayerRecordService) PutPlayerPublicRecordHandlerV1Short(input 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -421,6 +461,10 @@ func (aaa *PublicPlayerRecordService) PostPlayerPublicRecordHandlerV1Short(input
 	created, err := aaa.Client.PublicPlayerRecord.PostPlayerPublicRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

@@ -36,7 +36,7 @@ func (aaa *PolicyVersionsService) GetAuthSession() auth.Session {
 	}
 }
 
-func (aaa *PolicyVersionsService) UpdatePolicyVersionShort(input *policy_versions.UpdatePolicyVersionParams) (*policy_versions.UpdatePolicyVersionResponse, error) {
+func (aaa *PolicyVersionsService) OldUpdatePolicyVersionShort(input *policy_versions.OldUpdatePolicyVersionParams) (*policy_versions.OldUpdatePolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -58,15 +58,19 @@ func (aaa *PolicyVersionsService) UpdatePolicyVersionShort(input *policy_version
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.PolicyVersions.UpdatePolicyVersionShort(input, authInfoWriter)
+	ok, err := aaa.Client.PolicyVersions.OldUpdatePolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
 }
 
-func (aaa *PolicyVersionsService) PublishPolicyVersionShort(input *policy_versions.PublishPolicyVersionParams) error {
+func (aaa *PolicyVersionsService) OldPublishPolicyVersionShort(input *policy_versions.OldPublishPolicyVersionParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -88,7 +92,7 @@ func (aaa *PolicyVersionsService) PublishPolicyVersionShort(input *policy_versio
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	_, err := aaa.Client.PolicyVersions.PublishPolicyVersionShort(input, authInfoWriter)
+	_, err := aaa.Client.PolicyVersions.OldPublishPolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return err
 	}
@@ -96,7 +100,7 @@ func (aaa *PolicyVersionsService) PublishPolicyVersionShort(input *policy_versio
 	return nil
 }
 
-func (aaa *PolicyVersionsService) RetrieveSinglePolicyVersionShort(input *policy_versions.RetrieveSinglePolicyVersionParams) (*policy_versions.RetrieveSinglePolicyVersionResponse, error) {
+func (aaa *PolicyVersionsService) OldRetrieveSinglePolicyVersionShort(input *policy_versions.OldRetrieveSinglePolicyVersionParams) (*policy_versions.OldRetrieveSinglePolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -118,15 +122,19 @@ func (aaa *PolicyVersionsService) RetrieveSinglePolicyVersionShort(input *policy
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.PolicyVersions.RetrieveSinglePolicyVersionShort(input, authInfoWriter)
+	ok, err := aaa.Client.PolicyVersions.OldRetrieveSinglePolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
 }
 
-func (aaa *PolicyVersionsService) CreatePolicyVersionShort(input *policy_versions.CreatePolicyVersionParams) (*policy_versions.CreatePolicyVersionResponse, error) {
+func (aaa *PolicyVersionsService) OldCreatePolicyVersionShort(input *policy_versions.OldCreatePolicyVersionParams) (*policy_versions.OldCreatePolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -148,9 +156,13 @@ func (aaa *PolicyVersionsService) CreatePolicyVersionShort(input *policy_version
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	created, err := aaa.Client.PolicyVersions.CreatePolicyVersionShort(input, authInfoWriter)
+	created, err := aaa.Client.PolicyVersions.OldCreatePolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

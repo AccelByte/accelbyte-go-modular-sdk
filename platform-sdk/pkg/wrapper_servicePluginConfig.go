@@ -63,6 +63,10 @@ func (aaa *ServicePluginConfigService) GetLootBoxPluginConfigShort(input *servic
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *ServicePluginConfigService) UpdateLootBoxPluginConfigShort(input *ser
 	ok, err := aaa.Client.ServicePluginConfig.UpdateLootBoxPluginConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -153,6 +161,10 @@ func (aaa *ServicePluginConfigService) UplodLootBoxPluginConfigCertShort(input *
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +193,10 @@ func (aaa *ServicePluginConfigService) GetLootBoxGrpcInfoShort(input *service_pl
 	ok, err := aaa.Client.ServicePluginConfig.GetLootBoxGrpcInfoShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +229,10 @@ func (aaa *ServicePluginConfigService) GetSectionPluginConfigShort(input *servic
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *ServicePluginConfigService) UpdateSectionPluginConfigShort(input *ser
 	ok, err := aaa.Client.ServicePluginConfig.UpdateSectionPluginConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +327,10 @@ func (aaa *ServicePluginConfigService) UploadSectionPluginConfigCertShort(input 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -333,6 +361,10 @@ func (aaa *ServicePluginConfigService) GetServicePluginConfigShort(input *servic
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -361,6 +393,10 @@ func (aaa *ServicePluginConfigService) UpdateServicePluginConfigShort(input *ser
 	ok, err := aaa.Client.ServicePluginConfig.UpdateServicePluginConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -423,6 +459,10 @@ func (aaa *ServicePluginConfigService) GetRevocationPluginConfigShort(input *ser
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -451,6 +491,10 @@ func (aaa *ServicePluginConfigService) UpdateRevocationPluginConfigShort(input *
 	ok, err := aaa.Client.ServicePluginConfig.UpdateRevocationPluginConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -511,6 +555,10 @@ func (aaa *ServicePluginConfigService) UploadRevocationPluginConfigCertShort(inp
 	ok, err := aaa.Client.ServicePluginConfig.UploadRevocationPluginConfigCertShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

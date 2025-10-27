@@ -63,6 +63,10 @@ func (aaa *MiscService) GetCountriesShort(input *misc.GetCountriesParams) (*misc
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *MiscService) GetCountryGroupsShort(input *misc.GetCountryGroupsParams
 	ok, err := aaa.Client.Misc.GetCountryGroupsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *MiscService) AddCountryGroupShort(input *misc.AddCountryGroupParams) 
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *MiscService) UpdateCountryGroupShort(input *misc.UpdateCountryGroupPa
 	ok, err := aaa.Client.Misc.UpdateCountryGroupShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +229,10 @@ func (aaa *MiscService) GetLanguagesShort(input *misc.GetLanguagesParams) (*misc
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -243,6 +263,10 @@ func (aaa *MiscService) GetTimeZonesShort(input *misc.GetTimeZonesParams) (*misc
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -264,6 +288,10 @@ func (aaa *MiscService) PublicGetTimeShort(input *misc.PublicGetTimeParams) (*mi
 	ok, err := aaa.Client.Misc.PublicGetTimeShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -289,6 +317,10 @@ func (aaa *MiscService) PublicGetCountriesShort(input *misc.PublicGetCountriesPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -312,6 +344,10 @@ func (aaa *MiscService) PublicGetLanguagesShort(input *misc.PublicGetLanguagesPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -333,6 +369,10 @@ func (aaa *MiscService) PublicGetTimeZonesShort(input *misc.PublicGetTimeZonesPa
 	ok, err := aaa.Client.Misc.PublicGetTimeZonesShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

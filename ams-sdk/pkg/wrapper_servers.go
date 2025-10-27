@@ -63,6 +63,10 @@ func (aaa *ServersService) FleetServerHistoryShort(input *servers.FleetServerHis
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *ServersService) FleetServerInfoShort(input *servers.FleetServerInfoPa
 	ok, err := aaa.Client.Servers.FleetServerInfoShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *ServersService) FleetServerConnectionInfoShort(input *servers.FleetSe
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *ServersService) ServerHistoryShort(input *servers.ServerHistoryParams
 	ok, err := aaa.Client.Servers.ServerHistoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

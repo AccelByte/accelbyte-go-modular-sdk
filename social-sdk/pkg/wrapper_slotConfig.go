@@ -63,6 +63,10 @@ func (aaa *SlotConfigService) GetNamespaceSlotConfigShort(input *slot_config.Get
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *SlotConfigService) UpdateNamespaceSlotConfigShort(input *slot_config.
 	ok, err := aaa.Client.SlotConfig.UpdateNamespaceSlotConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -153,6 +161,10 @@ func (aaa *SlotConfigService) GetUserSlotConfigShort(input *slot_config.GetUserS
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +193,10 @@ func (aaa *SlotConfigService) UpdateUserSlotConfigShort(input *slot_config.Updat
 	ok, err := aaa.Client.SlotConfig.UpdateUserSlotConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

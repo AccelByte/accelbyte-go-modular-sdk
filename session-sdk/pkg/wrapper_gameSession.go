@@ -63,6 +63,10 @@ func (aaa *GameSessionService) AdminQueryGameSessionsShort(input *game_session.A
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *GameSessionService) AdminQueryGameSessionsByAttributesShort(input *ga
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *GameSessionService) AdminDeleteBulkGameSessionsShort(input *game_sess
 	ok, err := aaa.Client.GameSession.AdminDeleteBulkGameSessionsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +255,10 @@ func (aaa *GameSessionService) AdminUpdateGameSessionMemberShort(input *game_ses
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +287,10 @@ func (aaa *GameSessionService) CreateGameSessionShort(input *game_session.Create
 	created, err := aaa.Client.GameSession.CreateGameSessionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -303,6 +323,10 @@ func (aaa *GameSessionService) PublicQueryGameSessionsByAttributesShort(input *g
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +355,10 @@ func (aaa *GameSessionService) PublicSessionJoinCodeShort(input *game_session.Pu
 	ok, err := aaa.Client.GameSession.PublicSessionJoinCodeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +391,10 @@ func (aaa *GameSessionService) GetGameSessionByPodNameShort(input *game_session.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -393,6 +425,10 @@ func (aaa *GameSessionService) GetGameSessionShort(input *game_session.GetGameSe
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -421,6 +457,10 @@ func (aaa *GameSessionService) UpdateGameSessionShort(input *game_session.Update
 	ok, err := aaa.Client.GameSession.UpdateGameSessionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -483,6 +523,10 @@ func (aaa *GameSessionService) PatchUpdateGameSessionShort(input *game_session.P
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -513,6 +557,10 @@ func (aaa *GameSessionService) UpdateGameSessionBackfillTicketIDShort(input *gam
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -541,6 +589,10 @@ func (aaa *GameSessionService) GameSessionGenerateCodeShort(input *game_session.
 	ok, err := aaa.Client.GameSession.GameSessionGenerateCodeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -633,6 +685,10 @@ func (aaa *GameSessionService) JoinGameSessionShort(input *game_session.JoinGame
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -661,6 +717,10 @@ func (aaa *GameSessionService) PublicPromoteGameSessionLeaderShort(input *game_s
 	ok, err := aaa.Client.GameSession.PublicPromoteGameSessionLeaderShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -783,6 +843,10 @@ func (aaa *GameSessionService) GetSessionServerSecretShort(input *game_session.G
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -811,6 +875,10 @@ func (aaa *GameSessionService) AppendTeamGameSessionShort(input *game_session.Ap
 	ok, err := aaa.Client.GameSession.AppendTeamGameSessionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -871,6 +939,10 @@ func (aaa *GameSessionService) PublicQueryMyGameSessionsShort(input *game_sessio
 	ok, err := aaa.Client.GameSession.PublicQueryMyGameSessionsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

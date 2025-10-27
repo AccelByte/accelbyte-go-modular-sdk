@@ -63,6 +63,10 @@ func (aaa *AMSQoSService) QoSRegionsGetShort(input *a_m_s_qo_s.QoSRegionsGetPara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 

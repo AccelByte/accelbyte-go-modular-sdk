@@ -63,6 +63,10 @@ func (aaa *AdminContentService) AdminUploadContentDirectShort(input *admin_conte
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AdminContentService) AdminUploadContentS3Short(input *admin_content.A
 	created, err := aaa.Client.AdminContent.AdminUploadContentS3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *AdminContentService) SingleAdminUpdateContentS3Short(input *admin_con
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +165,10 @@ func (aaa *AdminContentService) AdminSearchChannelSpecificContentShort(input *ad
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +197,10 @@ func (aaa *AdminContentService) SingleAdminUpdateContentDirectShort(input *admin
 	ok, err := aaa.Client.AdminContent.SingleAdminUpdateContentDirectShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +263,10 @@ func (aaa *AdminContentService) SingleAdminGetContentShort(input *admin_content.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +295,10 @@ func (aaa *AdminContentService) AdminGetContentBulkShort(input *admin_content.Ad
 	ok, err := aaa.Client.AdminContent.AdminGetContentBulkShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +331,10 @@ func (aaa *AdminContentService) AdminSearchContentShort(input *admin_content.Adm
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +363,10 @@ func (aaa *AdminContentService) AdminGetContentBulkByShareCodesShort(input *admi
 	ok, err := aaa.Client.AdminContent.AdminGetContentBulkByShareCodesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +399,10 @@ func (aaa *AdminContentService) AdminGetUserContentByShareCodeShort(input *admin
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -391,6 +431,10 @@ func (aaa *AdminContentService) AdminGetSpecificContentShort(input *admin_conten
 	ok, err := aaa.Client.AdminContent.AdminGetSpecificContentShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -423,6 +467,10 @@ func (aaa *AdminContentService) AdminDownloadContentPreviewShort(input *admin_co
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -451,6 +499,10 @@ func (aaa *AdminContentService) RollbackContentVersionShort(input *admin_content
 	ok, err := aaa.Client.AdminContent.RollbackContentVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -483,6 +535,10 @@ func (aaa *AdminContentService) AdminUpdateScreenshotsShort(input *admin_content
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -511,6 +567,10 @@ func (aaa *AdminContentService) AdminUploadContentScreenshotShort(input *admin_c
 	created, err := aaa.Client.AdminContent.AdminUploadContentScreenshotShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -573,6 +633,10 @@ func (aaa *AdminContentService) ListContentVersionsShort(input *admin_content.Li
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -603,6 +667,10 @@ func (aaa *AdminContentService) AdminUpdateContentS3ByShareCodeShort(input *admi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -631,6 +699,10 @@ func (aaa *AdminContentService) AdminUpdateContentS3Short(input *admin_content.A
 	ok, err := aaa.Client.AdminContent.AdminUpdateContentS3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -693,6 +765,10 @@ func (aaa *AdminContentService) AdminUpdateContentDirectShort(input *admin_conte
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -753,6 +829,10 @@ func (aaa *AdminContentService) AdminGetContentShort(input *admin_content.AdminG
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -781,6 +861,10 @@ func (aaa *AdminContentService) AdminHideUserContentShort(input *admin_content.A
 	ok, err := aaa.Client.AdminContent.AdminHideUserContentShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

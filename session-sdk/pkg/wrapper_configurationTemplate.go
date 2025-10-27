@@ -63,6 +63,10 @@ func (aaa *ConfigurationTemplateService) AdminGetConfigurationAlertV1Short(input
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *ConfigurationTemplateService) AdminUpdateConfigurationAlertV1Short(in
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *ConfigurationTemplateService) AdminCreateConfigurationAlertV1Short(in
 	created, err := aaa.Client.ConfigurationTemplate.AdminCreateConfigurationAlertV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -183,6 +195,10 @@ func (aaa *ConfigurationTemplateService) AdminCreateConfigurationTemplateV1Short
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -211,6 +227,10 @@ func (aaa *ConfigurationTemplateService) AdminGetAllConfigurationTemplatesV1Shor
 	ok, err := aaa.Client.ConfigurationTemplate.AdminGetAllConfigurationTemplatesV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +263,10 @@ func (aaa *ConfigurationTemplateService) AdminGetConfigurationTemplateV1Short(in
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +295,10 @@ func (aaa *ConfigurationTemplateService) AdminUpdateConfigurationTemplateV1Short
 	ok, err := aaa.Client.ConfigurationTemplate.AdminUpdateConfigurationTemplateV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -333,6 +361,10 @@ func (aaa *ConfigurationTemplateService) AdminGetDSMCConfigurationShort(input *c
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -361,6 +393,10 @@ func (aaa *ConfigurationTemplateService) AdminSyncDSMCConfigurationShort(input *
 	ok, err := aaa.Client.ConfigurationTemplate.AdminSyncDSMCConfigurationShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

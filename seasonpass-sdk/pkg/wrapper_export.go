@@ -65,5 +65,9 @@ func (aaa *ExportService) ExportSeasonShort(input *export.ExportSeasonParams, wr
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }

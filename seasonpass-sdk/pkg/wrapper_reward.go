@@ -63,6 +63,10 @@ func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) (*
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *RewardService) GetRewardShort(input *reward.GetRewardParams) (*reward
 	ok, err := aaa.Client.Reward.GetRewardShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +195,10 @@ func (aaa *RewardService) UpdateRewardShort(input *reward.UpdateRewardParams) (*
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -213,6 +229,10 @@ func (aaa *RewardService) PublicClaimUserRewardShort(input *reward.PublicClaimUs
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *RewardService) PublicBulkClaimUserRewardsShort(input *reward.PublicBu
 	ok, err := aaa.Client.Reward.PublicBulkClaimUserRewardsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

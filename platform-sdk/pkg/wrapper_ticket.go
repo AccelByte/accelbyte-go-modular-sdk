@@ -63,6 +63,10 @@ func (aaa *TicketService) GetTicketDynamicShort(input *ticket.GetTicketDynamicPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -123,6 +127,10 @@ func (aaa *TicketService) GetTicketBoothIDShort(input *ticket.GetTicketBoothIDPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +161,10 @@ func (aaa *TicketService) IncreaseTicketSaleShort(input *ticket.IncreaseTicketSa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +193,10 @@ func (aaa *TicketService) AcquireUserTicketShort(input *ticket.AcquireUserTicket
 	ok, err := aaa.Client.Ticket.AcquireUserTicketShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

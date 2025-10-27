@@ -63,6 +63,10 @@ func (aaa *AMSInfoService) InfoRegionsShort(input *a_m_s_info.InfoRegionsParams)
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AMSInfoService) InfoSupportedInstancesShort(input *a_m_s_info.InfoSup
 	ok, err := aaa.Client.AmsInfo.InfoSupportedInstancesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

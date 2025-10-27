@@ -63,6 +63,10 @@ func (aaa *PluginConfigService) GetPluginConfigShort(input *plugin_config.GetPlu
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PluginConfigService) CreatePluginConfigShort(input *plugin_config.Cre
 	created, err := aaa.Client.PluginConfig.CreatePluginConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -151,6 +159,10 @@ func (aaa *PluginConfigService) UpdatePluginConfigShort(input *plugin_config.Upd
 	ok, err := aaa.Client.PluginConfig.UpdatePluginConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

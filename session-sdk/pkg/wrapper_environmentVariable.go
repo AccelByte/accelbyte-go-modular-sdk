@@ -63,5 +63,9 @@ func (aaa *EnvironmentVariableService) AdminListEnvironmentVariablesShort(input 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }

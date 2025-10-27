@@ -63,6 +63,10 @@ func (aaa *XRayService) CreateXrayTicketObservabilityShort(input *x_ray.CreateXr
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *XRayService) CreateXrayBulkTicketObservabilityShort(input *x_ray.Crea
 	ok, err := aaa.Client.XRay.CreateXrayBulkTicketObservabilityShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

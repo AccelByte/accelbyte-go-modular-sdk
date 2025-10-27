@@ -63,6 +63,10 @@ func (aaa *GroupService) GetGroupListAdminV1Short(input *group.GetGroupListAdmin
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *GroupService) GetSingleGroupAdminV1Short(input *group.GetSingleGroupA
 	ok, err := aaa.Client.Group.GetSingleGroupAdminV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -153,6 +161,10 @@ func (aaa *GroupService) GetGroupListPublicV1Short(input *group.GetGroupListPubl
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +193,10 @@ func (aaa *GroupService) CreateNewGroupPublicV1Short(input *group.CreateNewGroup
 	created, err := aaa.Client.Group.CreateNewGroupPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -213,6 +229,10 @@ func (aaa *GroupService) GetSingleGroupPublicV1Short(input *group.GetSingleGroup
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *GroupService) UpdateSingleGroupV1Short(input *group.UpdateSingleGroup
 	ok, err := aaa.Client.Group.UpdateSingleGroupV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +327,10 @@ func (aaa *GroupService) UpdatePatchSingleGroupPublicV1Short(input *group.Update
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +359,10 @@ func (aaa *GroupService) UpdateGroupCustomAttributesPublicV1Short(input *group.U
 	ok, err := aaa.Client.Group.UpdateGroupCustomAttributesPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +395,10 @@ func (aaa *GroupService) UpdateGroupCustomRulePublicV1Short(input *group.UpdateG
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -391,6 +427,10 @@ func (aaa *GroupService) UpdateGroupPredefinedRulePublicV1Short(input *group.Upd
 	ok, err := aaa.Client.Group.UpdateGroupPredefinedRulePublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -453,6 +493,10 @@ func (aaa *GroupService) GetListGroupByIDsAdminV2Short(input *group.GetListGroup
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -481,6 +525,10 @@ func (aaa *GroupService) CreateNewGroupPublicV2Short(input *group.CreateNewGroup
 	created, err := aaa.Client.Group.CreateNewGroupPublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -513,6 +561,10 @@ func (aaa *GroupService) GetListGroupByIDsV2Short(input *group.GetListGroupByIDs
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -541,6 +593,10 @@ func (aaa *GroupService) UpdatePutSingleGroupPublicV2Short(input *group.UpdatePu
 	ok, err := aaa.Client.Group.UpdatePutSingleGroupPublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -603,6 +659,10 @@ func (aaa *GroupService) UpdatePatchSingleGroupPublicV2Short(input *group.Update
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -631,6 +691,10 @@ func (aaa *GroupService) UpdateGroupCustomAttributesPublicV2Short(input *group.U
 	ok, err := aaa.Client.Group.UpdateGroupCustomAttributesPublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -663,6 +727,10 @@ func (aaa *GroupService) UpdateGroupCustomRulePublicV2Short(input *group.UpdateG
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -691,6 +759,10 @@ func (aaa *GroupService) UpdateGroupPredefinedRulePublicV2Short(input *group.Upd
 	ok, err := aaa.Client.Group.UpdateGroupPredefinedRulePublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

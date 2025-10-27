@@ -63,6 +63,10 @@ func (aaa *PluginsService) AdminGetAssignmentPluginShort(input *plugins.AdminGet
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *PluginsService) AdminUpdateAssignmentPluginShort(input *plugins.Admin
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *PluginsService) AdminCreateAssignmentPluginShort(input *plugins.Admin
 	created, err := aaa.Client.Plugins.AdminCreateAssignmentPluginShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

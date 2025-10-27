@@ -63,5 +63,9 @@ func (aaa *PublicTagService) GetTagShort(input *public_tag.GetTagParams) (*publi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }

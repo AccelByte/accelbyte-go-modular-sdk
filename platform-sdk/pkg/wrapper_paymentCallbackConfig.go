@@ -63,6 +63,10 @@ func (aaa *PaymentCallbackConfigService) GetPaymentCallbackConfigShort(input *pa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PaymentCallbackConfigService) UpdatePaymentCallbackConfigShort(input 
 	ok, err := aaa.Client.PaymentCallbackConfig.UpdatePaymentCallbackConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

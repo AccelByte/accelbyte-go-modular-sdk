@@ -63,6 +63,10 @@ func (aaa *LobbyOperationsService) AdminUpdatePartyAttributesV1Short(input *lobb
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +125,10 @@ func (aaa *LobbyOperationsService) PublicGetMessagesShort(input *lobby_operation
 	ok, err := aaa.Client.LobbyOperations.PublicGetMessagesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

@@ -63,6 +63,10 @@ func (aaa *AdminInventoriesService) AdminListInventoriesShort(input *admin_inven
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AdminInventoriesService) AdminCreateInventoryShort(input *admin_inven
 	created, err := aaa.Client.AdminInventories.AdminCreateInventoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *AdminInventoriesService) AdminGetInventoryShort(input *admin_inventor
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *AdminInventoriesService) AdminUpdateInventoryShort(input *admin_inven
 	ok, err := aaa.Client.AdminInventories.AdminUpdateInventoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -211,6 +227,10 @@ func (aaa *AdminInventoriesService) AdminUpdateUserInventoriesByInventoryCodeSho
 	ok, err := aaa.Client.AdminInventories.AdminUpdateUserInventoriesByInventoryCodeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

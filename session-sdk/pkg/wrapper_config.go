@@ -63,6 +63,10 @@ func (aaa *ConfigService) AdminGetLogConfigShort(input *config.AdminGetLogConfig
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *ConfigService) AdminPatchUpdateLogConfigShort(input *config.AdminPatc
 	ok, err := aaa.Client.Config.AdminPatchUpdateLogConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

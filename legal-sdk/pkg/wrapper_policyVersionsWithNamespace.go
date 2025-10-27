@@ -66,7 +66,7 @@ func (aaa *PolicyVersionsWithNamespaceService) DeletePolicyVersionShort(input *p
 	return nil
 }
 
-func (aaa *PolicyVersionsWithNamespaceService) UpdatePolicyVersion1Short(input *policy_versions_with_namespace.UpdatePolicyVersion1Params) (*policy_versions_with_namespace.UpdatePolicyVersion1Response, error) {
+func (aaa *PolicyVersionsWithNamespaceService) UpdatePolicyVersionShort(input *policy_versions_with_namespace.UpdatePolicyVersionParams) (*policy_versions_with_namespace.UpdatePolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -88,15 +88,19 @@ func (aaa *PolicyVersionsWithNamespaceService) UpdatePolicyVersion1Short(input *
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.PolicyVersionsWithNamespace.UpdatePolicyVersion1Short(input, authInfoWriter)
+	ok, err := aaa.Client.PolicyVersionsWithNamespace.UpdatePolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
 }
 
-func (aaa *PolicyVersionsWithNamespaceService) PublishPolicyVersion1Short(input *policy_versions_with_namespace.PublishPolicyVersion1Params) error {
+func (aaa *PolicyVersionsWithNamespaceService) PublishPolicyVersionShort(input *policy_versions_with_namespace.PublishPolicyVersionParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -118,7 +122,7 @@ func (aaa *PolicyVersionsWithNamespaceService) PublishPolicyVersion1Short(input 
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	_, err := aaa.Client.PolicyVersionsWithNamespace.PublishPolicyVersion1Short(input, authInfoWriter)
+	_, err := aaa.Client.PolicyVersionsWithNamespace.PublishPolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return err
 	}
@@ -156,7 +160,7 @@ func (aaa *PolicyVersionsWithNamespaceService) UnpublishPolicyVersionShort(input
 	return nil
 }
 
-func (aaa *PolicyVersionsWithNamespaceService) RetrieveSinglePolicyVersion1Short(input *policy_versions_with_namespace.RetrieveSinglePolicyVersion1Params) (*policy_versions_with_namespace.RetrieveSinglePolicyVersion1Response, error) {
+func (aaa *PolicyVersionsWithNamespaceService) RetrieveSinglePolicyVersionShort(input *policy_versions_with_namespace.RetrieveSinglePolicyVersionParams) (*policy_versions_with_namespace.RetrieveSinglePolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -178,15 +182,19 @@ func (aaa *PolicyVersionsWithNamespaceService) RetrieveSinglePolicyVersion1Short
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.PolicyVersionsWithNamespace.RetrieveSinglePolicyVersion1Short(input, authInfoWriter)
+	ok, err := aaa.Client.PolicyVersionsWithNamespace.RetrieveSinglePolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
 }
 
-func (aaa *PolicyVersionsWithNamespaceService) CreatePolicyVersion1Short(input *policy_versions_with_namespace.CreatePolicyVersion1Params) (*policy_versions_with_namespace.CreatePolicyVersion1Response, error) {
+func (aaa *PolicyVersionsWithNamespaceService) CreatePolicyVersionShort(input *policy_versions_with_namespace.CreatePolicyVersionParams) (*policy_versions_with_namespace.CreatePolicyVersionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -208,9 +216,13 @@ func (aaa *PolicyVersionsWithNamespaceService) CreatePolicyVersion1Short(input *
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	created, err := aaa.Client.PolicyVersionsWithNamespace.CreatePolicyVersion1Short(input, authInfoWriter)
+	created, err := aaa.Client.PolicyVersionsWithNamespace.CreatePolicyVersionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

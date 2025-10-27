@@ -63,6 +63,10 @@ func (aaa *PaymentDedicatedService) CreatePaymentOrderByDedicatedShort(input *pa
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *PaymentDedicatedService) RefundPaymentOrderByDedicatedShort(input *pa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *PaymentDedicatedService) SyncPaymentOrdersShort(input *payment_dedica
 	ok, err := aaa.Client.PaymentDedicated.SyncPaymentOrdersShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

@@ -63,5 +63,9 @@ func (aaa *ResourcesLimitsService) GetResourcesLimitsShort(input *resources_limi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }

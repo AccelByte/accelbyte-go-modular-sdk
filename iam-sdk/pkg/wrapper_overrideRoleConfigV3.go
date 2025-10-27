@@ -63,6 +63,10 @@ func (aaa *OverrideRoleConfigv3Service) AdminGetRoleOverrideConfigV3Short(input 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *OverrideRoleConfigv3Service) AdminUpdateRoleOverrideConfigV3Short(inp
 	ok, err := aaa.Client.OverrideRoleConfigV3.AdminUpdateRoleOverrideConfigV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *OverrideRoleConfigv3Service) AdminGetRoleSourceV3Short(input *overrid
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -153,6 +165,10 @@ func (aaa *OverrideRoleConfigv3Service) AdminChangeRoleOverrideConfigStatusV3Sho
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +197,10 @@ func (aaa *OverrideRoleConfigv3Service) AdminGetRoleNamespacePermissionV3Short(i
 	ok, err := aaa.Client.OverrideRoleConfigV3.AdminGetRoleNamespacePermissionV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

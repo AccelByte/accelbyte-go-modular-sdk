@@ -63,5 +63,9 @@ func (aaa *PublicTagsService) PublicListTagsShort(input *public_tags.PublicListT
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }

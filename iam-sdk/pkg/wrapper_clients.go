@@ -63,6 +63,10 @@ func (aaa *ClientsService) GetClientsShort(input *clients.GetClientsParams) (*cl
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *ClientsService) CreateClientShort(input *clients.CreateClientParams) 
 	created, err := aaa.Client.Clients.CreateClientShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *ClientsService) GetClientShort(input *clients.GetClientParams) (*clie
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *ClientsService) UpdateClientShort(input *clients.UpdateClientParams) 
 	ok, err := aaa.Client.Clients.UpdateClientShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -333,6 +349,10 @@ func (aaa *ClientsService) GetClientsbyNamespaceShort(input *clients.GetClientsb
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -361,6 +381,10 @@ func (aaa *ClientsService) CreateClientByNamespaceShort(input *clients.CreateCli
 	created, err := aaa.Client.Clients.CreateClientByNamespaceShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -423,6 +447,10 @@ func (aaa *ClientsService) AdminGetClientsByNamespaceV3Short(input *clients.Admi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -483,6 +511,10 @@ func (aaa *ClientsService) AdminCreateClientV3Short(input *clients.AdminCreateCl
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -511,6 +543,10 @@ func (aaa *ClientsService) AdminGetClientsbyNamespacebyIDV3Short(input *clients.
 	ok, err := aaa.Client.Clients.AdminGetClientsbyNamespacebyIDV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -571,6 +607,10 @@ func (aaa *ClientsService) AdminUpdateClientV3Short(input *clients.AdminUpdateCl
 	ok, err := aaa.Client.Clients.AdminUpdateClientV3Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

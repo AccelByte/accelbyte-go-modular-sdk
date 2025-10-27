@@ -63,6 +63,10 @@ func (aaa *ConfigurationService) GetAdminEmailConfigurationShort(input *configur
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -183,6 +187,10 @@ func (aaa *ConfigurationService) AdminGetServicesConfigurationShort(input *confi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +219,10 @@ func (aaa *ConfigurationService) AdminUpdateServicesConfigurationShort(input *co
 	ok, err := aaa.Client.Configuration.AdminUpdateServicesConfigurationShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -273,6 +285,10 @@ func (aaa *ConfigurationService) AdminGetPlatformAccountClosureServicesConfigura
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -301,6 +317,10 @@ func (aaa *ConfigurationService) AdminUpdatePlatformAccountClosureServicesConfig
 	ok, err := aaa.Client.Configuration.AdminUpdatePlatformAccountClosureServicesConfigurationShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

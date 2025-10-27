@@ -63,6 +63,10 @@ func (aaa *AdminTagService) AdminGetTagShort(input *admin_tag.AdminGetTagParams)
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *AdminTagService) AdminCreateTagShort(input *admin_tag.AdminCreateTagP
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *AdminTagService) AdminUpdateTagShort(input *admin_tag.AdminUpdateTagP
 	ok, err := aaa.Client.AdminTag.AdminUpdateTagShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

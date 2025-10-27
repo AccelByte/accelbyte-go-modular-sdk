@@ -63,6 +63,10 @@ func (aaa *AdminGameBinaryRecordService) AdminListGameBinaryRecordsV1Short(input
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AdminGameBinaryRecordService) AdminPostGameBinaryRecordV1Short(input 
 	created, err := aaa.Client.AdminGameBinaryRecord.AdminPostGameBinaryRecordV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *AdminGameBinaryRecordService) AdminGetGameBinaryRecordV1Short(input *
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *AdminGameBinaryRecordService) AdminPutGameBinaryRecordV1Short(input *
 	ok, err := aaa.Client.AdminGameBinaryRecord.AdminPutGameBinaryRecordV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +229,10 @@ func (aaa *AdminGameBinaryRecordService) AdminPutGameBinaryRecorMetadataV1Short(
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *AdminGameBinaryRecordService) AdminPostGameBinaryPresignedURLV1Short(
 	created, err := aaa.Client.AdminGameBinaryRecord.AdminPostGameBinaryPresignedURLV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

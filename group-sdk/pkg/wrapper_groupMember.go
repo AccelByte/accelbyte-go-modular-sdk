@@ -63,6 +63,10 @@ func (aaa *GroupMemberService) GetGroupMembersListAdminV1Short(input *group_memb
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *GroupMemberService) AcceptGroupInvitationPublicV1Short(input *group_m
 	ok, err := aaa.Client.GroupMember.AcceptGroupInvitationPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *GroupMemberService) RejectGroupInvitationPublicV1Short(input *group_m
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *GroupMemberService) JoinGroupV1Short(input *group_member.JoinGroupV1P
 	created, err := aaa.Client.GroupMember.JoinGroupV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -183,6 +199,10 @@ func (aaa *GroupMemberService) CancelGroupJoinRequestV1Short(input *group_member
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *GroupMemberService) GetGroupMembersListPublicV1Short(input *group_mem
 	ok, err := aaa.Client.GroupMember.GetGroupMembersListPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *GroupMemberService) LeaveGroupPublicV1Short(input *group_member.Leave
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +299,10 @@ func (aaa *GroupMemberService) GetUserGroupInformationPublicV1Short(input *group
 	ok, err := aaa.Client.GroupMember.GetUserGroupInformationPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +335,10 @@ func (aaa *GroupMemberService) InviteGroupPublicV1Short(input *group_member.Invi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +367,10 @@ func (aaa *GroupMemberService) AcceptGroupJoinRequestPublicV1Short(input *group_
 	ok, err := aaa.Client.GroupMember.AcceptGroupJoinRequestPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +403,10 @@ func (aaa *GroupMemberService) RejectGroupJoinRequestPublicV1Short(input *group_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -391,6 +435,10 @@ func (aaa *GroupMemberService) KickGroupMemberPublicV1Short(input *group_member.
 	ok, err := aaa.Client.GroupMember.KickGroupMemberPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -423,6 +471,10 @@ func (aaa *GroupMemberService) GetUserJoinedGroupInformationPublicV2Short(input 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -451,6 +503,10 @@ func (aaa *GroupMemberService) AdminGetUserGroupStatusInformationV2Short(input *
 	ok, err := aaa.Client.GroupMember.AdminGetUserGroupStatusInformationV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -483,6 +539,10 @@ func (aaa *GroupMemberService) AcceptGroupInvitationPublicV2Short(input *group_m
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -511,6 +571,10 @@ func (aaa *GroupMemberService) RejectGroupInvitationPublicV2Short(input *group_m
 	ok, err := aaa.Client.GroupMember.RejectGroupInvitationPublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -543,6 +607,10 @@ func (aaa *GroupMemberService) JoinGroupV2Short(input *group_member.JoinGroupV2P
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -571,6 +639,10 @@ func (aaa *GroupMemberService) LeaveGroupPublicV2Short(input *group_member.Leave
 	ok, err := aaa.Client.GroupMember.LeaveGroupPublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -603,6 +675,10 @@ func (aaa *GroupMemberService) GetUserGroupInformationPublicV2Short(input *group
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -631,6 +707,10 @@ func (aaa *GroupMemberService) InviteGroupPublicV2Short(input *group_member.Invi
 	ok, err := aaa.Client.GroupMember.InviteGroupPublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -663,6 +743,10 @@ func (aaa *GroupMemberService) CancelInvitationGroupMemberV2Short(input *group_m
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -691,6 +775,10 @@ func (aaa *GroupMemberService) AcceptGroupJoinRequestPublicV2Short(input *group_
 	ok, err := aaa.Client.GroupMember.AcceptGroupJoinRequestPublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -723,6 +811,10 @@ func (aaa *GroupMemberService) RejectGroupJoinRequestPublicV2Short(input *group_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -753,6 +845,10 @@ func (aaa *GroupMemberService) KickGroupMemberPublicV2Short(input *group_member.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -781,6 +877,10 @@ func (aaa *GroupMemberService) GetUserGroupStatusInformationV2Short(input *group
 	ok, err := aaa.Client.GroupMember.GetUserGroupStatusInformationV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

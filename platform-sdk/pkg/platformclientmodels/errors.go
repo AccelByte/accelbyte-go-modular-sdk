@@ -216,6 +216,8 @@ var (
 	Error39149   = ApiError{Code: "39149", Message: "Third Party Subscription Transaction [{id}] not found for user [{userId}] in the namespace [{namespace}]."}
 	Error39150   = ApiError{Code: "39150", Message: "Third Party User Subscription [{id}] not found for user [{userId}] in the namespace [{namespace}].."}
 	Error39151   = ApiError{Code: "39151", Message: "IAP order no [{iapOrderNo}] not found in namespace [{namespace}]."}
+	Error39152   = ApiError{Code: "39152", Message: "Platform [{platform}] - Third-party subscription group [{sku}] not found in namespace [{namespace}]. It may have been deleted."}
+	Error39154   = ApiError{Code: "39154", Message: "Meta Quest Subscription Sku [{sku}] not found in namespace [{namespace}] config, please config this Subscription sku in subscription group."}
 	Error39171   = ApiError{Code: "39171", Message: "The bundle id in namespace [{namespace}] expect [{expected}] but was [{actual}]"}
 	Error39172   = ApiError{Code: "39172", Message: "The order id in namespace [{namespace}] expect [{expected}] but was [{actual}]"}
 	Error39173   = ApiError{Code: "39173", Message: "The purchase status of google play order [{orderId}] in namespace [{namespace}] expect [{expected}] but was [{actual}]"}
@@ -224,6 +226,8 @@ var (
 	Error39183   = ApiError{Code: "39183", Message: "Steam transaction [{orderId}] is still pending or failed, status [{status}], please try it later"}
 	Error39184   = ApiError{Code: "39184", Message: "Steam api exception with error code [{errorCode}] and error message [{message}]"}
 	Error39185   = ApiError{Code: "39185", Message: "This endpoint only works on sync mode [{workSyncMode}], but current steam iap config sync mode is [{currentSyncMode}] under namespace [{namespace}]"}
+	Error39187   = ApiError{Code: "39187", Message: "Duplicated group sku [{sku}] platform [{platform}] in namespace [{namespace}]"}
+	Error39188   = ApiError{Code: "39188", Message: "Third-party subscription group [{sku}] on platform [{platform}] in namespace [{namespace}] is already linked to the user's third-party subscription."}
 	Error39221   = ApiError{Code: "39221", Message: "Invalid Xbox Business Partner Certificate or password: [{message}]"}
 	Error39244   = ApiError{Code: "39244", Message: "Steam config does not exist"}
 	Error39245   = ApiError{Code: "39245", Message: "Steam app id does not exist"}

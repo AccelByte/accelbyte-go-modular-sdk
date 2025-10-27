@@ -63,6 +63,10 @@ func (aaa *GoalConfigurationService) AdminGetGoalsShort(input *goal_configuratio
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *GoalConfigurationService) AdminCreateGoalShort(input *goal_configurat
 	created, err := aaa.Client.GoalConfiguration.AdminCreateGoalShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *GoalConfigurationService) AdminGetGoalShort(input *goal_configuration
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *GoalConfigurationService) AdminUpdateGoalsShort(input *goal_configura
 	ok, err := aaa.Client.GoalConfiguration.AdminUpdateGoalsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

@@ -63,6 +63,10 @@ func (aaa *PaymentService) QueryPaymentNotificationsShort(input *payment.QueryPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PaymentService) QueryPaymentOrdersShort(input *payment.QueryPaymentOr
 	ok, err := aaa.Client.Payment.QueryPaymentOrdersShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *PaymentService) ListExtOrderNoByExtTxIDShort(input *payment.ListExtOr
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *PaymentService) GetPaymentOrderShort(input *payment.GetPaymentOrderPa
 	ok, err := aaa.Client.Payment.GetPaymentOrderShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *PaymentService) ChargePaymentOrderShort(input *payment.ChargePaymentO
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *PaymentService) SimulatePaymentOrderNotificationShort(input *payment.
 	ok, err := aaa.Client.Payment.SimulatePaymentOrderNotificationShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *PaymentService) GetPaymentOrderChargeStatusShort(input *payment.GetPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -273,6 +301,10 @@ func (aaa *PaymentService) CreateUserPaymentOrderShort(input *payment.CreateUser
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -301,6 +333,10 @@ func (aaa *PaymentService) RefundUserPaymentOrderShort(input *payment.RefundUser
 	ok, err := aaa.Client.Payment.RefundUserPaymentOrderShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

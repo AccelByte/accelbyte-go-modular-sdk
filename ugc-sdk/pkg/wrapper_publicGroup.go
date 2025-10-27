@@ -63,6 +63,10 @@ func (aaa *PublicGroupService) GetGroupsShort(input *public_group.GetGroupsParam
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PublicGroupService) CreateGroupShort(input *public_group.CreateGroupP
 	created, err := aaa.Client.PublicGroup.CreateGroupShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *PublicGroupService) GetGroupShort(input *public_group.GetGroupParams)
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *PublicGroupService) UpdateGroupShort(input *public_group.UpdateGroupP
 	ok, err := aaa.Client.PublicGroup.UpdateGroupShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +229,10 @@ func (aaa *PublicGroupService) GetGroupContentShort(input *public_group.GetGroup
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *PublicGroupService) PublicGetGroupContentsV2Short(input *public_group
 	ok, err := aaa.Client.PublicGroup.PublicGetGroupContentsV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

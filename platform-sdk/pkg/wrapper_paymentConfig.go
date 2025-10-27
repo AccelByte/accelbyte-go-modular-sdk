@@ -63,6 +63,10 @@ func (aaa *PaymentConfigService) GetPaymentMerchantConfigShort(input *payment_co
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PaymentConfigService) UpdatePaymentDomainWhitelistConfigShort(input *
 	ok, err := aaa.Client.PaymentConfig.UpdatePaymentDomainWhitelistConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *PaymentConfigService) TestAdyenConfigShort(input *payment_config.Test
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *PaymentConfigService) TestAliPayConfigShort(input *payment_config.Tes
 	ok, err := aaa.Client.PaymentConfig.TestAliPayConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *PaymentConfigService) TestCheckoutConfigShort(input *payment_config.T
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *PaymentConfigService) DebugMatchedPaymentMerchantConfigShort(input *p
 	ok, err := aaa.Client.PaymentConfig.DebugMatchedPaymentMerchantConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *PaymentConfigService) TestNeonPayConfigShort(input *payment_config.Te
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +299,10 @@ func (aaa *PaymentConfigService) TestPayPalConfigShort(input *payment_config.Tes
 	ok, err := aaa.Client.PaymentConfig.TestPayPalConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +335,10 @@ func (aaa *PaymentConfigService) TestStripeConfigShort(input *payment_config.Tes
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +367,10 @@ func (aaa *PaymentConfigService) TestWxPayConfigShort(input *payment_config.Test
 	ok, err := aaa.Client.PaymentConfig.TestWxPayConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +403,10 @@ func (aaa *PaymentConfigService) TestXsollaConfigShort(input *payment_config.Tes
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -391,6 +435,10 @@ func (aaa *PaymentConfigService) GetPaymentMerchantConfig1Short(input *payment_c
 	ok, err := aaa.Client.PaymentConfig.GetPaymentMerchantConfig1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -423,6 +471,10 @@ func (aaa *PaymentConfigService) UpdateAdyenConfigShort(input *payment_config.Up
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -451,6 +503,10 @@ func (aaa *PaymentConfigService) TestAdyenConfigByIDShort(input *payment_config.
 	ok, err := aaa.Client.PaymentConfig.TestAdyenConfigByIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -483,6 +539,10 @@ func (aaa *PaymentConfigService) UpdateAliPayConfigShort(input *payment_config.U
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -511,6 +571,10 @@ func (aaa *PaymentConfigService) TestAliPayConfigByIDShort(input *payment_config
 	ok, err := aaa.Client.PaymentConfig.TestAliPayConfigByIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -543,6 +607,10 @@ func (aaa *PaymentConfigService) UpdateCheckoutConfigShort(input *payment_config
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -571,6 +639,10 @@ func (aaa *PaymentConfigService) TestCheckoutConfigByIDShort(input *payment_conf
 	ok, err := aaa.Client.PaymentConfig.TestCheckoutConfigByIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -603,6 +675,10 @@ func (aaa *PaymentConfigService) UpdateNeonPayConfigShort(input *payment_config.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -631,6 +707,10 @@ func (aaa *PaymentConfigService) TestNeonPayConfigByIDShort(input *payment_confi
 	ok, err := aaa.Client.PaymentConfig.TestNeonPayConfigByIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -663,6 +743,10 @@ func (aaa *PaymentConfigService) UpdatePayPalConfigShort(input *payment_config.U
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -691,6 +775,10 @@ func (aaa *PaymentConfigService) TestPayPalConfigByIDShort(input *payment_config
 	ok, err := aaa.Client.PaymentConfig.TestPayPalConfigByIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -723,6 +811,10 @@ func (aaa *PaymentConfigService) UpdateStripeConfigShort(input *payment_config.U
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -751,6 +843,10 @@ func (aaa *PaymentConfigService) TestStripeConfigByIDShort(input *payment_config
 	ok, err := aaa.Client.PaymentConfig.TestStripeConfigByIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -783,6 +879,10 @@ func (aaa *PaymentConfigService) UpdateWxPayConfigShort(input *payment_config.Up
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -811,6 +911,10 @@ func (aaa *PaymentConfigService) UpdateWxPayConfigCertShort(input *payment_confi
 	ok, err := aaa.Client.PaymentConfig.UpdateWxPayConfigCertShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -843,6 +947,10 @@ func (aaa *PaymentConfigService) TestWxPayConfigByIDShort(input *payment_config.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -871,6 +979,10 @@ func (aaa *PaymentConfigService) UpdateXsollaConfigShort(input *payment_config.U
 	ok, err := aaa.Client.PaymentConfig.UpdateXsollaConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -903,6 +1015,10 @@ func (aaa *PaymentConfigService) TestXsollaConfigByIDShort(input *payment_config
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -931,6 +1047,10 @@ func (aaa *PaymentConfigService) UpdateXsollaUIConfigShort(input *payment_config
 	ok, err := aaa.Client.PaymentConfig.UpdateXsollaUIConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -963,6 +1083,10 @@ func (aaa *PaymentConfigService) QueryPaymentProviderConfigShort(input *payment_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -991,6 +1115,10 @@ func (aaa *PaymentConfigService) CreatePaymentProviderConfigShort(input *payment
 	ok, err := aaa.Client.PaymentConfig.CreatePaymentProviderConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1023,6 +1151,10 @@ func (aaa *PaymentConfigService) GetAggregatePaymentProvidersShort(input *paymen
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1051,6 +1183,10 @@ func (aaa *PaymentConfigService) DebugMatchedPaymentProviderConfigShort(input *p
 	ok, err := aaa.Client.PaymentConfig.DebugMatchedPaymentProviderConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1083,6 +1219,10 @@ func (aaa *PaymentConfigService) GetSpecialPaymentProvidersShort(input *payment_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1111,6 +1251,10 @@ func (aaa *PaymentConfigService) UpdatePaymentProviderConfigShort(input *payment
 	ok, err := aaa.Client.PaymentConfig.UpdatePaymentProviderConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -1173,6 +1317,10 @@ func (aaa *PaymentConfigService) GetPaymentTaxConfigShort(input *payment_config.
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -1201,6 +1349,10 @@ func (aaa *PaymentConfigService) UpdatePaymentTaxConfigShort(input *payment_conf
 	ok, err := aaa.Client.PaymentConfig.UpdatePaymentTaxConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

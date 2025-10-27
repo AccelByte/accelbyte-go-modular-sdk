@@ -63,6 +63,10 @@ func (aaa *WalletService) GetPlatformWalletConfigShort(input *wallet.GetPlatform
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *WalletService) UpdatePlatformWalletConfigShort(input *wallet.UpdatePl
 	ok, err := aaa.Client.Wallet.UpdatePlatformWalletConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *WalletService) ResetPlatformWalletConfigShort(input *wallet.ResetPlat
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *WalletService) QueryUserCurrencyWalletsShort(input *wallet.QueryUserC
 	ok, err := aaa.Client.Wallet.QueryUserCurrencyWalletsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *WalletService) DebitUserWalletByCurrencyCodeShort(input *wallet.Debit
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *WalletService) ListUserCurrencyTransactionsShort(input *wallet.ListUs
 	ok, err := aaa.Client.Wallet.ListUserCurrencyTransactionsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -303,6 +327,10 @@ func (aaa *WalletService) CreditUserWalletShort(input *wallet.CreditUserWalletPa
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -331,6 +359,10 @@ func (aaa *WalletService) DebitByWalletPlatformShort(input *wallet.DebitByWallet
 	ok, err := aaa.Client.Wallet.DebitByWalletPlatformShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +395,10 @@ func (aaa *WalletService) PayWithUserWalletShort(input *wallet.PayWithUserWallet
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -393,6 +429,10 @@ func (aaa *WalletService) GetUserWalletShort(input *wallet.GetUserWalletParams) 
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -421,6 +461,10 @@ func (aaa *WalletService) DebitUserWalletShort(input *wallet.DebitUserWalletPara
 	ok, err := aaa.Client.Wallet.DebitUserWalletShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -513,6 +557,10 @@ func (aaa *WalletService) ListUserWalletTransactionsShort(input *wallet.ListUser
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -541,6 +589,10 @@ func (aaa *WalletService) GetWalletConfigShort(input *wallet.GetWalletConfigPara
 	ok, err := aaa.Client.Wallet.GetWalletConfigShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -573,6 +625,10 @@ func (aaa *WalletService) UpdateWalletConfigShort(input *wallet.UpdateWalletConf
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -601,6 +657,10 @@ func (aaa *WalletService) QueryWalletsShort(input *wallet.QueryWalletsParams) (*
 	ok, err := aaa.Client.Wallet.QueryWalletsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -633,6 +693,10 @@ func (aaa *WalletService) BulkCreditShort(input *wallet.BulkCreditParams) (*wall
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -661,6 +725,10 @@ func (aaa *WalletService) BulkDebitShort(input *wallet.BulkDebitParams) (*wallet
 	ok, err := aaa.Client.Wallet.BulkDebitShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -693,6 +761,10 @@ func (aaa *WalletService) GetWalletShort(input *wallet.GetWalletParams) (*wallet
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -721,6 +793,10 @@ func (aaa *WalletService) PublicGetMyWalletShort(input *wallet.PublicGetMyWallet
 	ok, err := aaa.Client.Wallet.PublicGetMyWalletShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -753,6 +829,10 @@ func (aaa *WalletService) PublicGetWalletShort(input *wallet.PublicGetWalletPara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -781,6 +861,10 @@ func (aaa *WalletService) PublicListUserWalletTransactionsShort(input *wallet.Pu
 	ok, err := aaa.Client.Wallet.PublicListUserWalletTransactionsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

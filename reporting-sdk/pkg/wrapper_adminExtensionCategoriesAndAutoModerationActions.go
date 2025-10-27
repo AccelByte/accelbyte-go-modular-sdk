@@ -63,6 +63,10 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindAct
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateM
 	created, err := aaa.Client.AdminExtensionCategoriesAndAutoModerationActions.AdminCreateModActionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminFindExt
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *AdminExtensionCategoriesandAutoModerationActionsService) AdminCreateE
 	created, err := aaa.Client.AdminExtensionCategoriesAndAutoModerationActions.AdminCreateExtensionCategoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

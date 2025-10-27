@@ -63,6 +63,10 @@ func (aaa *PublicPlayerBinaryRecordService) BulkGetPlayerPublicBinaryRecordsV1Sh
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PublicPlayerBinaryRecordService) ListMyBinaryRecordsV1Short(input *pu
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.ListMyBinaryRecordsV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *PublicPlayerBinaryRecordService) BulkGetMyBinaryRecordV1Short(input *
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryRecordV1Short(input 
 	created, err := aaa.Client.PublicPlayerBinaryRecord.PostPlayerBinaryRecordV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -183,6 +199,10 @@ func (aaa *PublicPlayerBinaryRecordService) ListOtherPlayerPublicBinaryRecordsV1
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -211,6 +231,10 @@ func (aaa *PublicPlayerBinaryRecordService) BulkGetOtherPlayerPublicBinaryRecord
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.BulkGetOtherPlayerPublicBinaryRecordsV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -243,6 +267,10 @@ func (aaa *PublicPlayerBinaryRecordService) GetPlayerBinaryRecordV1Short(input *
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +299,10 @@ func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecordV1Short(input *
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.PutPlayerBinaryRecordV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -333,6 +365,10 @@ func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecorMetadataV1Short(
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -363,6 +399,10 @@ func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryPresignedURLV1Short(
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -391,6 +431,10 @@ func (aaa *PublicPlayerBinaryRecordService) GetPlayerPublicBinaryRecordsV1Short(
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.GetPlayerPublicBinaryRecordsV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

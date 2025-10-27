@@ -56,6 +56,10 @@ func (aaa *PaymentStationService) GetPaymentCustomizationShort(input *payment_st
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -77,6 +81,10 @@ func (aaa *PaymentStationService) PublicGetPaymentURLShort(input *payment_statio
 	ok, err := aaa.Client.PaymentStation.PublicGetPaymentURLShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -102,6 +110,10 @@ func (aaa *PaymentStationService) PublicGetPaymentMethodsShort(input *payment_st
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -123,6 +135,10 @@ func (aaa *PaymentStationService) PublicGetUnpaidPaymentOrderShort(input *paymen
 	ok, err := aaa.Client.PaymentStation.PublicGetUnpaidPaymentOrderShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -148,6 +164,10 @@ func (aaa *PaymentStationService) PayShort(input *payment_station.PayParams) (*p
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -169,6 +189,10 @@ func (aaa *PaymentStationService) PublicCheckPaymentOrderPaidStatusShort(input *
 	ok, err := aaa.Client.PaymentStation.PublicCheckPaymentOrderPaidStatusShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -194,6 +218,10 @@ func (aaa *PaymentStationService) GetPaymentPublicConfigShort(input *payment_sta
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -215,6 +243,10 @@ func (aaa *PaymentStationService) PublicGetQRCodeShort(input *payment_station.Pu
 	ok, err := aaa.Client.PaymentStation.PublicGetQRCodeShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -261,6 +293,10 @@ func (aaa *PaymentStationService) GetPaymentTaxValueShort(input *payment_station
 	ok, err := aaa.Client.PaymentStation.GetPaymentTaxValueShort(input)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

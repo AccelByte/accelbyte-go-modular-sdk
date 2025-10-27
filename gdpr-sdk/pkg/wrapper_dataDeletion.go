@@ -63,6 +63,10 @@ func (aaa *DataDeletionService) AdminGetListDeletionDataRequestShort(input *data
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *DataDeletionService) AdminGetUserAccountDeletionRequestShort(input *d
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *DataDeletionService) AdminSubmitUserAccountDeletionRequestShort(input
 	created, err := aaa.Client.DataDeletion.AdminSubmitUserAccountDeletionRequestShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -183,6 +195,10 @@ func (aaa *DataDeletionService) PublicSubmitUserAccountDeletionRequestShort(inpu
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -243,6 +259,10 @@ func (aaa *DataDeletionService) PublicGetUserAccountDeletionStatusShort(input *d
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -271,6 +291,10 @@ func (aaa *DataDeletionService) PublicSubmitMyAccountDeletionRequestShort(input 
 	created, err := aaa.Client.DataDeletion.PublicSubmitMyAccountDeletionRequestShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -331,6 +355,10 @@ func (aaa *DataDeletionService) PublicGetMyAccountDeletionStatusShort(input *dat
 	ok, err := aaa.Client.DataDeletion.PublicGetMyAccountDeletionStatusShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

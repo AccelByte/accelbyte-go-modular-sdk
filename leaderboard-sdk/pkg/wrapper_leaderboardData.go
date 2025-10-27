@@ -63,6 +63,10 @@ func (aaa *LeaderboardDataService) AdminGetArchivedLeaderboardRankingDataV1Handl
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -123,6 +127,10 @@ func (aaa *LeaderboardDataService) GetAllTimeLeaderboardRankingAdminV1Short(inpu
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +159,10 @@ func (aaa *LeaderboardDataService) GetCurrentMonthLeaderboardRankingAdminV1Short
 	ok, err := aaa.Client.LeaderboardData.GetCurrentMonthLeaderboardRankingAdminV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +225,10 @@ func (aaa *LeaderboardDataService) GetCurrentSeasonLeaderboardRankingAdminV1Shor
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +257,10 @@ func (aaa *LeaderboardDataService) GetTodayLeaderboardRankingAdminV1Short(input 
 	ok, err := aaa.Client.LeaderboardData.GetTodayLeaderboardRankingAdminV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -273,6 +293,10 @@ func (aaa *LeaderboardDataService) GetUserRankingAdminV1Short(input *leaderboard
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -301,6 +325,10 @@ func (aaa *LeaderboardDataService) UpdateUserPointAdminV1Short(input *leaderboar
 	ok, err := aaa.Client.LeaderboardData.UpdateUserPointAdminV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +391,10 @@ func (aaa *LeaderboardDataService) GetCurrentWeekLeaderboardRankingAdminV1Short(
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -423,6 +455,10 @@ func (aaa *LeaderboardDataService) GetAllTimeLeaderboardRankingPublicV1Short(inp
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -451,6 +487,10 @@ func (aaa *LeaderboardDataService) GetArchivedLeaderboardRankingDataV1HandlerSho
 	ok, err := aaa.Client.LeaderboardData.GetArchivedLeaderboardRankingDataV1HandlerShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -483,6 +523,10 @@ func (aaa *LeaderboardDataService) GetCurrentMonthLeaderboardRankingPublicV1Shor
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -511,6 +555,10 @@ func (aaa *LeaderboardDataService) GetCurrentSeasonLeaderboardRankingPublicV1Sho
 	ok, err := aaa.Client.LeaderboardData.GetCurrentSeasonLeaderboardRankingPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -543,6 +591,10 @@ func (aaa *LeaderboardDataService) GetTodayLeaderboardRankingPublicV1Short(input
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -571,6 +623,10 @@ func (aaa *LeaderboardDataService) GetUserRankingPublicV1Short(input *leaderboar
 	ok, err := aaa.Client.LeaderboardData.GetUserRankingPublicV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -633,6 +689,10 @@ func (aaa *LeaderboardDataService) GetCurrentWeekLeaderboardRankingPublicV1Short
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -661,6 +721,10 @@ func (aaa *LeaderboardDataService) GetAllTimeLeaderboardRankingPublicV2Short(inp
 	ok, err := aaa.Client.LeaderboardData.GetAllTimeLeaderboardRankingPublicV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

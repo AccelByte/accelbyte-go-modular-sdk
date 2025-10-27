@@ -63,6 +63,10 @@ func (aaa *MatchTicketsService) CreateMatchTicketShort(input *match_tickets.Crea
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *MatchTicketsService) GetMyMatchTicketsShort(input *match_tickets.GetM
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *MatchTicketsService) MatchTicketDetailsShort(input *match_tickets.Mat
 	ok, err := aaa.Client.MatchTickets.MatchTicketDetailsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

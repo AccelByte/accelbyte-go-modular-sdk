@@ -63,5 +63,9 @@ func (aaa *UtilityService) CheckReadinessShort(input *utility.CheckReadinessPara
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }

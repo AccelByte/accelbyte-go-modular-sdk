@@ -63,6 +63,10 @@ func (aaa *PublicGameRecordService) GetGameRecordsBulkShort(input *public_game_r
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PublicGameRecordService) GetGameRecordHandlerV1Short(input *public_ga
 	ok, err := aaa.Client.PublicGameRecord.GetGameRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *PublicGameRecordService) PutGameRecordHandlerV1Short(input *public_ga
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *PublicGameRecordService) PostGameRecordHandlerV1Short(input *public_g
 	created, err := aaa.Client.PublicGameRecord.PostGameRecordHandlerV1Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil

@@ -63,6 +63,10 @@ func (aaa *ArtifactsService) ArtifactGetShort(input *artifacts.ArtifactGetParams
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +125,10 @@ func (aaa *ArtifactsService) ArtifactUsageGetShort(input *artifacts.ArtifactUsag
 	ok, err := aaa.Client.Artifacts.ArtifactUsageGetShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +191,10 @@ func (aaa *ArtifactsService) ArtifactGetURLShort(input *artifacts.ArtifactGetURL
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -213,6 +225,10 @@ func (aaa *ArtifactsService) FleetArtifactSamplingRulesGetShort(input *artifacts
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +257,10 @@ func (aaa *ArtifactsService) FleetArtifactSamplingRulesSetShort(input *artifacts
 	ok, err := aaa.Client.Artifacts.FleetArtifactSamplingRulesSetShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

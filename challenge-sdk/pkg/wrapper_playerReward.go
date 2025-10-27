@@ -63,6 +63,10 @@ func (aaa *PlayerRewardService) AdminClaimUsersRewardsShort(input *player_reward
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *PlayerRewardService) AdminClaimUserRewardsByGoalCodeShort(input *play
 	ok, err := aaa.Client.PlayerReward.AdminClaimUserRewardsByGoalCodeShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -123,6 +131,10 @@ func (aaa *PlayerRewardService) AdminGetUserRewardsShort(input *player_reward.Ad
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *PlayerRewardService) AdminClaimUserRewardsShort(input *player_reward.
 	ok, err := aaa.Client.PlayerReward.AdminClaimUserRewardsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -183,6 +199,10 @@ func (aaa *PlayerRewardService) PublicClaimUserRewardsByGoalCodeShort(input *pla
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -213,6 +233,10 @@ func (aaa *PlayerRewardService) PublicGetUserRewardsShort(input *player_reward.P
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +265,10 @@ func (aaa *PlayerRewardService) PublicClaimUserRewardsShort(input *player_reward
 	ok, err := aaa.Client.PlayerReward.PublicClaimUserRewardsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

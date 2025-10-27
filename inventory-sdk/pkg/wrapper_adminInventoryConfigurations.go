@@ -63,6 +63,10 @@ func (aaa *AdminInventoryConfigurationsService) AdminListInventoryConfigurations
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AdminInventoryConfigurationsService) AdminCreateInventoryConfiguratio
 	created, err := aaa.Client.AdminInventoryConfigurations.AdminCreateInventoryConfigurationShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *AdminInventoryConfigurationsService) AdminGetInventoryConfigurationSh
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *AdminInventoryConfigurationsService) AdminUpdateInventoryConfiguratio
 	ok, err := aaa.Client.AdminInventoryConfigurations.AdminUpdateInventoryConfigurationShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

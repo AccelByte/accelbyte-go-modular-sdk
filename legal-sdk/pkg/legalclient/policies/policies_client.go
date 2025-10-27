@@ -31,12 +31,12 @@ type Client struct {
 // ClientService is the interface for Client methods
 type ClientService interface {
 	RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo runtime.ClientAuthInfoWriter) (*RetrievePoliciesResponse, error)
-	UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyResponse, error)
-	SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy2Response, error)
+	OldUpdatePolicyShort(params *OldUpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*OldUpdatePolicyResponse, error)
+	OldSetDefaultPolicyShort(params *OldSetDefaultPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*OldSetDefaultPolicyResponse, error)
 	RetrieveCountryListWithPoliciesShort(params *RetrieveCountryListWithPoliciesParams) (*RetrieveCountryListWithPoliciesResponse, error)
 	RetrieveLatestPoliciesShort(params *RetrieveLatestPoliciesParams) (*RetrieveLatestPoliciesResponse, error)
 	RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPoliciesPublicParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveLatestPoliciesPublicResponse, error)
-	RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse, error)
+	OldRetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *OldRetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*OldRetrieveLatestPoliciesByNamespaceAndCountryPublicResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -96,13 +96,13 @@ func (a *Client) RetrievePoliciesShort(params *RetrievePoliciesParams, authInfo 
 }
 
 /*
-UpdatePolicyShort update country-specific policy
+OldUpdatePolicyShort update country-specific policy
 Update country-specific and country-group policy.
 */
-func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePolicyResponse, error) {
+func (a *Client) OldUpdatePolicyShort(params *OldUpdatePolicyParams, authInfo runtime.ClientAuthInfoWriter) (*OldUpdatePolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewUpdatePolicyParams()
+		params = NewOldUpdatePolicyParams()
 	}
 
 	if params.Context == nil {
@@ -118,14 +118,14 @@ func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "updatePolicy",
+		ID:                 "oldUpdatePolicy",
 		Method:             "PATCH",
 		PathPattern:        "/agreement/admin/policies/{policyId}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &UpdatePolicyReader{formats: a.formats},
+		Reader:             &OldUpdatePolicyReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -136,14 +136,14 @@ func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.
 
 	switch v := result.(type) {
 
-	case *UpdatePolicyOK:
-		response := &UpdatePolicyResponse{}
+	case *OldUpdatePolicyOK:
+		response := &OldUpdatePolicyResponse{}
 
 		response.IsSuccess = true
 
 		return response, nil
-	case *UpdatePolicyBadRequest:
-		response := &UpdatePolicyResponse{}
+	case *OldUpdatePolicyBadRequest:
+		response := &OldUpdatePolicyResponse{}
 		response.Error400 = v.Payload
 
 		response.IsSuccess = false
@@ -156,13 +156,13 @@ func (a *Client) UpdatePolicyShort(params *UpdatePolicyParams, authInfo runtime.
 }
 
 /*
-SetDefaultPolicy2Short set default policy
+OldSetDefaultPolicyShort set default policy
 Update a policy to be the default.
 */
-func (a *Client) SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInfo runtime.ClientAuthInfoWriter) (*SetDefaultPolicy2Response, error) {
+func (a *Client) OldSetDefaultPolicyShort(params *OldSetDefaultPolicyParams, authInfo runtime.ClientAuthInfoWriter) (*OldSetDefaultPolicyResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSetDefaultPolicy2Params()
+		params = NewOldSetDefaultPolicyParams()
 	}
 
 	if params.Context == nil {
@@ -178,14 +178,14 @@ func (a *Client) SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInf
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "setDefaultPolicy_2",
+		ID:                 "oldSetDefaultPolicy",
 		Method:             "PATCH",
 		PathPattern:        "/agreement/admin/policies/{policyId}/default",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &SetDefaultPolicy2Reader{formats: a.formats},
+		Reader:             &OldSetDefaultPolicyReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -196,14 +196,14 @@ func (a *Client) SetDefaultPolicy2Short(params *SetDefaultPolicy2Params, authInf
 
 	switch v := result.(type) {
 
-	case *SetDefaultPolicy2OK:
-		response := &SetDefaultPolicy2Response{}
+	case *OldSetDefaultPolicyOK:
+		response := &OldSetDefaultPolicyResponse{}
 
 		response.IsSuccess = true
 
 		return response, nil
-	case *SetDefaultPolicy2BadRequest:
-		response := &SetDefaultPolicy2Response{}
+	case *OldSetDefaultPolicyBadRequest:
+		response := &OldSetDefaultPolicyResponse{}
 		response.Error400 = v.Payload
 
 		response.IsSuccess = false
@@ -400,7 +400,7 @@ func (a *Client) RetrieveLatestPoliciesPublicShort(params *RetrieveLatestPolicie
 }
 
 /*
-RetrieveLatestPoliciesByNamespaceAndCountryPublicShort retrieve latest policies by namespace and country
+OldRetrieveLatestPoliciesByNamespaceAndCountryPublicShort retrieve latest policies by namespace and country
 Retrieve all active latest policies based on a namespace and country.
 Other detail info:
 
@@ -415,10 +415,10 @@ Other detail info:
   - Query: alwaysIncludeDefault: true
   - Response: Document 1 (UA), Document 2 (US), Document 3 (US)
 */
-func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *RetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse, error) {
+func (a *Client) OldRetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *OldRetrieveLatestPoliciesByNamespaceAndCountryPublicParams) (*OldRetrieveLatestPoliciesByNamespaceAndCountryPublicResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewRetrieveLatestPoliciesByNamespaceAndCountryPublicParams()
+		params = NewOldRetrieveLatestPoliciesByNamespaceAndCountryPublicParams()
 	}
 
 	if params.Context == nil {
@@ -434,14 +434,14 @@ func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "retrieveLatestPoliciesByNamespaceAndCountryPublic",
+		ID:                 "oldRetrieveLatestPoliciesByNamespaceAndCountryPublic",
 		Method:             "GET",
 		PathPattern:        "/agreement/public/policies/namespaces/{namespace}/countries/{countryCode}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &RetrieveLatestPoliciesByNamespaceAndCountryPublicReader{formats: a.formats},
+		Reader:             &OldRetrieveLatestPoliciesByNamespaceAndCountryPublicReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -451,8 +451,8 @@ func (a *Client) RetrieveLatestPoliciesByNamespaceAndCountryPublicShort(params *
 
 	switch v := result.(type) {
 
-	case *RetrieveLatestPoliciesByNamespaceAndCountryPublicOK:
-		response := &RetrieveLatestPoliciesByNamespaceAndCountryPublicResponse{}
+	case *OldRetrieveLatestPoliciesByNamespaceAndCountryPublicOK:
+		response := &OldRetrieveLatestPoliciesByNamespaceAndCountryPublicResponse{}
 		response.Data = v.Payload
 
 		response.IsSuccess = true

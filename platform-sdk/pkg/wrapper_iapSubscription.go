@@ -36,6 +36,202 @@ func (aaa *IAPSubscriptionService) GetAuthSession() auth.Session {
 	}
 }
 
+func (aaa *IAPSubscriptionService) ListOculusSubscriptionGroupsShort(input *iap_subscription.ListOculusSubscriptionGroupsParams) (*iap_subscription.ListOculusSubscriptionGroupsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAPSubscription != nil {
+		input.XFlightId = tempFlightIdIAPSubscription
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.IAPSubscription.ListOculusSubscriptionGroupsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
+func (aaa *IAPSubscriptionService) CreateOculusSubscriptionGroupShort(input *iap_subscription.CreateOculusSubscriptionGroupParams) (*iap_subscription.CreateOculusSubscriptionGroupResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAPSubscription != nil {
+		input.XFlightId = tempFlightIdIAPSubscription
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.IAPSubscription.CreateOculusSubscriptionGroupShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
+func (aaa *IAPSubscriptionService) DeleteOculusSubscriptionGroupShort(input *iap_subscription.DeleteOculusSubscriptionGroupParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAPSubscription != nil {
+		input.XFlightId = tempFlightIdIAPSubscription
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.IAPSubscription.DeleteOculusSubscriptionGroupShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (aaa *IAPSubscriptionService) ListOculusSubscriptionGroupTierShort(input *iap_subscription.ListOculusSubscriptionGroupTierParams) (*iap_subscription.ListOculusSubscriptionGroupTierResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAPSubscription != nil {
+		input.XFlightId = tempFlightIdIAPSubscription
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.IAPSubscription.ListOculusSubscriptionGroupTierShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
+func (aaa *IAPSubscriptionService) AddTierIntoMetaQuestSubscriptionGroupShort(input *iap_subscription.AddTierIntoMetaQuestSubscriptionGroupParams) (*iap_subscription.AddTierIntoMetaQuestSubscriptionGroupResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAPSubscription != nil {
+		input.XFlightId = tempFlightIdIAPSubscription
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.IAPSubscription.AddTierIntoMetaQuestSubscriptionGroupShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
+func (aaa *IAPSubscriptionService) DeleteOculusSubscriptionTierShort(input *iap_subscription.DeleteOculusSubscriptionTierParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdIAPSubscription != nil {
+		input.XFlightId = tempFlightIdIAPSubscription
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.IAPSubscription.DeleteOculusSubscriptionTierShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (aaa *IAPSubscriptionService) QueryThirdPartySubscriptionShort(input *iap_subscription.QueryThirdPartySubscriptionParams) (*iap_subscription.QueryThirdPartySubscriptionResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
@@ -61,6 +257,10 @@ func (aaa *IAPSubscriptionService) QueryThirdPartySubscriptionShort(input *iap_s
 	ok, err := aaa.Client.IAPSubscription.QueryThirdPartySubscriptionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -93,6 +293,10 @@ func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionShort(input *i
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -121,6 +325,10 @@ func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByG
 	ok, err := aaa.Client.IAPSubscription.GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -153,6 +361,10 @@ func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByP
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -181,6 +393,10 @@ func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionTransactionsSh
 	ok, err := aaa.Client.IAPSubscription.QueryUserThirdPartySubscriptionTransactionsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +429,10 @@ func (aaa *IAPSubscriptionService) GetThirdPartySubscriptionDetailsShort(input *
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +461,10 @@ func (aaa *IAPSubscriptionService) GetSubscriptionHistoryShort(input *iap_subscr
 	ok, err := aaa.Client.IAPSubscription.GetSubscriptionHistoryShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -273,6 +497,10 @@ func (aaa *IAPSubscriptionService) SyncSubscriptionTransactionShort(input *iap_s
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -301,6 +529,10 @@ func (aaa *IAPSubscriptionService) GetThirdPartyUserSubscriptionDetailsShort(inp
 	ok, err := aaa.Client.IAPSubscription.GetThirdPartyUserSubscriptionDetailsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -333,6 +565,10 @@ func (aaa *IAPSubscriptionService) SyncSubscriptionShort(input *iap_subscription
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -361,6 +597,10 @@ func (aaa *IAPSubscriptionService) PublicQueryUserThirdPartySubscriptionShort(in
 	ok, err := aaa.Client.IAPSubscription.PublicQueryUserThirdPartySubscriptionShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

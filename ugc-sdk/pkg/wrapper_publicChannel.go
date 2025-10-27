@@ -63,6 +63,10 @@ func (aaa *PublicChannelService) GetChannelsShort(input *public_channel.GetChann
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -93,6 +97,10 @@ func (aaa *PublicChannelService) PublicCreateChannelShort(input *public_channel.
 		return nil, err
 	}
 
+	if created == nil {
+		return nil, nil
+	}
+
 	return created, nil
 }
 
@@ -121,6 +129,10 @@ func (aaa *PublicChannelService) UpdateChannelShort(input *public_channel.Update
 	ok, err := aaa.Client.PublicChannel.UpdateChannelShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil

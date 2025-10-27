@@ -63,6 +63,10 @@ func (aaa *AdminGroupService) SingleAdminGetAllGroupsShort(input *admin_group.Si
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -91,6 +95,10 @@ func (aaa *AdminGroupService) AdminCreateGroupShort(input *admin_group.AdminCrea
 	created, err := aaa.Client.AdminGroup.AdminCreateGroupShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if created == nil {
+		return nil, nil
 	}
 
 	return created, nil
@@ -123,6 +131,10 @@ func (aaa *AdminGroupService) SingleAdminGetGroupShort(input *admin_group.Single
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -151,6 +163,10 @@ func (aaa *AdminGroupService) SingleAdminUpdateGroupShort(input *admin_group.Sin
 	ok, err := aaa.Client.AdminGroup.SingleAdminUpdateGroupShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -213,6 +229,10 @@ func (aaa *AdminGroupService) SingleAdminGetGroupContentsShort(input *admin_grou
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -241,6 +261,10 @@ func (aaa *AdminGroupService) AdminGetAllGroupsShort(input *admin_group.AdminGet
 	ok, err := aaa.Client.AdminGroup.AdminGetAllGroupsShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -273,6 +297,10 @@ func (aaa *AdminGroupService) AdminGetGroupShort(input *admin_group.AdminGetGrou
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -301,6 +329,10 @@ func (aaa *AdminGroupService) AdminUpdateGroupShort(input *admin_group.AdminUpda
 	ok, err := aaa.Client.AdminGroup.AdminUpdateGroupShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
@@ -363,6 +395,10 @@ func (aaa *AdminGroupService) AdminGetGroupContentsShort(input *admin_group.Admi
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -393,6 +429,10 @@ func (aaa *AdminGroupService) AdminGetOfficialGroupContentsV2Short(input *admin_
 		return nil, err
 	}
 
+	if ok == nil {
+		return nil, nil
+	}
+
 	return ok, nil
 }
 
@@ -421,6 +461,10 @@ func (aaa *AdminGroupService) AdminGetUserGroupContentsV2Short(input *admin_grou
 	ok, err := aaa.Client.AdminGroup.AdminGetUserGroupContentsV2Short(input, authInfoWriter)
 	if err != nil {
 		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
 	}
 
 	return ok, nil
