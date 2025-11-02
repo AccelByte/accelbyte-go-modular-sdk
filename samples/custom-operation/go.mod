@@ -1,6 +1,6 @@
 module custom-operation
 
-go 1.18
+go 1.23.0
 
 require (
 	github.com/go-openapi/errors v0.20.2
@@ -29,8 +29,8 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/stretchr/testify v1.8.2 // indirect
 	go.mongodb.org/mongo-driver v1.10.0 // indirect
-	golang.org/x/net v0.33.0 // indirect
-	golang.org/x/sys v0.28.0 // indirect
-	golang.org/x/text v0.21.0 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
