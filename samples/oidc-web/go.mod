@@ -1,6 +1,6 @@
 module oidc-web
 
-go 1.23.0
+go 1.23
 
 replace (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../iam-sdk

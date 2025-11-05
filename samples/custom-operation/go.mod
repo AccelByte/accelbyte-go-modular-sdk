@@ -1,6 +1,6 @@
 module custom-operation
 
-go 1.23.0
+go 1.23
 
 require (
 	github.com/go-openapi/errors v0.20.2

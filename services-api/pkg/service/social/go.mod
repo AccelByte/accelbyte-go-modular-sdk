@@ -2,7 +2,7 @@
 
 module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/social
 
-go 1.23.0
+go 1.23
 
 // for development only (not propagated)
 replace github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../../../social-sdk

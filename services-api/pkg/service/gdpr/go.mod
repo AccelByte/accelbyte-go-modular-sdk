@@ -2,7 +2,7 @@
 
 module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/gdpr
 
-go 1.23.0
+go 1.23
 
 // for development only (not propagated)
 replace github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk => ../../../../gdpr-sdk

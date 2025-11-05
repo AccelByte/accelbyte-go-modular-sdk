@@ -1,6 +1,6 @@
 module github.com/AccelByte/sample-apps
 
-go 1.23.0
+go 1.23
 
 // for development only (not propagated)
 replace (
