@@ -14,7 +14,7 @@ This SDK was generated from AGS OpenAPI spec files included in the [spec](spec) 
 
 ## Setup
 
-This SDK requires `go 1.18` or newer version to be installed.
+This SDK requires `go 1.23` or newer version to be installed.
 
 ### Import SDK Project
 

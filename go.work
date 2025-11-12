@@ -1,29 +1,26 @@
-go 1.18
+go 1.23
 
 use (
 	achievement-sdk
 	ams-sdk
 	basic-sdk
-	chat-sdk
 	challenge-sdk
+	chat-sdk
 	cloudsave-sdk
+	csm-sdk
 	gametelemetry-sdk
 	gdpr-sdk
 	group-sdk
 	// service sdk modules
 	iam-sdk
+	inventory-sdk
 	leaderboard-sdk
 	legal-sdk
 	lobby-sdk
+	loginqueue-sdk
 	match2-sdk
 	platform-sdk
 	reporting-sdk
-	inventory-sdk
-	session-sdk
-	social-sdk
-	ugc-sdk
-	seasonpass-sdk
-	loginqueue-sdk
 
 	// samples
 	samples/aws-lambda-example/UserStatsFunction
@@ -33,6 +30,8 @@ use (
 	samples/oidc-web
 	samples/tic-tac-toe/aws-lambda
 	samples/tic-tac-toe/client
+	samples/ws-client-refresh-token
+	seasonpass-sdk
 
 	// common module
 	services-api
@@ -43,6 +42,7 @@ use (
 	services-api/pkg/service/achievement
 	services-api/pkg/service/ams
 	services-api/pkg/service/basic
+	services-api/pkg/service/challenge
 	services-api/pkg/service/chat
 	services-api/pkg/service/cloudsave
 	services-api/pkg/service/csm
@@ -54,6 +54,7 @@ use (
 	services-api/pkg/service/leaderboard
 	services-api/pkg/service/legal
 	services-api/pkg/service/lobby
+	services-api/pkg/service/loginqueue
 	services-api/pkg/service/match2
 	services-api/pkg/service/platform
 	services-api/pkg/service/reporting
@@ -62,13 +63,12 @@ use (
 	services-api/pkg/service/sessionhistory
 	services-api/pkg/service/social
 	services-api/pkg/service/ugc
-	services-api/pkg/service/challenge
-	services-api/pkg/service/loginqueue
 
 	// tests
 	services-api/pkg/tests
 	services-api/pkg/utils/auth/validator
-	samples/ws-client-refresh-token
+	session-sdk
 	sessionhistory-sdk
-	csm-sdk
+	social-sdk
+	ugc-sdk
 )

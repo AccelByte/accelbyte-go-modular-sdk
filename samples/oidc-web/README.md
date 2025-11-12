@@ -4,7 +4,7 @@ A sample app to showcase OIDC login using AccelByte Go Extend SDK and PhantAuth.
 
 ## Prerequsites
 
-* Go 1.18
+* Go 1.23
 
 * AccelByte Gaming Services Demo Enviroment
 

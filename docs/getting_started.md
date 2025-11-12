@@ -37,7 +37,7 @@ It is recommended to use the matching Golang Extend SDK version for the given Ac
 ```go
 module golang-application
 
-go 1.18
+go 1.23
 
 require (
     github.com/AccelByte/accelbyte-go-modular-sdk {VERSION}

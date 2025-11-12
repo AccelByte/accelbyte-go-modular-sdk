@@ -9,7 +9,7 @@ This app is using lambda function url, token validation, and a token refresh ins
 
 2. [Docker](https://docs.docker.com/engine/install/)
 
-3. [Go 1.18](https://go.dev/dl/) 
+3. [Go 1.23](https://go.dev/dl/) 
 
 4. [Postman](https://www.postman.com/downloads/)
 
