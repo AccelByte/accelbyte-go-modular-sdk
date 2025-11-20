@@ -2,7 +2,7 @@
 
 module github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk
 
-go 1.23
+go 1.23.0
 
 replace github.com/willf/bitset v1.1.11 => github.com/bits-and-blooms/bitset v1.4.0
 

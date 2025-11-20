@@ -2,7 +2,7 @@
 
 module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/csm
 
-go 1.23
+go 1.23.0
 
 // for development only (not propagated)
 replace github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk => ../../../../csm-sdk

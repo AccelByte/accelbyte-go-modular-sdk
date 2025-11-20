@@ -1,6 +1,6 @@
 module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests
 
-go 1.23
+go 1.23.0
 
 // for development only (not propagated)
 replace (
