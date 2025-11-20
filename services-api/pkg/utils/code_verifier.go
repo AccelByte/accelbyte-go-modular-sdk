@@ -33,8 +33,8 @@ func CreateCodeVerifierWithLength(length int) (*CodeVerifier, error) {
 	}
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	b := make([]byte, length)
-	for i := 0; i < length; i++ {
-		b[i] = byte(r.Intn(255))
+	for i := range length {
+		b[i] = byte(r.Intn(255)) //nolint:mnd
 	}
 
 	return CreateCodeVerifierFromBytes(b)

@@ -10,8 +10,9 @@ import (
 	"encoding/base64"
 	"encoding/binary"
 	"encoding/json"
+	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"math/big"
 	"net/http"
 	"strings"
@@ -94,19 +95,19 @@ func (v *TokenValidator) Validate(token string, permission *Permission, namespac
 	}
 
 	if len(jsonWebToken.Headers) == 0 {
-		return fmt.Errorf("no headers found")
+		return errors.New("no headers found")
 	}
 
 	kid := jsonWebToken.Headers[0].KeyID
 	if kid == "" {
-		return fmt.Errorf("'kid' header not found")
+		return errors.New("'kid' header not found")
 	}
 
 	v.RWMutex.RLock()
 	defer v.RWMutex.RUnlock()
 	publicKey := v.PublicKeys[kid]
 	if publicKey == nil {
-		return fmt.Errorf("public key not found")
+		return errors.New("public key not found")
 	}
 
 	err = jsonWebToken.Claims(publicKey, &v.JwtClaims)
@@ -125,7 +126,7 @@ func (v *TokenValidator) Validate(token string, permission *Permission, namespac
 		fmt.Println("token verified")
 
 		if errNamespace := v.hasValidNamespace(v.JwtClaims, namespace); errNamespace != nil {
-			return fmt.Errorf(errNamespace.Error())
+			return errNamespace
 		}
 
 		hasValidPermission, errPermission := v.hasValidPermissions(v.JwtClaims, permission, namespace, userId)
@@ -142,15 +143,15 @@ func (v *TokenValidator) Validate(token string, permission *Permission, namespac
 	}
 
 	if v.isTokenRevoked(token) {
-		return fmt.Errorf("token was revoked")
+		return errors.New("token was revoked")
 	}
 
 	if v.isUserRevoked(v.JwtClaims.Subject, int64(v.JwtClaims.IssuedAt)) {
-		return fmt.Errorf("user was revoked")
+		return errors.New("user was revoked")
 	}
 
 	if errNamespace := v.hasValidNamespace(v.JwtClaims, namespace); errNamespace != nil {
-		return fmt.Errorf(errNamespace.Error())
+		return errNamespace
 	}
 
 	hasValidPermission, errPermission := v.hasValidPermissions(v.JwtClaims, permission, namespace, userId)
@@ -168,8 +169,8 @@ func (v *TokenValidator) convertExponent(e string) (int, error) {
 	}
 
 	var bytesE []byte
-	if len(bytesE) < 8 {
-		bytesE = make([]byte, 8-len(decodedE), 8)
+	if len(bytesE) < 8 { //nolint:mnd
+		bytesE = make([]byte, 8-len(decodedE), 8) //nolint:mnd
 		bytesE = append(bytesE, decodedE...)
 	} else {
 		bytesE = decodedE
@@ -366,7 +367,7 @@ func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permi
 
 	tokenNamespace := claims.Namespace
 	if tokenNamespace == "" {
-		errPermissions := fmt.Errorf("claims namespace is empty")
+		errPermissions := errors.New("claims namespace is empty")
 
 		return false, errPermissions
 	}
@@ -435,7 +436,7 @@ func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permi
 
 	additionalErrorInfo := ""
 	if len(aggregatedErrors) > 0 {
-		additionalErrorInfo = fmt.Sprintf("\nerrors:\n -%s", strings.Join(aggregatedErrors, "\n -"))
+		additionalErrorInfo = "\nerrors:\n -" + strings.Join(aggregatedErrors, "\n -")
 	}
 
 	return false, fmt.Errorf("failed to validate permission [%v][%v]%s", modifiedResource, permission.Action, additionalErrorInfo)
@@ -443,12 +444,12 @@ func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permi
 
 func (v *TokenValidator) hasValidNamespace(claims JWTClaims, namespace *string) error {
 	if namespace == nil {
-		return fmt.Errorf("trying to validate access token against a namepace, but have an empty namespace")
+		return errors.New("trying to validate access token against a namepace, but have an empty namespace")
 	}
 
 	if claims.ExtendNamespace != "" {
 		if claims.ExtendNamespace != *namespace {
-			return fmt.Errorf("extend namespace from token has different a namespace with grpc server")
+			return errors.New("extend namespace from token has different a namespace with grpc server")
 		}
 	}
 
@@ -490,7 +491,7 @@ func (v *TokenValidator) replaceResource(resource string, namespace, userId *str
 
 func (v *TokenValidator) fetchNamespaceContextFromCache(keyNamespace string) error {
 	if v.namespaceContextsCache == nil {
-		v.namespaceContextsCache = cache.New(utils.GetRolesExpirationTime(), 2*utils.GetRolesExpirationTime()) // default time is one hour
+		v.namespaceContextsCache = cache.New(utils.GetRolesExpirationTime(), 2*utils.GetRolesExpirationTime()) //nolint:mnd // default time is one hour
 	}
 
 	if nsContext, found := v.namespaceContextsCache.Get(keyNamespace); found {
@@ -515,17 +516,17 @@ func (v *TokenValidator) fetchNamespaceContext(keyNamespace string) error {
 	if v.AuthService.TokenRepository != nil {
 		t, errT := v.AuthService.TokenRepository.GetToken()
 		if errT != nil {
-			return fmt.Errorf("empty token")
+			return errors.New("empty token")
 		}
 		token = *t.AccessToken
 	}
 	url := fmt.Sprintf("%s/basic/v1/admin/namespaces/%s/context", v.AuthService.ConfigRepository.GetJusticeBaseUrl(), keyNamespace)
 	if token != "" {
-		resp, errResp := utils.SimpleHTTPCall(utils.GetClient(), url, "GET", fmt.Sprintf("Bearer %s", token), "", nil)
+		resp, errResp := utils.SimpleHTTPCall(utils.GetClient(), url, "GET", "Bearer "+token, "", nil)
 		if errResp != nil {
 			return errResp
 		}
-		respBody, errRespBody := ioutil.ReadAll(resp.Body)
+		respBody, errRespBody := io.ReadAll(resp.Body)
 		if errRespBody != nil {
 			return errRespBody
 		}
@@ -549,7 +550,7 @@ func (v *TokenValidator) fetchNamespaceContext(keyNamespace string) error {
 		}
 	}
 
-	return fmt.Errorf("requesting namespace context but token is empty")
+	return errors.New("requesting namespace context but token is empty")
 }
 
 func (v *TokenValidator) validatePermissions(permissions []Permission, resource string, action int) bool {
@@ -560,10 +561,10 @@ func (v *TokenValidator) validatePermissions(permissions []Permission, resource 
 
 			hasResourceItemsLen := len(hasResourceItems)
 			requiredResourceItemsLen := len(requiredResourceItems)
-			minLen := min(hasResourceItemsLen, requiredResourceItemsLen)
+			minLen := minInt(hasResourceItemsLen, requiredResourceItemsLen)
 
 			matches := true
-			for i := 0; i < minLen; i++ {
+			for i := range minLen {
 				s1 := hasResourceItems[i]
 				s2 := requiredResourceItems[i]
 				if s1 != s2 && s1 != "*" {
@@ -605,7 +606,7 @@ func (v *TokenValidator) validatePermissions(permissions []Permission, resource 
 			if matches {
 				if hasResourceItemsLen < requiredResourceItemsLen {
 					if hasResourceItems[hasResourceItemsLen-1] == "*" {
-						if hasResourceItemsLen < 2 {
+						if hasResourceItemsLen < 2 { //nolint:mnd
 							return true
 						} else {
 							segment := hasResourceItems[hasResourceItemsLen-2]
@@ -661,17 +662,17 @@ func NewTokenValidator(authService OAuth20Service, refreshInterval time.Duration
 
 		rolePermissionCache: cache.New(
 			utils.GetRolesExpirationTime(),
-			2*utils.GetRolesExpirationTime(),
+			2*utils.GetRolesExpirationTime(), //nolint:mnd
 		),
 
 		namespaceContextsCache: cache.New(
 			utils.GetNamespaceContextExpirationTime(),
-			2*utils.GetNamespaceContextExpirationTime(),
+			2*utils.GetNamespaceContextExpirationTime(), //nolint:mnd
 		),
 	}
 }
 
-func min(a, b int) int {
+func minInt(a, b int) int {
 	if a < b {
 		return a
 	}

@@ -25,7 +25,7 @@ var (
 	// use the default config and token implementation
 	configRepo                                    = *auth.DefaultConfigRepositoryImpl()
 	tokenRepo                                     = *auth.DefaultTokenRepositoryImpl()
-	refreshRepo repository.RefreshTokenRepository = &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.01} // Force refresh with shorter time span
+	refreshRepo repository.RefreshTokenRepository = &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.01} //nolint:mnd // Force refresh with shorter time span
 
 	oAuth20Service = iam.OAuth20Service{
 		Client:                 iam.NewIamClient(&configRepo),
@@ -49,7 +49,7 @@ func Handler(ctx context.Context, evt events.LambdaFunctionURLRequest) (events.L
 	if len(splitToken) == 1 || len(splitToken) > 2 {
 		return events.LambdaFunctionURLResponse{
 			Body:       "invalid token. Token split \"Bearer\" and token authorization",
-			StatusCode: 400,
+			StatusCode: 400, //nolint:mnd
 		}, nil
 	}
 	logrus.Print("Parse Access Token Done")
@@ -87,7 +87,7 @@ func Handler(ctx context.Context, evt events.LambdaFunctionURLRequest) (events.L
 	default:
 		return events.LambdaFunctionURLResponse{
 			Body:       httpRequest + " request not supported",
-			StatusCode: 400,
+			StatusCode: 400, //nolint:mnd
 		}, nil
 	}
 }
@@ -105,7 +105,7 @@ func getRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionURLRe
 
 		return events.LambdaFunctionURLResponse{
 			Body:       errUserStatItem.Error(),
-			StatusCode: 400,
+			StatusCode: 400, //nolint:mnd
 		}, nil
 	}
 
@@ -117,12 +117,12 @@ func getRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionURLRe
 
 		return events.LambdaFunctionURLResponse{
 			Body:       err.Error(),
-			StatusCode: 400,
+			StatusCode: 400, //nolint:mnd
 		}, nil
 	}
 
 	return events.LambdaFunctionURLResponse{
-		StatusCode: 200,
+		StatusCode: 200, //nolint:mnd
 		Body:       string(js),
 	}, nil
 }
@@ -141,12 +141,12 @@ func deleteRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionUR
 
 		return events.LambdaFunctionURLResponse{
 			Body:       errDeleteUserStatItems.Error(),
-			StatusCode: 400,
+			StatusCode: 400, //nolint:mnd
 		}, nil
 	}
 
 	return events.LambdaFunctionURLResponse{
-		StatusCode: 200,
+		StatusCode: 200, //nolint:mnd
 		Body:       "User stat code deleted successfully",
 	}, nil
 }
@@ -165,12 +165,12 @@ func postRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionURLR
 
 		return events.LambdaFunctionURLResponse{
 			Body:       errUserStatItem.Error(),
-			StatusCode: 400,
+			StatusCode: 400, //nolint:mnd
 		}, nil
 	}
 
 	return events.LambdaFunctionURLResponse{
-		StatusCode: 200,
+		StatusCode: 200, //nolint:mnd
 		Body:       "User stat code added successfully",
 	}, nil
 }

@@ -53,7 +53,7 @@ func (o *OAuth20Service) GrantTokenCredentials(code, codeVerifier string) error 
 	param := &o_auth2_0.TokenGrantV3Params{
 		Code:         &code,
 		CodeVerifier: &codeVerifier,
-		GrantType:    o_auth2_0.TokenGrantV3ClientCredentialsConstant,
+		GrantType:    o_auth2_0.TokenGrantV3GrantTypeClientCredentialsConstant,
 	}
 	accessToken, err :=
 		o.Client.OAuth20.TokenGrantV3Short(param, client.BasicAuth(clientID, clientSecret))
@@ -80,7 +80,7 @@ func (o *OAuth20Service) GrantTokenRefreshToken(code, codeVerifier, refreshToken
 	param := &o_auth2_0.TokenGrantV3Params{
 		Code:         &code,
 		CodeVerifier: &codeVerifier,
-		GrantType:    o_auth2_0.TokenGrantV3RefreshTokenConstant,
+		GrantType:    o_auth2_0.TokenGrantV3GrantTypeRefreshTokenConstant,
 		RefreshToken: &refreshToken,
 	}
 	accessToken, err := o.Client.OAuth20.TokenGrantV3Short(param, client.BasicAuth(clientID, clientSecret))
@@ -323,7 +323,7 @@ func (o *OAuth20Service) LoginClient(clientId, clientSecret *string) error {
 		return errors.New("client not registered")
 	}
 	param := &o_auth2_0.TokenGrantV3Params{
-		GrantType: o_auth2_0.TokenGrantV3ClientCredentialsConstant,
+		GrantType: o_auth2_0.TokenGrantV3GrantTypeClientCredentialsConstant,
 	}
 	accessToken, err :=
 		o.Client.OAuth20.TokenGrantV3Short(param, client.BasicAuth(*clientId, *clientSecret))

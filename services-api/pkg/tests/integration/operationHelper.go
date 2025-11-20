@@ -8,7 +8,6 @@ import (
 	"context"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"net/http"
 	"os"
 	"reflect"
@@ -185,8 +184,8 @@ type GetReader struct{}
 
 func (o *GetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
-		data, err := ioutil.ReadAll(response.Body())
+	case 200: //nolint:mnd
+		data, err := io.ReadAll(response.Body())
 		if err != nil {
 			return nil, err
 		}
@@ -196,7 +195,7 @@ func (o *GetReader) ReadResponse(response runtime.ClientResponse, consumer runti
 		return result, nil
 
 	default:
-		data, err := ioutil.ReadAll(response.Body())
+		data, err := io.ReadAll(response.Body())
 		if err != nil {
 			return nil, err
 		}
@@ -211,7 +210,7 @@ type Get200Error struct {
 }
 
 func (o *Get200Error) Error() string {
-	return fmt.Sprintf("[GET /user/{username}/token/{kind}][%d] getOK  %+v", 200, o.Payload)
+	return fmt.Sprintf("[GET /user/{username}/token/{kind}][%d] getOK  %+v", 200, o.Payload) //nolint:mnd
 }
 
 func (o *Get200Error) PostPayload() string {
@@ -224,7 +223,7 @@ type PostReader struct {
 
 func (p *PostReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
+	case 200: //nolint:mnd
 		result := NewPostOK()
 		if err := result.readResponse(response, consumer); err != nil {
 			return nil, err
@@ -233,7 +232,7 @@ func (p *PostReader) ReadResponse(response runtime.ClientResponse, consumer runt
 		return result, nil
 
 	default:
-		data, err := ioutil.ReadAll(response.Body())
+		data, err := io.ReadAll(response.Body())
 		if err != nil {
 			return nil, err
 		}
@@ -252,7 +251,7 @@ func NewPostOK() *Post200Error {
 }
 
 func (p *Post200Error) Error() string {
-	return fmt.Sprintf("[POST /auth/token][%d] postOK  %+v", 200, p.Payload)
+	return fmt.Sprintf("[POST /auth/token][%d] postOK  %+v", 200, p.Payload) //nolint:mnd
 }
 
 func (p *Post200Error) PostPayload() *OauthmodelPhantauthToken {

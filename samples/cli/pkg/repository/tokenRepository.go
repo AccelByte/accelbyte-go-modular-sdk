@@ -7,7 +7,6 @@ package repository
 import (
 	"encoding/json"
 	"errors"
-	"io/ioutil"
 	"os"
 	"time"
 
@@ -25,7 +24,7 @@ func (tokenRepository *TokenRepositoryImpl) Store(accessToken interface{}) error
 
 	_, err := os.Stat(os.TempDir() + "/justice-sample-apps/")
 	if os.IsNotExist(err) {
-		errDir := os.MkdirAll(os.TempDir()+"/justice-sample-apps/", 0755)
+		errDir := os.MkdirAll(os.TempDir()+"/justice-sample-apps/", 0755) //nolint:mnd
 		if errDir != nil {
 			return errDir
 		}
@@ -34,7 +33,7 @@ func (tokenRepository *TokenRepositoryImpl) Store(accessToken interface{}) error
 	if err != nil {
 		return err
 	}
-	err = ioutil.WriteFile(os.TempDir()+"/justice-sample-apps/userData", marshal, 0644)
+	err = os.WriteFile(os.TempDir()+"/justice-sample-apps/userData", marshal, 0644) //nolint:mnd
 	if err != nil {
 		return err
 	}
@@ -48,7 +47,7 @@ func (tokenRepository *TokenRepositoryImpl) GetToken() (*repository.Token, error
 
 		return nil, errors.New("please do login")
 	}
-	content, err := ioutil.ReadFile(os.TempDir() + "/justice-sample-apps/userData")
+	content, err := os.ReadFile(os.TempDir() + "/justice-sample-apps/userData")
 	if err != nil {
 		logrus.Error(err)
 

@@ -110,7 +110,7 @@ func main() {
 		} else {
 			fmt.Printf("Successfully call websocket\n")
 		}
-		time.Sleep(5 * time.Second)
+		time.Sleep(5 * time.Second) //nolint:mnd
 	}
 }
 
@@ -121,7 +121,7 @@ func decodeWSMessage(msg string) map[string]string {
 	for scanner.Scan() {
 		str := scanner.Text()
 		keyValue := strings.Split(str, ": ")
-		if len(keyValue) == 2 {
+		if len(keyValue) == 2 { //nolint:mnd
 			res[keyValue[0]] = keyValue[1]
 		}
 	}

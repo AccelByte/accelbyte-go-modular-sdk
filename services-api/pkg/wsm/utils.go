@@ -227,8 +227,8 @@ func SplitMessageIntoMap(s string) (map[string]interface{}, error) {
 		if line == "" {
 			continue
 		}
-		parts := strings.SplitN(line, ":", 2)
-		if len(parts) != 2 {
+		parts := strings.SplitN(line, ":", 2) //nolint:mnd
+		if len(parts) != 2 {                  //nolint:mnd
 			return nil, fmt.Errorf("invalid (key: value) format at line %d: %s", index, line)
 		}
 		key := strings.TrimSpace(parts[0])

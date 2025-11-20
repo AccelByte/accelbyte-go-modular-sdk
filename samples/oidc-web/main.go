@@ -46,7 +46,7 @@ func main() {
 
 	// config
 	mux.HandleFunc("/config", func(w http.ResponseWriter, r *http.Request) {
-		if r.Method == "GET" {
+		if r.Method == http.MethodGet {
 			oidcConfig := struct {
 				Scope        string `json:"scope"`
 				PlatformId   string `json:"platform_id"`

@@ -6,9 +6,8 @@ package utils
 
 import (
 	"bytes"
-	"fmt"
+	"errors"
 	"io"
-	"io/ioutil"
 	"net/http"
 )
 
@@ -37,13 +36,13 @@ func SetupRewindBody(r *http.Request) (*http.Request, error) {
 		return r, nil
 	}
 	if r.GetBody == nil {
-		cachedBody, err := ioutil.ReadAll(r.Body)
+		cachedBody, err := io.ReadAll(r.Body)
 		if err != nil {
 			return nil, err
 		}
-		r.Body = ioutil.NopCloser(bytes.NewReader(cachedBody))
+		r.Body = io.NopCloser(bytes.NewReader(cachedBody))
 		r.GetBody = func() (io.ReadCloser, error) {
-			bodyReadCloser := ioutil.NopCloser(bytes.NewReader(cachedBody))
+			bodyReadCloser := io.NopCloser(bytes.NewReader(cachedBody))
 
 			return bodyReadCloser, nil
 		}
@@ -73,7 +72,7 @@ func RewindBody(r *http.Request) (*http.Request, error) {
 		}
 	}
 	if r.GetBody == nil {
-		return nil, fmt.Errorf("cannot rewind request body - there is no 'GetBody()'")
+		return nil, errors.New("cannot rewind request body - there is no 'GetBody()'")
 	}
 	newBody, err := r.GetBody()
 	if err != nil {

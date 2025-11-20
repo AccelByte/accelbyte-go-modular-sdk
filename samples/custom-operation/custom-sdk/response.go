@@ -7,7 +7,7 @@ package custom_sdk
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
+	"net/http"
 
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
@@ -18,7 +18,7 @@ type GetReader struct {
 
 func (o *GetReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
+	case http.StatusOK:
 		result := NewOk()
 		if err := result.readResponse(response, consumer, nil); err != nil {
 			return nil, err
@@ -27,7 +27,7 @@ func (o *GetReader) ReadResponse(response runtime.ClientResponse, consumer runti
 		return result, nil
 
 	default:
-		data, err := ioutil.ReadAll(response.Body())
+		data, err := io.ReadAll(response.Body())
 		if err != nil {
 			return nil, err
 		}
@@ -39,7 +39,7 @@ func (o *GetReader) ReadResponse(response runtime.ClientResponse, consumer runti
 // Ok is a custom response
 // whereas operation syncSteamInventory uses SyncSteamInventoryNoContent as the response
 type Ok struct {
-	Payload interface{}
+	Payload interface{} `json:"payload"`
 }
 
 func NewOk() *Ok {

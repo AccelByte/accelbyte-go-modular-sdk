@@ -6,7 +6,6 @@ package wsm
 
 import (
 	"errors"
-	"fmt"
 	"io"
 	"net/http"
 	"strings"
@@ -91,7 +90,7 @@ func (c *WSConnection) DefaultCloseHandler(code int, reason string) error {
 }
 
 func (c *WSConnection) DefaultPongHandler(text string) error {
-	err := c.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+	err := c.Conn.SetReadDeadline(time.Now().Add(6 * time.Second)) //nolint:mnd
 	if err != nil {
 		logrus.Warn(err.Error())
 	}
@@ -208,7 +207,7 @@ func NewWSConnection(
 			"scheme": nil,
 			"token":  nil,
 		},
-		MaxReconnectAttempts: 10,
+		MaxReconnectAttempts: 10, //nolint:mnd
 	}
 
 	for _, opt := range options {
@@ -268,7 +267,7 @@ func (m *DefaultConnectionManagerImpl) Get() *WSConnection {
 
 func (m *DefaultConnectionManagerImpl) Close() error {
 	if m.wsConn == nil {
-		return fmt.Errorf("no websocket connection can be closed")
+		return errors.New("no websocket connection can be closed")
 	}
 
 	return m.wsConn.Close(websocket.CloseNormalClosure, "closing websocket")

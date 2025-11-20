@@ -7,7 +7,6 @@ package connectionutils
 import (
 	"bufio"
 	"errors"
-	"fmt"
 	"math"
 	"net/http"
 	"strings"
@@ -62,7 +61,7 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 	}
 	if tokenValue, exists := c.WSConn.Data["token"]; exists && tokenValue != nil {
 		if tokenString, ok := tokenValue.(*string); ok && tokenString != nil {
-			req.Header.Add("Authorization", fmt.Sprintf("Bearer %s", *tokenString))
+			req.Header.Add("Authorization", "Bearer "+*tokenString)
 		} else {
 			tokenErr := "token is missing"
 			logrus.Debug(tokenErr)
@@ -73,7 +72,9 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 
 	// Specific to Lobby Service can be moved later
 	if lobbySessionId, exists := c.WSConn.Data[LobbySessionID]; exists {
-		req.Header.Add("X-Ab-LobbySessionID", lobbySessionId.(string))
+		if lobbySessionIdStr, ok := lobbySessionId.(string); ok {
+			req.Header.Add("X-Ab-LobbySessionID", lobbySessionIdStr) //nolint:canonicalheader
+		}
 	}
 
 	conn, err := c.WSConn.Dial(req.URL.String(), req.Header)
@@ -252,7 +253,7 @@ func (c *LobbyWebSocketClient) ShouldReconnect(code int, reason string, numberOf
 	}
 
 	// 1000 indicates a normal closure
-	if code == 1000 {
+	if code == 1000 { //nolint:mnd
 		return false
 	}
 
@@ -267,7 +268,7 @@ func (c *LobbyWebSocketClient) ShouldReconnect(code int, reason string, numberOf
 	}
 
 	// Undefined
-	if code >= 5000 {
+	if code >= 5000 { //nolint:mnd
 		return false
 	}
 
@@ -343,7 +344,7 @@ func (c *LobbyWebSocketClient) ReadWSMessage(done <-chan struct{}, messageHandle
 }
 
 func (c *LobbyWebSocketClient) WSHeartbeat(done chan struct{}) {
-	ticker := time.NewTicker(4 * time.Second)
+	ticker := time.NewTicker(4 * time.Second) //nolint:mnd
 	defer ticker.Stop()
 
 	for {
@@ -379,7 +380,7 @@ func DecodeWSMessage(msg string) map[string]interface{} {
 	for scanner.Scan() {
 		str := scanner.Text()
 		keyValue := strings.Split(str, ": ")
-		if len(keyValue) == 2 {
+		if len(keyValue) == 2 { //nolint:mnd
 			res[keyValue[0]] = keyValue[1]
 		}
 	}

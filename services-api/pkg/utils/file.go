@@ -16,7 +16,7 @@ import (
 )
 
 func ReadByChunks(filePath string) (*os.File, error) {
-	buf := make([]byte, 0, 4*1024) // size of chunks
+	buf := make([]byte, 0, 4*1024) //nolint:mnd // size of chunks
 	file, errFile := os.Open(filePath)
 	if errFile != nil {
 		return nil, fmt.Errorf("unable to open file: %v", errFile)

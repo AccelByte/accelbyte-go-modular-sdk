@@ -79,7 +79,7 @@ type OAuth20RefreshService struct {
 func UserTokenRefresher(s auth.Session) {
 	token, _ := s.Token.GetToken()
 	p := &o_auth2_0.TokenGrantV3Params{
-		GrantType:    o_auth2_0.TokenGrantV3RefreshTokenConstant,
+		GrantType:    o_auth2_0.TokenGrantV3GrantTypeRefreshTokenConstant,
 		RefreshToken: &token.RefreshToken,
 	}
 	service := OAuth20RefreshService{
@@ -99,7 +99,7 @@ func UserTokenRefresher(s auth.Session) {
 
 func ClientTokenRefresher(s auth.Session) {
 	p := &o_auth2_0.TokenGrantV3Params{
-		GrantType: o_auth2_0.TokenGrantV3ClientCredentialsConstant,
+		GrantType: o_auth2_0.TokenGrantV3GrantTypeClientCredentialsConstant,
 	}
 	service := OAuth20RefreshService{
 		Client:           NewIamClient(s.Config),

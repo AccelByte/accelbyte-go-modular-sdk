@@ -13,7 +13,7 @@ import (
 )
 
 func AmazonTraceIDGen() string {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second) //nolint:mnd
 	defer cancel()
 
 	gen := xray.NewIDGenerator()

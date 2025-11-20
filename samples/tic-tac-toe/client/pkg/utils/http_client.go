@@ -14,7 +14,7 @@ import (
 
 func GetClient() http.Client {
 	return http.Client{
-		Timeout: time.Second * 10,
+		Timeout: time.Second * 10, //nolint:mnd
 	}
 }
 

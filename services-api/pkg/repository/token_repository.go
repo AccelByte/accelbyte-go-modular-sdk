@@ -190,7 +190,7 @@ func ConvertStringToModelToken(accessToken string) (*Token, error) {
 // CheckJWT checks if the token is a valid JWT
 func CheckJWT(token string) error {
 	parts := strings.Split(token, ".")
-	if len(parts) != 3 {
+	if len(parts) != 3 { //nolint:mnd
 		return errors.New("token does not have 3 parts")
 	}
 

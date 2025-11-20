@@ -120,7 +120,7 @@ func NewWSConnection(
 			"host":   nil,
 			"scheme": nil,
 		},
-		MaxReconnectAttempts: 10,
+		MaxReconnectAttempts: 10, //nolint:mnd
 	}
 
 	for _, opt := range options {
@@ -210,7 +210,7 @@ func (c *WSConnection) DefaultCloseHandler(code int, reason string) error {
 }
 
 func (c *WSConnection) DefaultPongHandler(text string) error {
-	err := c.Conn.SetReadDeadline(time.Now().Add(6 * time.Second))
+	err := c.Conn.SetReadDeadline(time.Now().Add(6 * time.Second)) //nolint:mnd
 	if err != nil {
 		logrus.Warn(err.Error())
 	}

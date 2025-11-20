@@ -5,7 +5,7 @@
 package auth
 
 import (
-	"fmt"
+	"errors"
 	"sync"
 	"time"
 
@@ -46,7 +46,7 @@ func (t *TokenRepositoryImpl) GetToken() (*repository.Token, error) {
 	t.mu.Lock()
 
 	if t.AccessToken == nil {
-		return nil, fmt.Errorf("empty access token")
+		return nil, errors.New("empty access token")
 	}
 
 	return t.AccessToken, nil

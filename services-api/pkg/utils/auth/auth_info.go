@@ -6,6 +6,7 @@ package auth
 
 import (
 	"encoding/base64"
+	"errors"
 	"fmt"
 	"strings"
 
@@ -60,7 +61,7 @@ func AuthInfoWriter(s Session, outerValues [][]string, key string) runtime.Clien
 				return nil
 			}
 		}
-		aggregatedErr := fmt.Errorf(strings.Join(errors, ""))
+		aggregatedErr := fmt.Errorf("%s", strings.Join(errors, ""))
 
 		return fmt.Errorf("failed to find an existing authorization. %s", aggregatedErr)
 	})
@@ -69,7 +70,7 @@ func AuthInfoWriter(s Session, outerValues [][]string, key string) runtime.Clien
 func ConfigRepo(s Session) runtime.ClientAuthInfoWriter {
 	clientID := s.Config.GetClientId()
 	if clientID == "" {
-		return Error(fmt.Errorf("empty clientID"))
+		return Error(errors.New("empty clientID"))
 	}
 	clientSecret := s.Config.GetClientSecret()
 
@@ -90,7 +91,7 @@ func TokenRepo(s Session) runtime.ClientAuthInfoWriter {
 		return Error(err)
 	}
 	if getToken.AccessToken == nil {
-		return Error(fmt.Errorf("access token is nil. please do login first"))
+		return Error(errors.New("access token is nil. please do login first"))
 	}
 
 	return Bearer(*getToken.AccessToken)
@@ -114,7 +115,7 @@ func Cookie(s Session, key string) runtime.ClientAuthInfoWriter {
 		return Error(err)
 	}
 	if getToken.AccessToken == nil {
-		return Error(fmt.Errorf("access token is nil"))
+		return Error(errors.New("access token is nil"))
 	}
 
 	return CookieValue(key, *getToken.AccessToken)

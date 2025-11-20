@@ -106,12 +106,12 @@ func getMessage(s string) (wsm.Message, error) {
 
 	messageType, ok := m["type"].(string)
 	if !ok {
-		return nil, fmt.Errorf(fmt.Sprintf("cannot find message type from string: %s", s))
+		return nil, fmt.Errorf("cannot find message type from string: %s", s)
 	}
 
 	newMessageFromMapFunc, exists := unifiedMessageFromMapRegistry[messageType]
 	if !exists {
-		return nil, fmt.Errorf(fmt.Sprintf("cannot find NewMessageFromMapFunc for message type: %s", messageType))
+		return nil, fmt.Errorf("cannot find NewMessageFromMapFunc for message type: %s", messageType)
 	}
 
 	message, err := newMessageFromMapFunc(m)

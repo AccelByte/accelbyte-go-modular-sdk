@@ -110,7 +110,7 @@ func (v *TokenValidator) Validate(token string, permission *Permission, namespac
 
 	publicKey := v.PublicKeys[kid]
 	if publicKey == nil {
-		return fmt.Errorf("public key not found")
+		return errors.New("public key not found")
 	}
 
 	err = jsonWebToken.Claims(publicKey, &v.JwtClaims)
@@ -162,7 +162,9 @@ func (v *TokenValidator) convertExponent(e string) (int, error) {
 	}
 
 	var bytesE []byte
+	//nolint:mnd
 	if len(bytesE) < 8 {
+		//nolint:mnd
 		bytesE = make([]byte, 8-len(decodedE), 8)
 		bytesE = append(bytesE, decodedE...)
 	} else {
@@ -437,10 +439,10 @@ func (v *TokenValidator) validatePermissions(permissions []Permission, resource 
 
 			hasResourceItemsLen := len(hasResourceItems)
 			requiredResourceItemsLen := len(requiredResourceItems)
-			minLen := min(hasResourceItemsLen, requiredResourceItemsLen)
+			minLen := minInt(hasResourceItemsLen, requiredResourceItemsLen)
 
 			matches := true
-			for i := 0; i < minLen; i++ {
+			for i := range minLen {
 				s1 := hasResourceItems[i]
 				s2 := requiredResourceItems[i]
 				if s1 != s2 && s1 != "*" {
@@ -453,6 +455,7 @@ func (v *TokenValidator) validatePermissions(permissions []Permission, resource 
 			if matches {
 				if hasResourceItemsLen < requiredResourceItemsLen {
 					if hasResourceItems[hasResourceItemsLen-1] == "*" {
+						//nolint:mnd
 						if hasResourceItemsLen < 2 {
 							return true
 						} else {
@@ -492,7 +495,7 @@ func (v *TokenValidator) validatePermissions(permissions []Permission, resource 
 	return false
 }
 
-func min(a, b int) int {
+func minInt(a, b int) int {
 	if a < b {
 		return a
 	}

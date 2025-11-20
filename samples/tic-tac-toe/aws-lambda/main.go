@@ -21,7 +21,7 @@ func main() {
 	redisClient := redis.NewClient(&redis.Options{
 		Addr:            os.Getenv("REDIS_URL"),
 		DB:              0,
-		MaxRetries:      60,
+		MaxRetries:      60, //nolint:mnd
 		MaxRetryBackoff: time.Second,
 	})
 

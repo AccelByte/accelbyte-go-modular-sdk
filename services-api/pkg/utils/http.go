@@ -32,7 +32,7 @@ import (
 
 func GetClient() http.Client {
 	return http.Client{
-		Timeout: time.Second * 10,
+		Timeout: time.Second * 10, //nolint:mnd
 	}
 }
 
@@ -128,9 +128,9 @@ type PreSendHttpRequestFunc func(r *http.Request) (*http.Request, error)
 type ClientTransport interface {
 	GetRoundTripper() http.RoundTripper
 	GetPreSendABRequestFunc() PreSendABRequestFunc
-	SetPreSendABRequestFunc(PreSendABRequestFunc) error
+	SetPreSendABRequestFunc(requestFunc PreSendABRequestFunc) error
 	GetPreSendHttpRequestFunc() PreSendHttpRequestFunc
-	SetPreSendHttpRequestFunc(PreSendHttpRequestFunc) error
+	SetPreSendHttpRequestFunc(requestFunc PreSendHttpRequestFunc) error
 
 	oar.ClientTransport // for Submit(*ClientOperation) (interface{}, error)
 }
@@ -260,7 +260,7 @@ func (ct *ABClientTransport) GetPreSendABRequestFunc() PreSendABRequestFunc {
 	return ct.preSendABRequestFunc
 }
 
-func (ct *ABClientTransport) SetPreSendABequestFunc(requestFunc PreSendABRequestFunc) error {
+func (ct *ABClientTransport) SetPreSendABRequestFunc(requestFunc PreSendABRequestFunc) error {
 	ct.preSendABRequestFunc = requestFunc
 
 	return nil
@@ -682,7 +682,7 @@ DoneChoosingBodySource:
 			return readCloser, nil
 		}
 
-		return nil, nil
+		return nil, nil //nolint:nilnil
 	}
 
 	return httpRequest, nil

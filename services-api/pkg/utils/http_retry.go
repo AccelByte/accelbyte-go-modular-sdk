@@ -38,14 +38,15 @@ type exponentialBackoff struct {
 	Max time.Duration
 }
 
-func NewExponentialBackoff(start time.Duration, max time.Duration) Backoff {
-	return &exponentialBackoff{Start: start, Max: max}
+func NewExponentialBackoff(start time.Duration, maxDuration time.Duration) Backoff {
+	return &exponentialBackoff{Start: start, Max: maxDuration}
 }
 
 func (b *exponentialBackoff) Get(attempt uint) time.Duration {
 	d := b.Start
-	for i := uint(0); i < attempt; i++ {
-		d *= time.Duration(2)
+	for i := range attempt {
+		_ = i
+		d *= time.Duration(2) //nolint:mnd
 		if d > b.Max {
 			return b.Max
 		}
@@ -93,7 +94,7 @@ func (m Retry) RoundTrip(req *http.Request) (*http.Response, error) {
 		return nil, err
 	}
 
-	for attempt := uint(0); attempt < m.MaxTries; attempt++ {
+	for attempt := range m.MaxTries {
 		//if req.Body != nil {
 		//	req.Body = ioutil.NopCloser(bytes.NewReader(body)) // Reset body for reading
 		//}

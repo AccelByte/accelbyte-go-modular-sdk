@@ -101,13 +101,13 @@ func (t *TicTacToeService) Service(req *events.APIGatewayProxyRequest) (events.A
 	if claims == nil {
 		message := "Claim is empty. " + err.Error()
 
-		return events.APIGatewayProxyResponse{StatusCode: http.StatusUnauthorized, Body: fmt.Sprint(message)}, nil
+		return events.APIGatewayProxyResponse{StatusCode: http.StatusUnauthorized, Body: message}, nil
 	}
 	if errClaims != nil {
 		message := "Unable to validate and parse token. " + errClaims.Error()
 		log.Print(message)
 
-		return events.APIGatewayProxyResponse{StatusCode: http.StatusUnauthorized, Body: fmt.Sprint(errClaims.Error())}, nil
+		return events.APIGatewayProxyResponse{StatusCode: http.StatusUnauthorized, Body: errClaims.Error()}, nil
 	}
 	userID := claims.Data.UserID
 	namespace := *claims.Data.Namespace
@@ -170,7 +170,7 @@ func sendFreeformNotification(namespace, userID, message string) error {
 
 // for path variable MATCH
 func (t *TicTacToeService) createMatchHandler(userID, namespace string) events.APIGatewayProxyResponse {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second) //nolint:mnd
 	defer cancel()
 
 	keyPrefix := constants.Match
@@ -208,7 +208,7 @@ func (t *TicTacToeService) createMatchHandler(userID, namespace string) events.A
 			MatchStatus: constants.Playing,
 			Winner:      -1,
 			PlayerTurn:  1,
-			PlayerNum:   2,
+			PlayerNum:   2, //nolint:mnd
 			BoardStatus: "000000000",
 		}
 		pRequesterMarshall, errRequesterMarshall := json.Marshal(pRequesterData)
@@ -242,7 +242,7 @@ func (t *TicTacToeService) createMatchHandler(userID, namespace string) events.A
 		return events.APIGatewayProxyResponse{
 			StatusCode: http.StatusOK,
 		}
-	} else if len(keys) >= 2 {
+	} else if len(keys) >= 2 { //nolint:mnd
 		log.Print("There is already 2 player")
 		t.ticTacToeDAORedis.Redis.FlushAll(ctx)
 		t.saveInitDB(ctx, userID)
@@ -266,7 +266,7 @@ func (t *TicTacToeService) createMatchHandler(userID, namespace string) events.A
 
 // for path variable MOVE
 func (t *TicTacToeService) makeMoveHandler(requestBody, namespace, userID string) events.APIGatewayProxyResponse {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second) //nolint:mnd
 	defer cancel()
 
 	// prepare the move request
@@ -299,7 +299,7 @@ func (t *TicTacToeService) makeMoveHandler(requestBody, namespace, userID string
 	err = json.Unmarshal([]byte(pRequesterRawData), &pRequesterData)
 	if err != nil {
 		return events.APIGatewayProxyResponse{
-			StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error unmarshall with error: %s", err.Error()),
+			StatusCode: http.StatusInternalServerError, Body: "Error unmarshall with error: " + err.Error(),
 		}
 	}
 	log.Printf("matchdataP1 userid: %s", pRequesterData.UserID)
@@ -329,11 +329,11 @@ func (t *TicTacToeService) makeMoveHandler(requestBody, namespace, userID string
 	key, errKey := t.ticTacToeDAORedis.Redis.Keys(ctx, "*").Result()
 	if errKey != nil {
 		return events.APIGatewayProxyResponse{
-			StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error get data from redis: %s", errKey.Error()),
+			StatusCode: http.StatusInternalServerError, Body: "Error get data from redis: " + errKey.Error(),
 		}
 	}
 	var opponentKey string
-	for i := 0; i < 2; i++ {
+	for i := range 2 {
 		if key[i] != keyPrefix+userID {
 			opponentKey = key[i]
 		}
@@ -342,19 +342,19 @@ func (t *TicTacToeService) makeMoveHandler(requestBody, namespace, userID string
 	opponentRawData, errOpponentRawData := t.ticTacToeDAORedis.Redis.Get(ctx, opponentKey).Result()
 	if errOpponentRawData != nil {
 		return events.APIGatewayProxyResponse{
-			StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error get data from redis: %s", errOpponentRawData.Error()),
+			StatusCode: http.StatusInternalServerError, Body: "Error get data from redis: " + errOpponentRawData.Error(),
 		}
 	}
 	opponentData := models.MatchTable{}
 	err = json.Unmarshal([]byte(opponentRawData), &opponentData)
 	if err != nil {
 		return events.APIGatewayProxyResponse{
-			StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall with error: %s", err.Error()),
+			StatusCode: http.StatusInternalServerError, Body: "Error marshall with error: " + err.Error(),
 		}
 	}
 	log.Printf("this is opponentRawData: %s", opponentRawData)
 	log.Printf("this is requesterRawData: %s", pRequesterRawData)
-	updatedBoard := replaceAtIndex(pRequesterData.BoardStatus, fmt.Sprint(pRequesterData.PlayerNum), moveRequest.Index)
+	updatedBoard := replaceAtIndex(pRequesterData.BoardStatus, strconv.Itoa(pRequesterData.PlayerNum), moveRequest.Index)
 	if pRequesterData.PlayerTurn == 1 {
 		pRequesterData.PlayerTurn = 2
 		opponentData.PlayerTurn = 2
@@ -381,19 +381,19 @@ func (t *TicTacToeService) makeMoveHandler(requestBody, namespace, userID string
 		marshal, errMarshal := json.Marshal(moveResponse)
 		if errMarshal != nil {
 			return events.APIGatewayProxyResponse{
-				StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall p1 with error: %s", errMarshal.Error()),
+				StatusCode: http.StatusInternalServerError, Body: "Error marshall p1 with error: " + errMarshal.Error(),
 			}
 		}
 		pRequesterMarshall, errRequesterMarshall := json.Marshal(pRequesterData)
 		if errRequesterMarshall != nil {
 			return events.APIGatewayProxyResponse{
-				StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall p1 with error: %s", errRequesterMarshall.Error()),
+				StatusCode: http.StatusInternalServerError, Body: "Error marshall p1 with error: " + errRequesterMarshall.Error(),
 			}
 		}
 		opponentMarshall, errOpponentMarshall := json.Marshal(opponentData)
 		if errOpponentMarshall != nil {
 			return events.APIGatewayProxyResponse{
-				StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall opponentData with error: %s", errOpponentMarshall.Error()),
+				StatusCode: http.StatusInternalServerError, Body: "Error marshall opponentData with error: " + errOpponentMarshall.Error(),
 			}
 		}
 		log.Printf("this is pRequesterMarshall: %s", string(pRequesterMarshall))
@@ -417,26 +417,26 @@ func (t *TicTacToeService) makeMoveHandler(requestBody, namespace, userID string
 		marshal, errMarshal := json.Marshal(moveResponse)
 		if errMarshal != nil {
 			return events.APIGatewayProxyResponse{
-				StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall p1 with error: %s", errMarshal.Error()),
+				StatusCode: http.StatusInternalServerError, Body: "Error marshall p1 with error: " + errMarshal.Error(),
 			}
 		}
 		pRequesterMarshall, errRequesterMarshall := json.Marshal(pRequesterData)
 		if errRequesterMarshall != nil {
 			return events.APIGatewayProxyResponse{
-				StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall p1 with error: %s", errRequesterMarshall.Error()),
+				StatusCode: http.StatusInternalServerError, Body: "Error marshall p1 with error: " + errRequesterMarshall.Error(),
 			}
 		}
 		opponentMarshall, errOpponentMarshall := json.Marshal(opponentData)
 		if errOpponentMarshall != nil {
 			return events.APIGatewayProxyResponse{
-				StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall opponentData with error: %s", errOpponentMarshall.Error()),
+				StatusCode: http.StatusInternalServerError, Body: "Error marshall opponentData with error: " + errOpponentMarshall.Error(),
 			}
 		}
 		log.Printf("this is pRequesterMarshall: %s", string(pRequesterMarshall))
 		log.Printf("this is opponentMarshall: %s", string(opponentMarshall))
 		t.ticTacToeDAORedis.Redis.Set(ctx, keyPrefix+userID, string(pRequesterMarshall), redis.RedisExpTime)
 		t.ticTacToeDAORedis.Redis.Set(ctx, keyPrefix+opponentData.UserID, string(opponentMarshall), redis.RedisExpTime)
-		err = sendFreeformNotification(namespace, opponentData.UserID, constants.Playing+fmt.Sprint(opponentData.PlayerNum)+" "+opponentData.BoardStatus)
+		err = sendFreeformNotification(namespace, opponentData.UserID, constants.Playing+strconv.Itoa(opponentData.PlayerNum)+" "+opponentData.BoardStatus)
 		if err != nil {
 			log.Printf("Cannot send free form notif to userID %s, error : %s", opponentData.UserID, err.Error())
 		}
@@ -454,19 +454,19 @@ func (t *TicTacToeService) makeMoveHandler(requestBody, namespace, userID string
 		marshal, errMarshal := json.Marshal(moveResponse)
 		if errMarshal != nil {
 			return events.APIGatewayProxyResponse{
-				StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall with error: %s", errMarshal.Error()),
+				StatusCode: http.StatusInternalServerError, Body: "Error marshall with error: " + errMarshal.Error(),
 			}
 		}
 		pRequesterMarshall, errRequesterMarshall := json.Marshal(pRequesterData)
 		if errRequesterMarshall != nil {
 			return events.APIGatewayProxyResponse{
-				StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall pRequesterData with error: %s", errRequesterMarshall.Error()),
+				StatusCode: http.StatusInternalServerError, Body: "Error marshall pRequesterData with error: " + errRequesterMarshall.Error(),
 			}
 		}
 		opponentMarshall, errOpponentMarshall := json.Marshal(opponentData)
 		if errOpponentMarshall != nil {
 			return events.APIGatewayProxyResponse{
-				StatusCode: http.StatusInternalServerError, Body: fmt.Sprintf("Error marshall opponentData with error: %s", errOpponentMarshall.Error()),
+				StatusCode: http.StatusInternalServerError, Body: "Error marshall opponentData with error: " + errOpponentMarshall.Error(),
 			}
 		}
 		log.Printf("this is pRequesterMarshall: %s", string(pRequesterMarshall))
@@ -489,7 +489,7 @@ func (t *TicTacToeService) makeMoveHandler(requestBody, namespace, userID string
 
 // for path variable STAT
 func (t *TicTacToeService) getStatHandler(userID string) events.APIGatewayProxyResponse {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second) //nolint:mnd
 	defer cancel()
 
 	// get player data
@@ -501,7 +501,7 @@ func (t *TicTacToeService) getStatHandler(userID string) events.APIGatewayProxyR
 	}
 
 	return events.APIGatewayProxyResponse{
-		StatusCode: 200, Body: playerData,
+		StatusCode: 200, Body: playerData, //nolint:mnd
 	}
 }
 
@@ -566,7 +566,7 @@ func checkWinner(boardState string) int {
 		return 0
 	}
 	if !isMatchDraw {
-		return 3
+		return 3 //nolint:mnd
 	}
 
 	return 0

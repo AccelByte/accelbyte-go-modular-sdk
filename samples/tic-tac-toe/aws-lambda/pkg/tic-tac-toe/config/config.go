@@ -5,7 +5,8 @@
 package config
 
 // Config specifies configurable options through env vars
-// nolint: lll
+//
+//nolint:lll
 type Config struct {
 	ServiceName string `env:"SERVICE_NAME" envDefault:"tic-tac-oe-service"`
 	Realm       string `env:"REALM_NAME"`

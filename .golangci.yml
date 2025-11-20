@@ -38,7 +38,7 @@ run:
 # output configuration options
 output:
   # colored-line-number|line-number|json|tab|checkstyle, default is "colored-line-number"
-  format: line-number
+  formats: line-number
 
   # print lines of code with issue, default is true
   print-issued-lines: true
@@ -53,9 +53,8 @@ linters:
   disable:
     - wsl
     - gomnd
-    - goerr113
+    - err113
     - wrapcheck
-    - exhaustivestruct
     - errorlint
     - lll
     - testpackage
@@ -72,7 +71,6 @@ linters:
     - cyclop
     - gomoddirectives
     - gocritic # TODO: enable in wrapper
-    - golint # TODO: enable in wrapper
     - gochecknoglobals # TODO: enable in tests
     - gosec # TODO: enable for math/rand
     - stylecheck # TODO: enable for configRepository
@@ -80,31 +78,28 @@ linters:
     - forcetypeassert # TODO: enable in client matchmaking
     - nilerr # TODO: enable in client matchmaking
     - wastedassign # TODO: enable in client matchmaking
-    - scopelint # TODO: enable in client matchmaking
     - exportloopref # TODO: enable in client matchmaking
     - bodyclose # TODO: enable in client matchmaking, tic tac toe
     - noctx # TODO: enable in client matchmaking, tic tac toe
     - gocognit # TODO: enable in tic-tac-toe
     - gocyclo # TODO: enable in tic-tac-toe
     - nestif # TODO: enable in tic-tac-toe
-    - interfacer # TODO: enable in aws-lambda
     - gochecknoinits # TODO: enable in cli
     - ireturn      # new in 1.43
     - tenv         # new in 1.43
     - varnamelen   # new in 1.43
     - containedctx # new in 1.44
     - errchkjson   # new in 1.44
-    - ifshort      # new in 1.44
     - maintidx     # new in 1.44
     - errcheck     # new in 1.46
     - execinquery  # new in 1.46
     - exhaustruct  # new in 1.46
+    - depguard     # new in 1.60
+    - dupword      # new in 1.60
 
   fast: false
 
 linters-settings:
-  govet:
-    check-shadowing: true
   goheader:
     values:
       regexp:

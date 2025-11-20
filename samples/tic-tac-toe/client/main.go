@@ -7,8 +7,9 @@ package main
 import (
 	"bufio"
 	"encoding/json"
+	"errors"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
 	"os"
 	"strconv"
@@ -282,7 +283,7 @@ func makeMove(request models.MoveRequest) (*models.MoveResponse, error) {
 	if errResp != nil {
 		return nil, errResp
 	}
-	respBody, errRespBody := ioutil.ReadAll(resp.Body)
+	respBody, errRespBody := io.ReadAll(resp.Body)
 	if errRespBody != nil {
 		return nil, errRespBody
 	}
@@ -297,7 +298,7 @@ func makeMove(request models.MoveRequest) (*models.MoveResponse, error) {
 	} else if resp.StatusCode == http.StatusForbidden {
 		logrus.Info(string(respBody))
 
-		return nil, fmt.Errorf("forbidden move, try again: ")
+		return nil, errors.New("forbidden move, try again: ")
 	} else {
 		logrus.Info(string(respBody))
 
@@ -314,7 +315,7 @@ func getStat() (*models.MatchTable, error) {
 	if errResp != nil {
 		return nil, errResp
 	}
-	respBody, errRespBody := ioutil.ReadAll(resp.Body)
+	respBody, errRespBody := io.ReadAll(resp.Body)
 	if errRespBody != nil {
 		return nil, errRespBody
 	}
@@ -329,7 +330,7 @@ func getStat() (*models.MatchTable, error) {
 
 func renderBoard(boardStatus string) {
 	fmt.Printf("\n-----------------------------------------------------\n")
-	for i := 0; i < 9; i++ {
+	for i := range 9 {
 		if boardStatus[i] == '1' {
 			fmt.Printf("O")
 		} else if boardStatus[i] == '2' {
@@ -369,7 +370,7 @@ func playingGame(input string) {
 		if resp.Winner == playerNum {
 			logrus.Infof("You win!")
 			gameStatus = Win
-		} else if resp.Winner == 3 {
+		} else if resp.Winner == 3 { //nolint:mnd
 			logrus.Infof("Draw!")
 			gameStatus = Draw
 		} else {
