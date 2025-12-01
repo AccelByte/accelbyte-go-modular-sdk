@@ -906,7 +906,6 @@ func (o *OAuth20Service) initTokenValidator(value bool) error {
 
 		Filter:                nil,
 		JwkSet:                nil,
-		JwtClaims:             JWTClaims{},
 		JwtEncoding:           *base64.URLEncoding.WithPadding(base64.NoPadding),
 		PublicKeys:            make(map[string]*rsa.PublicKey),
 		LocalValidationActive: value,
