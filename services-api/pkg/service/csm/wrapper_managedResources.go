@@ -278,6 +278,66 @@ func (aaa *ManagedResourcesService) DeleteNoSQLClusterV2Short(input *managed_res
 	return ok, nil
 }
 
+func (aaa *ManagedResourcesService) StartNoSQLClusterV2Short(input *managed_resources.StartNoSQLClusterV2Params) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdManagedResources != nil {
+		input.XFlightId = tempFlightIdManagedResources
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.ManagedResources.StartNoSQLClusterV2Short(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (aaa *ManagedResourcesService) StopNoSQLClusterV2Short(input *managed_resources.StopNoSQLClusterV2Params) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdManagedResources != nil {
+		input.XFlightId = tempFlightIdManagedResources
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.ManagedResources.StopNoSQLClusterV2Short(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (aaa *ManagedResourcesService) GetNoSQLAccessTunnelV2Short(input *managed_resources.GetNoSQLAccessTunnelV2Params) (*managed_resources.GetNoSQLAccessTunnelV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

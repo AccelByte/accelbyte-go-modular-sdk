@@ -4,6 +4,8 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk
 
 go 1.23.0
 
+toolchain go1.23.12
+
 replace github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../services-api
 
 require (

@@ -4,6 +4,8 @@ module github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ia
 
 go 1.23.0
 
+toolchain go1.23.12
+
 // for development only (not propagated)
 replace github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk
 

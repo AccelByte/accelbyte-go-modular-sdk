@@ -188,6 +188,36 @@ func (aaa *SessionStorageService) PublicReadPartySessionStorageShort(input *sess
 	return ok, nil
 }
 
+func (aaa *SessionStorageService) PublicUpdateInsertPartySessionStorageShort(input *session_storage.PublicUpdateInsertPartySessionStorageParams) (*session_storage.PublicUpdateInsertPartySessionStorageResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdSessionStorage != nil {
+		input.XFlightId = tempFlightIdSessionStorage
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.SessionStorage.PublicUpdateInsertPartySessionStorageShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *SessionStorageService) PublicUpdateInsertPartySessionStorageReservedShort(input *session_storage.PublicUpdateInsertPartySessionStorageReservedParams) (*session_storage.PublicUpdateInsertPartySessionStorageReservedResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

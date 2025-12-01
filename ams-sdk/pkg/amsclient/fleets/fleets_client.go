@@ -32,6 +32,7 @@ type Client struct {
 type ClientService interface {
 	FleetListShort(params *FleetListParams, authInfo runtime.ClientAuthInfoWriter) (*FleetListResponse, error)
 	FleetCreateShort(params *FleetCreateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetCreateResponse, error)
+	BulkFleetDeleteShort(params *BulkFleetDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*BulkFleetDeleteResponse, error)
 	FleetGetShort(params *FleetGetParams, authInfo runtime.ClientAuthInfoWriter) (*FleetGetResponse, error)
 	FleetUpdateShort(params *FleetUpdateParams, authInfo runtime.ClientAuthInfoWriter) (*FleetUpdateResponse, error)
 	FleetDeleteShort(params *FleetDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*FleetDeleteResponse, error)
@@ -176,6 +177,104 @@ func (a *Client) FleetCreateShort(params *FleetCreateParams, authInfo runtime.Cl
 		return response, v
 	case *FleetCreateInternalServerError:
 		response := &FleetCreateResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+BulkFleetDeleteShort delete one or more fleets. maximum of 1000 fleets allowed
+Maximum of 1000 fleets allowed
+
+Required Permission: ADMIN:NAMESPACE:{namespace}:ARMADA:FLEET [DELETE]
+*/
+func (a *Client) BulkFleetDeleteShort(params *BulkFleetDeleteParams, authInfo runtime.ClientAuthInfoWriter) (*BulkFleetDeleteResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkFleetDeleteParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "BulkFleetDelete",
+		Method:             "DELETE",
+		PathPattern:        "/ams/v1/admin/namespaces/{namespace}/fleets",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &BulkFleetDeleteReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *BulkFleetDeleteOK:
+		response := &BulkFleetDeleteResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *BulkFleetDeleteMultiStatus:
+		response := &BulkFleetDeleteResponse{}
+		response.Data207 = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *BulkFleetDeleteBadRequest:
+		response := &BulkFleetDeleteResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *BulkFleetDeleteUnauthorized:
+		response := &BulkFleetDeleteResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *BulkFleetDeleteForbidden:
+		response := &BulkFleetDeleteResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *BulkFleetDeleteUnprocessableEntity:
+		response := &BulkFleetDeleteResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *BulkFleetDeleteInternalServerError:
+		response := &BulkFleetDeleteResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

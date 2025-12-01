@@ -44,8 +44,8 @@ type ClientService interface {
 }
 
 /*
-RetrieveAllLegalPoliciesByNamespaceShort retrieve all base legal policy in the namespace
-Retrieve all base policies in the namespace.
+RetrieveAllLegalPoliciesByNamespaceShort retrieve base legal policy in the namespace
+Retrieve base policies in the namespace. Set `limit = -1` to retrieve all records
 */
 func (a *Client) RetrieveAllLegalPoliciesByNamespaceShort(params *RetrieveAllLegalPoliciesByNamespaceParams, authInfo runtime.ClientAuthInfoWriter) (*RetrieveAllLegalPoliciesByNamespaceResponse, error) {
 	// TODO: Validate the params before sending
