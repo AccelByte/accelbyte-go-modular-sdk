@@ -297,8 +297,20 @@ func (v *TokenValidator) fetchRevocationList() error {
 func (v *TokenValidator) getRole(roleId string, forceFetch bool) (*iamclientmodels.ModelRolePermissionResponseV3, error) {
 	if !forceFetch {
 		v.RWMutex.RLock()
-		defer v.RWMutex.RUnlock()
+		if role, found := v.Roles[roleId]; found {
+			v.RWMutex.RUnlock()
 
+			return role, nil
+		}
+
+		v.RWMutex.RUnlock()
+	}
+
+	v.RWMutex.Lock()
+	defer v.RWMutex.Unlock()
+
+	// Double-check after acquiring write lock
+	if !forceFetch {
 		if role, found := v.Roles[roleId]; found {
 			return role, nil
 		}
@@ -315,9 +327,6 @@ func (v *TokenValidator) getRole(roleId string, forceFetch bool) (*iamclientmode
 	if err != nil {
 		return nil, err
 	}
-
-	v.RWMutex.Lock()
-	defer v.RWMutex.Unlock()
 
 	v.Roles[roleId] = role.Data
 
