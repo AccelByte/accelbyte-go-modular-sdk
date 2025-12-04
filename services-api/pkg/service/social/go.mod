@@ -10,9 +10,8 @@ toolchain go1.23.12
 replace github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../../../social-sdk
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
-	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.0.0
-	github.com/go-openapi/runtime v0.19.29
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
+	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.4.0
 )
 
 require (
@@ -26,6 +25,7 @@ require (
 	github.com/go-openapi/jsonpointer v0.19.5 // indirect
 	github.com/go-openapi/jsonreference v0.19.6 // indirect
 	github.com/go-openapi/loads v0.21.1 // indirect
+	github.com/go-openapi/runtime v0.19.29 // indirect
 	github.com/go-openapi/spec v0.20.4 // indirect
 	github.com/go-openapi/strfmt v0.21.1 // indirect
 	github.com/go-openapi/swag v0.21.1 // indirect

@@ -9,7 +9,7 @@ replace (
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.3.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.5
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
 )
 
 require (
