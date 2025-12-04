@@ -15,6 +15,7 @@ import (
 	"io"
 	"math/big"
 	"net/http"
+	"os"
 	"strings"
 	"sync"
 	"time"
@@ -295,7 +296,7 @@ func (v *TokenValidator) fetchRevocationList() error {
 	return nil
 }
 
-func (v *TokenValidator) getRole(roleId string, forceFetch bool) (*iamclientmodels.ModelRolePermissionResponseV3, error) {
+func (v *TokenValidator) getRole(roleId string, namespace string, forceFetch bool) (*iamclientmodels.ModelRolePermissionResponseV3, error) {
 	if !forceFetch {
 		v.RWMutex.RLock()
 		if role, found := v.Roles[roleId]; found {
@@ -310,6 +311,13 @@ func (v *TokenValidator) getRole(roleId string, forceFetch bool) (*iamclientmode
 	v.RWMutex.Lock()
 	defer v.RWMutex.Unlock()
 
+	if namespace == "*" {
+		namespace = os.Getenv("AB_NAMESPACE")
+	}
+
+	// Strip trailing hyphen from namespace
+	namespace = strings.TrimSuffix(namespace, "-")
+
 	// Double-check after acquiring write lock
 	if !forceFetch {
 		if role, found := v.Roles[roleId]; found {
@@ -323,7 +331,8 @@ func (v *TokenValidator) getRole(roleId string, forceFetch bool) (*iamclientmode
 		TokenRepository:  v.AuthService.TokenRepository,
 	}
 	role, err := overrideRoleService.AdminGetRoleNamespacePermissionV3Short(&override_role_config_v3.AdminGetRoleNamespacePermissionV3Params{
-		RoleID: roleId,
+		RoleID:    roleId,
+		Namespace: namespace,
 	})
 	if err != nil {
 		return nil, err
@@ -334,8 +343,8 @@ func (v *TokenValidator) getRole(roleId string, forceFetch bool) (*iamclientmode
 	return role.Data, nil
 }
 
-func (v *TokenValidator) getRolePermissions(roleId string, forceFetch bool) ([]Permission, error) {
-	role, err := v.getRole(roleId, forceFetch)
+func (v *TokenValidator) getRolePermissions(roleId string, namespace string, forceFetch bool) ([]Permission, error) {
+	role, err := v.getRole(roleId, namespace, forceFetch)
 	if err != nil {
 		return nil, err
 	}
@@ -349,7 +358,7 @@ func (v *TokenValidator) getRolePermissions(roleId string, forceFetch bool) ([]P
 }
 
 func (v *TokenValidator) getRolePermissions2(roleId string, namespace string, userId *string, forceFetch bool) ([]Permission, error) {
-	permissions, err := v.getRolePermissions(roleId, forceFetch)
+	permissions, err := v.getRolePermissions(roleId, namespace, forceFetch)
 	if err != nil {
 		return nil, err
 	}
