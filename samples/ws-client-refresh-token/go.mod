@@ -18,6 +18,7 @@ require (
 )
 
 require (
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.0.0-00010101000000-000000000000 // indirect
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922 // indirect
 	github.com/AccelByte/go-jose v2.1.4+incompatible // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
