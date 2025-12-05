@@ -6,6 +6,7 @@ package iam
 
 import (
 	"bytes"
+	"context"
 	"crypto/rsa"
 	"encoding/base64"
 	"encoding/binary"
@@ -14,52 +15,54 @@ import (
 	"math/big"
 	"os"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/AccelByte/bloom"
 	"github.com/AccelByte/go-jose/jwt"
+	"github.com/patrickmn/go-cache"
 
+	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/override_role_config_v3"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 )
 
 type AuthTokenValidator interface {
-	Initialize() error
+	Initialize(ctx ...context.Context) error
 	Validate(token string, permission *Permission, namespace *string, userId *string) error
 }
 
-func NewTokenValidator(authService OAuth20Service, refreshInterval time.Duration) AuthTokenValidator {
-	return &TokenValidator{
-		AuthService:     authService,
-		RefreshInterval: refreshInterval,
-
-		Filter:                nil,
-		JwkSet:                nil,
-		JwtClaims:             JWTClaims{},
-		JwtEncoding:           *base64.URLEncoding.WithPadding(base64.NoPadding),
-		PublicKeys:            make(map[string]*rsa.PublicKey),
-		LocalValidationActive: false,
-		RevokedUsers:          make(map[string]time.Time),
-		Roles:                 make(map[string]*iamclientmodels.ModelRolePermissionResponseV3),
-	}
-}
-
 type TokenValidator struct {
+	sync.RWMutex
+
 	AuthService     OAuth20Service
+	Ctx             context.Context
 	RefreshInterval time.Duration
 
 	Filter                *bloom.Filter
 	JwkSet                *iamclientmodels.OauthcommonJWKSet
-	JwtClaims             JWTClaims
+	JwtClaims             JWTClaims // Not used, preserved for backward compatibility
 	JwtEncoding           base64.Encoding
 	LocalValidationActive bool
 	PublicKeys            map[string]*rsa.PublicKey
 	RevokedUsers          map[string]time.Time
 	Roles                 map[string]*iamclientmodels.ModelRolePermissionResponseV3
+	NamespaceContexts     map[string]*NamespaceContext
+
+	rolePermissionCache    *cache.Cache
+	namespaceContextsCache *cache.Cache
 }
 
-func (v *TokenValidator) Initialize() error {
+func (v *TokenValidator) Initialize(ctx ...context.Context) error {
+	if len(ctx) > 0 {
+		v.Ctx = ctx[0]
+	} else {
+		v.Ctx = context.Background()
+	}
+
 	if err := v.fetchAll(); err != nil {
 		return fmt.Errorf("error initializing validator: %v", err)
 	}
@@ -109,34 +112,43 @@ func (v *TokenValidator) Validate(token string, permission *Permission, namespac
 		return errors.New("'kid' header not found")
 	}
 
+	v.RWMutex.RLock()
 	publicKey := v.PublicKeys[kid]
+	v.RWMutex.RUnlock()
 	if publicKey == nil {
 		return errors.New("public key not found")
 	}
 
-	err = jsonWebToken.Claims(publicKey, &v.JwtClaims)
+	var jwtClaims JWTClaims
+	err = jsonWebToken.Claims(publicKey, &jwtClaims)
 	if err != nil {
 		return err
 	}
 
 	if !v.LocalValidationActive {
 		input := &o_auth2_0.VerifyTokenV3Params{
-			Token: token,
+			Token:   token,
+			Context: v.Ctx,
 		}
+
 		_, errVerify := v.AuthService.VerifyTokenV3Short(input)
 		if errVerify != nil {
 			return errVerify
 		}
-		fmt.Println("token verified")
 
-		if !v.hasValidPermissions(v.JwtClaims, permission, namespace, userId) {
-			return errors.New("insufficient permissions")
+		if errNamespace := v.hasValidNamespace(jwtClaims, namespace); errNamespace != nil {
+			return errNamespace
+		}
+
+		hasValidPermission, errPermission := v.hasValidPermissions(jwtClaims, permission, namespace, userId)
+		if !hasValidPermission {
+			return fmt.Errorf("insufficient permissions. %v", errPermission)
 		}
 
 		return nil
 	}
 
-	err = v.JwtClaims.Validate()
+	err = jwtClaims.Validate()
 	if err != nil {
 		return err
 	}
@@ -145,12 +157,17 @@ func (v *TokenValidator) Validate(token string, permission *Permission, namespac
 		return errors.New("token was revoked")
 	}
 
-	if v.isUserRevoked(v.JwtClaims.Subject, int64(v.JwtClaims.IssuedAt)) {
+	if v.isUserRevoked(jwtClaims.Subject, int64(jwtClaims.IssuedAt)) {
 		return errors.New("user was revoked")
 	}
 
-	if !v.hasValidPermissions(v.JwtClaims, permission, namespace, userId) {
-		return errors.New("insufficient permissions")
+	if errNamespace := v.hasValidNamespace(jwtClaims, namespace); errNamespace != nil {
+		return errNamespace
+	}
+
+	hasValidPermission, errPermission := v.hasValidPermissions(jwtClaims, permission, namespace, userId)
+	if !hasValidPermission {
+		return fmt.Errorf("insufficient permissions in local validation. %v", errPermission)
 	}
 
 	return nil
@@ -162,11 +179,10 @@ func (v *TokenValidator) convertExponent(e string) (int, error) {
 		return 0, err
 	}
 
+	const exponentSize = 8
 	var bytesE []byte
-	//nolint:mnd
-	if len(bytesE) < 8 {
-		//nolint:mnd
-		bytesE = make([]byte, 8-len(decodedE), 8)
+	if len(decodedE) < exponentSize {
+		bytesE = make([]byte, exponentSize-len(decodedE), exponentSize)
 		bytesE = append(bytesE, decodedE...)
 	} else {
 		bytesE = decodedE
@@ -249,11 +265,11 @@ func (v *TokenValidator) fetchClientToken() error {
 	clientId := v.AuthService.ConfigRepository.GetClientId()
 	clientSecret := v.AuthService.ConfigRepository.GetClientSecret()
 
-	return v.AuthService.LoginClient(&clientId, &clientSecret)
+	return v.AuthService.LoginClient(&clientId, &clientSecret) // TODO Use LoginClientWithContext when available
 }
 
 func (v *TokenValidator) fetchJWKSet() error {
-	jwkSet, err := v.AuthService.GetJWKSV3Short(&o_auth2_0.GetJWKSV3Params{})
+	jwkSet, err := v.AuthService.GetJWKSV3Short(&o_auth2_0.GetJWKSV3Params{Context: v.Ctx})
 	if err != nil {
 		return err
 	}
@@ -265,14 +281,16 @@ func (v *TokenValidator) fetchJWKSet() error {
 			return err
 		}
 
+		v.RWMutex.Lock()
 		v.PublicKeys[key.Kid] = publicKey
+		v.RWMutex.Unlock()
 	}
 
 	return nil
 }
 
 func (v *TokenValidator) fetchRevocationList() error {
-	revocationList, err := v.AuthService.GetRevocationListV3Short(&o_auth2_0.GetRevocationListV3Params{})
+	revocationList, err := v.AuthService.GetRevocationListV3Short(&o_auth2_0.GetRevocationListV3Params{Context: v.Ctx})
 	if err != nil {
 		return err
 	}
@@ -280,13 +298,27 @@ func (v *TokenValidator) fetchRevocationList() error {
 	v.Filter = bloom.From(revocationList.Data.RevokedTokens.Bits, uint(*revocationList.Data.RevokedTokens.K))
 
 	for _, revokedUser := range revocationList.Data.RevokedUsers {
+		v.RWMutex.Lock()
+
 		v.RevokedUsers[*revokedUser.ID] = time.Time(revokedUser.RevokedAt)
+
+		v.RWMutex.Unlock()
 	}
 
 	return nil
 }
 
-func (v *TokenValidator) getRole(roleId string, namespace string, forceFetch bool) (*iamclientmodels.ModelRolePermissionResponseV3, error) {
+func (v *TokenValidator) getRole(roleId, namespace string, forceFetch bool) (*iamclientmodels.ModelRolePermissionResponseV3, error) {
+	if !forceFetch {
+		v.RWMutex.RLock()
+		if role, found := v.Roles[roleId]; found {
+			v.RWMutex.RUnlock()
+
+			return role, nil
+		}
+		v.RWMutex.RUnlock()
+	}
+
 	if namespace == "*" {
 		namespace = os.Getenv("AB_NAMESPACE")
 	}
@@ -294,6 +326,10 @@ func (v *TokenValidator) getRole(roleId string, namespace string, forceFetch boo
 	// Strip trailing hyphen from namespace
 	namespace = strings.TrimSuffix(namespace, "-")
 
+	v.RWMutex.Lock()
+	defer v.RWMutex.Unlock()
+
+	// Double-check after acquiring write lock
 	if !forceFetch {
 		if role, found := v.Roles[roleId]; found {
 			return role, nil
@@ -308,6 +344,7 @@ func (v *TokenValidator) getRole(roleId string, namespace string, forceFetch boo
 	role, err := overrideRoleService.AdminGetRoleNamespacePermissionV3Short(&override_role_config_v3.AdminGetRoleNamespacePermissionV3Params{
 		RoleID:    roleId,
 		Namespace: namespace,
+		Context:   v.Ctx,
 	})
 	if err != nil {
 		return nil, err
@@ -318,7 +355,7 @@ func (v *TokenValidator) getRole(roleId string, namespace string, forceFetch boo
 	return role.Data, nil
 }
 
-func (v *TokenValidator) getRolePermissions(roleId string, namespace string, forceFetch bool) ([]Permission, error) {
+func (v *TokenValidator) getRolePermissions(roleId, namespace string, forceFetch bool) ([]Permission, error) {
 	role, err := v.getRole(roleId, namespace, forceFetch)
 	if err != nil {
 		return nil, err
@@ -354,14 +391,16 @@ func (v *TokenValidator) getRolePermissions3(namespaceRole NamespaceRole, userId
 	return v.getRolePermissions2(namespaceRole.RoleID, namespaceRole.Namespace, userId, forceFetch)
 }
 
-func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permission, namespace *string, userId *string) bool {
-	if permission == nil {
-		return true
+func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permission, namespace *string, userId *string) (bool, error) {
+	if permission == nil || permission.Resource == "" {
+		return true, nil
 	}
 
 	tokenNamespace := claims.Namespace
 	if tokenNamespace == "" {
-		return false
+		errPermissions := errors.New("claims namespace is empty")
+
+		return false, errPermissions
 	}
 
 	modifiedResource := v.replaceResource(
@@ -370,25 +409,37 @@ func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permi
 		userId,
 	)
 
+	err := v.fetchNamespaceContextFromCache(claims.Namespace)
+	if err != nil {
+		errPermissions := fmt.Errorf("failed to fetch namespace context. %+v", err)
+
+		return false, errPermissions
+	}
+
 	originPermissions := claims.Permissions
 	if len(originPermissions) > 0 &&
 		v.validatePermissions(originPermissions, modifiedResource, permission.Action) {
-		return true
+		return true, nil
 	}
+
+	var aggregatedErrors []string
 
 	claimsUserId := claims.Subject
 	namespaceRoles := claims.NamespaceRoles
 	if claimsUserId != "" && len(namespaceRoles) > 0 {
 		allRoleNamespacePermissions := make([]Permission, 0)
 		for _, namespaceRole := range namespaceRoles {
-			roleNamespacePermissions, err := v.getRolePermissions3(namespaceRole, &claimsUserId, false)
-			if err == nil {
-				allRoleNamespacePermissions = append(allRoleNamespacePermissions, roleNamespacePermissions...)
+			roleNamespacePermissions, errRoleNamespacePermissions := v.getRolePermissions3(namespaceRole, &claimsUserId, false)
+			if errRoleNamespacePermissions != nil {
+				errPermissions := fmt.Errorf("error while fetching role namespace permission. %s", errRoleNamespacePermissions)
+				aggregatedErrors = append(aggregatedErrors, errPermissions.Error())
 			}
+
+			allRoleNamespacePermissions = append(allRoleNamespacePermissions, roleNamespacePermissions...)
 		}
 		if len(allRoleNamespacePermissions) > 0 &&
 			v.validatePermissions(allRoleNamespacePermissions, modifiedResource, permission.Action) {
-			return true
+			return true, nil
 		}
 	}
 
@@ -396,18 +447,40 @@ func (v *TokenValidator) hasValidPermissions(claims JWTClaims, permission *Permi
 	if len(claimsRoles) > 0 {
 		allRolePermissions := make([]Permission, 0)
 		for _, roleId := range claimsRoles {
-			rolePermissions, err := v.getRolePermissions2(roleId, tokenNamespace, userId, false)
-			if err == nil {
-				allRolePermissions = append(allRolePermissions, rolePermissions...)
+			rolePermissions, errRolePermissions := v.getRolePermissions2(roleId, tokenNamespace, userId, false)
+			if errRolePermissions != nil {
+				errPermissions := fmt.Errorf("error while fetching role permission. %+v", errRolePermissions)
+				aggregatedErrors = append(aggregatedErrors, errPermissions.Error())
 			}
+
+			allRolePermissions = append(allRolePermissions, rolePermissions...)
 		}
 		if len(allRolePermissions) > 0 &&
 			v.validatePermissions(allRolePermissions, modifiedResource, permission.Action) {
-			return true
+			return true, nil
 		}
 	}
 
-	return false
+	additionalErrorInfo := ""
+	if len(aggregatedErrors) > 0 {
+		additionalErrorInfo = "\nerrors:\n -" + strings.Join(aggregatedErrors, "\n -")
+	}
+
+	return false, fmt.Errorf("failed to validate permission [%v][%v]%s", modifiedResource, permission.Action, additionalErrorInfo)
+}
+
+func (v *TokenValidator) hasValidNamespace(claims JWTClaims, namespace *string) error {
+	if namespace == nil {
+		return errors.New("trying to validate access token against a namepace, but have an empty namespace")
+	}
+
+	if claims.ExtendNamespace != "" {
+		if claims.ExtendNamespace != *namespace {
+			return errors.New("extend namespace from token has different a namespace with grpc server")
+		}
+	}
+
+	return nil
 }
 
 func (v *TokenValidator) isTokenRevoked(token string) bool {
@@ -419,6 +492,8 @@ func (v *TokenValidator) isTokenRevoked(token string) bool {
 }
 
 func (v *TokenValidator) isUserRevoked(userId string, issuedAt int64) bool {
+	v.RWMutex.RLock()
+	defer v.RWMutex.RUnlock()
 	if revokedAt, found := v.RevokedUsers[userId]; found {
 		return revokedAt.Unix() >= issuedAt
 	}
@@ -440,6 +515,58 @@ func (v *TokenValidator) replaceResource(resource string, namespace, userId *str
 	return modifiedResource
 }
 
+const (
+	cacheCleanupMultiplier = 2
+)
+
+func (v *TokenValidator) fetchNamespaceContextFromCache(keyNamespace string) error {
+	if v.namespaceContextsCache == nil {
+		defaultExpiration := utils.GetRolesExpirationTime()
+		v.namespaceContextsCache = cache.New(defaultExpiration, cacheCleanupMultiplier*defaultExpiration) // default time is one hour
+	}
+
+	if nsContext, found := v.namespaceContextsCache.Get(keyNamespace); found {
+		v.RWMutex.Lock()
+		defer v.RWMutex.Unlock()
+		v.NamespaceContexts = map[string]*NamespaceContext{keyNamespace: nsContext.(*NamespaceContext)}
+
+		return nil
+	}
+
+	err := v.fetchNamespaceContext(keyNamespace)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (v *TokenValidator) fetchNamespaceContext(keyNamespace string) error {
+	if v.AuthService.ConfigRepository != nil {
+		namespaceService := &basic.NamespaceService{
+			Client:           basic.NewBasicClient(v.AuthService.ConfigRepository),
+			ConfigRepository: v.AuthService.ConfigRepository,
+			TokenRepository:  v.AuthService.TokenRepository,
+		}
+		resp, err := namespaceService.GetNamespaceContextShort(&namespace_.GetNamespaceContextParams{
+			Namespace: keyNamespace,
+			Context:   v.Ctx,
+		})
+		if err != nil {
+			return err
+		}
+
+		v.namespaceContextsCache.Set(keyNamespace, &NamespaceContext{
+			Namespace:          resp.Data.Namespace,
+			Type:               resp.Data.Type,
+			PublisherNamespace: resp.Data.PublisherNamespace,
+			StudioNamespace:    resp.Data.StudioNamespace,
+		}, utils.GetNamespaceContextExpirationTime())
+	}
+
+	return nil
+}
+
 func (v *TokenValidator) validatePermissions(permissions []Permission, resource string, action int) bool {
 	if len(permissions) > 0 {
 		requiredResourceItems := strings.Split(resource, ":")
@@ -455,6 +582,34 @@ func (v *TokenValidator) validatePermissions(permissions []Permission, resource 
 				s1 := hasResourceItems[i]
 				s2 := requiredResourceItems[i]
 				if s1 != s2 && s1 != "*" {
+					if strings.HasSuffix(s1, "-") && i > 0 {
+						prevS1 := hasResourceItems[i-1]
+						if prevS1 == "NAMESPACE" {
+							if strings.Contains(s2, "-") {
+								s2Parts := strings.Split(s2, "-")
+								if len(s2Parts) == 2 && strings.HasPrefix(s2, s1) {
+									continue
+								}
+							}
+
+							s2Prefixed := s2 + "-"
+							if s1 == s2Prefixed {
+								continue
+							}
+
+							var shouldContinue bool
+							v.RWMutex.RLock()
+							if context, found := v.NamespaceContexts[s2]; found {
+								shouldContinue = context.Type == TypeGame && strings.HasPrefix(s1, context.StudioNamespace)
+							}
+							v.RWMutex.RUnlock()
+
+							if shouldContinue {
+								continue
+							}
+						}
+					}
+
 					matches = false
 
 					break
@@ -464,8 +619,8 @@ func (v *TokenValidator) validatePermissions(permissions []Permission, resource 
 			if matches {
 				if hasResourceItemsLen < requiredResourceItemsLen {
 					if hasResourceItems[hasResourceItemsLen-1] == "*" {
-						//nolint:mnd
-						if hasResourceItemsLen < 2 {
+						const minResourceItems = 2
+						if hasResourceItemsLen < minResourceItems {
 							return true
 						} else {
 							segment := hasResourceItems[hasResourceItemsLen-2]
@@ -504,6 +659,33 @@ func (v *TokenValidator) validatePermissions(permissions []Permission, resource 
 	return false
 }
 
+func NewTokenValidator(authService OAuth20Service, refreshInterval time.Duration) AuthTokenValidator {
+	return &TokenValidator{
+		AuthService:     authService,
+		RefreshInterval: refreshInterval,
+
+		Filter:                nil,
+		JwkSet:                nil,
+		JwtClaims:             JWTClaims{},
+		JwtEncoding:           *base64.URLEncoding.WithPadding(base64.NoPadding),
+		PublicKeys:            make(map[string]*rsa.PublicKey),
+		LocalValidationActive: false,
+		RevokedUsers:          make(map[string]time.Time),
+		Roles:                 make(map[string]*iamclientmodels.ModelRolePermissionResponseV3),
+		NamespaceContexts:     make(map[string]*NamespaceContext),
+
+		rolePermissionCache: cache.New(
+			utils.GetRolesExpirationTime(),
+			cacheCleanupMultiplier*utils.GetRolesExpirationTime(),
+		),
+
+		namespaceContextsCache: cache.New(
+			utils.GetNamespaceContextExpirationTime(),
+			cacheCleanupMultiplier*utils.GetNamespaceContextExpirationTime(),
+		),
+	}
+}
+
 func minInt(a, b int) int {
 	if a < b {
 		return a
@@ -511,3 +693,16 @@ func minInt(a, b int) int {
 
 	return b
 }
+
+type NamespaceContext struct {
+	Namespace          string `json:"namespace"` // studio namespace + game namespace
+	Type               string `json:"type"`      // enum: Publisher, Studio, Game
+	PublisherNamespace string `json:"publisherNamespace"`
+	StudioNamespace    string `json:"studioNamespace"` // it will be empty when input namespace is publisher namespace
+}
+
+const (
+	TypePublisher string = "Publisher"
+	TypeStudio    string = "Studio"
+	TypeGame      string = "Game"
+)
