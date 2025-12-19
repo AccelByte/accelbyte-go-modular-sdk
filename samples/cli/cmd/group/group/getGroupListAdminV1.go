@@ -7,10 +7,11 @@
 package group
 
 import (
+	"log/slog"
+
 	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 	group_ "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +41,12 @@ var GetGroupListAdminV1Cmd = &cobra.Command{
 		}
 		ok, errOK := groupService.GetGroupListAdminV1Short(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

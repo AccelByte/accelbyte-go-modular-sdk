@@ -8,12 +8,12 @@ package paymentDedicated
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/payment_dedicated"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var CreatePaymentOrderByDedicatedCmd = &cobra.Command{
 		}
 		created, errCreated := paymentDedicatedService.CreatePaymentOrderByDedicatedShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

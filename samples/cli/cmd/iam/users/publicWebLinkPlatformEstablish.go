@@ -7,12 +7,12 @@
 package users
 
 import (
+	"log/slog"
 	"net/http"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -44,12 +44,12 @@ var PublicWebLinkPlatformEstablishCmd = &cobra.Command{
 		}
 		_, errFound := usersService.PublicWebLinkPlatformEstablishShort(input)
 		if errFound != nil {
-			logrus.Error(errFound)
+			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

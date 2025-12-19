@@ -8,12 +8,12 @@ package iap
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/iap"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var SyncTwitchDropsEntitlement1Cmd = &cobra.Command{
 		}
 		errNoContent := iapService.SyncTwitchDropsEntitlement1Short(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

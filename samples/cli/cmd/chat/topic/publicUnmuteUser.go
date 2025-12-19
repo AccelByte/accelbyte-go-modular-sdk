@@ -8,12 +8,12 @@ package topic
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var PublicUnmuteUserCmd = &cobra.Command{
 		}
 		errNoContent := topicService.PublicUnmuteUserShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

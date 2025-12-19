@@ -7,12 +7,11 @@ package wsm
 import (
 	"errors"
 	"io"
+	"log/slog"
 	"net/http"
 	"strings"
 	"sync"
 	"time"
-
-	"github.com/sirupsen/logrus"
 
 	"github.com/gorilla/websocket"
 
@@ -80,7 +79,7 @@ func (c *WSConnection) SetStatus(status string) {
 		c.StatusHandler(c.status)
 	}
 
-	logrus.Debugf("status: %s", status)
+	slog.Debug("status changed", "status", status)
 }
 
 func (c *WSConnection) DefaultCloseHandler(code int, reason string) error {
@@ -92,7 +91,7 @@ func (c *WSConnection) DefaultCloseHandler(code int, reason string) error {
 func (c *WSConnection) DefaultPongHandler(text string) error {
 	err := c.Conn.SetReadDeadline(time.Now().Add(6 * time.Second)) //nolint:mnd
 	if err != nil {
-		logrus.Warn(err.Error())
+		slog.Warn("failed to set read deadline", "error", err)
 	}
 
 	return nil
@@ -119,11 +118,11 @@ func (c *WSConnection) Dial(url string, headers http.Header) (*websocket.Conn, e
 func (c *WSConnection) Close(code int, reason string) error {
 	err := c.Conn.WriteControl(websocket.CloseMessage, websocket.FormatCloseMessage(code, reason), time.Now().Add(time.Second))
 	if err != nil {
-		logrus.Errorf("error writing control message: %v", err)
+		slog.Error("error writing control message", "error", err)
 	}
 
 	if err = c.Conn.Close(); err != nil {
-		logrus.Errorf("failed to close connection: %v", err)
+		slog.Error("failed to close connection", "error", err)
 	}
 
 	c.SetStatus(Disconnected)
@@ -240,12 +239,12 @@ type ConnectionManager interface {
 }
 
 func (c *WSConnection) Lock(location string) {
-	logrus.Debugf("locking at %s", location)
+	slog.Debug("locking", "location", location)
 	c.Mu.Lock()
 }
 
 func (c *WSConnection) Unlock(location string) {
-	logrus.Debugf("unlocking at %s", location)
+	slog.Debug("unlocking", "location", location)
 	c.Mu.Unlock()
 }
 

@@ -6,12 +6,10 @@ package lobby
 
 import (
 	"fmt"
+	"log/slog"
 
 	"github.com/gorilla/websocket"
-	"github.com/sirupsen/logrus"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
@@ -24,7 +22,7 @@ type PartyServiceWebsocket struct {
 }
 
 func (s *PartyServiceWebsocket) CreateParty() error {
-	logrus.Info("CreateParty")
+	slog.Info("CreateParty")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeCreateRequest, utils.GenerateMessageID())
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -35,7 +33,7 @@ func (s *PartyServiceWebsocket) CreateParty() error {
 }
 
 func (s *PartyServiceWebsocket) GetPartyInfo() error {
-	logrus.Info("GetPartyInfo")
+	slog.Info("GetPartyInfo")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeInfoRequest, utils.GenerateMessageID())
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -46,7 +44,7 @@ func (s *PartyServiceWebsocket) GetPartyInfo() error {
 }
 
 func (s *PartyServiceWebsocket) LeaveParty() error {
-	logrus.Info("LeaveParty")
+	slog.Info("LeaveParty")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeLeaveRequest, utils.GenerateMessageID())
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -57,7 +55,7 @@ func (s *PartyServiceWebsocket) LeaveParty() error {
 }
 
 func (s *PartyServiceWebsocket) InviteParty(friendID string) error {
-	logrus.Info("InviteParty")
+	slog.Info("InviteParty")
 	text := fmt.Sprintf("type: %s\n%s\nfriendID: %s", model.TypeInviteRequest, utils.GenerateMessageID(), friendID)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -68,7 +66,7 @@ func (s *PartyServiceWebsocket) InviteParty(friendID string) error {
 }
 
 func (s *PartyServiceWebsocket) JoinParty(partyID, token string) error {
-	logrus.Info("JoinParty")
+	slog.Info("JoinParty")
 	text := fmt.Sprintf("type: %s\n%s\npartyID: %s\ninvitationToken: %s", model.TypeJoinRequest, utils.GenerateMessageID(), partyID, token)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -79,7 +77,7 @@ func (s *PartyServiceWebsocket) JoinParty(partyID, token string) error {
 }
 
 func (s *PartyServiceWebsocket) RejectPartyInvitation(partyID, token string) error {
-	logrus.Info("RejectPartyInvitation")
+	slog.Info("RejectPartyInvitation")
 	text := fmt.Sprintf("type: %s\n%s\npartyID: %s\ninvitationToken: %s", model.TypeRejectRequest, utils.GenerateMessageID(), partyID, token)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -90,7 +88,7 @@ func (s *PartyServiceWebsocket) RejectPartyInvitation(partyID, token string) err
 }
 
 func (s *PartyServiceWebsocket) KickPartyMember(id string) error {
-	logrus.Info("KickPartyMember")
+	slog.Info("KickPartyMember")
 	text := fmt.Sprintf("type: %s\n%s\nmemberID: %s", model.TypeKickRequest, utils.GenerateMessageID(), id)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -101,7 +99,7 @@ func (s *PartyServiceWebsocket) KickPartyMember(id string) error {
 }
 
 func (s *PartyServiceWebsocket) PromotePartyLeader(leaderUserID string) error {
-	logrus.Info("PromotePartyLeader")
+	slog.Info("PromotePartyLeader")
 	text := fmt.Sprintf("type: %s\n%s\nnewLeaderUserId: %s", model.TypePromoteLeaderRequest, utils.GenerateMessageID(), leaderUserID)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -111,7 +109,7 @@ func (s *PartyServiceWebsocket) PromotePartyLeader(leaderUserID string) error {
 	return nil
 }
 func (s *PartyServiceWebsocket) GetPartyCode() error {
-	logrus.Info("GetPartyCode")
+	slog.Info("GetPartyCode")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeGetPartyCodeRequest, utils.GenerateMessageID())
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -122,7 +120,7 @@ func (s *PartyServiceWebsocket) GetPartyCode() error {
 }
 
 func (s *PartyServiceWebsocket) GeneratePartyCode() error {
-	logrus.Info("GeneratePartyCode")
+	slog.Info("GeneratePartyCode")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeGeneratePartyCodeRequest, utils.GenerateMessageID())
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -133,7 +131,7 @@ func (s *PartyServiceWebsocket) GeneratePartyCode() error {
 }
 
 func (s *PartyServiceWebsocket) DeletePartyCode() error {
-	logrus.Info("DeletePartyCode")
+	slog.Info("DeletePartyCode")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeDeletePartyCodeRequest, utils.GenerateMessageID())
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -144,7 +142,7 @@ func (s *PartyServiceWebsocket) DeletePartyCode() error {
 }
 
 func (s *PartyServiceWebsocket) JoinViaPartyCode(partyCode string) error {
-	logrus.Info("JoinViaPartyCode")
+	slog.Info("JoinViaPartyCode")
 	text := fmt.Sprintf("type: %s\n%s\npartyCode: %s", model.TypeJoinViaPartyCodeRequest, utils.GenerateMessageID(), partyCode)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -155,7 +153,7 @@ func (s *PartyServiceWebsocket) JoinViaPartyCode(partyCode string) error {
 }
 
 func (s *PartyServiceWebsocket) SetSessionAttribute(key, value string) error {
-	logrus.Info("SetSessionAttribute")
+	slog.Info("SetSessionAttribute")
 	text := fmt.Sprintf("type: %s\n%s\nkey: %s\nvalue: %s", model.TypeSetSessionAttributeRequest, utils.GenerateMessageID(), key, value)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -166,7 +164,7 @@ func (s *PartyServiceWebsocket) SetSessionAttribute(key, value string) error {
 }
 
 func (s *PartyServiceWebsocket) GetSessionAttribute(key string) error {
-	logrus.Info("GetSessionAttribute")
+	slog.Info("GetSessionAttribute")
 	text := fmt.Sprintf("type: %s\n%s\nkey: %s", model.TypeGetSessionAttributeRequest, utils.GenerateMessageID(), key)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -177,7 +175,7 @@ func (s *PartyServiceWebsocket) GetSessionAttribute(key string) error {
 }
 
 func (s *PartyServiceWebsocket) GetAllSessionAttribute() error {
-	logrus.Info("GetAllSessionAttribute")
+	slog.Info("GetAllSessionAttribute")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeGetAllSessionAttributeRequest, utils.GenerateMessageID())
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -188,7 +186,7 @@ func (s *PartyServiceWebsocket) GetAllSessionAttribute() error {
 }
 
 func (s *PartyServiceWebsocket) UserMetric() error {
-	logrus.Info("UserMetric")
+	slog.Info("UserMetric")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeUserMetricRequest, utils.GenerateMessageID())
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -199,7 +197,7 @@ func (s *PartyServiceWebsocket) UserMetric() error {
 }
 
 func (s *PartyServiceWebsocket) SendPartyNotif(topic, payload string) error {
-	logrus.Info("SendPartyNotif")
+	slog.Info("SendPartyNotif")
 	text := fmt.Sprintf("type: %s\n%s\ntopic: %s\npayload: %s", model.TypeSendPartyNotifRequest, utils.GenerateMessageID(), topic, payload)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {

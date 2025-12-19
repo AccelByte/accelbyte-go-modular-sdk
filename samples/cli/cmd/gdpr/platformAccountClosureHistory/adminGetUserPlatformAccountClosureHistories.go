@@ -7,10 +7,11 @@
 package platformAccountClosureHistory
 
 import (
+	"log/slog"
+
 	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/platform_account_closure_history"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -38,12 +39,12 @@ var AdminGetUserPlatformAccountClosureHistoriesCmd = &cobra.Command{
 		}
 		ok, errOK := platformAccountClosureHistoryService.AdminGetUserPlatformAccountClosureHistoriesShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

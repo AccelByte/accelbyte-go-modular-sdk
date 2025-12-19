@@ -8,12 +8,12 @@ package plugins
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/plugins"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var AdminCreateAssignmentPluginCmd = &cobra.Command{
 		}
 		created, errCreated := pluginsService.AdminCreateAssignmentPluginShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

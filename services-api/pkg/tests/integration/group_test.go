@@ -5,9 +5,10 @@
 package integration_test
 
 import (
+	"fmt"
+	"log/slog"
 	"testing"
 
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -248,8 +249,8 @@ func checkGlobalConfig() string {
 	// check if global config is existed
 	get, errGet := configurationService.GetGroupConfigurationAdminV1Short(inputGet)
 	if errGet != nil {
-		logrus.Error(errGet.Error())
-		logrus.Infof("Initializing a new global configuration...")
+		slog.Error(errGet.Error())
+		slog.Info("Initializing a new global configuration...")
 
 		// if global config not exist, we just have to initiate the default config
 		inputCreate := &configuration.InitiateGroupConfigurationAdminV1Params{
@@ -257,13 +258,13 @@ func checkGlobalConfig() string {
 		}
 		create, errCreate := configurationService.InitiateGroupConfigurationAdminV1Short(inputCreate)
 		if errCreate != nil {
-			logrus.Error(errCreate)
+			slog.Error(errCreate.Error())
 		}
-		logrus.Infof("Configuration has been initiated with Role Admin: %v, Role Member: %v", *create.Data.GroupAdminRoleID, *create.Data.GroupMemberRoleID)
+		slog.Info(fmt.Sprintf("Configuration has been initiated with Role Admin: %v, Role Member: %v", *create.Data.GroupAdminRoleID, *create.Data.GroupMemberRoleID))
 
 		return *create.Data.ConfigurationCode
 	}
-	logrus.Infof("Configuration with Role Admin: %v, Role Member: %v", *get.Data.GroupAdminRoleID, *get.Data.GroupMemberRoleID)
+	slog.Info(fmt.Sprintf("Configuration with Role Admin: %v, Role Member: %v", *get.Data.GroupAdminRoleID, *get.Data.GroupMemberRoleID))
 
 	return *get.Data.ConfigurationCode
 }

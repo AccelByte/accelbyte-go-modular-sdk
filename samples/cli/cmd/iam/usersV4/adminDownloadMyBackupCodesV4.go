@@ -8,12 +8,12 @@ package usersV4
 
 import (
 	"bytes"
+	"log/slog"
 	"os"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -28,7 +28,7 @@ var AdminDownloadMyBackupCodesV4Cmd = &cobra.Command{
 			TokenRepository: &repository.TokenRepositoryImpl{},
 		}
 		file, errFile := os.Create("file")
-		logrus.Infof("Output %v", file)
+		slog.Info("Output", "value", file)
 		if errFile != nil {
 			return errFile
 		}
@@ -36,12 +36,12 @@ var AdminDownloadMyBackupCodesV4Cmd = &cobra.Command{
 		input := &users_v4.AdminDownloadMyBackupCodesV4Params{}
 		ok, errOK := usersV4Service.AdminDownloadMyBackupCodesV4Short(input, writer)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

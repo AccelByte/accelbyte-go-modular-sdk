@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"strings"
@@ -19,14 +20,10 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/go-jose/jwt"
 	"github.com/go-openapi/runtime/client"
-	"github.com/sirupsen/logrus"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 )
 
@@ -440,14 +437,14 @@ func (o *OAuth20Service) Logout() error {
 	clientSecret := o.ConfigRepository.GetClientSecret()
 	_, err = o.Client.OAuth20.TokenRevocationV3Short(param, client.BasicAuth(clientID, clientSecret))
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("error occurred", "error", err)
 
 		return err
 	}
 
 	err = o.TokenRepository.RemoveToken()
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("error occurred", "error", err)
 
 		return err
 	}

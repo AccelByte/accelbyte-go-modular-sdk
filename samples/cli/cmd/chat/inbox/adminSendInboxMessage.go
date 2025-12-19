@@ -8,12 +8,12 @@ package inbox
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/inbox"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var AdminSendInboxMessageCmd = &cobra.Command{
 		}
 		ok, errOK := inboxService.AdminSendInboxMessageShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

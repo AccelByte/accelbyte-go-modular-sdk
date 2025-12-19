@@ -7,10 +7,11 @@
 package dataDeletionS2S
 
 import (
+	"log/slog"
+
 	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_deletion_s2_s"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -34,12 +35,12 @@ var S2SGetListFinishedAccountDeletionRequestCmd = &cobra.Command{
 		}
 		ok, errOK := dataDeletionS2SService.S2SGetListFinishedAccountDeletionRequestShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

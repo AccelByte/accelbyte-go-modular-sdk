@@ -8,12 +8,12 @@ package adminConfigurations
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_configurations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var UpsertCmd = &cobra.Command{
 		}
 		ok, errOK := adminConfigurationsService.UpsertShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

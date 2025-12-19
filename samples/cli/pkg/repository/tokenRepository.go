@@ -7,12 +7,11 @@ package repository
 import (
 	"encoding/json"
 	"errors"
+	"log/slog"
 	"os"
 	"time"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
-
-	"github.com/sirupsen/logrus"
 )
 
 type TokenRepositoryImpl struct {
@@ -43,20 +42,20 @@ func (tokenRepository *TokenRepositoryImpl) Store(accessToken interface{}) error
 
 func (tokenRepository *TokenRepositoryImpl) GetToken() (*repository.Token, error) {
 	if _, err := os.Stat(os.TempDir() + "/justice-sample-apps/userData"); os.IsNotExist(err) {
-		logrus.Error(err)
+		slog.Error("user data file not found", "error", err)
 
 		return nil, errors.New("please do login")
 	}
 	content, err := os.ReadFile(os.TempDir() + "/justice-sample-apps/userData")
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("failed to read user data", "error", err)
 
 		return nil, errors.New("please do login")
 	}
 	var token repository.Token
 	err = json.Unmarshal(content, &token)
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("failed to unmarshal token", "error", err)
 
 		return nil, errors.New("please do login")
 	}
@@ -67,7 +66,7 @@ func (tokenRepository *TokenRepositoryImpl) GetToken() (*repository.Token, error
 func (tokenRepository *TokenRepositoryImpl) RemoveToken() error {
 	err := os.Remove(os.TempDir() + "/justice-sample-apps/userData")
 	if err != nil {
-		logrus.Error("Cannot delete user data")
+		slog.Error("Cannot delete user data")
 
 		return err
 	}

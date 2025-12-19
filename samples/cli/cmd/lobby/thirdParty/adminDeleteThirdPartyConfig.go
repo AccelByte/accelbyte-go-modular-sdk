@@ -7,10 +7,11 @@
 package thirdParty
 
 import (
+	"log/slog"
+
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/third_party"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -30,12 +31,12 @@ var AdminDeleteThirdPartyConfigCmd = &cobra.Command{
 		}
 		noContent, errNoContent := thirdPartyService.AdminDeleteThirdPartyConfigShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success: %+v", noContent)
+		slog.Info("Response CLI success", "response", noContent)
 
 		return nil
 	},

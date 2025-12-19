@@ -7,10 +7,11 @@
 package artifacts
 
 import (
+	"log/slog"
+
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/artifacts"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -36,12 +37,12 @@ var ArtifactBulkDeleteCmd = &cobra.Command{
 		}
 		errAccepted := artifactsService.ArtifactBulkDeleteShort(input)
 		if errAccepted != nil {
-			logrus.Error(errAccepted)
+			slog.Error("operation failed", "error", errAccepted)
 
 			return errAccepted
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

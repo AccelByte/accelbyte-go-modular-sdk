@@ -8,12 +8,12 @@ package matchFunctions
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_functions"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var CreateMatchFunctionCmd = &cobra.Command{
 		}
 		errCreated := matchFunctionsService.CreateMatchFunctionShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

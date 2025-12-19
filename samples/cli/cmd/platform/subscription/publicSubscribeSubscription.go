@@ -8,12 +8,12 @@ package subscription
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/subscription"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var PublicSubscribeSubscriptionCmd = &cobra.Command{
 		}
 		errCreated := subscriptionService.PublicSubscribeSubscriptionShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -8,12 +8,12 @@ package concurrentRecord
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	cloudsave "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/concurrent_record"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var PutGameRecordConcurrentHandlerV1Cmd = &cobra.Command{
 		}
 		errNoContent := concurrentRecordService.PutGameRecordConcurrentHandlerV1Short(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

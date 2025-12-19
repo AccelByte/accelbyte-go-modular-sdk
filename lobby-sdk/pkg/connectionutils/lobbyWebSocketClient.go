@@ -7,14 +7,14 @@ package connectionutils
 import (
 	"bufio"
 	"errors"
+	"fmt"
+	"log/slog"
 	"math"
 	"net/http"
 	"strings"
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/sirupsen/logrus"
-
 	baseWsm "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 )
 
@@ -40,7 +40,7 @@ func NewLobbyWebSocketClient(wsConn *baseWsm.WSConnection) *LobbyWebSocketClient
 func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 	// Re-usable
 	if c.WSConn == nil {
-		logrus.Warn("WSConn is nil")
+		slog.Warn("WSConn is nil")
 	}
 
 	if reconnecting {
@@ -50,11 +50,11 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 	}
 
 	if _, exist := c.WSConn.Data["host"].(string); !exist {
-		logrus.Debugf("host data is not found")
+		slog.Debug("host data is not found")
 	}
 
 	url := c.createURL(c.WSConn.Data["host"].(string))
-	logrus.Info("Connecting to ", url)
+	slog.Info("Connecting to ", url)
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return false, err
@@ -64,7 +64,7 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 			req.Header.Add("Authorization", "Bearer "+*tokenString)
 		} else {
 			tokenErr := "token is missing"
-			logrus.Debug(tokenErr)
+			slog.Debug(tokenErr)
 
 			return false, errors.New(tokenErr)
 		}
@@ -79,7 +79,7 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 
 	conn, err := c.WSConn.Dial(req.URL.String(), req.Header)
 	if err != nil {
-		logrus.Errorf("Failed to dial. %v", err)
+		slog.Error("Failed to dial.", "value", err)
 		c.WSConn.SetStatus(Disconnected)
 
 		return false, err
@@ -109,7 +109,7 @@ func (c *LobbyWebSocketClient) setHandlers() {
 }
 
 func (c *LobbyWebSocketClient) lobbyCloseHandler(code int, reason string) error {
-	logrus.Debugf("Lobby close handler with code: %v", code)
+	slog.Debug("Lobby close handler with code", "data", code)
 
 	close(c.done)
 
@@ -138,13 +138,13 @@ func (c *LobbyWebSocketClient) reconnect(code int, reason string) bool {
 	for {
 		numberOfAttempts++
 		delay := c.ReconnectDelay(int32(numberOfAttempts))
-		logrus.Debugf("reconnecting in %fs (attempt: %d)", delay, numberOfAttempts)
+		slog.Debug(fmt.Sprintf("reconnecting in %fs (attempt: %d)", delay, numberOfAttempts))
 		time.Sleep(time.Duration(delay) * time.Second)
 
 		success, err := c.Connect(true)
 		if err != nil {
 			// explicitly ignore in favor of the original code and reason
-			logrus.Warnf("error on reconnect: %s, discarding in favor of disconnect error", err.Error())
+			slog.Warn(fmt.Sprintf("error on reconnect: %s, discarding in favor of disconnect error", err.Error()))
 		}
 		if success {
 			didReconnect = true
@@ -153,7 +153,7 @@ func (c *LobbyWebSocketClient) reconnect(code int, reason string) bool {
 		}
 
 		if !c.ShouldReconnect(code, reason, numberOfAttempts) {
-			logrus.Debugf("should not reconnect at attempt %d", numberOfAttempts)
+			slog.Debug(fmt.Sprintf("should not reconnect at attempt %d", numberOfAttempts))
 
 			break
 		}
@@ -175,7 +175,7 @@ func (c *LobbyWebSocketClient) Close() error {
 	defer c.WSConn.Unlock("Close()")
 
 	if c.WSConn.Conn == nil {
-		logrus.Errorf("no websocket connection can be closed")
+		slog.Error("no websocket connection can be closed")
 
 		return errors.New("no websocket connection can be closed")
 	}
@@ -187,23 +187,23 @@ func (c *LobbyWebSocketClient) Close() error {
 
 func (c *LobbyWebSocketClient) OnConnect(reconnecting bool) {
 	if reconnecting {
-		logrus.Debug("\"RECONNECT\" is enabled to the WebSocket server.")
+		slog.Debug("\"RECONNECT\" is enabled to the WebSocket server.")
 	} else {
-		logrus.Debug("\"RECONNECT\" is disabled to the WebSocket server.")
+		slog.Debug("\"RECONNECT\" is disabled to the WebSocket server.")
 	}
 }
 
 func (c *LobbyWebSocketClient) OnDisconnect(code int32, reason string) {
-	logrus.Debugf("Disconnected from WebSocket server with code: %d and reason: %s", code, reason)
+	slog.Debug(fmt.Sprintf("Disconnected from WebSocket server with code: %d and reason: %s", code, reason))
 
 	// Clean up data or state related to the connection
-	logrus.Debug("Clearing data...")
+	slog.Debug("Clearing data...")
 
 	c.ClearData()
 }
 
 func (c *LobbyWebSocketClient) Send(code int, message string) error {
-	logrus.Debugf("Send message %s with code %v", message, code)
+	slog.Debug(fmt.Sprintf("Send message %s with code %v", message, code))
 
 	// Check if the connection is still open
 	if c.WSConn.Conn == nil {
@@ -215,7 +215,7 @@ func (c *LobbyWebSocketClient) Send(code int, message string) error {
 
 	err := c.WSConn.Conn.WriteMessage(code, []byte(message))
 	if err != nil {
-		logrus.Error("failed to send websocket message: ", err)
+		slog.Error("failed to send websocket message: ", err)
 
 		return err
 	}
@@ -224,12 +224,12 @@ func (c *LobbyWebSocketClient) Send(code int, message string) error {
 }
 
 func (c *LobbyWebSocketClient) OnMessage(msg string) {
-	logrus.Debugf("Message: %s", msg)
+	slog.Debug(fmt.Sprintf("Message: %s", msg))
 	if strings.HasPrefix(msg, "type: connectNotif") {
 		message := DecodeWSMessage(msg)
 		if id, ok := message[LobbySessionID]; ok {
 			if c.GetData(LobbySessionID) == "" {
-				logrus.Debugf("Storing %s: %v", LobbySessionID, id)
+				slog.Debug(fmt.Sprintf("Storing %s: %v", LobbySessionID, id))
 				c.SetData(LobbySessionID, id)
 			}
 		}
@@ -237,7 +237,7 @@ func (c *LobbyWebSocketClient) OnMessage(msg string) {
 }
 
 func (c *LobbyWebSocketClient) ShouldReconnect(code int, reason string, numberOfAttempts int) bool {
-	logrus.Debugf("Checking whether should reconnect with code: %v", code)
+	slog.Debug("Checking whether should reconnect with code", "data", code)
 	if numberOfAttempts > 0 && numberOfAttempts > c.WSConn.MaxReconnectAttempts { // -1 is infinite
 		return false
 	}
@@ -277,7 +277,7 @@ func (c *LobbyWebSocketClient) ShouldReconnect(code int, reason string, numberOf
 }
 
 func (c *LobbyWebSocketClient) ReconnectDelay(numberOfAttempts int32) float32 {
-	logrus.Debug("Adding reconnect delay")
+	slog.Debug("Adding reconnect delay")
 
 	return float32(interval * math.Pow(backoffRate, float64(numberOfAttempts)))
 }
@@ -318,7 +318,7 @@ func (c *LobbyWebSocketClient) ReadWSMessage(done <-chan struct{}, messageHandle
 	for {
 		select {
 		case <-done:
-			logrus.Info("done signal received, stop read.")
+			slog.Info("done signal received, stop read.")
 
 			return
 		default:
@@ -326,7 +326,7 @@ func (c *LobbyWebSocketClient) ReadWSMessage(done <-chan struct{}, messageHandle
 			var err error
 			_, msg, err = c.WSConn.Conn.ReadMessage()
 			if err != nil {
-				logrus.Errorf("read message failed, stop read: %v", err)
+				slog.Error("read message failed, stop read", "error", err)
 
 				return
 			} else {
@@ -350,13 +350,13 @@ func (c *LobbyWebSocketClient) WSHeartbeat(done chan struct{}) {
 	for {
 		select {
 		case <-done:
-			logrus.Info("done signal received, stop heartbeat.")
+			slog.Info("done signal received, stop heartbeat.")
 
 			return
 		case <-ticker.C:
 			err := c.WSConn.Conn.WriteMessage(websocket.PingMessage, []byte{})
 			if err != nil {
-				logrus.Errorf("cannot write heartbeat: %v", err)
+				slog.Error("cannot write heartbeat", "error", err)
 			}
 		}
 	}
@@ -386,7 +386,7 @@ func DecodeWSMessage(msg string) map[string]interface{} {
 	}
 
 	if err := scanner.Err(); err != nil {
-		logrus.Errorf("error reading websocket message: %v", err)
+		slog.Error("error reading websocket message", "error", err)
 	}
 
 	return res

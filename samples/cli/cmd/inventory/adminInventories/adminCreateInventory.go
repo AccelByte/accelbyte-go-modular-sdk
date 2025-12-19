@@ -8,12 +8,12 @@ package adminInventories
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	inventory "github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_inventories"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var AdminCreateInventoryCmd = &cobra.Command{
 		}
 		created, errCreated := adminInventoriesService.AdminCreateInventoryShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

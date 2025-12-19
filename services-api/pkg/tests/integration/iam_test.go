@@ -9,12 +9,12 @@ package integration_test
 import (
 	"bytes"
 	"fmt"
+	"log/slog"
 	"net/http"
 	"os"
 	"testing"
 	"time"
 
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
@@ -115,14 +115,14 @@ func Init() {
 	}
 	accessToken, err := oAuth20Service.TokenGrantV3Short(input)
 	if err != nil {
-		logrus.Errorf("failed login. %v", err.Error())
+		slog.Error(fmt.Sprintf("failed login. %v", err.Error()))
 	} else if accessToken.Data == nil { //lint:ignore SA5011 possible nil pointer dereference
-		logrus.Error("empty access token")
+		slog.Error("empty access token")
 	} else {
 		tes := oAuth20Service
 		errStore := oAuth20Service.TokenRepository.Store(*accessToken.Data)
 		if errStore != nil {
-			logrus.Errorf("failed stored the token. %v", tes)
+			slog.Error("failed stored the token.", "value", tes)
 		}
 	}
 }
@@ -267,7 +267,7 @@ func TestIntegrationLogin(t *testing.T) {
 	}
 
 	getToken, errGetToken := oAuth20Service.TokenRepository.GetToken()
-	logrus.Infof("Bearer %v; UserId %v", *getToken.AccessToken, getToken.UserID)
+	slog.Info(fmt.Sprintf("Bearer %v; UserId %v", *getToken.AccessToken, getToken.UserID))
 	// ESAC
 
 	// Assert
@@ -287,7 +287,7 @@ func TestIntegrationLoginWithScope(t *testing.T) {
 	}
 
 	getToken, errGetToken := oAuth20Service.TokenRepository.GetToken()
-	logrus.Infof("Bearer %v; UserId %v", *getToken.AccessToken, getToken.UserID)
+	slog.Info(fmt.Sprintf("Bearer %v; UserId %v", *getToken.AccessToken, getToken.UserID))
 	// ESAC
 
 	// Assert
@@ -392,9 +392,13 @@ func TestIntegrationLoginPublicClient(t *testing.T) {
 	t.Skip()
 	// Arrange
 	var buf bytes.Buffer
-	logrus.SetOutput(&buf)
+	orig := slog.Default()
+
+	logger := slog.New(slog.NewTextHandler(&buf, nil))
+	slog.SetDefault(logger)
+
 	defer func() {
-		logrus.SetOutput(os.Stderr)
+		slog.SetDefault(orig)
 	}()
 
 	// Act
@@ -521,13 +525,13 @@ func GetUserID() string {
 	}
 	accessToken, err := oAuth20Service.TokenGrantV3Short(input)
 	if err != nil {
-		logrus.Error("failed login")
+		slog.Error("failed login")
 	} else if accessToken == nil { //lint:ignore SA5011 possible nil pointer dereference
-		logrus.Error("empty access token")
+		slog.Error("empty access token")
 	} else {
 		errStore := oAuth20Service.TokenRepository.Store(*accessToken.Data)
 		if errStore != nil {
-			logrus.Error("failed stored the token")
+			slog.Error("failed stored the token")
 		}
 	}
 

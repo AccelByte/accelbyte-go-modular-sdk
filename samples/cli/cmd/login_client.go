@@ -5,9 +5,9 @@
 package cmd
 
 import (
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/cobra"
+	"log/slog"
 
+	"github.com/spf13/cobra"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 )
@@ -41,7 +41,7 @@ var clientLoginCmd = &cobra.Command{
 		if err != nil {
 			return err
 		}
-		logrus.Infof("User successfully logged in")
+		slog.Info("User successfully logged in")
 
 		return nil
 	},

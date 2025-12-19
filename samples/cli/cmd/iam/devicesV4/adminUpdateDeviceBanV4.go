@@ -8,12 +8,12 @@ package devicesV4
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var AdminUpdateDeviceBanV4Cmd = &cobra.Command{
 		}
 		errNoContent := devicesV4Service.AdminUpdateDeviceBanV4Short(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

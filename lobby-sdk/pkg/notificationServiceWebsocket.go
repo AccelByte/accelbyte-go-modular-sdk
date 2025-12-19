@@ -6,14 +6,12 @@ package lobby
 
 import (
 	"fmt"
+	"log/slog"
 
 	"github.com/gorilla/websocket"
-	"github.com/sirupsen/logrus"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
 )
 
@@ -24,7 +22,7 @@ type NotificationServiceWebsocket struct {
 }
 
 func (notificationService *NotificationServiceWebsocket) GetNotificationMessage() error {
-	logrus.Debug("GetNotificationMessage")
+	slog.Debug("GetNotificationMessage")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeNotificationMessage, utils.GenerateMessageID())
 	err := notificationService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -35,7 +33,7 @@ func (notificationService *NotificationServiceWebsocket) GetNotificationMessage(
 }
 
 func (notificationService *NotificationServiceWebsocket) GetOfflineNotification() error {
-	logrus.Debug("GetOfflineNotification")
+	slog.Debug("GetOfflineNotification")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeGetOfflineNotificationRequest, utils.GenerateMessageID())
 	err := notificationService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {

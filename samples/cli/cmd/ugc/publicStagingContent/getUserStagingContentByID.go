@@ -7,10 +7,11 @@
 package publicStagingContent
 
 import (
+	"log/slog"
+
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_staging_content"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -34,12 +35,12 @@ var GetUserStagingContentByIDCmd = &cobra.Command{
 		}
 		ok, errOK := publicStagingContentService.GetUserStagingContentByIDShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

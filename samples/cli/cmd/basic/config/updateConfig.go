@@ -8,12 +8,12 @@ package config
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var UpdateConfigCmd = &cobra.Command{
 		}
 		ok, errOK := configService.UpdateConfigShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

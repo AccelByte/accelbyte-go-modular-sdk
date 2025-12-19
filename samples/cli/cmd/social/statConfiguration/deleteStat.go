@@ -7,10 +7,11 @@
 package statConfiguration
 
 import (
+	"log/slog"
+
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/stat_configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var DeleteStatCmd = &cobra.Command{
 		}
 		errNoContent := statConfigurationService.DeleteStatShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

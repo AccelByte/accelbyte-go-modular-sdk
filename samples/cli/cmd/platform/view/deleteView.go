@@ -7,10 +7,11 @@
 package view
 
 import (
+	"log/slog"
+
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/view"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -34,12 +35,12 @@ var DeleteViewCmd = &cobra.Command{
 		}
 		errNoContent := viewService.DeleteViewShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

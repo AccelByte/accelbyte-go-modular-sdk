@@ -6,10 +6,9 @@ package service
 
 import (
 	"fmt"
+	"log/slog"
 
 	"github.com/gorilla/websocket"
-	"github.com/sirupsen/logrus"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
@@ -22,7 +21,7 @@ type DSServiceWebsocket struct {
 }
 
 func (dsService *DSServiceWebsocket) CreateDS(matchID, gameMode, dsName, clientVersion, region, deployment string) error {
-	logrus.Debug("CreateDS")
+	slog.Debug("CreateDS")
 	text := fmt.Sprintf(
 		"type: createDSRequest\n"+
 			"%s\n"+

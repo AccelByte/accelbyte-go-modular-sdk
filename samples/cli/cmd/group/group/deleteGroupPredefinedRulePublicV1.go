@@ -7,10 +7,11 @@
 package group
 
 import (
+	"log/slog"
+
 	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 	group_ "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -34,12 +35,12 @@ var DeleteGroupPredefinedRulePublicV1Cmd = &cobra.Command{
 		}
 		errNoContent := groupService.DeleteGroupPredefinedRulePublicV1Short(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

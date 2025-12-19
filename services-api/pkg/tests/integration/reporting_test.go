@@ -5,9 +5,9 @@
 package integration_test
 
 import (
+	"log/slog"
 	"testing"
 
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
 	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
@@ -126,7 +126,7 @@ func createReason() (string, error) {
 	}
 	get, errGet := adminReasonsService.AdminGetReasonsShort(inputGetReason)
 	if errGet != nil {
-		logrus.Error(errGet.Error())
+		slog.Error("failed to get admin reasons", "error", errGet)
 	}
 	for _, reason := range get.Data.Data {
 		if reason.Title != nil {
@@ -145,7 +145,7 @@ func createReason() (string, error) {
 
 	create, errCreate := adminReasonsService.CreateReasonShort(inputCreateReason)
 	if errCreate != nil {
-		logrus.Error(errCreate.Error())
+		slog.Error("failed to create reason", "error", errCreate)
 	}
 
 	return *create.Data.ID, nil
@@ -159,6 +159,6 @@ func deleteReason(reasonID string) {
 
 	err := adminReasonsService.DeleteReasonShort(inputDeleteReason)
 	if err != nil {
-		logrus.Error(err.Error())
+		slog.Error("failed to delete reason", "error", err)
 	}
 }

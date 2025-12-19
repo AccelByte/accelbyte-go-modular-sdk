@@ -7,10 +7,11 @@
 package adminGroup
 
 import (
+	"log/slog"
+
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_group"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -34,12 +35,12 @@ var AdminDeleteGroupCmd = &cobra.Command{
 		}
 		errNoContent := adminGroupService.AdminDeleteGroupShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

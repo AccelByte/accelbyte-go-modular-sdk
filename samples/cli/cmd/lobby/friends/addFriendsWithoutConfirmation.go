@@ -8,12 +8,12 @@ package friends
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/friends"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var AddFriendsWithoutConfirmationCmd = &cobra.Command{
 		}
 		errNoContent := friendsService.AddFriendsWithoutConfirmationShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

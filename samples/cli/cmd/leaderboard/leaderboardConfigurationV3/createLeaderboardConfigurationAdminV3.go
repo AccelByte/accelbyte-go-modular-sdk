@@ -8,12 +8,12 @@ package leaderboardConfigurationV3
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	leaderboard "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/leaderboard_configuration_v3"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var CreateLeaderboardConfigurationAdminV3Cmd = &cobra.Command{
 		}
 		created, errCreated := leaderboardConfigurationV3Service.CreateLeaderboardConfigurationAdminV3Short(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

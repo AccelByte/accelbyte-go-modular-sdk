@@ -8,12 +8,12 @@ package deploymentV2
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	csm "github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/deployment_v2"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var CreateDeploymentV2Cmd = &cobra.Command{
 		}
 		created, errCreated := deploymentV2Service.CreateDeploymentV2Short(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

@@ -8,12 +8,12 @@ package adminContentV2
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_content_v2"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -44,12 +44,12 @@ var AdminCopyContentCmd = &cobra.Command{
 		}
 		created, errCreated := adminContentV2Service.AdminCopyContentShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

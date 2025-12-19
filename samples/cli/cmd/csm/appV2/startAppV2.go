@@ -7,10 +7,11 @@
 package appV2
 
 import (
+	"log/slog"
+
 	csm "github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/app_v2"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var StartAppV2Cmd = &cobra.Command{
 		}
 		errAccepted := appV2Service.StartAppV2Short(input)
 		if errAccepted != nil {
-			logrus.Error(errAccepted)
+			slog.Error("operation failed", "error", errAccepted)
 
 			return errAccepted
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

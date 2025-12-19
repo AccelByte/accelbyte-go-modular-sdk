@@ -7,10 +7,11 @@
 package agreement
 
 import (
+	"log/slog"
+
 	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/agreement"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -30,12 +31,12 @@ var AcceptVersionedPolicyCmd = &cobra.Command{
 		}
 		errCreated := agreementService.AcceptVersionedPolicyShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

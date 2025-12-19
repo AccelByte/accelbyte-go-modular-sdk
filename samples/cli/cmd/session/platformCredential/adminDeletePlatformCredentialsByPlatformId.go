@@ -7,10 +7,11 @@
 package platformCredential
 
 import (
+	"log/slog"
+
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/platform_credential"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var AdminDeletePlatformCredentialsByPlatformIdCmd = &cobra.Command{
 		}
 		errNoContent := platformCredentialService.AdminDeletePlatformCredentialsByPlatformIDShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

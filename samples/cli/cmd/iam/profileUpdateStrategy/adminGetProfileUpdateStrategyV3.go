@@ -7,10 +7,11 @@
 package profileUpdateStrategy
 
 import (
+	"log/slog"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/profile_update_strategy"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var AdminGetProfileUpdateStrategyV3Cmd = &cobra.Command{
 		}
 		ok, errOK := profileUpdateStrategyService.AdminGetProfileUpdateStrategyV3Short(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -5,10 +5,9 @@
 package utils
 
 import (
+	"log/slog"
 	"net/http"
 	"time"
-
-	"github.com/sirupsen/logrus"
 )
 
 const (
@@ -122,7 +121,7 @@ func (m Retry) RoundTrip(req *http.Request) (*http.Response, error) {
 			sleep(backOffDuration)
 		}
 
-		logrus.Infof("Retrying attempt: %v", attempt)
+		slog.Info("Retrying attempt", "data", attempt)
 	}
 
 	return res, err

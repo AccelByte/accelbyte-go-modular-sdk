@@ -7,10 +7,11 @@
 package config
 
 import (
+	"log/slog"
+
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/config"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -30,12 +31,12 @@ var AdminGetConfigV1Cmd = &cobra.Command{
 		}
 		ok, errOK := configService.AdminGetConfigV1Short(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

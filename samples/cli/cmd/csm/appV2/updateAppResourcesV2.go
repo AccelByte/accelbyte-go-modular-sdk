@@ -8,12 +8,12 @@ package appV2
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	csm "github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/app_v2"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var UpdateAppResourcesV2Cmd = &cobra.Command{
 		}
 		ok, errOK := appV2Service.UpdateAppResourcesV2Short(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

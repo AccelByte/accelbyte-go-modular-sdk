@@ -7,10 +7,11 @@
 package deployment
 
 import (
+	"log/slog"
+
 	csm "github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/deployment"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var DeleteDeploymentV1Cmd = &cobra.Command{
 		}
 		errNoContent := deploymentService.DeleteDeploymentV1Short(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

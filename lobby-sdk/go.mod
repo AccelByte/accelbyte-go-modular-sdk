@@ -16,7 +16,6 @@ require (
 	github.com/go-openapi/swag v0.21.1
 	github.com/go-openapi/validate v0.21.0
 	github.com/gorilla/websocket v1.5.3
-	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.2
 	tideland.dev/go/wait v0.2.0
 )
@@ -41,6 +40,7 @@ require (
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/sirupsen/logrus v1.9.0 // indirect
 	go.mongodb.org/mongo-driver v1.10.0 // indirect
 	go.opentelemetry.io/contrib/propagators/aws v1.15.0 // indirect
 	go.opentelemetry.io/otel v1.14.0 // indirect

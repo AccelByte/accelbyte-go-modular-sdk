@@ -7,10 +7,11 @@
 package agreement
 
 import (
+	"log/slog"
+
 	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/agreement"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -30,12 +31,12 @@ var OldRetrieveAcceptedAgreementsCmd = &cobra.Command{
 		}
 		ok, errOK := agreementService.OldRetrieveAcceptedAgreementsShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

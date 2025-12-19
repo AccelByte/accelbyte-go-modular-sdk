@@ -7,12 +7,12 @@
 package oAuth20
 
 import (
+	"log/slog"
 	"net/http"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -44,12 +44,12 @@ var AuthCodeRequestV3Cmd = &cobra.Command{
 		}
 		_, errFound := oAuth20Service.AuthCodeRequestV3Short(input)
 		if errFound != nil {
-			logrus.Error(errFound)
+			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

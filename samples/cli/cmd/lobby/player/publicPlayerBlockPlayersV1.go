@@ -8,12 +8,12 @@ package player
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/player"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var PublicPlayerBlockPlayersV1Cmd = &cobra.Command{
 		}
 		errCreated := playerService.PublicPlayerBlockPlayersV1Short(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

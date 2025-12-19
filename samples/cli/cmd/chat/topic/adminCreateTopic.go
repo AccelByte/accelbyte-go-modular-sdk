@@ -8,12 +8,12 @@ package topic
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var AdminCreateTopicCmd = &cobra.Command{
 		}
 		ok, errOK := topicService.AdminCreateTopicShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

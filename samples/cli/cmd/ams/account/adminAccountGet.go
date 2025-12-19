@@ -7,10 +7,11 @@
 package account
 
 import (
+	"log/slog"
+
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/account"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -30,12 +31,12 @@ var AdminAccountGetCmd = &cobra.Command{
 		}
 		ok, errOK := accountService.AdminAccountGetShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

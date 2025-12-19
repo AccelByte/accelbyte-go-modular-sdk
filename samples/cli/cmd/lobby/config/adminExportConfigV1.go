@@ -8,12 +8,12 @@ package config
 
 import (
 	"bytes"
+	"log/slog"
 	"os"
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -29,7 +29,7 @@ var AdminExportConfigV1Cmd = &cobra.Command{
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		file, errFile := os.Create("file")
-		logrus.Infof("Output %v", file)
+		slog.Info("Output", "value", file)
 		if errFile != nil {
 			return errFile
 		}
@@ -39,12 +39,12 @@ var AdminExportConfigV1Cmd = &cobra.Command{
 		}
 		ok, errOK := configService.AdminExportConfigV1Short(input, writer)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

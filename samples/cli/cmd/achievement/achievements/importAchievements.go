@@ -7,12 +7,12 @@
 package achievements
 
 import (
+	"log/slog"
 	"os"
 
 	achievement "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/achievements"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -28,7 +28,7 @@ var ImportAchievementsCmd = &cobra.Command{
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		outputFile := cmd.Flag("file").Value.String()
-		logrus.Infof("file %v", outputFile)
+		slog.Info("file", "value", outputFile)
 		file, err := os.Open(outputFile)
 		if err != nil {
 			return err
@@ -41,12 +41,12 @@ var ImportAchievementsCmd = &cobra.Command{
 		}
 		ok, errOK := achievementsService.ImportAchievementsShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

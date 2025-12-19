@@ -8,12 +8,12 @@ package gameProfile
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/game_profile"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var PublicCreateProfileCmd = &cobra.Command{
 		}
 		errCreated := gameProfileService.PublicCreateProfileShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

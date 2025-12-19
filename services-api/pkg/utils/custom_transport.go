@@ -5,12 +5,12 @@
 package utils
 
 import (
+	"log/slog"
 	"net/http"
 	"os"
 
 	"github.com/go-openapi/runtime"
 	httptransport "github.com/go-openapi/runtime/client"
-	"github.com/sirupsen/logrus"
 )
 
 type CustomTransport struct {
@@ -27,14 +27,14 @@ func (c *CustomTransport) RoundTrip(r *http.Request) (*http.Response, error) {
 	// enabling log
 	if os.Getenv("ENABLE_LOG") == "true" {
 		// logger request
-		logrus.Infof("LogRequest: %v", LogRequest(r))
+		slog.Info("LogRequest", "request", LogRequest(r))
 
 		// logger response
 		res, err := c.inner.RoundTrip(r)
 		if err != nil {
-			logrus.Error("failed to use the RoundTrip method")
+			slog.Error("failed to use the RoundTrip method", "error", err)
 		} else {
-			logrus.Infof("Response: %v", LogResponse(res))
+			slog.Info("Response", "response", LogResponse(res))
 		}
 
 		return res, err

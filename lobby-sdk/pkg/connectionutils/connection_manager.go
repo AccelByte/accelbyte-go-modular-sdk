@@ -6,7 +6,9 @@ package connectionutils
 
 import (
 	"errors"
+	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 	"strings"
 	"sync"
@@ -14,7 +16,6 @@ import (
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/gorilla/websocket"
-	"github.com/sirupsen/logrus"
 )
 
 const (
@@ -172,11 +173,11 @@ func (c *WSConnection) Dial(url string, headers http.Header) (*websocket.Conn, e
 func (c *WSConnection) Close(code int, reason string) error {
 	err := c.Conn.WriteControl(websocket.CloseMessage, websocket.FormatCloseMessage(code, reason), time.Now().Add(time.Second))
 	if err != nil {
-		logrus.Error("Error writing control message: ", err)
+		slog.Error("Error writing control message: ", err)
 	}
 
 	if err = c.Conn.Close(); err != nil {
-		logrus.Error("Failed to close connection: ", err)
+		slog.Error("Failed to close connection: ", err)
 	}
 
 	c.SetStatus(Disconnected)
@@ -193,7 +194,7 @@ func (c *WSConnection) SetStatus(status string) {
 		c.StatusHandler(c.status)
 	}
 
-	logrus.Debugf("status: %s", status)
+	slog.Debug(fmt.Sprintf("status: %s", status))
 }
 
 func (c *WSConnection) GetStatus() string {
@@ -212,7 +213,7 @@ func (c *WSConnection) DefaultCloseHandler(code int, reason string) error {
 func (c *WSConnection) DefaultPongHandler(text string) error {
 	err := c.Conn.SetReadDeadline(time.Now().Add(6 * time.Second)) //nolint:mnd
 	if err != nil {
-		logrus.Warn(err.Error())
+		slog.Warn(err.Error())
 	}
 
 	return nil
@@ -233,11 +234,11 @@ type ConnectionManager interface {
 }
 
 func (c *WSConnection) Lock(location string) {
-	logrus.Debugf("locking at %s", location)
+	slog.Debug(fmt.Sprintf("locking at %s", location))
 	c.Mu.Lock()
 }
 
 func (c *WSConnection) Unlock(location string) {
-	logrus.Debugf("unlocking at %s", location)
+	slog.Debug(fmt.Sprintf("unlocking at %s", location))
 	c.Mu.Unlock()
 }

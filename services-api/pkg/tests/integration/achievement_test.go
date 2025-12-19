@@ -6,18 +6,14 @@ package integration_test
 
 import (
 	"bytes"
+	"fmt"
+	"log/slog"
 	"os"
-
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-
-	"github.com/sirupsen/logrus"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
-
 	achievement "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/achievements"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
@@ -132,7 +128,7 @@ func TestIntegrationAchievement(t *testing.T) {
 	}
 	defer file.Close()
 
-	logrus.Infof("Successfully created file: %v", file.Name())
+	slog.Info(fmt.Sprintf("Successfully created file: %v", file.Name()))
 
 	writer := bytes.NewBuffer(nil)
 

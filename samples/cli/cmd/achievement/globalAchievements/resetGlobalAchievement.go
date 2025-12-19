@@ -7,10 +7,11 @@
 package globalAchievements
 
 import (
+	"log/slog"
+
 	achievement "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/global_achievements"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var ResetGlobalAchievementCmd = &cobra.Command{
 		}
 		errNoContent := globalAchievementsService.ResetGlobalAchievementShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

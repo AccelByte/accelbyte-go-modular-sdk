@@ -8,12 +8,12 @@ package achievements
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	achievement "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/achievements"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var AdminCreateNewAchievementCmd = &cobra.Command{
 		}
 		created, errCreated := achievementsService.AdminCreateNewAchievementShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

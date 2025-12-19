@@ -7,10 +7,11 @@
 package challengeConfiguration
 
 import (
+	"log/slog"
+
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/challenge_configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var AdminDeleteTiedChallengeCmd = &cobra.Command{
 		}
 		errNoContent := challengeConfigurationService.AdminDeleteTiedChallengeShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -5,8 +5,7 @@
 package utils
 
 import (
-	"github.com/sirupsen/logrus"
-
+	"log/slog"
 	"sync"
 )
 
@@ -31,7 +30,7 @@ func GetDefaultFlightID() *FlightIdContainer {
 				Value: flightId,
 			}
 		} else {
-			logrus.Info("Single instance already created.")
+			slog.Info("Single instance already created.")
 		}
 	})
 

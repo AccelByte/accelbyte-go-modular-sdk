@@ -9,13 +9,13 @@ package store
 import (
 	"bytes"
 	"encoding/json"
+	"log/slog"
 	"os"
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/store"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -37,7 +37,7 @@ var ExportStoreByCSVCmd = &cobra.Command{
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		file, errFile := os.Create("file")
-		logrus.Infof("Output %v", file)
+		slog.Info("Output", "value", file)
 		if errFile != nil {
 			return errFile
 		}
@@ -48,12 +48,12 @@ var ExportStoreByCSVCmd = &cobra.Command{
 		}
 		ok, errOK := storeService.ExportStoreByCSVShort(input, writer)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

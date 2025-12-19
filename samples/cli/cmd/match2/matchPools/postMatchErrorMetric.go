@@ -8,12 +8,12 @@ package matchPools
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_pools"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2clientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var PostMatchErrorMetricCmd = &cobra.Command{
 		}
 		errNoContent := matchPoolsService.PostMatchErrorMetricShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

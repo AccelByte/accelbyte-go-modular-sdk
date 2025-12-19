@@ -8,12 +8,12 @@ package amsQoS
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/a_m_s_qo_s"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var QoSRegionsUpdateCmd = &cobra.Command{
 		}
 		errNoContent := amsQoSService.QoSRegionsUpdateShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

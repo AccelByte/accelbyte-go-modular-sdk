@@ -8,12 +8,12 @@ package adminStagingContent
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_staging_content"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var AdminApproveStagingContentCmd = &cobra.Command{
 		}
 		ok, errOK := adminStagingContentService.AdminApproveStagingContentShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

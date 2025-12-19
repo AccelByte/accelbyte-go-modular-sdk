@@ -8,12 +8,12 @@ package statCycleConfiguration
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/stat_cycle_configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var CreateStatCycleCmd = &cobra.Command{
 		}
 		created, errCreated := statCycleConfigurationService.CreateStatCycleShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

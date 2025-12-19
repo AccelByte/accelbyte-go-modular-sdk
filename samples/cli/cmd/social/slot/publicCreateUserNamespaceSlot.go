@@ -8,12 +8,12 @@ package slot
 
 import (
 	"encoding/json"
+	"log/slog"
 	"os"
 
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/slot"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,7 +32,7 @@ var PublicCreateUserNamespaceSlotCmd = &cobra.Command{
 		checksum, _ := cmd.Flags().GetString("checksum")
 		customAttribute, _ := cmd.Flags().GetString("customAttribute")
 		outputFile := cmd.Flag("file").Value.String()
-		logrus.Infof("file %v", outputFile)
+		slog.Info("file", "value", outputFile)
 		file, err := os.Open(outputFile)
 		if err != nil {
 			return err
@@ -55,12 +55,12 @@ var PublicCreateUserNamespaceSlotCmd = &cobra.Command{
 		}
 		errCreated := slotService.PublicCreateUserNamespaceSlotShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

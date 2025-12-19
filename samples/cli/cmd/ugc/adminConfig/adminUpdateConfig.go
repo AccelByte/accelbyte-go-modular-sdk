@@ -8,12 +8,12 @@ package adminConfig
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -42,12 +42,12 @@ var AdminUpdateConfigCmd = &cobra.Command{
 		}
 		errCreated := adminConfigService.AdminUpdateConfigShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

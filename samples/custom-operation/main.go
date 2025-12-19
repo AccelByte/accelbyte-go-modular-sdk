@@ -6,12 +6,11 @@ package main
 
 import (
 	"encoding/json"
+	"log/slog"
 	"os"
 
 	custom_sdk "custom-operation/custom-sdk"
 	"custom-operation/services-api/pkg/service/custom"
-
-	"github.com/sirupsen/logrus"
 )
 
 func main() {
@@ -30,7 +29,7 @@ func main() {
 		Key:  os.Getenv("KEY"),
 	})
 	if err != nil {
-		logrus.Errorf("unable to call the custom service: %s", err.Error())
+		slog.Error("unable to call the custom service", "error", err.Error())
 
 		return
 	}
@@ -38,10 +37,10 @@ func main() {
 	// Result
 	val, err := json.MarshalIndent(ok, "", "    ")
 	if err != nil {
-		logrus.Errorf("unable to marshal the response: %s", err.Error())
+		slog.Error("unable to marshal the response", "error", err.Error())
 
 		return
 	}
 
-	logrus.Printf("successfully invoke the custom service: %s", val)
+	slog.Info("successfully invoke the custom service", "response", string(val))
 }

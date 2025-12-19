@@ -8,12 +8,12 @@ package group
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 	group_ "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var CreateNewGroupPublicV2Cmd = &cobra.Command{
 		}
 		created, errCreated := groupService.CreateNewGroupPublicV2Short(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

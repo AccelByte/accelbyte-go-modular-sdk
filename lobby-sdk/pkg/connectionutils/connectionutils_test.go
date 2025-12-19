@@ -17,8 +17,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
-
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"tideland.dev/go/wait"
 )
@@ -157,7 +155,6 @@ func TestConnectionUtils_DataManagement(t *testing.T) {
 func TestWebSocketReconnect_Case1(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
 	configRepo.BaseUrl = baseUrl
-	logrus.SetLevel(logrus.DebugLevel)
 
 	// 1. Connecting to mock server
 	conn, err := wsm.NewWSConnection(
@@ -212,7 +209,6 @@ func TestWebSocketReconnect_Case1(t *testing.T) {
 func TestWebSocketReconnect_Case2(t *testing.T) {
 	tokenRepo.AccessToken.AccessToken = &token
 	configRepo.BaseUrl = baseUrl
-	logrus.SetLevel(logrus.DebugLevel)
 
 	// 1. Connecting to mock server
 	conn, err := wsm.NewWSConnection(

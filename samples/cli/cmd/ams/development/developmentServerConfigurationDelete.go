@@ -7,10 +7,11 @@
 package development
 
 import (
+	"log/slog"
+
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/development"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var DevelopmentServerConfigurationDeleteCmd = &cobra.Command{
 		}
 		errNoContent := developmentService.DevelopmentServerConfigurationDeleteShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

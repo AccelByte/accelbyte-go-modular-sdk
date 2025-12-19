@@ -7,10 +7,11 @@
 package configurationV2
 
 import (
+	"log/slog"
+
 	csm "github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/configuration_v2"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -36,12 +37,12 @@ var GetListOfSecretsV2Cmd = &cobra.Command{
 		}
 		ok, errOK := configurationV2Service.GetListOfSecretsV2Short(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

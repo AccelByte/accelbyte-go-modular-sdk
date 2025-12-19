@@ -6,12 +6,10 @@ package service
 
 import (
 	"fmt"
+	"log/slog"
 
 	"github.com/gorilla/websocket"
-	"github.com/sirupsen/logrus"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
@@ -25,7 +23,7 @@ type MatchmakingServiceWebsocket struct {
 
 func (matchmakingService *MatchmakingServiceWebsocket) StartMatchmaking(gameMode, dsName, clientVersion,
 	latencies, partyAttribute, tempParty, extraAttributes string) error {
-	logrus.Debug("StartMatchmaking")
+	slog.Debug("StartMatchmaking")
 	text := fmt.Sprintf(
 		"type: startMatchmakingRequest\n"+
 			"%s\n"+
@@ -53,7 +51,7 @@ func (matchmakingService *MatchmakingServiceWebsocket) StartMatchmaking(gameMode
 }
 
 func (matchmakingService *MatchmakingServiceWebsocket) SetReadyConsent(matchID string) error {
-	logrus.Debug("SetReadyConsent")
+	slog.Debug("SetReadyConsent")
 	text := fmt.Sprintf("type: %s\n%s\nmatchId: %s", model.TypeSetReadyConsentRequest, utils.GenerateMessageID(), matchID)
 	err := matchmakingService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -64,7 +62,7 @@ func (matchmakingService *MatchmakingServiceWebsocket) SetReadyConsent(matchID s
 }
 
 func (matchmakingService *MatchmakingServiceWebsocket) CancelMatchmaking(gameMode string) error {
-	logrus.Debug("CancelMatchmaking")
+	slog.Debug("CancelMatchmaking")
 	text := fmt.Sprintf("type: cancelMatchmakingRequest\n%s\ngameMode: %s", utils.GenerateMessageID(), gameMode)
 	err := matchmakingService.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {

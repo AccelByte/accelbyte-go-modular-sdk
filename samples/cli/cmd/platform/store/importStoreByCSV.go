@@ -7,12 +7,12 @@
 package store
 
 import (
+	"log/slog"
 	"os"
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/store"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -29,26 +29,26 @@ var ImportStoreByCSVCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		storeId, _ := cmd.Flags().GetString("storeId")
 		outputCategory := cmd.Flag("category").Value.String()
-		logrus.Infof("category %v", outputCategory)
+		slog.Info("category", "value", outputCategory)
 		category, err := os.Open(outputCategory)
 		if err != nil {
 			return err
 		}
 		outputDisplay := cmd.Flag("display").Value.String()
-		logrus.Infof("display %v", outputDisplay)
+		slog.Info("display", "value", outputDisplay)
 		display, err := os.Open(outputDisplay)
 		if err != nil {
 			return err
 		}
 		outputItem := cmd.Flag("item").Value.String()
-		logrus.Infof("item %v", outputItem)
+		slog.Info("item", "value", outputItem)
 		item, err := os.Open(outputItem)
 		if err != nil {
 			return err
 		}
 		notes, _ := cmd.Flags().GetString("notes")
 		outputSection := cmd.Flag("section").Value.String()
-		logrus.Infof("section %v", outputSection)
+		slog.Info("section", "value", outputSection)
 		section, err := os.Open(outputSection)
 		if err != nil {
 			return err
@@ -64,12 +64,12 @@ var ImportStoreByCSVCmd = &cobra.Command{
 		}
 		ok, errOK := storeService.ImportStoreByCSVShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

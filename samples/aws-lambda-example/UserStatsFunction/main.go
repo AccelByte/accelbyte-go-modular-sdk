@@ -8,6 +8,7 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"strings"
 	"time"
 
@@ -18,7 +19,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/user_statistic"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/sirupsen/logrus"
 )
 
 var (
@@ -52,7 +52,7 @@ func Handler(ctx context.Context, evt events.LambdaFunctionURLRequest) (events.L
 			StatusCode: 400, //nolint:mnd
 		}, nil
 	}
-	logrus.Print("Parse Access Token Done")
+	slog.Info("Parse Access Token Done")
 
 	// login client
 	clientId := oAuth20Service.ConfigRepository.GetClientId()
@@ -60,21 +60,21 @@ func Handler(ctx context.Context, evt events.LambdaFunctionURLRequest) (events.L
 	errLogin := oAuth20Service.LoginOrRefreshClient(&clientId, &clientSecret)
 	if errLogin != nil {
 		errString := fmt.Errorf("failed to login client. %s", errLogin.Error())
-		logrus.Error(errString)
+		slog.Error("failed to login client", "error", errString)
 
 		return events.LambdaFunctionURLResponse{}, errString
 	}
-	logrus.Print("Login Client Done")
+	slog.Info("Login Client Done")
 	// start token validation
 	httpRequest := evt.RequestContext.HTTP.Method
 	errValidateToken := validateToken(splitToken[1], evt.QueryStringParameters["namespace"], evt.QueryStringParameters["userId"], httpRequest)
 	if errValidateToken != nil {
 		errString := fmt.Errorf("failed to validate token. %s", errValidateToken.Error())
-		logrus.Error(errString)
+		slog.Error("failed to validate token", "error", errString)
 
 		return events.LambdaFunctionURLResponse{}, errString
 	}
-	logrus.Print("Token Validation Done")
+	slog.Info("Token Validation Done")
 
 	// cases:
 	switch httpRequest {
@@ -101,7 +101,7 @@ func getRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionURLRe
 	getUserStatItem, errUserStatItem := userStatisticService.GetUserStatItemsShort(inputUserStatItem)
 	if errUserStatItem != nil {
 		errString := fmt.Errorf("failed to create user stat item. %s", errUserStatItem.Error())
-		logrus.Error(errString)
+		slog.Error("failed to create user stat item", "error", errString)
 
 		return events.LambdaFunctionURLResponse{
 			Body:       errUserStatItem.Error(),
@@ -113,7 +113,7 @@ func getRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionURLRe
 	js, err := json.Marshal(getUserStatItem)
 	if err != nil {
 		errString := fmt.Errorf("failed to marshal the response. %s", err.Error())
-		logrus.Error(errString)
+		slog.Error("failed to marshal the response", "error", errString)
 
 		return events.LambdaFunctionURLResponse{
 			Body:       err.Error(),
@@ -137,7 +137,7 @@ func deleteRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionUR
 	errDeleteUserStatItems := userStatisticService.DeleteUserStatItemsShort(inputDeleteUserStatItem)
 	if errDeleteUserStatItems != nil {
 		errString := fmt.Errorf("failed to delete user stat code. %s", errDeleteUserStatItems.Error())
-		logrus.Error(errString)
+		slog.Error("failed to delete user stat code", "error", errString)
 
 		return events.LambdaFunctionURLResponse{
 			Body:       errDeleteUserStatItems.Error(),
@@ -161,7 +161,7 @@ func postRequest(evt events.LambdaFunctionURLRequest) (events.LambdaFunctionURLR
 	errUserStatItem := userStatisticService.CreateUserStatItemShort(inputUserStatItem)
 	if errUserStatItem != nil {
 		errString := fmt.Errorf("failed to create user stat item. %s", errUserStatItem.Error())
-		logrus.Error(errString)
+		slog.Error("failed to create user stat item", "error", errString)
 
 		return events.LambdaFunctionURLResponse{
 			Body:       errUserStatItem.Error(),

@@ -9,7 +9,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/sirupsen/logrus"
+	"log/slog"
 )
 
 func GetClient() http.Client {
@@ -21,7 +21,7 @@ func GetClient() http.Client {
 func SimpleHTTPCall(client http.Client, endpoint, httpMethod, authorizationValue string, requestBody []byte) (*http.Response, error) {
 	req, err := http.NewRequest(httpMethod, endpoint, bytes.NewReader(requestBody))
 	if err != nil {
-		logrus.Error("invalid request")
+		slog.Error("invalid request")
 
 		return nil, err
 	}
@@ -29,7 +29,7 @@ func SimpleHTTPCall(client http.Client, endpoint, httpMethod, authorizationValue
 	req.Header.Set("Authorization", authorizationValue)
 	resp, err := client.Do(req)
 	if err != nil {
-		logrus.Error("http call error")
+		slog.Error("http call error")
 
 		return nil, err
 	}

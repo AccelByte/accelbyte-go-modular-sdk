@@ -10,12 +10,11 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log/slog"
 	"net/http"
 	"os"
 	"strconv"
 	"strings"
-
-	"github.com/sirupsen/logrus"
 
 	"client/pkg/models"
 	"client/pkg/utils"
@@ -72,13 +71,13 @@ var websocketMessageHandler = func(dataByte []byte) {
 	// for handling websocket message that come from lobby service
 	message, err := parser.UnmarshalResponse(dataByte)
 	if err != nil {
-		logrus.Errorf("Error while unmarshall websocket message: %s", err.Error())
+		slog.Error("error while unmarshall websocket message", "error", err.Error())
 	}
 	switch message.Type() {
 	case model.TypeNotificationMessage:
 		unmarshal, err := parser.UnmarshalResponse(dataByte)
 		if err != nil {
-			logrus.Error(err)
+			slog.Error("failed to unmarshal response", "error", err)
 		}
 		data := unmarshal.(*model.NotificationMessage)
 
@@ -86,42 +85,43 @@ var websocketMessageHandler = func(dataByte []byte) {
 		if data.Topic == "NOTIF" {
 			defer func() {
 				if err := recover(); err != nil {
-					logrus.Fatalf("panic occurred: %s", err)
+					slog.Error("panic occurred", "error", err)
+					os.Exit(1)
 				}
 			}()
 			message := strings.Fields(data.Payload)
 			if message[0] == "found" {
-				logrus.Infof("Match found!")
+				slog.Info("Match found!")
 				//render board with initial condition
 				renderBoard("000000000")
 				playNumStr, err := strconv.Atoi(message[1])
 				if err != nil {
-					logrus.Errorf("Error while convert str to int. Error msg : %s", err.Error())
+					slog.Error("Error while convert str to int. Error msg", "error", err.Error())
 
 					return
 				}
 				playerNum = playNumStr
 				gameStatus = Playing
 				if playerNum == 1 {
-					logrus.Info("It's your turn (" + getSymbol(playerNum) + "), input index:")
+					slog.Info("It's your turn (" + getSymbol(playerNum) + "), input index:")
 				} else {
-					logrus.Info("Waiting your opponent move")
+					slog.Info("Waiting your opponent move")
 				}
 			} else {
 				boardStatus = message[1]
 				renderBoard(boardStatus)
 				if message[0] == Lose {
-					logrus.Info("Your opponent has moved!")
-					logrus.Infof("Oh no, you lose!")
+					slog.Info("Your opponent has moved!")
+					slog.Info("Oh no, you lose!")
 					gameStatus = Lose
 				} else if message[0] == Win {
-					logrus.Infof("You win!")
+					slog.Info("You win!")
 					gameStatus = Win
 				} else if message[0] == Draw {
-					logrus.Infof("Draw")
+					slog.Info("Draw")
 					gameStatus = Draw
 				} else {
-					logrus.Info("It's your turn (" + getSymbol(playerNum) + "), input index:")
+					slog.Info("It's your turn (" + getSymbol(playerNum) + "), input index:")
 				}
 			}
 		}
@@ -160,14 +160,14 @@ func serve() {
 			case createMatchmakingCmd:
 				err := createMatchmaking()
 				if err != nil {
-					logrus.Errorf("Error while create match: %s", err.Error())
+					slog.Error("Error while create match", "error", err.Error())
 				}
 			case getStatCmd:
 				stat, err := getStat()
 				if err != nil {
-					logrus.Infof("Error get game status with error: %s", err.Error())
+					slog.Info("Error get game status with error", "error", err.Error())
 				} else {
-					logrus.Infof("This is status of the game: \"%+v\\n\"", stat)
+					slog.Info("This is status of the game", "status", fmt.Sprintf("%+v", stat))
 				}
 			}
 		}
@@ -195,11 +195,11 @@ Commands:
 func userInfo() {
 	token, err := oauthService.TokenRepository.GetToken()
 	if err != nil {
-		logrus.Info("You are not log in")
+		slog.Info("You are not log in")
 
 		return
 	}
-	logrus.Infof(
+	slog.Info(fmt.Sprintf(
 		`
 User Token: %s
 User ID: %s
@@ -210,7 +210,7 @@ Display Name: %s
 		token.UserID,
 		*token.Namespace,
 		token.DisplayName,
-	)
+	))
 }
 
 func login() {
@@ -223,14 +223,14 @@ func login() {
 	//request to IAM to login using AccelByte Go SDK
 	err := oauthService.Login(username, password)
 	if err != nil {
-		logrus.Error("Login Failed")
+		slog.Error("Login Failed")
 
 		return
 	}
-	logrus.Info("Login Successful")
+	slog.Info("Login Successful")
 
 	// listening message from lobby using AccelByte Go SDK
-	logrus.Info("Enter websocket mode")
+	slog.Info("Enter websocket mode")
 	connMgr = &wsm.DefaultConnectionManagerImpl{}
 	connection, err := wsm.NewWSConnection(
 		oauthService.ConfigRepository,
@@ -249,11 +249,11 @@ func login() {
 
 func logout() {
 	if err := oauthService.Logout(); err != nil {
-		logrus.Error("Logout failed")
+		slog.Error("Logout failed")
 
 		return
 	}
-	logrus.Info("Logout successful")
+	slog.Info("Logout successful")
 }
 
 func createMatchmaking() error {
@@ -265,7 +265,7 @@ func createMatchmaking() error {
 	if err != nil {
 		return err
 	}
-	logrus.Info("Successful create matchmaking for tic-tac-toe! Waiting for opponent...")
+	slog.Info("Successful create matchmaking for tic-tac-toe! Waiting for opponent...")
 
 	return nil
 }
@@ -296,11 +296,11 @@ func makeMove(request models.MoveRequest) (*models.MoveResponse, error) {
 
 		return moveResp, nil
 	} else if resp.StatusCode == http.StatusForbidden {
-		logrus.Info(string(respBody))
+		slog.Info(string(respBody))
 
 		return nil, errors.New("forbidden move, try again: ")
 	} else {
-		logrus.Info(string(respBody))
+		slog.Info(string(respBody))
 
 		return nil, err
 	}
@@ -351,7 +351,7 @@ func renderBoard(boardStatus string) {
 func playingGame(input string) {
 	intIndex, err := strconv.Atoi(input)
 	if err != nil {
-		logrus.Error("error convert")
+		slog.Error("error convert")
 
 		return
 	}
@@ -361,24 +361,24 @@ func playingGame(input string) {
 	}
 	resp, errResp := makeMove(*move)
 	if errResp != nil {
-		logrus.Errorf("Error while make move: %s", errResp.Error())
+		slog.Error("Error while make move", "error", errResp.Error())
 
 		return
 	}
 	renderBoard(resp.BoardStatus)
 	if resp.MatchStatus == GameOver {
 		if resp.Winner == playerNum {
-			logrus.Infof("You win!")
+			slog.Info("You win!")
 			gameStatus = Win
 		} else if resp.Winner == 3 { //nolint:mnd
-			logrus.Infof("Draw!")
+			slog.Info("Draw!")
 			gameStatus = Draw
 		} else {
-			logrus.Infof("Oh no, you lose!")
+			slog.Info("Oh no, you lose!")
 			gameStatus = Lose
 		}
 	} else if resp.MatchStatus == Playing {
-		logrus.Info("Waiting for your opponent move")
+		slog.Info("Waiting for your opponent move")
 	}
 }
 

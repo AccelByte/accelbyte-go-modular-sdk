@@ -6,11 +6,11 @@ package sdk_test
 
 import (
 	"bufio"
+	"log/slog"
 	"strings"
 	"testing"
 	"time"
 
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
@@ -278,7 +278,7 @@ func decodeWSMessage(msg string) map[string]string {
 	}
 
 	if err := scanner.Err(); err != nil {
-		logrus.Errorf("error reading websocket message: %v", err)
+		slog.Error("error reading websocket message", "error", err)
 	}
 
 	return res

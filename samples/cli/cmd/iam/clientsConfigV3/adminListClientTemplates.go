@@ -7,10 +7,11 @@
 package clientsConfigV3
 
 import (
+	"log/slog"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -27,12 +28,12 @@ var AdminListClientTemplatesCmd = &cobra.Command{
 		input := &clients_config_v3.AdminListClientTemplatesParams{}
 		ok, errOK := clientsConfigV3Service.AdminListClientTemplatesShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

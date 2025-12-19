@@ -34,7 +34,7 @@ replace (
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.4
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.1
@@ -59,7 +59,6 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.1.0-alpha.1
 	github.com/gorilla/websocket v1.5.3
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/sirupsen/logrus v1.9.0
 	github.com/spf13/cobra v1.1.3
 	github.com/spf13/viper v1.7.1
 )
@@ -95,6 +94,7 @@ require (
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pelletier/go-toml v1.7.0 // indirect
+	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/spf13/afero v1.1.2 // indirect
 	github.com/spf13/cast v1.3.0 // indirect

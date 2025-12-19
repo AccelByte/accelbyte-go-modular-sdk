@@ -11,6 +11,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log/slog"
 	"net/http"
 	"net/url"
 	"sync/atomic"
@@ -24,7 +25,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/go-jose/jwt"
 	"github.com/go-openapi/runtime/client"
-	"github.com/sirupsen/logrus"
 )
 
 const (
@@ -519,7 +519,7 @@ func (o *OAuth20Service) LoginClient(clientId, clientSecret *string) error {
 		return errors.New("client not registered")
 	}
 	if len(*clientSecret) == 0 {
-		logrus.Warningln("The use of a Public OAuth Client is highly discouraged!")
+		slog.Warn("The use of a Public OAuth Client is highly discouraged!")
 	}
 	param := &o_auth2_0.TokenGrantV3Params{
 		GrantType: o_auth2_0.TokenGrantV3GrantTypeClientCredentialsConstant,
@@ -578,7 +578,7 @@ func (o *OAuth20Service) LoginClientWithContext(ctx context.Context, clientId, c
 		return errors.New("client not registered")
 	}
 	if len(*clientSecret) == 0 {
-		logrus.Warningln("The use of a Public OAuth Client is highly discouraged!")
+		slog.Warn("The use of a Public OAuth Client is highly discouraged!")
 	}
 	param := &o_auth2_0.TokenGrantV3Params{
 		Context:   ctx,
@@ -772,14 +772,14 @@ func (o *OAuth20Service) Logout() error {
 	clientSecret := o.ConfigRepository.GetClientSecret()
 	_, err = o.Client.OAuth20.TokenRevocationV3Short(param, client.BasicAuth(clientID, clientSecret))
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("token revocation failed", "error", err)
 
 		return err
 	}
 
 	err = o.TokenRepository.RemoveToken()
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("failed to remove token", "error", err)
 
 		return err
 	}
@@ -802,14 +802,14 @@ func (o *OAuth20Service) LogoutWithContext(ctx context.Context) error {
 	clientSecret := o.ConfigRepository.GetClientSecret()
 	_, err = o.Client.OAuth20.TokenRevocationV3Short(param, client.BasicAuth(clientID, clientSecret))
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("token revocation failed", "error", err)
 
 		return err
 	}
 
 	err = o.TokenRepository.RemoveToken()
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("failed to remove token", "error", err)
 
 		return err
 	}

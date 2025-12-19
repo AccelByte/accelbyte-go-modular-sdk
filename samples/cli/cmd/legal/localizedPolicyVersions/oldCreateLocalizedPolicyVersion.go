@@ -8,12 +8,12 @@ package localizedPolicyVersions
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/localized_policy_versions"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var OldCreateLocalizedPolicyVersionCmd = &cobra.Command{
 		}
 		created, errCreated := localizedPolicyVersionsService.OldCreateLocalizedPolicyVersionShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

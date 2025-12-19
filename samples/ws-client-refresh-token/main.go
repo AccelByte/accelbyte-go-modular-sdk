@@ -7,10 +7,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"log/slog"
 	"strings"
 	"time"
-
-	"github.com/sirupsen/logrus"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
@@ -127,7 +126,7 @@ func decodeWSMessage(msg string) map[string]string {
 	}
 
 	if err := scanner.Err(); err != nil {
-		logrus.Errorf("error reading websocket message: %v", err)
+		slog.Error("error reading websocket message", "error", err)
 	}
 
 	return res

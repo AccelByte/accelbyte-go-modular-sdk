@@ -7,10 +7,11 @@
 package dsmcDefaultConfiguration
 
 import (
+	"log/slog"
+
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/d_s_m_c_default_configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -27,12 +28,12 @@ var AdminGetDSMCConfigurationDefaultCmd = &cobra.Command{
 		input := &d_s_m_c_default_configuration.AdminGetDSMCConfigurationDefaultParams{}
 		ok, errOK := dsmcDefaultConfigurationService.AdminGetDSMCConfigurationDefaultShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

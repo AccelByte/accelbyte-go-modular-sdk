@@ -7,10 +7,11 @@
 package adminTags
 
 import (
+	"log/slog"
+
 	inventory "github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_tags"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var AdminDeleteTagCmd = &cobra.Command{
 		}
 		errNoContent := adminTagsService.AdminDeleteTagShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

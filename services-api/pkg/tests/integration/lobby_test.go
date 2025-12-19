@@ -7,21 +7,19 @@ package integration_test
 import (
 	"bufio"
 	"bytes"
+	"fmt"
+	"log/slog"
 	"os"
 	"strings"
 	"testing"
 
 	"github.com/gorilla/websocket"
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
-
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	lobbyWsm "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/wsm"
-
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/admin"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
@@ -58,7 +56,7 @@ func decodeWSMessage(msg string) map[string]string {
 	}
 
 	if err := scanner.Err(); err != nil {
-		logrus.Errorf("error reading websocket message: %v", err)
+		slog.Error("error reading websocket message", "error", err)
 	}
 
 	return res
@@ -322,7 +320,7 @@ func TestIntegrationLobbyExportConfig(t *testing.T) {
 		}
 		defer file.Close()
 
-		logrus.Infof("Successfully created file: %v", file.Name())
+		slog.Info(fmt.Sprintf("Successfully created file: %v", file.Name()))
 
 		writer := bytes.NewBuffer(nil)
 

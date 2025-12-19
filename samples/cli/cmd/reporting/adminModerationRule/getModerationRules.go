@@ -7,10 +7,11 @@
 package adminModerationRule
 
 import (
+	"log/slog"
+
 	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_moderation_rule"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -38,12 +39,12 @@ var GetModerationRulesCmd = &cobra.Command{
 		}
 		ok, errOK := adminModerationRuleService.GetModerationRulesShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

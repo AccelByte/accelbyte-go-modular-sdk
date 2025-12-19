@@ -8,12 +8,12 @@ package groupRoles
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group_roles"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -44,12 +44,12 @@ var DeleteMemberRolePublicV2Cmd = &cobra.Command{
 		}
 		errNoContent := groupRolesService.DeleteMemberRolePublicV2Short(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

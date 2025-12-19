@@ -8,12 +8,12 @@ package adminUserAgreement
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/admin_user_agreement"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -48,12 +48,12 @@ var IndirectBulkAcceptVersionedPolicyCmd = &cobra.Command{
 		}
 		created, errCreated := adminUserAgreementService.IndirectBulkAcceptVersionedPolicyShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

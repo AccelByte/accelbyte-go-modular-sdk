@@ -8,12 +8,12 @@ package notification
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/notification"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var SendUsersTemplatedNotificationV1AdminCmd = &cobra.Command{
 		}
 		errAccepted := notificationService.SendUsersTemplatedNotificationV1AdminShort(input)
 		if errAccepted != nil {
-			logrus.Error(errAccepted)
+			slog.Error("operation failed", "error", errAccepted)
 
 			return errAccepted
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

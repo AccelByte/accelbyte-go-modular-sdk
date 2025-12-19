@@ -7,7 +7,7 @@ package service
 import (
 	"fmt"
 
-	"github.com/sirupsen/logrus"
+	"log/slog"
 
 	"github.com/gorilla/websocket"
 
@@ -25,7 +25,7 @@ type ChatServiceWebsocket struct {
 }
 
 func (s *ChatServiceWebsocket) JoinDefaultChannel() error {
-	logrus.Info("JoinDefaultChannel")
+	slog.Info("JoinDefaultChannel")
 	text := fmt.Sprintf("type: %s\n%s", model.TypeJoinDefaultChannelRequest, utils.GenerateMessageID())
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -36,7 +36,7 @@ func (s *ChatServiceWebsocket) JoinDefaultChannel() error {
 }
 
 func (s *ChatServiceWebsocket) SendChannelChat(channelSlug, payload string) error {
-	logrus.Info("SendChannelChat")
+	slog.Info("SendChannelChat")
 	text := fmt.Sprintf("type: %s\n"+
 		"%s\n"+
 		"channelSlug: %s\n"+
@@ -54,7 +54,7 @@ func (s *ChatServiceWebsocket) SendChannelChat(channelSlug, payload string) erro
 }
 
 func (s *ChatServiceWebsocket) SendPersonalChat(friendID, content string) error {
-	logrus.Info("SendPersonalChat")
+	slog.Info("SendPersonalChat")
 	text := fmt.Sprintf("type: %s\nid: %s\nto: %s\npayload: %s", model.TypePersonalChatRequest, utils.GenerateMessageID(), friendID, content)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -65,7 +65,7 @@ func (s *ChatServiceWebsocket) SendPersonalChat(friendID, content string) error 
 }
 
 func (s *ChatServiceWebsocket) SendPartyChat(content string) error {
-	logrus.Info("SendPartyChat")
+	slog.Info("SendPartyChat")
 	text := fmt.Sprintf("type: %s\nid: %s\npayload: %s", model.TypePartyChatRequest, utils.GenerateMessageID(), content)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {
@@ -76,7 +76,7 @@ func (s *ChatServiceWebsocket) SendPartyChat(content string) error {
 }
 
 func (s *ChatServiceWebsocket) GetPersonalChatHistory(friendID string) error {
-	logrus.Info("GetPersonalChatHistory")
+	slog.Info("GetPersonalChatHistory")
 	text := fmt.Sprintf("type: %s\n%s\nfriendId: %s", model.TypePersonalChatHistoryRequest, utils.GenerateMessageID(), friendID)
 	err := s.ConnectionManager.Get().Conn.WriteMessage(websocket.TextMessage, []byte(text))
 	if err != nil {

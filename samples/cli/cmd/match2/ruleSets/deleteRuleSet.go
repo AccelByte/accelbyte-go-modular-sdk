@@ -7,10 +7,11 @@
 package ruleSets
 
 import (
+	"log/slog"
+
 	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/rule_sets"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var DeleteRuleSetCmd = &cobra.Command{
 		}
 		errNoContent := ruleSetsService.DeleteRuleSetShort(input)
 		if errNoContent != nil {
-			logrus.Error(errNoContent)
+			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

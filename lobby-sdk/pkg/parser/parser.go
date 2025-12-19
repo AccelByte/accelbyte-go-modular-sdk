@@ -12,13 +12,12 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
+	"log/slog"
 	"strconv"
 	"strings"
 	"time"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
-
-	"github.com/sirupsen/logrus"
 )
 
 // Error types
@@ -409,7 +408,7 @@ func unmarshalResponseContent(messageType string, reader *bufio.Reader) (model.M
 		return unmarshalPartyNotif(reader)
 	}
 
-	logrus.Debug("type not handled : ", messageType)
+	slog.Debug("type not handled : ", messageType)
 
 	return nil, ErrUnexpectedType
 }

@@ -8,12 +8,12 @@ package configurationTemplate
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/configuration_template"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var AdminCreateConfigurationTemplateV1Cmd = &cobra.Command{
 		}
 		created, errCreated := configurationTemplateService.AdminCreateConfigurationTemplateV1Short(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

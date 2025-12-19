@@ -7,10 +7,11 @@
 package challengeConfiguration
 
 import (
+	"log/slog"
+
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/challenge_configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -32,12 +33,12 @@ var AdminGetChallengeCmd = &cobra.Command{
 		}
 		ok, errOK := challengeConfigurationService.AdminGetChallengeShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

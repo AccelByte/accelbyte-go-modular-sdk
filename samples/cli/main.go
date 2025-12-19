@@ -7,10 +7,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"log/slog"
 	"os"
 
 	"github.com/gorilla/websocket"
-	"github.com/sirupsen/logrus"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 
@@ -60,7 +60,7 @@ func main() {
 
 	connMgr.Save(wsConn)
 
-	logrus.Info("starting...")
+	slog.Info("starting...")
 
 	switch mode {
 	case "--ws", "--wsModeStandalone":
@@ -69,7 +69,7 @@ func main() {
 
 	defer func(connMgr wsm.ConnectionManager) { _ = connMgr.Close() }(connMgr)
 
-	logrus.Info("done")
+	slog.Info("done")
 }
 
 func wsServe() {
@@ -78,21 +78,21 @@ func wsServe() {
 
 	message, err := getMessage(text)
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("failed to get message", "error", err)
 
 		return
 	}
 
 	awesome, err := message.SafeString()
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("failed to convert message to string", "error", err)
 
 		return
 	}
 
 	err = sendMessage(awesome)
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("failed to send message", "error", err)
 
 		return
 	}
@@ -130,19 +130,19 @@ func onMessageCallback(data []byte) {
 	s := string(data)
 	message, err := getMessage(s)
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("failed to get message", "error", err)
 
 		return
 	}
 
-	logrus.Infof("Message Type: %s", message.Type())
+	slog.Info("received message", "type", message.Type())
 
 	j, err := json.Marshal(message)
 	if err != nil {
-		logrus.Error(err)
+		slog.Error("failed to marshal message", "error", err)
 
 		return
 	}
 
-	logrus.Infof("Message Content: %s", string(j))
+	slog.Info("message received", "content", string(j))
 }

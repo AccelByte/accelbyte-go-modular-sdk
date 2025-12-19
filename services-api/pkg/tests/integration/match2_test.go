@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/sirupsen/logrus"
+	"log/slog"
 	"github.com/stretchr/testify/assert"
 
 	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
@@ -294,7 +294,7 @@ func getSessionID(t *testing.T, memberID string) string {
 		Namespace: integration.NamespaceTest,
 	})
 	if errCreated != nil {
-		logrus.Error(errCreated.Error())
+		slog.Error(errCreated.Error())
 
 		return ""
 	}

@@ -5,9 +5,9 @@
 package cmd
 
 import (
-	"github.com/sirupsen/logrus"
-	"github.com/spf13/cobra"
+	"log/slog"
 
+	"github.com/spf13/cobra"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 )
@@ -25,11 +25,11 @@ var logoutCmd = &cobra.Command{
 		}
 		err := oAuth20Service.Logout()
 		if err != nil {
-			logrus.Error(err)
+			slog.Error("operation failed", "error", err)
 
 			return err
 		}
-		logrus.Info("You are successfully logged out")
+		slog.Info("You are successfully logged out")
 
 		return nil
 	},

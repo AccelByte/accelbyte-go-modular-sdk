@@ -7,10 +7,11 @@
 package telemetry
 
 import (
+	"log/slog"
+
 	gametelemetry "github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclient/telemetry"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -50,12 +51,12 @@ var GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd = &cobra.Comman
 		}
 		ok, errOK := telemetryService.GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -7,12 +7,12 @@
 package store
 
 import (
+	"log/slog"
 	"os"
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/store"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -28,7 +28,7 @@ var ImportStore1Cmd = &cobra.Command{
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		outputFile := cmd.Flag("file").Value.String()
-		logrus.Infof("file %v", outputFile)
+		slog.Info("file", "value", outputFile)
 		file, err := os.Open(outputFile)
 		if err != nil {
 			return err
@@ -43,12 +43,12 @@ var ImportStore1Cmd = &cobra.Command{
 		}
 		ok, errOK := storeService.ImportStore1Short(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -8,13 +8,13 @@ package usersV4
 
 import (
 	"encoding/json"
+	"log/slog"
 	"net/http"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -45,12 +45,12 @@ var PublicUpgradeHeadlessWithCodeV4ForwardCmd = &cobra.Command{
 		}
 		_, errFound := usersV4Service.PublicUpgradeHeadlessWithCodeV4ForwardShort(input)
 		if errFound != nil {
-			logrus.Error(errFound)
+			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

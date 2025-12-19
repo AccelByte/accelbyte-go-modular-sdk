@@ -7,10 +7,11 @@
 package fleetCommander
 
 import (
+	"log/slog"
+
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleet_commander"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -27,12 +28,12 @@ var BasicHealthCheckCmd = &cobra.Command{
 		input := &fleet_commander.BasicHealthCheckParams{}
 		errOK := fleetCommanderService.BasicHealthCheckShort(input)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -8,12 +8,12 @@ package adminReasons
 
 import (
 	"encoding/json"
+	"log/slog"
 
 	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_reasons"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclientmodels"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -40,12 +40,12 @@ var CreateReasonGroupCmd = &cobra.Command{
 		}
 		created, errCreated := adminReasonsService.CreateReasonGroupShort(input)
 		if errCreated != nil {
-			logrus.Error(errCreated)
+			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		logrus.Infof("Response CLI success: %+v", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

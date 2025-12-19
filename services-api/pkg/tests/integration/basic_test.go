@@ -5,9 +5,10 @@
 package integration_test
 
 import (
+	"fmt"
 	"testing"
 
-	"github.com/sirupsen/logrus"
+	"log/slog"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
@@ -118,7 +119,7 @@ func TestIntegrationUserProfile(t *testing.T) {
 	}
 	_, err := userProfileService.GetMyProfileInfoShort(inputCheck)
 	if err != nil {
-		logrus.Error("existing profile not found")
+		slog.Error("existing profile not found")
 	}
 
 	assert.NotNil(t, err, "err should not be nil")
@@ -131,7 +132,7 @@ func checkProfileExist() {
 	}
 	existingProfile, err := userProfileService.GetMyProfileInfoShort(inputGet)
 	if err != nil {
-		logrus.Error("existing profile not found")
+		slog.Error("existing profile not found")
 	}
 	if existingProfile != nil {
 		inputDelete := &user_profile.DeleteUserProfileParams{
@@ -140,8 +141,8 @@ func checkProfileExist() {
 		}
 		deleted, errDelete := userProfileService.DeleteUserProfileShort(inputDelete)
 		if errDelete != nil {
-			logrus.Error(errDelete.Error())
+			slog.Error("failed to delete user profile", "error", errDelete)
 		}
-		logrus.Infof("Existing Profile: %v deleted", deleted.Data.UserID)
+		slog.Info(fmt.Sprintf("Existing Profile: %v deleted", deleted.Data.UserID))
 	}
 }

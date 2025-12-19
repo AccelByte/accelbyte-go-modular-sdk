@@ -8,12 +8,12 @@ package statCycleConfiguration
 
 import (
 	"bytes"
+	"log/slog"
 	"os"
 
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/stat_cycle_configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
-	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 )
 
@@ -29,7 +29,7 @@ var ExportStatCycleCmd = &cobra.Command{
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		file, errFile := os.Create("file")
-		logrus.Infof("Output %v", file)
+		slog.Info("Output", "value", file)
 		if errFile != nil {
 			return errFile
 		}
@@ -39,12 +39,12 @@ var ExportStatCycleCmd = &cobra.Command{
 		}
 		ok, errOK := statCycleConfigurationService.ExportStatCycleShort(input, writer)
 		if errOK != nil {
-			logrus.Error(errOK)
+			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		logrus.Infof("Response CLI success: %+v", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -6,10 +6,11 @@ package integration_test
 
 import (
 	"fmt"
+	"log/slog"
+	"os"
 	"strings"
 	"testing"
 
-	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
@@ -392,7 +393,8 @@ func createCfgTemplate(name string) (string, error) {
 	}
 	created, errCreated := configService.AdminCreateConfigurationTemplateV1Short(inputCreate)
 	if errCreated != nil {
-		logrus.Fatal(errCreated.Error())
+		slog.Error("failed to create configuration template", "error", errCreated)
+		os.Exit(1)
 
 		return "", errCreated
 	}
@@ -407,7 +409,8 @@ func deleteCfgTemplate(name string) error {
 	}
 	errDeleted := configService.AdminDeleteConfigurationTemplateV1Short(inputDelete)
 	if errDeleted != nil {
-		logrus.Fatal(errDeleted.Error())
+		slog.Error("failed to delete configuration template", "error", errDeleted)
+		os.Exit(1)
 
 		return errDeleted
 	}
@@ -424,11 +427,12 @@ func createPlayer2() string {
 
 	user, err := userV4Service.PublicCreateTestUserV4Short(input)
 	if err != nil {
-		logrus.Fatal(err.Error())
+		slog.Error("failed to create test user", "error", err)
+		os.Exit(1)
 
 		return ""
 	}
-	logrus.Infof("userId: %v", *user.Data.UserID)
+	slog.Info("created test user", "userId", *user.Data.UserID)
 
 	// login
 	oAuth20Service2 := &iam.OAuth20Service{
@@ -438,12 +442,12 @@ func createPlayer2() string {
 	}
 	errLogin := oAuth20Service2.Login(*user.Data.EmailAddress, pwd)
 	if errLogin != nil {
-		logrus.Error("failed login. ", errLogin.Error())
+		slog.Error("failed login", "error", errLogin)
 
 		return ""
 	}
 	token, _ := oAuth20Service2.TokenRepository.GetToken()
-	logrus.Infof("2nd token %s", *token.AccessToken)
+	slog.Info("2nd player token obtained", "token", *token.AccessToken)
 
 	return *user.Data.UserID
 }
@@ -456,7 +460,8 @@ func deletePlayer(userId string) {
 
 	errDelete := userService.AdminDeleteUserInformationV3Short(inputDelete)
 	if errDelete != nil {
-		logrus.Fatal(errDelete.Error())
+		slog.Error("failed to delete user", "error", errDelete)
+		os.Exit(1)
 	}
-	logrus.Infof("successfully clean/delete userId player2: %v", userId)
+	slog.Info("successfully deleted user", "userId", userId)
 }
