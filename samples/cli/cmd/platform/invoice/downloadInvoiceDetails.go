@@ -34,7 +34,7 @@ var DownloadInvoiceDetailsCmd = &cobra.Command{
 		itemType, _ := cmd.Flags().GetString("itemType")
 		startTime, _ := cmd.Flags().GetString("startTime")
 		file, errFile := os.Create("file")
-		slog.Info("Output", "value", file)
+		slog.Info("Output", "file", file)
 		if errFile != nil {
 			return errFile
 		}

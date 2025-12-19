@@ -7,9 +7,9 @@ package cmd
 import (
 	"log/slog"
 
-	"github.com/spf13/cobra"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/sample-apps/pkg/repository"
+	"github.com/spf13/cobra"
 )
 
 // loginCmd represents the login command

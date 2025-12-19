@@ -30,7 +30,7 @@ var ExportStoreCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		storeId, _ := cmd.Flags().GetString("storeId")
 		file, errFile := os.Create("file")
-		slog.Info("Output", "value", file)
+		slog.Info("Output", "file", file)
 		if errFile != nil {
 			return errFile
 		}

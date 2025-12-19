@@ -38,7 +38,7 @@ var ExportStore1Cmd = &cobra.Command{
 			return errBody
 		}
 		file, errFile := os.Create("file")
-		slog.Info("Output", "value", file)
+		slog.Info("Output", "file", file)
 		if errFile != nil {
 			return errFile
 		}

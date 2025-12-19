@@ -31,7 +31,7 @@ var PublicDownloadUserOrderReceiptCmd = &cobra.Command{
 		orderNo, _ := cmd.Flags().GetString("orderNo")
 		userId, _ := cmd.Flags().GetString("userId")
 		file, errFile := os.Create("file")
-		slog.Info("Output", "value", file)
+		slog.Info("Output", "file", file)
 		if errFile != nil {
 			return errFile
 		}

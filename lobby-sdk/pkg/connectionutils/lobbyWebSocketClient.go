@@ -14,8 +14,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gorilla/websocket"
 	baseWsm "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
+	"github.com/gorilla/websocket"
 )
 
 const (

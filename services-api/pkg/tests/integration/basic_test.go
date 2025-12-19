@@ -9,6 +9,7 @@ import (
 	"testing"
 
 	"log/slog"
+
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"

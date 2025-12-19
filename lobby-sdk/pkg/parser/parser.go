@@ -408,7 +408,7 @@ func unmarshalResponseContent(messageType string, reader *bufio.Reader) (model.M
 		return unmarshalPartyNotif(reader)
 	}
 
-	slog.Debug("type not handled : ", messageType)
+	slog.Debug("type not handled", "messageType", messageType)
 
 	return nil, ErrUnexpectedType
 }

@@ -29,7 +29,7 @@ var AdminExportConfigV1Cmd = &cobra.Command{
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		file, errFile := os.Create("file")
-		slog.Info("Output", "value", file)
+		slog.Info("Output", "file", file)
 		if errFile != nil {
 			return errFile
 		}

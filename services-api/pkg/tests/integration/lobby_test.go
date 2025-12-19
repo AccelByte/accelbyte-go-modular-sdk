@@ -13,19 +13,19 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/gorilla/websocket"
-	"github.com/stretchr/testify/assert"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
-	lobbyWsm "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/wsm"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/connectionutils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/admin"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/notification"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/model"
+	lobbyWsm "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels/wsm"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/tests/integration"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
+	"github.com/gorilla/websocket"
+	"github.com/stretchr/testify/assert"
 )
 
 var (

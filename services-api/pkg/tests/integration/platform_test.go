@@ -5,12 +5,13 @@
 package integration_test
 
 import (
-	"fmt"
 	"bytes"
+	"fmt"
 	"os"
 	"testing"
 
 	"log/slog"
+
 	"github.com/stretchr/testify/assert"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/catalog_changes"

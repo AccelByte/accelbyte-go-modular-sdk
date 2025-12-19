@@ -9,6 +9,7 @@ import (
 	"testing"
 
 	"log/slog"
+
 	"github.com/stretchr/testify/assert"
 
 	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
