@@ -54,7 +54,7 @@ func (c *LobbyWebSocketClient) Connect(reconnecting bool) (bool, error) {
 	}
 
 	url := c.createURL(c.WSConn.Data["host"].(string))
-	slog.Info("Connecting to ", url)
+	slog.Info("Connecting to " + url)
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	if err != nil {
 		return false, err
@@ -215,7 +215,7 @@ func (c *LobbyWebSocketClient) Send(code int, message string) error {
 
 	err := c.WSConn.Conn.WriteMessage(code, []byte(message))
 	if err != nil {
-		slog.Error("failed to send websocket message: ", err)
+		slog.Error("failed to send websocket message", "error", err)
 
 		return err
 	}
@@ -224,7 +224,7 @@ func (c *LobbyWebSocketClient) Send(code int, message string) error {
 }
 
 func (c *LobbyWebSocketClient) OnMessage(msg string) {
-	slog.Debug(fmt.Sprintf("Message: %s", msg))
+	slog.Debug("Message: " + msg)
 	if strings.HasPrefix(msg, "type: connectNotif") {
 		message := DecodeWSMessage(msg)
 		if id, ok := message[LobbySessionID]; ok {

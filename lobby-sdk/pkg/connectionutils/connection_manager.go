@@ -6,7 +6,6 @@ package connectionutils
 
 import (
 	"errors"
-	"fmt"
 	"io"
 	"log/slog"
 	"net/http"
@@ -173,11 +172,11 @@ func (c *WSConnection) Dial(url string, headers http.Header) (*websocket.Conn, e
 func (c *WSConnection) Close(code int, reason string) error {
 	err := c.Conn.WriteControl(websocket.CloseMessage, websocket.FormatCloseMessage(code, reason), time.Now().Add(time.Second))
 	if err != nil {
-		slog.Error("Error writing control message: ", err)
+		slog.Error("Error writing control message", "error", err)
 	}
 
 	if err = c.Conn.Close(); err != nil {
-		slog.Error("Failed to close connection: ", err)
+		slog.Error("Failed to close connection", "error", err)
 	}
 
 	c.SetStatus(Disconnected)
@@ -194,7 +193,7 @@ func (c *WSConnection) SetStatus(status string) {
 		c.StatusHandler(c.status)
 	}
 
-	slog.Debug(fmt.Sprintf("status: %s", status))
+	slog.Debug("status: " + status)
 }
 
 func (c *WSConnection) GetStatus() string {
@@ -234,11 +233,11 @@ type ConnectionManager interface {
 }
 
 func (c *WSConnection) Lock(location string) {
-	slog.Debug(fmt.Sprintf("locking at %s", location))
+	slog.Debug("locking at " + location)
 	c.Mu.Lock()
 }
 
 func (c *WSConnection) Unlock(location string) {
-	slog.Debug(fmt.Sprintf("unlocking at %s", location))
+	slog.Debug("unlocking at " + location)
 	c.Mu.Unlock()
 }
