@@ -7,7 +7,6 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.3
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0-alpha.1
 	github.com/aws/aws-lambda-go v1.37.0
-	github.com/sirupsen/logrus v1.9.0
 )
 
 require (
@@ -36,6 +35,7 @@ require (
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
+	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/willf/bitset v1.1.11 // indirect
 	go.mongodb.org/mongo-driver v1.10.0 // indirect

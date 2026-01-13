@@ -31,7 +31,7 @@ replace (
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.1.0-alpha.4
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk v0.1.0-alpha.6
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.1
@@ -61,7 +61,6 @@ require (
 	github.com/go-openapi/strfmt v0.21.1
 	github.com/google/uuid v1.3.0
 	github.com/gorilla/websocket v1.5.3
-	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.2
 )
 

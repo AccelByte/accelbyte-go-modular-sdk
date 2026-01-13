@@ -35,12 +35,12 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.2.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.7.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk v0.4.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk v0.5.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.4.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.2.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk v0.7.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk v0.8.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0-alpha.7
-	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.2.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.3.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.1.0-alpha.4
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.9.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk v0.3.0
@@ -49,11 +49,11 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.3.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/loginqueue-sdk v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk v0.7.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.7.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.8.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0-alpha.3
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.3.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
-	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.7.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.8.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk v0.4.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.4.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.1.0-alpha.11
@@ -86,7 +86,6 @@ require (
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
-	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/willf/bitset v1.1.11 // indirect
 	go.mongodb.org/mongo-driver v1.10.0 // indirect

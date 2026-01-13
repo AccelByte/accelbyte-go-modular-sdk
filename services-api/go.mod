@@ -9,7 +9,6 @@ require (
 	github.com/go-openapi/swag v0.21.1 // indirect
 	github.com/go-openapi/validate v0.21.0 // indirect
 	github.com/google/uuid v1.3.0
-	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.2
 	go.opentelemetry.io/contrib/propagators/aws v1.15.0
 )

@@ -8,7 +8,6 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.0.0-00010101000000-000000000000
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
 	github.com/gorilla/websocket v1.5.3
-	github.com/sirupsen/logrus v1.9.0
 )
 
 require (
@@ -34,6 +33,7 @@ require (
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
+	github.com/sirupsen/logrus v1.9.0 // indirect
 	go.mongodb.org/mongo-driver v1.10.0 // indirect
 	go.opentelemetry.io/contrib/propagators/aws v1.15.0 // indirect
 	go.opentelemetry.io/otel v1.14.0 // indirect
