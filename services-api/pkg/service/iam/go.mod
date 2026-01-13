@@ -10,12 +10,13 @@ toolchain go1.23.12
 replace github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk => ../../../../iam-sdk
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.9.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922
 	github.com/AccelByte/go-jose v2.1.4+incompatible
 	github.com/go-openapi/runtime v0.19.29
-	github.com/sirupsen/logrus v1.9.0
+	github.com/patrickmn/go-cache v2.1.0+incompatible
 	github.com/stretchr/testify v1.8.2
 )
 
@@ -43,6 +44,7 @@ require (
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/willf/bitset v1.1.11 // indirect
 	go.mongodb.org/mongo-driver v1.10.0 // indirect

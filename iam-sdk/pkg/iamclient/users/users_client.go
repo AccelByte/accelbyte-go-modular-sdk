@@ -8740,7 +8740,7 @@ Notes for this endpoint:
 This endpoint retrieve the first page of the data if `after` and `before` parameters is empty.
 - The maximum value of the limit is 100 and the minimum value of the limit is 1.
 - This endpoint retrieve the next page of the data if we provide `after` parameters with valid Unix timestamp.
-- This endpoint retrieve the previous page of the data if we provide `before` parameter with valid data Unix timestamp."
+- This endpoint retrieve the previous page of the data if we provide `before` parameter with valid data Unix timestamp.
 */
 func (a *Client) AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLoginHistoriesV3Response, error) {
 	// TODO: Validate the params before sending
@@ -14792,8 +14792,8 @@ func (a *Client) PublicGetUserInformationV3Short(params *PublicGetUserInformatio
 /*
 PublicGetUserLoginHistoriesV3Short get user's login histories
 Notes for this endpoint:
-- This endpoint retrieve the first page of the data if `after` and `before` parameters is empty.
 - The maximum value of the limit is 100 and the minimum value of the limit is 1.
+- This endpoint retrieve the first page of the data if `after` and `before` parameters is empty.
 - This endpoint retrieve the next page of the data if we provide `after` parameters with valid Unix timestamp.
 - This endpoint retrieve the previous page of the data if we provide `before` parameter with valid data Unix timestamp.
 

@@ -35,6 +35,7 @@ type ClientService interface {
 	AdminDeletePlatformCredentialsShort(params *AdminDeletePlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsResponse, error)
 	AdminDeletePlatformCredentialsByPlatformIDShort(params *AdminDeletePlatformCredentialsByPlatformIDParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeletePlatformCredentialsByPlatformIDResponse, error)
 	AdminSyncPlatformCredentialsShort(params *AdminSyncPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncPlatformCredentialsResponse, error)
+	AdminUploadPlatformCredentialsShort(params *AdminUploadPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadPlatformCredentialsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -419,7 +420,7 @@ Supported Platforms:
 With this method, we will be performing sync to Platform Service to retrieve the existing PFX certificate which uploaded through IAP.
 If the API returns Not Found, alternatively what you can do is either:
 a. upload PFX file to IAP. You can access it from Admin Portal {BASE_URL}/admin/namespaces/{NAMESPACE}/in-app-purchase/xbox, or directly through API /platform/admin/namespaces/{NAMESPACE}/iap/config/xbl/cert.
-b. upload PFX file through Session API /session/v1/admin/namespaces/{namespace}/certificates/pfx/platforms/xbl
+b. upload PFX file through Session API /session/v1/admin/namespaces/{namespace}/platform-credentials/xbox/upload
 We recommend approach #a, since you need to only upload the file once, and the service will do the sync.
 If you set the PFX through Session service, when this API is invoked, we will sync and replace the existing PFX file with the one from Platform (IAP).
 */
@@ -497,6 +498,87 @@ func (a *Client) AdminSyncPlatformCredentialsShort(params *AdminSyncPlatformCred
 		return response, v
 	case *AdminSyncPlatformCredentialsInternalServerError:
 		response := &AdminSyncPlatformCredentialsResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminUploadPlatformCredentialsShort upload certificates for xbox platform
+Upload certificates for XBox. Certificate must be in the valid form of PFX format.
+*/
+func (a *Client) AdminUploadPlatformCredentialsShort(params *AdminUploadPlatformCredentialsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUploadPlatformCredentialsResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminUploadPlatformCredentialsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminUploadPlatformCredentials",
+		Method:             "PUT",
+		PathPattern:        "/session/v1/admin/namespaces/{namespace}/platform-credentials/{platformId}/upload",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminUploadPlatformCredentialsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminUploadPlatformCredentialsOK:
+		response := &AdminUploadPlatformCredentialsResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminUploadPlatformCredentialsBadRequest:
+		response := &AdminUploadPlatformCredentialsResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminUploadPlatformCredentialsUnauthorized:
+		response := &AdminUploadPlatformCredentialsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminUploadPlatformCredentialsForbidden:
+		response := &AdminUploadPlatformCredentialsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminUploadPlatformCredentialsInternalServerError:
+		response := &AdminUploadPlatformCredentialsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

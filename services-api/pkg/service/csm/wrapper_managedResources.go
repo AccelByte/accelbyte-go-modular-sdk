@@ -367,3 +367,33 @@ func (aaa *ManagedResourcesService) GetNoSQLAccessTunnelV2Short(input *managed_r
 
 	return ok, nil
 }
+
+func (aaa *ManagedResourcesService) GetNoSQLAppListV2Short(input *managed_resources.GetNoSQLAppListV2Params) (*managed_resources.GetNoSQLAppListV2Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdManagedResources != nil {
+		input.XFlightId = tempFlightIdManagedResources
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.ManagedResources.GetNoSQLAppListV2Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}

@@ -21,12 +21,12 @@ import (
 
 type GetEstimatedPriceResponse struct {
 	platformclientmodels.ApiResponse
-	Data *platformclientmodels.EstimatedPriceInfo
+	Data []*platformclientmodels.EstimatedPriceInfo
 
 	Error404 *platformclientmodels.ErrorEntity
 }
 
-func (m *GetEstimatedPriceResponse) Unpack() (*platformclientmodels.EstimatedPriceInfo, *platformclientmodels.ApiError) {
+func (m *GetEstimatedPriceResponse) Unpack() ([]*platformclientmodels.EstimatedPriceInfo, *platformclientmodels.ApiError) {
 	if !m.IsSuccess {
 		var errCode int
 		errCode = m.StatusCode
@@ -91,7 +91,7 @@ GetEstimatedPriceOK handles this case with default header values.
 	successful operation
 */
 type GetEstimatedPriceOK struct {
-	Payload *platformclientmodels.EstimatedPriceInfo
+	Payload []*platformclientmodels.EstimatedPriceInfo
 }
 
 func (o *GetEstimatedPriceOK) Error() string {
@@ -113,7 +113,7 @@ func (o *GetEstimatedPriceOK) ToJSONString() string {
 	return fmt.Sprintf("%+v", string(b))
 }
 
-func (o *GetEstimatedPriceOK) GetPayload() *platformclientmodels.EstimatedPriceInfo {
+func (o *GetEstimatedPriceOK) GetPayload() []*platformclientmodels.EstimatedPriceInfo {
 	return o.Payload
 }
 
@@ -125,10 +125,8 @@ func (o *GetEstimatedPriceOK) readResponse(response runtime.ClientResponse, cons
 		consumer = runtime.ByteStreamConsumer()
 	}
 
-	o.Payload = new(platformclientmodels.EstimatedPriceInfo)
-
 	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+	if err := consumer.Consume(response.Body(), &o.Payload); err != nil && err != io.EOF {
 		return err
 	}
 

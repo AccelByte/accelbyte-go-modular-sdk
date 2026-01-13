@@ -187,3 +187,33 @@ func (aaa *PlatformCredentialService) AdminSyncPlatformCredentialsShort(input *p
 
 	return ok, nil
 }
+
+func (aaa *PlatformCredentialService) AdminUploadPlatformCredentialsShort(input *platform_credential.AdminUploadPlatformCredentialsParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPlatformCredential != nil {
+		input.XFlightId = tempFlightIdPlatformCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.PlatformCredential.AdminUploadPlatformCredentialsShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
