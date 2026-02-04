@@ -5,10 +5,10 @@ This tutorial will explain on how to use AccelByte Go Extend SDK to create simpl
 
 ## Prerequisites
 
-- [Create a Game Namespace](https://docs.accelbyte.io/gaming-services/services/access/reference/namespaces/manage-your-namespaces/) if you don't have one
+- [Create a Game Namespace](https://docs.accelbyte.io/gaming-services/modules/foundations/identity-access/namespaces/manage-your-namespaces/) if you don't have one
   yet.
   Be sure to keep the namespace's **ID** as you will need it later.
-- [Create and OAuth Client](https://docs.accelbyte.io/gaming-services/services/access/authorization/manage-access-control-for-applications/#manage-iam-clients)
+- [Create and OAuth Client](https://docs.accelbyte.io/gaming-services/modules/foundations/identity-access/authorization/manage-access-control-for-applications/#manage-iam-clients)
   with a **confidential** client type. Keep the **Client ID** and the **Client Secret** somewhere safe as you will be
   using them in this tutorial. Make sure you add these permissions for the oauth client.
 	- `NAMESPACE:<namespace>:USER:*:NOTIFICATION` CREATE, UPDATE
@@ -16,7 +16,7 @@ This tutorial will explain on how to use AccelByte Go Extend SDK to create simpl
 - Download the latest [Go SDK](https://github.com/AccelByte/accelbyte-go-modular-sdk)
 -
 
-Read [Go SDK Getting Started Guide](https://docs.accelbyte.io/gaming-services/services/extend/extend-sdk/get-started-with-extend-sdk/)
+Read [Go SDK Getting Started Guide](https://docs.accelbyte.io/gaming-services/modules/foundations/extend/extend-sdk/get-started-with-extend-sdk/)
 on how
 to integrate SDK into your project.
 - AWS account with enough permission to deploy Lambda function (optional).
