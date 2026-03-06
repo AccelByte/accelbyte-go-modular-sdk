@@ -19,27 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use PublicQueryUserEntitlementsAppType<EnumValue>Constant instead.
-// Get the enum in PublicQueryUserEntitlementsParams
-const (
-	PublicQueryUserEntitlementsDEMOConstant     = "DEMO"
-	PublicQueryUserEntitlementsDLCConstant      = "DLC"
-	PublicQueryUserEntitlementsGAMEConstant     = "GAME"
-	PublicQueryUserEntitlementsSOFTWAREConstant = "SOFTWARE"
-)
-
-// Deprecated: 2025-07-16 - Use PublicQueryUserEntitlementsEntitlementClazz<EnumValue>Constant instead.
-// Get the enum in PublicQueryUserEntitlementsParams
-const (
-	PublicQueryUserEntitlementsAPPConstant          = "APP"
-	PublicQueryUserEntitlementsCODEConstant         = "CODE"
-	PublicQueryUserEntitlementsENTITLEMENTConstant  = "ENTITLEMENT"
-	PublicQueryUserEntitlementsLOOTBOXConstant      = "LOOTBOX"
-	PublicQueryUserEntitlementsMEDIAConstant        = "MEDIA"
-	PublicQueryUserEntitlementsOPTIONBOXConstant    = "OPTIONBOX"
-	PublicQueryUserEntitlementsSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
-
 // Get the enum in PublicQueryUserEntitlementsParams
 const (
 	PublicQueryUserEntitlementsAppTypeDEMOConstant     = "DEMO"

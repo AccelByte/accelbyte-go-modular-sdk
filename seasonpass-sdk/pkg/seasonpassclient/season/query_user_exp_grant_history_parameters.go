@@ -19,13 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryUserExpGrantHistorySource<EnumValue>Constant instead.
-// Get the enum in QueryUserExpGrantHistoryParams
-const (
-	QueryUserExpGrantHistoryPAIDFORConstant = "PAID_FOR"
-	QueryUserExpGrantHistorySWEATConstant   = "SWEAT"
-)
-
 // Get the enum in QueryUserExpGrantHistoryParams
 const (
 	QueryUserExpGrantHistorySourcePAIDFORConstant = "PAID_FOR"

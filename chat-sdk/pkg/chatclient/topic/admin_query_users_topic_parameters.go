@@ -19,23 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use AdminQueryUsersTopicTopicSubType<EnumValue>Constant instead.
-// Get the enum in AdminQueryUsersTopicParams
-const (
-	AdminQueryUsersTopicCLANConstant      = "CLAN"
-	AdminQueryUsersTopicNAMESPACEConstant = "NAMESPACE"
-	AdminQueryUsersTopicNORMALConstant    = "NORMAL"
-	AdminQueryUsersTopicPARTYConstant     = "PARTY"
-	AdminQueryUsersTopicSESSIONConstant   = "SESSION"
-)
-
-// Deprecated: 2025-07-16 - Use AdminQueryUsersTopicTopicType<EnumValue>Constant instead.
-// Get the enum in AdminQueryUsersTopicParams
-const (
-	AdminQueryUsersTopicGROUPConstant    = "GROUP"
-	AdminQueryUsersTopicPERSONALConstant = "PERSONAL"
-)
-
 // Get the enum in AdminQueryUsersTopicParams
 const (
 	AdminQueryUsersTopicTopicSubTypeCLANConstant      = "CLAN"

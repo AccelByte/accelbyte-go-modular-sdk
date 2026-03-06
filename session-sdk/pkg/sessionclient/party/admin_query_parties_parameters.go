@@ -19,32 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use AdminQueryPartiesJoinability<EnumValue>Constant instead.
-// Get the enum in AdminQueryPartiesParams
-const (
-	AdminQueryPartiesCLOSEDConstant           = "CLOSED"
-	AdminQueryPartiesFRIENDSOFFRIENDSConstant = "FRIENDS_OF_FRIENDS"
-	AdminQueryPartiesFRIENDSOFLEADERConstant  = "FRIENDS_OF_LEADER"
-	AdminQueryPartiesFRIENDSOFMEMBERSConstant = "FRIENDS_OF_MEMBERS"
-	AdminQueryPartiesINVITEONLYConstant       = "INVITE_ONLY"
-	AdminQueryPartiesOPENConstant             = "OPEN"
-)
-
-// Deprecated: 2025-07-16 - Use AdminQueryPartiesMemberStatus<EnumValue>Constant instead.
-// Get the enum in AdminQueryPartiesParams
-const (
-	AdminQueryPartiesCANCELLEDConstant    = "CANCELLED"
-	AdminQueryPartiesCONNECTEDConstant    = "CONNECTED"
-	AdminQueryPartiesDISCONNECTEDConstant = "DISCONNECTED"
-	AdminQueryPartiesDROPPEDConstant      = "DROPPED"
-	AdminQueryPartiesINVITEDConstant      = "INVITED"
-	AdminQueryPartiesJOINEDConstant       = "JOINED"
-	AdminQueryPartiesKICKEDConstant       = "KICKED"
-	AdminQueryPartiesLEFTConstant         = "LEFT"
-	AdminQueryPartiesREJECTEDConstant     = "REJECTED"
-	AdminQueryPartiesTIMEOUTConstant      = "TIMEOUT"
-)
-
 // Get the enum in AdminQueryPartiesParams
 const (
 	AdminQueryPartiesJoinabilityCLOSEDConstant           = "CLOSED"

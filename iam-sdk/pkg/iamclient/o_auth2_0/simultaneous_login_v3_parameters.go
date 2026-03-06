@@ -18,13 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use SimultaneousLoginV3NativePlatform<EnumValue>Constant instead.
-// Get the enum in SimultaneousLoginV3Params
-const (
-	SimultaneousLoginV3EpicgamesConstant = "epicgames"
-	SimultaneousLoginV3SteamConstant     = "steam"
-)
-
 // Get the enum in SimultaneousLoginV3Params
 const (
 	SimultaneousLoginV3NativePlatformEpicgamesConstant = "epicgames"

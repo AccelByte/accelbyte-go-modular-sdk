@@ -19,40 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use SelectAllRecordsByCriteriaAction<EnumValue>Constant instead.
-// Get the enum in SelectAllRecordsByCriteriaParams
-const (
-	SelectAllRecordsByCriteriaCREATEConstant = "CREATE"
-	SelectAllRecordsByCriteriaDELETEConstant = "DELETE"
-	SelectAllRecordsByCriteriaUPDATEConstant = "UPDATE"
-)
-
-// Deprecated: 2025-07-16 - Use SelectAllRecordsByCriteriaItemType<EnumValue>Constant instead.
-// Get the enum in SelectAllRecordsByCriteriaParams
-const (
-	SelectAllRecordsByCriteriaAPPConstant          = "APP"
-	SelectAllRecordsByCriteriaBUNDLEConstant       = "BUNDLE"
-	SelectAllRecordsByCriteriaCODEConstant         = "CODE"
-	SelectAllRecordsByCriteriaCOINSConstant        = "COINS"
-	SelectAllRecordsByCriteriaEXTENSIONConstant    = "EXTENSION"
-	SelectAllRecordsByCriteriaINGAMEITEMConstant   = "INGAMEITEM"
-	SelectAllRecordsByCriteriaLOOTBOXConstant      = "LOOTBOX"
-	SelectAllRecordsByCriteriaMEDIAConstant        = "MEDIA"
-	SelectAllRecordsByCriteriaOPTIONBOXConstant    = "OPTIONBOX"
-	SelectAllRecordsByCriteriaSEASONConstant       = "SEASON"
-	SelectAllRecordsByCriteriaSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
-
-// Deprecated: 2025-07-16 - Use SelectAllRecordsByCriteriaType<EnumValue>Constant instead.
-// Get the enum in SelectAllRecordsByCriteriaParams
-const (
-	SelectAllRecordsByCriteriaCATEGORYConstant = "CATEGORY"
-	SelectAllRecordsByCriteriaITEMConstant     = "ITEM"
-	SelectAllRecordsByCriteriaSECTIONConstant  = "SECTION"
-	SelectAllRecordsByCriteriaSTOREConstant    = "STORE"
-	SelectAllRecordsByCriteriaVIEWConstant     = "VIEW"
-)
-
 // Get the enum in SelectAllRecordsByCriteriaParams
 const (
 	SelectAllRecordsByCriteriaActionCREATEConstant = "CREATE"

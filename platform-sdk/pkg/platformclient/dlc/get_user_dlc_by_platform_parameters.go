@@ -18,16 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use GetUserDLCByPlatformType<EnumValue>Constant instead.
-// Get the enum in GetUserDLCByPlatformParams
-const (
-	GetUserDLCByPlatformEPICGAMESConstant = "EPICGAMES"
-	GetUserDLCByPlatformOCULUSConstant    = "OCULUS"
-	GetUserDLCByPlatformPSNConstant       = "PSN"
-	GetUserDLCByPlatformSTEAMConstant     = "STEAM"
-	GetUserDLCByPlatformXBOXConstant      = "XBOX"
-)
-
 // Get the enum in GetUserDLCByPlatformParams
 const (
 	GetUserDLCByPlatformTypeEPICGAMESConstant = "EPICGAMES"

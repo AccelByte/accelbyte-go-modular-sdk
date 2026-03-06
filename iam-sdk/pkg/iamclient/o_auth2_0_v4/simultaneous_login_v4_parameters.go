@@ -18,20 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use SimultaneousLoginV4NativePlatform<EnumValue>Constant instead.
-// Get the enum in SimultaneousLoginV4Params
-const (
-	SimultaneousLoginV4EpicgamesConstant = "epicgames"
-	SimultaneousLoginV4SteamConstant     = "steam"
-)
-
-// Deprecated: 2025-07-16 - Use SimultaneousLoginV4CodeChallengeMethod<EnumValue>Constant instead.
-// Get the enum in SimultaneousLoginV4Params
-const (
-	SimultaneousLoginV4S256Constant  = "S256"
-	SimultaneousLoginV4PlainConstant = "plain"
-)
-
 // Get the enum in SimultaneousLoginV4Params
 const (
 	SimultaneousLoginV4NativePlatformEpicgamesConstant = "epicgames"

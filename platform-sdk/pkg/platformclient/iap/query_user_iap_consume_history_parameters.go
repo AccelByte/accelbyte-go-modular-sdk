@@ -19,28 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryUserIAPConsumeHistoryStatus<EnumValue>Constant instead.
-// Get the enum in QueryUserIAPConsumeHistoryParams
-const (
-	QueryUserIAPConsumeHistoryFAILConstant    = "FAIL"
-	QueryUserIAPConsumeHistoryPENDINGConstant = "PENDING"
-	QueryUserIAPConsumeHistorySUCCESSConstant = "SUCCESS"
-)
-
-// Deprecated: 2025-07-16 - Use QueryUserIAPConsumeHistoryType<EnumValue>Constant instead.
-// Get the enum in QueryUserIAPConsumeHistoryParams
-const (
-	QueryUserIAPConsumeHistoryAPPLEConstant       = "APPLE"
-	QueryUserIAPConsumeHistoryEPICGAMESConstant   = "EPICGAMES"
-	QueryUserIAPConsumeHistoryGOOGLEConstant      = "GOOGLE"
-	QueryUserIAPConsumeHistoryOCULUSConstant      = "OCULUS"
-	QueryUserIAPConsumeHistoryPLAYSTATIONConstant = "PLAYSTATION"
-	QueryUserIAPConsumeHistorySTADIAConstant      = "STADIA"
-	QueryUserIAPConsumeHistorySTEAMConstant       = "STEAM"
-	QueryUserIAPConsumeHistoryTWITCHConstant      = "TWITCH"
-	QueryUserIAPConsumeHistoryXBOXConstant        = "XBOX"
-)
-
 // Get the enum in QueryUserIAPConsumeHistoryParams
 const (
 	QueryUserIAPConsumeHistoryStatusFAILConstant    = "FAIL"

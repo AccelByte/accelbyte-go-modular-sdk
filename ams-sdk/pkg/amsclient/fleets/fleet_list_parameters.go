@@ -19,20 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use FleetListSortBy<EnumValue>Constant instead.
-// Get the enum in FleetListParams
-const (
-	FleetListActiveConstant = "active"
-	FleetListNameConstant   = "name"
-)
-
-// Deprecated: 2025-07-16 - Use FleetListSortDirection<EnumValue>Constant instead.
-// Get the enum in FleetListParams
-const (
-	FleetListAscConstant  = "asc"
-	FleetListDescConstant = "desc"
-)
-
 // Get the enum in FleetListParams
 const (
 	FleetListSortByActiveConstant = "active"

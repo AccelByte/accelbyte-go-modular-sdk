@@ -19,28 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use AdminQueryGameSessionsJoinability<EnumValue>Constant instead.
-// Get the enum in AdminQueryGameSessionsParams
-const (
-	AdminQueryGameSessionsCLOSEDConstant           = "CLOSED"
-	AdminQueryGameSessionsFRIENDSOFFRIENDSConstant = "FRIENDS_OF_FRIENDS"
-	AdminQueryGameSessionsFRIENDSOFLEADERConstant  = "FRIENDS_OF_LEADER"
-	AdminQueryGameSessionsFRIENDSOFMEMBERSConstant = "FRIENDS_OF_MEMBERS"
-	AdminQueryGameSessionsINVITEONLYConstant       = "INVITE_ONLY"
-	AdminQueryGameSessionsOPENConstant             = "OPEN"
-)
-
-// Deprecated: 2025-07-16 - Use AdminQueryGameSessionsStatus<EnumValue>Constant instead.
-// Get the enum in AdminQueryGameSessionsParams
-const (
-	AdminQueryGameSessionsAVAILABLEConstant       = "AVAILABLE"
-	AdminQueryGameSessionsDSERRORConstant         = "DS_ERROR"
-	AdminQueryGameSessionsFAILEDTOREQUESTConstant = "FAILED_TO_REQUEST"
-	AdminQueryGameSessionsNEEDTOREQUESTConstant   = "NEED_TO_REQUEST"
-	AdminQueryGameSessionsPREPARINGConstant       = "PREPARING"
-	AdminQueryGameSessionsREQUESTEDConstant       = "REQUESTED"
-)
-
 // Get the enum in AdminQueryGameSessionsParams
 const (
 	AdminQueryGameSessionsJoinabilityCLOSEDConstant           = "CLOSED"

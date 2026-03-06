@@ -18,12 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use AdminUploadPlatformCredentialsPlatformID<EnumValue>Constant instead.
-// Get the enum in AdminUploadPlatformCredentialsParams
-const (
-	AdminUploadPlatformCredentialsXBOXConstant = "XBOX"
-)
-
 // Get the enum in AdminUploadPlatformCredentialsParams
 const (
 	AdminUploadPlatformCredentialsPlatformIDXBOXConstant = "XBOX"

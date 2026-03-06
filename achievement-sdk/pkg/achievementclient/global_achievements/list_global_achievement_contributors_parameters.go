@@ -19,14 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use ListGlobalAchievementContributorsSortBy<EnumValue>Constant instead.
-// Get the enum in ListGlobalAchievementContributorsParams
-const (
-	ListGlobalAchievementContributorsContributedValueConstant     = "contributedValue"
-	ListGlobalAchievementContributorsContributedValueAscConstant  = "contributedValue:asc"
-	ListGlobalAchievementContributorsContributedValueDescConstant = "contributedValue:desc"
-)
-
 // Get the enum in ListGlobalAchievementContributorsParams
 const (
 	ListGlobalAchievementContributorsSortByContributedValueConstant     = "contributedValue"

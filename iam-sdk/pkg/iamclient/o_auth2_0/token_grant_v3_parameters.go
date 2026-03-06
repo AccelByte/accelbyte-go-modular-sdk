@@ -19,16 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use TokenGrantV3GrantType<EnumValue>Constant instead.
-// Get the enum in TokenGrantV3Params
-const (
-	TokenGrantV3AuthorizationCodeConstant                                  = "authorization_code"
-	TokenGrantV3ClientCredentialsConstant                                  = "client_credentials"
-	TokenGrantV3PasswordConstant                                           = "password"
-	TokenGrantV3RefreshTokenConstant                                       = "refresh_token"
-	TokenGrantV3UrnIetfParamsOauthGrantTypeExtendClientCredentialsConstant = "urn:ietf:params:oauth:grant-type:extend_client_credentials"
-)
-
 // Get the enum in TokenGrantV3Params
 const (
 	TokenGrantV3GrantTypeAuthorizationCodeConstant                                  = "authorization_code"

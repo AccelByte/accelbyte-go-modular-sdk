@@ -19,19 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use AuthorizeV3CodeChallengeMethod<EnumValue>Constant instead.
-// Get the enum in AuthorizeV3Params
-const (
-	AuthorizeV3S256Constant  = "S256"
-	AuthorizeV3PlainConstant = "plain"
-)
-
-// Deprecated: 2025-07-16 - Use AuthorizeV3ResponseType<EnumValue>Constant instead.
-// Get the enum in AuthorizeV3Params
-const (
-	AuthorizeV3CodeConstant = "code"
-)
-
 // Get the enum in AuthorizeV3Params
 const (
 	AuthorizeV3CodeChallengeMethodS256Constant  = "S256"

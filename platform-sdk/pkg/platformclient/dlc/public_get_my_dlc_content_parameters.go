@@ -19,16 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use PublicGetMyDLCContentType<EnumValue>Constant instead.
-// Get the enum in PublicGetMyDLCContentParams
-const (
-	PublicGetMyDLCContentEPICGAMESConstant = "EPICGAMES"
-	PublicGetMyDLCContentOCULUSConstant    = "OCULUS"
-	PublicGetMyDLCContentPSNConstant       = "PSN"
-	PublicGetMyDLCContentSTEAMConstant     = "STEAM"
-	PublicGetMyDLCContentXBOXConstant      = "XBOX"
-)
-
 // Get the enum in PublicGetMyDLCContentParams
 const (
 	PublicGetMyDLCContentTypeEPICGAMESConstant = "EPICGAMES"

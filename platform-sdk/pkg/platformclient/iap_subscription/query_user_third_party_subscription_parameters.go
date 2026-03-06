@@ -19,20 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryUserThirdPartySubscriptionPlatform<EnumValue>Constant instead.
-// Get the enum in QueryUserThirdPartySubscriptionParams
-const (
-	QueryUserThirdPartySubscriptionAPPLEConstant       = "APPLE"
-	QueryUserThirdPartySubscriptionEPICGAMESConstant   = "EPICGAMES"
-	QueryUserThirdPartySubscriptionGOOGLEConstant      = "GOOGLE"
-	QueryUserThirdPartySubscriptionOCULUSConstant      = "OCULUS"
-	QueryUserThirdPartySubscriptionPLAYSTATIONConstant = "PLAYSTATION"
-	QueryUserThirdPartySubscriptionSTADIAConstant      = "STADIA"
-	QueryUserThirdPartySubscriptionSTEAMConstant       = "STEAM"
-	QueryUserThirdPartySubscriptionTWITCHConstant      = "TWITCH"
-	QueryUserThirdPartySubscriptionXBOXConstant        = "XBOX"
-)
-
 // Get the enum in QueryUserThirdPartySubscriptionParams
 const (
 	QueryUserThirdPartySubscriptionPlatformAPPLEConstant       = "APPLE"

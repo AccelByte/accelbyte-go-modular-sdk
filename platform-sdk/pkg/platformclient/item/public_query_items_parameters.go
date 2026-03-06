@@ -19,48 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use PublicQueryItemsAppType<EnumValue>Constant instead.
-// Get the enum in PublicQueryItemsParams
-const (
-	PublicQueryItemsDEMOConstant     = "DEMO"
-	PublicQueryItemsDLCConstant      = "DLC"
-	PublicQueryItemsGAMEConstant     = "GAME"
-	PublicQueryItemsSOFTWAREConstant = "SOFTWARE"
-)
-
-// Deprecated: 2025-07-16 - Use PublicQueryItemsItemType<EnumValue>Constant instead.
-// Get the enum in PublicQueryItemsParams
-const (
-	PublicQueryItemsAPPConstant          = "APP"
-	PublicQueryItemsBUNDLEConstant       = "BUNDLE"
-	PublicQueryItemsCODEConstant         = "CODE"
-	PublicQueryItemsCOINSConstant        = "COINS"
-	PublicQueryItemsEXTENSIONConstant    = "EXTENSION"
-	PublicQueryItemsINGAMEITEMConstant   = "INGAMEITEM"
-	PublicQueryItemsLOOTBOXConstant      = "LOOTBOX"
-	PublicQueryItemsMEDIAConstant        = "MEDIA"
-	PublicQueryItemsOPTIONBOXConstant    = "OPTIONBOX"
-	PublicQueryItemsSEASONConstant       = "SEASON"
-	PublicQueryItemsSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
-
-// Deprecated: 2025-07-16 - Use PublicQueryItemsSortBy<EnumValue>Constant instead.
-// Get the enum in PublicQueryItemsParams
-const (
-	PublicQueryItemsNameConstant             = "name"
-	PublicQueryItemsNameAscConstant          = "name:asc"
-	PublicQueryItemsNameDescConstant         = "name:desc"
-	PublicQueryItemsCreatedAtConstant        = "createdAt"
-	PublicQueryItemsCreatedAtAscConstant     = "createdAt:asc"
-	PublicQueryItemsCreatedAtDescConstant    = "createdAt:desc"
-	PublicQueryItemsUpdatedAtConstant        = "updatedAt"
-	PublicQueryItemsUpdatedAtAscConstant     = "updatedAt:asc"
-	PublicQueryItemsUpdatedAtDescConstant    = "updatedAt:desc"
-	PublicQueryItemsDisplayOrderConstant     = "displayOrder"
-	PublicQueryItemsDisplayOrderAscConstant  = "displayOrder:asc"
-	PublicQueryItemsDisplayOrderDescConstant = "displayOrder:desc"
-)
-
 // Get the enum in PublicQueryItemsParams
 const (
 	PublicQueryItemsAppTypeDEMOConstant     = "DEMO"

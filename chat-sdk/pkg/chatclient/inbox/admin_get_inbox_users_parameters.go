@@ -19,13 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use AdminGetInboxUsersStatus<EnumValue>Constant instead.
-// Get the enum in AdminGetInboxUsersParams
-const (
-	AdminGetInboxUsersREADConstant   = "READ"
-	AdminGetInboxUsersUNREADConstant = "UNREAD"
-)
-
 // Get the enum in AdminGetInboxUsersParams
 const (
 	AdminGetInboxUsersStatusREADConstant   = "READ"

@@ -19,14 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QuerySteamReportHistoriesProcessStatus<EnumValue>Constant instead.
-// Get the enum in QuerySteamReportHistoriesParams
-const (
-	QuerySteamReportHistoriesERRORConstant     = "ERROR"
-	QuerySteamReportHistoriesIGNOREDConstant   = "IGNORED"
-	QuerySteamReportHistoriesPROCESSEDConstant = "PROCESSED"
-)
-
 // Get the enum in QuerySteamReportHistoriesParams
 const (
 	QuerySteamReportHistoriesProcessStatusERRORConstant     = "ERROR"

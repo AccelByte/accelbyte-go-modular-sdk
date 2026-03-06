@@ -19,58 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryChangesAction<EnumValue>Constant instead.
-// Get the enum in QueryChangesParams
-const (
-	QueryChangesCREATEConstant = "CREATE"
-	QueryChangesDELETEConstant = "DELETE"
-	QueryChangesUPDATEConstant = "UPDATE"
-)
-
-// Deprecated: 2025-07-16 - Use QueryChangesItemType<EnumValue>Constant instead.
-// Get the enum in QueryChangesParams
-const (
-	QueryChangesAPPConstant          = "APP"
-	QueryChangesBUNDLEConstant       = "BUNDLE"
-	QueryChangesCODEConstant         = "CODE"
-	QueryChangesCOINSConstant        = "COINS"
-	QueryChangesEXTENSIONConstant    = "EXTENSION"
-	QueryChangesINGAMEITEMConstant   = "INGAMEITEM"
-	QueryChangesLOOTBOXConstant      = "LOOTBOX"
-	QueryChangesMEDIAConstant        = "MEDIA"
-	QueryChangesOPTIONBOXConstant    = "OPTIONBOX"
-	QueryChangesSEASONConstant       = "SEASON"
-	QueryChangesSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
-
-// Deprecated: 2025-07-16 - Use QueryChangesSortBy<EnumValue>Constant instead.
-// Get the enum in QueryChangesParams
-const (
-	QueryChangesCreatedAtConstant     = "createdAt"
-	QueryChangesCreatedAtAscConstant  = "createdAt:asc"
-	QueryChangesCreatedAtDescConstant = "createdAt:desc"
-	QueryChangesUpdatedAtConstant     = "updatedAt"
-	QueryChangesUpdatedAtAscConstant  = "updatedAt:asc"
-	QueryChangesUpdatedAtDescConstant = "updatedAt:desc"
-)
-
-// Deprecated: 2025-07-16 - Use QueryChangesStatus<EnumValue>Constant instead.
-// Get the enum in QueryChangesParams
-const (
-	QueryChangesPUBLISHEDConstant   = "PUBLISHED"
-	QueryChangesUNPUBLISHEDConstant = "UNPUBLISHED"
-)
-
-// Deprecated: 2025-07-16 - Use QueryChangesType<EnumValue>Constant instead.
-// Get the enum in QueryChangesParams
-const (
-	QueryChangesCATEGORYConstant = "CATEGORY"
-	QueryChangesITEMConstant     = "ITEM"
-	QueryChangesSECTIONConstant  = "SECTION"
-	QueryChangesSTOREConstant    = "STORE"
-	QueryChangesVIEWConstant     = "VIEW"
-)
-
 // Get the enum in QueryChangesParams
 const (
 	QueryChangesActionCREATEConstant = "CREATE"

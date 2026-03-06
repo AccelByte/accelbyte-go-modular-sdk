@@ -19,25 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryIAPClawbackHistoryEventType<EnumValue>Constant instead.
-// Get the enum in QueryIAPClawbackHistoryParams
-const (
-	QueryIAPClawbackHistoryCHARGEBACKConstant         = "CHARGEBACK"
-	QueryIAPClawbackHistoryCHARGEBACKREVERSEDConstant = "CHARGEBACK_REVERSED"
-	QueryIAPClawbackHistoryOTHERConstant              = "OTHER"
-	QueryIAPClawbackHistoryREFUNDConstant             = "REFUND"
-	QueryIAPClawbackHistoryREVOKEDConstant            = "REVOKED"
-)
-
-// Deprecated: 2025-07-16 - Use QueryIAPClawbackHistoryStatus<EnumValue>Constant instead.
-// Get the enum in QueryIAPClawbackHistoryParams
-const (
-	QueryIAPClawbackHistoryFAILConstant    = "FAIL"
-	QueryIAPClawbackHistoryIGNOREDConstant = "IGNORED"
-	QueryIAPClawbackHistoryINITConstant    = "INIT"
-	QueryIAPClawbackHistorySUCCESSConstant = "SUCCESS"
-)
-
 // Get the enum in QueryIAPClawbackHistoryParams
 const (
 	QueryIAPClawbackHistoryEventTypeCHARGEBACKConstant         = "CHARGEBACK"

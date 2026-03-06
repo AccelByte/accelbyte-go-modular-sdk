@@ -19,29 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryThirdPartyNotificationsSource<EnumValue>Constant instead.
-// Get the enum in QueryThirdPartyNotificationsParams
-const (
-	QueryThirdPartyNotificationsAPPLEConstant       = "APPLE"
-	QueryThirdPartyNotificationsEPICGAMESConstant   = "EPICGAMES"
-	QueryThirdPartyNotificationsGOOGLEConstant      = "GOOGLE"
-	QueryThirdPartyNotificationsOCULUSConstant      = "OCULUS"
-	QueryThirdPartyNotificationsPLAYSTATIONConstant = "PLAYSTATION"
-	QueryThirdPartyNotificationsSTADIAConstant      = "STADIA"
-	QueryThirdPartyNotificationsSTEAMConstant       = "STEAM"
-	QueryThirdPartyNotificationsTWITCHConstant      = "TWITCH"
-	QueryThirdPartyNotificationsXBOXConstant        = "XBOX"
-)
-
-// Deprecated: 2025-07-16 - Use QueryThirdPartyNotificationsStatus<EnumValue>Constant instead.
-// Get the enum in QueryThirdPartyNotificationsParams
-const (
-	QueryThirdPartyNotificationsERRORConstant     = "ERROR"
-	QueryThirdPartyNotificationsIGNOREDConstant   = "IGNORED"
-	QueryThirdPartyNotificationsPROCESSEDConstant = "PROCESSED"
-	QueryThirdPartyNotificationsWARNConstant      = "WARN"
-)
-
 // Get the enum in QueryThirdPartyNotificationsParams
 const (
 	QueryThirdPartyNotificationsSourceAPPLEConstant       = "APPLE"

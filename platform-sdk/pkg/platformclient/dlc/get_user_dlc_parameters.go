@@ -19,24 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use GetUserDLCStatus<EnumValue>Constant instead.
-// Get the enum in GetUserDLCParams
-const (
-	GetUserDLCFULFILLEDConstant    = "FULFILLED"
-	GetUserDLCREVOKEDConstant      = "REVOKED"
-	GetUserDLCREVOKEFAILEDConstant = "REVOKE_FAILED"
-)
-
-// Deprecated: 2025-07-16 - Use GetUserDLCType<EnumValue>Constant instead.
-// Get the enum in GetUserDLCParams
-const (
-	GetUserDLCEPICGAMESConstant = "EPICGAMES"
-	GetUserDLCOCULUSConstant    = "OCULUS"
-	GetUserDLCPSNConstant       = "PSN"
-	GetUserDLCSTEAMConstant     = "STEAM"
-	GetUserDLCXBOXConstant      = "XBOX"
-)
-
 // Get the enum in GetUserDLCParams
 const (
 	GetUserDLCStatusFULFILLEDConstant    = "FULFILLED"

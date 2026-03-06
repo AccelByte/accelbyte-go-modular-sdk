@@ -18,16 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use GeDLCDurableRewardShortMapDLCType<EnumValue>Constant instead.
-// Get the enum in GeDLCDurableRewardShortMapParams
-const (
-	GeDLCDurableRewardShortMapEPICGAMESConstant = "EPICGAMES"
-	GeDLCDurableRewardShortMapOCULUSConstant    = "OCULUS"
-	GeDLCDurableRewardShortMapPSNConstant       = "PSN"
-	GeDLCDurableRewardShortMapSTEAMConstant     = "STEAM"
-	GeDLCDurableRewardShortMapXBOXConstant      = "XBOX"
-)
-
 // Get the enum in GeDLCDurableRewardShortMapParams
 const (
 	GeDLCDurableRewardShortMapDLCTypeEPICGAMESConstant = "EPICGAMES"

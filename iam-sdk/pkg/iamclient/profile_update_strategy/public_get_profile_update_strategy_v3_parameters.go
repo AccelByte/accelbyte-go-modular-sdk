@@ -18,15 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use PublicGetProfileUpdateStrategyV3Field<EnumValue>Constant instead.
-// Get the enum in PublicGetProfileUpdateStrategyV3Params
-const (
-	PublicGetProfileUpdateStrategyV3CountryConstant     = "country"
-	PublicGetProfileUpdateStrategyV3DisplayNameConstant = "display_name"
-	PublicGetProfileUpdateStrategyV3DobConstant         = "dob"
-	PublicGetProfileUpdateStrategyV3UsernameConstant    = "username"
-)
-
 // Get the enum in PublicGetProfileUpdateStrategyV3Params
 const (
 	PublicGetProfileUpdateStrategyV3FieldCountryConstant     = "country"

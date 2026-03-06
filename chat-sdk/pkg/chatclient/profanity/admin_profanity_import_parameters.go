@@ -19,14 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use AdminProfanityImportAction<EnumValue>Constant instead.
-// Get the enum in AdminProfanityImportParams
-const (
-	AdminProfanityImportFULLREPLACEConstant = "FULLREPLACE"
-	AdminProfanityImportLEAVEOUTConstant    = "LEAVEOUT"
-	AdminProfanityImportREPLACEConstant     = "REPLACE"
-)
-
 // Get the enum in AdminProfanityImportParams
 const (
 	AdminProfanityImportActionFULLREPLACEConstant = "FULLREPLACE"

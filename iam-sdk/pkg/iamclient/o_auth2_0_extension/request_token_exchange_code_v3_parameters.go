@@ -18,13 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use RequestTokenExchangeCodeV3CodeChallengeMethod<EnumValue>Constant instead.
-// Get the enum in RequestTokenExchangeCodeV3Params
-const (
-	RequestTokenExchangeCodeV3S256Constant  = "S256"
-	RequestTokenExchangeCodeV3PlainConstant = "plain"
-)
-
 // Get the enum in RequestTokenExchangeCodeV3Params
 const (
 	RequestTokenExchangeCodeV3CodeChallengeMethodS256Constant  = "S256"
