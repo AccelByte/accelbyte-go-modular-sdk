@@ -19,20 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use AdminListInventoryConfigurationsSortBy<EnumValue>Constant instead.
-// Get the enum in AdminListInventoryConfigurationsParams
-const (
-	AdminListInventoryConfigurationsCodeConstant          = "code"
-	AdminListInventoryConfigurationsCodeAscConstant       = "code:asc"
-	AdminListInventoryConfigurationsCodeDescConstant      = "code:desc"
-	AdminListInventoryConfigurationsCreatedAtConstant     = "createdAt"
-	AdminListInventoryConfigurationsCreatedAtAscConstant  = "createdAt:asc"
-	AdminListInventoryConfigurationsCreatedAtDescConstant = "createdAt:desc"
-	AdminListInventoryConfigurationsUpdatedAtConstant     = "updatedAt"
-	AdminListInventoryConfigurationsUpdatedAtAscConstant  = "updatedAt:asc"
-	AdminListInventoryConfigurationsUpdatedAtDescConstant = "updatedAt:desc"
-)
-
 // Get the enum in AdminListInventoryConfigurationsParams
 const (
 	AdminListInventoryConfigurationsSortByCodeConstant          = "code"

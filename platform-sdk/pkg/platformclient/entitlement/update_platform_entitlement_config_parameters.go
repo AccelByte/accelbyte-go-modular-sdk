@@ -20,19 +20,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
-// Deprecated: 2025-07-16 - Use UpdatePlatformEntitlementConfigPlatform<EnumValue>Constant instead.
-// Get the enum in UpdatePlatformEntitlementConfigParams
-const (
-	UpdatePlatformEntitlementConfigEpicConstant        = "Epic"
-	UpdatePlatformEntitlementConfigGooglePlayConstant  = "GooglePlay"
-	UpdatePlatformEntitlementConfigIOSConstant         = "IOS"
-	UpdatePlatformEntitlementConfigNintendoConstant    = "Nintendo"
-	UpdatePlatformEntitlementConfigOculusConstant      = "Oculus"
-	UpdatePlatformEntitlementConfigOtherConstant       = "Other"
-	UpdatePlatformEntitlementConfigPlaystationConstant = "Playstation"
-	UpdatePlatformEntitlementConfigSteamConstant       = "Steam"
-	UpdatePlatformEntitlementConfigXboxConstant        = "Xbox"
-)
 
 // Get the enum in UpdatePlatformEntitlementConfigParams
 const (

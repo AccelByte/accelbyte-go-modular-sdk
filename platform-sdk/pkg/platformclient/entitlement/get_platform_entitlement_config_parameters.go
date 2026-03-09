@@ -18,19 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use GetPlatformEntitlementConfigPlatform<EnumValue>Constant instead.
-// Get the enum in GetPlatformEntitlementConfigParams
-const (
-	GetPlatformEntitlementConfigEpicConstant        = "Epic"
-	GetPlatformEntitlementConfigGooglePlayConstant  = "GooglePlay"
-	GetPlatformEntitlementConfigIOSConstant         = "IOS"
-	GetPlatformEntitlementConfigNintendoConstant    = "Nintendo"
-	GetPlatformEntitlementConfigOculusConstant      = "Oculus"
-	GetPlatformEntitlementConfigOtherConstant       = "Other"
-	GetPlatformEntitlementConfigPlaystationConstant = "Playstation"
-	GetPlatformEntitlementConfigSteamConstant       = "Steam"
-	GetPlatformEntitlementConfigXboxConstant        = "Xbox"
-)
 
 // Get the enum in GetPlatformEntitlementConfigParams
 const (

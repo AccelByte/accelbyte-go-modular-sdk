@@ -19,14 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use ListUserContributionsSortBy<EnumValue>Constant instead.
-// Get the enum in ListUserContributionsParams
-const (
-	ListUserContributionsContributedValueConstant     = "contributedValue"
-	ListUserContributionsContributedValueAscConstant  = "contributedValue:asc"
-	ListUserContributionsContributedValueDescConstant = "contributedValue:desc"
-)
-
 // Get the enum in ListUserContributionsParams
 const (
 	ListUserContributionsSortByContributedValueConstant     = "contributedValue"

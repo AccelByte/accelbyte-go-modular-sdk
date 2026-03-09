@@ -19,24 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use GetStatCyclesCycleType<EnumValue>Constant instead.
-// Get the enum in GetStatCyclesParams
-const (
-	GetStatCyclesANNUALLYConstant = "ANNUALLY"
-	GetStatCyclesDAILYConstant    = "DAILY"
-	GetStatCyclesMONTHLYConstant  = "MONTHLY"
-	GetStatCyclesSEASONALConstant = "SEASONAL"
-	GetStatCyclesWEEKLYConstant   = "WEEKLY"
-)
-
-// Deprecated: 2025-07-16 - Use GetStatCyclesStatus<EnumValue>Constant instead.
-// Get the enum in GetStatCyclesParams
-const (
-	GetStatCyclesACTIVEConstant  = "ACTIVE"
-	GetStatCyclesINITConstant    = "INIT"
-	GetStatCyclesSTOPPEDConstant = "STOPPED"
-)
-
 // Get the enum in GetStatCyclesParams
 const (
 	GetStatCyclesCycleTypeANNUALLYConstant = "ANNUALLY"

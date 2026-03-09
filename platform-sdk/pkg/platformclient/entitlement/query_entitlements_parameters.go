@@ -19,42 +19,8 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryEntitlementsAppType<EnumValue>Constant instead.
-// Get the enum in QueryEntitlementsParams
-const (
-	QueryEntitlementsDEMOConstant     = "DEMO"
-	QueryEntitlementsDLCConstant      = "DLC"
-	QueryEntitlementsGAMEConstant     = "GAME"
-	QueryEntitlementsSOFTWAREConstant = "SOFTWARE"
-)
 
-// Deprecated: 2025-07-16 - Use QueryEntitlementsEntitlementClazz<EnumValue>Constant instead.
-// Get the enum in QueryEntitlementsParams
-const (
-	QueryEntitlementsAPPConstant          = "APP"
-	QueryEntitlementsCODEConstant         = "CODE"
-	QueryEntitlementsENTITLEMENTConstant  = "ENTITLEMENT"
-	QueryEntitlementsLOOTBOXConstant      = "LOOTBOX"
-	QueryEntitlementsMEDIAConstant        = "MEDIA"
-	QueryEntitlementsOPTIONBOXConstant    = "OPTIONBOX"
-	QueryEntitlementsSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
 
-// Deprecated: 2025-07-16 - Use QueryEntitlementsOrigin<EnumValue>Constant instead.
-// Get the enum in QueryEntitlementsParams
-const (
-	QueryEntitlementsEpicConstant        = "Epic"
-	QueryEntitlementsGooglePlayConstant  = "GooglePlay"
-	QueryEntitlementsIOSConstant         = "IOS"
-	QueryEntitlementsNintendoConstant    = "Nintendo"
-	QueryEntitlementsOculusConstant      = "Oculus"
-	QueryEntitlementsOtherConstant       = "Other"
-	QueryEntitlementsPlaystationConstant = "Playstation"
-	QueryEntitlementsSteamConstant       = "Steam"
-	QueryEntitlementsSystemConstant      = "System"
-	QueryEntitlementsTwitchConstant      = "Twitch"
-	QueryEntitlementsXboxConstant        = "Xbox"
-)
 
 // Get the enum in QueryEntitlementsParams
 const (

@@ -19,24 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use AdminGetUserRewardsSortBy<EnumValue>Constant instead.
-// Get the enum in AdminGetUserRewardsParams
-const (
-	AdminGetUserRewardsCreatedAtConstant     = "createdAt"
-	AdminGetUserRewardsCreatedAtAscConstant  = "createdAt:asc"
-	AdminGetUserRewardsCreatedAtDescConstant = "createdAt:desc"
-	AdminGetUserRewardsUpdatedAtConstant     = "updatedAt"
-	AdminGetUserRewardsUpdatedAtAscConstant  = "updatedAt:asc"
-	AdminGetUserRewardsUpdatedAtDescConstant = "updatedAt:desc"
-)
-
-// Deprecated: 2025-07-16 - Use AdminGetUserRewardsStatus<EnumValue>Constant instead.
-// Get the enum in AdminGetUserRewardsParams
-const (
-	AdminGetUserRewardsCLAIMEDConstant   = "CLAIMED"
-	AdminGetUserRewardsUNCLAIMEDConstant = "UNCLAIMED"
-)
-
 // Get the enum in AdminGetUserRewardsParams
 const (
 	AdminGetUserRewardsSortByCreatedAtConstant     = "createdAt"

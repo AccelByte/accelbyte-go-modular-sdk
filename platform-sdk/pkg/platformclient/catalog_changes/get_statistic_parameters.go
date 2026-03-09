@@ -18,39 +18,8 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use GetStatisticAction<EnumValue>Constant instead.
-// Get the enum in GetStatisticParams
-const (
-	GetStatisticCREATEConstant = "CREATE"
-	GetStatisticDELETEConstant = "DELETE"
-	GetStatisticUPDATEConstant = "UPDATE"
-)
 
-// Deprecated: 2025-07-16 - Use GetStatisticItemType<EnumValue>Constant instead.
-// Get the enum in GetStatisticParams
-const (
-	GetStatisticAPPConstant          = "APP"
-	GetStatisticBUNDLEConstant       = "BUNDLE"
-	GetStatisticCODEConstant         = "CODE"
-	GetStatisticCOINSConstant        = "COINS"
-	GetStatisticEXTENSIONConstant    = "EXTENSION"
-	GetStatisticINGAMEITEMConstant   = "INGAMEITEM"
-	GetStatisticLOOTBOXConstant      = "LOOTBOX"
-	GetStatisticMEDIAConstant        = "MEDIA"
-	GetStatisticOPTIONBOXConstant    = "OPTIONBOX"
-	GetStatisticSEASONConstant       = "SEASON"
-	GetStatisticSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
 
-// Deprecated: 2025-07-16 - Use GetStatisticType<EnumValue>Constant instead.
-// Get the enum in GetStatisticParams
-const (
-	GetStatisticCATEGORYConstant = "CATEGORY"
-	GetStatisticITEMConstant     = "ITEM"
-	GetStatisticSECTIONConstant  = "SECTION"
-	GetStatisticSTOREConstant    = "STORE"
-	GetStatisticVIEWConstant     = "VIEW"
-)
 
 // Get the enum in GetStatisticParams
 const (

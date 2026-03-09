@@ -194,7 +194,7 @@ func TestTokenValidator_ValidateExtendNamespace(t *testing.T) {
 
 	token, err := authService.TokenGrantV3Short(&o_auth2_0.TokenGrantV3Params{
 		ExtendNamespace: &extendNamespace,
-		GrantType:       o_auth2_0.TokenGrantV3UrnIetfParamsOauthGrantTypeExtendClientCredentialsConstant,
+		GrantType:       o_auth2_0.TokenGrantV3GrantTypeUrnIetfParamsOauthGrantTypeExtendClientCredentialsConstant,
 	})
 	if err != nil {
 		assert.Fail(t, err.Error())

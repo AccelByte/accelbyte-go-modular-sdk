@@ -19,14 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryUserEntitlementsByAppTypeAppType<EnumValue>Constant instead.
-// Get the enum in QueryUserEntitlementsByAppTypeParams
-const (
-	QueryUserEntitlementsByAppTypeDEMOConstant     = "DEMO"
-	QueryUserEntitlementsByAppTypeDLCConstant      = "DLC"
-	QueryUserEntitlementsByAppTypeGAMEConstant     = "GAME"
-	QueryUserEntitlementsByAppTypeSOFTWAREConstant = "SOFTWARE"
-)
 
 // Get the enum in QueryUserEntitlementsByAppTypeParams
 const (

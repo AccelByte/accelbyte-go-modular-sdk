@@ -19,17 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use GetUserEntitlementByItemIDEntitlementClazz<EnumValue>Constant instead.
-// Get the enum in GetUserEntitlementByItemIDParams
-const (
-	GetUserEntitlementByItemIDAPPConstant          = "APP"
-	GetUserEntitlementByItemIDCODEConstant         = "CODE"
-	GetUserEntitlementByItemIDENTITLEMENTConstant  = "ENTITLEMENT"
-	GetUserEntitlementByItemIDLOOTBOXConstant      = "LOOTBOX"
-	GetUserEntitlementByItemIDMEDIAConstant        = "MEDIA"
-	GetUserEntitlementByItemIDOPTIONBOXConstant    = "OPTIONBOX"
-	GetUserEntitlementByItemIDSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
 
 // Get the enum in GetUserEntitlementByItemIDParams
 const (

@@ -19,42 +19,8 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryUserEntitlementsAppType<EnumValue>Constant instead.
-// Get the enum in QueryUserEntitlementsParams
-const (
-	QueryUserEntitlementsDEMOConstant     = "DEMO"
-	QueryUserEntitlementsDLCConstant      = "DLC"
-	QueryUserEntitlementsGAMEConstant     = "GAME"
-	QueryUserEntitlementsSOFTWAREConstant = "SOFTWARE"
-)
 
-// Deprecated: 2025-07-16 - Use QueryUserEntitlementsEntitlementClazz<EnumValue>Constant instead.
-// Get the enum in QueryUserEntitlementsParams
-const (
-	QueryUserEntitlementsAPPConstant          = "APP"
-	QueryUserEntitlementsCODEConstant         = "CODE"
-	QueryUserEntitlementsENTITLEMENTConstant  = "ENTITLEMENT"
-	QueryUserEntitlementsLOOTBOXConstant      = "LOOTBOX"
-	QueryUserEntitlementsMEDIAConstant        = "MEDIA"
-	QueryUserEntitlementsOPTIONBOXConstant    = "OPTIONBOX"
-	QueryUserEntitlementsSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
 
-// Deprecated: 2025-07-16 - Use QueryUserEntitlementsOrigin<EnumValue>Constant instead.
-// Get the enum in QueryUserEntitlementsParams
-const (
-	QueryUserEntitlementsEpicConstant        = "Epic"
-	QueryUserEntitlementsGooglePlayConstant  = "GooglePlay"
-	QueryUserEntitlementsIOSConstant         = "IOS"
-	QueryUserEntitlementsNintendoConstant    = "Nintendo"
-	QueryUserEntitlementsOculusConstant      = "Oculus"
-	QueryUserEntitlementsOtherConstant       = "Other"
-	QueryUserEntitlementsPlaystationConstant = "Playstation"
-	QueryUserEntitlementsSteamConstant       = "Steam"
-	QueryUserEntitlementsSystemConstant      = "System"
-	QueryUserEntitlementsTwitchConstant      = "Twitch"
-	QueryUserEntitlementsXboxConstant        = "Xbox"
-)
 
 // Get the enum in QueryUserEntitlementsParams
 const (

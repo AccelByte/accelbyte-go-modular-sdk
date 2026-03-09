@@ -19,21 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use DevelopmentServerConfigurationListSortBy<EnumValue>Constant instead.
-// Get the enum in DevelopmentServerConfigurationListParams
-const (
-	DevelopmentServerConfigurationListCreatedAtConstant = "created_at"
-	DevelopmentServerConfigurationListExpiresAtConstant = "expires_at"
-	DevelopmentServerConfigurationListNameConstant      = "name"
-)
-
-// Deprecated: 2025-07-16 - Use DevelopmentServerConfigurationListSortDirection<EnumValue>Constant instead.
-// Get the enum in DevelopmentServerConfigurationListParams
-const (
-	DevelopmentServerConfigurationListAscConstant  = "asc"
-	DevelopmentServerConfigurationListDescConstant = "desc"
-)
-
 // Get the enum in DevelopmentServerConfigurationListParams
 const (
 	DevelopmentServerConfigurationListSortByCreatedAtConstant = "created_at"

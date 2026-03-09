@@ -19,29 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use AdminGetChallengesSortBy<EnumValue>Constant instead.
-// Get the enum in AdminGetChallengesParams
-const (
-	AdminGetChallengesCodeAscConstant       = "code:asc"
-	AdminGetChallengesCodeDescConstant      = "code:desc"
-	AdminGetChallengesCreatedAtConstant     = "createdAt"
-	AdminGetChallengesCreatedAtAscConstant  = "createdAt:asc"
-	AdminGetChallengesCreatedAtDescConstant = "createdAt:desc"
-	AdminGetChallengesNameAscConstant       = "name:asc"
-	AdminGetChallengesNameDescConstant      = "name:desc"
-	AdminGetChallengesUpdatedAtConstant     = "updatedAt"
-	AdminGetChallengesUpdatedAtAscConstant  = "updatedAt:asc"
-	AdminGetChallengesUpdatedAtDescConstant = "updatedAt:desc"
-)
-
-// Deprecated: 2025-07-16 - Use AdminGetChallengesStatus<EnumValue>Constant instead.
-// Get the enum in AdminGetChallengesParams
-const (
-	AdminGetChallengesINITConstant    = "INIT"
-	AdminGetChallengesRETIREDConstant = "RETIRED"
-	AdminGetChallengesTIEDConstant    = "TIED"
-)
-
 // Get the enum in AdminGetChallengesParams
 const (
 	AdminGetChallengesSortByCodeAscConstant       = "code:asc"

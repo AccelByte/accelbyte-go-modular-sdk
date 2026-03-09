@@ -19,17 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use PublicUserEntitlementHistoryEntitlementClazz<EnumValue>Constant instead.
-// Get the enum in PublicUserEntitlementHistoryParams
-const (
-	PublicUserEntitlementHistoryAPPConstant          = "APP"
-	PublicUserEntitlementHistoryCODEConstant         = "CODE"
-	PublicUserEntitlementHistoryENTITLEMENTConstant  = "ENTITLEMENT"
-	PublicUserEntitlementHistoryLOOTBOXConstant      = "LOOTBOX"
-	PublicUserEntitlementHistoryMEDIAConstant        = "MEDIA"
-	PublicUserEntitlementHistoryOPTIONBOXConstant    = "OPTIONBOX"
-	PublicUserEntitlementHistorySUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
 
 // Get the enum in PublicUserEntitlementHistoryParams
 const (
