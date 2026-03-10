@@ -18,21 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use CheckWalletOrigin<EnumValue>Constant instead.
-// Get the enum in CheckWalletParams
-const (
-	CheckWalletEpicConstant        = "Epic"
-	CheckWalletGooglePlayConstant  = "GooglePlay"
-	CheckWalletIOSConstant         = "IOS"
-	CheckWalletNintendoConstant    = "Nintendo"
-	CheckWalletOculusConstant      = "Oculus"
-	CheckWalletOtherConstant       = "Other"
-	CheckWalletPlaystationConstant = "Playstation"
-	CheckWalletSteamConstant       = "Steam"
-	CheckWalletSystemConstant      = "System"
-	CheckWalletTwitchConstant      = "Twitch"
-	CheckWalletXboxConstant        = "Xbox"
-)
 
 // Get the enum in CheckWalletParams
 const (

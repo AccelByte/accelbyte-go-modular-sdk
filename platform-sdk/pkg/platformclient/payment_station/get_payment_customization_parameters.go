@@ -19,19 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use GetPaymentCustomizationPaymentProvider<EnumValue>Constant instead.
-// Get the enum in GetPaymentCustomizationParams
-const (
-	GetPaymentCustomizationADYENConstant    = "ADYEN"
-	GetPaymentCustomizationALIPAYConstant   = "ALIPAY"
-	GetPaymentCustomizationCHECKOUTConstant = "CHECKOUT"
-	GetPaymentCustomizationNEONPAYConstant  = "NEONPAY"
-	GetPaymentCustomizationPAYPALConstant   = "PAYPAL"
-	GetPaymentCustomizationSTRIPEConstant   = "STRIPE"
-	GetPaymentCustomizationWALLETConstant   = "WALLET"
-	GetPaymentCustomizationWXPAYConstant    = "WXPAY"
-	GetPaymentCustomizationXSOLLAConstant   = "XSOLLA"
-)
 
 // Get the enum in GetPaymentCustomizationParams
 const (

@@ -19,21 +19,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryRevocationHistoriesSource<EnumValue>Constant instead.
-// Get the enum in QueryRevocationHistoriesParams
-const (
-	QueryRevocationHistoriesDLCConstant   = "DLC"
-	QueryRevocationHistoriesIAPConstant   = "IAP"
-	QueryRevocationHistoriesORDERConstant = "ORDER"
-	QueryRevocationHistoriesOTHERConstant = "OTHER"
-)
 
-// Deprecated: 2025-07-16 - Use QueryRevocationHistoriesStatus<EnumValue>Constant instead.
-// Get the enum in QueryRevocationHistoriesParams
-const (
-	QueryRevocationHistoriesFAILConstant    = "FAIL"
-	QueryRevocationHistoriesSUCCESSConstant = "SUCCESS"
-)
 
 // Get the enum in QueryRevocationHistoriesParams
 const (

@@ -19,30 +19,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryUserIAPOrdersStatus<EnumValue>Constant instead.
-// Get the enum in QueryUserIAPOrdersParams
-const (
-	QueryUserIAPOrdersFAILEDConstant         = "FAILED"
-	QueryUserIAPOrdersFULFILLEDConstant      = "FULFILLED"
-	QueryUserIAPOrdersPARTIALREVOKEDConstant = "PARTIAL_REVOKED"
-	QueryUserIAPOrdersREVOKEDConstant        = "REVOKED"
-	QueryUserIAPOrdersREVOKEFAILEDConstant   = "REVOKE_FAILED"
-	QueryUserIAPOrdersVERIFIEDConstant       = "VERIFIED"
-)
 
-// Deprecated: 2025-07-16 - Use QueryUserIAPOrdersType<EnumValue>Constant instead.
-// Get the enum in QueryUserIAPOrdersParams
-const (
-	QueryUserIAPOrdersAPPLEConstant       = "APPLE"
-	QueryUserIAPOrdersEPICGAMESConstant   = "EPICGAMES"
-	QueryUserIAPOrdersGOOGLEConstant      = "GOOGLE"
-	QueryUserIAPOrdersOCULUSConstant      = "OCULUS"
-	QueryUserIAPOrdersPLAYSTATIONConstant = "PLAYSTATION"
-	QueryUserIAPOrdersSTADIAConstant      = "STADIA"
-	QueryUserIAPOrdersSTEAMConstant       = "STEAM"
-	QueryUserIAPOrdersTWITCHConstant      = "TWITCH"
-	QueryUserIAPOrdersXBOXConstant        = "XBOX"
-)
 
 // Get the enum in QueryUserIAPOrdersParams
 const (

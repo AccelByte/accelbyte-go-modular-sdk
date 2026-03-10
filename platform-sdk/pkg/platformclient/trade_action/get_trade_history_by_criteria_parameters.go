@@ -19,13 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use GetTradeHistoryByCriteriaStatus<EnumValue>Constant instead.
-// Get the enum in GetTradeHistoryByCriteriaParams
-const (
-	GetTradeHistoryByCriteriaFAILEDConstant  = "FAILED"
-	GetTradeHistoryByCriteriaINITConstant    = "INIT"
-	GetTradeHistoryByCriteriaSUCCESSConstant = "SUCCESS"
-)
 
 // Get the enum in GetTradeHistoryByCriteriaParams
 const (

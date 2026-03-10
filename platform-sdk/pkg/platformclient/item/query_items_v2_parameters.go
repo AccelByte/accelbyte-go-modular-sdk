@@ -19,54 +19,9 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryItemsV2AppType<EnumValue>Constant instead.
-// Get the enum in QueryItemsV2Params
-const (
-	QueryItemsV2DEMOConstant     = "DEMO"
-	QueryItemsV2DLCConstant      = "DLC"
-	QueryItemsV2GAMEConstant     = "GAME"
-	QueryItemsV2SOFTWAREConstant = "SOFTWARE"
-)
 
-// Deprecated: 2025-07-16 - Use QueryItemsV2ItemStatus<EnumValue>Constant instead.
-// Get the enum in QueryItemsV2Params
-const (
-	QueryItemsV2ACTIVEConstant   = "ACTIVE"
-	QueryItemsV2INACTIVEConstant = "INACTIVE"
-)
 
-// Deprecated: 2025-07-16 - Use QueryItemsV2ItemType<EnumValue>Constant instead.
-// Get the enum in QueryItemsV2Params
-const (
-	QueryItemsV2APPConstant          = "APP"
-	QueryItemsV2BUNDLEConstant       = "BUNDLE"
-	QueryItemsV2CODEConstant         = "CODE"
-	QueryItemsV2COINSConstant        = "COINS"
-	QueryItemsV2EXTENSIONConstant    = "EXTENSION"
-	QueryItemsV2INGAMEITEMConstant   = "INGAMEITEM"
-	QueryItemsV2LOOTBOXConstant      = "LOOTBOX"
-	QueryItemsV2MEDIAConstant        = "MEDIA"
-	QueryItemsV2OPTIONBOXConstant    = "OPTIONBOX"
-	QueryItemsV2SEASONConstant       = "SEASON"
-	QueryItemsV2SUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
 
-// Deprecated: 2025-07-16 - Use QueryItemsV2SortBy<EnumValue>Constant instead.
-// Get the enum in QueryItemsV2Params
-const (
-	QueryItemsV2NameConstant             = "name"
-	QueryItemsV2NameAscConstant          = "name:asc"
-	QueryItemsV2NameDescConstant         = "name:desc"
-	QueryItemsV2CreatedAtConstant        = "createdAt"
-	QueryItemsV2CreatedAtAscConstant     = "createdAt:asc"
-	QueryItemsV2CreatedAtDescConstant    = "createdAt:desc"
-	QueryItemsV2UpdatedAtConstant        = "updatedAt"
-	QueryItemsV2UpdatedAtAscConstant     = "updatedAt:asc"
-	QueryItemsV2UpdatedAtDescConstant    = "updatedAt:desc"
-	QueryItemsV2DisplayOrderConstant     = "displayOrder"
-	QueryItemsV2DisplayOrderAscConstant  = "displayOrder:asc"
-	QueryItemsV2DisplayOrderDescConstant = "displayOrder:desc"
-)
 
 // Get the enum in QueryItemsV2Params
 const (

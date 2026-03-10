@@ -19,28 +19,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryPaymentNotificationsNotificationSource<EnumValue>Constant instead.
-// Get the enum in QueryPaymentNotificationsParams
-const (
-	QueryPaymentNotificationsADYENConstant    = "ADYEN"
-	QueryPaymentNotificationsALIPAYConstant   = "ALIPAY"
-	QueryPaymentNotificationsCHECKOUTConstant = "CHECKOUT"
-	QueryPaymentNotificationsNEONPAYConstant  = "NEONPAY"
-	QueryPaymentNotificationsPAYPALConstant   = "PAYPAL"
-	QueryPaymentNotificationsSTRIPEConstant   = "STRIPE"
-	QueryPaymentNotificationsWALLETConstant   = "WALLET"
-	QueryPaymentNotificationsWXPAYConstant    = "WXPAY"
-	QueryPaymentNotificationsXSOLLAConstant   = "XSOLLA"
-)
 
-// Deprecated: 2025-07-16 - Use QueryPaymentNotificationsStatus<EnumValue>Constant instead.
-// Get the enum in QueryPaymentNotificationsParams
-const (
-	QueryPaymentNotificationsERRORConstant     = "ERROR"
-	QueryPaymentNotificationsIGNOREDConstant   = "IGNORED"
-	QueryPaymentNotificationsPROCESSEDConstant = "PROCESSED"
-	QueryPaymentNotificationsWARNConstant      = "WARN"
-)
 
 // Get the enum in QueryPaymentNotificationsParams
 const (

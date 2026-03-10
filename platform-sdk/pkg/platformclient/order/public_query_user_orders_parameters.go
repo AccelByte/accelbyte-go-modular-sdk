@@ -19,21 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use PublicQueryUserOrdersStatus<EnumValue>Constant instead.
-// Get the enum in PublicQueryUserOrdersParams
-const (
-	PublicQueryUserOrdersCHARGEBACKConstant         = "CHARGEBACK"
-	PublicQueryUserOrdersCHARGEBACKREVERSEDConstant = "CHARGEBACK_REVERSED"
-	PublicQueryUserOrdersCHARGEDConstant            = "CHARGED"
-	PublicQueryUserOrdersCLOSEDConstant             = "CLOSED"
-	PublicQueryUserOrdersDELETEDConstant            = "DELETED"
-	PublicQueryUserOrdersFULFILLEDConstant          = "FULFILLED"
-	PublicQueryUserOrdersFULFILLFAILEDConstant      = "FULFILL_FAILED"
-	PublicQueryUserOrdersINITConstant               = "INIT"
-	PublicQueryUserOrdersREFUNDEDConstant           = "REFUNDED"
-	PublicQueryUserOrdersREFUNDINGConstant          = "REFUNDING"
-	PublicQueryUserOrdersREFUNDFAILEDConstant       = "REFUND_FAILED"
-)
 
 // Get the enum in PublicQueryUserOrdersParams
 const (

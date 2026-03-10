@@ -18,19 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use PublicNormalizePaymentReturnURLPaymentProvider<EnumValue>Constant instead.
-// Get the enum in PublicNormalizePaymentReturnURLParams
-const (
-	PublicNormalizePaymentReturnURLADYENConstant    = "ADYEN"
-	PublicNormalizePaymentReturnURLALIPAYConstant   = "ALIPAY"
-	PublicNormalizePaymentReturnURLCHECKOUTConstant = "CHECKOUT"
-	PublicNormalizePaymentReturnURLNEONPAYConstant  = "NEONPAY"
-	PublicNormalizePaymentReturnURLPAYPALConstant   = "PAYPAL"
-	PublicNormalizePaymentReturnURLSTRIPEConstant   = "STRIPE"
-	PublicNormalizePaymentReturnURLWALLETConstant   = "WALLET"
-	PublicNormalizePaymentReturnURLWXPAYConstant    = "WXPAY"
-	PublicNormalizePaymentReturnURLXSOLLAConstant   = "XSOLLA"
-)
 
 // Get the enum in PublicNormalizePaymentReturnURLParams
 const (

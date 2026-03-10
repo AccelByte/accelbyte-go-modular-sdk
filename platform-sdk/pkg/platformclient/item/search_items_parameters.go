@@ -19,21 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use SearchItemsItemType<EnumValue>Constant instead.
-// Get the enum in SearchItemsParams
-const (
-	SearchItemsAPPConstant          = "APP"
-	SearchItemsBUNDLEConstant       = "BUNDLE"
-	SearchItemsCODEConstant         = "CODE"
-	SearchItemsCOINSConstant        = "COINS"
-	SearchItemsEXTENSIONConstant    = "EXTENSION"
-	SearchItemsINGAMEITEMConstant   = "INGAMEITEM"
-	SearchItemsLOOTBOXConstant      = "LOOTBOX"
-	SearchItemsMEDIAConstant        = "MEDIA"
-	SearchItemsOPTIONBOXConstant    = "OPTIONBOX"
-	SearchItemsSEASONConstant       = "SEASON"
-	SearchItemsSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
 
 // Get the enum in SearchItemsParams
 const (

@@ -19,31 +19,8 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QuerySubscriptionsChargeStatus<EnumValue>Constant instead.
-// Get the enum in QuerySubscriptionsParams
-const (
-	QuerySubscriptionsCHARGEDConstant           = "CHARGED"
-	QuerySubscriptionsCHARGEFAILEDConstant      = "CHARGE_FAILED"
-	QuerySubscriptionsNEVERConstant             = "NEVER"
-	QuerySubscriptionsRECURRINGCHARGINGConstant = "RECURRING_CHARGING"
-	QuerySubscriptionsSETUPConstant             = "SETUP"
-)
 
-// Deprecated: 2025-07-16 - Use QuerySubscriptionsStatus<EnumValue>Constant instead.
-// Get the enum in QuerySubscriptionsParams
-const (
-	QuerySubscriptionsACTIVEConstant    = "ACTIVE"
-	QuerySubscriptionsCANCELLEDConstant = "CANCELLED"
-	QuerySubscriptionsEXPIREDConstant   = "EXPIRED"
-	QuerySubscriptionsINITConstant      = "INIT"
-)
 
-// Deprecated: 2025-07-16 - Use QuerySubscriptionsSubscribedBy<EnumValue>Constant instead.
-// Get the enum in QuerySubscriptionsParams
-const (
-	QuerySubscriptionsPLATFORMConstant = "PLATFORM"
-	QuerySubscriptionsUSERConstant     = "USER"
-)
 
 // Get the enum in QuerySubscriptionsParams
 const (

@@ -19,16 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryRewardsSortBy<EnumValue>Constant instead.
-// Get the enum in QueryRewardsParams
-const (
-	QueryRewardsNamespaceConstant      = "namespace"
-	QueryRewardsNamespaceAscConstant   = "namespace:asc"
-	QueryRewardsNamespaceDescConstant  = "namespace:desc"
-	QueryRewardsRewardCodeConstant     = "rewardCode"
-	QueryRewardsRewardCodeAscConstant  = "rewardCode:asc"
-	QueryRewardsRewardCodeDescConstant = "rewardCode:desc"
-)
 
 // Get the enum in QueryRewardsParams
 const (

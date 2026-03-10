@@ -20,19 +20,6 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclientmodels"
 )
 
-// Deprecated: 2025-07-16 - Use PayPaymentProvider<EnumValue>Constant instead.
-// Get the enum in PayParams
-const (
-	PayADYENConstant    = "ADYEN"
-	PayALIPAYConstant   = "ALIPAY"
-	PayCHECKOUTConstant = "CHECKOUT"
-	PayNEONPAYConstant  = "NEONPAY"
-	PayPAYPALConstant   = "PAYPAL"
-	PaySTRIPEConstant   = "STRIPE"
-	PayWALLETConstant   = "WALLET"
-	PayWXPAYConstant    = "WXPAY"
-	PayXSOLLAConstant   = "XSOLLA"
-)
 
 // Get the enum in PayParams
 const (

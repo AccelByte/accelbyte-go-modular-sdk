@@ -19,14 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryFulfillmentsState<EnumValue>Constant instead.
-// Get the enum in QueryFulfillmentsParams
-const (
-	QueryFulfillmentsFULFILLEDConstant     = "FULFILLED"
-	QueryFulfillmentsFULFILLFAILEDConstant = "FULFILL_FAILED"
-	QueryFulfillmentsREVOKEDConstant       = "REVOKED"
-	QueryFulfillmentsREVOKEFAILEDConstant  = "REVOKE_FAILED"
-)
 
 // Get the enum in QueryFulfillmentsParams
 const (

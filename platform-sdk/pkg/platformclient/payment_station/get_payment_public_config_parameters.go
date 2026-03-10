@@ -19,19 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use GetPaymentPublicConfigPaymentProvider<EnumValue>Constant instead.
-// Get the enum in GetPaymentPublicConfigParams
-const (
-	GetPaymentPublicConfigADYENConstant    = "ADYEN"
-	GetPaymentPublicConfigALIPAYConstant   = "ALIPAY"
-	GetPaymentPublicConfigCHECKOUTConstant = "CHECKOUT"
-	GetPaymentPublicConfigNEONPAYConstant  = "NEONPAY"
-	GetPaymentPublicConfigPAYPALConstant   = "PAYPAL"
-	GetPaymentPublicConfigSTRIPEConstant   = "STRIPE"
-	GetPaymentPublicConfigWALLETConstant   = "WALLET"
-	GetPaymentPublicConfigWXPAYConstant    = "WXPAY"
-	GetPaymentPublicConfigXSOLLAConstant   = "XSOLLA"
-)
 
 // Get the enum in GetPaymentPublicConfigParams
 const (

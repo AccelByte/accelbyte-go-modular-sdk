@@ -18,21 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use GenerateInvoiceSummaryItemType<EnumValue>Constant instead.
-// Get the enum in GenerateInvoiceSummaryParams
-const (
-	GenerateInvoiceSummaryAPPConstant          = "APP"
-	GenerateInvoiceSummaryBUNDLEConstant       = "BUNDLE"
-	GenerateInvoiceSummaryCODEConstant         = "CODE"
-	GenerateInvoiceSummaryCOINSConstant        = "COINS"
-	GenerateInvoiceSummaryEXTENSIONConstant    = "EXTENSION"
-	GenerateInvoiceSummaryINGAMEITEMConstant   = "INGAMEITEM"
-	GenerateInvoiceSummaryLOOTBOXConstant      = "LOOTBOX"
-	GenerateInvoiceSummaryMEDIAConstant        = "MEDIA"
-	GenerateInvoiceSummaryOPTIONBOXConstant    = "OPTIONBOX"
-	GenerateInvoiceSummarySEASONConstant       = "SEASON"
-	GenerateInvoiceSummarySUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
 
 // Get the enum in GenerateInvoiceSummaryParams
 const (

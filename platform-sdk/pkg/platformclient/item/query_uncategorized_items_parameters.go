@@ -19,22 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryUncategorizedItemsSortBy<EnumValue>Constant instead.
-// Get the enum in QueryUncategorizedItemsParams
-const (
-	QueryUncategorizedItemsNameConstant             = "name"
-	QueryUncategorizedItemsNameAscConstant          = "name:asc"
-	QueryUncategorizedItemsNameDescConstant         = "name:desc"
-	QueryUncategorizedItemsCreatedAtConstant        = "createdAt"
-	QueryUncategorizedItemsCreatedAtAscConstant     = "createdAt:asc"
-	QueryUncategorizedItemsCreatedAtDescConstant    = "createdAt:desc"
-	QueryUncategorizedItemsUpdatedAtConstant        = "updatedAt"
-	QueryUncategorizedItemsUpdatedAtAscConstant     = "updatedAt:asc"
-	QueryUncategorizedItemsUpdatedAtDescConstant    = "updatedAt:desc"
-	QueryUncategorizedItemsDisplayOrderConstant     = "displayOrder"
-	QueryUncategorizedItemsDisplayOrderAscConstant  = "displayOrder:asc"
-	QueryUncategorizedItemsDisplayOrderDescConstant = "displayOrder:desc"
-)
 
 // Get the enum in QueryUncategorizedItemsParams
 const (

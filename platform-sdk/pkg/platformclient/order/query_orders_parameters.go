@@ -19,21 +19,6 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryOrdersStatus<EnumValue>Constant instead.
-// Get the enum in QueryOrdersParams
-const (
-	QueryOrdersCHARGEBACKConstant         = "CHARGEBACK"
-	QueryOrdersCHARGEBACKREVERSEDConstant = "CHARGEBACK_REVERSED"
-	QueryOrdersCHARGEDConstant            = "CHARGED"
-	QueryOrdersCLOSEDConstant             = "CLOSED"
-	QueryOrdersDELETEDConstant            = "DELETED"
-	QueryOrdersFULFILLEDConstant          = "FULFILLED"
-	QueryOrdersFULFILLFAILEDConstant      = "FULFILL_FAILED"
-	QueryOrdersINITConstant               = "INIT"
-	QueryOrdersREFUNDEDConstant           = "REFUNDED"
-	QueryOrdersREFUNDINGConstant          = "REFUNDING"
-	QueryOrdersREFUNDFAILEDConstant       = "REFUND_FAILED"
-)
 
 // Get the enum in QueryOrdersParams
 const (

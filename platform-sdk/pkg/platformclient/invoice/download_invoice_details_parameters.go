@@ -18,21 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use DownloadInvoiceDetailsItemType<EnumValue>Constant instead.
-// Get the enum in DownloadInvoiceDetailsParams
-const (
-	DownloadInvoiceDetailsAPPConstant          = "APP"
-	DownloadInvoiceDetailsBUNDLEConstant       = "BUNDLE"
-	DownloadInvoiceDetailsCODEConstant         = "CODE"
-	DownloadInvoiceDetailsCOINSConstant        = "COINS"
-	DownloadInvoiceDetailsEXTENSIONConstant    = "EXTENSION"
-	DownloadInvoiceDetailsINGAMEITEMConstant   = "INGAMEITEM"
-	DownloadInvoiceDetailsLOOTBOXConstant      = "LOOTBOX"
-	DownloadInvoiceDetailsMEDIAConstant        = "MEDIA"
-	DownloadInvoiceDetailsOPTIONBOXConstant    = "OPTIONBOX"
-	DownloadInvoiceDetailsSEASONConstant       = "SEASON"
-	DownloadInvoiceDetailsSUBSCRIPTIONConstant = "SUBSCRIPTION"
-)
 
 // Get the enum in DownloadInvoiceDetailsParams
 const (

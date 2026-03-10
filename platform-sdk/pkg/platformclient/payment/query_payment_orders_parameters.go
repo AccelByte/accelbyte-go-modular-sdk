@@ -19,30 +19,7 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// Deprecated: 2025-07-16 - Use QueryPaymentOrdersChannel<EnumValue>Constant instead.
-// Get the enum in QueryPaymentOrdersParams
-const (
-	QueryPaymentOrdersEXTERNALConstant = "EXTERNAL"
-	QueryPaymentOrdersINTERNALConstant = "INTERNAL"
-)
 
-// Deprecated: 2025-07-16 - Use QueryPaymentOrdersStatus<EnumValue>Constant instead.
-// Get the enum in QueryPaymentOrdersParams
-const (
-	QueryPaymentOrdersAUTHORISEDConstant               = "AUTHORISED"
-	QueryPaymentOrdersAUTHORISEFAILEDConstant          = "AUTHORISE_FAILED"
-	QueryPaymentOrdersCHARGEBACKConstant               = "CHARGEBACK"
-	QueryPaymentOrdersCHARGEBACKREVERSEDConstant       = "CHARGEBACK_REVERSED"
-	QueryPaymentOrdersCHARGEDConstant                  = "CHARGED"
-	QueryPaymentOrdersCHARGEFAILEDConstant             = "CHARGE_FAILED"
-	QueryPaymentOrdersDELETEDConstant                  = "DELETED"
-	QueryPaymentOrdersINITConstant                     = "INIT"
-	QueryPaymentOrdersNOTIFICATIONOFCHARGEBACKConstant = "NOTIFICATION_OF_CHARGEBACK"
-	QueryPaymentOrdersREFUNDEDConstant                 = "REFUNDED"
-	QueryPaymentOrdersREFUNDINGConstant                = "REFUNDING"
-	QueryPaymentOrdersREFUNDFAILEDConstant             = "REFUND_FAILED"
-	QueryPaymentOrdersREQUESTFORINFORMATIONConstant    = "REQUEST_FOR_INFORMATION"
-)
 
 // Get the enum in QueryPaymentOrdersParams
 const (

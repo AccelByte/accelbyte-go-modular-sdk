@@ -18,19 +18,6 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// Deprecated: 2025-07-16 - Use GetThirdPartyPlatformSubscriptionOwnershipByGroupIDPlatform<EnumValue>Constant instead.
-// Get the enum in GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams
-const (
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDAPPLEConstant       = "APPLE"
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDEPICGAMESConstant   = "EPICGAMES"
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDGOOGLEConstant      = "GOOGLE"
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDOCULUSConstant      = "OCULUS"
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDPLAYSTATIONConstant = "PLAYSTATION"
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDSTADIAConstant      = "STADIA"
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDSTEAMConstant       = "STEAM"
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDTWITCHConstant      = "TWITCH"
-	GetThirdPartyPlatformSubscriptionOwnershipByGroupIDXBOXConstant        = "XBOX"
-)
 
 // Get the enum in GetThirdPartyPlatformSubscriptionOwnershipByGroupIDParams
 const (
