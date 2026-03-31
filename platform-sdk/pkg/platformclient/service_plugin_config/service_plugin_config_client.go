@@ -45,6 +45,7 @@ type ClientService interface {
 	GetRevocationPluginConfigShort(params *GetRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationPluginConfigResponse, error)
 	UpdateRevocationPluginConfigShort(params *UpdateRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateRevocationPluginConfigResponse, error)
 	DeleteRevocationPluginConfigShort(params *DeleteRevocationPluginConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteRevocationPluginConfigResponse, error)
+	UploadRevocationPluginConfigCertV2Short(params *UploadRevocationPluginConfigCertV2Params, authInfo runtime.ClientAuthInfoWriter) (*UploadRevocationPluginConfigCertV2Response, error)
 	UploadRevocationPluginConfigCertShort(params *UploadRevocationPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadRevocationPluginConfigCertResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -905,8 +906,70 @@ func (a *Client) DeleteRevocationPluginConfigShort(params *DeleteRevocationPlugi
 }
 
 /*
-UploadRevocationPluginConfigCertShort upload revocation plugin custom config tls cert
+UploadRevocationPluginConfigCertV2Short upload revocation plugin custom config tls cert
 Upload revocation plugin custom config tls cert.Other detail info:
+  - Returns : updated service plugin config
+*/
+func (a *Client) UploadRevocationPluginConfigCertV2Short(params *UploadRevocationPluginConfigCertV2Params, authInfo runtime.ClientAuthInfoWriter) (*UploadRevocationPluginConfigCertV2Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUploadRevocationPluginConfigCertV2Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "uploadRevocationPluginConfigCertV2",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/revocation/plugins/revocation/customConfig/cert",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"multipart/form-data"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UploadRevocationPluginConfigCertV2Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *UploadRevocationPluginConfigCertV2OK:
+		response := &UploadRevocationPluginConfigCertV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *UploadRevocationPluginConfigCertV2UnprocessableEntity:
+		response := &UploadRevocationPluginConfigCertV2Response{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+UploadRevocationPluginConfigCertShort [deprecated]upload revocation plugin custom config tls cert
+Upload revocation plugin custom config tls cert. This api has been deprecated, please use /admin/namespaces/{namespace}/revocation/plugins/revocation/customConfig/cert to update revocation certOther detail info:
   - Returns : updated service plugin config
 */
 func (a *Client) UploadRevocationPluginConfigCertShort(params *UploadRevocationPluginConfigCertParams, authInfo runtime.ClientAuthInfoWriter) (*UploadRevocationPluginConfigCertResponse, error) {

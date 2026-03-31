@@ -167,7 +167,7 @@ func (a *Client) CreateOculusSubscriptionGroupShort(params *CreateOculusSubscrip
 }
 
 /*
-DeleteOculusSubscriptionGroupShort delete a ags meta quest(oculus) subscriptions group
+DeleteOculusSubscriptionGroupShort delete an ags meta quest(oculus) subscriptions group
 can't delete it if this subscription group is used.
 */
 func (a *Client) DeleteOculusSubscriptionGroupShort(params *DeleteOculusSubscriptionGroupParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusSubscriptionGroupResponse, error) {
@@ -349,7 +349,7 @@ func (a *Client) AddTierIntoMetaQuestSubscriptionGroupShort(params *AddTierIntoM
 }
 
 /*
-DeleteOculusSubscriptionTierShort delete a ags meta quest(oculus) subscriptions tier
+DeleteOculusSubscriptionTierShort delete an ags meta quest(oculus) subscriptions tier
 */
 func (a *Client) DeleteOculusSubscriptionTierShort(params *DeleteOculusSubscriptionTierParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteOculusSubscriptionTierResponse, error) {
 	// TODO: Validate the params before sending

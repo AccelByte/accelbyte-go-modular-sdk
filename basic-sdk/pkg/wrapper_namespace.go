@@ -376,6 +376,40 @@ func (aaa *NamespaceService) ChangeNamespaceStatusShort(input *namespace.ChangeN
 	return ok, nil
 }
 
+func (aaa *NamespaceService) UpdateTestingFlagShort(input *namespace.UpdateTestingFlagParams) (*namespace.UpdateTestingFlagResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdNamespace != nil {
+		input.XFlightId = tempFlightIdNamespace
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Namespace.UpdateTestingFlagShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
 func (aaa *NamespaceService) PublicGetNamespacesShort(input *namespace.PublicGetNamespacesParams) (*namespace.PublicGetNamespacesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

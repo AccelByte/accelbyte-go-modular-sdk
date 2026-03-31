@@ -280,6 +280,36 @@ func (aaa *StatCycleConfigurationService) DeleteStatCycleShort(input *stat_cycle
 	return nil
 }
 
+func (aaa *StatCycleConfigurationService) ResetStatCycleShort(input *stat_cycle_configuration.ResetStatCycleParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdStatCycleConfiguration != nil {
+		input.XFlightId = tempFlightIdStatCycleConfiguration
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.StatCycleConfiguration.ResetStatCycleShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (aaa *StatCycleConfigurationService) BulkAddStatsShort(input *stat_cycle_configuration.BulkAddStatsParams) (*stat_cycle_configuration.BulkAddStatsResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
