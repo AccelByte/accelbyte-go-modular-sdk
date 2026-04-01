@@ -6,7 +6,7 @@ replace github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk => ../../../lobb
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.0.0-00010101000000-000000000000
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 	github.com/gorilla/websocket v1.5.3
 )
 

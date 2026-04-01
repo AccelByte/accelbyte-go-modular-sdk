@@ -10,7 +10,7 @@ toolchain go1.23.12
 replace github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk => ../../../../social-sdk
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.0.0
 )
 

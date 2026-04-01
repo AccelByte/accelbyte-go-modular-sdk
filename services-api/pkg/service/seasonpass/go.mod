@@ -11,7 +11,7 @@ replace github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk => ../../..
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.0.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 )
 
 require (
