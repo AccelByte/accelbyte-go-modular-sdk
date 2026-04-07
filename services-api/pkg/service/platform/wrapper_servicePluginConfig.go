@@ -488,6 +488,36 @@ func (aaa *ServicePluginConfigService) DeleteRevocationPluginConfigShort(input *
 	return nil
 }
 
+func (aaa *ServicePluginConfigService) UploadRevocationPluginConfigCertV2Short(input *service_plugin_config.UploadRevocationPluginConfigCertV2Params) (*service_plugin_config.UploadRevocationPluginConfigCertV2Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdServicePluginConfig != nil {
+		input.XFlightId = tempFlightIdServicePluginConfig
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.ServicePluginConfig.UploadRevocationPluginConfigCertV2Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
 func (aaa *ServicePluginConfigService) UploadRevocationPluginConfigCertShort(input *service_plugin_config.UploadRevocationPluginConfigCertParams) (*service_plugin_config.UploadRevocationPluginConfigCertResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

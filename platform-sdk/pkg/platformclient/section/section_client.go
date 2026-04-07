@@ -334,8 +334,8 @@ func (a *Client) GetSectionShort(params *GetSectionParams, authInfo runtime.Clie
 }
 
 /*
-UpdateSectionShort update s section
-This API is used to update s section.
+UpdateSectionShort update a section
+This API is used to update a section.
 
 Other detail info:
   - Returns : updated section data

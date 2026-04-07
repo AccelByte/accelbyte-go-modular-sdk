@@ -16,7 +16,7 @@ require (
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0 // indirect
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0 // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect
@@ -40,7 +40,6 @@ require (
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
-	github.com/sirupsen/logrus v1.9.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/willf/bitset v1.1.11 // indirect
 	go.mongodb.org/mongo-driver v1.10.0 // indirect

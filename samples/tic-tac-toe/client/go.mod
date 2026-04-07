@@ -11,7 +11,7 @@ replace (
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15
 	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 )
 
 require (

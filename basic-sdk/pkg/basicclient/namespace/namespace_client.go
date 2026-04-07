@@ -40,6 +40,7 @@ type ClientService interface {
 	GetGameNamespacesShort(params *GetGameNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*GetGameNamespacesResponse, error)
 	GetNamespacePublisherShort(params *GetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*GetNamespacePublisherResponse, error)
 	ChangeNamespaceStatusShort(params *ChangeNamespaceStatusParams, authInfo runtime.ClientAuthInfoWriter) (*ChangeNamespaceStatusResponse, error)
+	UpdateTestingFlagShort(params *UpdateTestingFlagParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTestingFlagResponse, error)
 	PublicGetNamespacesShort(params *PublicGetNamespacesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacesResponse, error)
 	GetNamespace1Short(params *GetNamespace1Params) (*GetNamespace1Response, error)
 	PublicGetNamespacePublisherShort(params *PublicGetNamespacePublisherParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetNamespacePublisherResponse, error)
@@ -879,6 +880,99 @@ func (a *Client) ChangeNamespaceStatusShort(params *ChangeNamespaceStatusParams,
 		return response, v
 	case *ChangeNamespaceStatusConflict:
 		response := &ChangeNamespaceStatusResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+UpdateTestingFlagShort update namespace testing flag
+Update namespace testing flag.
+In multi-tenant mode, this is only applicable for studio namespaces, not game namespaces.
+Other detail info:
+
+  - Returns : updated namespace
+*/
+func (a *Client) UpdateTestingFlagShort(params *UpdateTestingFlagParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTestingFlagResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewUpdateTestingFlagParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "updateTestingFlag",
+		Method:             "PATCH",
+		PathPattern:        "/basic/v1/admin/namespaces/{namespace}/testingFlag",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &UpdateTestingFlagReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *UpdateTestingFlagOK:
+		response := &UpdateTestingFlagResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *UpdateTestingFlagBadRequest:
+		response := &UpdateTestingFlagResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *UpdateTestingFlagUnauthorized:
+		response := &UpdateTestingFlagResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *UpdateTestingFlagForbidden:
+		response := &UpdateTestingFlagResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *UpdateTestingFlagNotFound:
+		response := &UpdateTestingFlagResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *UpdateTestingFlagConflict:
+		response := &UpdateTestingFlagResponse{}
 		response.Error409 = v.Payload
 
 		response.IsSuccess = false

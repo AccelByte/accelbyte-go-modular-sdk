@@ -12,7 +12,7 @@ replace github.com/AccelByte/accelbyte-go-modular-sdk/services-api => ../service
 
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0-alpha.6
+	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922
 	github.com/AccelByte/go-jose v2.1.4+incompatible
 	github.com/go-openapi/errors v0.20.2

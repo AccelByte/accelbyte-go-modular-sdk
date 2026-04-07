@@ -406,6 +406,40 @@ func (aaa *FulfillmentService) RevokeItemsShort(input *fulfillment.RevokeItemsPa
 	return ok, nil
 }
 
+func (aaa *FulfillmentService) BulkFulfillItemsV3Short(input *fulfillment.BulkFulfillItemsV3Params) (*fulfillment.BulkFulfillItemsV3Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdFulfillment != nil {
+		input.XFlightId = tempFlightIdFulfillment
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Fulfillment.BulkFulfillItemsV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
 func (aaa *FulfillmentService) FulfillItemsV3Short(input *fulfillment.FulfillItemsV3Params) (*fulfillment.FulfillItemsV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

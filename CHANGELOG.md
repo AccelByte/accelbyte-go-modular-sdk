@@ -14,6 +14,20 @@
 - **integration:** iam - shouldReauth - make refresh rate smaller
 
 
+<a name="ags/v2026.2"></a>
+## [For AGS v2026.2]
+### docs
+- **:** remove experimental in readme
+- **:** update doc portal links
+- **docs:** update migrate_from_monolitic.md
+### chore
+- **:** release services-api v0.1.0
+- **sdk:** generate go extend sdk (2026-03-31T01:46:34+00:00)
+- **docs:** add migration guide for ags 2026.2
+- **:** version bump
+- **:** use services-api v0.1.0
+
+
 <a name="ags//v2025.10"></a>
 ## [For AGS v2025.10]
 ### chore

@@ -39,6 +39,7 @@ type ClientService interface {
 	GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycleResponse, error)
 	UpdateStatCycleShort(params *UpdateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatCycleResponse, error)
 	DeleteStatCycleShort(params *DeleteStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteStatCycleResponse, error)
+	ResetStatCycleShort(params *ResetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*ResetStatCycleResponse, error)
 	BulkAddStatsShort(params *BulkAddStatsParams, authInfo runtime.ClientAuthInfoWriter) (*BulkAddStatsResponse, error)
 	StopStatCycleShort(params *StopStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*StopStatCycleResponse, error)
 	GetStatCycles1Short(params *GetStatCycles1Params, authInfo runtime.ClientAuthInfoWriter) (*GetStatCycles1Response, error)
@@ -570,7 +571,9 @@ func (a *Client) GetStatCycleShort(params *GetStatCycleParams, authInfo runtime.
 UpdateStatCycleShort update stat cycle
 Update stat cycle.
 Other detail info:
-  - Returns : updated stat cycle
+  - STOPPED cycles cannot be updated
+  - If changing the start time of an ACTIVE cycle to a future time, the status will be set to INIT and the related user data will be removed
+  - If changing the cycle type of an ACTIVE cycle, the related user data will be removed
 */
 func (a *Client) UpdateStatCycleShort(params *UpdateStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateStatCycleResponse, error) {
 	// TODO: Validate the params before sending
@@ -741,6 +744,96 @@ func (a *Client) DeleteStatCycleShort(params *DeleteStatCycleParams, authInfo ru
 		return response, v
 	case *DeleteStatCycleInternalServerError:
 		response := &DeleteStatCycleResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+ResetStatCycleShort reset stat cycle
+Reset stat cycle.
+Other detail info:
+  - This endpoint will reset the cycle immediately
+*/
+func (a *Client) ResetStatCycleShort(params *ResetStatCycleParams, authInfo runtime.ClientAuthInfoWriter) (*ResetStatCycleResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewResetStatCycleParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "resetStatCycle",
+		Method:             "POST",
+		PathPattern:        "/social/v1/admin/namespaces/{namespace}/statCycles/{cycleId}/reset",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ResetStatCycleReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *ResetStatCycleNoContent:
+		response := &ResetStatCycleResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *ResetStatCycleUnauthorized:
+		response := &ResetStatCycleResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *ResetStatCycleForbidden:
+		response := &ResetStatCycleResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *ResetStatCycleNotFound:
+		response := &ResetStatCycleResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *ResetStatCycleConflict:
+		response := &ResetStatCycleResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *ResetStatCycleInternalServerError:
+		response := &ResetStatCycleResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

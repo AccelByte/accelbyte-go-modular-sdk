@@ -41,6 +41,7 @@ type ClientService interface {
 	FulfillItemsShort(params *FulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsResponse, error)
 	RetryFulfillItemsShort(params *RetryFulfillItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsResponse, error)
 	RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsResponse, error)
+	BulkFulfillItemsV3Short(params *BulkFulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*BulkFulfillItemsV3Response, error)
 	FulfillItemsV3Short(params *FulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*FulfillItemsV3Response, error)
 	RetryFulfillItemsV3Short(params *RetryFulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*RetryFulfillItemsV3Response, error)
 	RevokeItemsV3Short(params *RevokeItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*RevokeItemsV3Response, error)
@@ -871,6 +872,65 @@ func (a *Client) RevokeItemsShort(params *RevokeItemsParams, authInfo runtime.Cl
 		response.IsSuccess = false
 
 		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+BulkFulfillItemsV3Short fulfill multiple transactions
+
+	[Not supported yet in AGS Shared Cloud] Fulfill multiple transactions.
+
+Other detail info:
+  - Request body : list of fulfillment v3 requests. storeId, region, language, and entitlementCollectionId can be ignored.
+  - Returns : list of fulfillment v2 result
+*/
+func (a *Client) BulkFulfillItemsV3Short(params *BulkFulfillItemsV3Params, authInfo runtime.ClientAuthInfoWriter) (*BulkFulfillItemsV3Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewBulkFulfillItemsV3Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "bulkFulfillItemsV3",
+		Method:             "PUT",
+		PathPattern:        "/platform/v3/admin/namespaces/{namespace}/users/{userId}/fulfillments/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &BulkFulfillItemsV3Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *BulkFulfillItemsV3OK:
+		response := &BulkFulfillItemsV3Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
