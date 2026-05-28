@@ -18,6 +18,13 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
+// Deprecated: 2025-07-16 - Use GetCategory<EnumValue>Constant instead.
+// Get the enum in GetParams
+const (
+	GetAllConstant       = "all"
+	GetExtensionConstant = "extension"
+)
+
 // Get the enum in GetParams
 const (
 	GetCategoryAllConstant       = "all"

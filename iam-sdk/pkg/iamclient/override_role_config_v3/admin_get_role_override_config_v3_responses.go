@@ -23,7 +23,6 @@ type AdminGetRoleOverrideConfigV3Response struct {
 	iamclientmodels.ApiResponse
 	Data *iamclientmodels.ModelRoleOverrideResponse
 
-	Error400 *iamclientmodels.RestErrorResponse
 	Error401 *iamclientmodels.RestErrorResponse
 	Error403 *iamclientmodels.RestErrorResponse
 	Error500 *iamclientmodels.RestErrorResponse
@@ -35,14 +34,6 @@ func (m *AdminGetRoleOverrideConfigV3Response) Unpack() (*iamclientmodels.ModelR
 		errCode = m.StatusCode
 
 		switch errCode {
-
-		case 400:
-			e, err := m.Error400.TranslateToApiError()
-			if err != nil {
-				_ = fmt.Errorf("failed to translate error. %v", err)
-			}
-
-			return nil, e
 
 		case 401:
 			e, err := m.Error401.TranslateToApiError()
@@ -86,12 +77,6 @@ func (o *AdminGetRoleOverrideConfigV3Reader) ReadResponse(response runtime.Clien
 	switch response.Code() {
 	case 200:
 		result := NewAdminGetRoleOverrideConfigV3OK()
-		if err := result.readResponse(response, consumer, o.formats); err != nil {
-			return nil, err
-		}
-		return result, nil
-	case 400:
-		result := NewAdminGetRoleOverrideConfigV3BadRequest()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -171,61 +156,6 @@ func (o *AdminGetRoleOverrideConfigV3OK) readResponse(response runtime.ClientRes
 	}
 
 	o.Payload = new(iamclientmodels.ModelRoleOverrideResponse)
-
-	// response payload
-	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
-		return err
-	}
-
-	return nil
-}
-
-// NewAdminGetRoleOverrideConfigV3BadRequest creates a AdminGetRoleOverrideConfigV3BadRequest with default headers values
-func NewAdminGetRoleOverrideConfigV3BadRequest() *AdminGetRoleOverrideConfigV3BadRequest {
-	return &AdminGetRoleOverrideConfigV3BadRequest{}
-}
-
-/*
-AdminGetRoleOverrideConfigV3BadRequest handles this case with default header values.
-
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
-*/
-type AdminGetRoleOverrideConfigV3BadRequest struct {
-	Payload *iamclientmodels.RestErrorResponse
-}
-
-func (o *AdminGetRoleOverrideConfigV3BadRequest) Error() string {
-	return fmt.Sprintf("[GET /iam/v3/admin/namespaces/{namespace}/roleoverride][%d] adminGetRoleOverrideConfigV3BadRequest  %+v", 400, o.ToJSONString())
-}
-
-func (o *AdminGetRoleOverrideConfigV3BadRequest) ToJSONString() string {
-	if o.Payload == nil {
-		return "{}"
-	}
-
-	b, err := json.Marshal(o.Payload)
-	if err != nil {
-		fmt.Println(err)
-
-		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
-	}
-
-	return fmt.Sprintf("%+v", string(b))
-}
-
-func (o *AdminGetRoleOverrideConfigV3BadRequest) GetPayload() *iamclientmodels.RestErrorResponse {
-	return o.Payload
-}
-
-func (o *AdminGetRoleOverrideConfigV3BadRequest) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
-
-	// handle file responses
-	contentDisposition := response.GetHeader("Content-Disposition")
-	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
-		consumer = runtime.ByteStreamConsumer()
-	}
-
-	o.Payload = new(iamclientmodels.RestErrorResponse)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

@@ -38,6 +38,7 @@ type ClientService interface {
 
 /*
 LoginSSOClientShort login to sso client with provided platformid
+Redirects the user to the SSO client's login page for the specified platform. An optional 'payload' query parameter can be passed with key-value data from the SSO client.
 */
 func (a *Client) LoginSSOClientShort(params *LoginSSOClientParams, authInfo runtime.ClientAuthInfoWriter) (*LoginSSOClientResponse, error) {
 	// TODO: Validate the params before sending
@@ -90,7 +91,7 @@ func (a *Client) LoginSSOClientShort(params *LoginSSOClientParams, authInfo runt
 
 /*
 LogoutSSOClientShort logout
-Logout user's session on platform that logged in using SSO.
+Logs out the user's session on a platform that was authenticated using SSO.
 
 Supported platforms:
 - discourse

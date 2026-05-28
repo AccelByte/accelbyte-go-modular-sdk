@@ -41,6 +41,8 @@ type ClientService interface {
 	PublicRevokePartyCodeShort(params *PublicRevokePartyCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicRevokePartyCodeResponse, error)
 	PublicPartyInviteShort(params *PublicPartyInviteParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyInviteResponse, error)
 	PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromotePartyLeaderResponse, error)
+	PublicGetPartyPasswordShort(params *PublicGetPartyPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyPasswordResponse, error)
+	PublicUpdatePartyPasswordShort(params *PublicUpdatePartyPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyPasswordResponse, error)
 	PublicPartyJoinShort(params *PublicPartyJoinParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyJoinResponse, error)
 	PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyLeaveResponse, error)
 	PublicPartyRejectShort(params *PublicPartyRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyRejectResponse, error)
@@ -1023,6 +1025,183 @@ func (a *Client) PublicPromotePartyLeaderShort(params *PublicPromotePartyLeaderP
 }
 
 /*
+PublicGetPartyPasswordShort get password of a password-protected party.
+Get the plaintext password of a PASSWORD_PROTECTED party. Only active members of the party may call this endpoint.
+*/
+func (a *Client) PublicGetPartyPasswordShort(params *PublicGetPartyPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyPasswordResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicGetPartyPasswordParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicGetPartyPassword",
+		Method:             "GET",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/password",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicGetPartyPasswordReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicGetPartyPasswordOK:
+		response := &PublicGetPartyPasswordResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicGetPartyPasswordBadRequest:
+		response := &PublicGetPartyPasswordResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetPartyPasswordUnauthorized:
+		response := &PublicGetPartyPasswordResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetPartyPasswordForbidden:
+		response := &PublicGetPartyPasswordResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetPartyPasswordNotFound:
+		response := &PublicGetPartyPasswordResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetPartyPasswordInternalServerError:
+		response := &PublicGetPartyPasswordResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicUpdatePartyPasswordShort update password of a password-protected party.
+Update the password of a PASSWORD_PROTECTED party. Only the party leader may call this endpoint.
+*/
+func (a *Client) PublicUpdatePartyPasswordShort(params *PublicUpdatePartyPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePartyPasswordResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicUpdatePartyPasswordParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicUpdatePartyPassword",
+		Method:             "PUT",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/parties/{partyId}/password",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicUpdatePartyPasswordReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicUpdatePartyPasswordNoContent:
+		response := &PublicUpdatePartyPasswordResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicUpdatePartyPasswordBadRequest:
+		response := &PublicUpdatePartyPasswordResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdatePartyPasswordUnauthorized:
+		response := &PublicUpdatePartyPasswordResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdatePartyPasswordForbidden:
+		response := &PublicUpdatePartyPasswordResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdatePartyPasswordNotFound:
+		response := &PublicUpdatePartyPasswordResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdatePartyPasswordInternalServerError:
+		response := &PublicUpdatePartyPasswordResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 PublicPartyJoinShort join a party.
 Join a party. The user can either join a party they have been invited to, or any party with an "open" joinable setting.
 */
@@ -1478,6 +1657,9 @@ When session configuration "name" is provided, we will refer to the template if 
 - joinability
 - configurationName
 - attributes
+
+maxPlayers override rules:
+- maxPlayers can be set to a value lower than or equal to the template's maxPlayers. Values above the template ceiling are ignored and the template value is used instead.
 
 Supported platforms:
 1. STEAM

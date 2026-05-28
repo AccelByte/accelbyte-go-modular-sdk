@@ -18,6 +18,14 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
+// Deprecated: 2025-07-16 - Use AdminGetRoleSourceV3Identity<EnumValue>Constant instead.
+// Get the enum in AdminGetRoleSourceV3Params
+const (
+	AdminGetRoleSourceV3GAMEADMINConstant = "GAME_ADMIN"
+	AdminGetRoleSourceV3USERConstant      = "USER"
+	AdminGetRoleSourceV3VIEWONLYConstant  = "VIEW_ONLY"
+)
+
 // Get the enum in AdminGetRoleSourceV3Params
 const (
 	AdminGetRoleSourceV3IdentityGAMEADMINConstant = "GAME_ADMIN"
@@ -85,7 +93,7 @@ type AdminGetRoleSourceV3Params struct {
 	/*RetryPolicy*/
 	RetryPolicy *utils.Retry
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

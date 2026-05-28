@@ -30,6 +30,7 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
+	CreateNewNoSQLDatabaseCredentialV2Short(params *CreateNewNoSQLDatabaseCredentialV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewNoSQLDatabaseCredentialV2Response, error)
 	CreateNoSQLDatabaseCredentialV2Short(params *CreateNoSQLDatabaseCredentialV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNoSQLDatabaseCredentialV2Response, error)
 	GetNoSQLDatabaseV2Short(params *GetNoSQLDatabaseV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNoSQLDatabaseV2Response, error)
 	CreateNoSQLDatabaseV2Short(params *CreateNoSQLDatabaseV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNoSQLDatabaseV2Response, error)
@@ -47,10 +48,119 @@ type ClientService interface {
 }
 
 /*
+CreateNewNoSQLDatabaseCredentialV2Short creates a new database credential for the customer
+Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASECREDENTIALS [CREATE]`
+
+Creates a new database credential for the customer. This will soft-delete the old credential and create a new one.
+
+`acknowledgements.acceptNosqlSecureCredentialHandling` is optional when previously accepted during database creation. Otherwise, it MUST be set to true to proceed with credential creation, indicating the customer accepts the secure credential handling mechanism.
+*/
+func (a *Client) CreateNewNoSQLDatabaseCredentialV2Short(params *CreateNewNoSQLDatabaseCredentialV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNewNoSQLDatabaseCredentialV2Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateNewNoSQLDatabaseCredentialV2Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "CreateNewNoSQLDatabaseCredentialV2",
+		Method:             "POST",
+		PathPattern:        "/csm/v2/admin/namespaces/{namespace}/apps/{app}/nosql/credentials",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateNewNoSQLDatabaseCredentialV2Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *CreateNewNoSQLDatabaseCredentialV2OK:
+		response := &CreateNewNoSQLDatabaseCredentialV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *CreateNewNoSQLDatabaseCredentialV2BadRequest:
+		response := &CreateNewNoSQLDatabaseCredentialV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *CreateNewNoSQLDatabaseCredentialV2Unauthorized:
+		response := &CreateNewNoSQLDatabaseCredentialV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *CreateNewNoSQLDatabaseCredentialV2Forbidden:
+		response := &CreateNewNoSQLDatabaseCredentialV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *CreateNewNoSQLDatabaseCredentialV2NotFound:
+		response := &CreateNewNoSQLDatabaseCredentialV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *CreateNewNoSQLDatabaseCredentialV2Conflict:
+		response := &CreateNewNoSQLDatabaseCredentialV2Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *CreateNewNoSQLDatabaseCredentialV2InternalServerError:
+		response := &CreateNewNoSQLDatabaseCredentialV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *CreateNewNoSQLDatabaseCredentialV2ServiceUnavailable:
+		response := &CreateNewNoSQLDatabaseCredentialV2Response{}
+		response.Error503 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 CreateNoSQLDatabaseCredentialV2Short creates a new database credential for the customer
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASECREDENTIALS [CREATE]`
 
 Creates a new database credential for the customer. This will soft-delete the old credential and create a new one.
+
+`acknowledgements.acceptNosqlSecureCredentialHandling` is optional when previously accepted during database creation. Otherwise, it MUST be set to true to proceed with credential creation, indicating the customer accepts the secure credential handling mechanism.
 */
 func (a *Client) CreateNoSQLDatabaseCredentialV2Short(params *CreateNoSQLDatabaseCredentialV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNoSQLDatabaseCredentialV2Response, error) {
 	// TODO: Validate the params before sending
@@ -160,15 +270,15 @@ and app name.
 
 `resourceStatus` field - indicates the NoSQL cluster status:
 - `available` : The cluster is accessible.
-- `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max DCU).
 - `creating` : The cluster or instance is being created and is not yet accessible.
+- `failed` : The cluster failed to provision or is in an error state and not accessible.
+- `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
+- `maintenance` : The cluster is undergoing maintenance operations and is not accessible.
+- `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max DCU).
 - `deleting` : The cluster is in the process of being deleted and is not accessible.
 - `stopped` : The cluster is stopped and not accessible.
 - `starting` : The cluster is transitioning from stopped to running, or is rebooting.
 - `unknown` : The cluster status is not recognized
-- `failed` : The cluster failed to provision or is in an error state and not accessible.
-- `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
-- `maintenance` : The cluster is undergoing maintenance operations and is not accessible.
 */
 func (a *Client) GetNoSQLDatabaseV2Short(params *GetNoSQLDatabaseV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNoSQLDatabaseV2Response, error) {
 	// TODO: Validate the params before sending
@@ -253,6 +363,8 @@ CreateNoSQLDatabaseV2Short creates nosql database for extend app
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASES [CREATE]`
 
 Creates a NoSQL database along with its credentials associated with given extend app. The database will be created in the provisioned NoSQL cluster.
+
+`acknowledgements.acceptNosqlSecureCredentialHandling` MUST be set to true to proceed with database creation, indicating the customer accepts the secure credential handling mechanism.
 */
 func (a *Client) CreateNoSQLDatabaseV2Short(params *CreateNoSQLDatabaseV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateNoSQLDatabaseV2Response, error) {
 	// TODO: Validate the params before sending
@@ -458,16 +570,16 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [READ]`
 Get NoSQL cluster information returns the NoSQL cluster related information by given studio/publisher namespace.
 
 `status` field - indicates the NoSQL cluster status:
+- `starting` : The cluster is transitioning from stopped to running, or is rebooting.
 - `unknown` : The cluster status is not recognized
+- `available` : The cluster is accessible.
+- `creating` : The cluster or instance is being created and is not yet accessible.
 - `failed` : The cluster failed to provision or is in an error state and not accessible.
 - `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
 - `maintenance` : The cluster is undergoing maintenance operations and is not accessible.
-- `available` : The cluster is accessible.
 - `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max DCU).
-- `creating` : The cluster or instance is being created and is not yet accessible.
 - `deleting` : The cluster is in the process of being deleted and is not accessible.
 - `stopped` : The cluster is stopped and not accessible.
-- `starting` : The cluster is transitioning from stopped to running, or is rebooting.
 */
 func (a *Client) GetNoSQLClusterV2Short(params *GetNoSQLClusterV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNoSQLClusterV2Response, error) {
 	// TODO: Validate the params before sending
@@ -1132,16 +1244,16 @@ GetNoSQLAppListV2Short get list of extend app using nosql
 Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [READ]`
 
 Get List of Extend App using NoSQL database by given studio/publisher namespace and the NoSQL cluster resourceId.
-- `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
-- `maintenance` : The cluster is undergoing maintenance operations and is not accessible.
-- `available` : The cluster is accessible.
-- `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max DCU).
-- `creating` : The cluster or instance is being created and is not yet accessible.
-- `deleting` : The cluster is in the process of being deleted and is not accessible.
-- `stopped` : The cluster is stopped and not accessible.
 - `starting` : The cluster is transitioning from stopped to running, or is rebooting.
 - `unknown` : The cluster status is not recognized
+- `available` : The cluster is accessible.
+- `creating` : The cluster or instance is being created and is not yet accessible.
 - `failed` : The cluster failed to provision or is in an error state and not accessible.
+- `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
+- `maintenance` : The cluster is undergoing maintenance operations and is not accessible.
+- `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max DCU).
+- `deleting` : The cluster is in the process of being deleted and is not accessible.
+- `stopped` : The cluster is stopped and not accessible.
 */
 func (a *Client) GetNoSQLAppListV2Short(params *GetNoSQLAppListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNoSQLAppListV2Response, error) {
 	// TODO: Validate the params before sending

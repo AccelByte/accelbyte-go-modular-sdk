@@ -71,12 +71,12 @@ type AddUserPermissionParams struct {
 	/*Body*/
 	Body *iamclientmodels.ModelUpdatePermissionScheduleRequest
 	/*Action
-	  Action (1..15)
+	  Action, value must be in range 1-15
 
 	*/
 	Action int64
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string
@@ -86,7 +86,7 @@ type AddUserPermissionParams struct {
 	*/
 	Resource string
 	/*UserID
-	  User id
+	  User ID
 
 	*/
 	UserID string

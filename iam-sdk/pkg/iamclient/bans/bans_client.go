@@ -44,7 +44,7 @@ type ClientService interface {
 
 /*
 GetBansTypeShort get list of ban types
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/bans [GET]_**
 */
@@ -114,7 +114,7 @@ func (a *Client) GetBansTypeShort(params *GetBansTypeParams, authInfo runtime.Cl
 
 /*
 GetListBanReasonShort get list of ban reasons
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/bans/reasons [GET]_**
 */
@@ -186,7 +186,6 @@ func (a *Client) GetListBanReasonShort(params *GetListBanReasonParams, authInfo 
 AdminGetBansTypeV3Short get list of ban types
 Ban type is the code
 available for ban assignment. It is applicable globally for any namespace.
-action code : 10201
 */
 func (a *Client) AdminGetBansTypeV3Short(params *AdminGetBansTypeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeV3Response, error) {
 	// TODO: Validate the params before sending
@@ -262,7 +261,6 @@ func (a *Client) AdminGetBansTypeV3Short(params *AdminGetBansTypeV3Params, authI
 /*
 AdminGetListBanReasonV3Short get list of ban reasons
 Ban reasons is the code available to justify ban assignment. It is applicable globally for any namespace.
-action code : 10202
 */
 func (a *Client) AdminGetListBanReasonV3Short(params *AdminGetListBanReasonV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListBanReasonV3Response, error) {
 	// TODO: Validate the params before sending
@@ -337,9 +335,7 @@ func (a *Client) AdminGetListBanReasonV3Short(params *AdminGetListBanReasonV3Par
 
 /*
 AdminGetBannedUsersV3Short get list of user filtered by ban types
-Ban type is the code
-available for ban assignment. It is applicable globally for any namespace.
-action code : 10201
+Retrieves a paginated list of users who have active or history bans, filtered by ban type.
 */
 func (a *Client) AdminGetBannedUsersV3Short(params *AdminGetBannedUsersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBannedUsersV3Response, error) {
 	// TODO: Validate the params before sending
@@ -415,7 +411,6 @@ func (a *Client) AdminGetBannedUsersV3Short(params *AdminGetBannedUsersV3Params,
 /*
 AdminBanUserBulkV3Short bulk ban user
 Bulk ban user with specific type of ban. Ban types and reason can be queried. The maximum limit value is 100 userIDs
-action code : 10141
 */
 func (a *Client) AdminBanUserBulkV3Short(params *AdminBanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserBulkV3Response, error) {
 	// TODO: Validate the params before sending
@@ -505,7 +500,6 @@ func (a *Client) AdminBanUserBulkV3Short(params *AdminBanUserBulkV3Params, authI
 /*
 AdminUnbanUserBulkV3Short bulk unban user
 disable bulk ban user. The maximum limit value is 100
-action code : 10142
 */
 func (a *Client) AdminUnbanUserBulkV3Short(params *AdminUnbanUserBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanUserBulkV3Response, error) {
 	// TODO: Validate the params before sending
@@ -596,7 +590,6 @@ func (a *Client) AdminUnbanUserBulkV3Short(params *AdminUnbanUserBulkV3Params, a
 AdminGetBansTypeWithNamespaceV3Short get list of ban types
 Ban type is the code
 available for ban assignment. It is applicable globally for any namespace.
-action code : 10201
 */
 func (a *Client) AdminGetBansTypeWithNamespaceV3Short(params *AdminGetBansTypeWithNamespaceV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBansTypeWithNamespaceV3Response, error) {
 	// TODO: Validate the params before sending

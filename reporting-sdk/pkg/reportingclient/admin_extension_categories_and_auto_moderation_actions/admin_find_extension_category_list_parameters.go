@@ -18,6 +18,22 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
+// Deprecated: 2025-07-16 - Use AdminFindExtensionCategoryListOrder<EnumValue>Constant instead.
+// Get the enum in AdminFindExtensionCategoryListParams
+const (
+	AdminFindExtensionCategoryListAscConstant        = "asc"
+	AdminFindExtensionCategoryListAscendingConstant  = "ascending"
+	AdminFindExtensionCategoryListDescConstant       = "desc"
+	AdminFindExtensionCategoryListDescendingConstant = "descending"
+)
+
+// Deprecated: 2025-07-16 - Use AdminFindExtensionCategoryListSortBy<EnumValue>Constant instead.
+// Get the enum in AdminFindExtensionCategoryListParams
+const (
+	AdminFindExtensionCategoryListExtensionCategoryConstant     = "extensionCategory"
+	AdminFindExtensionCategoryListExtensionCategoryNameConstant = "extensionCategoryName"
+)
+
 // Get the enum in AdminFindExtensionCategoryListParams
 const (
 	AdminFindExtensionCategoryListOrderAscConstant        = "asc"

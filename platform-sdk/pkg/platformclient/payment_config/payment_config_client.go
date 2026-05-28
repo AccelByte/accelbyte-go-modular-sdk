@@ -137,11 +137,11 @@ UpdatePaymentDomainWhitelistConfigShort update payment domain whitelist config
 	[Not supported yet in AGS Shared Cloud] Update payment provider config by namespace.
 
 
-	                                                Request Body Parameters:
+	                                        Request Body Parameters:
 
-	                        Parameter | Type   | Required | Description
-	                       -----------|--------|----------|--------------------------------------------------
-	                       domains    | String | Yes      | list of domains to whitelist for the return URL.
+	                    Parameter | Type   | Required | Description
+	                   -----------|--------|----------|--------------------------------------------------
+	                   domains    | String | Yes      | list of domains to whitelist for the return URL.
 
 Other detail info:
   - Validation : the domain should include the protocol (http/https), but the whitelist check will only compare the host part (www.example.com)
@@ -921,7 +921,7 @@ func (a *Client) UpdateAdyenConfigShort(params *UpdateAdyenConfigParams, authInf
 TestAdyenConfigByIDShort test adyen configuration by id
 
 	[Not supported yet in AGS Shared Cloud] Test adyen configuration in payment merchant config. Other detail info:
-	             * Returns : test adyen config
+	           * Returns : test adyen config
 */
 func (a *Client) TestAdyenConfigByIDShort(params *TestAdyenConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestAdyenConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1179,7 +1179,7 @@ func (a *Client) UpdateCheckoutConfigShort(params *UpdateCheckoutConfigParams, a
 TestCheckoutConfigByIDShort test checkout.com configuration by id
 
 	[Not supported yet in AGS Shared Cloud] Test checkout.com configuration in payment merchant config. Other detail info:
-	             * Returns : test result
+	           * Returns : test result
 */
 func (a *Client) TestCheckoutConfigByIDShort(params *TestCheckoutConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestCheckoutConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1307,7 +1307,7 @@ func (a *Client) UpdateNeonPayConfigShort(params *UpdateNeonPayConfigParams, aut
 TestNeonPayConfigByIDShort test neon pay configuration by id
 
 	[Not supported yet in AGS Shared Cloud] Test Neon Pay configuration in payment merchant config. Other detail info:
-	             * Returns : test result
+	           * Returns : test result
 */
 func (a *Client) TestNeonPayConfigByIDShort(params *TestNeonPayConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestNeonPayConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1435,7 +1435,7 @@ func (a *Client) UpdatePayPalConfigShort(params *UpdatePayPalConfigParams, authI
 TestPayPalConfigByIDShort test paypal configuration by id
 
 	[Not supported yet in AGS Shared Cloud] Test PayPal configuration in payment merchant config. Other detail info:
-	             * Returns : test result
+	           * Returns : test result
 */
 func (a *Client) TestPayPalConfigByIDShort(params *TestPayPalConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestPayPalConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1563,7 +1563,7 @@ func (a *Client) UpdateStripeConfigShort(params *UpdateStripeConfigParams, authI
 TestStripeConfigByIDShort test stripe configuration by id
 
 	[Not supported yet in AGS Shared Cloud] Test stripe configuration in payment merchant config. Other detail info:
-	             * Returns : test adyen config
+	           * Returns : test adyen config
 */
 func (a *Client) TestStripeConfigByIDShort(params *TestStripeConfigByIDParams, authInfo runtime.ClientAuthInfoWriter) (*TestStripeConfigByIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -2076,14 +2076,14 @@ CreatePaymentProviderConfigShort create payment provider config
 	[Not supported yet in AGS Shared Cloud] Create payment provider config.
 
 
-	                                                Request Body Parameters:
+	                                        Request Body Parameters:
 
-	                        Parameter | Type   | Required | Description
-	                       -----------|--------|----------|-----------------------------------------------------------
-	                       namespace  | String | Yes      | namespace, * indicates all namespace
-	                       region     | String | Yes      | region, * indicates all regions
-	                       aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
-	                       specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
+	                    Parameter | Type   | Required | Description
+	                   -----------|--------|----------|-----------------------------------------------------------
+	                   namespace  | String | Yes      | namespace, * indicates all namespace
+	                   region     | String | Yes      | region, * indicates all regions
+	                   aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+	                   specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
 
 payment provider applied has priority:
  1. namespace and region match
@@ -2352,14 +2352,14 @@ UpdatePaymentProviderConfigShort update payment provider config
 	[Not supported yet in AGS Shared Cloud] Update payment provider config.
 
 
-	                                                Request Body Parameters:
+	                                        Request Body Parameters:
 
-	                        Parameter | Type   | Required | Description
-	                       -----------|--------|----------|-----------------------------------------------------------
-	                       namespace  | String | Yes      | namespace, * indicates all namespace
-	                       region     | String | Yes      | region, * indicates all regions
-	                       aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
-	                       specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
+	                    Parameter | Type   | Required | Description
+	                   -----------|--------|----------|-----------------------------------------------------------
+	                   namespace  | String | Yes      | namespace, * indicates all namespace
+	                   region     | String | Yes      | region, * indicates all regions
+	                   aggregate  | String | No       | aggregate payment provider, such as XSOLLA, ADYEN, STRIPE
+	                   specials   | List   | No       | special payment provider, such as ALIPAY, WXPAY
 
 payment provider applied has priority:
  1. namespace and region match
@@ -2576,14 +2576,14 @@ UpdatePaymentTaxConfigShort update payment global tax config
 	[Not supported yet in AGS Shared Cloud] Update payment tax config.
 
 
-	                                                Request Body Parameters:
+	                                        Request Body Parameters:
 
-	                        Parameter                | Type    | Required | Description
-	                       --------------------------|---------|----------|---------------------------------------------------------------------
-	                       taxJarEnabled             | Boolean | false
-	                       taxJarApiToken            | String  | false    | required, when taxJarEnabled is true and there is no existing token
-	                       sandboxTaxJarApiToken     | String  | false    | optional
-	                       taxJarProductCodesMapping | Map     | No       | key is item type(APP                                                |COINS |INGAMEITEM |BUNDLE |CODE |SUBSCRIPTION) and value is product tax code: https://developers.taxjar.com/api/reference/?ruby#get-list-tax-categories
+	                    Parameter                | Type    | Required | Description
+	                   --------------------------|---------|----------|---------------------------------------------------------------------
+	                   taxJarEnabled             | Boolean | false
+	                   taxJarApiToken            | String  | false    | required, when taxJarEnabled is true and there is no existing token
+	                   sandboxTaxJarApiToken     | String  | false    | optional
+	                   taxJarProductCodesMapping | Map     | No       | key is item type(APP                                                |COINS |INGAMEITEM |BUNDLE |CODE |SUBSCRIPTION) and value is product tax code: https://developers.taxjar.com/api/reference/?ruby#get-list-tax-categories
 
 Other detail info:
   - Returns : payment global tax config

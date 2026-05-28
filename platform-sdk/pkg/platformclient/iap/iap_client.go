@@ -76,6 +76,7 @@ type ClientService interface {
 	AdminGetIAPOrderLineItemsShort(params *AdminGetIAPOrderLineItemsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetIAPOrderLineItemsResponse, error)
 	AdminSyncSteamAbnormalTransactionShort(params *AdminSyncSteamAbnormalTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncSteamAbnormalTransactionResponse, error)
 	AdminSyncSteamIAPByTransactionShort(params *AdminSyncSteamIAPByTransactionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncSteamIAPByTransactionResponse, error)
+	AdminSyncTwitchDropsEntitlementShort(params *AdminSyncTwitchDropsEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncTwitchDropsEntitlementResponse, error)
 	GetAppleConfigVersionShort(params *GetAppleConfigVersionParams, authInfo runtime.ClientAuthInfoWriter) (*GetAppleConfigVersionResponse, error)
 	GetIAPItemMappingShort(params *GetIAPItemMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetIAPItemMappingResponse, error)
 	SyncTwitchDropsEntitlementShort(params *SyncTwitchDropsEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*SyncTwitchDropsEntitlementResponse, error)
@@ -2751,6 +2752,67 @@ func (a *Client) AdminSyncSteamIAPByTransactionShort(params *AdminSyncSteamIAPBy
 	case *AdminSyncSteamIAPByTransactionConflict:
 		response := &AdminSyncSteamIAPByTransactionResponse{}
 		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminSyncTwitchDropsEntitlementShort sync twitch drops entitlements with app token.
+Sync twitch drops entitlements. rate limit: 800 req/minutes.
+
+  - Returns :
+*/
+func (a *Client) AdminSyncTwitchDropsEntitlementShort(params *AdminSyncTwitchDropsEntitlementParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncTwitchDropsEntitlementResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminSyncTwitchDropsEntitlementParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminSyncTwitchDropsEntitlement",
+		Method:             "PUT",
+		PathPattern:        "/platform/admin/namespaces/{namespace}/users/{userId}/iap/twitch/sync",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminSyncTwitchDropsEntitlementReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminSyncTwitchDropsEntitlementNoContent:
+		response := &AdminSyncTwitchDropsEntitlementResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminSyncTwitchDropsEntitlementTooManyRequests:
+		response := &AdminSyncTwitchDropsEntitlementResponse{}
 
 		response.IsSuccess = false
 

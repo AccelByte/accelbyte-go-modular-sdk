@@ -18,6 +18,17 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
+// Deprecated: 2025-07-16 - Use PublicGetUserEntitlementOwnershipByItemIDEntitlementClazz<EnumValue>Constant instead.
+// Get the enum in PublicGetUserEntitlementOwnershipByItemIDParams
+const (
+	PublicGetUserEntitlementOwnershipByItemIDAPPConstant          = "APP"
+	PublicGetUserEntitlementOwnershipByItemIDCODEConstant         = "CODE"
+	PublicGetUserEntitlementOwnershipByItemIDENTITLEMENTConstant  = "ENTITLEMENT"
+	PublicGetUserEntitlementOwnershipByItemIDLOOTBOXConstant      = "LOOTBOX"
+	PublicGetUserEntitlementOwnershipByItemIDMEDIAConstant        = "MEDIA"
+	PublicGetUserEntitlementOwnershipByItemIDOPTIONBOXConstant    = "OPTIONBOX"
+	PublicGetUserEntitlementOwnershipByItemIDSUBSCRIPTIONConstant = "SUBSCRIPTION"
+)
 
 // Get the enum in PublicGetUserEntitlementOwnershipByItemIDParams
 const (

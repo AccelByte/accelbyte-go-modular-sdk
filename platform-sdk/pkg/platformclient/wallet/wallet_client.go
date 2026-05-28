@@ -466,6 +466,7 @@ func (a *Client) CheckBalanceShort(params *CheckBalanceParams, authInfo runtime.
 
 	case *CheckBalanceOK:
 		response := &CheckBalanceResponse{}
+		response.Data = v.Payload
 
 		response.IsSuccess = true
 

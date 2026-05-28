@@ -214,7 +214,7 @@ type ClientService interface {
 
 /*
 CreateUserShort create user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users [POST]_**
 - **Substitute endpoint: _/iam/v4/public/namespaces/{namespace}/users [POST]_**
@@ -306,15 +306,15 @@ func (a *Client) CreateUserShort(params *CreateUserParams, authInfo runtime.Clie
 
 /*
 GetAdminUsersByRoleIDShort get admin users by roleid
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint(Public): _/iam/v3/admin/namespaces/{namespace}/roles/{roleId}/users [GET]_**
 - **Note:**
 difference in V3 response, format difference: Pascal case => Camel case
 
-# This endpoint search admin users which have the roleId
+# Searches admin users which have the roleId
 
-Notes : this endpoint only accept admin role. Admin Role is role which have admin status and members.
+Notes: only accepts admin role. Admin Role is role which have admin status and members.
 Use endpoint [GET] /roles/{roleId}/admin to check the role status
 */
 func (a *Client) GetAdminUsersByRoleIDShort(params *GetAdminUsersByRoleIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDResponse, error) {
@@ -402,7 +402,7 @@ func (a *Client) GetAdminUsersByRoleIDShort(params *GetAdminUsersByRoleIDParams,
 
 /*
 GetUserByLoginIDShort get user by login id
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users [GET]_**
 */
@@ -476,7 +476,7 @@ func (a *Client) GetUserByLoginIDShort(params *GetUserByLoginIDParams, authInfo 
 
 /*
 GetUserByPlatformUserIDShort get user by platform user id
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint(Public): _/iam/v3/public/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]_**
 - **Substitute endpoint(Admin): _/iam/v3/admin/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]_**
@@ -562,7 +562,7 @@ func (a *Client) GetUserByPlatformUserIDShort(params *GetUserByPlatformUserIDPar
 
 /*
 ForgotPasswordShort request password reset code
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/forgot [POST]_**
 
@@ -648,7 +648,7 @@ func (a *Client) ForgotPasswordShort(params *ForgotPasswordParams, authInfo runt
 
 /*
 GetUsersByLoginIdsShort get a list of users by their login id
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint(query by email list): _/iam/v3/public/namespaces/{namespace}/users/bulk/basic [POST]_**
 - **Substitute endpoint(query by user id list): _/iam/v3/admin/namespaces/{namespace}/users/search/bulk [POST]_**
@@ -726,7 +726,7 @@ func (a *Client) GetUsersByLoginIdsShort(params *GetUsersByLoginIdsParams, authI
 
 /*
 ResetPasswordShort reset user password
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/reset [POST]_**
 */
@@ -805,7 +805,7 @@ func (a *Client) ResetPasswordShort(params *ResetPasswordParams, authInfo runtim
 
 /*
 SearchUserShort search users
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/search [GET]_**
 Search all users that match the query on these fields: all login IDs (email address, phone number, and platform user id),
@@ -884,7 +884,7 @@ func (a *Client) SearchUserShort(params *SearchUserParams, authInfo runtime.Clie
 
 /*
 GetUserByUserIDShort get user by user id
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint(Public): _/iam/v3/public/namespaces/{namespace}/users/{userId} [GET]_**
 - **Substitute endpoint(Admin): _/iam/v3/admin/namespaces/{namespace}/users/{userId} [GET]_**
@@ -955,7 +955,7 @@ func (a *Client) GetUserByUserIDShort(params *GetUserByUserIDParams, authInfo ru
 
 /*
 UpdateUserShort update user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint([PUT]): _/iam/v3/public/namespaces/{namespace}/users/me [PUT]_**
 - **Substitute endpoint([PATCH]): _/iam/v3/public/namespaces/{namespace}/users/me [PATCH]_**
@@ -964,7 +964,7 @@ UpdateUserShort update user
 1. Prefer [PATCH] if client support PATCH method
 2. Difference in V3/v4 request body, format difference: Pascal case => Camel case
 
-This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
+Supports updating user based on given data. **Single request can update single field or multi fields.**
 Supported field {Country, DisplayName, LanguageTag}
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 
@@ -1056,7 +1056,7 @@ func (a *Client) UpdateUserShort(params *UpdateUserParams, authInfo runtime.Clie
 
 /*
 DeleteUserShort delete user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/information [DELETE]_**
 */
@@ -1131,7 +1131,7 @@ func (a *Client) DeleteUserShort(params *DeleteUserParams, authInfo runtime.Clie
 
 /*
 BanUserShort ban a single user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [POST]_**
 */
@@ -1219,7 +1219,7 @@ func (a *Client) BanUserShort(params *BanUserParams, authInfo runtime.ClientAuth
 
 /*
 GetUserBanHistoryShort get user's bans history
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [GET]_**
 */
@@ -1295,12 +1295,12 @@ func (a *Client) GetUserBanHistoryShort(params *GetUserBanHistoryParams, authInf
 
 /*
 DisableUserBanShort disable ban for a single user.
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans/{banId} [PATCH]_**
 
 **Notes for using IAM in publisher - game studio scenarios**
-The endpoint allows:
+Allows:
 - The admin user in publisher namespace disables userâs ban in publisher namespace.
 - The admin user in game namespace disables userâs ban in game namespace.
 - The admin user in publisher namespace disables userâs ban in publisher namespace.
@@ -1384,7 +1384,7 @@ func (a *Client) DisableUserBanShort(params *DisableUserBanParams, authInfo runt
 
 /*
 EnableUserBanShort enable ban for a single user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans/{banId} [PATCH]_**
 */
@@ -1465,7 +1465,7 @@ func (a *Client) EnableUserBanShort(params *EnableUserBanParams, authInfo runtim
 
 /*
 ListCrossNamespaceAccountLinkShort links existing account with another account in different namespace.
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [POST]_**
 
@@ -1551,7 +1551,7 @@ func (a *Client) ListCrossNamespaceAccountLinkShort(params *ListCrossNamespaceAc
 
 /*
 DisableUserShort disable a user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]_**
 
@@ -1642,7 +1642,7 @@ func (a *Client) DisableUserShort(params *DisableUserParams, authInfo runtime.Cl
 
 /*
 EnableUserShort enable a user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]_**
 */
@@ -1723,7 +1723,7 @@ func (a *Client) EnableUserShort(params *EnableUserParams, authInfo runtime.Clie
 
 /*
 GetUserInformationShort get user's information
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/information [GET]_**
 */
@@ -1799,7 +1799,7 @@ func (a *Client) GetUserInformationShort(params *GetUserInformationParams, authI
 
 /*
 DeleteUserInformationShort delete user's information
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/information [DELETE]_**
 */
@@ -1874,16 +1874,16 @@ func (a *Client) DeleteUserInformationShort(params *DeleteUserInformationParams,
 
 /*
 GetUserLoginHistoriesShort get user's login histories
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/logins/histories [GET]_**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/logins/histories [GET]_**
 
-Notes for this endpoint:
-- This endpoint retrieve the first page of the data if 'after' and 'before' parameters is empty.
+Notes:
+- Retrieves the first page of the data if 'after' and 'before' parameters is empty.
 - The maximum value of the limit is 100 and the minimum value of the limit is 1.
-- This endpoint retrieve the next page of the data if we provide 'after' parameters with valid Unix timestamp.
-- This endpoint retrieve the previous page of the data if we provide 'before' parameter with valid data Unix timestamp.
+- Retrieves the next page of the data if we provide 'after' parameters with valid Unix timestamp.
+- Retrieves the previous page of the data if we provide 'before' parameter with valid data Unix timestamp.
 */
 func (a *Client) GetUserLoginHistoriesShort(params *GetUserLoginHistoriesParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserLoginHistoriesResponse, error) {
 	// TODO: Validate the params before sending
@@ -1957,7 +1957,7 @@ func (a *Client) GetUserLoginHistoriesShort(params *GetUserLoginHistoriesParams,
 
 /*
 UpdatePasswordShort update user password
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/password [PUT]_**
 */
@@ -2044,11 +2044,11 @@ func (a *Client) UpdatePasswordShort(params *UpdatePasswordParams, authInfo runt
 
 /*
 SaveUserPermissionShort save user permissions
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/permissions [POST]_**
 
-This endpoint will REPLACE user's permissions with the ones defined in body
+Replaces user's permissions with the ones defined in body
 Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
 Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
 In ranged schedule, first element will be start date, and second one will be end date
@@ -2151,11 +2151,11 @@ func (a *Client) SaveUserPermissionShort(params *SaveUserPermissionParams, authI
 
 /*
 AddUserPermissionShort add user permission
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/permissions [POST]_**
 
-This endpoint will update existing permission (bitwise OR the action) if found one with same resource, otherwise it will append a new permission
+Updates existing permission (bitwise OR the action) if found one with same resource, otherwise appends a new permission
 Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
 Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
 In ranged schedule, first element will be start date, and second one will be end date
@@ -2258,7 +2258,7 @@ func (a *Client) AddUserPermissionShort(params *AddUserPermissionParams, authInf
 
 /*
 DeleteUserPermissionShort delete user permission
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/permissions/{resource}/{action} [DELETE]_**
 */
@@ -2340,7 +2340,7 @@ func (a *Client) DeleteUserPermissionShort(params *DeleteUserPermissionParams, a
 
 /*
 GetUserPlatformAccountsShort get platform accounts linked to the user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/platforms [GET]_**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms [GET]_**
@@ -2421,14 +2421,14 @@ func (a *Client) GetUserPlatformAccountsShort(params *GetUserPlatformAccountsPar
 
 /*
 GetUserMappingShort get user mapping
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/justice/{targetNamespace} [GET]_**
 
-This endpoint requires the client access token as the bearer token
-This endpoint will support publisher access to game and game access to publisher
-If targetNamespace filled with publisher namespace then this endpoint will return its publisher user id and publisher namespace.
-If targetNamespace filled with game namespace then this endpoint will return its game user id and game namespace. **Will create game user id if not exists.**
+Requires the client access token as the bearer token
+Supports publisher access to game and game access to publisher
+If targetNamespace filled with publisher namespace, returns its publisher user id and publisher namespace.
+If targetNamespace filled with game namespace, returns its game user id and game namespace. **Will create game user id if not exists.**
 */
 func (a *Client) GetUserMappingShort(params *GetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserMappingResponse, error) {
 	// TODO: Validate the params before sending
@@ -2509,13 +2509,13 @@ func (a *Client) GetUserMappingShort(params *GetUserMappingParams, authInfo runt
 
 /*
 GetUserJusticePlatformAccountShort get the justice linked accounts on the designated namespace
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/justice/{targetNamespace} [GET]_**
 
-# This endpoint requires the client access token as the bearer token
+# Requires the client access token as the bearer token
 
-The endpoint returns user Justice platform account linked with the given user. If the user Justice platform account doesn't exist in the designated namespace, the endpoint is going to *create and return the new Justice platform account.*
+Returns user Justice platform account linked with the given user. If the user Justice platform account doesn't exist in the designated namespace, automatically *creates and returns the new Justice platform account.*
 The newly user Justice platform account is going to be forced to perform token grant through the given user and can't perform password update
 
 ### Read Justice Platform Account UserID
@@ -2594,7 +2594,7 @@ func (a *Client) GetUserJusticePlatformAccountShort(params *GetUserJusticePlatfo
 
 /*
 PlatformLinkShort link user's account with platform
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [POST]_**
 
@@ -2610,7 +2610,7 @@ PlatformLinkShort link user's account with platform
 - **android**: The ticket's value is the Androidâs device ID
 - **ios**: The ticket's value is the iOSâs device ID.
 - **apple**: The ticketâs value is the authorization code returned by Apple OAuth.
-- **device**: Every device that doesânt run Android and iOS is categorized as a device platform. The ticket's value is the deviceâs ID.
+- **device**: Every device that doesnât run Android and iOS is categorized as a device platform. The ticket's value is the deviceâs ID.
 - **discord**: The ticketâs value is the authorization code returned by Discord OAuth.
 */
 func (a *Client) PlatformLinkShort(params *PlatformLinkParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformLinkResponse, error) {
@@ -2702,7 +2702,7 @@ func (a *Client) PlatformLinkShort(params *PlatformLinkParams, authInfo runtime.
 
 /*
 PlatformUnlinkShort unlink user's account with platform
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [DELETE]_**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all [DELETE]_**
@@ -2804,7 +2804,7 @@ func (a *Client) PlatformUnlinkShort(params *PlatformUnlinkParams, authInfo runt
 
 /*
 GetPublisherUserShort get publisher user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/publisher [GET]_**
 
@@ -2890,7 +2890,7 @@ func (a *Client) GetPublisherUserShort(params *GetPublisherUserParams, authInfo 
 
 /*
 SaveUserRolesShort save user roles
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles [PATCH]_**
 */
@@ -2978,7 +2978,7 @@ func (a *Client) SaveUserRolesShort(params *SaveUserRolesParams, authInfo runtim
 
 /*
 AddUserRoleShort add user role
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles/{roleId} [POST]_**
 */
@@ -3064,7 +3064,7 @@ func (a *Client) AddUserRoleShort(params *AddUserRoleParams, authInfo runtime.Cl
 
 /*
 DeleteUserRoleShort delete user role
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles/{roleId} [DELETE]_**
 */
@@ -3144,7 +3144,7 @@ func (a *Client) DeleteUserRoleShort(params *DeleteUserRoleParams, authInfo runt
 
 /*
 UpgradeHeadlessAccountShort upgrade user account to full account (with email)
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/headless/verify [POST]_**
@@ -3221,12 +3221,15 @@ func (a *Client) UpgradeHeadlessAccountShort(params *UpgradeHeadlessAccountParam
 
 /*
 UpgradeHeadlessAccountWithVerificationCodeShort upgrade headless account and automatically verified the email address if it is succeeded
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/headless/code/verify [POST]_**
 
-The endpoint upgrades a headless account by linking the headless account with the email address and the password. By upgrading the headless account into a full account, the user could use the email address and password for using Justice IAM.
-The endpoint is a shortcut for upgrading a headless account and verifying the email address in one call. In order to get a verification code for the endpoint, please check the send verification code endpoint.
+Upgrades a headless account by linking it with an email address, username, and password, and immediately verifies the email address afterward.
+
+By upgrading the headless account into a full account, the user could use the email address and password for using Justice IAM.
+
+In order to get a verification code, please check the send verification code API.
 */
 func (a *Client) UpgradeHeadlessAccountWithVerificationCodeShort(params *UpgradeHeadlessAccountWithVerificationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpgradeHeadlessAccountWithVerificationCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -3307,7 +3310,7 @@ func (a *Client) UpgradeHeadlessAccountWithVerificationCodeShort(params *Upgrade
 
 /*
 UserVerificationShort redeem verification code sent to user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/code/verify [POST]_**
 
@@ -3396,7 +3399,7 @@ func (a *Client) UserVerificationShort(params *UserVerificationParams, authInfo 
 
 /*
 SendVerificationCodeShort send verification code to user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/code/request [POST]_**
 
@@ -3503,7 +3506,7 @@ func (a *Client) SendVerificationCodeShort(params *SendVerificationCodeParams, a
 
 /*
 AdminGetAgeRestrictionStatusV2Short get age restriction status
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions [GET]_**
 - **Note:**
@@ -3581,7 +3584,7 @@ func (a *Client) AdminGetAgeRestrictionStatusV2Short(params *AdminGetAgeRestrict
 
 /*
 AdminUpdateAgeRestrictionConfigV2Short update age restriction config value
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions [PATCH]_**
 */
@@ -3664,7 +3667,7 @@ func (a *Client) AdminUpdateAgeRestrictionConfigV2Short(params *AdminUpdateAgeRe
 
 /*
 GetListCountryAgeRestrictionShort get list country age restriction
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions/countries [GET]_**
 */
@@ -3740,7 +3743,7 @@ func (a *Client) GetListCountryAgeRestrictionShort(params *GetListCountryAgeRest
 
 /*
 UpdateCountryAgeRestrictionShort update country's age restriction
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/agerestrictions/countries/{countryCode} [PATCH]_**
 */
@@ -3823,7 +3826,7 @@ func (a *Client) UpdateCountryAgeRestrictionShort(params *UpdateCountryAgeRestri
 
 /*
 AdminSearchUsersV2Short search users
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/search [GET]_**
 */
@@ -3900,7 +3903,7 @@ func (a *Client) AdminSearchUsersV2Short(params *AdminSearchUsersV2Params, authI
 
 /*
 AdminGetUserByUserIDV2Short get user by user id
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId} [GET]_**
 */
@@ -3968,11 +3971,11 @@ func (a *Client) AdminGetUserByUserIDV2Short(params *AdminGetUserByUserIDV2Param
 
 /*
 AdminUpdateUserV2Short update user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId} [PATCH]_**
 
-This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
+Supports updating user based on given data. **Single request can update single field or multi fields.**
 Supported field {Country, DisplayName, LanguageTag}
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 
@@ -4064,7 +4067,7 @@ func (a *Client) AdminUpdateUserV2Short(params *AdminUpdateUserV2Params, authInf
 
 /*
 AdminBanUserV2Short ban a single user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [POST]_**
 */
@@ -4152,7 +4155,7 @@ func (a *Client) AdminBanUserV2Short(params *AdminBanUserV2Params, authInfo runt
 
 /*
 AdminGetUserBanV2Short get user's bans
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/bans [GET]_**
 */
@@ -4228,7 +4231,7 @@ func (a *Client) AdminGetUserBanV2Short(params *AdminGetUserBanV2Params, authInf
 
 /*
 AdminDisableUserV2Short disable a user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]_**
 
@@ -4319,7 +4322,7 @@ func (a *Client) AdminDisableUserV2Short(params *AdminDisableUserV2Params, authI
 
 /*
 AdminEnableUserV2Short enable a user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/status [PATCH]_**
 */
@@ -4400,7 +4403,7 @@ func (a *Client) AdminEnableUserV2Short(params *AdminEnableUserV2Params, authInf
 
 /*
 AdminResetPasswordV2Short update user password
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/password [PUT]_**
 */
@@ -4487,7 +4490,7 @@ func (a *Client) AdminResetPasswordV2Short(params *AdminResetPasswordV2Params, a
 
 /*
 AdminDeletePlatformLinkV2Short delete the link of user's account with platform
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/{platformId} [DELETE]_**
 
@@ -4589,7 +4592,7 @@ func (a *Client) AdminDeletePlatformLinkV2Short(params *AdminDeletePlatformLinkV
 
 /*
 AdminPutUserRolesV2Short update user roles, will replace all the existing roles
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles [PATCH]_**
 */
@@ -4671,7 +4674,7 @@ func (a *Client) AdminPutUserRolesV2Short(params *AdminPutUserRolesV2Params, aut
 
 /*
 AdminCreateUserRolesV2Short save user roles
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/roles [PATCH]_**
 */
@@ -4759,7 +4762,7 @@ func (a *Client) AdminCreateUserRolesV2Short(params *AdminCreateUserRolesV2Param
 
 /*
 PublicGetCountryAgeRestrictionShort public get age restriction by country code
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/agerestrictions/countries/{countryCode} [GET]_**
 */
@@ -4828,7 +4831,7 @@ func (a *Client) PublicGetCountryAgeRestrictionShort(params *PublicGetCountryAge
 
 /*
 PublicCreateUserV2Short create user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users [POST]_**
 - **Substitute endpoint: _/iam/v4/public/namespaces/{namespace}/users [POST]_**
@@ -4919,7 +4922,7 @@ func (a *Client) PublicCreateUserV2Short(params *PublicCreateUserV2Params, authI
 
 /*
 PublicForgotPasswordV2Short request password reset code
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/forgot [POST]_**
 
@@ -5001,7 +5004,7 @@ func (a *Client) PublicForgotPasswordV2Short(params *PublicForgotPasswordV2Param
 
 /*
 PublicResetPasswordV2Short reset user password
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/reset [POST]_**
 */
@@ -5080,7 +5083,7 @@ func (a *Client) PublicResetPasswordV2Short(params *PublicResetPasswordV2Params,
 
 /*
 PublicGetUserByUserIDV2Short get user by user id
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint(Public): _/iam/v3/public/namespaces/{namespace}/users/{userId} [GET]_**
 - **Substitute endpoint(Admin): _/iam/v3/admin/namespaces/{namespace}/users/{userId} [GET]_**
@@ -5151,7 +5154,7 @@ func (a *Client) PublicGetUserByUserIDV2Short(params *PublicGetUserByUserIDV2Par
 
 /*
 PublicUpdateUserV2Short update user
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint([PUT]): _/iam/v3/public/namespaces/{namespace}/users/me [PUT]_**
 - **Substitute endpoint([PATCH]): _/iam/v3/public/namespaces/{namespace}/users/me [PATCH]_**
@@ -5160,7 +5163,7 @@ PublicUpdateUserV2Short update user
 1. Prefer [PATCH] if client support PATCH method
 2. Difference in V3/v4 request body, format difference: Pascal case => Camel case
 
-This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
+Supports updating user based on given data. **Single request can update single field or multi fields.**
 Supported field {Country, DisplayName, LanguageTag}
 */
 func (a *Client) PublicUpdateUserV2Short(params *PublicUpdateUserV2Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV2Response, error) {
@@ -5246,7 +5249,7 @@ func (a *Client) PublicUpdateUserV2Short(params *PublicUpdateUserV2Params, authI
 
 /*
 PublicGetUserBanShort get user's bans
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/bans [GET]_**
 */
@@ -5322,7 +5325,7 @@ func (a *Client) PublicGetUserBanShort(params *PublicGetUserBanParams, authInfo 
 
 /*
 PublicUpdatePasswordV2Short update user password
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/password [PUT]_**
 */
@@ -5409,11 +5412,13 @@ func (a *Client) PublicUpdatePasswordV2Short(params *PublicUpdatePasswordV2Param
 
 /*
 GetListJusticePlatformAccountsShort get user justice platform accounts
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/{userId}/platforms/justice [GET]_**
 
-This endpoint gets list justice platform account by providing publisher namespace and publisher userID.
+Retrieves the list of Justice platform accounts linked to the given user.
+
+**Namespace restriction:** The {namespace} path parameter must be a **publisher namespace**. Passing a game namespace returns HTTP 400.
 */
 func (a *Client) GetListJusticePlatformAccountsShort(params *GetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*GetListJusticePlatformAccountsResponse, error) {
 	// TODO: Validate the params before sending
@@ -5480,7 +5485,7 @@ func (a *Client) GetListJusticePlatformAccountsShort(params *GetListJusticePlatf
 
 /*
 PublicPlatformLinkV2Short link user's account with platform
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [POST]_**
 
@@ -5588,7 +5593,7 @@ func (a *Client) PublicPlatformLinkV2Short(params *PublicPlatformLinkV2Params, a
 
 /*
 PublicDeletePlatformLinkV2Short delete the link of user's account with platform
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 **Endpoint migration guide**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId} [DELETE]_**
 - **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/all [DELETE]_**
@@ -5692,20 +5697,20 @@ func (a *Client) PublicDeletePlatformLinkV2Short(params *PublicDeletePlatformLin
 /*
 ListAdminsV3Short list user admins
 List all users that has admin role (role that has admin_role attribute set to true).
-Endpoint behavior :
-- if query parameter is defined, endpoint will search users whose email address and display name match with the query
-- if roleId parameter is defined, endpoint will search users that have the defined roleId
-- if startDate and endDate parameters is defined, endpoint will search users which created on the certain date range
-- if startDate parameter is defined, endpoint will search users that created start from the defined date
-- if endDate parameter is defined, endpoint will search users that created until the defined date
+Behavior :
+- if query parameter is defined, searches users whose email address and display name match with the query
+- if roleId parameter is defined, searches users that have the defined roleId
+- if startDate and endDate parameters is defined, searches users which created on the certain date range
+- if startDate parameter is defined, searches users that created start from the defined date
+- if endDate parameter is defined, searches users that created until the defined date
 
 In multi tenant mode :
 - if super admin search in super admin namespace, the result will be all admin users
 - if super admin search in game studio namespace, the result will be all admin users under the game studio namespace
 - if studio admin search in their studio namespace, the result will be all admin user in the game studio namespace
 
-The endpoint will return all admin from all namespace when called from publisher namespace.
-When not called from publisher namespace, the endpoint will return all admin from the path namespace.
+Returns all admin from all namespace when called from publisher namespace.
+When not called from publisher namespace, returns all admin from the path namespace.
 */
 func (a *Client) ListAdminsV3Short(params *ListAdminsV3Params, authInfo runtime.ClientAuthInfoWriter) (*ListAdminsV3Response, error) {
 	// TODO: Validate the params before sending
@@ -5780,7 +5785,7 @@ func (a *Client) ListAdminsV3Short(params *ListAdminsV3Params, authInfo runtime.
 
 /*
 AdminGetAgeRestrictionStatusV3Short get age restriction status
-action code: 10138
+Retrieves the age restriction status for the namespace.
 */
 func (a *Client) AdminGetAgeRestrictionStatusV3Short(params *AdminGetAgeRestrictionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetAgeRestrictionStatusV3Response, error) {
 	// TODO: Validate the params before sending
@@ -5869,7 +5874,7 @@ func (a *Client) AdminGetAgeRestrictionStatusV3Short(params *AdminGetAgeRestrict
 
 /*
 AdminUpdateAgeRestrictionConfigV3Short update age restriction config value
-action code: 10122
+Updates the age restriction configuration for the namespace.
 */
 func (a *Client) AdminUpdateAgeRestrictionConfigV3Short(params *AdminUpdateAgeRestrictionConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAgeRestrictionConfigV3Response, error) {
 	// TODO: Validate the params before sending
@@ -5951,7 +5956,7 @@ func (a *Client) AdminUpdateAgeRestrictionConfigV3Short(params *AdminUpdateAgeRe
 
 /*
 AdminGetListCountryAgeRestrictionV3Short get list country age restriction
-action code : 10139
+Retrieves the list of age restriction settings for all countries.
 */
 func (a *Client) AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListCountryAgeRestrictionV3Response, error) {
 	// TODO: Validate the params before sending
@@ -6033,7 +6038,7 @@ func (a *Client) AdminGetListCountryAgeRestrictionV3Short(params *AdminGetListCo
 
 /*
 AdminUpdateCountryAgeRestrictionV3Short update country's age restriction
-action code: 10123
+Updates the age restriction setting for the specified country.
 */
 func (a *Client) AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCountryAgeRestrictionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateCountryAgeRestrictionV3Response, error) {
 	// TODO: Validate the params before sending
@@ -6123,8 +6128,7 @@ func (a *Client) AdminUpdateCountryAgeRestrictionV3Short(params *AdminUpdateCoun
 /*
 AdminListUserIDByPlatformUserIDsV3Short admin list user id by platform user id
 Admin List User ID By Platform User ID
-This endpoint intended to list game user ID from the given namespace
-This endpoint return list of user ID by given platform ID and list of platform user ID
+Lists game user IDs from the given namespace by given platform ID and list of platform user ID.
 
 Supported platform:
 - steam
@@ -6237,7 +6241,7 @@ func (a *Client) AdminListUserIDByPlatformUserIDsV3Short(params *AdminListUserID
 /*
 AdminGetUserByPlatformUserIDV3Short admin get user by platform user id
 Get User By Platform User ID
-This endpoint return user information by given platform ID and platform user ID.
+Returns user information by given platform ID and platform user ID.
 Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
 example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 
@@ -6358,11 +6362,10 @@ func (a *Client) AdminGetUserByPlatformUserIDV3Short(params *AdminGetUserByPlatf
 
 /*
 GetAdminUsersByRoleIDV3Short get admin users by roleid
-This endpoint search admin users which have the roleId
+Searches admin users which have the roleId.
 
-Notes : this endpoint only accept admin role. Admin Role is role which have admin status and members.
-Use endpoint [GET] /roles/{roleId}/admin to check the role status
-action code : 10140
+Notes : only accepts admin role. Admin Role is role which have admin status and members.
+Use [GET] /roles/{roleId}/admin to check the role status.
 */
 func (a *Client) GetAdminUsersByRoleIDV3Short(params *GetAdminUsersByRoleIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminUsersByRoleIDV3Response, error) {
 	// TODO: Validate the params before sending
@@ -6451,8 +6454,7 @@ func (a *Client) GetAdminUsersByRoleIDV3Short(params *GetAdminUsersByRoleIDV3Par
 
 /*
 AdminGetUserByEmailAddressV3Short get user by email address
-This endpoint search user who owns the given email address
-action code : 10132
+Searches for the user who owns the given email address.
 */
 func (a *Client) AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByEmailAddressV3Response, error) {
 	// TODO: Validate the params before sending
@@ -6541,7 +6543,7 @@ func (a *Client) AdminGetUserByEmailAddressV3Short(params *AdminGetUserByEmailAd
 
 /*
 AdminBulkUpdateUsersV3Short update users
-This endpoint support to bulk update users based on given data.
+Bulk updates users based on given data.
 ------
 Supported fields:
 * skipLoginQueue
@@ -6632,8 +6634,7 @@ func (a *Client) AdminBulkUpdateUsersV3Short(params *AdminBulkUpdateUsersV3Param
 
 /*
 AdminGetBulkUserBanV3Short get bulk user bans
-This endpoint returns user bans of userIDs specified in the payload
-action code : 10127
+Returns user bans of userIDs specified in the payload.
 */
 func (a *Client) AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserBanV3Response, error) {
 	// TODO: Validate the params before sending
@@ -6723,7 +6724,7 @@ func (a *Client) AdminGetBulkUserBanV3Short(params *AdminGetBulkUserBanV3Params,
 /*
 AdminListUserIDByUserIDsV3Short list user by user id
 List User By User ID
-This endpoint intended to list user information from the given list of userID and namespace
+Lists user information from the given list of userID and namespace.
 */
 func (a *Client) AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserIDsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserIDByUserIDsV3Response, error) {
 	// TODO: Validate the params before sending
@@ -6806,7 +6807,7 @@ func (a *Client) AdminListUserIDByUserIDsV3Short(params *AdminListUserIDByUserID
 /*
 AdminBulkGetUsersPlatformShort admin bulk get users' platform info by user ids
 Notes:
-- This endpoint bulk get users' basic info by userId, max allowed 100 at a time
+- Bulk-retrieves basic user info by userId, max allowed 100 at a time
 - If namespace is game, will search by game user Id, other wise will search by publisher namespace
 */
 func (a *Client) AdminBulkGetUsersPlatformShort(params *AdminBulkGetUsersPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkGetUsersPlatformResponse, error) {
@@ -6975,7 +6976,7 @@ func (a *Client) AdminCursorGetUserV3Short(params *AdminCursorGetUserV3Params, a
 
 /*
 AdminInviteUserV3Short invite user
-Use this endpoint to invite admin or non-admin user and assign role to them.
+Invites an admin or non-admin user and assigns a role to them.
 The role must be scoped to namespace based on the **{namespace}** value in path parameter.
 An admin user can only assign role to namespaces that the admin user has the required permission.
 Role is optional, if not specified then it will only assign User role
@@ -7083,7 +7084,7 @@ func (a *Client) AdminInviteUserV3Short(params *AdminInviteUserV3Params, authInf
 
 /*
 AdminQueryThirdPlatformLinkHistoryV3Short search linking history of the query platform with platform user id
-if limit is not defined, The default limit is 100
+If the limit is not defined, the default limit is 100.
 */
 func (a *Client) AdminQueryThirdPlatformLinkHistoryV3Short(params *AdminQueryThirdPlatformLinkHistoryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryThirdPlatformLinkHistoryV3Response, error) {
 	// TODO: Validate the params before sending
@@ -7165,7 +7166,7 @@ func (a *Client) AdminQueryThirdPlatformLinkHistoryV3Short(params *AdminQueryThi
 
 /*
 AdminListUsersV3Short admin list users v3
-**This endpoint requires publisher namespace.**
+**Requires a publisher namespace.**
 Returns list of users ID and namespace with their Justice platform account, under a namespace. If user
 doesn't have Justice platform account, the linkedPlatforms will be empty array.'
 */
@@ -7249,16 +7250,16 @@ func (a *Client) AdminListUsersV3Short(params *AdminListUsersV3Params, authInfo 
 
 /*
 AdminSearchUserV3Short search user
-Endpoint behavior :
-- By default this endpoint searches all users on the specified namespace.
-- If query parameter is defined, endpoint will search users whose email address, display name, username, or third party partially match with the query.
+Behavior :
+- By default, searches all users on the specified namespace.
+- If query parameter is defined, searches users whose email address, display name, username, or third party partially match with the query.
 - The query parameter length must be between 3 and 30 characters. For email address queries (i.e., contains '@'), the allowed length is 3 to 40 characters. Otherwise, the database will not be queried.
-- If startDate and endDate parameters is defined, endpoint will search users which created on the certain date range.
-- If query, startDate and endDate parameters are defined, endpoint will search users whose email address and display name match and created on the certain date range.
-- If startDate parameter is defined, endpoint will search users that created start from the defined date.
-- If endDate parameter is defined, endpoint will search users that created until the defined date.
-- If platformId parameter is defined and by parameter is using thirdparty, endpoint will search users based on the platformId they have linked to.
-- If platformBy parameter is defined and by parameter is using thirdparty, endpoint will search users based on the platformUserId or platformDisplayName they have linked to, example value: platformUserId or platformDisplayName.
+- If startDate and endDate parameters is defined, searches users which created on the certain date range.
+- If query, startDate and endDate parameters are defined, searches users whose email address and display name match and created on the certain date range.
+- If startDate parameter is defined, searches users that created start from the defined date.
+- If endDate parameter is defined, searches users that created until the defined date.
+- If platformId parameter is defined and by parameter is using thirdparty, searches users based on the platformId they have linked to.
+- If platformBy parameter is defined and by parameter is using thirdparty, searches users based on the platformUserId or platformDisplayName they have linked to, example value: platformUserId or platformDisplayName.
 - If limit is not defined, The default limit is 100.
 
 GraphQL-Like Querying:
@@ -7274,8 +7275,7 @@ In Multi Tenant mode :
 - If super admin search in game namespace, the result will be all game admin users and players under the game namespace
 - If game admin search in their game studio namespace, the result will be all game admin user in the studio namespace
 - If game admin search in their game namespace, the result will be all player in the game namespace
-
-action code : 10133
+- If IAM client token (from studio namespace or game namespace) with ADMIN:NAMESPACE:{namespace}:USER permission searches in a game namespace, the result will be all players in that game namespace
 */
 func (a *Client) AdminSearchUserV3Short(params *AdminSearchUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSearchUserV3Response, error) {
 	// TODO: Validate the params before sending
@@ -7342,6 +7342,13 @@ func (a *Client) AdminSearchUserV3Short(params *AdminSearchUserV3Params, authInf
 		response.IsSuccess = false
 
 		return response, v
+	case *AdminSearchUserV3TooManyRequests:
+		response := &AdminSearchUserV3Response{}
+		response.Error429 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *AdminSearchUserV3InternalServerError:
 		response := &AdminSearchUserV3Response{}
 		response.Error500 = v.Payload
@@ -7357,8 +7364,7 @@ func (a *Client) AdminSearchUserV3Short(params *AdminSearchUserV3Params, authInf
 
 /*
 AdminGetBulkUserByEmailAddressV3Short get bulk user by email address
-This endpoint search user by the list of email addresses
-action code : 10132
+Searches users by the list of email addresses.
 */
 func (a *Client) AdminGetBulkUserByEmailAddressV3Short(params *AdminGetBulkUserByEmailAddressV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBulkUserByEmailAddressV3Response, error) {
 	// TODO: Validate the params before sending
@@ -7447,7 +7453,7 @@ func (a *Client) AdminGetBulkUserByEmailAddressV3Short(params *AdminGetBulkUserB
 
 /*
 AdminGetUserByUserIDV3Short admin get user by user id
-Admin Get User By User Id
+Retrieves the full user profile including email verification status, ban status, deletion status, and linked platform accounts.
 */
 func (a *Client) AdminGetUserByUserIDV3Short(params *AdminGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserByUserIDV3Response, error) {
 	// TODO: Validate the params before sending
@@ -7536,7 +7542,7 @@ func (a *Client) AdminGetUserByUserIDV3Short(params *AdminGetUserByUserIDV3Param
 
 /*
 AdminUpdateUserV3Short update user
-This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
+Updates the user based on given data. **Single request can update single field or multi fields.**
 Supported field {country, displayName, languageTag, dateOfBirth, avatarUrl, userName, tags}
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
@@ -7548,8 +7554,6 @@ Users can have at most 5 tags. No duplicate tags allowed.
 - User want to update email address of which have been verified, NewEmailAddress response field will be filled with new email address.
 - User want to update email address of which have not been verified, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with new email address.
 - User want to update email address of which have been verified and updated before, {LoginId, OldEmailAddress, EmailAddress} response field will be filled with verified email before. NewEmailAddress response field will be filled with newest email address.
-
-action code : 10103
 */
 func (a *Client) AdminUpdateUserV3Short(params *AdminUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV3Response, error) {
 	// TODO: Validate the params before sending
@@ -7645,8 +7649,7 @@ func (a *Client) AdminUpdateUserV3Short(params *AdminUpdateUserV3Params, authInf
 
 /*
 AdminGetUserBanV3Short get user's bans
-This endpoint retrieve the first page of the data if after and before parameters is empty
-action code : 10126
+Returns the first page of the data if after and before parameters is empty.
 */
 func (a *Client) AdminGetUserBanV3Short(params *AdminGetUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanV3Response, error) {
 	// TODO: Validate the params before sending
@@ -7736,7 +7739,6 @@ func (a *Client) AdminGetUserBanV3Short(params *AdminGetUserBanV3Params, authInf
 /*
 AdminBanUserV3Short ban a single user
 Bans a user with specific type of ban. Ban types and reason can be queried.
-action code : 10141
 */
 func (a *Client) AdminBanUserV3Short(params *AdminBanUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanUserV3Response, error) {
 	// TODO: Validate the params before sending
@@ -7825,7 +7827,7 @@ func (a *Client) AdminBanUserV3Short(params *AdminBanUserV3Params, authInfo runt
 
 /*
 AdminGetUserBanSummaryV3Short get user's bans summary
-This endpoint get user's bans summary'
+Retrieves a summary of the user's ban history, including active and expired bans.
 */
 func (a *Client) AdminGetUserBanSummaryV3Short(params *AdminGetUserBanSummaryV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserBanSummaryV3Response, error) {
 	// TODO: Validate the params before sending
@@ -7917,7 +7919,6 @@ AdminUpdateUserBanV3Short enable or disable ban for a single user
 Set ban status for a single user for a specific ban. Retrieve
 user ban and choose the ban ID. Set the form parameter to true/false to enable
 or disable the ban.
-action code : 10142'
 */
 func (a *Client) AdminUpdateUserBanV3Short(params *AdminUpdateUserBanV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserBanV3Response, error) {
 	// TODO: Validate the params before sending
@@ -8018,8 +8019,6 @@ a context type used for verify user before updating email address.(Without email
 - **upgradeHeadlessAccount**
 The context is intended to be used whenever the email address wanted to be automatically verified on upgrading a headless account.
 If this context used, IAM rejects the request if the email address is already used by others by returning HTTP Status Code 409.
-
-action code: 10116
 */
 func (a *Client) AdminSendVerificationCodeV3Short(params *AdminSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSendVerificationCodeV3Response, error) {
 	// TODO: Validate the params before sending
@@ -8204,10 +8203,10 @@ func (a *Client) AdminVerifyAccountV3Short(params *AdminVerifyAccountV3Params, a
 
 /*
 GetUserVerificationCodeShort get verification code sent to user
-**[WARNING] This endpoint is only for testing purpose.**
+**[WARNING] This API is only for testing purpose.**
 
-This endpoint get active user verification code.
-There are some scenarios of getting verification codes, all of them will be returned on this endpoint:
+Gets the active user verification code.
+There are some scenarios of getting verification codes, all of them will be returned:
 - After account registration
 - After reset password request
 - After headless account upgrade
@@ -8296,7 +8295,7 @@ func (a *Client) GetUserVerificationCodeShort(params *GetUserVerificationCodePar
 
 /*
 AdminGetUserDeletionStatusV3Short get user deletion status
-action code : 10145
+Retrieves the deletion status of the specified user account.
 */
 func (a *Client) AdminGetUserDeletionStatusV3Short(params *AdminGetUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserDeletionStatusV3Response, error) {
 	// TODO: Validate the params before sending
@@ -8378,7 +8377,7 @@ func (a *Client) AdminGetUserDeletionStatusV3Short(params *AdminGetUserDeletionS
 
 /*
 AdminUpdateUserDeletionStatusV3Short update user deletion status
-action code : 10144
+Updates the deletion status of the specified user account.
 */
 func (a *Client) AdminUpdateUserDeletionStatusV3Short(params *AdminUpdateUserDeletionStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserDeletionStatusV3Response, error) {
 	// TODO: Validate the params before sending
@@ -8466,7 +8465,7 @@ func (a *Client) AdminUpdateUserDeletionStatusV3Short(params *AdminUpdateUserDel
 
 /*
 AdminListUserAllPlatformAccountsDistinctV3Short admin get distinct platform accounts linked to the user
-This endpoint retrieves platform accounts linked to user.
+Retrieves platform accounts linked to user.
 It will query all linked platform accounts and result will be distinct & grouped, same platform we will pick oldest linked one.
 */
 func (a *Client) AdminListUserAllPlatformAccountsDistinctV3Short(params *AdminListUserAllPlatformAccountsDistinctV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListUserAllPlatformAccountsDistinctV3Response, error) {
@@ -8556,18 +8555,16 @@ func (a *Client) AdminListUserAllPlatformAccountsDistinctV3Short(params *AdminLi
 
 /*
 AdminUpgradeHeadlessAccountV3Short verify or consume verification code.
-If validateOnly is set false, will upgrade headless account with verification code
-The endpoint upgrades a headless account by linking the headless account with the email address and the password.
+If validateOnly is set false, will upgrade headless account with verification code.
+Upgrades a headless account by linking it with an email address, username, and password, and immediately verifies the email address afterward.
 By upgrading the headless account into a full account, the user could use the email address and password for using Justice IAM.
-The endpoint is a shortcut for upgrading a headless account and verifying the email address in one call.
-In order to get a verification code for the endpoint, please check the send verification code endpoint.
-This endpoint also have an ability to update user data (if the user data field is specified) right after the upgrade account process is done.
+
+To obtain a verification code, use the send verification code API.
+Also has the ability to update user data (if the user data field is specified) right after the upgrade account process is done.
 Supported user data fields :
 - displayName
 - dateOfBirth : format YYYY-MM-DD, e.g. 2019-04-29
 - country : format ISO3166-1 alpha-2 two letter, e.g. US
-
-action code : 10124
 */
 func (a *Client) AdminUpgradeHeadlessAccountV3Short(params *AdminUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpgradeHeadlessAccountV3Response, error) {
 	// TODO: Validate the params before sending
@@ -8663,7 +8660,7 @@ func (a *Client) AdminUpgradeHeadlessAccountV3Short(params *AdminUpgradeHeadless
 
 /*
 AdminDeleteUserInformationV3Short delete user's information
-[WARNING] This endpoint is deleting user data from database directly by skipping GDPR flow
+**WARNING:** Deletes user data directly from the database, bypassing the GDPR flow. Use with caution as this action is irreversible.
 */
 func (a *Client) AdminDeleteUserInformationV3Short(params *AdminDeleteUserInformationV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserInformationV3Response, error) {
 	// TODO: Validate the params before sending
@@ -8736,11 +8733,11 @@ func (a *Client) AdminDeleteUserInformationV3Short(params *AdminDeleteUserInform
 
 /*
 AdminGetUserLoginHistoriesV3Short get user's login histories
-Notes for this endpoint:
-This endpoint retrieve the first page of the data if `after` and `before` parameters is empty.
+- This API only accept publisher/studio namespace and userId.
 - The maximum value of the limit is 100 and the minimum value of the limit is 1.
-- This endpoint retrieve the next page of the data if we provide `after` parameters with valid Unix timestamp.
-- This endpoint retrieve the previous page of the data if we provide `before` parameter with valid data Unix timestamp.
+- Returns the first page of the data if `after` and `before` parameters is empty.
+- Returns the next page of the data if we provide `after` parameters with valid Unix timestamp.
+- Returns the previous page of the data if we provide `before` parameter with valid Unix timestamp.
 */
 func (a *Client) AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHistoriesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserLoginHistoriesV3Response, error) {
 	// TODO: Validate the params before sending
@@ -8814,7 +8811,7 @@ func (a *Client) AdminGetUserLoginHistoriesV3Short(params *AdminGetUserLoginHist
 
 /*
 AdminResetPasswordV3Short update user password
-Update User Password
+Updates the password for the specified user. This is an admin operation that does not require the user's current password.
 */
 func (a *Client) AdminResetPasswordV3Short(params *AdminResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminResetPasswordV3Response, error) {
 	// TODO: Validate the params before sending
@@ -8900,29 +8897,7 @@ func (a *Client) AdminResetPasswordV3Short(params *AdminResetPasswordV3Params, a
 
 /*
 AdminUpdateUserPermissionV3Short update user permissions
-This endpoint will REPLACE user's permissions with the ones defined in body
-Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
-Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
-In ranged schedule, first element will be start date, and second one will be end date
-If schedule is set, the scheduled action must be valid too, that is between 1 to 15, inclusive
-Syntax reference
-Fields:
-1. Seconds: 0-59 * / , -
-2. Minutes: 0-59 * / , -
-3. Hours: 0-23 * / , -
-4. Day of month: 1-31 * / , - L W
-5. Month: 1-12 JAN-DEC * / , -
-6. Day of week: 0-6 SUN-SAT * / , - L #
-7. Year: 1970-2099 * / , -
-
-Special characters:
-1. *: all values in the fields, e.g. * in seconds fields indicates every second
-2. /: increments of ranges, e.g. 3-59/15 in the minute field indicate the third minute of the hour and every 15 minutes thereafter
-3. ,: separate items of a list, e.g. MON,WED,FRI in day of week
-4. -: range, e.g. 2010-2018 indicates every year between 2010 and 2018, inclusive
-5. L: last, e.g. When used in the day-of-week field, it allows you to specify constructs such as "the last Friday" (5L) of a given month. In the day-of-month field, it specifies the last day of the month.
-6. W: business day, e.g. if you were to specify 15W as the value for the day-of-month field, the meaning is: "the nearest business day to the 15th of the month."
-7. #: must be followed by a number between one and five. It allows you to specify constructs such as "the second Friday" of a given month.
+Replaces the user's permissions with the ones defined in the request body. Supports scheduled permissions using cron or date range syntax.
 */
 func (a *Client) AdminUpdateUserPermissionV3Short(params *AdminUpdateUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserPermissionV3Response, error) {
 	// TODO: Validate the params before sending
@@ -9002,7 +8977,7 @@ func (a *Client) AdminUpdateUserPermissionV3Short(params *AdminUpdateUserPermiss
 
 /*
 AdminAddUserPermissionsV3Short add user permissions
-This endpoint will APPEND user's permissions with the ones defined in body
+Appends user's permissions with the ones defined in body.
 Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
 Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
 In ranged schedule, first element will be start date, and second one will be end date
@@ -9104,7 +9079,7 @@ func (a *Client) AdminAddUserPermissionsV3Short(params *AdminAddUserPermissionsV
 
 /*
 AdminDeleteUserPermissionBulkV3Short delete user permission
-Delete User Permission
+Removes multiple permissions from a user in bulk.
 */
 func (a *Client) AdminDeleteUserPermissionBulkV3Short(params *AdminDeleteUserPermissionBulkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionBulkV3Response, error) {
 	// TODO: Validate the params before sending
@@ -9184,7 +9159,7 @@ func (a *Client) AdminDeleteUserPermissionBulkV3Short(params *AdminDeleteUserPer
 
 /*
 AdminDeleteUserPermissionV3Short delete user permission
-Delete User Permission
+Removes a specific permission (identified by resource and action) from the specified user.
 */
 func (a *Client) AdminDeleteUserPermissionV3Short(params *AdminDeleteUserPermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserPermissionV3Response, error) {
 	// TODO: Validate the params before sending
@@ -9393,7 +9368,7 @@ func (a *Client) AdminGetUserPlatformAccountsV3Short(params *AdminGetUserPlatfor
 
 /*
 AdminListAllDistinctPlatformAccountsV3Short admin get distinct platforms linked to the user
-This endpoint only retrieves 3rd party platform accounts linked to user.
+Retrieves only 3rd party platform accounts linked to user.
 It will query platform accounts and result will be distinct & grouped, same platform we will pick oldest linked one.
 ------
 Supported status:
@@ -9489,7 +9464,9 @@ func (a *Client) AdminListAllDistinctPlatformAccountsV3Short(params *AdminListAl
 
 /*
 AdminGetListJusticePlatformAccountsShort get user justice platform accounts
-This endpoint gets list justice platform account by providing publisher namespace and publisher userID
+Retrieves the list of Justice platform accounts linked to the given user.
+
+**Namespace restriction:** The {namespace} path parameter must be a **publisher namespace**. Passing a game namespace returns HTTP 400.
 */
 func (a *Client) AdminGetListJusticePlatformAccountsShort(params *AdminGetListJusticePlatformAccountsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListJusticePlatformAccountsResponse, error) {
 	// TODO: Validate the params before sending
@@ -9578,9 +9555,9 @@ func (a *Client) AdminGetListJusticePlatformAccountsShort(params *AdminGetListJu
 
 /*
 AdminGetUserMappingShort get user mapping
-This endpoint will support publisher access to game and game access to publisher
-If targetNamespace filled with publisher namespace then this endpoint will return its publisher user id and publisher namespace.
-If targetNamespace filled with game namespace then this endpoint will return its game user id and game namespace.
+Supports publisher access to game and game access to publisher.
+If targetNamespace filled with publisher namespace then returns its publisher user id and publisher namespace.
+If targetNamespace filled with game namespace then returns its game user id and game namespace.
 */
 func (a *Client) AdminGetUserMappingShort(params *AdminGetUserMappingParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMappingResponse, error) {
 	// TODO: Validate the params before sending
@@ -9750,7 +9727,7 @@ func (a *Client) AdminCreateJusticeUserShort(params *AdminCreateJusticeUserParam
 
 /*
 AdminLinkPlatformAccountShort link a platform user account to user account
-Force linking platform account to user User Account. This endpoint intended for admin to forcefully link account to user.
+Force linking platform account to user User Account. Intended for admin to forcefully link account to user.
 By default, these cases are not allowed
 - The platform account current is linked by another account
 - The target account ever linked this platform's another account
@@ -9981,7 +9958,6 @@ Unlink user's account from a specific platform. 'justice' platform might have mu
 _platformNamespace_ need to be specified when the platform ID is 'justice'.
 Unlink user's account from justice platform will enable password token grant and password update.
 If you want to unlink user's account in a game namespace, you have to specify _platformNamespace_ to that game namespace.
-action code : 10121
 */
 func (a *Client) AdminPlatformUnlinkV3Short(params *AdminPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminPlatformUnlinkV3Response, error) {
 	// TODO: Validate the params before sending
@@ -10553,7 +10529,7 @@ func (a *Client) AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(params *Ad
 AdminGetThirdPartyPlatformTokenLinkStatusV3Short admin get the link status of the third party platform token with user id.
 Admin get the link status of the third party platform token with user id.
 
-This endpoint is used for checking whether the third party user represented by third party token is
+Checks whether the third party user represented by third party token is
 linked with the corresponding user id.
 
 ## Supported platforms:
@@ -10667,7 +10643,7 @@ func (a *Client) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminG
 
 /*
 AdminGetUserSinglePlatformAccountShort admin get user single platform account metadata
-This endpoint gets user single platform account metadata.
+Gets user single platform account metadata.
 
 **Supported Platforms:**
 - Steam group (steamnetwork):
@@ -10792,7 +10768,9 @@ func (a *Client) AdminGetUserSinglePlatformAccountShort(params *AdminGetUserSing
 
 /*
 AdminDeleteUserRolesV3Short delete user roles
-Delete User Roles
+**Deprecated.** Only removes roles from the legacy roles entity.
+
+**Substitute endpoint:** /iam/v4/admin/namespaces/{namespace}/users/{userId}/roles [DELETE]
 */
 func (a *Client) AdminDeleteUserRolesV3Short(params *AdminDeleteUserRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRolesV3Response, error) {
 	// TODO: Validate the params before sending
@@ -10873,7 +10851,7 @@ func (a *Client) AdminDeleteUserRolesV3Short(params *AdminDeleteUserRolesV3Param
 /*
 AdminSaveUserRoleV3Short admin save user role v3
 User's roles will be replaced with roles from request body.
-An admin user can only assign role with **namespace** (in request body) if the admin user has required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
+An admin user can only assign role with **namespace** (in request body) if the admin user has required permission which is same as the required permission of [AdminAddUserRoleV4].
 */
 func (a *Client) AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminSaveUserRoleV3Response, error) {
 	// TODO: Validate the params before sending
@@ -10968,7 +10946,9 @@ func (a *Client) AdminSaveUserRoleV3Short(params *AdminSaveUserRoleV3Params, aut
 
 /*
 AdminAddUserRoleV3Short add user role
-action code: 10109
+**Deprecated.** Only assigns roles in the legacy roles entity.
+
+**Substitute endpoint:** /iam/v4/admin/namespaces/{namespace}/users/{userId}/roles [POST]
 */
 func (a *Client) AdminAddUserRoleV3Short(params *AdminAddUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV3Response, error) {
 	// TODO: Validate the params before sending
@@ -11063,8 +11043,9 @@ func (a *Client) AdminAddUserRoleV3Short(params *AdminAddUserRoleV3Params, authI
 
 /*
 AdminDeleteUserRoleV3Short delete user role
-This endpoint removes role from user
-action code: 10110
+**Deprecated.** Only removes roles from the legacy roles entity.
+
+**Substitute endpoint:** /iam/v4/admin/namespaces/{namespace}/users/{userId}/roles [DELETE]
 */
 func (a *Client) AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteUserRoleV3Response, error) {
 	// TODO: Validate the params before sending
@@ -11152,7 +11133,7 @@ func (a *Client) AdminDeleteUserRoleV3Short(params *AdminDeleteUserRoleV3Params,
 
 /*
 AdminGetUserStateByUserIDV3Short admin get user state by user id
-Admin Get User State By User Id
+Retrieves the current account state (enabled/disabled, email verification, deletion status) for the specified user.
 */
 func (a *Client) AdminGetUserStateByUserIDV3Short(params *AdminGetUserStateByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserStateByUserIDV3Response, error) {
 	// TODO: Validate the params before sending
@@ -11241,12 +11222,7 @@ func (a *Client) AdminGetUserStateByUserIDV3Short(params *AdminGetUserStateByUse
 
 /*
 AdminUpdateUserStatusV3Short update user status
-This endpoint disable or enable user account. Set the enable status on the request body to true to enable user account or set to false to disable it.
-Disable user for **Account Disable** purpose fill the reason with:
-- **AdminDeactivateAccount** : if your disable account request comes from admin
-
-Enable user ignore field 'reason' in the request body.
-action code : 10143
+Disables or enables a user account.
 */
 func (a *Client) AdminUpdateUserStatusV3Short(params *AdminUpdateUserStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserStatusV3Response, error) {
 	// TODO: Validate the params before sending
@@ -11334,15 +11310,13 @@ func (a *Client) AdminUpdateUserStatusV3Short(params *AdminUpdateUserStatusV3Par
 
 /*
 AdminTrustlyUpdateUserIdentityShort update user identity
-This endpoint ONLY accept **Client Token**
-This endpoint is utilized for specific scenarios where **email notifications are disabled**
+Only accepts **Client Token**.
+Intended for specific scenarios where **email notifications are disabled**.
 The user's email will be marked as verified
 
 Note:
 - emailAddress or password field are optional
 - request body can't be empty
-
-action code : 10103
 */
 func (a *Client) AdminTrustlyUpdateUserIdentityShort(params *AdminTrustlyUpdateUserIdentityParams, authInfo runtime.ClientAuthInfoWriter) (*AdminTrustlyUpdateUserIdentityResponse, error) {
 	// TODO: Validate the params before sending
@@ -11437,11 +11411,11 @@ func (a *Client) AdminTrustlyUpdateUserIdentityShort(params *AdminTrustlyUpdateU
 
 /*
 AdminVerifyUserWithoutVerificationCodeV3Short verify user without verification code
-This endpoint force verify user
-Note:
-- namespace: only accept publisher/studio namespace
-- userId: only accept publisher/studio userId
-action code: 10118
+Force-verifies a user's account without requiring a verification code.
+
+**Note:**
+- namespace: only accepts publisher/studio namespaces
+- userId: only accepts publisher/studio user IDs
 */
 func (a *Client) AdminVerifyUserWithoutVerificationCodeV3Short(params *AdminVerifyUserWithoutVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminVerifyUserWithoutVerificationCodeV3Response, error) {
 	// TODO: Validate the params before sending
@@ -11537,7 +11511,6 @@ func (a *Client) AdminVerifyUserWithoutVerificationCodeV3Short(params *AdminVeri
 /*
 AdminGetMyUserV3Short get my user
 Get my user data
-action code : 10147
 */
 func (a *Client) AdminGetMyUserV3Short(params *AdminGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyUserV3Response, error) {
 	// TODO: Validate the params before sending
@@ -11673,8 +11646,7 @@ func (a *Client) PublicGetCountryAgeRestrictionV3Short(params *PublicGetCountryA
 /*
 PublicListUserIDByPlatformUserIDsV3Short list user id by platform user id
 List User ID By Platform User ID
-This endpoint intended to list game user ID from the given namespace
-This endpoint return list of user ID by given platform ID and list of platform user ID
+Lists game user IDs from the given namespace by given platform ID and list of platform user ID.
 
 Supported platform:
 - steam
@@ -11785,7 +11757,7 @@ func (a *Client) PublicListUserIDByPlatformUserIDsV3Short(params *PublicListUser
 /*
 PublicGetUserByPlatformUserIDV3Short get user by platform user id
 Get User By Platform User ID.
-This endpoint return user information by given platform ID and platform user ID.
+Returns user information by given platform ID and platform user ID.
 Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
 example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 **Note**: this is deprecated, substitute endpoint: /iam/v4/public/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]
@@ -11906,8 +11878,7 @@ func (a *Client) PublicGetUserByPlatformUserIDV3Short(params *PublicGetUserByPla
 
 /*
 PublicGetAsyncStatusShort get linking progress status
-This endpoint is used to get linking status.
-This API need logged user and user can only request its own linking status.
+Retrieves the linking status. The user must be logged in and can only request their own linking status.
 */
 func (a *Client) PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetAsyncStatusResponse, error) {
 	// TODO: Validate the params before sending
@@ -11982,7 +11953,7 @@ func (a *Client) PublicGetAsyncStatusShort(params *PublicGetAsyncStatusParams, a
 
 /*
 PublicSearchUserV3Short search user
-This endpoint search all users on the specified namespace that match the query on these fields: display name, unique display name, username or by 3rd party display name.
+Searches all users on the specified namespace that match the query on these fields: display name, unique display name, username or by 3rd party display name.
 The query length must be between 3 and 30 characters. For email address queries (i.e. contains '@'), the allowed length is 3 to 40 characters. Otherwise, the database will not be queried.
 The default limit value is 20.
 
@@ -12136,7 +12107,7 @@ Available Authentication Types:
 
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
-This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
+Supports accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
 */
 func (a *Client) PublicCreateUserV3Short(params *PublicCreateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV3Response, error) {
 	// TODO: Validate the params before sending
@@ -12317,7 +12288,7 @@ func (a *Client) CheckUserAvailabilityShort(params *CheckUserAvailabilityParams,
 /*
 PublicBulkGetUsersShort bulk get users' basic info by user id
 Notes:
-- This endpoint bulk get users' basic info by userId, max allowed 100 at a time
+- Bulk-retrieves basic user info by userId, max allowed 100 at a time
 - If namespace is game, will search by game user Id, other wise will search by publisher namespace
 - **Result will include displayName(if it exists)**
 - **Substitute endpoint:** /iam/v3/public/namespaces/{namespace}/users/platforms [POST]
@@ -12388,10 +12359,10 @@ func (a *Client) PublicBulkGetUsersShort(params *PublicBulkGetUsersParams, authI
 
 /*
 PublicSendRegistrationCodeShort send verification code to new unregistered account's email address
-This endpoint will validate the request's email address.
+Validates the request's email address.
 If it already been used, will response 409.
 If it is available, we will send a verification code to this email address.
-This code can be verified by this [endpoint](#operations-Users-PublicVerifyRegistrationCode).
+This code can be verified by this [API](#operations-Users-PublicVerifyRegistrationCode).
 */
 func (a *Client) PublicSendRegistrationCodeShort(params *PublicSendRegistrationCodeParams, authInfo runtime.ClientAuthInfoWriter) (*PublicSendRegistrationCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -12529,7 +12500,6 @@ PublicForgotPasswordV3Short request password reset code
 Game Client should provide game namespace path parameter and Publisher
 Client should provide publisher namespace path parameter.
 The password reset code will be sent to the publisher account's email address.
-action code : 10104
 */
 func (a *Client) PublicForgotPasswordV3Short(params *PublicForgotPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicForgotPasswordV3Response, error) {
 	// TODO: Validate the params before sending
@@ -12606,7 +12576,7 @@ PublicValidateUserInputShort validate user's input.
 Validate user's input.
 --------
 **note:**
-- this endpoint will check the input validation and profanity filter service(if this is enabled)
+- checks the input validation and profanity filter service (if this is enabled)
 - the namespace should be publisher namespace
 */
 func (a *Client) PublicValidateUserInputShort(params *PublicValidateUserInputParams, authInfo runtime.ClientAuthInfoWriter) (*PublicValidateUserInputResponse, error) {
@@ -12668,7 +12638,7 @@ func (a *Client) PublicValidateUserInputShort(params *PublicValidateUserInputPar
 
 /*
 GetAdminInvitationV3Short get user invitation
-Endpoint to validate user invitation. When not found, it could also means the invitation has expired.
+Validates a user invitation. When not found, it could also mean the invitation has expired.
 */
 func (a *Client) GetAdminInvitationV3Short(params *GetAdminInvitationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetAdminInvitationV3Response, error) {
 	// TODO: Validate the params before sending
@@ -12736,8 +12706,8 @@ func (a *Client) GetAdminInvitationV3Short(params *GetAdminInvitationV3Params, a
 
 /*
 CreateUserFromInvitationV3Short create user from invitation
-This endpoint create user from saved roles when creating invitation and submitted data.
-User will be able to login after completing submitting the data through this endpoint.
+Creates a user from saved roles when creating invitation and submitted data.
+User will be able to login after submitting data.
 Available Authentication Types:
 EMAILPASSWD: an authentication type used for new user registration through email.
 
@@ -12834,7 +12804,7 @@ func (a *Client) CreateUserFromInvitationV3Short(params *CreateUserFromInvitatio
 
 /*
 UpdateUserV3Short update user
-This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
+Updates the user based on given data. **Single request can update single field or multi fields.**
 Supported field {country, displayName, languageTag, dateOfBirth, avatarUrl, userName}
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
@@ -12844,10 +12814,8 @@ Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 - User want to update email address of which have been verified and updated before, { oldEmailAddress, emailAddress} response field will be filled with verified email before. newEmailAddress response field will be filled with newest email address.
 
 **Important notes:**
-This endpoint provides support for client that doesn't have PATCH support, i.e. UE4 before v4.23 released.
+Provides PATCH support for clients that do not support PATCH natively, e.g. UE4 before v4.23 released.
 If the client support PATCH method, use [PATCH] /iam/v3/public/namespaces/{namespace}/users/me instead
-
-action code : 10103
 */
 func (a *Client) UpdateUserV3Short(params *UpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserV3Response, error) {
 	// TODO: Validate the params before sending
@@ -12936,7 +12904,7 @@ func (a *Client) UpdateUserV3Short(params *UpdateUserV3Params, authInfo runtime.
 
 /*
 PublicPartialUpdateUserV3Short update user
-This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
+Updates the user based on given data. **Single request can update single field or multi fields.**
 Supported field {country, displayName, languageTag, dateOfBirth, avatarUrl, userName}
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
@@ -12944,8 +12912,6 @@ Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 - User want to update email address of which have been verified, newEmailAddress response field will be filled with new email address.
 - User want to update email address of which have not been verified, { oldEmailAddress, emailAddress} response field will be filled with new email address.
 - User want to update email address of which have been verified and updated before, { oldEmailAddress, emailAddress} response field will be filled with verified email before. newEmailAddress response field will be filled with newest email address.
-
-action code : 10103
 */
 func (a *Client) PublicPartialUpdateUserV3Short(params *PublicPartialUpdateUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPartialUpdateUserV3Response, error) {
 	// TODO: Validate the params before sending
@@ -13044,8 +13010,6 @@ a context type used for verify user before updating email address.(Without email
 3. **upgradeHeadlessAccount**
 The context is intended to be used whenever the email address wanted to be automatically verified on upgrading a headless account.
 If this context used, IAM rejects the request if the email address is already used by others by returning HTTP Status Code 409.
-
-action code: 10116
 */
 func (a *Client) PublicSendVerificationCodeV3Short(params *PublicSendVerificationCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicSendVerificationCodeV3Response, error) {
 	// TODO: Validate the params before sending
@@ -13143,7 +13107,6 @@ PublicUserVerificationV3Short validate or consume verification code sent to user
 Will consume code if validateOnly is set false
 Redeems a verification code sent to a user to verify the user's contact address is correct
 Available ContactType : **email**
-action code: 10107
 */
 func (a *Client) PublicUserVerificationV3Short(params *PublicUserVerificationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUserVerificationV3Response, error) {
 	// TODO: Validate the params before sending
@@ -13224,18 +13187,17 @@ func (a *Client) PublicUserVerificationV3Short(params *PublicUserVerificationV3P
 
 /*
 PublicUpgradeHeadlessAccountV3Short verify or consume verification code.
-If validateOnly is set false, consume code and upgrade headless account and automatically verified the email address if it is succeeded
-The endpoint upgrades a headless account by linking the headless account with the email address and the password.
+If validateOnly is set false, consume code and upgrade headless account and automatically verified the email address if it is succeeded.
+Upgrades a headless account by linking it with an email address, username, and password, and immediately verifies the email address afterward.
+
 By upgrading the headless account into a full account, the user could use the email address and password for using Justice IAM.
-The endpoint is a shortcut for upgrading a headless account and verifying the email address in one call.
-In order to get a verification code for the endpoint, please check the send verification code endpoint.
-This endpoint also have an ability to update user data (if the user data field is specified) right after the upgrade account process is done.
+
+To obtain a verification code, use the send verification code API.
+Also has the ability to update user data (if the user data field is specified) right after the upgrade account process is done.
 Supported user data fields :
 - displayName
 - dateOfBirth : format YYYY-MM-DD, e.g. 2019-04-29
 - country : format ISO3166-1 alpha-2 two letter, e.g. US
-
-action code : 10124
 */
 func (a *Client) PublicUpgradeHeadlessAccountV3Short(params *PublicUpgradeHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV3Response, error) {
 	// TODO: Validate the params before sending
@@ -13331,8 +13293,6 @@ func (a *Client) PublicUpgradeHeadlessAccountV3Short(params *PublicUpgradeHeadle
 
 /*
 PublicVerifyHeadlessAccountV3Short upgrade user headless account to full account (with email)
-action code : 10124
-
 if set NeedVerificationCode = true, IAM will send verification code into email
 user can use that verification code to verify user through /iam/v3/public/namespaces/{namespace}/users/me/code/verify
 */
@@ -13423,7 +13383,7 @@ func (a *Client) PublicVerifyHeadlessAccountV3Short(params *PublicVerifyHeadless
 
 /*
 PublicUpdatePasswordV3Short update user password
-action code: 10107
+Updates the authenticated user's password. Requires the current password and a new password to be provided.
 */
 func (a *Client) PublicUpdatePasswordV3Short(params *PublicUpdatePasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdatePasswordV3Response, error) {
 	// TODO: Validate the params before sending
@@ -13619,7 +13579,6 @@ Platform client configuration need to be added to database for specific platform
 - **netflix**: The ticketâs value is GAT (Gamer Access Token) returned by Netflix backend.
 - **snapchat**: The ticketâs value is authorization code returned by Snapchat OAuth.
 - **for specific generic oauth (OIDC)**: The platform_tokenâs value should be the same type as created OIDC auth type whether it is auth code, idToken or bearerToken.
-action code : 10144
 */
 func (a *Client) PublicPlatformLinkV3Short(params *PublicPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformLinkV3Response, error) {
 	// TODO: Validate the params before sending
@@ -13728,7 +13687,6 @@ Unlink user's account from a specific platform. 'justice' platform might have mu
 _platformNamespace_ need to be specified when the platform ID is 'justice'.
 Unlink user's account from justice platform will enable password token grant and password update.
 If you want to unlink user's account in a game namespace, you have to specify _platformNamespace_ to that game namespace.
-action code : 10121
 */
 func (a *Client) PublicPlatformUnlinkV3Short(params *PublicPlatformUnlinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicPlatformUnlinkV3Response, error) {
 	// TODO: Validate the params before sending
@@ -13933,7 +13891,7 @@ func (a *Client) PublicPlatformUnlinkAllV3Short(params *PublicPlatformUnlinkAllV
 /*
 PublicForcePlatformLinkV3Short force linking user's account with platform
 Force linking user account with platform.
-If this platform account was already linked to another user account, this endpoint will perform force linking and remove platform from that conflict user, not only from the current request namespace but also include all the enrolled namespaces.
+If this platform account was already linked to another user account, force linking is performed and the platform is removed from the conflicting user account, not only from the current request namespace but also from all the enrolled namespaces.
 If current user have linked to this platform with another platform account (include once linked but it is unlinked now), it will not allow user to perform linking.
 ## Supported platforms:
 - **steam**: The platform_tokenâs value is the binary ticket returned by Steam.
@@ -14046,7 +14004,7 @@ func (a *Client) PublicForcePlatformLinkV3Short(params *PublicForcePlatformLinkV
 
 /*
 PublicWebLinkPlatformShort create public web linking
-This endpoint is used to generate third party login page which will redirected to establish endpoint.
+Generates a third party login page which will redirect to the establish API.
 Supported platforms:
 - ps4web
 - xblweb
@@ -14134,7 +14092,7 @@ func (a *Client) PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams,
 
 /*
 PublicWebLinkPlatformEstablishShort establish link progress
-This endpoint is used by third party to redirect the code for the purpose of linking the account third party to IAM account.
+Used by a third party to redirect the code for the purpose of linking the third party account to an IAM account.
 Supported platforms:
 - ps4web
 - xblweb
@@ -14201,7 +14159,7 @@ func (a *Client) PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatfo
 
 /*
 PublicProcessWebLinkPlatformV3Short process link progress
-This endpoint is used to process third party account link, this endpoint will return the link status directly instead of redirecting to the original page.
+Processes third party account link and returns the link status directly instead of redirecting to the original page.
 The param **state** comes from the response of `/users/me/platforms/{platformId}/web/link`
 Supported platforms:
 - ps4web
@@ -14371,7 +14329,7 @@ func (a *Client) PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatfo
 
 /*
 ResetPasswordV3Short reset user password
-action code: 10105
+Resets a user's password using a valid password reset code sent to their email address.
 */
 func (a *Client) ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordV3Response, error) {
 	// TODO: Validate the params before sending
@@ -14445,7 +14403,7 @@ func (a *Client) ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo ru
 
 /*
 PublicGetUserByUserIDV3Short get user by user id
-This endpoint retrieve user attributes. action code: 10129
+Retrieves user attributes.
 **Substitute endpoint:** /v4/public/namespaces/{namespace}/users/{userId} [GET]
 */
 func (a *Client) PublicGetUserByUserIDV3Short(params *PublicGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV3Response, error) {
@@ -14613,7 +14571,7 @@ func (a *Client) PublicGetUserBanHistoryV3Short(params *PublicGetUserBanHistoryV
 
 /*
 PublicListUserAllPlatformAccountsDistinctV3Short get distinct platform accounts linked to the user
-This endpoint retrieves platform accounts linked to user.
+Retrieves platform accounts linked to user.
 It will query all linked platform accounts. The results will be distinct and grouped by platform, and for each platform, we will select the oldest linked one.
 
 **Authentication:**
@@ -14706,7 +14664,7 @@ func (a *Client) PublicListUserAllPlatformAccountsDistinctV3Short(params *Public
 
 /*
 PublicGetUserInformationV3Short get user's information v3
-This endpoint retrieves user info and linked platform accounts.
+Retrieves user info and linked platform accounts.
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -14791,11 +14749,10 @@ func (a *Client) PublicGetUserInformationV3Short(params *PublicGetUserInformatio
 
 /*
 PublicGetUserLoginHistoriesV3Short get user's login histories
-Notes for this endpoint:
 - The maximum value of the limit is 100 and the minimum value of the limit is 1.
-- This endpoint retrieve the first page of the data if `after` and `before` parameters is empty.
-- This endpoint retrieve the next page of the data if we provide `after` parameters with valid Unix timestamp.
-- This endpoint retrieve the previous page of the data if we provide `before` parameter with valid data Unix timestamp.
+- Returns the first page of the data if `after` and `before` parameters is empty.
+- Returns the next page of the data if we provide `after` parameters with valid Unix timestamp.
+- Returns the previous page of the data if we provide `before` parameter with valid data Unix timestamp.
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -14872,7 +14829,7 @@ func (a *Client) PublicGetUserLoginHistoriesV3Short(params *PublicGetUserLoginHi
 
 /*
 PublicGetUserPlatformAccountsV3Short get platform accounts linked to the user
-This endpoint retrieves platform accounts linked to user.
+Retrieves platform accounts linked to user.
 
 **Supported Platforms:**
 - Steam group (steamnetwork):
@@ -14912,8 +14869,6 @@ Note:
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
-
-action code: 10128
 */
 func (a *Client) PublicGetUserPlatformAccountsV3Short(params *PublicGetUserPlatformAccountsV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPlatformAccountsV3Response, error) {
 	// TODO: Validate the params before sending
@@ -15002,7 +14957,9 @@ func (a *Client) PublicGetUserPlatformAccountsV3Short(params *PublicGetUserPlatf
 
 /*
 PublicListJusticePlatformAccountsV3Short get user justice platform accounts
-This endpoint gets list justice platform account by providing publisher namespace and publisher userID.
+Retrieves the list of Justice platform accounts linked to the given user.
+
+**Namespace restriction:** The {namespace} path parameter must be a **publisher namespace**. Passing a game namespace returns HTTP 400.
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -15094,7 +15051,10 @@ func (a *Client) PublicListJusticePlatformAccountsV3Short(params *PublicListJust
 
 /*
 PublicLinkPlatformAccountShort link a platform user account to user account
-It is going to be **DEPRECATED**.
+## This API has been deprecated
+**Endpoint migration guide**
+- **Substitute endpoint: _/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/force [POST]_**
+
 Update Platform Account relation to current User Account.
 
 Note: Game progression data (statistics, reward, etc) associated with previous User Account will not be
@@ -15183,8 +15143,8 @@ func (a *Client) PublicLinkPlatformAccountShort(params *PublicLinkPlatformAccoun
 /*
 PublicForceLinkPlatformWithProgressionShort force link 3rd platform account and transfer progression
 Force update other account's Platform Account relation to current User Account.
-This endpoint can transfer progression from 3rd platform binding account's to current account.
-This endpoint need the same requestID which also used in [Get link status](#operations-Users-PublicGetAsyncStatus).
+Can transfer progression from 3rd platform binding account's to current account.
+Requires the same requestID used in [Get link status](#operations-Users-PublicGetAsyncStatus).
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -15350,8 +15310,7 @@ func (a *Client) PublicGetPublisherUserV3Short(params *PublicGetPublisherUserV3P
 
 /*
 PublicValidateUserByUserIDAndPasswordV3Short validate user password by user id and password
-This endpoint is used to validate the user password.
-This endpoint validate the user password by specifying the userId and password.
+Validates the user password by specifying the userId and password.
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -15442,7 +15401,7 @@ func (a *Client) PublicValidateUserByUserIDAndPasswordV3Short(params *PublicVali
 
 /*
 PublicForgotPasswordWithoutNamespaceV3Short request password reset code
-This endpoint does not need a namespace in the path, we will find the namespace based on:
+Does not need a namespace in the path, we will find the namespace based on:
 
 - If this is premium environment, the namespace will be the publisher namespace.
 - If this is shared cloud:
@@ -15537,8 +15496,6 @@ __Supported 3rd platforms:__
 * __EpicGames(epicgames)__
 * epic account id
 * display name
-
-action code : 10147
 */
 func (a *Client) PublicGetMyUserV3Short(params *PublicGetMyUserV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyUserV3Response, error) {
 	// TODO: Validate the params before sending
@@ -15668,7 +15625,7 @@ Note:
 1. My account should be full account
 2. My account not linked to request headless account's third platform.
 
-After client resolving the conflict, it will call endpoint `/iam/v3/public/users/me/headless/linkWithProgression [POST]`
+After client resolving the conflict, it will call `/iam/v3/public/users/me/headless/linkWithProgression [POST]`
 */
 func (a *Client) PublicGetLinkHeadlessAccountToMyAccountConflictV3Short(params *PublicGetLinkHeadlessAccountToMyAccountConflictV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetLinkHeadlessAccountToMyAccountConflictV3Response, error) {
 	// TODO: Validate the params before sending
@@ -15833,7 +15790,7 @@ func (a *Client) LinkHeadlessAccountToMyAccountV3Short(params *LinkHeadlessAccou
 
 /*
 PublicGetMyRedirectionAfterLinkV3Short get my forward uri link
-Get my redirect uri after link, this endpoint will return NotFound(404) if redirect uri is not found
+Returns the redirect URI after link. Returns NotFound(404) if redirect URI is not found.
 */
 func (a *Client) PublicGetMyRedirectionAfterLinkV3Short(params *PublicGetMyRedirectionAfterLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyRedirectionAfterLinkV3Response, error) {
 	// TODO: Validate the params before sending

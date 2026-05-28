@@ -70,7 +70,7 @@ type AdminDisableUserV2Params struct {
 	/*Body*/
 	Body *iamclientmodels.ModelDisableUserRequest
 	/*Namespace
-	  Namespace
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

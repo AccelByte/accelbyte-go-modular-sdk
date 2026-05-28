@@ -53,6 +53,8 @@ type ClientService interface {
 	PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSessionLeaderParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPromoteGameSessionLeaderResponse, error)
 	LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*LeaveGameSessionResponse, error)
 	PublicKickGameSessionMemberShort(params *PublicKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*PublicKickGameSessionMemberResponse, error)
+	PublicGetGameSessionPasswordShort(params *PublicGetGameSessionPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetGameSessionPasswordResponse, error)
+	PublicUpdateGameSessionPasswordShort(params *PublicUpdateGameSessionPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateGameSessionPasswordResponse, error)
 	PublicGameSessionRejectShort(params *PublicGameSessionRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionRejectResponse, error)
 	GetSessionServerSecretShort(params *GetSessionServerSecretParams, authInfo runtime.ClientAuthInfoWriter) (*GetSessionServerSecretResponse, error)
 	AppendTeamGameSessionShort(params *AppendTeamGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AppendTeamGameSessionResponse, error)
@@ -406,6 +408,8 @@ func (a *Client) AdminSetDSReadyShort(params *AdminSetDSReadyParams, authInfo ru
 /*
 AdminUpdateDSInformationShort update game session ds information for asynchronous process.
 This API is used for create custom DS asynchronously flow and is expected to be called after the service receives response from the Async RPC.
+For persistent sessions with DS_AMS or DS_CUSTOM, this endpoint can be used to update DS information when the dedicated server becomes available or when DS status changes occur.
+Supported status only enums:"AVAILABLE, FAILED_TO_REQUEST, DS_ERROR, ENDED" example:"AVAILABLE"
 */
 func (a *Client) AdminUpdateDSInformationShort(params *AdminUpdateDSInformationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateDSInformationResponse, error) {
 	// TODO: Validate the params before sending
@@ -2187,6 +2191,183 @@ func (a *Client) PublicKickGameSessionMemberShort(params *PublicKickGameSessionM
 		return response, v
 	case *PublicKickGameSessionMemberInternalServerError:
 		response := &PublicKickGameSessionMemberResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicGetGameSessionPasswordShort get password of a password-protected game session.
+Get the plaintext password of a PASSWORD_PROTECTED game session. Only active members of the session may call this endpoint.
+*/
+func (a *Client) PublicGetGameSessionPasswordShort(params *PublicGetGameSessionPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetGameSessionPasswordResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicGetGameSessionPasswordParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicGetGameSessionPassword",
+		Method:             "GET",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/password",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicGetGameSessionPasswordReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicGetGameSessionPasswordOK:
+		response := &PublicGetGameSessionPasswordResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicGetGameSessionPasswordBadRequest:
+		response := &PublicGetGameSessionPasswordResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetGameSessionPasswordUnauthorized:
+		response := &PublicGetGameSessionPasswordResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetGameSessionPasswordForbidden:
+		response := &PublicGetGameSessionPasswordResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetGameSessionPasswordNotFound:
+		response := &PublicGetGameSessionPasswordResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicGetGameSessionPasswordInternalServerError:
+		response := &PublicGetGameSessionPasswordResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicUpdateGameSessionPasswordShort update password of a password-protected game session.
+Update the password of a PASSWORD_PROTECTED game session. Only the session leader may call this endpoint.
+*/
+func (a *Client) PublicUpdateGameSessionPasswordShort(params *PublicUpdateGameSessionPasswordParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateGameSessionPasswordResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicUpdateGameSessionPasswordParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "publicUpdateGameSessionPassword",
+		Method:             "PUT",
+		PathPattern:        "/session/v1/public/namespaces/{namespace}/gamesessions/{sessionId}/password",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicUpdateGameSessionPasswordReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicUpdateGameSessionPasswordNoContent:
+		response := &PublicUpdateGameSessionPasswordResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicUpdateGameSessionPasswordBadRequest:
+		response := &PublicUpdateGameSessionPasswordResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdateGameSessionPasswordUnauthorized:
+		response := &PublicUpdateGameSessionPasswordResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdateGameSessionPasswordForbidden:
+		response := &PublicUpdateGameSessionPasswordResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdateGameSessionPasswordNotFound:
+		response := &PublicUpdateGameSessionPasswordResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicUpdateGameSessionPasswordInternalServerError:
+		response := &PublicUpdateGameSessionPasswordResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

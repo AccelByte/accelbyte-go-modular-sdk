@@ -81,7 +81,7 @@ type PlatformTokenRequestHandlerParams struct {
 	*/
 	PlatformToken *string
 	/*Namespace
-	  Requested namespace for token grant
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

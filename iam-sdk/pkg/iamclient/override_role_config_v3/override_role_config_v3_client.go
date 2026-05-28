@@ -88,13 +88,6 @@ func (a *Client) AdminGetRoleOverrideConfigV3Short(params *AdminGetRoleOverrideC
 		response.IsSuccess = true
 
 		return response, nil
-	case *AdminGetRoleOverrideConfigV3BadRequest:
-		response := &AdminGetRoleOverrideConfigV3Response{}
-		response.Error400 = v.Payload
-
-		response.IsSuccess = false
-
-		return response, v
 	case *AdminGetRoleOverrideConfigV3Unauthorized:
 		response := &AdminGetRoleOverrideConfigV3Response{}
 		response.Error401 = v.Payload
@@ -127,6 +120,9 @@ AdminUpdateRoleOverrideConfigV3Short update role override config
 This API is for updating role override config.
 Note:
 This API has upsert behavior, if there is no config yet, it will create a new one first.
+**Note for Multi Tenant Mode:**
+Studio/game admin:
+* only allow to add custom permission to additions.
 */
 func (a *Client) AdminUpdateRoleOverrideConfigV3Short(params *AdminUpdateRoleOverrideConfigV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleOverrideConfigV3Response, error) {
 	// TODO: Validate the params before sending
@@ -345,6 +341,13 @@ func (a *Client) AdminChangeRoleOverrideConfigStatusV3Short(params *AdminChangeR
 		response.IsSuccess = true
 
 		return response, nil
+	case *AdminChangeRoleOverrideConfigStatusV3BadRequest:
+		response := &AdminChangeRoleOverrideConfigStatusV3Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *AdminChangeRoleOverrideConfigStatusV3Unauthorized:
 		response := &AdminChangeRoleOverrideConfigStatusV3Response{}
 		response.Error401 = v.Payload

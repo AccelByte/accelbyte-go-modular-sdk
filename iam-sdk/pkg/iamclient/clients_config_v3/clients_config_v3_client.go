@@ -33,6 +33,7 @@ type ClientService interface {
 	AdminListClientAvailablePermissionsShort(params *AdminListClientAvailablePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientAvailablePermissionsResponse, error)
 	AdminUpdateAvailablePermissionsByModuleShort(params *AdminUpdateAvailablePermissionsByModuleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAvailablePermissionsByModuleResponse, error)
 	AdminDeleteConfigPermissionsByGroupShort(params *AdminDeleteConfigPermissionsByGroupParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigPermissionsByGroupResponse, error)
+	AdminUpdateModulePackageShort(params *AdminUpdateModulePackageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateModulePackageResponse, error)
 	AdminListClientTemplatesShort(params *AdminListClientTemplatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientTemplatesResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -40,7 +41,7 @@ type ClientService interface {
 
 /*
 AdminListClientAvailablePermissionsShort list client available permissions
-List Client available permissions
+Lists all available client permissions.
 */
 func (a *Client) AdminListClientAvailablePermissionsShort(params *AdminListClientAvailablePermissionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientAvailablePermissionsResponse, error) {
 	// TODO: Validate the params before sending
@@ -108,7 +109,7 @@ func (a *Client) AdminListClientAvailablePermissionsShort(params *AdminListClien
 
 /*
 AdminUpdateAvailablePermissionsByModuleShort update or create client permissions module
-Update Client available permissions, if module or group not exists, it will auto create.
+Updates client available permissions. If the specified module or group does not exist, it will be automatically created.
 */
 func (a *Client) AdminUpdateAvailablePermissionsByModuleShort(params *AdminUpdateAvailablePermissionsByModuleParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAvailablePermissionsByModuleResponse, error) {
 	// TODO: Validate the params before sending
@@ -241,8 +242,75 @@ func (a *Client) AdminDeleteConfigPermissionsByGroupShort(params *AdminDeleteCon
 }
 
 /*
+AdminUpdateModulePackageShort set permission module package info
+Sets the package info for a permission module. Ignores the module if it is not found.
+*/
+func (a *Client) AdminUpdateModulePackageShort(params *AdminUpdateModulePackageParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateModulePackageResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminUpdateModulePackageParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "AdminUpdateModulePackage",
+		Method:             "PATCH",
+		PathPattern:        "/iam/v3/admin/clientConfig/permissions/package",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminUpdateModulePackageReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminUpdateModulePackageNoContent:
+		response := &AdminUpdateModulePackageResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminUpdateModulePackageUnauthorized:
+		response := &AdminUpdateModulePackageResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminUpdateModulePackageForbidden:
+		response := &AdminUpdateModulePackageResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
 AdminListClientTemplatesShort list client templates
-List client templates
+Lists all available client templates.
 */
 func (a *Client) AdminListClientTemplatesShort(params *AdminListClientTemplatesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListClientTemplatesResponse, error) {
 	// TODO: Validate the params before sending

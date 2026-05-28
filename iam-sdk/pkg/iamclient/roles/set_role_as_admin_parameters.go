@@ -66,7 +66,7 @@ type SetRoleAsAdminParams struct {
 	/*RetryPolicy*/
 	RetryPolicy *utils.Retry
 	/*RoleID
-	  Role id
+	  Role ID
 
 	*/
 	RoleID string

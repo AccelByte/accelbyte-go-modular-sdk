@@ -50,17 +50,14 @@ type ClientService interface {
 
 /*
 UserAuthenticationV3Short authentication api
-This endpoint is being used to authenticate a user account.
-It validates user's email / username and password.
+Authenticates a user account. Validates user's email / username and password.
 Deactivated or login-banned users are unable to login.
 Redirect URI and Client ID must be specified as a pair and only used to redirect to the specified redirect URI in case the requestId is no longer valid.
 
 ## Device Cookie Validation
 
 Device Cookie is used to protect the user account from brute force login attack, [more detail from OWASP](https://owasp.org/www-community/Slow_Down_Online_Guessing_Attacks_with_Device_Cookies).
-This endpoint will read device cookie from cookie **auth-trust-id**. If device cookie not found, it will generate a new one and set it into cookie when successfully authenticate.
-
-Action code: 10801
+It will read the device cookie from cookie **auth-trust-id**. If device cookie not found, it will generate a new one and sets it into the cookie on successful authentication.
 */
 func (a *Client) UserAuthenticationV3Short(params *UserAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*UserAuthenticationV3Response, error) {
 	// TODO: Validate the params before sending
@@ -114,14 +111,15 @@ func (a *Client) UserAuthenticationV3Short(params *UserAuthenticationV3Params, a
 
 /*
 AuthenticationWithPlatformLinkV3Short authentication with platform link
-This endpoint is being used to authenticate a user account and perform platform link.
-It validates user's email / username and password.
-If user already enable 2FA, then invoke _/mfa/verify_ using **mfa_token** from this endpoint response.
+Authenticates a user account and performs platform linking. Validates user's email / username and password.
+If user already enabled 2FA, invoke _/mfa/verify_ using **mfa_token** from the response.
 
 ## Device Cookie Validation
-
 Device Cookie is used to protect the user account from brute force login attack, [more detail from OWASP](https://owasp.org/www-community/Slow_Down_Online_Guessing_Attacks_with_Device_Cookies).
-This endpoint will read device cookie from cookie **auth-trust-id**. If device cookie not found, it will generate a new one and set it into cookie when successfully authenticate.
+It will read the device cookie from cookie **auth-trust-id**. If device cookie not found, it will generate a new one and sets it into the cookie on successful authentication.
+
+## Login Queue
+When the Login Queue is enabled and at capacity, this API returns a 401 Unauthorized response, with the queue ticket included in the response body.
 */
 func (a *Client) AuthenticationWithPlatformLinkV3Short(params *AuthenticationWithPlatformLinkV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticationWithPlatformLinkV3Response, error) {
 	// TODO: Validate the params before sending
@@ -203,14 +201,13 @@ func (a *Client) AuthenticationWithPlatformLinkV3Short(params *AuthenticationWit
 
 /*
 AuthenticateAndLinkForwardV3Short authentication with platform link, the response will be a forward
-This endpoint is being used to authenticate a user account and perform platform link.
-It validates user's email / username and password.
-If user already enable 2FA, then invoke _/mfa/verify_ using **mfa_token** from this endpoint response.
+Authenticates a user account and performs platform linking. Validates user's email / username and password.
+If user already enabled 2FA, invoke _/mfa/verify_ using **mfa_token** from the response.
 
 ## Device Cookie Validation
 
 Device Cookie is used to protect the user account from brute force login attack, [more detail from OWASP](https://owasp.org/www-community/Slow_Down_Online_Guessing_Attacks_with_Device_Cookies).
-This endpoint will read device cookie from cookie **auth-trust-id**. If device cookie not found, it will generate a new one and set it into cookie when successfully authenticate.
+It will read the device cookie from cookie **auth-trust-id**. If device cookie not found, it will generate a new one and sets it into the cookie on successful authentication.
 */
 func (a *Client) AuthenticateAndLinkForwardV3Short(params *AuthenticateAndLinkForwardV3Params, authInfo runtime.ClientAuthInfoWriter) (*AuthenticateAndLinkForwardV3Response, error) {
 	// TODO: Validate the params before sending
@@ -264,9 +261,8 @@ func (a *Client) AuthenticateAndLinkForwardV3Short(params *AuthenticateAndLinkFo
 
 /*
 GenerateTokenByNewHeadlessAccountV3Short create headless account and response token
-This endpoint is being used to create headless account after 3rd platform authenticated, and response token .
-The 'linkingToken' in request body is received from "/platforms/{platformId}/token"
-when 3rd platform account is not linked to justice account yet.
+Creates a headless account after 3rd-party platform authentication and returns a token.
+The 'linkingToken' in request body is received from "/platforms/{platformId}/token" when 3rd platform account is not linked to any account yet and createHeadless param is set to false.
 */
 func (a *Client) GenerateTokenByNewHeadlessAccountV3Short(params *GenerateTokenByNewHeadlessAccountV3Params, authInfo runtime.ClientAuthInfoWriter) (*GenerateTokenByNewHeadlessAccountV3Response, error) {
 	// TODO: Validate the params before sending
@@ -340,8 +336,8 @@ func (a *Client) GenerateTokenByNewHeadlessAccountV3Short(params *GenerateTokenB
 }
 
 /*
-RequestOneTimeLinkingCodeV3Short generate one time linking code
-This endpoint is being used to request the one time code [8 length] for headless account to link or upgrade to a full account.
+RequestOneTimeLinkingCodeV3Short generate one-time linking code
+Requests a one-time code [8 characters] for a headless account to link or upgrade to a full account.
 Should specify the target platform id and current user should already linked to this platform.
 Current user should be a headless account.
 ## Supported platforms:
@@ -419,8 +415,8 @@ func (a *Client) RequestOneTimeLinkingCodeV3Short(params *RequestOneTimeLinkingC
 }
 
 /*
-ValidateOneTimeLinkingCodeV3Short validate one time linking code
-This endpoint is being used to validate one time link code.
+ValidateOneTimeLinkingCodeV3Short validate one-time linking code
+Validates a one-time link code.
 */
 func (a *Client) ValidateOneTimeLinkingCodeV3Short(params *ValidateOneTimeLinkingCodeV3Params) (*ValidateOneTimeLinkingCodeV3Response, error) {
 	// TODO: Validate the params before sending
@@ -472,11 +468,11 @@ func (a *Client) ValidateOneTimeLinkingCodeV3Short(params *ValidateOneTimeLinkin
 }
 
 /*
-RequestTokenByOneTimeLinkCodeResponseV3Short generate token by headless account's one time link code
-This endpoint is being used to generate user's token by one time link code.
-It requires a code which can be generated from `/iam/v3/link/code/request` or `/iam/v3/public/users/me/link/forward`.
+RequestTokenByOneTimeLinkCodeResponseV3Short generate token by headless account's one-time link code
+Generates the user's token by one-time link code.
+It requires a code which can be generated from `/iam/v3/link/code/request [POST]` or `/iam/v3/public/users/me/link/redirection [GET]`.
 
-This endpoint support creating transient token by utilizing **isTransient** param:
+Supports creating a transient token by utilizing the **isTransient** param:
 **isTransient=true** will generate a transient token with a short Time Expiration and without a refresh token
 **isTransient=false** will consume the one-time code and generate the access token with a refresh token.
 */
@@ -531,7 +527,7 @@ func (a *Client) RequestTokenByOneTimeLinkCodeResponseV3Short(params *RequestTok
 
 /*
 GetCountryLocationV3Short get country location
-This endpoint get country location based on the request.
+Returns the country location based on the request.
 */
 func (a *Client) GetCountryLocationV3Short(params *GetCountryLocationV3Params, authInfo runtime.ClientAuthInfoWriter) (*GetCountryLocationV3Response, error) {
 	// TODO: Validate the params before sending
@@ -556,7 +552,7 @@ func (a *Client) GetCountryLocationV3Short(params *GetCountryLocationV3Params, a
 		Method:             "GET",
 		PathPattern:        "/iam/v3/location/country",
 		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{""},
+		ConsumesMediaTypes: []string{"*/*"},
 		Schemes:            []string{"https"},
 		Params:             params,
 		Reader:             &GetCountryLocationV3Reader{formats: a.formats},
@@ -585,7 +581,7 @@ func (a *Client) GetCountryLocationV3Short(params *GetCountryLocationV3Params, a
 
 /*
 LogoutShort logout
-This endpoint is used to remove **access_token**, **refresh_token** from cookie.
+Removes **access_token** and **refresh_token** from the cookie.
 */
 func (a *Client) LogoutShort(params *LogoutParams, authInfo runtime.ClientAuthInfoWriter) (*LogoutResponse, error) {
 	// TODO: Validate the params before sending
@@ -638,12 +634,12 @@ func (a *Client) LogoutShort(params *LogoutParams, authInfo runtime.ClientAuthIn
 
 /*
 RequestTokenExchangeCodeV3Short request code to get a new token
-This endpoint is being used to request the code to exchange a new token.
+Requests the code to exchange for a new token.
 The target new token's clientId should NOT be same with current using one.
 Path namespace should be target namespace.
 Client ID should match the target namespace.
 
-The code in response can be consumed by `/iam/v3/token/exchange`
+The code in response can be consumed by `/iam/v3/token/exchange [POST]`
 */
 func (a *Client) RequestTokenExchangeCodeV3Short(params *RequestTokenExchangeCodeV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTokenExchangeCodeV3Response, error) {
 	// TODO: Validate the params before sending
@@ -697,32 +693,31 @@ func (a *Client) RequestTokenExchangeCodeV3Short(params *RequestTokenExchangeCod
 
 /*
 PlatformAuthenticationV3Short platform authentication api
-This endpoint authenticates user platform. It validates user to its
-respective platforms. Deactivated or login-banned users are unable to login.
-If already linked with justice account or match SSO condition, will redirect to client's redirect url with code. then invoke '/iam/v3/oauth/token' with grant_type=authorization_code
-If already not linked with justice account and not match SSO condition, will redirect to client's account linking page
+Authenticates the user's platform account. Validates the user against their respective platform.
+Deactivated or login-banned users are unable to login.
+If already linked with a Justice account or matches SSO conditions, redirects to the client's redirect URL with code â then invoke '/iam/v3/oauth/token' with grant_type=authorization_code.
+If not yet linked with a Justice account and SSO conditions do not match, redirects to the client's account linking page.
 ## Supported platforms:
-- **steamopenid**Steam login page will redirects to this endpoint after login success
+- **steamopenid** â Steam login page will redirect to this API after login success
 as previously defined on openID request parameter `openid.return_to` when request login to steam
 https://openid.net/specs/openid-authentication-2_0.html#anchor27
-- **ps4web**PS4 login page will redirects to this endpoint after login success
+- **ps4web** â PS4 login page will redirect to this API after login success
 as previously defined on authorize request parameter `redirect_uri`
 https://ps4.siedev.net/resources/documents/WebAPI/1/Auth_WebAPI-Reference/0002.html#0GetAccessTokenUsingAuthorizationCode
-- **xblweb**XBL login page will redirects to this endpoint after login success
+- **xblweb** â XBL login page will redirect to this API after login success
 as previously defined on authorize request parameter `redirect_uri`
-- **epicgames**Epicgames login page will redirects to this endpoint after login success
+- **epicgames** â Epicgames login page will redirect to this API after login success
 or an error occurred. If error, it redirects to the login page.
-- **twitch**Twitch login page will redirects to this endpoint after login success
+- **twitch** â Twitch login page will redirect to this API after login success
 as previously defined on authorize request parameter `redirect_uri`
-- **facebook**Facebook login page will redirects to this endpoint after login success
+- **facebook** â Facebook login page will redirect to this API after login success
 as previously defined on authorize request parameter `redirect_uri`
-- **google**Google login page will redirects to this endpoint after login success
+- **google** â Google login page will redirect to this API after login success
 as previously defined on authorize request parameter `redirect_uri`
-- **snapchat**Snapchat login page will redirects to this endpoint after login success
+- **snapchat** â Snapchat login page will redirect to this API after login success
 as previously defined on authorize request parameter `redirect_uri`
-- **discord**Discord login page will redirects to this endpoint after login success
+- **discord** â Discord login page will redirect to this API after login success
 as previously defined on authorize request parameter `redirect_uri`
-action code : 10709
 */
 func (a *Client) PlatformAuthenticationV3Short(params *PlatformAuthenticationV3Params, authInfo runtime.ClientAuthInfoWriter) (*PlatformAuthenticationV3Response, error) {
 	// TODO: Validate the params before sending
@@ -776,9 +771,9 @@ func (a *Client) PlatformAuthenticationV3Short(params *PlatformAuthenticationV3P
 
 /*
 PlatformTokenRefreshV3Short platform token validation
-This endpoint will validate the third party platform token, for some platforms will also refresh the token stored in IAM, it will not generate any event or AB access/refresh token.
-This endpoint can be used by game client to refresh third party token if game client got platform token not found error, for example got 404
-platform token not found from IAP/DLC.
+Validates the third party platform token. For some platforms, also refreshes the token stored in IAM.
+Does not generate any event or AB access/refresh token.
+Can be used by game clients to refresh the third party token if a platform token not found error is received (e.g., HTTP 404 from IAP/DLC).
 
 ## Platforms will refresh stored token:
 - **twitch**: The platform_tokenâs value is the authorization code returned by Twitch OAuth.
@@ -871,9 +866,9 @@ func (a *Client) PlatformTokenRefreshV3Short(params *PlatformTokenRefreshV3Param
 
 /*
 RequestTargetTokenResponseV3Short generate target token by code
-This endpoint is being used to generate target token.
-It requires basic header with ClientID and Secret, it should match the ClientID when call `/iam/v3/namespace/{namespace}/token/request`
-The code should be generated from `/iam/v3/namespace/{namespace}/token/request`.
+Generates the target token.
+It requires basic header with ClientID and Secret, it should match the ClientID when call `/iam/v3/namespace/{namespace}/token/request [POST]`
+The code should be generated from `/iam/v3/namespace/{namespace}/token/request [POST]`.
 */
 func (a *Client) RequestTargetTokenResponseV3Short(params *RequestTargetTokenResponseV3Params, authInfo runtime.ClientAuthInfoWriter) (*RequestTargetTokenResponseV3Response, error) {
 	// TODO: Validate the params before sending

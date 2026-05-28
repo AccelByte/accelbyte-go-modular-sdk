@@ -70,7 +70,7 @@ type UpdateRolePermissionsParams struct {
 	/*Body*/
 	Body *iamclientmodels.AccountcommonPermissions
 	/*RoleID
-	  Role id
+	  Role ID
 
 	*/
 	RoleID string

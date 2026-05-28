@@ -106,12 +106,9 @@ type ClientService interface {
 
 /*
 AdminListInvitationHistoriesV4Short admin list invitation histories v4
-This endpoint is to list all Invitation Histories for new studio namespace in multi tenant mode.
-It will return error if the service multi tenant mode is set to false.
-Accepted Query:
-- namespace
-- offset
-- limit
+Lists all invitation histories for studio namespaces in multi-tenant mode.
+
+Returns an error if the service multi-tenant mode is set to false.
 */
 func (a *Client) AdminListInvitationHistoriesV4Short(params *AdminListInvitationHistoriesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListInvitationHistoriesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -200,8 +197,9 @@ func (a *Client) AdminListInvitationHistoriesV4Short(params *AdminListInvitation
 
 /*
 AdminGetNamespaceInvitationHistoryV4Short admin get invitation history for specific namespace v4
-This endpoint is to Invitation Historiy for specific new studio namespace in multi tenant mode.
-It will return error if the service multi tenant mode is set to false.
+Retrieves the invitation history for a specific studio namespace in multi-tenant mode.
+
+Returns an error if the service multi-tenant mode is set to false.
 */
 func (a *Client) AdminGetNamespaceInvitationHistoryV4Short(params *AdminGetNamespaceInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceInvitationHistoryV4Response, error) {
 	// TODO: Validate the params before sending
@@ -290,11 +288,9 @@ func (a *Client) AdminGetNamespaceInvitationHistoryV4Short(params *AdminGetNames
 
 /*
 AdminGetNamespaceUserInvitationHistoryV4Short admin get users invitation history for specific namespace v4
-This endpoint is to Get list of users Invitation History for specific new studio namespace in multi tenant mode.
-It will return error if the service multi tenant mode is set to false.
-Accepted Query:
-- offset
-- limit
+Retrieves the list of user invitation history for a specific studio namespace in multi-tenant mode.
+
+Returns an error if the service multi-tenant mode is set to false.
 */
 func (a *Client) AdminGetNamespaceUserInvitationHistoryV4Short(params *AdminGetNamespaceUserInvitationHistoryV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetNamespaceUserInvitationHistoryV4Response, error) {
 	// TODO: Validate the params before sending
@@ -464,19 +460,7 @@ func (a *Client) AdminCreateTestUsersV4Short(params *AdminCreateTestUsersV4Param
 
 /*
 AdminCreateUserV4Short admin create user
-Create a new user with unique email address and username.
-**Required attributes:**
-- authType: possible value is EMAILPASSWD
-- emailAddress: Please refer to the rule from /v3/public/inputValidations API.
-- username: Please refer to the rule from /v3/public/inputValidations API.
-- password: Please refer to the rule from /v3/public/inputValidations API.
-- country: ISO3166-1 alpha-2 two letter, e.g. US.
-- dateOfBirth: YYYY-MM-DD, e.g. 1990-01-01. valid values are between 1905-01-01 until current date.
-- uniqueDisplayName: required when uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true, please refer to the rule from /v3/public/inputValidations API.
-
-**Not required attributes:**
-- displayName: Please refer to the rule from /v3/public/inputValidations API.
-This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
+Creates a new user with unique email address and username (admin operation). Supports accepting agreements for the created user via the acceptedPolicies attribute. See request body field descriptions for per-field details.
 */
 func (a *Client) AdminCreateUserV4Short(params *AdminCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateUserV4Response, error) {
 	// TODO: Validate the params before sending
@@ -572,7 +556,7 @@ func (a *Client) AdminCreateUserV4Short(params *AdminCreateUserV4Params, authInf
 
 /*
 AdminBulkUpdateUserAccountTypeV4Short admin bulk update user account type v4
-This endpoint is used to change users account type
+Changes users account type.
 - set **testAccount** to `true` to mark user as test account type
 - set **testAccount** to `false` to mark user as default account type
 */
@@ -662,7 +646,7 @@ func (a *Client) AdminBulkUpdateUserAccountTypeV4Short(params *AdminBulkUpdateUs
 
 /*
 AdminBulkCheckValidUserIDV4Short admin check valid user id
-Use this endpoint to check if userID exists or not
+Checks if userIDs exist or not.
 Maximum number of userID to be checked is 50
 */
 func (a *Client) AdminBulkCheckValidUserIDV4Short(params *AdminBulkCheckValidUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBulkCheckValidUserIDV4Response, error) {
@@ -745,7 +729,7 @@ func (a *Client) AdminBulkCheckValidUserIDV4Short(params *AdminBulkCheckValidUse
 
 /*
 AdminUpdateUserV4Short update user
-This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
+Updates user based on given data. **Single request can update single field or multi fields.**
 Supported field {country, displayName, languageTag, dateOfBirth, avatarUrl, userName}
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
@@ -754,8 +738,6 @@ Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 - User want to update email address of which have been verified, newEmailAddress response field will be filled with new email address.
 - User want to update email address of which have not been verified, { oldEmailAddress, emailAddress} response field will be filled with new email address.
 - User want to update email address of which have been verified and updated before, { oldEmailAddress, emailAddress} response field will be filled with verified email before. newEmailAddress response field will be filled with newest email address.
-
-action code : 10103
 */
 func (a *Client) AdminUpdateUserV4Short(params *AdminUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserV4Response, error) {
 	// TODO: Validate the params before sending
@@ -851,8 +833,8 @@ func (a *Client) AdminUpdateUserV4Short(params *AdminUpdateUserV4Params, authInf
 
 /*
 AdminUpdateUserEmailAddressV4Short update a user email address
-This is the endpoint for an admin to update a user email address.
-This endpoint need a valid user token from an admin to verify its identity (email) before updating a user.
+Updates a user email address (admin operation).
+Requires a valid admin user token to verify identity (email) before updating the user.
 */
 func (a *Client) AdminUpdateUserEmailAddressV4Short(params *AdminUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserEmailAddressV4Response, error) {
 	// TODO: Validate the params before sending
@@ -940,7 +922,7 @@ func (a *Client) AdminUpdateUserEmailAddressV4Short(params *AdminUpdateUserEmail
 
 /*
 AdminDisableUserMFAV4Short disable user 2fa
-This endpoint is used to disable user 2FA.
+Disables user 2FA.
 -----------
 **Note**: if the factor is not specified, will disable all 2FA methods.
 */
@@ -1030,7 +1012,7 @@ func (a *Client) AdminDisableUserMFAV4Short(params *AdminDisableUserMFAV4Params,
 
 /*
 AdminGetUserMFAStatusV4Short get user 2fa status
-**This endpoint is used to get user's 2FA status.**
+Retrieves the 2FA status for the specified user.
 */
 func (a *Client) AdminGetUserMFAStatusV4Short(params *AdminGetUserMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserMFAStatusV4Response, error) {
 	// TODO: Validate the params before sending
@@ -1195,7 +1177,7 @@ func (a *Client) AdminListUserRolesV4Short(params *AdminListUserRolesV4Params, a
 /*
 AdminUpdateUserRoleV4Short admin update user's role v4
 User's roles will be replaced with roles from request body.
-An admin user can only assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of this endpoint.
+An admin user can only assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of this API.
 */
 func (a *Client) AdminUpdateUserRoleV4Short(params *AdminUpdateUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateUserRoleV4Response, error) {
 	// TODO: Validate the params before sending
@@ -1292,7 +1274,7 @@ func (a *Client) AdminUpdateUserRoleV4Short(params *AdminUpdateUserRoleV4Params,
 /*
 AdminAddUserRoleV4Short admin add user's role v4
 New role will be appended to user's current roles.
-An admin user can only assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of this endpoint.
+An admin user can only assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of this API.
 */
 func (a *Client) AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddUserRoleV4Response, error) {
 	// TODO: Validate the params before sending
@@ -1388,7 +1370,9 @@ func (a *Client) AdminAddUserRoleV4Short(params *AdminAddUserRoleV4Params, authI
 
 /*
 AdminRemoveUserRoleV4Short admin remove user role v4
-Remove a role from user's roles.
+Removes a role from the user's assigned roles.
+
+**Request body:** Specify the role ID and the allowed namespaces to remove from the user.
 */
 func (a *Client) AdminRemoveUserRoleV4Short(params *AdminRemoveUserRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveUserRoleV4Response, error) {
 	// TODO: Validate the params before sending
@@ -1483,8 +1467,8 @@ func (a *Client) AdminRemoveUserRoleV4Short(params *AdminRemoveUserRoleV4Params,
 
 /*
 AdminInviteUserNewV4Short admin invite user v4
-Use this endpoint to invite admin or non-admin user and assign role to them. The role must be scoped to namespace. An admin user can only
-assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
+Invites admin or non-admin user and assigns role to them. The role must be scoped to namespace. An admin user can only
+assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of [AdminAddUserRoleV4].
 
 Detail request body :
 - **emailAddresses** is required, List of email addresses that will be invited
@@ -1598,12 +1582,10 @@ func (a *Client) AdminInviteUserNewV4Short(params *AdminInviteUserNewV4Params, a
 
 /*
 AdminUpdateMyUserV4Short admin update my user
-This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
+Updates the authenticated admin user based on given data. **Single request can update single field or multi fields.**
 Supported field {country, displayName, languageTag, dateOfBirth, avatarUrl, userName}
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
-
-action code : 10103
 */
 func (a *Client) AdminUpdateMyUserV4Short(params *AdminUpdateMyUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateMyUserV4Response, error) {
 	// TODO: Validate the params before sending
@@ -1685,7 +1667,7 @@ func (a *Client) AdminUpdateMyUserV4Short(params *AdminUpdateMyUserV4Params, aut
 
 /*
 AdminDisableMyAuthenticatorV4Short disable 2fa authenticator
-This endpoint is used to disable 2FA authenticator.
+Disables 2FA authenticator.
 ------
 **Note**: **mfaToken** is required when all the following are enabled:
 - The environment variable **SENSITIVE_MFA_AUTH_ENABLED** is true
@@ -1778,7 +1760,7 @@ func (a *Client) AdminDisableMyAuthenticatorV4Short(params *AdminDisableMyAuthen
 
 /*
 AdminEnableMyAuthenticatorV4Short enable 2fa authenticator
-This endpoint is used to enable 2FA authenticator.
+Enables 2FA authenticator.
 ----------
 Prerequisites:
 - Generate the secret key/QR code uri by **_/iam/v4/admin/users/me/mfa/authenticator/key_**
@@ -1878,7 +1860,7 @@ func (a *Client) AdminEnableMyAuthenticatorV4Short(params *AdminEnableMyAuthenti
 
 /*
 AdminGenerateMyAuthenticatorKeyV4Short generate secret key for 3rd-party authenticate app
-This endpoint is used to generate a secret key for 3rd-party authenticator app.
+Generates a secret key for 3rd-party authenticator app.
 A QR code URI is also returned so that frontend can generate QR code image.
 */
 func (a *Client) AdminGenerateMyAuthenticatorKeyV4Short(params *AdminGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyAuthenticatorKeyV4Response, error) {
@@ -1968,7 +1950,7 @@ func (a *Client) AdminGenerateMyAuthenticatorKeyV4Short(params *AdminGenerateMyA
 
 /*
 AdminGetMyBackupCodesV4Short get backup codes
-This endpoint is used to get 8-digits backup codes.
+Returns 8-digit backup codes.
 Each code is a one-time code and will be deleted once used.
 */
 func (a *Client) AdminGetMyBackupCodesV4Short(params *AdminGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyBackupCodesV4Response, error) {
@@ -2058,7 +2040,7 @@ func (a *Client) AdminGetMyBackupCodesV4Short(params *AdminGetMyBackupCodesV4Par
 
 /*
 AdminGenerateMyBackupCodesV4Short generate backup codes
-This endpoint is used to generate 8-digits backup codes.
+Generates 8-digit backup codes.
 Each code is a one-time code and will be deleted once used.
 */
 func (a *Client) AdminGenerateMyBackupCodesV4Short(params *AdminGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateMyBackupCodesV4Response, error) {
@@ -2148,7 +2130,7 @@ func (a *Client) AdminGenerateMyBackupCodesV4Short(params *AdminGenerateMyBackup
 
 /*
 AdminDisableMyBackupCodesV4Short disable 2fa backup codes
-This endpoint is used to disable 2FA backup codes.
+Disables 2FA backup codes.
 ------
 **Note**: **mfaToken** is required when all the following are enabled:
 - The environment variable **SENSITIVE_MFA_AUTH_ENABLED** is true
@@ -2241,7 +2223,7 @@ func (a *Client) AdminDisableMyBackupCodesV4Short(params *AdminDisableMyBackupCo
 
 /*
 AdminDownloadMyBackupCodesV4Short download user backup codes
-This endpoint is used to download backup codes.
+Downloads backup codes as a file.
 */
 func (a *Client) AdminDownloadMyBackupCodesV4Short(params *AdminDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*AdminDownloadMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -2330,7 +2312,7 @@ func (a *Client) AdminDownloadMyBackupCodesV4Short(params *AdminDownloadMyBackup
 
 /*
 AdminEnableMyBackupCodesV4Short enable 2fa backup codes
-This endpoint is used to enable 2FA backup codes.
+Enables 2FA backup codes.
 */
 func (a *Client) AdminEnableMyBackupCodesV4Short(params *AdminEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -2426,7 +2408,7 @@ func (a *Client) AdminEnableMyBackupCodesV4Short(params *AdminEnableMyBackupCode
 
 /*
 AdminGetBackupCodesV4Short get backup codes and send to email
-This endpoint is used to get 8-digits backup codes.
+Returns 8-digit backup codes.
 Each code is a one-time code and will be deleted once used.
 */
 func (a *Client) AdminGetBackupCodesV4Short(params *AdminGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBackupCodesV4Response, error) {
@@ -2515,7 +2497,7 @@ func (a *Client) AdminGetBackupCodesV4Short(params *AdminGetBackupCodesV4Params,
 
 /*
 AdminGenerateBackupCodesV4Short generate backup codes
-This endpoint is used to generate 8-digits backup codes.
+Generates 8-digit backup codes.
 Each code is a one-time code and will be deleted once used.
 */
 func (a *Client) AdminGenerateBackupCodesV4Short(params *AdminGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateBackupCodesV4Response, error) {
@@ -2604,7 +2586,7 @@ func (a *Client) AdminGenerateBackupCodesV4Short(params *AdminGenerateBackupCode
 
 /*
 AdminEnableBackupCodesV4Short enable 2fa backup codes
-This endpoint is used to enable 2FA backup codes.
+Enables 2FA backup codes.
 */
 func (a *Client) AdminEnableBackupCodesV4Short(params *AdminEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -2699,7 +2681,7 @@ func (a *Client) AdminEnableBackupCodesV4Short(params *AdminEnableBackupCodesV4P
 
 /*
 AdminChallengeMyMFAV4Short challenge user mfa
-This endpoint will verify user's' MFA code and generate a MFA token.
+Verifies the user's MFA code and generates an MFA token.
 */
 func (a *Client) AdminChallengeMyMFAV4Short(params *AdminChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminChallengeMyMFAV4Response, error) {
 	// TODO: Validate the params before sending
@@ -2794,7 +2776,7 @@ func (a *Client) AdminChallengeMyMFAV4Short(params *AdminChallengeMyMFAV4Params,
 
 /*
 AdminSendMyMFAEmailCodeV4Short send code for mfa email
-This endpoint is used to send email code.
+Sends an MFA email code.
 --------------
 Supported actions:
 * ChangePassword
@@ -2893,7 +2875,7 @@ func (a *Client) AdminSendMyMFAEmailCodeV4Short(params *AdminSendMyMFAEmailCodeV
 
 /*
 AdminDisableMyEmailV4Short disable 2fa email
-This endpoint is used to disable 2FA email.
+Disables 2FA email.
 ------
 **Note**: **mfaToken** is required when all the following are enabled:
 - The environment variable **SENSITIVE_MFA_AUTH_ENABLED** is true
@@ -2986,7 +2968,7 @@ func (a *Client) AdminDisableMyEmailV4Short(params *AdminDisableMyEmailV4Params,
 
 /*
 AdminEnableMyEmailV4Short enable 2fa email
-This endpoint is used to enable 2FA email.
+Enables 2FA email.
 */
 func (a *Client) AdminEnableMyEmailV4Short(params *AdminEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminEnableMyEmailV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3081,7 +3063,7 @@ func (a *Client) AdminEnableMyEmailV4Short(params *AdminEnableMyEmailV4Params, a
 
 /*
 AdminGetMyEnabledFactorsV4Short get user enabled factors
-This endpoint is used to get user enabled factors.
+Returns all enabled 2FA factors for the user.
 */
 func (a *Client) AdminGetMyEnabledFactorsV4Short(params *AdminGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyEnabledFactorsV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3170,7 +3152,7 @@ func (a *Client) AdminGetMyEnabledFactorsV4Short(params *AdminGetMyEnabledFactor
 
 /*
 AdminMakeFactorMyDefaultV4Short make 2fa factor default
-This endpoint is used to make 2FA factor default.
+Makes 2FA factor default.
 */
 func (a *Client) AdminMakeFactorMyDefaultV4Short(params *AdminMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminMakeFactorMyDefaultV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3258,7 +3240,7 @@ func (a *Client) AdminMakeFactorMyDefaultV4Short(params *AdminMakeFactorMyDefaul
 
 /*
 AdminGetMyOwnMFAStatusV4Short get admin own mfa status
-This endpoint will get user's' MFA status.
+Retrieves the user's MFA status.
 */
 func (a *Client) AdminGetMyOwnMFAStatusV4Short(params *AdminGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMyOwnMFAStatusV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3340,7 +3322,7 @@ func (a *Client) AdminGetMyOwnMFAStatusV4Short(params *AdminGetMyOwnMFAStatusV4P
 
 /*
 AdminGetMyMFAStatusV4Short get user mfa status
-This endpoint will get user's' MFA status.
+Retrieves the user's MFA status.
 ------------
 **Substitute endpoint**: /iam/v4/admin/users/me/mfa/status [GET]
 */
@@ -3424,8 +3406,8 @@ func (a *Client) AdminGetMyMFAStatusV4Short(params *AdminGetMyMFAStatusV4Params,
 
 /*
 AdminInviteUserV4Short admin invite user v4
-Use this endpoint to invite admin or non-admin user and assign role to them. The role must be scoped to namespace. An admin user can only
-assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of endpoint: [AdminAddUserRoleV4].
+Invites admin or non-admin user and assigns role to them. The role must be scoped to namespace. An admin user can only
+assign role with **assignedNamespaces** if the admin user has required permission which is same as the required permission of [AdminAddUserRoleV4].
 
 Detail request body :
 - Email Address is required, List of email addresses that will be invited
@@ -3438,7 +3420,7 @@ if specified, it will become that studio/publisher where user is invited to.
 
 The invited admin will also assigned with "User" role by default.
 
-Substitute endpoint: /iam/v4/admin/users/invite
+Substitute API: /iam/v4/admin/users/invite
 */
 func (a *Client) AdminInviteUserV4Short(params *AdminInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminInviteUserV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3542,8 +3524,8 @@ func (a *Client) AdminInviteUserV4Short(params *AdminInviteUserV4Params, authInf
 /*
 PublicListUserIDByPlatformUserIDsV4Short list user id by platform user id
 List User ID By Platform User ID
-This endpoint intended to list game user ID from the given namespace
-This endpoint return list of user ID by given platform ID and list of platform user ID, the max count is 100.
+Returns game user IDs from the given namespace.
+Returns a list of user IDs by given platform ID and list of platform user IDs. The max count is 100.
 
 Supported platform:
 - steam
@@ -3657,7 +3639,7 @@ func (a *Client) PublicListUserIDByPlatformUserIDsV4Short(params *PublicListUser
 /*
 PublicGetUserByPlatformUserIDV4Short get user by platform user id
 Get User By Platform User ID.
-This endpoint return user information by given platform ID and platform user ID.
+Returns user information by given platform ID and platform user ID.
 Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
 example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 If the target platform is not linked to the current user, will only return public information.
@@ -3779,20 +3761,7 @@ func (a *Client) PublicGetUserByPlatformUserIDV4Short(params *PublicGetUserByPla
 
 /*
 PublicCreateTestUserV4Short [test facility only]create test user
-Create a test user and not send verification code email
-**Required attributes:**
-- verified: this new user is verified or not
-- authType: possible value is EMAILPASSWD
-- emailAddress: Please refer to the rule from /v3/public/inputValidations API.
-- username: Please refer to the rule from /v3/public/inputValidations API.
-- password: Please refer to the rule from /v3/public/inputValidations API.
-- country: ISO3166-1 alpha-2 two letter, e.g. US.
-- dateOfBirth: YYYY-MM-DD, e.g. 1990-01-01. valid values are between 1905-01-01 until current date.
-
-**Not required attributes:**
-- displayName: Please refer to the rule from /v3/public/inputValidations API.
-
-This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
+Creates a test user without sending a verification code email. Supports accepting agreements for the created user via the acceptedPolicies attribute. See request body field descriptions for per-field details.
 */
 func (a *Client) PublicCreateTestUserV4Short(params *PublicCreateTestUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateTestUserV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3874,20 +3843,7 @@ func (a *Client) PublicCreateTestUserV4Short(params *PublicCreateTestUserV4Param
 
 /*
 PublicCreateUserV4Short create user
-Create a new user with unique email address and username.
-**Required attributes:**
-- authType: possible value is EMAILPASSWD
-- emailAddress: Please refer to the rule from /v3/public/inputValidations API.
-- username: Please refer to the rule from /v3/public/inputValidations API.
-- password: Please refer to the rule from /v3/public/inputValidations API.
-- country: ISO3166-1 alpha-2 two letter, e.g. US.
-- dateOfBirth: YYYY-MM-DD, e.g. 1990-01-01. valid values are between 1905-01-01 until current date.
-- uniqueDisplayName: required when uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true, please refer to the rule from /v3/public/inputValidations API.
-- code: required when mandatoryEmailVerificationEnabled config is true, please refer to the config from /iam/v3/public/namespaces/{namespace}/config/{configKey} [GET] API.
-
-**Not required attributes:**
-- displayName: Please refer to the rule from /v3/public/inputValidations API.
-This endpoint support accepting agreements for the created user. Supply the accepted agreements in acceptedPolicies attribute.
+Creates a new user with unique email address and username. Supports accepting agreements for the created user via the acceptedPolicies attribute. See request body field descriptions for per-field details.
 */
 func (a *Client) PublicCreateUserV4Short(params *PublicCreateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3983,26 +3939,7 @@ func (a *Client) PublicCreateUserV4Short(params *PublicCreateUserV4Params, authI
 
 /*
 CreateUserFromInvitationV4Short create user from invitation
-This endpoint create user from saved roles when creating invitation and submitted data.
-User will be able to login after completing submitting the data through this endpoint.
-Available Authentication Types:
-
-EMAILPASSWD: an authentication type used for new user registration through email.
-
-**Note**:
-* **uniqueDisplayName**: this is required when uniqueDisplayNameEnabled/UNIQUE_DISPLAY_NAME_ENABLED is true.
-
-Country use ISO3166-1 alpha-2 two letter, e.g. US.
-
-Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
-
-Required attributes:
-- authType: possible value is EMAILPASSWD (see above)
-- country: ISO3166-1 alpha-2 two letter, e.g. US.
-- dateOfBirth: YYYY-MM-DD, e.g. 1990-01-01. valid values are between 1905-01-01 until current date.
-- displayName: Please refer to the rule from /v3/public/inputValidations API.
-- password: Please refer to the rule from /v3/public/inputValidations API.
-- username: Please refer to the rule from /v3/public/inputValidations API.
+Creates a user from a saved invitation, completing the registration with the submitted data. The user will be able to login after completing this step. See request body field descriptions for per-field details.
 */
 func (a *Client) CreateUserFromInvitationV4Short(params *CreateUserFromInvitationV4Params, authInfo runtime.ClientAuthInfoWriter) (*CreateUserFromInvitationV4Response, error) {
 	// TODO: Validate the params before sending
@@ -4091,7 +4028,7 @@ func (a *Client) CreateUserFromInvitationV4Short(params *CreateUserFromInvitatio
 
 /*
 PublicUpdateUserV4Short update user
-This Endpoint support update user based on given data. **Single request can update single field or multi fields.**
+Updates the user based on given data. **Single request can update single field or multi fields.**
 Supported field {country, displayName, languageTag, dateOfBirth, avatarUrl, userName}
 Country use ISO3166-1 alpha-2 two letter, e.g. US.
 Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
@@ -4100,8 +4037,6 @@ Date of Birth format : YYYY-MM-DD, e.g. 2019-04-29.
 - User want to update email address of which have been verified, newEmailAddress response field will be filled with new email address.
 - User want to update email address of which have not been verified, { oldEmailAddress, emailAddress} response field will be filled with new email address.
 - User want to update email address of which have been verified and updated before, { oldEmailAddress, emailAddress} response field will be filled with verified email before. newEmailAddress response field will be filled with newest email address.
-
-action code : 10103
 */
 func (a *Client) PublicUpdateUserV4Short(params *PublicUpdateUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserV4Response, error) {
 	// TODO: Validate the params before sending
@@ -4190,8 +4125,8 @@ func (a *Client) PublicUpdateUserV4Short(params *PublicUpdateUserV4Params, authI
 
 /*
 PublicUpdateUserEmailAddressV4Short update my email address
-The endpoint to update my email address.
-It requires a verification code from `/users/me/code/request` with **UpdateEmailAddress** context.
+Updates the authenticated user's email address.
+Requires a verification code from `/users/me/code/request` with **UpdateEmailAddress** context.
 */
 func (a *Client) PublicUpdateUserEmailAddressV4Short(params *PublicUpdateUserEmailAddressV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserEmailAddressV4Response, error) {
 	// TODO: Validate the params before sending
@@ -4279,19 +4214,13 @@ func (a *Client) PublicUpdateUserEmailAddressV4Short(params *PublicUpdateUserEma
 
 /*
 PublicUpgradeHeadlessAccountWithVerificationCodeV4Short upgrade headless account and automatically verified the email address if it is succeeded
-The endpoint upgrades a headless account by linking the headless account with the email address, username, and password.
+Upgrades a headless account by linking it with an email address, username, and password, and immediately verifies the email address afterward.
+
 By upgrading the headless account into a full account, the user could use the email address, username, and password for using Justice IAM.
 
-The endpoint is a shortcut for upgrading a headless account and verifying the email address in one call.
-In order to get a verification code for the endpoint, please check the [send verification code endpoint](#operations-Users-PublicSendVerificationCodeV3).
+To obtain a verification code, use the [send verification code API](#operations-Users-PublicSendVerificationCodeV3).
 
-This endpoint also have an ability to update user data (if the user data field is specified) right after the upgrade account process is done.
-Supported user data fields:
-- displayName
-- dateOfBirth : format YYYY-MM-DD, e.g. 2019-04-29
-- country : format ISO3166-1 alpha-2 two letter, e.g. US
-
-action code : 10124
+Also has the ability to update user data (displayName, dateOfBirth, country) right after the upgrade process is done. See request body field descriptions for format details.
 */
 func (a *Client) PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(params *PublicUpgradeHeadlessAccountWithVerificationCodeV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountWithVerificationCodeV4Response, error) {
 	// TODO: Validate the params before sending
@@ -4388,7 +4317,6 @@ func (a *Client) PublicUpgradeHeadlessAccountWithVerificationCodeV4Short(params 
 /*
 PublicUpgradeHeadlessAccountV4Short upgrade user account to full account
 Upgrade headless account to full account without verifying email address. Client does not need to provide verification code which sent to email address.
-action code : 10124
 */
 func (a *Client) PublicUpgradeHeadlessAccountV4Short(params *PublicUpgradeHeadlessAccountV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessAccountV4Response, error) {
 	// TODO: Validate the params before sending
@@ -4477,7 +4405,7 @@ func (a *Client) PublicUpgradeHeadlessAccountV4Short(params *PublicUpgradeHeadle
 
 /*
 PublicDisableMyAuthenticatorV4Short disable 2fa authenticator
-This endpoint is used to disable 2FA authenticator.
+Disables 2FA authenticator.
 ------
 **Note**: **mfaToken** is required when all the following are enabled:
 - The environment variable **SENSITIVE_MFA_AUTH_ENABLED** is true
@@ -4570,7 +4498,7 @@ func (a *Client) PublicDisableMyAuthenticatorV4Short(params *PublicDisableMyAuth
 
 /*
 PublicEnableMyAuthenticatorV4Short enable 2fa authenticator
-This endpoint is used to enable 2FA authenticator.
+Enables 2FA authenticator.
 ----------
 Prerequisites:
 - Generate the secret key/QR code uri by **_/iam/v4/public/namespaces/{namespace}/users/me/mfa/authenticator/key_**
@@ -4670,7 +4598,7 @@ func (a *Client) PublicEnableMyAuthenticatorV4Short(params *PublicEnableMyAuthen
 
 /*
 PublicGenerateMyAuthenticatorKeyV4Short generate secret key for 3rd-party authenticate app
-This endpoint is used to generate a secret key for 3rd-party authenticator app.
+Generates a secret key for a 3rd-party authenticator app.
 A QR code URI is also returned so that frontend can generate QR code image.
 */
 func (a *Client) PublicGenerateMyAuthenticatorKeyV4Short(params *PublicGenerateMyAuthenticatorKeyV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyAuthenticatorKeyV4Response, error) {
@@ -4760,7 +4688,7 @@ func (a *Client) PublicGenerateMyAuthenticatorKeyV4Short(params *PublicGenerateM
 
 /*
 PublicGetMyBackupCodesV4Short get backup codes
-This endpoint is used to get 8-digits backup codes.
+Returns 8-digit backup codes.
 Each code is a one-time code and will be deleted once used.
 */
 func (a *Client) PublicGetMyBackupCodesV4Short(params *PublicGetMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyBackupCodesV4Response, error) {
@@ -4850,7 +4778,7 @@ func (a *Client) PublicGetMyBackupCodesV4Short(params *PublicGetMyBackupCodesV4P
 
 /*
 PublicGenerateMyBackupCodesV4Short generate backup codes
-This endpoint is used to generate 8-digits backup codes.
+Generates 8-digit backup codes.
 Each code is a one-time code and will be deleted once used.
 */
 func (a *Client) PublicGenerateMyBackupCodesV4Short(params *PublicGenerateMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateMyBackupCodesV4Response, error) {
@@ -4940,7 +4868,7 @@ func (a *Client) PublicGenerateMyBackupCodesV4Short(params *PublicGenerateMyBack
 
 /*
 PublicDisableMyBackupCodesV4Short disable 2fa backup codes
-This endpoint is used to disable 2FA backup codes.
+Disables 2FA backup codes.
 ------
 **Note**: **mfaToken** is required when all the following are enabled:
 - The environment variable **SENSITIVE_MFA_AUTH_ENABLED** is true
@@ -5033,7 +4961,7 @@ func (a *Client) PublicDisableMyBackupCodesV4Short(params *PublicDisableMyBackup
 
 /*
 PublicDownloadMyBackupCodesV4Short download user backup codes
-This endpoint is used to download backup codes.
+Downloads backup codes as a file.
 */
 func (a *Client) PublicDownloadMyBackupCodesV4Short(params *PublicDownloadMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter, writer io.Writer) (*PublicDownloadMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -5122,7 +5050,7 @@ func (a *Client) PublicDownloadMyBackupCodesV4Short(params *PublicDownloadMyBack
 
 /*
 PublicEnableMyBackupCodesV4Short enable 2fa backup codes
-This endpoint is used to enable 2FA backup codes.
+Enables 2FA backup codes.
 */
 func (a *Client) PublicEnableMyBackupCodesV4Short(params *PublicEnableMyBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -5218,8 +5146,8 @@ func (a *Client) PublicEnableMyBackupCodesV4Short(params *PublicEnableMyBackupCo
 
 /*
 PublicGetBackupCodesV4Short get backup codes and send to email
-This endpoint is used to get existing 8-digits backup codes.
-Each codes is a one-time code and will be deleted once used.
+Returns existing 8-digit backup codes.
+Each code is a one-time code and will be deleted once used.
 The codes will be sent through linked email.
 */
 func (a *Client) PublicGetBackupCodesV4Short(params *PublicGetBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetBackupCodesV4Response, error) {
@@ -5308,8 +5236,8 @@ func (a *Client) PublicGetBackupCodesV4Short(params *PublicGetBackupCodesV4Param
 
 /*
 PublicGenerateBackupCodesV4Short generate backup codes
-This endpoint is used to generate 8-digits backup codes.
-Each codes is a one-time code and will be deleted once used.
+Generates 8-digit backup codes.
+Each code is a one-time code and will be deleted once used.
 The codes will be sent through linked email.
 */
 func (a *Client) PublicGenerateBackupCodesV4Short(params *PublicGenerateBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGenerateBackupCodesV4Response, error) {
@@ -5398,7 +5326,7 @@ func (a *Client) PublicGenerateBackupCodesV4Short(params *PublicGenerateBackupCo
 
 /*
 PublicEnableBackupCodesV4Short enable 2fa backup codes
-This endpoint is used to enable 2FA backup codes.
+Enables 2FA backup codes.
 */
 func (a *Client) PublicEnableBackupCodesV4Short(params *PublicEnableBackupCodesV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableBackupCodesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -5493,7 +5421,7 @@ func (a *Client) PublicEnableBackupCodesV4Short(params *PublicEnableBackupCodesV
 
 /*
 PublicChallengeMyMFAV4Short challenge user mfa
-This endpoint will verify user's' MFA code and generate a MFA token for the action.
+Verifies the user's MFA code and generates an MFA token for the action.
 */
 func (a *Client) PublicChallengeMyMFAV4Short(params *PublicChallengeMyMFAV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicChallengeMyMFAV4Response, error) {
 	// TODO: Validate the params before sending
@@ -5588,8 +5516,7 @@ func (a *Client) PublicChallengeMyMFAV4Short(params *PublicChallengeMyMFAV4Param
 
 /*
 PublicRemoveTrustedDeviceV4Short remove trusted device
-(Only for test)This endpoint is used to remove trusted device.
-This endpoint Requires device_token in cookie
+**(Test only)** Removes a trusted device. Requires a device_token cookie.
 */
 func (a *Client) PublicRemoveTrustedDeviceV4Short(params *PublicRemoveTrustedDeviceV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicRemoveTrustedDeviceV4Response, error) {
 	// TODO: Validate the params before sending
@@ -5677,7 +5604,7 @@ func (a *Client) PublicRemoveTrustedDeviceV4Short(params *PublicRemoveTrustedDev
 
 /*
 PublicSendMyMFAEmailCodeV4Short send code for mfa email
-This endpoint is used to send email code.
+Sends an MFA email code.
 ----------------
 Supported values of action:
 * ChangePassword
@@ -5776,7 +5703,7 @@ func (a *Client) PublicSendMyMFAEmailCodeV4Short(params *PublicSendMyMFAEmailCod
 
 /*
 PublicDisableMyEmailV4Short disable 2fa email
-This endpoint is used to disable 2FA email.
+Disables 2FA email.
 ------
 **Note**: **mfaToken** is required when all the following are enabled:
 - The environment variable **SENSITIVE_MFA_AUTH_ENABLED** is true
@@ -5869,7 +5796,7 @@ func (a *Client) PublicDisableMyEmailV4Short(params *PublicDisableMyEmailV4Param
 
 /*
 PublicEnableMyEmailV4Short enable 2fa email
-This endpoint is used to enable 2FA email.
+Enables 2FA email.
 */
 func (a *Client) PublicEnableMyEmailV4Short(params *PublicEnableMyEmailV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicEnableMyEmailV4Response, error) {
 	// TODO: Validate the params before sending
@@ -5964,7 +5891,7 @@ func (a *Client) PublicEnableMyEmailV4Short(params *PublicEnableMyEmailV4Params,
 
 /*
 PublicGetMyEnabledFactorsV4Short get user enabled factors
-This endpoint is used to get user enabled factors.
+Returns all enabled 2FA factors for the user.
 */
 func (a *Client) PublicGetMyEnabledFactorsV4Short(params *PublicGetMyEnabledFactorsV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyEnabledFactorsV4Response, error) {
 	// TODO: Validate the params before sending
@@ -6053,7 +5980,7 @@ func (a *Client) PublicGetMyEnabledFactorsV4Short(params *PublicGetMyEnabledFact
 
 /*
 PublicMakeFactorMyDefaultV4Short make 2fa factor default
-This endpoint is used to make 2FA factor default.
+Makes 2FA factor default.
 */
 func (a *Client) PublicMakeFactorMyDefaultV4Short(params *PublicMakeFactorMyDefaultV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicMakeFactorMyDefaultV4Response, error) {
 	// TODO: Validate the params before sending
@@ -6141,7 +6068,7 @@ func (a *Client) PublicMakeFactorMyDefaultV4Short(params *PublicMakeFactorMyDefa
 
 /*
 PublicGetMyOwnMFAStatusV4Short get my own mfa status
-This endpoint will get user's' MFA status.
+Retrieves the user's MFA status.
 */
 func (a *Client) PublicGetMyOwnMFAStatusV4Short(params *PublicGetMyOwnMFAStatusV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetMyOwnMFAStatusV4Response, error) {
 	// TODO: Validate the params before sending
@@ -6223,7 +6150,7 @@ func (a *Client) PublicGetMyOwnMFAStatusV4Short(params *PublicGetMyOwnMFAStatusV
 
 /*
 PublicGetMyMFAStatusV4Short get user mfa status
-This endpoint will get user's' MFA status.
+Retrieves the user's MFA status.
 ---------
 **Substitute endpoint**: /iam/v4/public/namespaces/{namespace}/users/me/mfa/status [GET]
 */
@@ -6307,8 +6234,7 @@ func (a *Client) PublicGetMyMFAStatusV4Short(params *PublicGetMyMFAStatusV4Param
 
 /*
 PublicGetUserPublicInfoByUserIDV4Short get user public info by user id
-This endpoint only returns user's public information.
-action code: 10129
+Returns only user's public information.
 */
 func (a *Client) PublicGetUserPublicInfoByUserIDV4Short(params *PublicGetUserPublicInfoByUserIDV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserPublicInfoByUserIDV4Response, error) {
 	// TODO: Validate the params before sending
@@ -6383,16 +6309,7 @@ func (a *Client) PublicGetUserPublicInfoByUserIDV4Short(params *PublicGetUserPub
 
 /*
 PublicInviteUserV4Short public invite admin user v4
-This endpoint is used to invite a game studio admin user with new namespace in multi tenant mode.
-It will return error if the service multi tenant mode is set to false.
-
-Request body details:
-- emailAddress: email address of the user to be invited
-- namespace: new namespace of the user to be created
-- namespaceDisplayName: display name of the new namespace
-- additionalData(optional): for utm parameter data
-
-The invited users will also be assigned with "User" role by default.
+Invites a game studio admin user with a new namespace in multi tenant mode. Returns an error if the service multi tenant mode is set to false. The invited users will also be assigned with "User" role by default. See request body field descriptions for per-field details.
 */
 func (a *Client) PublicInviteUserV4Short(params *PublicInviteUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*PublicInviteUserV4Response, error) {
 	// TODO: Validate the params before sending
@@ -6480,15 +6397,15 @@ func (a *Client) PublicInviteUserV4Short(params *PublicInviteUserV4Params, authI
 }
 
 /*
-PublicUpgradeHeadlessWithCodeV4ForwardShort upgrade the headless account and automatically verify the email address if the upgrade succeeds.
+PublicUpgradeHeadlessWithCodeV4ForwardShort upgrade headless account with auto-verification (forward)
 This is a forward version for code verify.
-The endpoint upgrades a headless account by linking the headless account with the email address, username, and password.
+Upgrades a headless account by linking it with an email address, username, and password, and immediately verifies the email address afterward.
+
 By upgrading the headless account into a full account, the user could use the email address, username, and password for using Justice IAM.
 
-The endpoint is a shortcut for upgrading a headless account and verifying the email address in one call.
-In order to get a verification code for the endpoint, please check the [send verification code endpoint](#operations-Users-PublicSendCodeForwardV3).
+To obtain a verification code, use the [send verification code API](#operations-Users-PublicSendCodeForwardV3).
 
-This endpoint also have an ability to update user data (if the user data field is specified) right after the upgrade account process is done.
+Also has the ability to update user data (if the user data field is specified) right after the upgrade account process is done.
 */
 func (a *Client) PublicUpgradeHeadlessWithCodeV4ForwardShort(params *PublicUpgradeHeadlessWithCodeV4ForwardParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpgradeHeadlessWithCodeV4ForwardResponse, error) {
 	// TODO: Validate the params before sending

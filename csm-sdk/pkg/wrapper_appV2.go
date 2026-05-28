@@ -202,6 +202,40 @@ func (aaa *AppV2Service) UpdateAppV2Short(input *app_v2.UpdateAppV2Params) (*app
 	return ok, nil
 }
 
+func (aaa *AppV2Service) ApplyAppConfigV2Short(input *app_v2.ApplyAppConfigV2Params) (*app_v2.ApplyAppConfigV2Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdAppV2 != nil {
+		input.XFlightId = tempFlightIdAppV2
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.AppV2.ApplyAppConfigV2Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
 func (aaa *AppV2Service) UpdateAppResourcesV2Short(input *app_v2.UpdateAppResourcesV2Params) (*app_v2.UpdateAppResourcesV2Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

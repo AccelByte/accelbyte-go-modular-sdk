@@ -21,10 +21,10 @@ import (
 
 type PublicGetQRCodeResponse struct {
 	platformclientmodels.ApiResponse
-	Data *platformclientmodels.BinarySchema
+	Data io.Writer
 }
 
-func (m *PublicGetQRCodeResponse) Unpack() (*platformclientmodels.BinarySchema, *platformclientmodels.ApiError) {
+func (m *PublicGetQRCodeResponse) Unpack() (io.Writer, *platformclientmodels.ApiError) {
 	if !m.IsSuccess {
 		var errCode int
 		errCode = m.StatusCode
@@ -42,13 +42,14 @@ func (m *PublicGetQRCodeResponse) Unpack() (*platformclientmodels.BinarySchema, 
 // PublicGetQRCodeReader is a Reader for the PublicGetQRCode structure.
 type PublicGetQRCodeReader struct {
 	formats strfmt.Registry
+	writer  io.Writer
 }
 
 // ReadResponse reads a server response into the received o.
 func (o *PublicGetQRCodeReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewPublicGetQRCodeOK()
+		result := NewPublicGetQRCodeOK(o.writer)
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -65,8 +66,10 @@ func (o *PublicGetQRCodeReader) ReadResponse(response runtime.ClientResponse, co
 }
 
 // NewPublicGetQRCodeOK creates a PublicGetQRCodeOK with default headers values
-func NewPublicGetQRCodeOK() *PublicGetQRCodeOK {
-	return &PublicGetQRCodeOK{}
+func NewPublicGetQRCodeOK(writer io.Writer) *PublicGetQRCodeOK {
+	return &PublicGetQRCodeOK{
+		Payload: writer,
+	}
 }
 
 /*
@@ -75,7 +78,7 @@ PublicGetQRCodeOK handles this case with default header values.
 	Successful operation
 */
 type PublicGetQRCodeOK struct {
-	Payload *platformclientmodels.BinarySchema
+	Payload io.Writer
 }
 
 func (o *PublicGetQRCodeOK) Error() string {
@@ -97,7 +100,7 @@ func (o *PublicGetQRCodeOK) ToJSONString() string {
 	return fmt.Sprintf("%+v", string(b))
 }
 
-func (o *PublicGetQRCodeOK) GetPayload() *platformclientmodels.BinarySchema {
+func (o *PublicGetQRCodeOK) GetPayload() io.Writer {
 	return o.Payload
 }
 
@@ -110,14 +113,10 @@ func (o *PublicGetQRCodeOK) readResponse(response runtime.ClientResponse, consum
 			return err
 		}
 
-		binaryData := platformclientmodels.BinarySchema(buffer.Bytes())
-
-		o.Payload = &binaryData
+		o.Payload = buffer
 
 		return nil
 	}
-
-	o.Payload = new(platformclientmodels.BinarySchema)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

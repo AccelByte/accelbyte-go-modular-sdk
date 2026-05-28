@@ -48,7 +48,7 @@ type ClientService interface {
 
 /*
 AdminGetDevicesByUserV4Short admin get devices by user id
-This is the endpoint for an admin to get devices a user ever used to login
+Returns all devices a user has ever used to login (admin operation).
 */
 func (a *Client) AdminGetDevicesByUserV4Short(params *AdminGetDevicesByUserV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDevicesByUserV4Response, error) {
 	// TODO: Validate the params before sending
@@ -137,7 +137,7 @@ func (a *Client) AdminGetDevicesByUserV4Short(params *AdminGetDevicesByUserV4Par
 
 /*
 AdminGetBannedDevicesV4Short admin get banned devices
-This is the endpoint for an admin to get banned devices
+Returns all banned devices (admin operation).
 */
 func (a *Client) AdminGetBannedDevicesV4Short(params *AdminGetBannedDevicesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetBannedDevicesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -212,7 +212,7 @@ func (a *Client) AdminGetBannedDevicesV4Short(params *AdminGetBannedDevicesV4Par
 
 /*
 AdminGetUserDeviceBansV4Short admin get device bans of user
-This is the endpoint for an admin to get device bans of user
+Returns all device bans for a user (admin operation).
 */
 func (a *Client) AdminGetUserDeviceBansV4Short(params *AdminGetUserDeviceBansV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserDeviceBansV4Response, error) {
 	// TODO: Validate the params before sending
@@ -294,7 +294,7 @@ func (a *Client) AdminGetUserDeviceBansV4Short(params *AdminGetUserDeviceBansV4P
 
 /*
 AdminBanDeviceV4Short admin ban a device
-This is the endpoint for an admin to ban a device
+Bans a device (admin operation).
 */
 func (a *Client) AdminBanDeviceV4Short(params *AdminBanDeviceV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminBanDeviceV4Response, error) {
 	// TODO: Validate the params before sending
@@ -382,7 +382,7 @@ func (a *Client) AdminBanDeviceV4Short(params *AdminBanDeviceV4Params, authInfo 
 
 /*
 AdminGetDeviceBanV4Short admin get device ban config
-This is the endpoint for an admin to get device ban config
+Retrieves a specific device ban configuration by its ban ID.
 */
 func (a *Client) AdminGetDeviceBanV4Short(params *AdminGetDeviceBanV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDeviceBanV4Response, error) {
 	// TODO: Validate the params before sending
@@ -471,7 +471,7 @@ func (a *Client) AdminGetDeviceBanV4Short(params *AdminGetDeviceBanV4Params, aut
 
 /*
 AdminUpdateDeviceBanV4Short admin update device ban config
-This is the endpoint for an admin to update a device ban config
+Updates a device ban configuration (admin operation).
 */
 func (a *Client) AdminUpdateDeviceBanV4Short(params *AdminUpdateDeviceBanV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateDeviceBanV4Response, error) {
 	// TODO: Validate the params before sending
@@ -566,7 +566,9 @@ func (a *Client) AdminUpdateDeviceBanV4Short(params *AdminUpdateDeviceBanV4Param
 
 /*
 AdminGenerateReportV4Short admin generate device report
-This is the endpoint for an admin to generate device report
+Generates a device report for the specified namespace.
+
+**Namespace restriction:** The {namespace} path parameter must be a **game namespace**. Passing a publisher namespace returns HTTP 400.
 */
 func (a *Client) AdminGenerateReportV4Short(params *AdminGenerateReportV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGenerateReportV4Response, error) {
 	// TODO: Validate the params before sending
@@ -654,7 +656,7 @@ func (a *Client) AdminGenerateReportV4Short(params *AdminGenerateReportV4Params,
 
 /*
 AdminGetDeviceTypesV4Short admin get device types
-This is the endpoint for an admin to get device types
+Returns all supported device types (admin operation).
 */
 func (a *Client) AdminGetDeviceTypesV4Short(params *AdminGetDeviceTypesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDeviceTypesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -729,7 +731,7 @@ func (a *Client) AdminGetDeviceTypesV4Short(params *AdminGetDeviceTypesV4Params,
 
 /*
 AdminGetDeviceBansV4Short admin get device ban list
-This is the endpoint for an admin to get device ban list
+Returns the device ban list (admin operation).
 */
 func (a *Client) AdminGetDeviceBansV4Short(params *AdminGetDeviceBansV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetDeviceBansV4Response, error) {
 	// TODO: Validate the params before sending
@@ -811,7 +813,7 @@ func (a *Client) AdminGetDeviceBansV4Short(params *AdminGetDeviceBansV4Params, a
 
 /*
 AdminDecryptDeviceV4Short admin decrypt device id
-This is the endpoint for an admin to decrypt device id
+Decrypts a device ID (admin operation).
 */
 func (a *Client) AdminDecryptDeviceV4Short(params *AdminDecryptDeviceV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDecryptDeviceV4Response, error) {
 	// TODO: Validate the params before sending
@@ -893,7 +895,7 @@ func (a *Client) AdminDecryptDeviceV4Short(params *AdminDecryptDeviceV4Params, a
 
 /*
 AdminUnbanDeviceV4Short admin unban device
-This is the endpoint for an admin to unban device
+Unbans a device (admin operation).
 */
 func (a *Client) AdminUnbanDeviceV4Short(params *AdminUnbanDeviceV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUnbanDeviceV4Response, error) {
 	// TODO: Validate the params before sending
@@ -974,7 +976,7 @@ func (a *Client) AdminUnbanDeviceV4Short(params *AdminUnbanDeviceV4Params, authI
 
 /*
 AdminGetUsersByDeviceV4Short admin get users by device id
-This is the endpoint for an admin to get users that ever login on the device
+Returns all users that have ever logged in on the specified device (admin operation).
 */
 func (a *Client) AdminGetUsersByDeviceV4Short(params *AdminGetUsersByDeviceV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUsersByDeviceV4Response, error) {
 	// TODO: Validate the params before sending

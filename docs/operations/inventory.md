@@ -9,7 +9,7 @@
 ### Admin Chaining Operations Wrapper:  [AdminChainingOperations](../../inventory-sdk/pkg/wrapper_adminChainingOperations.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
-| `/inventory/v1/admin/namespaces/{namespace}/chainingOperations` | POST | AdminCreateChainingOperationsShort | [AdminCreateChainingOperationsShort](../../inventory-sdk/pkg/inventoryclient/admin_chaining_operations/admin_chaining_operations_client.go) | [AdminCreateChainingOperationsShort](../../inventory-sdk/pkg/wrapper_adminChainingOperations.go) | [AdminCreateChainingOperationsShort](../../samples/cli/cmd/inventory/adminChainingOperations/adminCreateChainingOperations.go) |
+| [DEPRECATED] `/inventory/v1/admin/namespaces/{namespace}/chainingOperations` | POST | AdminCreateChainingOperationsShort | [AdminCreateChainingOperationsShort](../../inventory-sdk/pkg/inventoryclient/admin_chaining_operations/admin_chaining_operations_client.go) | [AdminCreateChainingOperationsShort](../../inventory-sdk/pkg/wrapper_adminChainingOperations.go) | [AdminCreateChainingOperationsShort](../../samples/cli/cmd/inventory/adminChainingOperations/adminCreateChainingOperations.go) |
 
 ### Admin Integration Configurations Wrapper:  [AdminIntegrationConfigurations](../../inventory-sdk/pkg/wrapper_adminIntegrationConfigurations.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |

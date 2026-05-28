@@ -786,6 +786,70 @@ func (aaa *GameSessionService) PublicKickGameSessionMemberShort(input *game_sess
 	return nil
 }
 
+func (aaa *GameSessionService) PublicGetGameSessionPasswordShort(input *game_session.PublicGetGameSessionPasswordParams) (*game_session.PublicGetGameSessionPasswordResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdGameSession != nil {
+		input.XFlightId = tempFlightIdGameSession
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.GameSession.PublicGetGameSessionPasswordShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
+func (aaa *GameSessionService) PublicUpdateGameSessionPasswordShort(input *game_session.PublicUpdateGameSessionPasswordParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdGameSession != nil {
+		input.XFlightId = tempFlightIdGameSession
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.GameSession.PublicUpdateGameSessionPasswordShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (aaa *GameSessionService) PublicGameSessionRejectShort(input *game_session.PublicGameSessionRejectParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

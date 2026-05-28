@@ -20,6 +20,14 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 )
 
+// Deprecated: 2025-07-16 - Use AdminUpdateRoleOverrideConfigV3Identity<EnumValue>Constant instead.
+// Get the enum in AdminUpdateRoleOverrideConfigV3Params
+const (
+	AdminUpdateRoleOverrideConfigV3GAMEADMINConstant = "GAME_ADMIN"
+	AdminUpdateRoleOverrideConfigV3USERConstant      = "USER"
+	AdminUpdateRoleOverrideConfigV3VIEWONLYConstant  = "VIEW_ONLY"
+)
+
 // Get the enum in AdminUpdateRoleOverrideConfigV3Params
 const (
 	AdminUpdateRoleOverrideConfigV3IdentityGAMEADMINConstant = "GAME_ADMIN"
@@ -89,7 +97,7 @@ type AdminUpdateRoleOverrideConfigV3Params struct {
 	/*Body*/
 	Body *iamclientmodels.ModelRoleOverrideUpdateRequest
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

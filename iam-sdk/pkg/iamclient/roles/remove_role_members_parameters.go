@@ -70,7 +70,7 @@ type RemoveRoleMembersParams struct {
 	/*Body*/
 	Body *iamclientmodels.ModelRoleMembersRequest
 	/*RoleID
-	  Role id
+	  Role ID
 
 	*/
 	RoleID string

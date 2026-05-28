@@ -38,6 +38,7 @@ type ClientService interface {
 /*
 AdminCreateChainingOperationsShort to create chaining operation
 
+## The endpoint is going to be deprecated
 Create chaining Operations.
 This process will run sequentially
 1. remove item process

@@ -40,7 +40,7 @@ type ClientService interface {
 
 /*
 AdminQueryTagV3Short query account identifier tag
-Retrieve Account Identifier Tags. This endpoint allows administrators to retrieve tags that are used to identify and categorize user accounts.
+Retrieves Account Identifier Tags used to identify and categorize user accounts.
 Tag Name can be used for partial content search.
 */
 func (a *Client) AdminQueryTagV3Short(params *AdminQueryTagV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryTagV3Response, error) {
@@ -102,7 +102,7 @@ func (a *Client) AdminQueryTagV3Short(params *AdminQueryTagV3Params, authInfo ru
 
 /*
 AdminCreateTagV3Short create account identifier tag
-Create a new Account Identifier Tag for users. This endpoint allows administrators to create tags that can be used to identify and categorize user accounts.
+Creates a new Account Identifier Tag for users, which can be used to identify and categorize user accounts.
 */
 func (a *Client) AdminCreateTagV3Short(params *AdminCreateTagV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateTagV3Response, error) {
 	// TODO: Validate the params before sending
@@ -177,7 +177,7 @@ func (a *Client) AdminCreateTagV3Short(params *AdminCreateTagV3Params, authInfo 
 
 /*
 AdminUpdateTagV3Short update account identifier tag
-Update an existing Account Identifier Tag. This endpoint allows administrators to update the details of a tag that is used to identify and categorize user accounts.
+Updates the details of an existing Account Identifier Tag used to identify and categorize user accounts.
 */
 func (a *Client) AdminUpdateTagV3Short(params *AdminUpdateTagV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateTagV3Response, error) {
 	// TODO: Validate the params before sending
@@ -259,7 +259,7 @@ func (a *Client) AdminUpdateTagV3Short(params *AdminUpdateTagV3Params, authInfo 
 
 /*
 AdminDeleteTagV3Short delete account identifier tag
-Delete an Account Identifier Tag. This endpoint allows administrators to delete a tag that is used to identify and categorize user accounts.
+Deletes an Account Identifier Tag used to identify and categorize user accounts.
 */
 func (a *Client) AdminDeleteTagV3Short(params *AdminDeleteTagV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteTagV3Response, error) {
 	// TODO: Validate the params before sending

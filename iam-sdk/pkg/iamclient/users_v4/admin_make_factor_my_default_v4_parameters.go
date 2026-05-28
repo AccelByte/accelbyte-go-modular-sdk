@@ -66,7 +66,7 @@ type AdminMakeFactorMyDefaultV4Params struct {
 	/*RetryPolicy*/
 	RetryPolicy *utils.Retry
 	/*Factor
-	  method
+	  MFA factor (e.g., authenticator, email, backupCode)
 
 	*/
 	Factor string

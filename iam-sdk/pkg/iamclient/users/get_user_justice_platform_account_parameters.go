@@ -66,12 +66,12 @@ type GetUserJusticePlatformAccountParams struct {
 	/*RetryPolicy*/
 	RetryPolicy *utils.Retry
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string
 	/*TargetNamespace
-	  The namespace where the user Justice platform account lives
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	TargetNamespace string

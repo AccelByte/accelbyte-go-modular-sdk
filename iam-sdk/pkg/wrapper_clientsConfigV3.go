@@ -130,6 +130,36 @@ func (aaa *ClientsConfigV3Service) AdminDeleteConfigPermissionsByGroupShort(inpu
 	return nil
 }
 
+func (aaa *ClientsConfigV3Service) AdminUpdateModulePackageShort(input *clients_config_v3.AdminUpdateModulePackageParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdClientsConfigV3 != nil {
+		input.XFlightId = tempFlightIdClientsConfigV3
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.ClientsConfigV3.AdminUpdateModulePackageShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (aaa *ClientsConfigV3Service) AdminListClientTemplatesShort(input *clients_config_v3.AdminListClientTemplatesParams) (*clients_config_v3.AdminListClientTemplatesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

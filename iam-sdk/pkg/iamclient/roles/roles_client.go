@@ -84,7 +84,7 @@ type ClientService interface {
 
 /*
 GetRolesShort get roles
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles [GET]_**
 */
@@ -154,7 +154,7 @@ func (a *Client) GetRolesShort(params *GetRolesParams, authInfo runtime.ClientAu
 
 /*
 CreateRoleShort create role
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 Role can only be assigned to other users by the role's manager.
 
 If role is an administrator role (i.e. AdminRole == true), it will list out the role's members.
@@ -236,7 +236,7 @@ func (a *Client) CreateRoleShort(params *CreateRoleParams, authInfo runtime.Clie
 
 /*
 GetRoleShort get role
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId} [GET]_**
 */
@@ -312,7 +312,7 @@ func (a *Client) GetRoleShort(params *GetRoleParams, authInfo runtime.ClientAuth
 
 /*
 UpdateRoleShort update role
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId} [PATCH]_**
 */
@@ -395,7 +395,7 @@ func (a *Client) UpdateRoleShort(params *UpdateRoleParams, authInfo runtime.Clie
 
 /*
 DeleteRoleShort delete role
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId} [DELETE]_**
 */
@@ -470,7 +470,7 @@ func (a *Client) DeleteRoleShort(params *DeleteRoleParams, authInfo runtime.Clie
 
 /*
 GetRoleAdminStatusShort get role admin status
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 Admin roles has its members listed in the role.
 
 ### Endpoint migration guide
@@ -555,7 +555,7 @@ func (a *Client) GetRoleAdminStatusShort(params *GetRoleAdminStatusParams, authI
 
 /*
 SetRoleAsAdminShort set role as admin role
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 Admin roles has its members listed in the role.
 
 Role can be set as admin role only when it has at least 1 manager.
@@ -641,7 +641,7 @@ func (a *Client) SetRoleAsAdminShort(params *SetRoleAsAdminParams, authInfo runt
 
 /*
 RemoveRoleAdminShort remove role admin status
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/admin [DELETE]_**
 */
@@ -723,7 +723,7 @@ func (a *Client) RemoveRoleAdminShort(params *RemoveRoleAdminParams, authInfo ru
 
 /*
 GetRoleManagersShort get role managers
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 Role can only be assigned to other users by the role's manager.
 
 ### Endpoint migration guide
@@ -808,7 +808,7 @@ func (a *Client) GetRoleManagersShort(params *GetRoleManagersParams, authInfo ru
 
 /*
 AddRoleManagersShort add role managers
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 Role can only be assigned to other users by the role's manager.
 
 ### Endpoint migration guide
@@ -892,7 +892,7 @@ func (a *Client) AddRoleManagersShort(params *AddRoleManagersParams, authInfo ru
 
 /*
 RemoveRoleManagersShort remove role managers
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/managers [DELETE]_**
 */
@@ -974,7 +974,7 @@ func (a *Client) RemoveRoleManagersShort(params *RemoveRoleManagersParams, authI
 
 /*
 GetRoleMembersShort get role members
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/members [GET]_**
 */
@@ -1057,7 +1057,7 @@ func (a *Client) GetRoleMembersShort(params *GetRoleMembersParams, authInfo runt
 
 /*
 AddRoleMembersShort add role members
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 Admin roles has its members listed in the role.
 
 Role can only be assigned to other users by the role's manager.
@@ -1143,7 +1143,7 @@ func (a *Client) AddRoleMembersShort(params *AddRoleMembersParams, authInfo runt
 
 /*
 RemoveRoleMembersShort remove role members
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/members [DELETE]_**
 */
@@ -1225,8 +1225,8 @@ func (a *Client) RemoveRoleMembersShort(params *RemoveRoleMembersParams, authInf
 
 /*
 UpdateRolePermissionsShort update role permissions
-## The endpoint is going to be deprecated
-This endpoint will REPLACE role's permissions with the ones defined in body
+**This endpoint is deprecated.**
+Replaces role's permissions with the ones defined in body
 
 Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
 Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
@@ -1333,8 +1333,8 @@ func (a *Client) UpdateRolePermissionsShort(params *UpdateRolePermissionsParams,
 
 /*
 AddRolePermissionShort add role permission
-## The endpoint is going to be deprecated
-This endpoint will update existing permission (bitwise OR the action) if found one with same resource, otherwise it will append a new permission
+**This endpoint is deprecated.**
+Updates existing permission (bitwise OR the action) if found one with same resource, otherwise appends a new permission
 
 Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
 Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
@@ -1442,7 +1442,7 @@ func (a *Client) AddRolePermissionShort(params *AddRolePermissionParams, authInf
 
 /*
 DeleteRolePermissionShort delete role permission
-## The endpoint is going to be deprecated
+**This endpoint is deprecated.**
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/roles/{roleId}/permissions/{resource}/{action} [DELETE]_**
 - **Substitute endpoint: _/iam/v4/admin/roles/{roleId}/permissions [DELETE]_**
@@ -1525,7 +1525,7 @@ func (a *Client) DeleteRolePermissionShort(params *DeleteRolePermissionParams, a
 
 /*
 AdminGetRolesV3Short get roles
-action code: 10414
+Retrieves a paginated list of roles.
 */
 func (a *Client) AdminGetRolesV3Short(params *AdminGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV3Response, error) {
 	// TODO: Validate the params before sending
@@ -1607,16 +1607,7 @@ func (a *Client) AdminGetRolesV3Short(params *AdminGetRolesV3Params, authInfo ru
 
 /*
 AdminCreateRoleV3Short create role
-Create role request body:
-- roleName: specify role name, alphanumeric, cannot have special character (required)
-- permissions: specify the permission that this role have
-- managers: specify list of user that will act as the managers of this role
-- members: specify list of user that will act as the members of this role
-- adminRole: specify if role is for admin user (default false)
-- isWildcard: specify if role can be assigned to wildcard (*) namespace (default false)
-- deletable: specify if role can be deleted or not (default true)
-
-action code: 10401
+Creates a new role.
 */
 func (a *Client) AdminCreateRoleV3Short(params *AdminCreateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV3Response, error) {
 	// TODO: Validate the params before sending
@@ -1698,7 +1689,7 @@ func (a *Client) AdminCreateRoleV3Short(params *AdminCreateRoleV3Params, authInf
 
 /*
 AdminGetRoleV3Short get role
-action code: 10419
+Retrieves a role by its ID.
 */
 func (a *Client) AdminGetRoleV3Short(params *AdminGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV3Response, error) {
 	// TODO: Validate the params before sending
@@ -1787,7 +1778,7 @@ func (a *Client) AdminGetRoleV3Short(params *AdminGetRoleV3Params, authInfo runt
 
 /*
 AdminDeleteRoleV3Short delete role
-action code: 10403
+Deletes a role by its ID. Removes the role from all assigned users first.
 */
 func (a *Client) AdminDeleteRoleV3Short(params *AdminDeleteRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV3Response, error) {
 	// TODO: Validate the params before sending
@@ -1882,12 +1873,7 @@ func (a *Client) AdminDeleteRoleV3Short(params *AdminDeleteRoleV3Params, authInf
 
 /*
 AdminUpdateRoleV3Short update role
-Update role request body:
-- roleName: specify role name, alphanumeric, cannot have special character (required)
-- isWildcard: specify if role can be assigned to wildcard (*) namespace (default false)
-- deletable: specify if role can be deleted or not (optional)
-
-action code: 10402
+Updates a role.
 */
 func (a *Client) AdminUpdateRoleV3Short(params *AdminUpdateRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV3Response, error) {
 	// TODO: Validate the params before sending
@@ -1977,7 +1963,6 @@ func (a *Client) AdminUpdateRoleV3Short(params *AdminUpdateRoleV3Params, authInf
 /*
 AdminGetRoleAdminStatusV3Short get role admin status
 Admin roles has its members listed in the role.
-action code: 10420
 */
 func (a *Client) AdminGetRoleAdminStatusV3Short(params *AdminGetRoleAdminStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleAdminStatusV3Response, error) {
 	// TODO: Validate the params before sending
@@ -2068,7 +2053,6 @@ func (a *Client) AdminGetRoleAdminStatusV3Short(params *AdminGetRoleAdminStatusV
 AdminUpdateAdminRoleStatusV3Short set role as admin role
 Admin roles has its members listed in the role.
 Role can be set as admin role only when it has at least 1 manager.
-action code: 10412
 */
 func (a *Client) AdminUpdateAdminRoleStatusV3Short(params *AdminUpdateAdminRoleStatusV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateAdminRoleStatusV3Response, error) {
 	// TODO: Validate the params before sending
@@ -2156,7 +2140,7 @@ func (a *Client) AdminUpdateAdminRoleStatusV3Short(params *AdminUpdateAdminRoleS
 
 /*
 AdminRemoveRoleAdminV3Short remove role admin status
-code: 10413
+Removes admin status from a role.
 */
 func (a *Client) AdminRemoveRoleAdminV3Short(params *AdminRemoveRoleAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleAdminV3Response, error) {
 	// TODO: Validate the params before sending
@@ -2245,7 +2229,6 @@ func (a *Client) AdminRemoveRoleAdminV3Short(params *AdminRemoveRoleAdminV3Param
 /*
 AdminGetRoleManagersV3Short get role managers
 Role can only be assigned to other users by the role's manager.
-action code: 10415
 */
 func (a *Client) AdminGetRoleManagersV3Short(params *AdminGetRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleManagersV3Response, error) {
 	// TODO: Validate the params before sending
@@ -2335,7 +2318,6 @@ func (a *Client) AdminGetRoleManagersV3Short(params *AdminGetRoleManagersV3Param
 /*
 AdminAddRoleManagersV3Short add role managers
 Role can only be assigned to other users by the role's manager.
-action code: 10408
 */
 func (a *Client) AdminAddRoleManagersV3Short(params *AdminAddRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleManagersV3Response, error) {
 	// TODO: Validate the params before sending
@@ -2424,7 +2406,6 @@ func (a *Client) AdminAddRoleManagersV3Short(params *AdminAddRoleManagersV3Param
 /*
 AdminRemoveRoleManagersV3Short remove role managers
 Role can only be assigned to other users by the role's manager.
-action code: 10409
 */
 func (a *Client) AdminRemoveRoleManagersV3Short(params *AdminRemoveRoleManagersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleManagersV3Response, error) {
 	// TODO: Validate the params before sending
@@ -2513,7 +2494,6 @@ func (a *Client) AdminRemoveRoleManagersV3Short(params *AdminRemoveRoleManagersV
 /*
 AdminGetRoleMembersV3Short get role members
 Admin roles has its members listed in the role.
-action code: 10416
 */
 func (a *Client) AdminGetRoleMembersV3Short(params *AdminGetRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleMembersV3Response, error) {
 	// TODO: Validate the params before sending
@@ -2604,7 +2584,6 @@ func (a *Client) AdminGetRoleMembersV3Short(params *AdminGetRoleMembersV3Params,
 AdminAddRoleMembersV3Short add role members
 Admin roles has its members listed in the role.
 Role can only be assigned to other users by the role's manager.
-action code: 10410
 */
 func (a *Client) AdminAddRoleMembersV3Short(params *AdminAddRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddRoleMembersV3Response, error) {
 	// TODO: Validate the params before sending
@@ -2701,7 +2680,6 @@ func (a *Client) AdminAddRoleMembersV3Short(params *AdminAddRoleMembersV3Params,
 AdminRemoveRoleMembersV3Short remove role members
 Admin roles has its members listed in the role.
 Role can only be assigned to other users by the role's manager.
-action code: 10411
 Deprecate: Suggest to use this: AdminRevokeUserFromRoleV4
 */
 func (a *Client) AdminRemoveRoleMembersV3Short(params *AdminRemoveRoleMembersV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRemoveRoleMembersV3Response, error) {
@@ -2790,8 +2768,7 @@ func (a *Client) AdminRemoveRoleMembersV3Short(params *AdminRemoveRoleMembersV3P
 
 /*
 AdminUpdateRolePermissionsV3Short update role permissions
-This endpoint will REPLACE role's permissions with the ones defined in body
-action code: 10405
+Replaces role's permissions with the ones defined in body.
 Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
 Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
 In ranged schedule, first element will be start date, and second one will be end date
@@ -2901,8 +2878,7 @@ func (a *Client) AdminUpdateRolePermissionsV3Short(params *AdminUpdateRolePermis
 
 /*
 AdminAddRolePermissionsV3Short add role permissions
-This endpoint will ATTACH permission(s) into the role
-action code: 10404
+Attaches permission(s) into the role.
 Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
 Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
 In ranged schedule, first element will be start date, and second one will be end date
@@ -3011,7 +2987,7 @@ func (a *Client) AdminAddRolePermissionsV3Short(params *AdminAddRolePermissionsV
 }
 
 /*
-AdminDeleteRolePermissionsV3Short delete role
+AdminDeleteRolePermissionsV3Short delete role permissions
 */
 func (a *Client) AdminDeleteRolePermissionsV3Short(params *AdminDeleteRolePermissionsV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionsV3Response, error) {
 	// TODO: Validate the params before sending
@@ -3084,7 +3060,7 @@ func (a *Client) AdminDeleteRolePermissionsV3Short(params *AdminDeleteRolePermis
 
 /*
 AdminDeleteRolePermissionV3Short delete role permission
-action code: 10406
+Deletes a specific permission from a role.
 */
 func (a *Client) AdminDeleteRolePermissionV3Short(params *AdminDeleteRolePermissionV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRolePermissionV3Response, error) {
 	// TODO: Validate the params before sending
@@ -3172,8 +3148,7 @@ func (a *Client) AdminDeleteRolePermissionV3Short(params *AdminDeleteRolePermiss
 
 /*
 PublicGetRolesV3Short get roles
-This endpoint is used to get all non-admin role.
-action code: 10418
+Returns all non-admin roles.
 */
 func (a *Client) PublicGetRolesV3Short(params *PublicGetRolesV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRolesV3Response, error) {
 	// TODO: Validate the params before sending
@@ -3234,8 +3209,7 @@ func (a *Client) PublicGetRolesV3Short(params *PublicGetRolesV3Params, authInfo 
 
 /*
 PublicGetRoleV3Short get public role
-This endpoint is used to get non-admin role based on specify roleId.
-action code : 10417
+Returns a non-admin role based on the specified roleId.
 */
 func (a *Client) PublicGetRoleV3Short(params *PublicGetRoleV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetRoleV3Response, error) {
 	// TODO: Validate the params before sending
@@ -3303,7 +3277,7 @@ func (a *Client) PublicGetRoleV3Short(params *PublicGetRoleV3Params, authInfo ru
 
 /*
 AdminGetRolesV4Short get roles
-action code: 10414
+Retrieves a paginated list of roles with optional filters.
 */
 func (a *Client) AdminGetRolesV4Short(params *AdminGetRolesV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRolesV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3385,13 +3359,7 @@ func (a *Client) AdminGetRolesV4Short(params *AdminGetRolesV4Params, authInfo ru
 
 /*
 AdminCreateRoleV4Short create role
-Create role request body:
-- roleName: specify role name, alphanumeric, cannot have special character (required)
-- adminRole: specify if role is for admin user (default false)
-- isWildcard: specify if role can be assigned to wildcard (*) namespace (default false)
-- deletable: specify if role can be deleted (default true)
-
-action code: 10401
+Creates a new role. See request body field descriptions for per-field details.
 */
 func (a *Client) AdminCreateRoleV4Short(params *AdminCreateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminCreateRoleV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3473,7 +3441,7 @@ func (a *Client) AdminCreateRoleV4Short(params *AdminCreateRoleV4Params, authInf
 
 /*
 AdminGetRoleV4Short get role
-action code: 10419
+Retrieves a role by its ID.
 */
 func (a *Client) AdminGetRoleV4Short(params *AdminGetRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetRoleV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3562,8 +3530,7 @@ func (a *Client) AdminGetRoleV4Short(params *AdminGetRoleV4Params, authInfo runt
 
 /*
 AdminDeleteRoleV4Short delete role
-Removes role ID from user's Roles and NamespaceRoles before deleting the role.
-action code: 10403
+Removes the role from all assigned users before deleting it.
 */
 func (a *Client) AdminDeleteRoleV4Short(params *AdminDeleteRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteRoleV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3651,13 +3618,7 @@ func (a *Client) AdminDeleteRoleV4Short(params *AdminDeleteRoleV4Params, authInf
 
 /*
 AdminUpdateRoleV4Short update role
-Update role request body:
-- roleName: specify role name, alphanumeric, cannot have special character (required)
-- adminRole: specify if role is for admin user (default false)
-- isWildcard: specify if role can be assigned to wildcard (*) namespace (default false)
-- deletable: specify if role can be deleted (optional)
-
-action code: 10402
+Updates an existing role. See request body field descriptions for per-field details.
 */
 func (a *Client) AdminUpdateRoleV4Short(params *AdminUpdateRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateRoleV4Response, error) {
 	// TODO: Validate the params before sending
@@ -3739,8 +3700,7 @@ func (a *Client) AdminUpdateRoleV4Short(params *AdminUpdateRoleV4Params, authInf
 
 /*
 AdminUpdateRolePermissionsV4Short update role permissions
-This endpoint will REPLACE role's permissions with the ones defined in body
-action code: 10405
+Replaces role's permissions with the ones defined in body.
 Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
 Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
 In ranged schedule, first element will be start date, and second one will be end date
@@ -3844,9 +3804,7 @@ func (a *Client) AdminUpdateRolePermissionsV4Short(params *AdminUpdateRolePermis
 
 /*
 AdminAddRolePermissionsV4Short add role permissions v4
-This endpoint will ATTACH permission(s) into the role
-action code: 10404
-
+Attaches permission(s) to the role.
 Schedule contains cron string or date range (both are UTC, also in cron syntax) to indicate when a permission and action are in effect.
 Both schedule types accepts quartz compatible cron syntax e.g. * * * * * * *.
 In ranged schedule, first element will be start date, and second one will be end date
@@ -4023,7 +3981,6 @@ func (a *Client) AdminDeleteRolePermissionsV4Short(params *AdminDeleteRolePermis
 /*
 AdminListAssignedUsersV4Short get role's assigned users
 Query all users that has the specified role.
-action code: 10416
 */
 func (a *Client) AdminListAssignedUsersV4Short(params *AdminListAssignedUsersV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminListAssignedUsersV4Response, error) {
 	// TODO: Validate the params before sending
@@ -4105,12 +4062,7 @@ func (a *Client) AdminListAssignedUsersV4Short(params *AdminListAssignedUsersV4P
 
 /*
 AdminAssignUserToRoleV4Short assign user to role
-Parameters:
-- **userId**: string (required)
-- **namespace**: string (userâs namespace) (required)
-- **assignedNamespaces**: array of string (namespaces to be assigned on role) (required)
-
-action code: 10410
+Assigns a user to a role with specified namespaces. See request body field descriptions for per-field details.
 */
 func (a *Client) AdminAssignUserToRoleV4Short(params *AdminAssignUserToRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAssignUserToRoleV4Response, error) {
 	// TODO: Validate the params before sending
@@ -4206,13 +4158,7 @@ func (a *Client) AdminAssignUserToRoleV4Short(params *AdminAssignUserToRoleV4Par
 
 /*
 AdminRevokeUserFromRoleV4Short revoke user from role
-Current implementation will revoke user from role in all assigned namespaces.
-
-Parameters:
-- userId: string (required)
-- namespace: string (userâs namespace) (required)
-
-action code: 10411
+Current implementation will revoke user from role in all assigned namespaces. See request body field descriptions for per-field details.
 */
 func (a *Client) AdminRevokeUserFromRoleV4Short(params *AdminRevokeUserFromRoleV4Params, authInfo runtime.ClientAuthInfoWriter) (*AdminRevokeUserFromRoleV4Response, error) {
 	// TODO: Validate the params before sending

@@ -70,7 +70,7 @@ type AdminBulkUpdateUserAccountTypeV4Params struct {
 	/*Body*/
 	Body *iamclientmodels.ModelBulkAccountTypeUpdateRequestV4
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

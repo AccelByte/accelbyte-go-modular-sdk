@@ -7,6 +7,8 @@
 package platform
 
 import (
+	"io"
+
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/payment_station"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
@@ -225,7 +227,7 @@ func (aaa *PaymentStationService) GetPaymentPublicConfigShort(input *payment_sta
 	return ok, nil
 }
 
-func (aaa *PaymentStationService) PublicGetQRCodeShort(input *payment_station.PublicGetQRCodeParams) (*payment_station.PublicGetQRCodeResponse, error) {
+func (aaa *PaymentStationService) PublicGetQRCodeShort(input *payment_station.PublicGetQRCodeParams, writer io.Writer) (*payment_station.PublicGetQRCodeResponse, error) {
 	if input.RetryPolicy == nil {
 		input.RetryPolicy = &utils.Retry{
 			MaxTries:   utils.MaxTries,
@@ -240,7 +242,7 @@ func (aaa *PaymentStationService) PublicGetQRCodeShort(input *payment_station.Pu
 		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.PaymentStation.PublicGetQRCodeShort(input)
+	ok, err := aaa.Client.PaymentStation.PublicGetQRCodeShort(input, writer)
 	if err != nil {
 		return nil, err
 	}

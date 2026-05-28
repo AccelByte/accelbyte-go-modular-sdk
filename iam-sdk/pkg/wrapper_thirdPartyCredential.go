@@ -368,6 +368,40 @@ func (aaa *ThirdPartyCredentialService) AdminCheckThirdPartyLoginPlatformAvailab
 	return ok, nil
 }
 
+func (aaa *ThirdPartyCredentialService) GetThirdPartyLoginPlatformDefaultsV3Short(input *third_party_credential.GetThirdPartyLoginPlatformDefaultsV3Params) (*third_party_credential.GetThirdPartyLoginPlatformDefaultsV3Response, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdThirdPartyCredential != nil {
+		input.XFlightId = tempFlightIdThirdPartyCredential
+	} else if aaa.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.ThirdPartyCredential.GetThirdPartyLoginPlatformDefaultsV3Short(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
 func (aaa *ThirdPartyCredentialService) RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short(input *third_party_credential.RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Params) (*third_party_credential.RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

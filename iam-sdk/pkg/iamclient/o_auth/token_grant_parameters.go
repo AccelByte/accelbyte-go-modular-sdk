@@ -19,6 +19,15 @@ import (
 	"github.com/go-openapi/swag"
 )
 
+// Deprecated: 2025-07-16 - Use TokenGrantGrantType<EnumValue>Constant instead.
+// Get the enum in TokenGrantParams
+const (
+	TokenGrantAuthorizationCodeConstant = "authorization_code"
+	TokenGrantClientCredentialsConstant = "client_credentials"
+	TokenGrantPasswordConstant          = "password"
+	TokenGrantRefreshTokenConstant      = "refresh_token"
+)
+
 // Get the enum in TokenGrantParams
 const (
 	TokenGrantGrantTypeAuthorizationCodeConstant = "authorization_code"
@@ -92,7 +101,7 @@ type TokenGrantParams struct {
 	*/
 	DeviceID *string
 	/*Code
-	  Code (used with grant type 'authorization_code'
+	  Authorization code (used with grant type 'authorization_code')
 
 	*/
 	Code *string
@@ -102,27 +111,27 @@ type TokenGrantParams struct {
 	*/
 	ExtendExp *bool
 	/*Namespace
-	  Delegated namespace (used with grant type 'password' to do token grant on other namespace)
+	  Delegated namespace (used with grant type 'password' to perform token grant on another namespace)
 
 	*/
 	Namespace *string
 	/*Password
-	  Password (used with grant type 'password'
+	  Password (used with grant type 'password')
 
 	*/
 	Password *string
 	/*RedirectURI
-	  Redirect URI (used with grant type 'authorization_code'
+	  Redirect URI (used with grant type 'authorization_code')
 
 	*/
 	RedirectURI *string
 	/*RefreshToken
-	  Refresh Token (used with grant type 'refresh_token'
+	  Refresh Token (used with grant type 'refresh_token')
 
 	*/
 	RefreshToken *string
 	/*Username
-	  User Name (used with grant type 'password'
+	  Username (used with grant type 'password')
 
 	*/
 	Username *string

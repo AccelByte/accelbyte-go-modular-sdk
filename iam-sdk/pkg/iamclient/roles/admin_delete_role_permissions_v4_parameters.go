@@ -68,7 +68,7 @@ type AdminDeleteRolePermissionsV4Params struct {
 	/*Body*/
 	Body []string
 	/*RoleID
-	  Role id
+	  Role ID
 
 	*/
 	RoleID string

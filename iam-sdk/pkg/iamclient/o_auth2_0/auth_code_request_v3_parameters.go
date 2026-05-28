@@ -81,7 +81,7 @@ type AuthCodeRequestV3Params struct {
 	*/
 	RedirectURI *string
 	/*RequestID
-	  Request ID retrieved from authorize endpoint ([GET] iam/v3/oauth/authorize)
+	  Request ID retrieved from authorize API ([GET] iam/v3/oauth/authorize)
 
 	*/
 	RequestID string

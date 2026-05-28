@@ -18,6 +18,13 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
+// Deprecated: 2025-07-16 - Use AdminDeletePlatformCredentialsByPlatformIDPlatformID<EnumValue>Constant instead.
+// Get the enum in AdminDeletePlatformCredentialsByPlatformIDParams
+const (
+	AdminDeletePlatformCredentialsByPlatformIDPSNConstant  = "PSN"
+	AdminDeletePlatformCredentialsByPlatformIDXBOXConstant = "XBOX"
+)
+
 // Get the enum in AdminDeletePlatformCredentialsByPlatformIDParams
 const (
 	AdminDeletePlatformCredentialsByPlatformIDPlatformIDPSNConstant  = "PSN"

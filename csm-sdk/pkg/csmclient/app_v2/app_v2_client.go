@@ -35,6 +35,7 @@ type ClientService interface {
 	CreateAppV2Short(params *CreateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*CreateAppV2Response, error)
 	DeleteAppV2Short(params *DeleteAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppV2Response, error)
 	UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV2Response, error)
+	ApplyAppConfigV2Short(params *ApplyAppConfigV2Params, authInfo runtime.ClientAuthInfoWriter) (*ApplyAppConfigV2Response, error)
 	UpdateAppResourcesV2Short(params *UpdateAppResourcesV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesV2Response, error)
 	UpdateAppResourcesResourceLimitFormV2Short(params *UpdateAppResourcesResourceLimitFormV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesResourceLimitFormV2Response, error)
 	StartAppV2Short(params *StartAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV2Response, error)
@@ -248,9 +249,9 @@ Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [CREATE]`
 Create new extend app with name provided by {app} path parameter and specified scenario type
 
 Available scenario:
+- scenario 3: `event-handler`
 - scenario 1: `function-override`
 - scenario 2: `service-extension`
-- scenario 3: `event-handler`
 
 Available app status:
 - `app-creating`
@@ -535,6 +536,108 @@ func (a *Client) UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.Cl
 		return response, v
 	case *UpdateAppV2InternalServerError:
 		response := &UpdateAppV2Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+ApplyAppConfigV2Short declaratively create or update an extend app from a spec
+Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP []`
+
+Idempotent endpoint that creates or updates an Extend app from a declarative spec.
+Uses three-way merge semantics (kubectl apply) for variables, secrets, and permissions.
+
+Note: `preferred_k8s_namespace` is only used on the initial create call; it is ignored on subsequent apply calls.
+On the first apply after creation the deletion phase is skipped (no prior apply state recorded).
+*/
+func (a *Client) ApplyAppConfigV2Short(params *ApplyAppConfigV2Params, authInfo runtime.ClientAuthInfoWriter) (*ApplyAppConfigV2Response, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewApplyAppConfigV2Params()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "ApplyAppConfigV2",
+		Method:             "POST",
+		PathPattern:        "/csm/v2/admin/namespaces/{namespace}/apps/{app}/apply",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &ApplyAppConfigV2Reader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *ApplyAppConfigV2OK:
+		response := &ApplyAppConfigV2Response{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *ApplyAppConfigV2BadRequest:
+		response := &ApplyAppConfigV2Response{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *ApplyAppConfigV2Unauthorized:
+		response := &ApplyAppConfigV2Response{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *ApplyAppConfigV2Forbidden:
+		response := &ApplyAppConfigV2Response{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *ApplyAppConfigV2NotFound:
+		response := &ApplyAppConfigV2Response{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *ApplyAppConfigV2Conflict:
+		response := &ApplyAppConfigV2Response{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *ApplyAppConfigV2InternalServerError:
+		response := &ApplyAppConfigV2Response{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

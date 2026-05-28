@@ -66,12 +66,12 @@ type GetUserMappingParams struct {
 	/*RetryPolicy*/
 	RetryPolicy *utils.Retry
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string
 	/*TargetNamespace
-	  Target namespace
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	TargetNamespace string

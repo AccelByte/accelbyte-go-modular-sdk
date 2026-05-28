@@ -70,7 +70,7 @@ type PublicCreateUserV2Params struct {
 	/*Body*/
 	Body *iamclientmodels.ModelUserCreateRequest
 	/*Namespace
-	  Namespace
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

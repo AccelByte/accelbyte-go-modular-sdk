@@ -70,7 +70,7 @@ type AdminBanUserV2Params struct {
 	/*Body*/
 	Body *iamclientmodels.ModelBanCreateRequest
 	/*Namespace
-	  Namespace
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

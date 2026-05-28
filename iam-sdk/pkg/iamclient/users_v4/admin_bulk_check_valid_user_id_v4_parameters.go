@@ -70,7 +70,7 @@ type AdminBulkCheckValidUserIDV4Params struct {
 	/*Body*/
 	Body *iamclientmodels.ModelCheckValidUserIDRequestV4
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

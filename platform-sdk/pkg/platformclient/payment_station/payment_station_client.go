@@ -9,6 +9,7 @@ package payment_station
 import (
 	"context"
 	"fmt"
+	"io"
 	"reflect"
 
 	"github.com/go-openapi/runtime"
@@ -37,7 +38,7 @@ type ClientService interface {
 	PayShort(params *PayParams) (*PayResponse, error)
 	PublicCheckPaymentOrderPaidStatusShort(params *PublicCheckPaymentOrderPaidStatusParams) (*PublicCheckPaymentOrderPaidStatusResponse, error)
 	GetPaymentPublicConfigShort(params *GetPaymentPublicConfigParams) (*GetPaymentPublicConfigResponse, error)
-	PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGetQRCodeResponse, error)
+	PublicGetQRCodeShort(params *PublicGetQRCodeParams, writer io.Writer) (*PublicGetQRCodeResponse, error)
 	PublicNormalizePaymentReturnURLShort(params *PublicNormalizePaymentReturnURLParams) (*PublicNormalizePaymentReturnURLResponse, error)
 	GetPaymentTaxValueShort(params *GetPaymentTaxValueParams) (*GetPaymentTaxValueResponse, error)
 
@@ -522,7 +523,7 @@ PublicGetQRCodeShort get qrcode
 Other detail info:
   - Returns : QRCode image stream
 */
-func (a *Client) PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGetQRCodeResponse, error) {
+func (a *Client) PublicGetQRCodeShort(params *PublicGetQRCodeParams, writer io.Writer) (*PublicGetQRCodeResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
 		params = NewPublicGetQRCodeParams()
@@ -548,7 +549,7 @@ func (a *Client) PublicGetQRCodeShort(params *PublicGetQRCodeParams) (*PublicGet
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PublicGetQRCodeReader{formats: a.formats},
+		Reader:             &PublicGetQRCodeReader{formats: a.formats, writer: writer},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
@@ -576,10 +577,10 @@ PublicNormalizePaymentReturnURLShort normalize payment return url
 
 	[Not supported yet in AGS Shared Cloud] Normalize payment return url for payment provider
 
-Field                                                                                                                                                                  | Type   | Required | Description
------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|----------|-----------------------
-orderNo                                                                                                                                                                | String | Yes      | order no
-paymentStatus                                                                                                                                                          | String | Yes      |
+Field                                                                                                                                                                | Type   | Required | Description
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------|----------|-----------------------
+orderNo                                                                                                                                                              | String | Yes      | order no
+paymentStatus                                                                                                                                                        | String | Yes      |
   - DONE: The payment was successfully completed.
   - CANCELLED: The payment was cancelled by the shopper before completion, or the shopper returned to the merchant's site before completing the transaction.
   - PENDING: Inform the shopper that you've received their order, and are waiting for the payment to be completed.
@@ -589,7 +590,7 @@ When the shopper has completed the payment you will receive a successful AUTHORI
   - UNKNOWN: An error occurred during the payment processing.
   - FAILED: Shopper paid failed because of various reasons.
 
-reason                                                                                                                                                                 | String | No       | payment status reason
+reason                                                                                                                                                               | String | No       | payment status reason
 
 Other detail info:
   - xsolla : parameters 'user_id', 'foreinginvoice', 'invoice_id' and 'status' will be automatically added to the link

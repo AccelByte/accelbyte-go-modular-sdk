@@ -70,7 +70,7 @@ type PublicForgotPasswordV3Params struct {
 	/*Body*/
 	Body *iamclientmodels.ModelForgotPasswordRequestV3
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

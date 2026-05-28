@@ -526,7 +526,7 @@ func (a *Client) DeleteRewardShort(params *DeleteRewardParams, authInfo runtime.
 CheckEventConditionShort check if event payload match reward condition
 
 	[TEST FACILITY ONLY] Forbidden in live environment. Other detail info:
-	           * Returns : match result
+	         * Returns : match result
 */
 func (a *Client) CheckEventConditionShort(params *CheckEventConditionParams, authInfo runtime.ClientAuthInfoWriter) (*CheckEventConditionResponse, error) {
 	// TODO: Validate the params before sending

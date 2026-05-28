@@ -40,7 +40,7 @@ type ClientService interface {
 
 /*
 AdminGetCountryListV3Short get country list
-Admin get country list
+Retrieves the list of countries for the namespace.
 */
 func (a *Client) AdminGetCountryListV3Short(params *AdminGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryListV3Response, error) {
 	// TODO: Validate the params before sending
@@ -115,7 +115,7 @@ func (a *Client) AdminGetCountryListV3Short(params *AdminGetCountryListV3Params,
 
 /*
 AdminGetCountryBlacklistV3Short get country blacklist
-Admin get country blacklist
+Retrieves the country blacklist for the namespace.
 */
 func (a *Client) AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminGetCountryBlacklistV3Response, error) {
 	// TODO: Validate the params before sending
@@ -190,7 +190,7 @@ func (a *Client) AdminGetCountryBlacklistV3Short(params *AdminGetCountryBlacklis
 
 /*
 AdminAddCountryBlacklistV3Short update country blacklist
-Admin update country blacklist
+Updates the country blacklist for the namespace.
 */
 func (a *Client) AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklistV3Params, authInfo runtime.ClientAuthInfoWriter) (*AdminAddCountryBlacklistV3Response, error) {
 	// TODO: Validate the params before sending
@@ -271,7 +271,7 @@ func (a *Client) AdminAddCountryBlacklistV3Short(params *AdminAddCountryBlacklis
 
 /*
 PublicGetCountryListV3Short get country list
-Public get country list, will filter out countries in black list
+Retrieves the list of countries, excluding those on the blacklist.
 */
 func (a *Client) PublicGetCountryListV3Short(params *PublicGetCountryListV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetCountryListV3Response, error) {
 	// TODO: Validate the params before sending

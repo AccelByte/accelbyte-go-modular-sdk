@@ -70,7 +70,7 @@ type PublicForgotPasswordV2Params struct {
 	/*Body*/
 	Body *iamclientmodels.ModelSendVerificationCodeRequest
 	/*Namespace
-	  Namespace
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

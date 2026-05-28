@@ -70,7 +70,7 @@ type ResetPasswordParams struct {
 	/*Body*/
 	Body *iamclientmodels.ModelResetPasswordRequest
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

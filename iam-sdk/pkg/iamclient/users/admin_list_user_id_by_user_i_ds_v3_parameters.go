@@ -70,7 +70,7 @@ type AdminListUserIDByUserIDsV3Params struct {
 	/*Body*/
 	Body *iamclientmodels.ModelAdminBulkUserRequest
 	/*Namespace
-	  Namespace, only accept alphabet and numeric
+	  Accepts alphanumeric, with hyphens allowed between segments
 
 	*/
 	Namespace string

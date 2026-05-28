@@ -66,7 +66,7 @@ type GetRoleMembersParams struct {
 	/*RetryPolicy*/
 	RetryPolicy *utils.Retry
 	/*RoleID
-	  Role id
+	  Role ID
 
 	*/
 	RoleID string

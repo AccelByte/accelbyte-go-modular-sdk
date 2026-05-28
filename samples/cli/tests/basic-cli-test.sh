@@ -57,14 +57,14 @@ eval_tap $? 2 'GetNamespaces' test.out
 
 #- 3 CreateNamespace
 samples/cli/sample-apps Basic createNamespace \
-    --body '{"displayName": "mQV2snae", "isTesting": true, "namespace": "BGEScWZZ"}' \
+    --body '{"displayName": "Q5HBgKqY", "isTesting": false, "namespace": "QV6Qv5pI"}' \
     > test.out 2>&1
 eval_tap $? 3 'CreateNamespace' test.out
 
 #- 4 GetNamespace
 samples/cli/sample-apps Basic getNamespace \
     --namespace $AB_NAMESPACE \
-    --activeOnly 'true' \
+    --activeOnly 'false' \
     > test.out 2>&1
 eval_tap $? 4 'GetNamespace' test.out
 
@@ -77,43 +77,43 @@ eval_tap $? 5 'DeleteNamespace' test.out
 #- 6 UpdateNamespace
 samples/cli/sample-apps Basic updateNamespace \
     --namespace $AB_NAMESPACE \
-    --body '{"displayName": "8LRah8MD"}' \
+    --body '{"displayName": "OZrosolT"}' \
     > test.out 2>&1
 eval_tap $? 6 'UpdateNamespace' test.out
 
 #- 7 GetChildNamespaces
 samples/cli/sample-apps Basic getChildNamespaces \
     --namespace $AB_NAMESPACE \
-    --activeOnly 'true' \
+    --activeOnly 'false' \
     > test.out 2>&1
 eval_tap $? 7 'GetChildNamespaces' test.out
 
 #- 8 CreateConfig
 samples/cli/sample-apps Basic createConfig \
     --namespace $AB_NAMESPACE \
-    --body '{"key": "DdzwgaeM", "value": "fGKW5mgm"}' \
+    --body '{"key": "RtRuCA6K", "value": "jgZkZ1hM"}' \
     > test.out 2>&1
 eval_tap $? 8 'CreateConfig' test.out
 
 #- 9 GetConfig
 samples/cli/sample-apps Basic getConfig \
-    --configKey '965E1vX1' \
+    --configKey 'ZM3RTg0s' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 9 'GetConfig' test.out
 
 #- 10 DeleteConfig
 samples/cli/sample-apps Basic deleteConfig \
-    --configKey 'noG7DYVW' \
+    --configKey 'FVRyzqmR' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 10 'DeleteConfig' test.out
 
 #- 11 UpdateConfig
 samples/cli/sample-apps Basic updateConfig \
-    --configKey 'y8PWL5GQ' \
+    --configKey '2ZdT0IR6' \
     --namespace $AB_NAMESPACE \
-    --body '{"value": "2MfZ9JI3"}' \
+    --body '{"value": "4ZRArQ7N"}' \
     > test.out 2>&1
 eval_tap $? 11 'UpdateConfig' test.out
 
@@ -126,9 +126,9 @@ eval_tap $? 12 'GetNamespaceContext' test.out
 
 #- 13 GeneratedUploadUrl
 samples/cli/sample-apps Basic generatedUploadUrl \
-    --folder 'TlQtpnak' \
+    --folder 'WaShpt9k' \
     --namespace $AB_NAMESPACE \
-    --fileType 'YDVK9dDB' \
+    --fileType 'cCZtuui0' \
     > test.out 2>&1
 eval_tap $? 13 'GeneratedUploadUrl' test.out
 
@@ -145,28 +145,28 @@ eval_tap 0 15 'GetCountries # SKIP deprecated' test.out
 #- 16 GetCountryGroups
 samples/cli/sample-apps Basic getCountryGroups \
     --namespace $AB_NAMESPACE \
-    --groupCode 'ShFp9PEC' \
+    --groupCode '8kNvGKFl' \
     > test.out 2>&1
 eval_tap $? 16 'GetCountryGroups' test.out
 
 #- 17 AddCountryGroup
 samples/cli/sample-apps Basic addCountryGroup \
     --namespace $AB_NAMESPACE \
-    --body '{"countries": [{"code": "g1TJ84fR", "name": "9k2xDcyS"}, {"code": "dw9hV3Tp", "name": "LWID8CWt"}, {"code": "Nj1QuiNz", "name": "MhxnU9wI"}], "countryGroupCode": "QpykXkYX", "countryGroupName": "88zCSymE"}' \
+    --body '{"countries": [{"code": "PVKTwEnC", "name": "YxQKnLpY"}, {"code": "at5EGNtt", "name": "eFfiWVbr"}, {"code": "T4UYvu2J", "name": "LzMtDMHB"}], "countryGroupCode": "pEDtalZF", "countryGroupName": "AWZZD4jr"}' \
     > test.out 2>&1
 eval_tap $? 17 'AddCountryGroup' test.out
 
 #- 18 UpdateCountryGroup
 samples/cli/sample-apps Basic updateCountryGroup \
-    --countryGroupCode 'dKfmzj5N' \
+    --countryGroupCode 'ZnDhIAFr' \
     --namespace $AB_NAMESPACE \
-    --body '{"countries": [{"code": "2nsizkVK", "name": "272sAtHo"}, {"code": "OhYUxGxG", "name": "NYjkBQLs"}, {"code": "BX4dDhhL", "name": "rU36MJf7"}], "countryGroupName": "jnrqdW7E"}' \
+    --body '{"countries": [{"code": "ImBlvtuy", "name": "Aaqc0QGX"}, {"code": "Lykb0wYE", "name": "FRqTnLyk"}, {"code": "8rc18G03", "name": "AUDrVdRF"}], "countryGroupName": "96sGxPtd"}' \
     > test.out 2>&1
 eval_tap $? 18 'UpdateCountryGroup' test.out
 
 #- 19 DeleteCountryGroup
 samples/cli/sample-apps Basic deleteCountryGroup \
-    --countryGroupCode '2r6GuoAW' \
+    --countryGroupCode 'isYpv3Rr' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 19 'DeleteCountryGroup' test.out
@@ -186,14 +186,14 @@ eval_tap $? 21 'GetTimeZones' test.out
 #- 22 GetUserProfileInfoByPublicId
 samples/cli/sample-apps Basic getUserProfileInfoByPublicId \
     --namespace $AB_NAMESPACE \
-    --publicId 'tGlGX6r5' \
+    --publicId 'YbG5Y5X5' \
     > test.out 2>&1
 eval_tap $? 22 'GetUserProfileInfoByPublicId' test.out
 
 #- 23 AdminGetUserProfilePublicInfoByIds
 samples/cli/sample-apps Basic adminGetUserProfilePublicInfoByIds \
     --namespace $AB_NAMESPACE \
-    --body '{"userIds": ["PuFGraXV", "E1N3Uy6U", "m4w38GZf"]}' \
+    --body '{"userIds": ["cI60CLZc", "IDHyyKXf", "e98qURWN"]}' \
     > test.out 2>&1
 eval_tap $? 23 'AdminGetUserProfilePublicInfoByIds' test.out
 
@@ -205,7 +205,7 @@ eval_tap $? 24 'GetNamespacePublisher' test.out
 
 #- 25 GetPublisherConfig
 samples/cli/sample-apps Basic getPublisherConfig \
-    --configKey 'RUU6TYvY' \
+    --configKey 'HCjn0J9A' \
     --namespace $AB_NAMESPACE \
     > test.out 2>&1
 eval_tap $? 25 'GetPublisherConfig' test.out
@@ -220,82 +220,82 @@ eval_tap $? 26 'ChangeNamespaceStatus' test.out
 #- 27 UpdateTestingFlag
 samples/cli/sample-apps Basic updateTestingFlag \
     --namespace $AB_NAMESPACE \
-    --body '{"isTesting": false}' \
+    --body '{"isTesting": true}' \
     > test.out 2>&1
 eval_tap $? 27 'UpdateTestingFlag' test.out
 
 #- 28 AnonymizeUserProfile
 samples/cli/sample-apps Basic anonymizeUserProfile \
     --namespace $AB_NAMESPACE \
-    --userId '6FPl8BVw' \
+    --userId 'fQCA82Oa' \
     > test.out 2>&1
 eval_tap $? 28 'AnonymizeUserProfile' test.out
 
 #- 29 GeneratedUserUploadContentUrl
 samples/cli/sample-apps Basic generatedUserUploadContentUrl \
     --namespace $AB_NAMESPACE \
-    --userId 'h9RW0eys' \
-    --category 'P00tUy4d' \
-    --fileType '0bvE4iBX' \
+    --userId 'Bd0ZhVwj' \
+    --category 'qxsX3X7H' \
+    --fileType 'JIcuyMNY' \
     > test.out 2>&1
 eval_tap $? 29 'GeneratedUserUploadContentUrl' test.out
 
 #- 30 GetUserProfileInfo
 samples/cli/sample-apps Basic getUserProfileInfo \
     --namespace $AB_NAMESPACE \
-    --userId 'umfDWgz1' \
+    --userId 'ipXRlpvl' \
     > test.out 2>&1
 eval_tap $? 30 'GetUserProfileInfo' test.out
 
 #- 31 UpdateUserProfile
 samples/cli/sample-apps Basic updateUserProfile \
     --namespace $AB_NAMESPACE \
-    --userId '13KdtRqk' \
-    --body '{"avatarLargeUrl": "p4r7Ln7m", "avatarSmallUrl": "aWdh1lHA", "avatarUrl": "nI5efXEH", "customAttributes": {"nUCbCNHl": {}, "0oCh6f5d": {}, "ydPncDAS": {}}, "dateOfBirth": "1987-10-20", "firstName": "ISMH1mpm", "language": "iw", "lastName": "S3TvNJ2N", "privateCustomAttributes": {"CaHoJZbH": {}, "uDdtEVEF": {}, "i7JxIkCL": {}}, "status": "INACTIVE", "timeZone": "g5wYbbTV", "zipCode": "TLE0Nqq3"}' \
+    --userId 'SInq4LI1' \
+    --body '{"avatarLargeUrl": "dbWamLPH", "avatarSmallUrl": "fxRsvJk5", "avatarUrl": "yQEsSQHw", "customAttributes": {"4aabtdNf": {}, "Z2PtunJf": {}, "judQ5fBi": {}}, "dateOfBirth": "1995-11-20", "firstName": "TurMLM4O", "language": "JJCA_VIdV-817", "lastName": "NA9tfJsu", "privateCustomAttributes": {"hzpjYcXb": {}, "HP9wNKxl": {}, "h5nWnZWG": {}}, "status": "ACTIVE", "timeZone": "XrHjhssY", "zipCode": "We4bFgCy"}' \
     > test.out 2>&1
 eval_tap $? 31 'UpdateUserProfile' test.out
 
 #- 32 DeleteUserProfile
 samples/cli/sample-apps Basic deleteUserProfile \
     --namespace $AB_NAMESPACE \
-    --userId 'jGTi0LU1' \
+    --userId '0gCRu7VL' \
     > test.out 2>&1
 eval_tap $? 32 'DeleteUserProfile' test.out
 
 #- 33 GetCustomAttributesInfo
 samples/cli/sample-apps Basic getCustomAttributesInfo \
     --namespace $AB_NAMESPACE \
-    --userId 'hcAQk8bD' \
+    --userId 'ESDhguVp' \
     > test.out 2>&1
 eval_tap $? 33 'GetCustomAttributesInfo' test.out
 
 #- 34 UpdateCustomAttributesPartially
 samples/cli/sample-apps Basic updateCustomAttributesPartially \
     --namespace $AB_NAMESPACE \
-    --userId 'HsWFcHLw' \
-    --body '{"eOPyyQtT": {}, "9Q8EUivQ": {}, "L3ZvVNoi": {}}' \
+    --userId 'F3uFJY3Y' \
+    --body '{"RI8NjeiZ": {}, "uHC5VW6q": {}, "VOE9KYOI": {}}' \
     > test.out 2>&1
 eval_tap $? 34 'UpdateCustomAttributesPartially' test.out
 
 #- 35 GetPrivateCustomAttributesInfo
 samples/cli/sample-apps Basic getPrivateCustomAttributesInfo \
     --namespace $AB_NAMESPACE \
-    --userId 'tbA1YDMX' \
+    --userId 'nTwqertm' \
     > test.out 2>&1
 eval_tap $? 35 'GetPrivateCustomAttributesInfo' test.out
 
 #- 36 UpdatePrivateCustomAttributesPartially
 samples/cli/sample-apps Basic updatePrivateCustomAttributesPartially \
     --namespace $AB_NAMESPACE \
-    --userId 'oAPqhXX2' \
-    --body '{"TtcsyjEm": {}, "SbTKS9nJ": {}, "dVl3Bm4K": {}}' \
+    --userId 'DFgbFuPm' \
+    --body '{"zsRHt7Fe": {}, "Xcgd4vYt": {}, "xc0BYuWA": {}}' \
     > test.out 2>&1
 eval_tap $? 36 'UpdatePrivateCustomAttributesPartially' test.out
 
 #- 37 UpdateUserProfileStatus
 samples/cli/sample-apps Basic updateUserProfileStatus \
     --namespace $AB_NAMESPACE \
-    --userId 'xG7tY6DM' \
+    --userId 'AHbXRLX4' \
     --body '{"status": "ACTIVE"}' \
     > test.out 2>&1
 eval_tap $? 37 'UpdateUserProfileStatus' test.out
@@ -319,9 +319,9 @@ eval_tap $? 40 'GetNamespace1' test.out
 
 #- 41 PublicGeneratedUploadUrl
 samples/cli/sample-apps Basic publicGeneratedUploadUrl \
-    --folder 'Jv0Okfl7' \
+    --folder 'BTWV5ces' \
     --namespace $AB_NAMESPACE \
-    --fileType '7n6UEnWH' \
+    --fileType 'npoWCrrU' \
     > test.out 2>&1
 eval_tap $? 41 'PublicGeneratedUploadUrl' test.out
 
@@ -343,21 +343,21 @@ eval_tap $? 44 'PublicGetTimeZones' test.out
 #- 45 PublicGetUserProfilePublicInfoByIds
 samples/cli/sample-apps Basic publicGetUserProfilePublicInfoByIds \
     --namespace $AB_NAMESPACE \
-    --userIds 'FTsu3FQ8' \
+    --userIds '6jvuZ0Ws' \
     > test.out 2>&1
 eval_tap $? 45 'PublicGetUserProfilePublicInfoByIds' test.out
 
 #- 46 PublicBulkGetUserProfilePublicInfo
 samples/cli/sample-apps Basic publicBulkGetUserProfilePublicInfo \
     --namespace $AB_NAMESPACE \
-    --body '{"userIds": ["Pz46WFzY", "Qdrru0Tr", "5VYZxgY9"]}' \
+    --body '{"userIds": ["7C3RkA2i", "IhuQ1pIS", "clDPbTNT"]}' \
     > test.out 2>&1
 eval_tap $? 46 'PublicBulkGetUserProfilePublicInfo' test.out
 
 #- 47 PublicGetUserProfileInfoByPublicId
 samples/cli/sample-apps Basic publicGetUserProfileInfoByPublicId \
     --namespace $AB_NAMESPACE \
-    --publicId '6CWUjIlk' \
+    --publicId 'AUt0N5ZP' \
     > test.out 2>&1
 eval_tap $? 47 'PublicGetUserProfileInfoByPublicId' test.out
 
@@ -376,14 +376,14 @@ eval_tap $? 49 'GetMyProfileInfo' test.out
 #- 50 UpdateMyProfile
 samples/cli/sample-apps Basic updateMyProfile \
     --namespace $AB_NAMESPACE \
-    --body '{"avatarLargeUrl": "UYD5Fday", "avatarSmallUrl": "Pp2nilLr", "avatarUrl": "zK6lG4py", "customAttributes": {"5Bj8hAcP": {}, "2WWz3jsT": {}, "VKKS4WkO": {}}, "dateOfBirth": "1975-08-14", "firstName": "EQpAPC7E", "language": "WIu", "lastName": "FtoCX4M2", "privateCustomAttributes": {"o5DfrWYo": {}, "iZEg1WpY": {}, "Xx4grJsB": {}}, "timeZone": "YNiWolfU", "zipCode": "bi8mtf4Q"}' \
+    --body '{"avatarLargeUrl": "JvvTZYYq", "avatarSmallUrl": "2FMMUsaK", "avatarUrl": "aI7lq2Re", "customAttributes": {"bm3TPdtO": {}, "PnPwKuk2": {}, "ULWYnp9o": {}}, "dateOfBirth": "1994-05-27", "firstName": "lxe5kqRA", "language": "Hu-ZslM", "lastName": "0Fq9i9Gs", "privateCustomAttributes": {"pfv7l3ek": {}, "CcmzQWGF": {}, "nTT9IY9Q": {}}, "timeZone": "27ipgxbM", "zipCode": "NduYQuJf"}' \
     > test.out 2>&1
 eval_tap $? 50 'UpdateMyProfile' test.out
 
 #- 51 CreateMyProfile
 samples/cli/sample-apps Basic createMyProfile \
     --namespace $AB_NAMESPACE \
-    --body '{"avatarLargeUrl": "XfRF5iMP", "avatarSmallUrl": "49jXTTjR", "avatarUrl": "IvCHUQIN", "customAttributes": {"4dYXposN": {}, "fNYHlgpG": {}, "jtRb8Ftj": {}}, "dateOfBirth": "1989-11-08", "firstName": "sGh6HZra", "language": "Yw-vHsQ", "lastName": "tMd7e1KG", "privateCustomAttributes": {"csXHiLhh": {}, "81R8Hghd": {}, "urwPqFe1": {}}, "timeZone": "5GJwYahd"}' \
+    --body '{"avatarLargeUrl": "K1ZfbPXe", "avatarSmallUrl": "7g3RnKq0", "avatarUrl": "EcU6zvME", "customAttributes": {"Z5fx3QDE": {}, "2S0hc0hl": {}, "w7KmnO8x": {}}, "dateOfBirth": "1999-07-12", "firstName": "e7prYJpV", "language": "AxN_eB", "lastName": "nyRWQL76", "privateCustomAttributes": {"XOo4OZFG": {}, "MEil9sdc": {}, "iCNHwpQ1": {}}, "timeZone": "7AFkTikz"}' \
     > test.out 2>&1
 eval_tap $? 51 'CreateMyProfile' test.out
 
@@ -396,7 +396,7 @@ eval_tap $? 52 'GetMyPrivateCustomAttributesInfo' test.out
 #- 53 UpdateMyPrivateCustomAttributesPartially
 samples/cli/sample-apps Basic updateMyPrivateCustomAttributesPartially \
     --namespace $AB_NAMESPACE \
-    --body '{"WhtcAYTa": {}, "SYUD8eox": {}, "6UACT35u": {}}' \
+    --body '{"tFKX9sP2": {}, "XJOJEzNp": {}, "WLfXP21V": {}}' \
     > test.out 2>&1
 eval_tap $? 53 'UpdateMyPrivateCustomAttributesPartially' test.out
 
@@ -409,69 +409,69 @@ eval_tap $? 54 'GetMyZipCode' test.out
 #- 55 UpdateMyZipCode
 samples/cli/sample-apps Basic updateMyZipCode \
     --namespace $AB_NAMESPACE \
-    --userZipCodeUpdate '{"zipCode": "TF4wNgbp"}' \
+    --userZipCodeUpdate '{"zipCode": "4YiJYtq1"}' \
     > test.out 2>&1
 eval_tap $? 55 'UpdateMyZipCode' test.out
 
 #- 56 PublicGeneratedUserUploadContentUrl
 samples/cli/sample-apps Basic publicGeneratedUserUploadContentUrl \
     --namespace $AB_NAMESPACE \
-    --userId 'IcSzemt7' \
-    --category 'XvjsfoOt' \
-    --fileType '3RGUbIvn' \
+    --userId 'KxPH3ZGQ' \
+    --category 'cXW8oq3W' \
+    --fileType 'bCgCKuPC' \
     > test.out 2>&1
 eval_tap $? 56 'PublicGeneratedUserUploadContentUrl' test.out
 
 #- 57 PublicGetUserProfileInfo
 samples/cli/sample-apps Basic publicGetUserProfileInfo \
     --namespace $AB_NAMESPACE \
-    --userId '0OUFLGRF' \
+    --userId 'at7ggJg1' \
     > test.out 2>&1
 eval_tap $? 57 'PublicGetUserProfileInfo' test.out
 
 #- 58 PublicUpdateUserProfile
 samples/cli/sample-apps Basic publicUpdateUserProfile \
     --namespace $AB_NAMESPACE \
-    --userId 'Vuvxu6gG' \
-    --body '{"avatarLargeUrl": "bXSN7480", "avatarSmallUrl": "AJyCUBlB", "avatarUrl": "PIOCUpCW", "customAttributes": {"aaWVarpj": {}, "FG6EHiNm": {}, "luQTTUeI": {}}, "dateOfBirth": "1985-05-28", "firstName": "AIL2ZuTW", "language": "dOBz", "lastName": "blanKzmP", "privateCustomAttributes": {"rRUDfURn": {}, "uu4YGbIR": {}, "11aurmCL": {}}, "timeZone": "shjnJK3V", "zipCode": "G0LPtHVq"}' \
+    --userId 'butKDq4T' \
+    --body '{"avatarLargeUrl": "HwLGr8k8", "avatarSmallUrl": "uLt7eh72", "avatarUrl": "EEH5bA9G", "customAttributes": {"duLPtQ2q": {}, "URUKQQjN": {}, "7PPVVoEI": {}}, "dateOfBirth": "1979-02-01", "firstName": "PVKSplLM", "language": "PeS_912", "lastName": "ZM2BUqbB", "privateCustomAttributes": {"hppX6nK9": {}, "bAWkruFJ": {}, "HnSXkNh0": {}}, "timeZone": "zaApRcIs", "zipCode": "SMwBoJLu"}' \
     > test.out 2>&1
 eval_tap $? 58 'PublicUpdateUserProfile' test.out
 
 #- 59 PublicCreateUserProfile
 samples/cli/sample-apps Basic publicCreateUserProfile \
     --namespace $AB_NAMESPACE \
-    --userId '1uQXYzgg' \
-    --body '{"avatarLargeUrl": "QRp1EwMI", "avatarSmallUrl": "aihp8AbY", "avatarUrl": "yvQQAuBa", "customAttributes": {"8tGKk2aD": {}, "TLBVCfPJ": {}, "922TKi9i": {}}, "dateOfBirth": "1992-04-25", "firstName": "a4Y3xHms", "language": "XnZR-174", "lastName": "iFCjTniG", "timeZone": "gxMFXz3m"}' \
+    --userId 'zCYWKS3O' \
+    --body '{"avatarLargeUrl": "ykvl1gTN", "avatarSmallUrl": "l4UnXVZB", "avatarUrl": "NG0nwmKK", "customAttributes": {"J5779hLJ": {}, "8ZOgjRRr": {}, "xo98majU": {}}, "dateOfBirth": "1973-04-06", "firstName": "0IaiyGrl", "language": "Zh-aWvr", "lastName": "jQrlH6p6", "timeZone": "SBw1S789"}' \
     > test.out 2>&1
 eval_tap $? 59 'PublicCreateUserProfile' test.out
 
 #- 60 PublicGetCustomAttributesInfo
 samples/cli/sample-apps Basic publicGetCustomAttributesInfo \
     --namespace $AB_NAMESPACE \
-    --userId 'vcnY1KJh' \
+    --userId 'VoMAyelM' \
     > test.out 2>&1
 eval_tap $? 60 'PublicGetCustomAttributesInfo' test.out
 
 #- 61 PublicUpdateCustomAttributesPartially
 samples/cli/sample-apps Basic publicUpdateCustomAttributesPartially \
     --namespace $AB_NAMESPACE \
-    --userId 'gaNtM0bn' \
-    --body '{"ZXWOFYhQ": {}, "uRAmFdsq": {}, "jAdFqBj1": {}}' \
+    --userId 'HrcvY4j2' \
+    --body '{"ieYiGWoQ": {}, "78buEwu8": {}, "B2cIJ0ee": {}}' \
     > test.out 2>&1
 eval_tap $? 61 'PublicUpdateCustomAttributesPartially' test.out
 
 #- 62 PublicGetUserProfilePublicInfo
 samples/cli/sample-apps Basic publicGetUserProfilePublicInfo \
     --namespace $AB_NAMESPACE \
-    --userId 'GRGNa0FE' \
+    --userId '75ITXrP3' \
     > test.out 2>&1
 eval_tap $? 62 'PublicGetUserProfilePublicInfo' test.out
 
 #- 63 PublicUpdateUserProfileStatus
 samples/cli/sample-apps Basic publicUpdateUserProfileStatus \
     --namespace $AB_NAMESPACE \
-    --userId '5yEFMKN4' \
-    --body '{"status": "INACTIVE"}' \
+    --userId 'HwV97sIm' \
+    --body '{"status": "ACTIVE"}' \
     > test.out 2>&1
 eval_tap $? 63 'PublicUpdateUserProfileStatus' test.out
 
