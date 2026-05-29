@@ -1,5 +1,5 @@
-github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0 h1:oUlgPe9CC2vszgC77OetBAWeCa8gqDwB8EOByjx5dK8=
-github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0/go.mod h1:qcF4rvhCdNTjRmAkq9DBeY4gOfCFdMQO+P46O9lcRiY=
+github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.3.0 h1:Q1emSviiEf4fXMn8W8xYLtjDA0IBXY31iBCdPyBqQYE=
+github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.3.0/go.mod h1:Yqu5MJbaNkrr/qPp7fagJQw/hD7+UtlgawKxib1xb5w=
 github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0 h1:Nk2jYoAxVMFpNbgh1/CaeUCzpjLO3XNyqzuyeFEEzG0=
 github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0/go.mod h1:/eLGacVUuC63ecIx2mnCqRonZbiP/PYzzkUERCYBdUo=
 github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922 h1:3v15CkYPdxShj9tisD+pU4YihvQCPUISwFrandjwq5A=

@@ -15,7 +15,7 @@ require (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.3.0 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 )

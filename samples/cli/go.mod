@@ -34,7 +34,7 @@ replace (
 require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.1.0-alpha.1
-	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.2.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.3.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.1.0-alpha.1
