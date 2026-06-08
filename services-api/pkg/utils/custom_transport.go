@@ -25,7 +25,7 @@ func SetLogger(inner http.RoundTripper) http.RoundTripper {
 
 func (c *CustomTransport) RoundTrip(r *http.Request) (*http.Response, error) {
 	// enabling log
-	if os.Getenv("ENABLE_LOG") == "true" {
+	if os.Getenv("ENABLE_LOG") == envTrue {
 		// logger request
 		slog.Info("LogRequest", "request", LogRequest(r))
 

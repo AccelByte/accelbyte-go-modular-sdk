@@ -11,6 +11,8 @@ import (
 	"time"
 )
 
+const envTrue = "true"
+
 func GetEnv(key, fallback string) string {
 	if value, ok := os.LookupEnv(key); ok {
 		return value
@@ -51,4 +53,22 @@ func GetNamespaceContextExpirationTime() time.Duration {
 	}
 
 	return time.Hour
+}
+
+func GetAllowGlobalRoleFetch() bool {
+	v := os.Getenv("AB_ALLOW_GLOBAL_ROLE_FETCH")
+	if v == "" {
+		return true // default: enabled
+	}
+
+	return v == "1" || v == envTrue
+}
+
+func GetSuppressGetRoleError() bool {
+	v := os.Getenv("AB_SUPPRESS_GET_ROLE_ERROR")
+	if v == "" {
+		return true // default: enabled
+	}
+
+	return v == "1" || v == envTrue
 }

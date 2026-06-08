@@ -26,6 +26,7 @@ import (
 	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/override_role_config_v3"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 )
@@ -116,7 +117,15 @@ func (v *TokenValidator) Validate(token string, permission *Permission, namespac
 	publicKey := v.PublicKeys[kid]
 	v.RWMutex.RUnlock()
 	if publicKey == nil {
-		return errors.New("public key not found")
+		if err := v.fetchJWKSet(); err != nil {
+			return fmt.Errorf("failed to refresh jwks key. %w", err)
+		}
+		v.RWMutex.RLock()
+		publicKey = v.PublicKeys[kid]
+		v.RWMutex.RUnlock()
+		if publicKey == nil {
+			return errors.New("public key not found")
+		}
 	}
 
 	var jwtClaims JWTClaims
@@ -309,9 +318,15 @@ func (v *TokenValidator) fetchRevocationList() error {
 }
 
 func (v *TokenValidator) getRole(roleId, namespace string, forceFetch bool) (*iamclientmodels.ModelRolePermissionResponseV3, error) {
+	// Strip trailing hyphen from namespace
+	namespace = strings.TrimSuffix(namespace, "-")
+
+	// use combination roleId + namespace as cache key
+	cacheKey := roleId + ":" + namespace
+
 	if !forceFetch {
 		v.RWMutex.RLock()
-		if role, found := v.Roles[roleId]; found {
+		if role, found := v.Roles[cacheKey]; found {
 			v.RWMutex.RUnlock()
 
 			return role, nil
@@ -319,40 +334,73 @@ func (v *TokenValidator) getRole(roleId, namespace string, forceFetch bool) (*ia
 		v.RWMutex.RUnlock()
 	}
 
-	if namespace == "*" {
-		namespace = os.Getenv("AB_NAMESPACE")
-	}
-
-	// Strip trailing hyphen from namespace
-	namespace = strings.TrimSuffix(namespace, "-")
-
 	v.RWMutex.Lock()
 	defer v.RWMutex.Unlock()
 
 	// Double-check after acquiring write lock
 	if !forceFetch {
-		if role, found := v.Roles[roleId]; found {
+		if role, found := v.Roles[cacheKey]; found {
 			return role, nil
 		}
 	}
 
-	overrideRoleService := OverrideRoleConfigv3Service{
-		Client:           v.AuthService.Client,
-		ConfigRepository: v.AuthService.ConfigRepository,
-		TokenRepository:  v.AuthService.TokenRepository,
-	}
-	role, err := overrideRoleService.AdminGetRoleNamespacePermissionV3Short(&override_role_config_v3.AdminGetRoleNamespacePermissionV3Params{
-		RoleID:    roleId,
-		Namespace: namespace,
-		Context:   v.Ctx,
-	})
-	if err != nil {
-		return nil, err
+	var role *iamclientmodels.ModelRolePermissionResponseV3
+	var fetchErr error
+	if namespace == "*" && utils.GetAllowGlobalRoleFetch() {
+		// Wildcard namespace is not valid for namespace override endpoint; fetch global role permissions instead
+		rolesService := RolesService{
+			Client:           v.AuthService.Client,
+			ConfigRepository: v.AuthService.ConfigRepository,
+			TokenRepository:  v.AuthService.TokenRepository,
+		}
+		globalRole, err := rolesService.AdminGetRoleV3Short(&roles.AdminGetRoleV3Params{
+			RoleID:  roleId,
+			Context: v.Ctx,
+		})
+		if err != nil {
+			fetchErr = err
+		} else {
+			permissions := make([]*iamclientmodels.AccountcommonPermission, len(globalRole.Data.Permissions))
+			for i, p := range globalRole.Data.Permissions {
+				permissions[i] = &iamclientmodels.AccountcommonPermission{
+					Action:   p.Action,
+					Resource: p.Resource,
+				}
+			}
+			role = &iamclientmodels.ModelRolePermissionResponseV3{Permissions: permissions}
+		}
+	} else {
+		overrideRoleService := OverrideRoleConfigv3Service{
+			Client:           v.AuthService.Client,
+			ConfigRepository: v.AuthService.ConfigRepository,
+			TokenRepository:  v.AuthService.TokenRepository,
+		}
+		resp, err := overrideRoleService.AdminGetRoleNamespacePermissionV3Short(&override_role_config_v3.AdminGetRoleNamespacePermissionV3Params{
+			RoleID:    roleId,
+			Namespace: namespace,
+			Context:   v.Ctx,
+		})
+		if err != nil {
+			fetchErr = err
+		} else {
+			role = resp.Data
+		}
 	}
 
-	v.Roles[roleId] = role.Data
+	if fetchErr != nil {
+		if utils.GetSuppressGetRoleError() {
+			emptyRole := &iamclientmodels.ModelRolePermissionResponseV3{}
+			v.Roles[cacheKey] = emptyRole
 
-	return role.Data, nil
+			return emptyRole, nil
+		}
+
+		return nil, fetchErr
+	}
+
+	v.Roles[cacheKey] = role
+
+	return role, nil
 }
 
 func (v *TokenValidator) getRolePermissions(roleId, namespace string, forceFetch bool) ([]Permission, error) {
@@ -535,6 +583,49 @@ func (v *TokenValidator) fetchNamespaceContextFromCache(keyNamespace string) err
 
 	err := v.fetchNamespaceContext(keyNamespace)
 	if err != nil {
+		// Failed to fetch context for claims.Namespace (likely a parent namespace
+		// the app doesn't have permission to query). Fall back to fetching the
+		// app's own game namespace and derive the hierarchy from it.
+		appNamespace := os.Getenv("AB_NAMESPACE")
+		if appNamespace == "" || appNamespace == keyNamespace {
+			return err
+		}
+
+		if fallbackErr := v.fetchNamespaceContext(appNamespace); fallbackErr != nil {
+			return err
+		}
+
+		if appContext, found := v.namespaceContextsCache.Get(appNamespace); found {
+			gameCtx := appContext.(*NamespaceContext)
+			expiration := utils.GetNamespaceContextExpirationTime()
+
+			if gameCtx.StudioNamespace != "" {
+				v.namespaceContextsCache.Set(gameCtx.StudioNamespace, &NamespaceContext{
+					Namespace:          gameCtx.StudioNamespace,
+					Type:               TypeStudio,
+					PublisherNamespace: gameCtx.PublisherNamespace,
+					StudioNamespace:    "",
+				}, expiration)
+			}
+
+			if gameCtx.PublisherNamespace != "" {
+				v.namespaceContextsCache.Set(gameCtx.PublisherNamespace, &NamespaceContext{
+					Namespace:          gameCtx.PublisherNamespace,
+					Type:               TypePublisher,
+					PublisherNamespace: "",
+					StudioNamespace:    "",
+				}, expiration)
+			}
+
+			if nsContext, found := v.namespaceContextsCache.Get(keyNamespace); found {
+				v.RWMutex.Lock()
+				defer v.RWMutex.Unlock()
+				v.NamespaceContexts = map[string]*NamespaceContext{keyNamespace: nsContext.(*NamespaceContext)}
+
+				return nil
+			}
+		}
+
 		return err
 	}
 
