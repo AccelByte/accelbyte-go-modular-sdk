@@ -9,7 +9,7 @@ import (
 	"encoding/base64"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/bloom"
 
 	"time"
