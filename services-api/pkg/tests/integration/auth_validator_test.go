@@ -18,7 +18,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/override_role_config_v3"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator"
 	"github.com/AccelByte/go-jose"

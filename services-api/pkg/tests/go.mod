@@ -50,7 +50,6 @@ require (
 	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.1.0-alpha.1
 	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.1.0-alpha.1
@@ -66,11 +65,6 @@ require (
 
 // for development only (not propagated)
 replace (
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/factory => ../../../services-api/pkg/factory
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/ams => ../../../services-api/pkg/service/ams
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/iam => ../../../services-api/pkg/service/iam
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/platform => ../../../services-api/pkg/service/platform
-	github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/service/seasonpass => ../../../services-api/pkg/service/seasonpass
 )
 
 require (

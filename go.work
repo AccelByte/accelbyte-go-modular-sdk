@@ -36,7 +36,6 @@ use (
 	// common module
 	services-api
 	services-api/pkg/service
-	services-api/pkg/service/iam
 
 	// tests
 	services-api/pkg/tests
