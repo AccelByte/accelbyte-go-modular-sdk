@@ -66,6 +66,17 @@ func (b *constantBackoff) Get(attempt uint) time.Duration {
 	return b.Duration
 }
 
+// NewDefaultRetry returns a Retry configured with the SDK defaults.
+// Use this when no custom RetryPolicy has been provided.
+func NewDefaultRetry(transport http.RoundTripper) *Retry {
+	return &Retry{
+		MaxTries:   MaxTries,
+		Backoff:    NewConstantBackoff(0),
+		Transport:  transport,
+		RetryCodes: RetryCodes,
+	}
+}
+
 // Retry struct with http.RoundTripper.
 type Retry struct {
 	RetryCodes map[int]bool
