@@ -262,8 +262,8 @@ func (v *TokenValidator) fetchAll() error {
 }
 
 func (v *TokenValidator) fetchClientToken() error {
-	clientId := v.AuthService.ConfigRepository.GetClientId()
-	clientSecret := v.AuthService.ConfigRepository.GetClientSecret()
+	clientId := v.AuthService.Session.ConfigRepository.GetClientId()
+	clientSecret := v.AuthService.Session.ConfigRepository.GetClientSecret()
 
 	return v.AuthService.LoginClient(&clientId, &clientSecret) // TODO Use LoginClientWithContext when available
 }
@@ -337,9 +337,8 @@ func (v *TokenValidator) getRole(roleId, namespace string, forceFetch bool) (*ia
 	}
 
 	overrideRoleService := OverrideRoleConfigv3Service{
-		Client:           v.AuthService.Client,
-		ConfigRepository: v.AuthService.ConfigRepository,
-		TokenRepository:  v.AuthService.TokenRepository,
+		Client:  v.AuthService.Client,
+		Session: v.AuthService.Session,
 	}
 	role, err := overrideRoleService.AdminGetRoleNamespacePermissionV3Short(&override_role_config_v3.AdminGetRoleNamespacePermissionV3Params{
 		RoleID:    roleId,
@@ -538,11 +537,10 @@ func (v *TokenValidator) fetchNamespaceContextFromCache(keyNamespace string) err
 }
 
 func (v *TokenValidator) fetchNamespaceContext(keyNamespace string) error {
-	if v.AuthService.ConfigRepository != nil {
+	if v.AuthService.Session.ConfigRepository != nil {
 		namespaceService := &basic.NamespaceService{
-			Client:           basic.NewBasicClient(v.AuthService.ConfigRepository),
-			ConfigRepository: v.AuthService.ConfigRepository,
-			TokenRepository:  v.AuthService.TokenRepository,
+			Client:  basic.NewBasicHttpClient(v.AuthService.Session.ConfigRepository),
+			Session: v.AuthService.Session,
 		}
 		resp, err := namespaceService.GetNamespaceContextShort(&namespace_.GetNamespaceContextParams{
 			Namespace: keyNamespace,

@@ -37,7 +37,7 @@ var (
 )
 
 func (o *OAuth20Service) GetToken() (string, error) {
-	token, err := o.TokenRepository.GetToken()
+	token, err := o.Session.TokenRepository.GetToken()
 	if err != nil {
 		return "", err
 	}
@@ -46,8 +46,8 @@ func (o *OAuth20Service) GetToken() (string, error) {
 }
 
 func (o *OAuth20Service) GrantTokenCredentials(code, codeVerifier string) error {
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	if len(clientID) == 0 {
 		return errors.New("client not registered")
 	}
@@ -64,7 +64,7 @@ func (o *OAuth20Service) GrantTokenCredentials(code, codeVerifier string) error 
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.Data)
+	err = o.Session.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
@@ -73,8 +73,8 @@ func (o *OAuth20Service) GrantTokenCredentials(code, codeVerifier string) error 
 }
 
 func (o *OAuth20Service) GrantTokenRefreshToken(code, codeVerifier, refreshToken string) error {
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	if len(clientID) == 0 {
 		return errors.New("client not registered")
 	}
@@ -91,7 +91,7 @@ func (o *OAuth20Service) GrantTokenRefreshToken(code, codeVerifier, refreshToken
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.Data)
+	err = o.Session.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
@@ -100,8 +100,8 @@ func (o *OAuth20Service) GrantTokenRefreshToken(code, codeVerifier, refreshToken
 }
 
 func (o *OAuth20Service) GrantTokenAuthorizationCode(code, codeVerifier, redirectURI string) error {
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	if len(clientID) == 0 {
 		return errors.New("client not registered")
 	}
@@ -119,7 +119,7 @@ func (o *OAuth20Service) GrantTokenAuthorizationCode(code, codeVerifier, redirec
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.Data)
+	err = o.Session.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
@@ -128,8 +128,8 @@ func (o *OAuth20Service) GrantTokenAuthorizationCode(code, codeVerifier, redirec
 }
 
 func (o *OAuth20Service) GrantTokenAuthorizationCodeWithContext(ctx context.Context, code, codeVerifier, redirectURI string) error {
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	if len(clientID) == 0 {
 		return errors.New("client not registered")
 	}
@@ -148,7 +148,7 @@ func (o *OAuth20Service) GrantTokenAuthorizationCodeWithContext(ctx context.Cont
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.Data)
+	err = o.Session.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
@@ -157,8 +157,8 @@ func (o *OAuth20Service) GrantTokenAuthorizationCodeWithContext(ctx context.Cont
 }
 
 func (o *OAuth20Service) Authenticate(requestID, username, password string) (string, error) {
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	if len(clientID) == 0 {
 		return "", errors.New("client not registered")
 	}
@@ -197,8 +197,8 @@ func (o *OAuth20Service) Authenticate(requestID, username, password string) (str
 }
 
 func (o *OAuth20Service) AuthenticateWithContext(ctx context.Context, requestID, username, password string) (string, error) {
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	if len(clientID) == 0 {
 		return "", errors.New("client not registered")
 	}
@@ -238,8 +238,8 @@ func (o *OAuth20Service) AuthenticateWithContext(ctx context.Context, requestID,
 }
 
 func (o *OAuth20Service) Authorize(scope, challenge, challengeMethod string) (string, error) {
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	if len(clientID) == 0 {
 		return "", errors.New("client not registered")
 	}
@@ -276,8 +276,8 @@ func (o *OAuth20Service) Authorize(scope, challenge, challengeMethod string) (st
 }
 
 func (o *OAuth20Service) AuthorizeWithContext(ctx context.Context, scope, challenge, challengeMethod string) (string, error) {
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	if len(clientID) == 0 {
 		return "", errors.New("client not registered")
 	}
@@ -367,22 +367,22 @@ func (o *OAuth20Service) LoginWithScope(username, password, scope string) error 
 		return err
 	}
 
-	if o.RefreshTokenRepository == nil {
+	if o.Session.RefreshTokenRepository == nil {
 		o = &OAuth20Service{
-			Client:                 o.Client,
-			ConfigRepository:       o.ConfigRepository,
-			TokenRepository:        o.TokenRepository,
-			RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			Client: o.Client,
+			Session: repository.Session{
+				ConfigRepository:       o.Session.ConfigRepository,
+				TokenRepository:        o.Session.TokenRepository,
+				RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			},
 		}
 	}
 	o = &OAuth20Service{
-		Client:                 o.Client,
-		ConfigRepository:       o.ConfigRepository,
-		TokenRepository:        o.TokenRepository,
-		RefreshTokenRepository: o.RefreshTokenRepository,
+		Client:  o.Client,
+		Session: o.Session,
 	}
 
-	if !o.RefreshTokenRepository.DisableAutoRefresh() {
+	if !o.Session.RefreshTokenRepository.DisableAutoRefresh() {
 		NewRefreshTokenSchedulerImpl().Start(o.GetAuthSession(), "user")
 	}
 
@@ -410,22 +410,22 @@ func (o *OAuth20Service) LoginWithContextAndScope(ctx context.Context, username,
 		return err
 	}
 
-	if o.RefreshTokenRepository == nil {
+	if o.Session.RefreshTokenRepository == nil {
 		o = &OAuth20Service{
-			Client:                 o.Client,
-			ConfigRepository:       o.ConfigRepository,
-			TokenRepository:        o.TokenRepository,
-			RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			Client: o.Client,
+			Session: repository.Session{
+				ConfigRepository:       o.Session.ConfigRepository,
+				TokenRepository:        o.Session.TokenRepository,
+				RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			},
 		}
 	}
 	o = &OAuth20Service{
-		Client:                 o.Client,
-		ConfigRepository:       o.ConfigRepository,
-		TokenRepository:        o.TokenRepository,
-		RefreshTokenRepository: o.RefreshTokenRepository,
+		Client:  o.Client,
+		Session: o.Session,
 	}
 
-	if !o.RefreshTokenRepository.DisableAutoRefresh() {
+	if !o.Session.RefreshTokenRepository.DisableAutoRefresh() {
 		NewRefreshTokenSchedulerImpl().Start(o.GetAuthSession(), "user")
 	}
 
@@ -444,9 +444,9 @@ func (o *OAuth20Service) LoginWithContextAndScope(ctx context.Context, username,
 //
 // Note: Requires AutoRefresh to be set to false in RefreshTokenRepository for proper on-demand token management.
 func (o *OAuth20Service) LoginOrRefreshWithScope(username, password, scope string) error {
-	session := o.GetAuthSession()
-	getToken, err := session.Token.GetToken()
-	refreshRate := session.Refresh.GetRefreshRate()
+	authSession := o.GetAuthSession()
+	getToken, err := authSession.Token.GetToken()
+	refreshRate := authSession.Refresh.GetRefreshRate()
 	if err != nil {
 		return err
 	}
@@ -454,11 +454,11 @@ func (o *OAuth20Service) LoginOrRefreshWithScope(username, password, scope strin
 	if getToken.AccessToken == nil {
 		return o.LoginWithScope(username, password, scope)
 	} else {
-		if repository.HasTokenExpired(session.Token, refreshRate) {
+		if repository.HasTokenExpired(authSession.Token, refreshRate) {
 			if atomic.CompareAndSwapUint32(&locker, 0, 1) {
 				defer atomic.StoreUint32(&locker, 0)
-				if !repository.HasRefreshTokenExpired(session.Token, refreshRate) {
-					UserTokenRefresher(session)
+				if !repository.HasRefreshTokenExpired(authSession.Token, refreshRate) {
+					UserTokenRefresher(authSession)
 				} else {
 					return o.LoginWithScope(username, password, scope)
 				}
@@ -480,9 +480,9 @@ func (o *OAuth20Service) LoginOrRefreshWithScope(username, password, scope strin
 //
 // Note: Uses thread-safe atomic operations to prevent concurrent login attempts.
 func (o *OAuth20Service) LoginOrRefreshClient(clientId, clientSecret *string) error {
-	session := o.GetAuthSession()
-	getToken, err := session.Token.GetToken()
-	refreshRate := session.Refresh.GetRefreshRate()
+	authSession := o.GetAuthSession()
+	getToken, err := authSession.Token.GetToken()
+	refreshRate := authSession.Refresh.GetRefreshRate()
 	if err != nil {
 		return err
 	}
@@ -492,7 +492,7 @@ func (o *OAuth20Service) LoginOrRefreshClient(clientId, clientSecret *string) er
 	} else {
 		if atomic.CompareAndSwapUint32(&locker, 0, 1) {
 			defer atomic.StoreUint32(&locker, 0)
-			if repository.HasTokenExpired(session.Token, refreshRate) {
+			if repository.HasTokenExpired(authSession.Token, refreshRate) {
 				return o.LoginClient(clientId, clientSecret)
 			}
 		}
@@ -504,10 +504,10 @@ func (o *OAuth20Service) LoginOrRefreshClient(clientId, clientSecret *string) er
 // LoginClient is a custom wrapper used to log in with clientId and clientSecret
 func (o *OAuth20Service) LoginClient(clientId, clientSecret *string) error {
 	if clientId == nil {
-		id := o.ConfigRepository.GetClientId()
+		id := o.Session.ConfigRepository.GetClientId()
 		clientId = &id
 		if clientSecret == nil {
-			secret := o.ConfigRepository.GetClientSecret()
+			secret := o.Session.ConfigRepository.GetClientSecret()
 			clientSecret = &secret
 		}
 	} else {
@@ -532,27 +532,27 @@ func (o *OAuth20Service) LoginClient(clientId, clientSecret *string) error {
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.Data)
+	err = o.Session.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
 
-	if o.RefreshTokenRepository == nil {
+	if o.Session.RefreshTokenRepository == nil {
 		o = &OAuth20Service{
-			Client:                 o.Client,
-			ConfigRepository:       o.ConfigRepository,
-			TokenRepository:        o.TokenRepository,
-			RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			Client: o.Client,
+			Session: repository.Session{
+				ConfigRepository:       o.Session.ConfigRepository,
+				TokenRepository:        o.Session.TokenRepository,
+				RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			},
 		}
 	}
 	o = &OAuth20Service{
-		Client:                 o.Client,
-		ConfigRepository:       o.ConfigRepository,
-		TokenRepository:        o.TokenRepository,
-		RefreshTokenRepository: o.RefreshTokenRepository,
+		Client:  o.Client,
+		Session: o.Session,
 	}
 
-	if !o.RefreshTokenRepository.DisableAutoRefresh() {
+	if !o.Session.RefreshTokenRepository.DisableAutoRefresh() {
 		NewRefreshTokenSchedulerImpl().Start(o.GetAuthSession(), "client")
 	}
 
@@ -563,10 +563,10 @@ func (o *OAuth20Service) LoginClient(clientId, clientSecret *string) error {
 // Context in this method can be used for tracing capability.
 func (o *OAuth20Service) LoginClientWithContext(ctx context.Context, clientId, clientSecret *string) error {
 	if clientId == nil {
-		id := o.ConfigRepository.GetClientId()
+		id := o.Session.ConfigRepository.GetClientId()
 		clientId = &id
 		if clientSecret == nil {
-			secret := o.ConfigRepository.GetClientSecret()
+			secret := o.Session.ConfigRepository.GetClientSecret()
 			clientSecret = &secret
 		}
 	} else {
@@ -592,27 +592,27 @@ func (o *OAuth20Service) LoginClientWithContext(ctx context.Context, clientId, c
 	if accessToken == nil {
 		return errors.New("empty access token")
 	}
-	err = o.TokenRepository.Store(*accessToken.Data)
+	err = o.Session.TokenRepository.Store(*accessToken.Data)
 	if err != nil {
 		return err
 	}
 
-	if o.RefreshTokenRepository == nil {
+	if o.Session.RefreshTokenRepository == nil {
 		o = &OAuth20Service{
-			Client:                 o.Client,
-			ConfigRepository:       o.ConfigRepository,
-			TokenRepository:        o.TokenRepository,
-			RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			Client: o.Client,
+			Session: repository.Session{
+				ConfigRepository:       o.Session.ConfigRepository,
+				TokenRepository:        o.Session.TokenRepository,
+				RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			},
 		}
 	}
 	o = &OAuth20Service{
-		Client:                 o.Client,
-		ConfigRepository:       o.ConfigRepository,
-		TokenRepository:        o.TokenRepository,
-		RefreshTokenRepository: o.RefreshTokenRepository,
+		Client:  o.Client,
+		Session: o.Session,
 	}
 
-	if !o.RefreshTokenRepository.DisableAutoRefresh() {
+	if !o.Session.RefreshTokenRepository.DisableAutoRefresh() {
 		NewRefreshTokenSchedulerImpl().Start(o.GetAuthSession(), "client")
 	}
 
@@ -654,27 +654,27 @@ func (o *OAuth20Service) LoginPlatform(input *o_auth2_0.PlatformTokenGrantV3Para
 		return err
 	}
 
-	err = o.TokenRepository.Store(accessTokenV3)
+	err = o.Session.TokenRepository.Store(accessTokenV3)
 	if err != nil {
 		return err
 	}
 
-	if o.RefreshTokenRepository == nil {
+	if o.Session.RefreshTokenRepository == nil {
 		o = &OAuth20Service{
-			Client:                 o.Client,
-			ConfigRepository:       o.ConfigRepository,
-			TokenRepository:        o.TokenRepository,
-			RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			Client: o.Client,
+			Session: repository.Session{
+				ConfigRepository:       o.Session.ConfigRepository,
+				TokenRepository:        o.Session.TokenRepository,
+				RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			},
 		}
 	}
 	o = &OAuth20Service{
-		Client:                 o.Client,
-		ConfigRepository:       o.ConfigRepository,
-		TokenRepository:        o.TokenRepository,
-		RefreshTokenRepository: o.RefreshTokenRepository,
+		Client:  o.Client,
+		Session: o.Session,
 	}
 
-	if !o.RefreshTokenRepository.DisableAutoRefresh() {
+	if !o.Session.RefreshTokenRepository.DisableAutoRefresh() {
 		NewRefreshTokenSchedulerImpl().Start(o.GetAuthSession(), "user")
 	}
 
@@ -721,27 +721,27 @@ func (o *OAuth20Service) LoginPlatformWithContext(ctx context.Context, input *o_
 		return err
 	}
 
-	err = o.TokenRepository.Store(accessTokenV3)
+	err = o.Session.TokenRepository.Store(accessTokenV3)
 	if err != nil {
 		return err
 	}
 
-	if o.RefreshTokenRepository == nil {
+	if o.Session.RefreshTokenRepository == nil {
 		o = &OAuth20Service{
-			Client:                 o.Client,
-			ConfigRepository:       o.ConfigRepository,
-			TokenRepository:        o.TokenRepository,
-			RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			Client: o.Client,
+			Session: repository.Session{
+				ConfigRepository:       o.Session.ConfigRepository,
+				TokenRepository:        o.Session.TokenRepository,
+				RefreshTokenRepository: auth.DefaultRefreshTokenImpl(),
+			},
 		}
 	}
 	o = &OAuth20Service{
-		Client:                 o.Client,
-		ConfigRepository:       o.ConfigRepository,
-		TokenRepository:        o.TokenRepository,
-		RefreshTokenRepository: o.RefreshTokenRepository,
+		Client:  o.Client,
+		Session: o.Session,
 	}
 
-	if !o.RefreshTokenRepository.DisableAutoRefresh() {
+	if !o.Session.RefreshTokenRepository.DisableAutoRefresh() {
 		NewRefreshTokenSchedulerImpl().Start(o.GetAuthSession(), "user")
 	}
 
@@ -761,15 +761,15 @@ func (o *OAuth20Service) LoginUserWithContext(ctx context.Context, username, pas
 
 // Logout is a custom wrapper used to logout with client service oauth2 revoke
 func (o *OAuth20Service) Logout() error {
-	accessToken, err := o.TokenRepository.GetToken()
+	accessToken, err := o.Session.TokenRepository.GetToken()
 	if err != nil {
 		return err
 	}
 	param := &o_auth2_0.TokenRevocationV3Params{
 		Token: *accessToken.AccessToken,
 	}
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	_, err = o.Client.OAuth20.TokenRevocationV3Short(param, client.BasicAuth(clientID, clientSecret))
 	if err != nil {
 		slog.Error("token revocation failed", "error", err)
@@ -777,7 +777,7 @@ func (o *OAuth20Service) Logout() error {
 		return err
 	}
 
-	err = o.TokenRepository.RemoveToken()
+	err = o.Session.TokenRepository.RemoveToken()
 	if err != nil {
 		slog.Error("failed to remove token", "error", err)
 
@@ -790,7 +790,7 @@ func (o *OAuth20Service) Logout() error {
 // LogoutWithContext is a custom wrapper used to logout with client service oauth2 revoke
 // Context in this method can be used for tracing capability.
 func (o *OAuth20Service) LogoutWithContext(ctx context.Context) error {
-	accessToken, err := o.TokenRepository.GetToken()
+	accessToken, err := o.Session.TokenRepository.GetToken()
 	if err != nil {
 		return err
 	}
@@ -798,8 +798,8 @@ func (o *OAuth20Service) LogoutWithContext(ctx context.Context) error {
 		Token:   *accessToken.AccessToken,
 		Context: ctx,
 	}
-	clientID := o.ConfigRepository.GetClientId()
-	clientSecret := o.ConfigRepository.GetClientSecret()
+	clientID := o.Session.ConfigRepository.GetClientId()
+	clientSecret := o.Session.ConfigRepository.GetClientSecret()
 	_, err = o.Client.OAuth20.TokenRevocationV3Short(param, client.BasicAuth(clientID, clientSecret))
 	if err != nil {
 		slog.Error("token revocation failed", "error", err)
@@ -807,7 +807,7 @@ func (o *OAuth20Service) LogoutWithContext(ctx context.Context) error {
 		return err
 	}
 
-	err = o.TokenRepository.RemoveToken()
+	err = o.Session.TokenRepository.RemoveToken()
 	if err != nil {
 		slog.Error("failed to remove token", "error", err)
 
