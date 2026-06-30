@@ -83,7 +83,7 @@ func UserTokenRefresher(s auth.Session) {
 		RefreshToken: &token.RefreshToken,
 	}
 	service := OAuth20RefreshService{
-		Client:           NewIamClient(s.Config),
+		Client:           NewIamHttpClient(s.Config),
 		ConfigRepository: s.Config,
 		Token:            s.Token,
 	}
@@ -102,7 +102,7 @@ func ClientTokenRefresher(s auth.Session) {
 		GrantType: o_auth2_0.TokenGrantV3GrantTypeClientCredentialsConstant,
 	}
 	service := OAuth20RefreshService{
-		Client:           NewIamClient(s.Config),
+		Client:           NewIamHttpClient(s.Config),
 		ConfigRepository: s.Config,
 		Token:            s.Token,
 	}

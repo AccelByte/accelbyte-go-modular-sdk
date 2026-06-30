@@ -8,6 +8,7 @@ import (
 	"log/slog"
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	sdkrepo "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -19,9 +20,11 @@ var logoutCmd = &cobra.Command{
 	Long:  `Logout the user`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := iam.OAuth20Service{
-			Client:           iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			ConfigRepository: &repository.ConfigRepositoryImpl{},
-			TokenRepository:  &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepo.Session{
+				ConfigRepository: &repository.ConfigRepositoryImpl{},
+				TokenRepository:  &repository.TokenRepositoryImpl{},
+			},
 		}
 		err := oAuth20Service.Logout()
 		if err != nil {
