@@ -21,6 +21,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/notification"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclientmodels"
 
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/aws/aws-lambda-go/events"
 
@@ -50,9 +51,11 @@ var (
 	configImpl     = *auth.DefaultConfigRepositoryImpl()
 	tokenImpl      = *auth.DefaultTokenRepositoryImpl()
 	oauth20Service = &iam.OAuth20Service{
-		Client:           iam.NewIamClient(&configImpl),
-		ConfigRepository: &configImpl,
-		TokenRepository:  &tokenImpl,
+		Client: iam.NewIamHttpClient(&configImpl),
+		Session: repository.Session{
+			ConfigRepository: &configImpl,
+			TokenRepository:  &tokenImpl,
+		},
 	}
 	gameNotificationService = &lobby.NotificationService{
 		Client:          lobby.NewLobbyClient(&configImpl),

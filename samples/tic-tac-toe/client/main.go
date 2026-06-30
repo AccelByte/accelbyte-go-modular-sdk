@@ -19,6 +19,7 @@ import (
 	"client/pkg/models"
 	"client/pkg/utils"
 
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 
@@ -53,10 +54,12 @@ var (
 	getStatEndpoint              = ticTacToeServiceHostEndpoint + "/stat"
 	configImpl                   = *auth.DefaultConfigRepositoryImpl()
 	tokenImpl                    = *auth.DefaultTokenRepositoryImpl()
-	oauthService                 = iam.OAuth20Service{
-		Client:           iam.NewIamClient(&configImpl),
-		ConfigRepository: &configImpl,
-		TokenRepository:  &tokenImpl,
+	oauthService = iam.OAuth20Service{
+		Client: iam.NewIamHttpClient(&configImpl),
+		Session: repository.Session{
+			ConfigRepository: &configImpl,
+			TokenRepository:  &tokenImpl,
+		},
 	}
 	connMgr *wsm.DefaultConnectionManagerImpl
 )
@@ -193,7 +196,7 @@ Commands:
 }
 
 func userInfo() {
-	token, err := oauthService.TokenRepository.GetToken()
+	token, err := tokenImpl.GetToken()
 	if err != nil {
 		slog.Info("You are not log in")
 
@@ -233,8 +236,8 @@ func login() {
 	slog.Info("Enter websocket mode")
 	connMgr = &wsm.DefaultConnectionManagerImpl{}
 	connection, err := wsm.NewWSConnection(
-		oauthService.ConfigRepository,
-		oauthService.TokenRepository,
+		&configImpl,
+		&tokenImpl,
 		wsm.WithMessageHandler(websocketMessageHandler))
 	if err != nil {
 		panic(err)
@@ -257,7 +260,7 @@ func logout() {
 }
 
 func createMatchmaking() error {
-	token, err := oauthService.TokenRepository.GetToken()
+	token, err := tokenImpl.GetToken()
 	if err != nil {
 		return err
 	}
@@ -271,7 +274,7 @@ func createMatchmaking() error {
 }
 
 func makeMove(request models.MoveRequest) (*models.MoveResponse, error) {
-	token, err := oauthService.TokenRepository.GetToken()
+	token, err := tokenImpl.GetToken()
 	if err != nil {
 		return nil, err
 	}
@@ -307,7 +310,7 @@ func makeMove(request models.MoveRequest) (*models.MoveResponse, error) {
 }
 
 func getStat() (*models.MatchTable, error) {
-	token, err := oauthService.TokenRepository.GetToken()
+	token, err := tokenImpl.GetToken()
 	if err != nil {
 		return nil, err
 	}

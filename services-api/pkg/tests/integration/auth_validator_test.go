@@ -19,6 +19,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth/validator"
 	"github.com/AccelByte/go-jose"
@@ -48,9 +49,11 @@ func TestTokenValidator_ValidateTokenClient(t *testing.T) {
 			configRepo := auth.DefaultConfigRepositoryImpl()
 			tokenRepo := auth.DefaultTokenRepositoryImpl()
 			authService := iam.OAuth20Service{
-				Client:           iam.NewIamClient(configRepo),
-				ConfigRepository: configRepo,
-				TokenRepository:  tokenRepo,
+				Client: iam.NewIamHttpClient(configRepo),
+				Session: repository.Session{
+					ConfigRepository: configRepo,
+					TokenRepository:  tokenRepo,
+				},
 			}
 
 			err := authService.LoginClient(&configRepo.ClientId, &configRepo.ClientSecret)
@@ -123,9 +126,11 @@ func TestTokenValidator_ValidateTokenUser(t *testing.T) {
 			configRepo := auth.DefaultConfigRepositoryImpl()
 			tokenRepo := auth.DefaultTokenRepositoryImpl()
 			authService := iam.OAuth20Service{
-				Client:           iam.NewIamClient(configRepo),
-				ConfigRepository: configRepo,
-				TokenRepository:  tokenRepo,
+				Client: iam.NewIamHttpClient(configRepo),
+				Session: repository.Session{
+					ConfigRepository: configRepo,
+					TokenRepository:  tokenRepo,
+				},
 			}
 
 			username := os.Getenv("AB_USERNAME")
@@ -185,9 +190,11 @@ func TestTokenValidator_ValidateExtendNamespace(t *testing.T) {
 	configRepo := auth.DefaultConfigRepositoryImpl()
 	tokenRepo := auth.DefaultTokenRepositoryImpl()
 	authService := iam.OAuth20Service{
-		Client:           iam.NewIamClient(configRepo),
-		ConfigRepository: configRepo,
-		TokenRepository:  tokenRepo,
+		Client: iam.NewIamHttpClient(configRepo),
+		Session: repository.Session{
+			ConfigRepository: configRepo,
+			TokenRepository:  tokenRepo,
+		},
 	}
 
 	extendNamespace := os.Getenv("AB_NAMESPACE")
@@ -573,14 +580,16 @@ func NewTokenValidatorTest3(authService iam.OAuth20Service, refreshInterval time
 }
 
 func findAndCheckResourceFromRole(configRepo *auth.ConfigRepositoryImpl, tokenRepo *auth.TokenRepositoryImpl, roleID string, resourceToCheck string) (int, error) {
-	iamClient := iam.NewIamClient(configRepo)
+	httpClient := iam.NewIamHttpClient(configRepo)
 
 	resultAction := -1
 
 	overrideRoleService := iam.OverrideRoleConfigv3Service{
-		Client:           iamClient,
-		ConfigRepository: configRepo,
-		TokenRepository:  tokenRepo,
+		Client: httpClient,
+		Session: repository.Session{
+			ConfigRepository: configRepo,
+			TokenRepository:  tokenRepo,
+		},
 	}
 
 	tkn, err := tokenRepo.GetToken()
@@ -617,12 +626,14 @@ func Test_RoleOverride(t *testing.T) {
 
 	configRepo := auth.DefaultConfigRepositoryImpl()
 	tokenRepo := auth.DefaultTokenRepositoryImpl()
-	iamClient := iam.NewIamClient(configRepo)
+	httpClient := iam.NewIamHttpClient(configRepo)
 
 	authService := iam.OAuth20Service{
-		Client:           iamClient,
-		ConfigRepository: configRepo,
-		TokenRepository:  tokenRepo,
+		Client: httpClient,
+		Session: repository.Session{
+			ConfigRepository: configRepo,
+			TokenRepository:  tokenRepo,
+		},
 	}
 
 	err := authService.LoginClient(&configRepo.ClientId, &configRepo.ClientSecret)
@@ -632,9 +643,11 @@ func Test_RoleOverride(t *testing.T) {
 	assert.NoError(t, err)
 
 	roleService := iam.RolesService{
-		Client:           iamClient,
-		ConfigRepository: configRepo,
-		TokenRepository:  tokenRepo,
+		Client: httpClient,
+		Session: repository.Session{
+			ConfigRepository: configRepo,
+			TokenRepository:  tokenRepo,
+		},
 	}
 
 	adminRole := false
@@ -658,9 +671,11 @@ func Test_RoleOverride(t *testing.T) {
 	assert.Equal(t, actionToCheck, action)
 
 	overrideRoleService := iam.OverrideRoleConfigv3Service{
-		Client:           iamClient,
-		ConfigRepository: configRepo,
-		TokenRepository:  tokenRepo,
+		Client: httpClient,
+		Session: repository.Session{
+			ConfigRepository: configRepo,
+			TokenRepository:  tokenRepo,
+		},
 	}
 
 	updateResponse, err := overrideRoleService.AdminUpdateRoleOverrideConfigV3Short(&override_role_config_v3.AdminUpdateRoleOverrideConfigV3Params{

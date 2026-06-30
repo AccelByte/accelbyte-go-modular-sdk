@@ -14,20 +14,25 @@ import (
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )
 
 var (
 	tokenRepo  = *auth.DefaultTokenRepositoryImpl()
 	configRepo = *auth.DefaultConfigRepositoryImpl()
-	oauth      = &iam.OAuth20Service{
-		Client:           iam.NewIamClient(&configRepo),
-		ConfigRepository: &configRepo,
-		TokenRepository:  &tokenRepo,
+	oauth = &iam.OAuth20Service{
+		Client: iam.NewIamHttpClient(&configRepo),
+		Session: repository.Session{
+			ConfigRepository: &configRepo,
+			TokenRepository:  &tokenRepo,
+		},
 	}
 	oAuth20ExtensionService = &iam.OAuth20ExtensionService{
-		Client:          iam.NewIamClient(&configRepo),
-		TokenRepository: &tokenRepo,
+		Client: iam.NewIamHttpClient(&configRepo),
+		Session: repository.Session{
+			TokenRepository: &tokenRepo,
+		},
 	}
 	platformId            = "phantauth"
 	clientIDPhantAuth     = "test.client"

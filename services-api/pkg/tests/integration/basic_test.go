@@ -12,6 +12,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
@@ -25,8 +26,11 @@ var (
 	timezone           = "Asia/Jakarta"
 	basicLanguange     = "en"
 	userProfileService = &basic.UserProfileService{
-		Client:          basic.NewBasicClient(auth.DefaultConfigRepositoryImpl()),
-		TokenRepository: tokenRepository,
+		Client: basic.NewBasicHttpClient(auth.DefaultConfigRepositoryImpl()),
+		Session: repository.Session{
+			ConfigRepository: configRepository,
+			TokenRepository:  tokenRepository,
+		},
 	}
 	bodyBasic = &basicclientmodels.UserProfilePrivateCreate{
 		FirstName: "go",

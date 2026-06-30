@@ -11,6 +11,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/wsm"
 
@@ -44,12 +45,14 @@ var (
 func main() {
 	// prepare the IAM Oauth service
 	oauth := &iam.OAuth20Service{
-		Client:           iam.NewIamClient(&configRepo),
-		ConfigRepository: &configRepo,
-		TokenRepository:  &tokenRepo,
+		Client: iam.NewIamHttpClient(&configRepo),
+		Session: repository.Session{
+			ConfigRepository: &configRepo,
+			TokenRepository:  &tokenRepo,
+		},
 	}
-	clientId := oauth.ConfigRepository.GetClientId()
-	clientSecret := oauth.ConfigRepository.GetClientSecret()
+	clientId := configRepo.GetClientId()
+	clientSecret := configRepo.GetClientSecret()
 
 	// call the endpoint tokenGrantV3Short through the wrapper 'LoginClient'
 	err := oauth.LoginClient(&clientId, &clientSecret)
@@ -99,7 +102,7 @@ func main() {
 		}
 
 		// cek the token
-		token, _ := oauth.TokenRepository.GetToken()
+		token, _ := tokenRepo.GetToken()
 		fmt.Printf("print  %v\n", token) // if refresh token happen this token will get changed
 
 		// call an AccelByte Gaming Services Lobby Websocket operation

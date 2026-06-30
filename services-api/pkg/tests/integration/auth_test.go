@@ -48,7 +48,7 @@ func TestIntegrationLoginPlatform(t *testing.T) {
 
 	// assert
 	assert.Nil(t, err, "err should be nil")
-	getToken, errGetToken := oAuth20Service.TokenRepository.GetToken()
+	getToken, errGetToken := tokenRepository.GetToken()
 	assert.Nil(t, errGetToken, "err should be nil")
 	assert.NotNil(t, getToken, "get token form token repository should not be nil")
 }

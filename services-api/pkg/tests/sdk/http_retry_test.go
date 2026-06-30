@@ -35,20 +35,24 @@ var (
 	}
 	contentTypeApplicationJson = "application/json"
 	emptyString                = ""
-	iamBansService             = &iam.BansService{
-		Client:           iam.NewIamClient(&configRepo),
-		ConfigRepository: &configRepo,
-		TokenRepository:  &tokenRepo,
+	iamBansService = &iam.BansService{
+		Client: iam.NewIamHttpClient(&configRepo),
+		Session: repository.Session{
+			ConfigRepository: &configRepo,
+			TokenRepository:  &tokenRepo,
+		},
 	}
 	// prepare
 	oAuth20Service = &iam.OAuth20Service{
-		Client:           iam.NewIamClient(&configRepo),
-		ConfigRepository: &configRepo,
-		TokenRepository:  &tokenRepo,
-		//RefreshTokenRepository: &auth.RefreshTokenImpl{ // uncomment to enable the AutoRefresh functionality and change RefreshRate
-		//	RefreshRate: 0.5,
-		//	AutoRefresh: true,
-		//},
+		Client: iam.NewIamHttpClient(&configRepo),
+		Session: repository.Session{
+			ConfigRepository: &configRepo,
+			TokenRepository:  &tokenRepo,
+			//RefreshTokenRepository: &auth.RefreshTokenImpl{ // uncomment to enable the AutoRefresh functionality and change RefreshRate
+			//	RefreshRate: 0.5,
+			//	AutoRefresh: true,
+			//},
+		},
 	}
 	lobbyConfigService = &lobby.ConfigService{
 		Client:          lobby.NewLobbyClient(&configRepo),
@@ -389,8 +393,8 @@ func TestRetryRequest_withBigFile(t *testing.T) {
 }
 
 func prepareToken(iam *iam.BansService) {
-	t, _ := iam.TokenRepository.GetToken()
-	_ = iam.TokenRepository.Store(*t)
+	t, _ := iam.Session.TokenRepository.GetToken()
+	_ = iam.Session.TokenRepository.Store(*t)
 }
 
 func TestRetry_MockServerCustomOverride(t *testing.T) {

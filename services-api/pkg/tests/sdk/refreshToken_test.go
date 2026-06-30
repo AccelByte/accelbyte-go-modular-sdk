@@ -45,14 +45,14 @@ func TestAuthInfoWriterRefresh_withMockServer(t *testing.T) {
 	assert.NotNil(t, okBan)
 
 	// 3. get the Token from repository
-	getToken, errGetToken := oAuth20Service.TokenRepository.GetToken()
+	getToken, errGetToken := oAuth20Service.Session.TokenRepository.GetToken()
 	if errGetToken != nil {
 		assert.FailNow(t, errGetToken.Error())
 	}
 	Repository := oAuth20Service.GetAuthSession().Refresh
-	hasExpired := repository.HasTokenExpired(oAuth20Service.TokenRepository, Repository.GetRefreshRate())
+	hasExpired := repository.HasTokenExpired(oAuth20Service.Session.TokenRepository, Repository.GetRefreshRate())
 	assert.False(t, hasExpired) // Token not yet expired
-	secondsTillExpiry := repository.GetSecondsTillExpiry(oAuth20Service.TokenRepository, Repository.GetRefreshRate())
+	secondsTillExpiry := repository.GetSecondsTillExpiry(oAuth20Service.Session.TokenRepository, Repository.GetRefreshRate())
 	t.Logf("Expiring in... : %v", secondsTillExpiry)
 
 	// 4. force the Token to be expired
@@ -60,17 +60,17 @@ func TestAuthInfoWriterRefresh_withMockServer(t *testing.T) {
 	getToken.ExpiresIn = &expiresIn       // monkey-patch, force expiry Token
 	getToken.RefreshExpiresIn = expiresIn // monkey-patch, force expiry refreshToken
 
-	getExpiresIn, _ := repository.GetExpiresIn(oAuth20Service.TokenRepository)
+	getExpiresIn, _ := repository.GetExpiresIn(oAuth20Service.Session.TokenRepository)
 	assert.Equal(t, *getExpiresIn, expiresIn)
 	getRefreshRate := Repository.GetRefreshRate()
 	assert.NotNil(t, getRefreshRate)
-	secondsTillExpiry = repository.GetSecondsTillExpiry(oAuth20Service.TokenRepository, Repository.GetRefreshRate())
+	secondsTillExpiry = repository.GetSecondsTillExpiry(oAuth20Service.Session.TokenRepository, Repository.GetRefreshRate())
 	t.Logf("Force to expire in... : %v", secondsTillExpiry)
-	errStore := oAuth20Service.TokenRepository.Store(*getToken) // store the new monkey patch Token
+	errStore := oAuth20Service.Session.TokenRepository.Store(*getToken) // store the new monkey patch Token
 	assert.Nil(t, errStore)
 
 	time.Sleep(time.Duration(*getExpiresIn) * time.Second)
-	hasIndeedExpired := repository.HasTokenExpired(oAuth20Service.TokenRepository, Repository.GetRefreshRate())
+	hasIndeedExpired := repository.HasTokenExpired(oAuth20Service.Session.TokenRepository, Repository.GetRefreshRate())
 	assert.True(t, hasIndeedExpired) // indeed expired
 
 	// 5. call again with time sleep
@@ -102,14 +102,14 @@ func TestAuthInfoWriterRefreshAsync_withMockServer(t *testing.T) {
 	assert.NotNil(t, okBan)
 
 	// 3. get the Token from repository
-	getToken, errGetToken := oAuth20Service.TokenRepository.GetToken()
+	getToken, errGetToken := oAuth20Service.Session.TokenRepository.GetToken()
 	if errGetToken != nil {
 		assert.FailNow(t, errGetToken.Error())
 	}
 	Repository := oAuth20Service.GetAuthSession().Refresh
-	hasExpired := repository.HasTokenExpired(oAuth20Service.TokenRepository, Repository.GetRefreshRate())
+	hasExpired := repository.HasTokenExpired(oAuth20Service.Session.TokenRepository, Repository.GetRefreshRate())
 	assert.False(t, hasExpired) // Token not yet expired
-	secondsTillExpiry := repository.GetSecondsTillExpiry(oAuth20Service.TokenRepository, Repository.GetRefreshRate())
+	secondsTillExpiry := repository.GetSecondsTillExpiry(oAuth20Service.Session.TokenRepository, Repository.GetRefreshRate())
 	t.Logf("Expiring in... : %v", secondsTillExpiry)
 
 	// 4. force the Token to be expired
@@ -117,20 +117,20 @@ func TestAuthInfoWriterRefreshAsync_withMockServer(t *testing.T) {
 	getToken.ExpiresIn = &expiresIn       // monkey-patch, force expiry Token
 	getToken.RefreshExpiresIn = expiresIn // monkey-patch, force expiry refreshToken
 
-	getExpiresIn, _ := repository.GetExpiresIn(oAuth20Service.TokenRepository)
+	getExpiresIn, _ := repository.GetExpiresIn(oAuth20Service.Session.TokenRepository)
 	assert.Equal(t, *getExpiresIn, expiresIn)
 	getRefreshRate := Repository.GetRefreshRate()
 	assert.NotNil(t, getRefreshRate)
-	secondsTillExpiry = repository.GetSecondsTillExpiry(oAuth20Service.TokenRepository, Repository.GetRefreshRate())
+	secondsTillExpiry = repository.GetSecondsTillExpiry(oAuth20Service.Session.TokenRepository, Repository.GetRefreshRate())
 	t.Logf("Force to expire in... : %v", secondsTillExpiry)
-	errStore := oAuth20Service.TokenRepository.Store(*getToken) // store the new monkey patch Token
+	errStore := oAuth20Service.Session.TokenRepository.Store(*getToken) // store the new monkey patch Token
 	assert.Nil(t, errStore)
 
-	getExpiresIn, _ = repository.GetExpiresIn(oAuth20Service.TokenRepository)
+	getExpiresIn, _ = repository.GetExpiresIn(oAuth20Service.Session.TokenRepository)
 	assert.Equal(t, *getExpiresIn, expiresIn)
 	time.Sleep(time.Duration(*getExpiresIn) * time.Second)
 	refreshRate := Repository.GetRefreshRate()
-	hasIndeedExpired := repository.HasTokenExpired(oAuth20Service.TokenRepository, refreshRate)
+	hasIndeedExpired := repository.HasTokenExpired(oAuth20Service.Session.TokenRepository, refreshRate)
 	assert.True(t, hasIndeedExpired) // indeed expired
 
 	// 5. call again with time sleep for multiple requests async
@@ -175,10 +175,10 @@ func TestWebsocketRefresh_withMockServer(t *testing.T) {
 	}
 	assert.Nil(t, err, "err should be nil")
 
-	tokenRepoObs := oAuth20Service.TokenRepository
-	configRepoObs := oAuth20Service.ConfigRepository
+	tokenRepoObs := oAuth20Service.Session.TokenRepository
+	configRepoObs := oAuth20Service.Session.ConfigRepository
 
-	oAuth20Service.RefreshTokenRepository = &auth.RefreshTokenImpl{AutoRefresh: true, RefreshRate: 0.01} // Force refresh with shorter time span
+	oAuth20Service.Session.RefreshTokenRepository = &auth.RefreshTokenImpl{AutoRefresh: true, RefreshRate: 0.01} // Force refresh with shorter time span
 
 	connMgr = &wsm.DefaultConnectionManagerImpl{}
 
@@ -216,7 +216,7 @@ func TestWebsocketRefresh_withMockServer(t *testing.T) {
 	assert.NoError(t, errNotif1)
 
 	// 3. get the Token from repository
-	getToken, errGetToken := oAuth20Service.TokenRepository.GetToken()
+	getToken, errGetToken := oAuth20Service.Session.TokenRepository.GetToken()
 	if errGetToken != nil {
 		assert.FailNow(t, errGetToken.Error())
 	}

@@ -9,6 +9,7 @@ import (
 
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 )
 
@@ -21,12 +22,14 @@ var (
 func main() {
 	// prepare the IAM Oauth service
 	oauth := &iam.OAuth20Service{
-		Client:           iam.NewIamClient(&configRepo),
-		ConfigRepository: &configRepo,
-		TokenRepository:  &tokenRepo,
+		Client: iam.NewIamHttpClient(&configRepo),
+		Session: repository.Session{
+			ConfigRepository: &configRepo,
+			TokenRepository:  &tokenRepo,
+		},
 	}
-	clientId := oauth.ConfigRepository.GetClientId()
-	clientSecret := oauth.ConfigRepository.GetClientSecret()
+	clientId := configRepo.GetClientId()
+	clientSecret := configRepo.GetClientSecret()
 
 	// call the endpoint tokenGrantV3Short through the wrapper 'LoginClient'
 	err := oauth.LoginClient(&clientId, &clientSecret)
@@ -37,13 +40,15 @@ func main() {
 	}
 
 	// get the token
-	token, _ := oauth.TokenRepository.GetToken()
+	token, _ := tokenRepo.GetToken()
 	fmt.Printf("print %v\n", *token.AccessToken)
 
 	// prepare the IAM's Oauth 2.0 Extension service
 	oAuth20ExtensionService := &iam.OAuth20ExtensionService{
-		Client:          iam.NewIamClient(&configRepo),
-		TokenRepository: &tokenRepo,
+		Client: iam.NewIamHttpClient(&configRepo),
+		Session: repository.Session{
+			TokenRepository: &tokenRepo,
+		},
 	}
 	input := &o_auth2_0_extension.GetCountryLocationV3Params{}
 

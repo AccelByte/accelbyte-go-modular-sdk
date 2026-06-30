@@ -23,6 +23,7 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
@@ -38,37 +39,47 @@ var (
 	}
 	tokenRepository  = auth.DefaultTokenRepositoryImpl()
 	configRepository = auth.DefaultConfigRepositoryImpl()
-	oAuth20Service   = &iam.OAuth20Service{
-		Client:           iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository: configRepository,
-		TokenRepository:  tokenRepository,
+	oAuth20Service = &iam.OAuth20Service{
+		Client: iam.NewIamHttpClient(configRepository),
+		Session: repository.Session{
+			ConfigRepository: configRepository,
+			TokenRepository:  tokenRepository,
+		},
 	}
 	userService = &iam.UsersService{
-		Client:           iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository: auth.DefaultConfigRepositoryImpl(),
-		TokenRepository:  tokenRepository,
+		Client: iam.NewIamHttpClient(auth.DefaultConfigRepositoryImpl()),
+		Session: repository.Session{
+			ConfigRepository: auth.DefaultConfigRepositoryImpl(),
+			TokenRepository:  tokenRepository,
+		},
 	}
 	userV4Service = &iam.UsersV4Service{
-		Client:           iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository: auth.DefaultConfigRepositoryImpl(),
-		TokenRepository:  tokenRepository,
+		Client: iam.NewIamHttpClient(auth.DefaultConfigRepositoryImpl()),
+		Session: repository.Session{
+			ConfigRepository: auth.DefaultConfigRepositoryImpl(),
+			TokenRepository:  tokenRepository,
+		},
 	}
 	oAuth20ExtensionService = &iam.OAuth20ExtensionService{
-		Client:           iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository: auth.DefaultConfigRepositoryImpl(),
-		TokenRepository:  tokenRepository,
+		Client: iam.NewIamHttpClient(auth.DefaultConfigRepositoryImpl()),
+		Session: repository.Session{
+			ConfigRepository: auth.DefaultConfigRepositoryImpl(),
+			TokenRepository:  tokenRepository,
+		},
 	}
 	clientService = &iam.ClientsService{
-		Client:           iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository: auth.DefaultConfigRepositoryImpl(),
-		TokenRepository:  tokenRepository,
+		Client: iam.NewIamHttpClient(auth.DefaultConfigRepositoryImpl()),
+		Session: repository.Session{
+			ConfigRepository: auth.DefaultConfigRepositoryImpl(),
+			TokenRepository:  tokenRepository,
+		},
 	}
 	codeChallengeMethod = o_auth2_0.AuthorizeV3CodeChallengeMethodS256Constant
 	redirectURI         string
 	scope               = "commerce account social publishing analytics"
 	username            = os.Getenv("AB_USERNAME")
 	password            = os.Getenv("AB_PASSWORD")
-	clientID            = oAuth20Service.ConfigRepository.GetClientId()
+	clientID            = configRepository.GetClientId()
 	publicClientID      = os.Getenv("PUBLIC_AB_CLIENT_ID")
 	authType            = "EMAILPASSWD"
 	country             = "US"
@@ -120,7 +131,7 @@ func Init() {
 		slog.Error("empty access token")
 	} else {
 		tes := oAuth20Service
-		errStore := oAuth20Service.TokenRepository.Store(*accessToken.Data)
+		errStore := tokenRepository.Store(*accessToken.Data)
 		if errStore != nil {
 			slog.Error("failed stored the token.", "value", tes)
 		}
@@ -164,7 +175,7 @@ func TestIntegrationAuthenticate(t *testing.T) {
 		CodeChallengeMethod: &codeChallengeMethod,
 		RedirectURI:         &redirectURI,
 		Scope:               &scope,
-		ClientID:            oAuth20Service.ConfigRepository.GetClientId(),
+		ClientID:            configRepository.GetClientId(),
 		ResponseType:        o_auth2_0.AuthorizeV3ResponseTypeCodeConstant,
 		HTTPClient:          httpClient,
 	}
@@ -244,7 +255,7 @@ func TestIntegrationGrantTokenAuthorizationCode(t *testing.T) {
 		GrantType:    o_auth2_0.TokenGrantV3GrantTypeAuthorizationCodeConstant,
 	}
 
-	oAuth20Service.TokenRepository.RemoveToken()
+	tokenRepository.RemoveToken()
 
 	expected, errExpected := oAuth20Service.TokenGrantV3Short(inputTokenGrant)
 	if errExpected != nil {
@@ -266,7 +277,7 @@ func TestIntegrationLogin(t *testing.T) {
 		assert.FailNow(t, err.Error())
 	}
 
-	getToken, errGetToken := oAuth20Service.TokenRepository.GetToken()
+	getToken, errGetToken := tokenRepository.GetToken()
 	slog.Info(fmt.Sprintf("Bearer %v; UserId %v", *getToken.AccessToken, getToken.UserID))
 	// ESAC
 
@@ -286,7 +297,7 @@ func TestIntegrationLoginWithScope(t *testing.T) {
 		assert.FailNow(t, err.Error())
 	}
 
-	getToken, errGetToken := oAuth20Service.TokenRepository.GetToken()
+	getToken, errGetToken := tokenRepository.GetToken()
 	slog.Info(fmt.Sprintf("Bearer %v; UserId %v", *getToken.AccessToken, getToken.UserID))
 	// ESAC
 
@@ -366,15 +377,15 @@ func TestIntegrationUser(t *testing.T) {
 
 func TestIntegrationLoginClient(t *testing.T) {
 	// prepare the IAM Oauth service
-	clientId := oAuth20Service.ConfigRepository.GetClientId()
-	clientSecret := oAuth20Service.ConfigRepository.GetClientSecret()
+	clientId := configRepository.GetClientId()
+	clientSecret := configRepository.GetClientSecret()
 
 	// call the endpoint tokenGrantV3Short through the wrapper 'LoginClient'
 	err := oAuth20Service.LoginClient(&clientId, &clientSecret)
 	assert.NoError(t, err)
 
 	// get the token
-	token, err := oAuth20Service.TokenRepository.GetToken()
+	token, err := tokenRepository.GetToken()
 	// Assert
 	assert.NoError(t, err)
 	assert.NotNil(t, token, "response should not be nil")
@@ -410,14 +421,18 @@ func TestIntegrationLoginPublicClient(t *testing.T) {
 }
 
 func TestIntegration_LoginOrRefreshClient_shouldReuseValidToken(t *testing.T) {
+	configRepo := auth.DefaultConfigRepositoryImpl()
+	tokenRepo := auth.DefaultTokenRepositoryImpl()
 	oauthSvc := &iam.OAuth20Service{
-		Client:                 iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository:       auth.DefaultConfigRepositoryImpl(),
-		TokenRepository:        auth.DefaultTokenRepositoryImpl(),
-		RefreshTokenRepository: &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 1},
+		Client: iam.NewIamHttpClient(configRepo),
+		Session: repository.Session{
+			ConfigRepository:       configRepo,
+			TokenRepository:        tokenRepo,
+			RefreshTokenRepository: &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 1},
+		},
 	}
-	clientId := oauthSvc.ConfigRepository.GetClientId()
-	clientSecret := oauthSvc.ConfigRepository.GetClientSecret()
+	clientId := configRepo.GetClientId()
+	clientSecret := configRepo.GetClientSecret()
 
 	for i := 0; i < 5; i++ {
 		// first time auth
@@ -425,7 +440,7 @@ func TestIntegration_LoginOrRefreshClient_shouldReuseValidToken(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
-		firstToken, err := oauthSvc.TokenRepository.GetToken()
+		firstToken, err := tokenRepo.GetToken()
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -437,7 +452,7 @@ func TestIntegration_LoginOrRefreshClient_shouldReuseValidToken(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
-		secondToken, err := oauthSvc.TokenRepository.GetToken()
+		secondToken, err := tokenRepo.GetToken()
 		if err != nil {
 			t.Fatal(err)
 		}
@@ -447,21 +462,25 @@ func TestIntegration_LoginOrRefreshClient_shouldReuseValidToken(t *testing.T) {
 }
 
 func TestIntegration_LoginOrRefreshClient_shouldReAuthenticate(t *testing.T) {
+	configRepo := auth.DefaultConfigRepositoryImpl()
+	tokenRepo := auth.DefaultTokenRepositoryImpl()
 	oauthSvc := &iam.OAuth20Service{
-		Client:                 iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository:       auth.DefaultConfigRepositoryImpl(),
-		TokenRepository:        auth.DefaultTokenRepositoryImpl(),
-		RefreshTokenRepository: &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.0001}, // very small numbers to make token expire sooner
+		Client: iam.NewIamHttpClient(configRepo),
+		Session: repository.Session{
+			ConfigRepository:       configRepo,
+			TokenRepository:        tokenRepo,
+			RefreshTokenRepository: &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.0001}, // very small numbers to make token expire sooner
+		},
 	}
-	clientId := oauthSvc.ConfigRepository.GetClientId()
-	clientSecret := oauthSvc.ConfigRepository.GetClientSecret()
+	clientId := configRepo.GetClientId()
+	clientSecret := configRepo.GetClientSecret()
 
 	// first time auth
 	err := oauthSvc.LoginOrRefreshClient(&clientId, &clientSecret)
 	if err != nil {
 		t.Fatal(err)
 	}
-	firstToken, err := oauthSvc.TokenRepository.GetToken()
+	firstToken, err := tokenRepo.GetToken()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -473,7 +492,7 @@ func TestIntegration_LoginOrRefreshClient_shouldReAuthenticate(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	secondToken, err := oauthSvc.TokenRepository.GetToken()
+	secondToken, err := tokenRepo.GetToken()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -484,11 +503,15 @@ func TestIntegration_LoginOrRefreshClient_shouldReAuthenticate(t *testing.T) {
 func TestIntegration_LoginOrRefresh_shouldReAuthenticate(t *testing.T) {
 	username = os.Getenv("AB_USERNAME")
 	password = os.Getenv("AB_PASSWORD")
+	configRepo := auth.DefaultConfigRepositoryImpl()
+	tokenRepo := auth.DefaultTokenRepositoryImpl()
 	oauthSvc := &iam.OAuth20Service{
-		Client:                 iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository:       auth.DefaultConfigRepositoryImpl(),
-		TokenRepository:        auth.DefaultTokenRepositoryImpl(),
-		RefreshTokenRepository: &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.0001}, // very small numbers to make token expire sooner
+		Client: iam.NewIamHttpClient(configRepo),
+		Session: repository.Session{
+			ConfigRepository:       configRepo,
+			TokenRepository:        tokenRepo,
+			RefreshTokenRepository: &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.0001}, // very small numbers to make token expire sooner
+		},
 	}
 
 	// first time auth
@@ -496,7 +519,7 @@ func TestIntegration_LoginOrRefresh_shouldReAuthenticate(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	firstToken, err := oauthSvc.TokenRepository.GetToken()
+	firstToken, err := tokenRepo.GetToken()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -508,7 +531,7 @@ func TestIntegration_LoginOrRefresh_shouldReAuthenticate(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	secondToken, err := oauthSvc.TokenRepository.GetToken()
+	secondToken, err := tokenRepo.GetToken()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -529,7 +552,7 @@ func GetUserID() string {
 	} else if accessToken == nil { //lint:ignore SA5011 possible nil pointer dereference
 		slog.Error("empty access token")
 	} else {
-		errStore := oAuth20Service.TokenRepository.Store(*accessToken.Data)
+		errStore := tokenRepository.Store(*accessToken.Data)
 		if errStore != nil {
 			slog.Error("failed stored the token")
 		}

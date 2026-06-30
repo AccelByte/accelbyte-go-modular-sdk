@@ -18,6 +18,7 @@ import (
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/configuration_template"
@@ -436,9 +437,11 @@ func createPlayer2() string {
 
 	// login
 	oAuth20Service2 := &iam.OAuth20Service{
-		Client:           iam.NewIamClient(auth.DefaultConfigRepositoryImpl()),
-		ConfigRepository: auth.DefaultConfigRepositoryImpl(),
-		TokenRepository:  tokenRepository2ndPlayer,
+		Client: iam.NewIamHttpClient(auth.DefaultConfigRepositoryImpl()),
+		Session: repository.Session{
+			ConfigRepository: auth.DefaultConfigRepositoryImpl(),
+			TokenRepository:  tokenRepository2ndPlayer,
+		},
 	}
 	errLogin := oAuth20Service2.Login(*user.Data.EmailAddress, pwd)
 	if errLogin != nil {
@@ -446,7 +449,7 @@ func createPlayer2() string {
 
 		return ""
 	}
-	token, _ := oAuth20Service2.TokenRepository.GetToken()
+	token, _ := oAuth20Service2.Session.TokenRepository.GetToken()
 	slog.Info("2nd player token obtained", "token", *token.AccessToken)
 
 	return *user.Data.UserID

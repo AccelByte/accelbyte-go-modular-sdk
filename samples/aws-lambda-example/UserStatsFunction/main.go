@@ -28,10 +28,12 @@ var (
 	refreshRepo repository.RefreshTokenRepository = &auth.RefreshTokenImpl{AutoRefresh: false, RefreshRate: 0.01} //nolint:mnd // Force refresh with shorter time span
 
 	oAuth20Service = iam.OAuth20Service{
-		Client:                 iam.NewIamClient(&configRepo),
-		ConfigRepository:       &configRepo,
-		TokenRepository:        &tokenRepo,
-		RefreshTokenRepository: refreshRepo,
+		Client: iam.NewIamHttpClient(&configRepo),
+		Session: repository.Session{
+			ConfigRepository:       &configRepo,
+			TokenRepository:        &tokenRepo,
+			RefreshTokenRepository: refreshRepo,
+		},
 	}
 	userStatisticService = &social.UserStatisticService{
 		Client:          social.NewSocialClient(&configRepo),
@@ -55,8 +57,8 @@ func Handler(ctx context.Context, evt events.LambdaFunctionURLRequest) (events.L
 	slog.Info("Parse Access Token Done")
 
 	// login client
-	clientId := oAuth20Service.ConfigRepository.GetClientId()
-	clientSecret := oAuth20Service.ConfigRepository.GetClientSecret()
+	clientId := configRepo.GetClientId()
+	clientSecret := configRepo.GetClientSecret()
 	errLogin := oAuth20Service.LoginOrRefreshClient(&clientId, &clientSecret)
 	if errLogin != nil {
 		errString := fmt.Errorf("failed to login client. %s", errLogin.Error())

@@ -10,6 +10,7 @@ import (
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/constant"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/testutils"
@@ -99,7 +100,7 @@ func TestFlightId_MockServer(t *testing.T) {
 			// act
 			oAuth20Service2, _ := oauthHelper(t)
 			updatedVal := "flightId updated using SDK config"
-			oAuth20Service2.FlightIdRepository = &utils.FlightIdContainer{Value: updatedVal}
+			oAuth20Service2.Session.FlightIdRepository = &utils.FlightIdContainer{Value: updatedVal}
 			_, err2 := oAuth20Service2.TokenGrantV3Short(&o_auth2_0.TokenGrantV3Params{ // oAuth20ServiceUpdate updated
 				GrantType: clientCredentials,
 			})
@@ -179,12 +180,16 @@ func oauthHelper(t *testing.T) (*iam.OAuth20Service, *basic.UserProfileService) 
 	token := auth.DefaultTokenRepositoryImpl()
 
 	return &iam.OAuth20Service{
-			Client:           iam.NewIamClient(config),
-			TokenRepository:  token,
-			ConfigRepository: config,
+			Client: iam.NewIamHttpClient(config),
+			Session: repository.Session{
+				ConfigRepository: config,
+				TokenRepository:  token,
+			},
 		}, &basic.UserProfileService{
-			Client:           basic.NewBasicClient(config),
-			TokenRepository:  token,
-			ConfigRepository: config,
+			Client: basic.NewBasicHttpClient(config),
+			Session: repository.Session{
+				ConfigRepository: config,
+				TokenRepository:  token,
+			},
 		}
 }
