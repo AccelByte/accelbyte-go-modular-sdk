@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicListJusticePlatformAccountsV3Cmd represents the PublicListJusticePlatformAccountsV3 command
 var PublicListJusticePlatformAccountsV3Cmd = &cobra.Command{
-	Use:	"publicListJusticePlatformAccountsV3",
-	Short:  "Public list justice platform accounts V3",
-	Long:   `Public list justice platform accounts V3`,
+	Use:   "publicListJusticePlatformAccountsV3",
+	Short: "Public list justice platform accounts V3",
+	Long:  `Public list justice platform accounts V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var PublicListJusticePlatformAccountsV3Cmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.PublicListJusticePlatformAccountsV3Params{
 			Namespace: namespace,
-			UserID   : userId,
+			UserID:    userId,
 		}
-ok,errOK := usersService.PublicListJusticePlatformAccountsV3Short(input)
+		ok, errOK := usersService.PublicListJusticePlatformAccountsV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

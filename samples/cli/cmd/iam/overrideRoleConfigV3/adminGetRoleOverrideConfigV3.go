@@ -8,8 +8,9 @@ package overrideRoleConfigV3
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/override_role_config_v3"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/override_role_config_v3"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetRoleOverrideConfigV3Cmd represents the AdminGetRoleOverrideConfigV3 command
 var AdminGetRoleOverrideConfigV3Cmd = &cobra.Command{
-	Use:	"adminGetRoleOverrideConfigV3",
-	Short:  "Admin get role override config V3",
-	Long:   `Admin get role override config V3`,
+	Use:   "adminGetRoleOverrideConfigV3",
+	Short: "Admin get role override config V3",
+	Long:  `Admin get role override config V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		overrideRoleConfigV3Service := &iam.OverrideRoleConfigv3Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var AdminGetRoleOverrideConfigV3Cmd = &cobra.Command{
 		identity, _ := cmd.Flags().GetString("identity")
 		input := &override_role_config_v3.AdminGetRoleOverrideConfigV3Params{
 			Namespace: namespace,
-			Identity : identity,
+			Identity:  identity,
 		}
-ok,errOK := overrideRoleConfigV3Service.AdminGetRoleOverrideConfigV3Short(input)
+		ok, errOK := overrideRoleConfigV3Service.AdminGetRoleOverrideConfigV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

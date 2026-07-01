@@ -8,8 +8,9 @@ package oAuth20
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,15 +18,15 @@ import (
 
 // TokenGrantV3Cmd represents the TokenGrantV3 command
 var TokenGrantV3Cmd = &cobra.Command{
-	Use:	"tokenGrantV3",
-	Short:  "Token grant V3",
-	Long:   `Token grant V3`,
+	Use:   "tokenGrantV3",
+	Short: "Token grant V3",
+	Long:  `Token grant V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
 			Session: sdkrepository.Session{
 				ConfigRepository: &repository.ConfigRepositoryImpl{},
-				TokenRepository: &repository.TokenRepositoryImpl{},
+				TokenRepository:  &repository.TokenRepositoryImpl{},
 			},
 		}
 		grantType, _ := cmd.Flags().GetString("grantType")
@@ -44,30 +45,30 @@ var TokenGrantV3Cmd = &cobra.Command{
 		scope, _ := cmd.Flags().GetString("scope")
 		username, _ := cmd.Flags().GetString("username")
 		input := &o_auth2_0.TokenGrantV3Params{
-			AuthTrustID    : &authTrustId,
-			DeviceID       : &deviceId,
-			AdditionalData : &additionalData,
-			ClientID       : &clientId,
-			ClientSecret   : &clientSecret,
-			Code           : &code,
-			CodeVerifier   : &codeVerifier,
+			AuthTrustID:     &authTrustId,
+			DeviceID:        &deviceId,
+			AdditionalData:  &additionalData,
+			ClientID:        &clientId,
+			ClientSecret:    &clientSecret,
+			Code:            &code,
+			CodeVerifier:    &codeVerifier,
 			ExtendNamespace: &extendNamespace,
-			ExtendExp      : &extendExp,
-			Password       : &password,
-			RedirectURI    : &redirectUri,
-			RefreshToken   : &refreshToken,
-			Scope          : &scope,
-			Username       : &username,
-			GrantType      : grantType,
+			ExtendExp:       &extendExp,
+			Password:        &password,
+			RedirectURI:     &redirectUri,
+			RefreshToken:    &refreshToken,
+			Scope:           &scope,
+			Username:        &username,
+			GrantType:       grantType,
 		}
-ok,errOK := oAuth20Service.TokenGrantV3Short(input)
+		ok, errOK := oAuth20Service.TokenGrantV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

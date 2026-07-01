@@ -8,8 +8,9 @@ package oAuth20
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // RetrieveUserThirdPartyPlatformTokenV3Cmd represents the RetrieveUserThirdPartyPlatformTokenV3 command
 var RetrieveUserThirdPartyPlatformTokenV3Cmd = &cobra.Command{
-	Use:	"retrieveUserThirdPartyPlatformTokenV3",
-	Short:  "Retrieve user third party platform token V3",
-	Long:   `Retrieve user third party platform token V3`,
+	Use:   "retrieveUserThirdPartyPlatformTokenV3",
+	Short: "Retrieve user third party platform token V3",
+	Long:  `Retrieve user third party platform token V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,18 +32,18 @@ var RetrieveUserThirdPartyPlatformTokenV3Cmd = &cobra.Command{
 		platformId, _ := cmd.Flags().GetString("platformId")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &o_auth2_0.RetrieveUserThirdPartyPlatformTokenV3Params{
-			Namespace : namespace,
+			Namespace:  namespace,
 			PlatformID: platformId,
-			UserID    : userId,
+			UserID:     userId,
 		}
-ok,errOK := oAuth20Service.RetrieveUserThirdPartyPlatformTokenV3Short(input)
+		ok, errOK := oAuth20Service.RetrieveUserThirdPartyPlatformTokenV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

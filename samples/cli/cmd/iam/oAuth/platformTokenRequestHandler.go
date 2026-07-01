@@ -8,8 +8,9 @@ package oAuth
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PlatformTokenRequestHandlerCmd represents the PlatformTokenRequestHandler command
 var PlatformTokenRequestHandlerCmd = &cobra.Command{
-	Use:	"platformTokenRequestHandler",
-	Short:  "Platform token request handler",
-	Long:   `Platform token request handler`,
+	Use:   "platformTokenRequestHandler",
+	Short: "Platform token request handler",
+	Long:  `Platform token request handler`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuthService := &iam.OAuthService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,20 +34,20 @@ var PlatformTokenRequestHandlerCmd = &cobra.Command{
 		macAddress, _ := cmd.Flags().GetString("macAddress")
 		platformToken, _ := cmd.Flags().GetString("platformToken")
 		input := &o_auth.PlatformTokenRequestHandlerParams{
-			DeviceID      : &deviceId,
-			MacAddress    : &macAddress,
-			PlatformToken : &platformToken,
-			Namespace     : namespace,
-			PlatformID    : platformId,
+			DeviceID:      &deviceId,
+			MacAddress:    &macAddress,
+			PlatformToken: &platformToken,
+			Namespace:     namespace,
+			PlatformID:    platformId,
 		}
-ok,errOK := oAuthService.PlatformTokenRequestHandlerShort(input)
+		ok, errOK := oAuthService.PlatformTokenRequestHandlerShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

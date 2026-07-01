@@ -9,9 +9,10 @@ package usersV4
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminInviteUserNewV4Cmd represents the AdminInviteUserNewV4 command
 var AdminInviteUserNewV4Cmd = &cobra.Command{
-	Use:	"adminInviteUserNewV4",
-	Short:  "Admin invite user new V4",
-	Long:   `Admin invite user new V4`,
+	Use:   "adminInviteUserNewV4",
+	Short: "Admin invite user new V4",
+	Long:  `Admin invite user new V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,21 +32,21 @@ var AdminInviteUserNewV4Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelInviteUserRequestV4
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &users_v4.AdminInviteUserNewV4Params{
 			Body: body,
 		}
-created,errCreated := usersV4Service.AdminInviteUserNewV4Short(input)
+		created, errCreated := usersV4Service.AdminInviteUserNewV4Short(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-        slog.Info("Response CLI success", "response", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

@@ -9,8 +9,9 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -18,9 +19,9 @@ import (
 
 // AdminPutUserRolesV2Cmd represents the AdminPutUserRolesV2 command
 var AdminPutUserRolesV2Cmd = &cobra.Command{
-	Use:	"adminPutUserRolesV2",
-	Short:  "Admin put user roles V2",
-	Long:   `Admin put user roles V2`,
+	Use:   "adminPutUserRolesV2",
+	Short: "Admin put user roles V2",
+	Long:  `Admin put user roles V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,25 +31,25 @@ var AdminPutUserRolesV2Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body []string
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AdminPutUserRolesV2Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
-			UserID   : userId,
+			UserID:    userId,
 		}
-errNoContent := usersService.AdminPutUserRolesV2Short(input)
+		errNoContent := usersService.AdminPutUserRolesV2Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -9,9 +9,10 @@ package clientsConfigV3
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminUpdateAvailablePermissionsByModuleCmd represents the AdminUpdateAvailablePermissionsByModule command
 var AdminUpdateAvailablePermissionsByModuleCmd = &cobra.Command{
-	Use:	"adminUpdateAvailablePermissionsByModule",
-	Short:  "Admin update available permissions by module",
-	Long:   `Admin update available permissions by module`,
+	Use:   "adminUpdateAvailablePermissionsByModule",
+	Short: "Admin update available permissions by module",
+	Long:  `Admin update available permissions by module`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsConfigV3Service := &iam.ClientsConfigV3Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var AdminUpdateAvailablePermissionsByModuleCmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ClientmodelListUpsertModulesRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		forceDelete, _ := cmd.Flags().GetBool("forceDelete")
 		input := &clients_config_v3.AdminUpdateAvailablePermissionsByModuleParams{
-			Body       : body,
+			Body:        body,
 			ForceDelete: &forceDelete,
 		}
-errNoContent := clientsConfigV3Service.AdminUpdateAvailablePermissionsByModuleShort(input)
+		errNoContent := clientsConfigV3Service.AdminUpdateAvailablePermissionsByModuleShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

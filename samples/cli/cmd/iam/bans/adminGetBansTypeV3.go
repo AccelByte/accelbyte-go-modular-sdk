@@ -8,8 +8,9 @@ package bans
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/bans"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/bans"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetBansTypeV3Cmd represents the AdminGetBansTypeV3 command
 var AdminGetBansTypeV3Cmd = &cobra.Command{
-	Use:	"adminGetBansTypeV3",
-	Short:  "Admin get bans type V3",
-	Long:   `Admin get bans type V3`,
+	Use:   "adminGetBansTypeV3",
+	Short: "Admin get bans type V3",
+	Long:  `Admin get bans type V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		bansService := &iam.BansService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -27,16 +28,15 @@ var AdminGetBansTypeV3Cmd = &cobra.Command{
 				TokenRepository: &repository.TokenRepositoryImpl{},
 			},
 		}
-		input := &bans.AdminGetBansTypeV3Params{
-		}
-ok,errOK := bansService.AdminGetBansTypeV3Short(input)
+		input := &bans.AdminGetBansTypeV3Params{}
+		ok, errOK := bansService.AdminGetBansTypeV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

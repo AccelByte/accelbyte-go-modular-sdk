@@ -8,8 +8,9 @@ package oAuth
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,29 +18,29 @@ import (
 
 // VerifyTokenCmd represents the VerifyToken command
 var VerifyTokenCmd = &cobra.Command{
-	Use:	"verifyToken",
-	Short:  "Verify token",
-	Long:   `Verify token`,
+	Use:   "verifyToken",
+	Short: "Verify token",
+	Long:  `Verify token`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuthService := &iam.OAuthService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
 			Session: sdkrepository.Session{
 				ConfigRepository: &repository.ConfigRepositoryImpl{},
-				TokenRepository: &repository.TokenRepositoryImpl{},
+				TokenRepository:  &repository.TokenRepositoryImpl{},
 			},
 		}
 		token, _ := cmd.Flags().GetString("token")
 		input := &o_auth.VerifyTokenParams{
 			Token: token,
 		}
-ok,errOK := oAuthService.VerifyTokenShort(input)
+		ok, errOK := oAuthService.VerifyTokenShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

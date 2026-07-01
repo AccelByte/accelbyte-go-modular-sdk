@@ -8,8 +8,9 @@ package country
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/country"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/country"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetCountryListV3Cmd represents the AdminGetCountryListV3 command
 var AdminGetCountryListV3Cmd = &cobra.Command{
-	Use:	"adminGetCountryListV3",
-	Short:  "Admin get country list V3",
-	Long:   `Admin get country list V3`,
+	Use:   "adminGetCountryListV3",
+	Short: "Admin get country list V3",
+	Long:  `Admin get country list V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		countryService := &iam.CountryService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,17 +31,17 @@ var AdminGetCountryListV3Cmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		filterBlacklist, _ := cmd.Flags().GetBool("filterBlacklist")
 		input := &country.AdminGetCountryListV3Params{
-			Namespace      : namespace,
+			Namespace:       namespace,
 			FilterBlacklist: &filterBlacklist,
 		}
-ok,errOK := countryService.AdminGetCountryListV3Short(input)
+		ok, errOK := countryService.AdminGetCountryListV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

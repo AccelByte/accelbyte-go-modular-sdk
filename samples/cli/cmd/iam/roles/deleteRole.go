@@ -8,8 +8,9 @@ package roles
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // DeleteRoleCmd represents the DeleteRole command
 var DeleteRoleCmd = &cobra.Command{
-	Use:	"deleteRole",
-	Short:  "Delete role",
-	Long:   `Delete role`,
+	Use:   "deleteRole",
+	Short: "Delete role",
+	Long:  `Delete role`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var DeleteRoleCmd = &cobra.Command{
 		input := &roles.DeleteRoleParams{
 			RoleID: roleId,
 		}
-errNoContent := rolesService.DeleteRoleShort(input)
+		errNoContent := rolesService.DeleteRoleShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

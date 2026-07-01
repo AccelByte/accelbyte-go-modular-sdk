@@ -9,9 +9,10 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,36 +20,36 @@ import (
 
 // ResetPasswordCmd represents the ResetPassword command
 var ResetPasswordCmd = &cobra.Command{
-	Use:	"resetPassword",
-	Short:  "Reset password",
-	Long:   `Reset password`,
+	Use:   "resetPassword",
+	Short: "Reset password",
+	Long:  `Reset password`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
 			Session: sdkrepository.Session{
 				ConfigRepository: &repository.ConfigRepositoryImpl{},
-				TokenRepository: &repository.TokenRepositoryImpl{},
+				TokenRepository:  &repository.TokenRepositoryImpl{},
 			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelResetPasswordRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users.ResetPasswordParams{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-errNoContent := usersService.ResetPasswordShort(input)
+		errNoContent := usersService.ResetPasswordShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

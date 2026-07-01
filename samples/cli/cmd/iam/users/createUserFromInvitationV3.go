@@ -9,9 +9,10 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // CreateUserFromInvitationV3Cmd represents the CreateUserFromInvitationV3 command
 var CreateUserFromInvitationV3Cmd = &cobra.Command{
-	Use:	"createUserFromInvitationV3",
-	Short:  "Create user from invitation V3",
-	Long:   `Create user from invitation V3`,
+	Use:   "createUserFromInvitationV3",
+	Short: "Create user from invitation V3",
+	Long:  `Create user from invitation V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,25 +32,25 @@ var CreateUserFromInvitationV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelUserCreateRequestV3
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		invitationId, _ := cmd.Flags().GetString("invitationId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users.CreateUserFromInvitationV3Params{
-			Body        : body,
+			Body:         body,
 			InvitationID: invitationId,
-			Namespace   : namespace,
+			Namespace:    namespace,
 		}
-created,errCreated := usersService.CreateUserFromInvitationV3Short(input)
+		created, errCreated := usersService.CreateUserFromInvitationV3Short(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-        slog.Info("Response CLI success", "response", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

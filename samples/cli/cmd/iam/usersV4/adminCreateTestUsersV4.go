@@ -9,9 +9,10 @@ package usersV4
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminCreateTestUsersV4Cmd represents the AdminCreateTestUsersV4 command
 var AdminCreateTestUsersV4Cmd = &cobra.Command{
-	Use:	"adminCreateTestUsersV4",
-	Short:  "Admin create test users V4",
-	Long:   `Admin create test users V4`,
+	Use:   "adminCreateTestUsersV4",
+	Short: "Admin create test users V4",
+	Long:  `Admin create test users V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var AdminCreateTestUsersV4Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.AccountCreateTestUsersRequestV4
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users_v4.AdminCreateTestUsersV4Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-created,errCreated := usersV4Service.AdminCreateTestUsersV4Short(input)
+		created, errCreated := usersV4Service.AdminCreateTestUsersV4Short(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-        slog.Info("Response CLI success", "response", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

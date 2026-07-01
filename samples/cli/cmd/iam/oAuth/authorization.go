@@ -8,19 +8,20 @@ package oAuth
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
+	"net/http"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
-	"net/http"
 )
 
 // AuthorizationCmd represents the Authorization command
 var AuthorizationCmd = &cobra.Command{
-	Use:	"authorization",
-	Short:  "Authorization",
-	Long:   `Authorization`,
+	Use:   "authorization",
+	Short: "Authorization",
+	Long:  `Authorization`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuthService := &iam.OAuthService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -36,28 +37,28 @@ var AuthorizationCmd = &cobra.Command{
 		scope, _ := cmd.Flags().GetString("scope")
 		state, _ := cmd.Flags().GetString("state")
 		httpClient := &http.Client{
-		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-		   },
+			},
 		}
 		input := &o_auth.AuthorizationParams{
-			Login        : &login,
-			Password     : &password,
-			Scope        : &scope,
-			State        : &state,
-			ClientID     : clientId,
-			RedirectURI  : redirectUri,
-			ResponseType : responseType,
-			HTTPClient: httpClient,
+			Login:        &login,
+			Password:     &password,
+			Scope:        &scope,
+			State:        &state,
+			ClientID:     clientId,
+			RedirectURI:  redirectUri,
+			ResponseType: responseType,
+			HTTPClient:   httpClient,
 		}
-_,errFound := oAuthService.AuthorizationShort(input)
+		_, errFound := oAuthService.AuthorizationShort(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

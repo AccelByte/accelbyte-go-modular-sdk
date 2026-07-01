@@ -8,8 +8,9 @@ package inputValidations
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/input_validations"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/input_validations"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminResetInputValidationsCmd represents the AdminResetInputValidations command
 var AdminResetInputValidationsCmd = &cobra.Command{
-	Use:	"adminResetInputValidations",
-	Short:  "Admin reset input validations",
-	Long:   `Admin reset input validations`,
+	Use:   "adminResetInputValidations",
+	Short: "Admin reset input validations",
+	Long:  `Admin reset input validations`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inputValidationsService := &iam.InputValidationsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var AdminResetInputValidationsCmd = &cobra.Command{
 		input := &input_validations.AdminResetInputValidationsParams{
 			Field: field,
 		}
-errNoContent := inputValidationsService.AdminResetInputValidationsShort(input)
+		errNoContent := inputValidationsService.AdminResetInputValidationsShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

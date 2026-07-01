@@ -9,9 +9,10 @@ package roles
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // RemoveRoleMembersCmd represents the RemoveRoleMembers command
 var RemoveRoleMembersCmd = &cobra.Command{
-	Use:	"removeRoleMembers",
-	Short:  "Remove role members",
-	Long:   `Remove role members`,
+	Use:   "removeRoleMembers",
+	Short: "Remove role members",
+	Long:  `Remove role members`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var RemoveRoleMembersCmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelRoleMembersRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		roleId, _ := cmd.Flags().GetString("roleId")
 		input := &roles.RemoveRoleMembersParams{
-			Body  : body,
+			Body:   body,
 			RoleID: roleId,
 		}
-errNoContent := rolesService.RemoveRoleMembersShort(input)
+		errNoContent := rolesService.RemoveRoleMembersShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

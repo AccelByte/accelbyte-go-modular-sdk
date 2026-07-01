@@ -8,8 +8,9 @@ package oAuth20Extension
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // LogoutCmd represents the Logout command
 var LogoutCmd = &cobra.Command{
-	Use:	"logout",
-	Short:  "Logout",
-	Long:   `Logout`,
+	Use:   "logout",
+	Short: "Logout",
+	Long:  `Logout`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -27,16 +28,15 @@ var LogoutCmd = &cobra.Command{
 				TokenRepository: &repository.TokenRepositoryImpl{},
 			},
 		}
-		input := &o_auth2_0_extension.LogoutParams{
-		}
-errNoContent := oAuth20ExtensionService.LogoutShort(input)
+		input := &o_auth2_0_extension.LogoutParams{}
+		errNoContent := oAuth20ExtensionService.LogoutShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

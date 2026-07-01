@@ -8,8 +8,9 @@ package clients
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // GetClientsCmd represents the GetClients command
 var GetClientsCmd = &cobra.Command{
-	Use:	"getClients",
-	Short:  "Get clients",
-	Long:   `Get clients`,
+	Use:   "getClients",
+	Short: "Get clients",
+	Long:  `Get clients`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsService := &iam.ClientsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -27,16 +28,15 @@ var GetClientsCmd = &cobra.Command{
 				TokenRepository: &repository.TokenRepositoryImpl{},
 			},
 		}
-		input := &clients.GetClientsParams{
-		}
-ok,errOK := clientsService.GetClientsShort(input)
+		input := &clients.GetClientsParams{}
+		ok, errOK := clientsService.GetClientsShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

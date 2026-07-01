@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicGetMyUserV3Cmd represents the PublicGetMyUserV3 command
 var PublicGetMyUserV3Cmd = &cobra.Command{
-	Use:	"publicGetMyUserV3",
-	Short:  "Public get my user V3",
-	Long:   `Public get my user V3`,
+	Use:   "publicGetMyUserV3",
+	Short: "Public get my user V3",
+	Long:  `Public get my user V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var PublicGetMyUserV3Cmd = &cobra.Command{
 		input := &users.PublicGetMyUserV3Params{
 			IncludeAllPlatforms: &includeAllPlatforms,
 		}
-ok,errOK := usersService.PublicGetMyUserV3Short(input)
+		ok, errOK := usersService.PublicGetMyUserV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

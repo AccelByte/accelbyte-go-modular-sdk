@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminListUsersV3Cmd represents the AdminListUsersV3 command
 var AdminListUsersV3Cmd = &cobra.Command{
-	Use:	"adminListUsersV3",
-	Short:  "Admin list users V3",
-	Long:   `Admin list users V3`,
+	Use:   "adminListUsersV3",
+	Short: "Admin list users V3",
+	Long:  `Admin list users V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,17 +33,17 @@ var AdminListUsersV3Cmd = &cobra.Command{
 		offset, _ := cmd.Flags().GetInt64("offset")
 		input := &users.AdminListUsersV3Params{
 			Namespace: namespace,
-			Limit    : &limit,
-			Offset   : &offset,
+			Limit:     &limit,
+			Offset:    &offset,
 		}
-ok,errOK := usersService.AdminListUsersV3Short(input)
+		ok, errOK := usersService.AdminListUsersV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -9,9 +9,10 @@ package clients
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminUpdateClientV3Cmd represents the AdminUpdateClientV3 command
 var AdminUpdateClientV3Cmd = &cobra.Command{
-	Use:	"adminUpdateClientV3",
-	Short:  "Admin update client V3",
-	Long:   `Admin update client V3`,
+	Use:   "adminUpdateClientV3",
+	Short: "Admin update client V3",
+	Long:  `Admin update client V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsService := &iam.ClientsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,25 +32,25 @@ var AdminUpdateClientV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ClientmodelClientUpdateV3Request
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		clientId, _ := cmd.Flags().GetString("clientId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &clients.AdminUpdateClientV3Params{
-			Body     : body,
-			ClientID : clientId,
+			Body:      body,
+			ClientID:  clientId,
 			Namespace: namespace,
 		}
-ok,errOK := clientsService.AdminUpdateClientV3Short(input)
+		ok, errOK := clientsService.AdminUpdateClientV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

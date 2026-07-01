@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminDeleteUserRoleV3Cmd represents the AdminDeleteUserRoleV3 command
 var AdminDeleteUserRoleV3Cmd = &cobra.Command{
-	Use:	"adminDeleteUserRoleV3",
-	Short:  "Admin delete user role V3",
-	Long:   `Admin delete user role V3`,
+	Use:   "adminDeleteUserRoleV3",
+	Short: "Admin delete user role V3",
+	Long:  `Admin delete user role V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,17 +33,17 @@ var AdminDeleteUserRoleV3Cmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AdminDeleteUserRoleV3Params{
 			Namespace: namespace,
-			RoleID   : roleId,
-			UserID   : userId,
+			RoleID:    roleId,
+			UserID:    userId,
 		}
-errNoContent := usersService.AdminDeleteUserRoleV3Short(input)
+		errNoContent := usersService.AdminDeleteUserRoleV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

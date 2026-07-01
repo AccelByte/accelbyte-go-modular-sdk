@@ -8,8 +8,9 @@ package config
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/config"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/config"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetConfigValueV3Cmd represents the AdminGetConfigValueV3 command
 var AdminGetConfigValueV3Cmd = &cobra.Command{
-	Use:	"adminGetConfigValueV3",
-	Short:  "Admin get config value V3",
-	Long:   `Admin get config value V3`,
+	Use:   "adminGetConfigValueV3",
+	Short: "Admin get config value V3",
+	Long:  `Admin get config value V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &iam.ConfigService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,14 +34,14 @@ var AdminGetConfigValueV3Cmd = &cobra.Command{
 			ConfigKey: configKey,
 			Namespace: namespace,
 		}
-ok,errOK := configService.AdminGetConfigValueV3Short(input)
+		ok, errOK := configService.AdminGetConfigValueV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

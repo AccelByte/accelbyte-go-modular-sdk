@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // DeleteUserPermissionCmd represents the DeleteUserPermission command
 var DeleteUserPermissionCmd = &cobra.Command{
-	Use:	"deleteUserPermission",
-	Short:  "Delete user permission",
-	Long:   `Delete user permission`,
+	Use:   "deleteUserPermission",
+	Short: "Delete user permission",
+	Long:  `Delete user permission`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,19 +33,19 @@ var DeleteUserPermissionCmd = &cobra.Command{
 		resource, _ := cmd.Flags().GetString("resource")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.DeleteUserPermissionParams{
-			Action   : action,
+			Action:    action,
 			Namespace: namespace,
-			Resource : resource,
-			UserID   : userId,
+			Resource:  resource,
+			UserID:    userId,
 		}
-errNoContent := usersService.DeleteUserPermissionShort(input)
+		errNoContent := usersService.DeleteUserPermissionShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

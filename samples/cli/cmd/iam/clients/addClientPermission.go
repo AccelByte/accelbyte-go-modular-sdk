@@ -8,8 +8,9 @@ package clients
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AddClientPermissionCmd represents the AddClientPermission command
 var AddClientPermissionCmd = &cobra.Command{
-	Use:	"addClientPermission",
-	Short:  "Add client permission",
-	Long:   `Add client permission`,
+	Use:   "addClientPermission",
+	Short: "Add client permission",
+	Long:  `Add client permission`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsService := &iam.ClientsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,18 +32,18 @@ var AddClientPermissionCmd = &cobra.Command{
 		clientId, _ := cmd.Flags().GetString("clientId")
 		resource, _ := cmd.Flags().GetString("resource")
 		input := &clients.AddClientPermissionParams{
-			Action  : action,
+			Action:   action,
 			ClientID: clientId,
 			Resource: resource,
 		}
-errNoContent := clientsService.AddClientPermissionShort(input)
+		errNoContent := clientsService.AddClientPermissionShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

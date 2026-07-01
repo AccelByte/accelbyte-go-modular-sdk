@@ -9,9 +9,10 @@ package usersV4
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminDisableUserMFAV4Cmd represents the AdminDisableUserMFAV4 command
 var AdminDisableUserMFAV4Cmd = &cobra.Command{
-	Use:	"adminDisableUserMFAV4",
-	Short:  "Admin disable user MFAV4",
-	Long:   `Admin disable user MFAV4`,
+	Use:   "adminDisableUserMFAV4",
+	Short: "Admin disable user MFAV4",
+	Long:  `Admin disable user MFAV4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,25 +32,25 @@ var AdminDisableUserMFAV4Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelDisableMFARequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users_v4.AdminDisableUserMFAV4Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
-			UserID   : userId,
+			UserID:    userId,
 		}
-errNoContent := usersV4Service.AdminDisableUserMFAV4Short(input)
+		errNoContent := usersV4Service.AdminDisableUserMFAV4Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

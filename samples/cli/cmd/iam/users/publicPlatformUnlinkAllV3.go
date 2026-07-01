@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicPlatformUnlinkAllV3Cmd represents the PublicPlatformUnlinkAllV3 command
 var PublicPlatformUnlinkAllV3Cmd = &cobra.Command{
-	Use:	"publicPlatformUnlinkAllV3",
-	Short:  "Public platform unlink all V3",
-	Long:   `Public platform unlink all V3`,
+	Use:   "publicPlatformUnlinkAllV3",
+	Short: "Public platform unlink all V3",
+	Long:  `Public platform unlink all V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,17 +31,17 @@ var PublicPlatformUnlinkAllV3Cmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &users.PublicPlatformUnlinkAllV3Params{
-			Namespace : namespace,
+			Namespace:  namespace,
 			PlatformID: platformId,
 		}
-errNoContent := usersService.PublicPlatformUnlinkAllV3Short(input)
+		errNoContent := usersService.PublicPlatformUnlinkAllV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -9,8 +9,9 @@ package userProfile
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -18,9 +19,9 @@ import (
 
 // UpdateCustomAttributesPartiallyCmd represents the UpdateCustomAttributesPartially command
 var UpdateCustomAttributesPartiallyCmd = &cobra.Command{
-	Use:	"updateCustomAttributesPartially",
-	Short:  "Update custom attributes partially",
-	Long:   `Update custom attributes partially`,
+	Use:   "updateCustomAttributesPartially",
+	Short: "Update custom attributes partially",
+	Long:  `Update custom attributes partially`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userProfileService := &basic.UserProfileService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,23 +33,23 @@ var UpdateCustomAttributesPartiallyCmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body map[string]interface{}
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &user_profile.UpdateCustomAttributesPartiallyParams{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
-			UserID   : userId,
+			UserID:    userId,
 		}
-ok,errOK := userProfileService.UpdateCustomAttributesPartiallyShort(input)
+		ok, errOK := userProfileService.UpdateCustomAttributesPartiallyShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

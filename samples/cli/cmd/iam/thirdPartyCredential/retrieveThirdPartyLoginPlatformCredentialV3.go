@@ -8,8 +8,9 @@ package thirdPartyCredential
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // RetrieveThirdPartyLoginPlatformCredentialV3Cmd represents the RetrieveThirdPartyLoginPlatformCredentialV3 command
 var RetrieveThirdPartyLoginPlatformCredentialV3Cmd = &cobra.Command{
-	Use:	"retrieveThirdPartyLoginPlatformCredentialV3",
-	Short:  "Retrieve third party login platform credential V3",
-	Long:   `Retrieve third party login platform credential V3`,
+	Use:   "retrieveThirdPartyLoginPlatformCredentialV3",
+	Short: "Retrieve third party login platform credential V3",
+	Long:  `Retrieve third party login platform credential V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		thirdPartyCredentialService := &iam.ThirdPartyCredentialService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,17 +31,17 @@ var RetrieveThirdPartyLoginPlatformCredentialV3Cmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &third_party_credential.RetrieveThirdPartyLoginPlatformCredentialV3Params{
-			Namespace : namespace,
+			Namespace:  namespace,
 			PlatformID: platformId,
 		}
-ok,errOK := thirdPartyCredentialService.RetrieveThirdPartyLoginPlatformCredentialV3Short(input)
+		ok, errOK := thirdPartyCredentialService.RetrieveThirdPartyLoginPlatformCredentialV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -8,8 +8,9 @@ package namespace
 
 import (
 	"log/slog"
-	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // GetNamespace1Cmd represents the GetNamespace1 command
 var GetNamespace1Cmd = &cobra.Command{
-	Use:	"getNamespace1",
-	Short:  "Get namespace 1",
-	Long:   `Get namespace 1`,
+	Use:   "getNamespace1",
+	Short: "Get namespace 1",
+	Long:  `Get namespace 1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		namespaceService := &basic.NamespaceService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var GetNamespace1Cmd = &cobra.Command{
 		input := &namespace_.GetNamespace1Params{
 			Namespace: namespace,
 		}
-ok,errOK := namespaceService.GetNamespace1Short(input)
+		ok, errOK := namespaceService.GetNamespace1Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

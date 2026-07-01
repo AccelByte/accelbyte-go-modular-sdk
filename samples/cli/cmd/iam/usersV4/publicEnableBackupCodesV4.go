@@ -8,8 +8,9 @@ package usersV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicEnableBackupCodesV4Cmd represents the PublicEnableBackupCodesV4 command
 var PublicEnableBackupCodesV4Cmd = &cobra.Command{
-	Use:	"publicEnableBackupCodesV4",
-	Short:  "Public enable backup codes V4",
-	Long:   `Public enable backup codes V4`,
+	Use:   "publicEnableBackupCodesV4",
+	Short: "Public enable backup codes V4",
+	Long:  `Public enable backup codes V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,17 +31,17 @@ var PublicEnableBackupCodesV4Cmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		languageTag, _ := cmd.Flags().GetString("languageTag")
 		input := &users_v4.PublicEnableBackupCodesV4Params{
-			Namespace  : namespace,
+			Namespace:   namespace,
 			LanguageTag: &languageTag,
 		}
-errNoContent := usersV4Service.PublicEnableBackupCodesV4Short(input)
+		errNoContent := usersV4Service.PublicEnableBackupCodesV4Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

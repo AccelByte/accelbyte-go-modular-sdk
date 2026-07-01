@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // ListCrossNamespaceAccountLinkCmd represents the ListCrossNamespaceAccountLink command
 var ListCrossNamespaceAccountLinkCmd = &cobra.Command{
-	Use:	"listCrossNamespaceAccountLink",
-	Short:  "List cross namespace account link",
-	Long:   `List cross namespace account link`,
+	Use:   "listCrossNamespaceAccountLink",
+	Short: "List cross namespace account link",
+	Long:  `List cross namespace account link`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,19 +33,19 @@ var ListCrossNamespaceAccountLinkCmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &users.ListCrossNamespaceAccountLinkParams{
-			PlatformID  : &platformId,
+			PlatformID:   &platformId,
 			LinkingToken: linkingToken,
-			Namespace   : namespace,
-			UserID      : userId,
+			Namespace:    namespace,
+			UserID:       userId,
 		}
-errOK := usersService.ListCrossNamespaceAccountLinkShort(input)
+		errOK := usersService.ListCrossNamespaceAccountLinkShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

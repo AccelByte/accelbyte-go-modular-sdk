@@ -8,8 +8,9 @@ package usersV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGenerateBackupCodesV4Cmd represents the AdminGenerateBackupCodesV4 command
 var AdminGenerateBackupCodesV4Cmd = &cobra.Command{
-	Use:	"adminGenerateBackupCodesV4",
-	Short:  "Admin generate backup codes V4",
-	Long:   `Admin generate backup codes V4`,
+	Use:   "adminGenerateBackupCodesV4",
+	Short: "Admin generate backup codes V4",
+	Long:  `Admin generate backup codes V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var AdminGenerateBackupCodesV4Cmd = &cobra.Command{
 		input := &users_v4.AdminGenerateBackupCodesV4Params{
 			LanguageTag: &languageTag,
 		}
-errOK := usersV4Service.AdminGenerateBackupCodesV4Short(input)
+		errOK := usersV4Service.AdminGenerateBackupCodesV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

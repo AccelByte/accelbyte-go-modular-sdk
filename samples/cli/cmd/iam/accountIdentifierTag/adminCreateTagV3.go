@@ -9,9 +9,10 @@ package accountIdentifierTag
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_identifier_tag"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_identifier_tag"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminCreateTagV3Cmd represents the AdminCreateTagV3 command
 var AdminCreateTagV3Cmd = &cobra.Command{
-	Use:	"adminCreateTagV3",
-	Short:  "Admin create tag V3",
-	Long:   `Admin create tag V3`,
+	Use:   "adminCreateTagV3",
+	Short: "Admin create tag V3",
+	Long:  `Admin create tag V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		accountIdentifierTagService := &iam.AccountIdentifierTagService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var AdminCreateTagV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelTagCreateRequestV3
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &account_identifier_tag.AdminCreateTagV3Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-created,errCreated := accountIdentifierTagService.AdminCreateTagV3Short(input)
+		created, errCreated := accountIdentifierTagService.AdminCreateTagV3Short(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-        slog.Info("Response CLI success", "response", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

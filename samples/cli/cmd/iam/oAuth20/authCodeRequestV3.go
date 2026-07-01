@@ -8,19 +8,20 @@ package oAuth20
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	"net/http"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
-	"net/http"
 )
 
 // AuthCodeRequestV3Cmd represents the AuthCodeRequestV3 command
 var AuthCodeRequestV3Cmd = &cobra.Command{
-	Use:	"authCodeRequestV3",
-	Short:  "Auth code request V3",
-	Long:   `Auth code request V3`,
+	Use:   "authCodeRequestV3",
+	Short: "Auth code request V3",
+	Long:  `Auth code request V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,25 +34,25 @@ var AuthCodeRequestV3Cmd = &cobra.Command{
 		clientId, _ := cmd.Flags().GetString("clientId")
 		redirectUri, _ := cmd.Flags().GetString("redirectUri")
 		httpClient := &http.Client{
-		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-		   },
+			},
 		}
 		input := &o_auth2_0.AuthCodeRequestV3Params{
-			PlatformID  : platformId,
-			ClientID    : &clientId,
-			RedirectURI : &redirectUri,
-			RequestID   : requestId,
-			HTTPClient: httpClient,
+			PlatformID:  platformId,
+			ClientID:    &clientId,
+			RedirectURI: &redirectUri,
+			RequestID:   requestId,
+			HTTPClient:  httpClient,
 		}
-_,errFound := oAuth20Service.AuthCodeRequestV3Short(input)
+		_, errFound := oAuth20Service.AuthCodeRequestV3Short(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

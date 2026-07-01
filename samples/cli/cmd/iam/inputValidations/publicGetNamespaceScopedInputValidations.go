@@ -8,8 +8,9 @@ package inputValidations
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/input_validations"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/input_validations"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicGetNamespaceScopedInputValidationsCmd represents the PublicGetNamespaceScopedInputValidations command
 var PublicGetNamespaceScopedInputValidationsCmd = &cobra.Command{
-	Use:	"publicGetNamespaceScopedInputValidations",
-	Short:  "Public get namespace scoped input validations",
-	Long:   `Public get namespace scoped input validations`,
+	Use:   "publicGetNamespaceScopedInputValidations",
+	Short: "Public get namespace scoped input validations",
+	Long:  `Public get namespace scoped input validations`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inputValidationsService := &iam.InputValidationsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,18 +32,18 @@ var PublicGetNamespaceScopedInputValidationsCmd = &cobra.Command{
 		defaultOnEmpty, _ := cmd.Flags().GetBool("defaultOnEmpty")
 		languageCode, _ := cmd.Flags().GetString("languageCode")
 		input := &input_validations.PublicGetNamespaceScopedInputValidationsParams{
-			Namespace     : namespace,
+			Namespace:      namespace,
 			DefaultOnEmpty: &defaultOnEmpty,
-			LanguageCode  : &languageCode,
+			LanguageCode:   &languageCode,
 		}
-ok,errOK := inputValidationsService.PublicGetNamespaceScopedInputValidationsShort(input)
+		ok, errOK := inputValidationsService.PublicGetNamespaceScopedInputValidationsShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -9,9 +9,10 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminUpdateAgeRestrictionConfigV2Cmd represents the AdminUpdateAgeRestrictionConfigV2 command
 var AdminUpdateAgeRestrictionConfigV2Cmd = &cobra.Command{
-	Use:	"adminUpdateAgeRestrictionConfigV2",
-	Short:  "Admin update age restriction config V2",
-	Long:   `Admin update age restriction config V2`,
+	Use:   "adminUpdateAgeRestrictionConfigV2",
+	Short: "Admin update age restriction config V2",
+	Long:  `Admin update age restriction config V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var AdminUpdateAgeRestrictionConfigV2Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelAgeRestrictionRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users.AdminUpdateAgeRestrictionConfigV2Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-ok,errOK := usersService.AdminUpdateAgeRestrictionConfigV2Short(input)
+		ok, errOK := usersService.AdminUpdateAgeRestrictionConfigV2Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

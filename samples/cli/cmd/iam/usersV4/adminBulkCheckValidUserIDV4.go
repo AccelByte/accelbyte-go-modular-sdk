@@ -9,9 +9,10 @@ package usersV4
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminBulkCheckValidUserIDV4Cmd represents the AdminBulkCheckValidUserIDV4 command
 var AdminBulkCheckValidUserIDV4Cmd = &cobra.Command{
-	Use:	"adminBulkCheckValidUserIDV4",
-	Short:  "Admin bulk check valid user IDV4",
-	Long:   `Admin bulk check valid user IDV4`,
+	Use:   "adminBulkCheckValidUserIDV4",
+	Short: "Admin bulk check valid user IDV4",
+	Long:  `Admin bulk check valid user IDV4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var AdminBulkCheckValidUserIDV4Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelCheckValidUserIDRequestV4
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users_v4.AdminBulkCheckValidUserIDV4Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-ok,errOK := usersV4Service.AdminBulkCheckValidUserIDV4Short(input)
+		ok, errOK := usersV4Service.AdminBulkCheckValidUserIDV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

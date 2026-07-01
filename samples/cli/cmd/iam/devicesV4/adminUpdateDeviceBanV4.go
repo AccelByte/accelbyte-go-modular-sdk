@@ -9,9 +9,10 @@ package devicesV4
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminUpdateDeviceBanV4Cmd represents the AdminUpdateDeviceBanV4 command
 var AdminUpdateDeviceBanV4Cmd = &cobra.Command{
-	Use:	"adminUpdateDeviceBanV4",
-	Short:  "Admin update device ban V4",
-	Long:   `Admin update device ban V4`,
+	Use:   "adminUpdateDeviceBanV4",
+	Short: "Admin update device ban V4",
+	Long:  `Admin update device ban V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		devicesV4Service := &iam.DevicesV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,25 +32,25 @@ var AdminUpdateDeviceBanV4Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelDeviceBanUpdateRequestV4
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		banId, _ := cmd.Flags().GetString("banId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &devices_v4.AdminUpdateDeviceBanV4Params{
-			Body     : body,
-			BanID    : banId,
+			Body:      body,
+			BanID:     banId,
 			Namespace: namespace,
 		}
-errNoContent := devicesV4Service.AdminUpdateDeviceBanV4Short(input)
+		errNoContent := devicesV4Service.AdminUpdateDeviceBanV4Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

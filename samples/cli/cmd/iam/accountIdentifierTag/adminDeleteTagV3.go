@@ -8,8 +8,9 @@ package accountIdentifierTag
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_identifier_tag"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_identifier_tag"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminDeleteTagV3Cmd represents the AdminDeleteTagV3 command
 var AdminDeleteTagV3Cmd = &cobra.Command{
-	Use:	"adminDeleteTagV3",
-	Short:  "Admin delete tag V3",
-	Long:   `Admin delete tag V3`,
+	Use:   "adminDeleteTagV3",
+	Short: "Admin delete tag V3",
+	Long:  `Admin delete tag V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		accountIdentifierTagService := &iam.AccountIdentifierTagService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var AdminDeleteTagV3Cmd = &cobra.Command{
 		tagId, _ := cmd.Flags().GetString("tagId")
 		input := &account_identifier_tag.AdminDeleteTagV3Params{
 			Namespace: namespace,
-			TagID    : tagId,
+			TagID:     tagId,
 		}
-errNoContent := accountIdentifierTagService.AdminDeleteTagV3Short(input)
+		errNoContent := accountIdentifierTagService.AdminDeleteTagV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

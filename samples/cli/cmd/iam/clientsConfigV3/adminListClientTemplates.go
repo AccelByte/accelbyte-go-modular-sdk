@@ -8,8 +8,9 @@ package clientsConfigV3
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminListClientTemplatesCmd represents the AdminListClientTemplates command
 var AdminListClientTemplatesCmd = &cobra.Command{
-	Use:	"adminListClientTemplates",
-	Short:  "Admin list client templates",
-	Long:   `Admin list client templates`,
+	Use:   "adminListClientTemplates",
+	Short: "Admin list client templates",
+	Long:  `Admin list client templates`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsConfigV3Service := &iam.ClientsConfigV3Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -27,16 +28,15 @@ var AdminListClientTemplatesCmd = &cobra.Command{
 				TokenRepository: &repository.TokenRepositoryImpl{},
 			},
 		}
-		input := &clients_config_v3.AdminListClientTemplatesParams{
-		}
-ok,errOK := clientsConfigV3Service.AdminListClientTemplatesShort(input)
+		input := &clients_config_v3.AdminListClientTemplatesParams{}
+		ok, errOK := clientsConfigV3Service.AdminListClientTemplatesShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

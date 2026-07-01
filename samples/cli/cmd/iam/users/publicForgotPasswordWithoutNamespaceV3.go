@@ -9,9 +9,10 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // PublicForgotPasswordWithoutNamespaceV3Cmd represents the PublicForgotPasswordWithoutNamespaceV3 command
 var PublicForgotPasswordWithoutNamespaceV3Cmd = &cobra.Command{
-	Use:	"publicForgotPasswordWithoutNamespaceV3",
-	Short:  "Public forgot password without namespace V3",
-	Long:   `Public forgot password without namespace V3`,
+	Use:   "publicForgotPasswordWithoutNamespaceV3",
+	Short: "Public forgot password without namespace V3",
+	Long:  `Public forgot password without namespace V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,21 +32,21 @@ var PublicForgotPasswordWithoutNamespaceV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelForgotPasswordWithoutNamespaceRequestV3
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &users.PublicForgotPasswordWithoutNamespaceV3Params{
 			Body: body,
 		}
-ok,errOK := usersService.PublicForgotPasswordWithoutNamespaceV3Short(input)
+		ok, errOK := usersService.PublicForgotPasswordWithoutNamespaceV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

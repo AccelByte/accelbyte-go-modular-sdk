@@ -8,8 +8,9 @@ package usersV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicEnableMyAuthenticatorV4Cmd represents the PublicEnableMyAuthenticatorV4 command
 var PublicEnableMyAuthenticatorV4Cmd = &cobra.Command{
-	Use:	"publicEnableMyAuthenticatorV4",
-	Short:  "Public enable my authenticator V4",
-	Long:   `Public enable my authenticator V4`,
+	Use:   "publicEnableMyAuthenticatorV4",
+	Short: "Public enable my authenticator V4",
+	Long:  `Public enable my authenticator V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,17 +31,17 @@ var PublicEnableMyAuthenticatorV4Cmd = &cobra.Command{
 		code, _ := cmd.Flags().GetString("code")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users_v4.PublicEnableMyAuthenticatorV4Params{
-			Code     : code,
+			Code:      code,
 			Namespace: namespace,
 		}
-errNoContent := usersV4Service.PublicEnableMyAuthenticatorV4Short(input)
+		errNoContent := usersV4Service.PublicEnableMyAuthenticatorV4Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

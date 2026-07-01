@@ -9,9 +9,10 @@ package clients
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminUpdateClientPermissionV3Cmd represents the AdminUpdateClientPermissionV3 command
 var AdminUpdateClientPermissionV3Cmd = &cobra.Command{
-	Use:	"adminUpdateClientPermissionV3",
-	Short:  "Admin update client permission V3",
-	Long:   `Admin update client permission V3`,
+	Use:   "adminUpdateClientPermissionV3",
+	Short: "Admin update client permission V3",
+	Long:  `Admin update client permission V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsService := &iam.ClientsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,25 +32,25 @@ var AdminUpdateClientPermissionV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.AccountcommonClientPermissionsV3
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		clientId, _ := cmd.Flags().GetString("clientId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &clients.AdminUpdateClientPermissionV3Params{
-			Body     : body,
-			ClientID : clientId,
+			Body:      body,
+			ClientID:  clientId,
 			Namespace: namespace,
 		}
-errNoContent := clientsService.AdminUpdateClientPermissionV3Short(input)
+		errNoContent := clientsService.AdminUpdateClientPermissionV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

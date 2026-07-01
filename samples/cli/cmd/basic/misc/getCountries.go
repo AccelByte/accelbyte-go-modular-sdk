@@ -8,8 +8,9 @@ package misc
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // GetCountriesCmd represents the GetCountries command
 var GetCountriesCmd = &cobra.Command{
-	Use:	"getCountries",
-	Short:  "Get countries",
-	Long:   `Get countries`,
+	Use:   "getCountries",
+	Short: "Get countries",
+	Long:  `Get countries`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		miscService := &basic.MiscService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var GetCountriesCmd = &cobra.Command{
 		lang, _ := cmd.Flags().GetString("lang")
 		input := &misc.GetCountriesParams{
 			Namespace: namespace,
-			Lang     : &lang,
+			Lang:      &lang,
 		}
-ok,errOK := miscService.GetCountriesShort(input)
+		ok, errOK := miscService.GetCountriesShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

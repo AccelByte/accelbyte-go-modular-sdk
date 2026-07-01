@@ -8,8 +8,9 @@ package roles
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetRoleAdminStatusV3Cmd represents the AdminGetRoleAdminStatusV3 command
 var AdminGetRoleAdminStatusV3Cmd = &cobra.Command{
-	Use:	"adminGetRoleAdminStatusV3",
-	Short:  "Admin get role admin status V3",
-	Long:   `Admin get role admin status V3`,
+	Use:   "adminGetRoleAdminStatusV3",
+	Short: "Admin get role admin status V3",
+	Long:  `Admin get role admin status V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var AdminGetRoleAdminStatusV3Cmd = &cobra.Command{
 		input := &roles.AdminGetRoleAdminStatusV3Params{
 			RoleID: roleId,
 		}
-ok,errOK := rolesService.AdminGetRoleAdminStatusV3Short(input)
+		ok, errOK := rolesService.AdminGetRoleAdminStatusV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

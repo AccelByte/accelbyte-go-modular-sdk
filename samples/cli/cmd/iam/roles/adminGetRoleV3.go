@@ -8,8 +8,9 @@ package roles
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetRoleV3Cmd represents the AdminGetRoleV3 command
 var AdminGetRoleV3Cmd = &cobra.Command{
-	Use:	"adminGetRoleV3",
-	Short:  "Admin get role V3",
-	Long:   `Admin get role V3`,
+	Use:   "adminGetRoleV3",
+	Short: "Admin get role V3",
+	Long:  `Admin get role V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var AdminGetRoleV3Cmd = &cobra.Command{
 		input := &roles.AdminGetRoleV3Params{
 			RoleID: roleId,
 		}
-ok,errOK := rolesService.AdminGetRoleV3Short(input)
+		ok, errOK := rolesService.AdminGetRoleV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -9,9 +9,10 @@ package userProfile
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // CreateMyProfileCmd represents the CreateMyProfile command
 var CreateMyProfileCmd = &cobra.Command{
-	Use:	"createMyProfile",
-	Short:  "Create my profile",
-	Long:   `Create my profile`,
+	Use:   "createMyProfile",
+	Short: "Create my profile",
+	Long:  `Create my profile`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userProfileService := &basic.UserProfileService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,22 +33,22 @@ var CreateMyProfileCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *basicclientmodels.UserProfilePrivateCreate
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &user_profile.CreateMyProfileParams{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-created,errCreated := userProfileService.CreateMyProfileShort(input)
+		created, errCreated := userProfileService.CreateMyProfileShort(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-        slog.Info("Response CLI success", "response", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

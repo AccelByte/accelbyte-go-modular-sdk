@@ -8,8 +8,9 @@ package devicesV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetDeviceTypesV4Cmd represents the AdminGetDeviceTypesV4 command
 var AdminGetDeviceTypesV4Cmd = &cobra.Command{
-	Use:	"adminGetDeviceTypesV4",
-	Short:  "Admin get device types V4",
-	Long:   `Admin get device types V4`,
+	Use:   "adminGetDeviceTypesV4",
+	Short: "Admin get device types V4",
+	Long:  `Admin get device types V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		devicesV4Service := &iam.DevicesV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var AdminGetDeviceTypesV4Cmd = &cobra.Command{
 		input := &devices_v4.AdminGetDeviceTypesV4Params{
 			Namespace: namespace,
 		}
-ok,errOK := devicesV4Service.AdminGetDeviceTypesV4Short(input)
+		ok, errOK := devicesV4Service.AdminGetDeviceTypesV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

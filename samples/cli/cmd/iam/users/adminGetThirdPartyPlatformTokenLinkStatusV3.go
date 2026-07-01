@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetThirdPartyPlatformTokenLinkStatusV3Cmd represents the AdminGetThirdPartyPlatformTokenLinkStatusV3 command
 var AdminGetThirdPartyPlatformTokenLinkStatusV3Cmd = &cobra.Command{
-	Use:	"adminGetThirdPartyPlatformTokenLinkStatusV3",
-	Short:  "Admin get third party platform token link status V3",
-	Long:   `Admin get third party platform token link status V3`,
+	Use:   "adminGetThirdPartyPlatformTokenLinkStatusV3",
+	Short: "Admin get third party platform token link status V3",
+	Long:  `Admin get third party platform token link status V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,18 +34,18 @@ var AdminGetThirdPartyPlatformTokenLinkStatusV3Cmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AdminGetThirdPartyPlatformTokenLinkStatusV3Params{
 			PlatformToken: platformToken,
-			Namespace    : namespace,
-			PlatformID   : platformId,
-			UserID       : userId,
+			Namespace:     namespace,
+			PlatformID:    platformId,
+			UserID:        userId,
 		}
-ok,errOK := usersService.AdminGetThirdPartyPlatformTokenLinkStatusV3Short(input)
+		ok, errOK := usersService.AdminGetThirdPartyPlatformTokenLinkStatusV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -9,9 +9,10 @@ package loginAllowlist
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/login_allowlist"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/login_allowlist"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminUpdateLoginAllowlistV3Cmd represents the AdminUpdateLoginAllowlistV3 command
 var AdminUpdateLoginAllowlistV3Cmd = &cobra.Command{
-	Use:	"adminUpdateLoginAllowlistV3",
-	Short:  "Admin update login allowlist V3",
-	Long:   `Admin update login allowlist V3`,
+	Use:   "adminUpdateLoginAllowlistV3",
+	Short: "Admin update login allowlist V3",
+	Long:  `Admin update login allowlist V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		loginAllowlistService := &iam.LoginAllowlistService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var AdminUpdateLoginAllowlistV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelLoginAllowlistRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &login_allowlist.AdminUpdateLoginAllowlistV3Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-errNoContent := loginAllowlistService.AdminUpdateLoginAllowlistV3Short(input)
+		errNoContent := loginAllowlistService.AdminUpdateLoginAllowlistV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

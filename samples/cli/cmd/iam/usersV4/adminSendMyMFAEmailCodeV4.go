@@ -8,8 +8,9 @@ package usersV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminSendMyMFAEmailCodeV4Cmd represents the AdminSendMyMFAEmailCodeV4 command
 var AdminSendMyMFAEmailCodeV4Cmd = &cobra.Command{
-	Use:	"adminSendMyMFAEmailCodeV4",
-	Short:  "Admin send my MFA email code V4",
-	Long:   `Admin send my MFA email code V4`,
+	Use:   "adminSendMyMFAEmailCodeV4",
+	Short: "Admin send my MFA email code V4",
+	Long:  `Admin send my MFA email code V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,17 +31,17 @@ var AdminSendMyMFAEmailCodeV4Cmd = &cobra.Command{
 		action, _ := cmd.Flags().GetString("action")
 		languageTag, _ := cmd.Flags().GetString("languageTag")
 		input := &users_v4.AdminSendMyMFAEmailCodeV4Params{
-			Action     : &action,
+			Action:      &action,
 			LanguageTag: &languageTag,
 		}
-errNoContent := usersV4Service.AdminSendMyMFAEmailCodeV4Short(input)
+		errNoContent := usersV4Service.AdminSendMyMFAEmailCodeV4Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

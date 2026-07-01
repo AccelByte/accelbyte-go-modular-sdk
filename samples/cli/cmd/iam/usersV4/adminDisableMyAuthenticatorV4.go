@@ -9,9 +9,10 @@ package usersV4
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminDisableMyAuthenticatorV4Cmd represents the AdminDisableMyAuthenticatorV4 command
 var AdminDisableMyAuthenticatorV4Cmd = &cobra.Command{
-	Use:	"adminDisableMyAuthenticatorV4",
-	Short:  "Admin disable my authenticator V4",
-	Long:   `Admin disable my authenticator V4`,
+	Use:   "adminDisableMyAuthenticatorV4",
+	Short: "Admin disable my authenticator V4",
+	Long:  `Admin disable my authenticator V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,21 +32,21 @@ var AdminDisableMyAuthenticatorV4Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelDisableMFARequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &users_v4.AdminDisableMyAuthenticatorV4Params{
 			Body: body,
 		}
-errNoContent := usersV4Service.AdminDisableMyAuthenticatorV4Short(input)
+		errNoContent := usersV4Service.AdminDisableMyAuthenticatorV4Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -8,8 +8,9 @@ package misc
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicGetTimeZonesCmd represents the PublicGetTimeZones command
 var PublicGetTimeZonesCmd = &cobra.Command{
-	Use:	"publicGetTimeZones",
-	Short:  "Public get time zones",
-	Long:   `Public get time zones`,
+	Use:   "publicGetTimeZones",
+	Short: "Public get time zones",
+	Long:  `Public get time zones`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		miscService := &basic.MiscService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var PublicGetTimeZonesCmd = &cobra.Command{
 		input := &misc.PublicGetTimeZonesParams{
 			Namespace: namespace,
 		}
-ok,errOK := miscService.PublicGetTimeZonesShort(input)
+		ok, errOK := miscService.PublicGetTimeZonesShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

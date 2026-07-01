@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminDeleteUserLinkingHistoryByPlatformIDV3Cmd represents the AdminDeleteUserLinkingHistoryByPlatformIDV3 command
 var AdminDeleteUserLinkingHistoryByPlatformIDV3Cmd = &cobra.Command{
-	Use:	"adminDeleteUserLinkingHistoryByPlatformIDV3",
-	Short:  "Admin delete user linking history by platform IDV3",
-	Long:   `Admin delete user linking history by platform IDV3`,
+	Use:   "adminDeleteUserLinkingHistoryByPlatformIDV3",
+	Short: "Admin delete user linking history by platform IDV3",
+	Long:  `Admin delete user linking history by platform IDV3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,18 +32,18 @@ var AdminDeleteUserLinkingHistoryByPlatformIDV3Cmd = &cobra.Command{
 		platformId, _ := cmd.Flags().GetString("platformId")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AdminDeleteUserLinkingHistoryByPlatformIDV3Params{
-			Namespace : namespace,
+			Namespace:  namespace,
 			PlatformID: platformId,
-			UserID    : userId,
+			UserID:     userId,
 		}
-errNoContent := usersService.AdminDeleteUserLinkingHistoryByPlatformIDV3Short(input)
+		errNoContent := usersService.AdminDeleteUserLinkingHistoryByPlatformIDV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

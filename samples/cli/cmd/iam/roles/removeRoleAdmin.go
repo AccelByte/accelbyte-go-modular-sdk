@@ -8,8 +8,9 @@ package roles
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // RemoveRoleAdminCmd represents the RemoveRoleAdmin command
 var RemoveRoleAdminCmd = &cobra.Command{
-	Use:	"removeRoleAdmin",
-	Short:  "Remove role admin",
-	Long:   `Remove role admin`,
+	Use:   "removeRoleAdmin",
+	Short: "Remove role admin",
+	Long:  `Remove role admin`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var RemoveRoleAdminCmd = &cobra.Command{
 		input := &roles.RemoveRoleAdminParams{
 			RoleID: roleId,
 		}
-errNoContent := rolesService.RemoveRoleAdminShort(input)
+		errNoContent := rolesService.RemoveRoleAdminShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

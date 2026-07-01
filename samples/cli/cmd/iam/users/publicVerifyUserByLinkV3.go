@@ -8,19 +8,20 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	"net/http"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
-	"net/http"
 )
 
 // PublicVerifyUserByLinkV3Cmd represents the PublicVerifyUserByLinkV3 command
 var PublicVerifyUserByLinkV3Cmd = &cobra.Command{
-	Use:	"publicVerifyUserByLinkV3",
-	Short:  "Public verify user by link V3",
-	Long:   `Public verify user by link V3`,
+	Use:   "publicVerifyUserByLinkV3",
+	Short: "Public verify user by link V3",
+	Long:  `Public verify user by link V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,22 +31,22 @@ var PublicVerifyUserByLinkV3Cmd = &cobra.Command{
 		}
 		code, _ := cmd.Flags().GetString("code")
 		httpClient := &http.Client{
-		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-		   },
+			},
 		}
 		input := &users.PublicVerifyUserByLinkV3Params{
-			Code: &code,
+			Code:       &code,
 			HTTPClient: httpClient,
 		}
-_,errFound := usersService.PublicVerifyUserByLinkV3Short(input)
+		_, errFound := usersService.PublicVerifyUserByLinkV3Short(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

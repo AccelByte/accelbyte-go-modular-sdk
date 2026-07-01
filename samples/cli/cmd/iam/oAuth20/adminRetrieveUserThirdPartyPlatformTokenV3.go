@@ -8,8 +8,9 @@ package oAuth20
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminRetrieveUserThirdPartyPlatformTokenV3Cmd represents the AdminRetrieveUserThirdPartyPlatformTokenV3 command
 var AdminRetrieveUserThirdPartyPlatformTokenV3Cmd = &cobra.Command{
-	Use:	"adminRetrieveUserThirdPartyPlatformTokenV3",
-	Short:  "Admin retrieve user third party platform token V3",
-	Long:   `Admin retrieve user third party platform token V3`,
+	Use:   "adminRetrieveUserThirdPartyPlatformTokenV3",
+	Short: "Admin retrieve user third party platform token V3",
+	Long:  `Admin retrieve user third party platform token V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,19 +33,19 @@ var AdminRetrieveUserThirdPartyPlatformTokenV3Cmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		platformUserId, _ := cmd.Flags().GetString("platformUserId")
 		input := &o_auth2_0.AdminRetrieveUserThirdPartyPlatformTokenV3Params{
-			Namespace     : namespace,
-			PlatformID    : platformId,
-			UserID        : userId,
+			Namespace:      namespace,
+			PlatformID:     platformId,
+			UserID:         userId,
 			PlatformUserID: &platformUserId,
 		}
-ok,errOK := oAuth20Service.AdminRetrieveUserThirdPartyPlatformTokenV3Short(input)
+		ok, errOK := oAuth20Service.AdminRetrieveUserThirdPartyPlatformTokenV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

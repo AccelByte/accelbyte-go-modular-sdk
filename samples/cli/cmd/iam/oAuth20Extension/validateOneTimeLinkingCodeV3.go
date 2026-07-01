@@ -8,8 +8,9 @@ package oAuth20Extension
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // ValidateOneTimeLinkingCodeV3Cmd represents the ValidateOneTimeLinkingCodeV3 command
 var ValidateOneTimeLinkingCodeV3Cmd = &cobra.Command{
-	Use:	"validateOneTimeLinkingCodeV3",
-	Short:  "Validate one time linking code V3",
-	Long:   `Validate one time linking code V3`,
+	Use:   "validateOneTimeLinkingCodeV3",
+	Short: "Validate one time linking code V3",
+	Long:  `Validate one time linking code V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var ValidateOneTimeLinkingCodeV3Cmd = &cobra.Command{
 		input := &o_auth2_0_extension.ValidateOneTimeLinkingCodeV3Params{
 			OneTimeLinkCode: oneTimeLinkCode,
 		}
-ok,errOK := oAuth20ExtensionService.ValidateOneTimeLinkingCodeV3Short(input)
+		ok, errOK := oAuth20ExtensionService.ValidateOneTimeLinkingCodeV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

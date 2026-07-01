@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PlatformUnlinkCmd represents the PlatformUnlink command
 var PlatformUnlinkCmd = &cobra.Command{
-	Use:	"platformUnlink",
-	Short:  "Platform unlink",
-	Long:   `Platform unlink`,
+	Use:   "platformUnlink",
+	Short: "Platform unlink",
+	Long:  `Platform unlink`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,19 +33,19 @@ var PlatformUnlinkCmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		platformNamespace, _ := cmd.Flags().GetString("platformNamespace")
 		input := &users.PlatformUnlinkParams{
-			PlatformNamespace : &platformNamespace,
-			Namespace         : namespace,
-			PlatformID        : platformId,
-			UserID            : userId,
+			PlatformNamespace: &platformNamespace,
+			Namespace:         namespace,
+			PlatformID:        platformId,
+			UserID:            userId,
 		}
-errNoContent := usersService.PlatformUnlinkShort(input)
+		errNoContent := usersService.PlatformUnlinkShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

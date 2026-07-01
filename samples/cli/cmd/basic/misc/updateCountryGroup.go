@@ -9,9 +9,10 @@ package misc
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // UpdateCountryGroupCmd represents the UpdateCountryGroup command
 var UpdateCountryGroupCmd = &cobra.Command{
-	Use:	"updateCountryGroup",
-	Short:  "Update country group",
-	Long:   `Update country group`,
+	Use:   "updateCountryGroup",
+	Short: "Update country group",
+	Long:  `Update country group`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		miscService := &basic.MiscService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,23 +34,23 @@ var UpdateCountryGroupCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *basicclientmodels.UpdateCountryGroupRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &misc.UpdateCountryGroupParams{
-			Body            : body,
+			Body:             body,
 			CountryGroupCode: countryGroupCode,
-			Namespace       : namespace,
+			Namespace:        namespace,
 		}
-ok,errOK := miscService.UpdateCountryGroupShort(input)
+		ok, errOK := miscService.UpdateCountryGroupShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

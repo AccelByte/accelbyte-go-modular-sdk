@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicSearchUserV3Cmd represents the PublicSearchUserV3 command
 var PublicSearchUserV3Cmd = &cobra.Command{
-	Use:	"publicSearchUserV3",
-	Short:  "Public search user V3",
-	Long:   `Public search user V3`,
+	Use:   "publicSearchUserV3",
+	Short: "Public search user V3",
+	Long:  `Public search user V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -35,22 +36,22 @@ var PublicSearchUserV3Cmd = &cobra.Command{
 		platformId, _ := cmd.Flags().GetString("platformId")
 		query, _ := cmd.Flags().GetString("query")
 		input := &users.PublicSearchUserV3Params{
-			Namespace : namespace,
-			By        : &by,
-			Limit     : &limit,
-			Offset    : &offset,
+			Namespace:  namespace,
+			By:         &by,
+			Limit:      &limit,
+			Offset:     &offset,
 			PlatformBy: &platformBy,
 			PlatformID: &platformId,
-			Query     : &query,
+			Query:      &query,
 		}
-ok,errOK := usersService.PublicSearchUserV3Short(input)
+		ok, errOK := usersService.PublicSearchUserV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

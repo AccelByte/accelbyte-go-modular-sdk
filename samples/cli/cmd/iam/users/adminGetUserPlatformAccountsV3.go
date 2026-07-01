@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetUserPlatformAccountsV3Cmd represents the AdminGetUserPlatformAccountsV3 command
 var AdminGetUserPlatformAccountsV3Cmd = &cobra.Command{
-	Use:	"adminGetUserPlatformAccountsV3",
-	Short:  "Admin get user platform accounts V3",
-	Long:   `Admin get user platform accounts V3`,
+	Use:   "adminGetUserPlatformAccountsV3",
+	Short: "Admin get user platform accounts V3",
+	Long:  `Admin get user platform accounts V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -35,22 +36,22 @@ var AdminGetUserPlatformAccountsV3Cmd = &cobra.Command{
 		platformId, _ := cmd.Flags().GetString("platformId")
 		targetNamespace, _ := cmd.Flags().GetString("targetNamespace")
 		input := &users.AdminGetUserPlatformAccountsV3Params{
-			Namespace      : namespace,
-			UserID         : userId,
-			After          : &after,
-			Before         : &before,
-			Limit          : &limit,
-			PlatformID     : &platformId,
+			Namespace:       namespace,
+			UserID:          userId,
+			After:           &after,
+			Before:          &before,
+			Limit:           &limit,
+			PlatformID:      &platformId,
 			TargetNamespace: &targetNamespace,
 		}
-ok,errOK := usersService.AdminGetUserPlatformAccountsV3Short(input)
+		ok, errOK := usersService.AdminGetUserPlatformAccountsV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

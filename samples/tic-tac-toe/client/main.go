@@ -54,7 +54,7 @@ var (
 	getStatEndpoint              = ticTacToeServiceHostEndpoint + "/stat"
 	configImpl                   = *auth.DefaultConfigRepositoryImpl()
 	tokenImpl                    = *auth.DefaultTokenRepositoryImpl()
-	oauthService = iam.OAuth20Service{
+	oauthService                 = iam.OAuth20Service{
 		Client: iam.NewIamHttpClient(&configImpl),
 		Session: repository.Session{
 			ConfigRepository: &configImpl,

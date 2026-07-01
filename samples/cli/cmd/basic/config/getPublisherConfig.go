@@ -8,8 +8,9 @@ package config
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/config"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/config"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // GetPublisherConfigCmd represents the GetPublisherConfig command
 var GetPublisherConfigCmd = &cobra.Command{
-	Use:	"getPublisherConfig",
-	Short:  "Get publisher config",
-	Long:   `Get publisher config`,
+	Use:   "getPublisherConfig",
+	Short: "Get publisher config",
+	Long:  `Get publisher config`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &basic.ConfigService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,14 +34,14 @@ var GetPublisherConfigCmd = &cobra.Command{
 			ConfigKey: configKey,
 			Namespace: namespace,
 		}
-ok,errOK := configService.GetPublisherConfigShort(input)
+		ok, errOK := configService.GetPublisherConfigShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

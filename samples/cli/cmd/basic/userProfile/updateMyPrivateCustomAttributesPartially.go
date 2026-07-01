@@ -9,8 +9,9 @@ package userProfile
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -18,9 +19,9 @@ import (
 
 // UpdateMyPrivateCustomAttributesPartiallyCmd represents the UpdateMyPrivateCustomAttributesPartially command
 var UpdateMyPrivateCustomAttributesPartiallyCmd = &cobra.Command{
-	Use:	"updateMyPrivateCustomAttributesPartially",
-	Short:  "Update my private custom attributes partially",
-	Long:   `Update my private custom attributes partially`,
+	Use:   "updateMyPrivateCustomAttributesPartially",
+	Short: "Update my private custom attributes partially",
+	Long:  `Update my private custom attributes partially`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userProfileService := &basic.UserProfileService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,22 +32,22 @@ var UpdateMyPrivateCustomAttributesPartiallyCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body map[string]interface{}
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &user_profile.UpdateMyPrivateCustomAttributesPartiallyParams{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-ok,errOK := userProfileService.UpdateMyPrivateCustomAttributesPartiallyShort(input)
+		ok, errOK := userProfileService.UpdateMyPrivateCustomAttributesPartiallyShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

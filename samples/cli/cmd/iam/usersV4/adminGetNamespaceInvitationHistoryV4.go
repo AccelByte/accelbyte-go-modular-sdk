@@ -8,8 +8,9 @@ package usersV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetNamespaceInvitationHistoryV4Cmd represents the AdminGetNamespaceInvitationHistoryV4 command
 var AdminGetNamespaceInvitationHistoryV4Cmd = &cobra.Command{
-	Use:	"adminGetNamespaceInvitationHistoryV4",
-	Short:  "Admin get namespace invitation history V4",
-	Long:   `Admin get namespace invitation history V4`,
+	Use:   "adminGetNamespaceInvitationHistoryV4",
+	Short: "Admin get namespace invitation history V4",
+	Long:  `Admin get namespace invitation history V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var AdminGetNamespaceInvitationHistoryV4Cmd = &cobra.Command{
 		input := &users_v4.AdminGetNamespaceInvitationHistoryV4Params{
 			Namespace: namespace,
 		}
-ok,errOK := usersV4Service.AdminGetNamespaceInvitationHistoryV4Short(input)
+		ok, errOK := usersV4Service.AdminGetNamespaceInvitationHistoryV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

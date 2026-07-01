@@ -8,19 +8,20 @@ package oAuth20
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	"net/http"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
-	"net/http"
 )
 
 // Verify2faCodeForwardCmd represents the Verify2faCodeForward command
 var Verify2faCodeForwardCmd = &cobra.Command{
-	Use:	"verify2faCodeForward",
-	Short:  "Verify2fa code forward",
-	Long:   `Verify2fa code forward`,
+	Use:   "verify2faCodeForward",
+	Short: "Verify2fa code forward",
+	Long:  `Verify2fa code forward`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -36,28 +37,28 @@ var Verify2faCodeForwardCmd = &cobra.Command{
 		factors, _ := cmd.Flags().GetString("factors")
 		rememberDevice, _ := cmd.Flags().GetBool("rememberDevice")
 		httpClient := &http.Client{
-		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-		   },
+			},
 		}
 		input := &o_auth2_0.Verify2FACodeForwardParams{
-			DefaultFactor : &defaultFactor,
-			Factors       : &factors,
+			DefaultFactor:  &defaultFactor,
+			Factors:        &factors,
 			RememberDevice: &rememberDevice,
-			ClientID      : clientId,
-			Code          : code,
-			Factor        : factor,
-			MFAToken      : mfaToken,
-			HTTPClient: httpClient,
+			ClientID:       clientId,
+			Code:           code,
+			Factor:         factor,
+			MFAToken:       mfaToken,
+			HTTPClient:     httpClient,
 		}
-_,errFound := oAuth20Service.Verify2FACodeForwardShort(input)
+		_, errFound := oAuth20Service.Verify2FACodeForwardShort(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

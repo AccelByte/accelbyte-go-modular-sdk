@@ -8,8 +8,9 @@ package inputValidations
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/input_validations"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/input_validations"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicGetInputValidationsCmd represents the PublicGetInputValidations command
 var PublicGetInputValidationsCmd = &cobra.Command{
-	Use:	"publicGetInputValidations",
-	Short:  "Public get input validations",
-	Long:   `Public get input validations`,
+	Use:   "publicGetInputValidations",
+	Short: "Public get input validations",
+	Long:  `Public get input validations`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inputValidationsService := &iam.InputValidationsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var PublicGetInputValidationsCmd = &cobra.Command{
 		languageCode, _ := cmd.Flags().GetString("languageCode")
 		input := &input_validations.PublicGetInputValidationsParams{
 			DefaultOnEmpty: &defaultOnEmpty,
-			LanguageCode  : &languageCode,
+			LanguageCode:   &languageCode,
 		}
-ok,errOK := inputValidationsService.PublicGetInputValidationsShort(input)
+		ok, errOK := inputValidationsService.PublicGetInputValidationsShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

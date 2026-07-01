@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // EnableUserBanCmd represents the EnableUserBan command
 var EnableUserBanCmd = &cobra.Command{
-	Use:	"enableUserBan",
-	Short:  "Enable user ban",
-	Long:   `Enable user ban`,
+	Use:   "enableUserBan",
+	Short: "Enable user ban",
+	Long:  `Enable user ban`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,18 +32,18 @@ var EnableUserBanCmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.EnableUserBanParams{
-			BanID    : banId,
+			BanID:     banId,
 			Namespace: namespace,
-			UserID   : userId,
+			UserID:    userId,
 		}
-ok,errOK := usersService.EnableUserBanShort(input)
+		ok, errOK := usersService.EnableUserBanShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

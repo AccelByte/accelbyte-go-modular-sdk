@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminSearchUsersV2Cmd represents the AdminSearchUsersV2 command
 var AdminSearchUsersV2Cmd = &cobra.Command{
-	Use:	"adminSearchUsersV2",
-	Short:  "Admin search users V2",
-	Long:   `Admin search users V2`,
+	Use:   "adminSearchUsersV2",
+	Short: "Admin search users V2",
+	Long:  `Admin search users V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -38,25 +39,25 @@ var AdminSearchUsersV2Cmd = &cobra.Command{
 		roleId, _ := cmd.Flags().GetString("roleId")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AdminSearchUsersV2Params{
-			Namespace     : namespace,
-			After         : &after,
-			Before        : &before,
-			DisplayName   : &displayName,
-			Limit         : &limit,
-			LoginID       : &loginId,
+			Namespace:      namespace,
+			After:          &after,
+			Before:         &before,
+			DisplayName:    &displayName,
+			Limit:          &limit,
+			LoginID:        &loginId,
 			PlatformUserID: &platformUserId,
-			RoleID        : &roleId,
-			UserID        : &userId,
-			PlatformID    : platformId,
+			RoleID:         &roleId,
+			UserID:         &userId,
+			PlatformID:     platformId,
 		}
-ok,errOK := usersService.AdminSearchUsersV2Short(input)
+		ok, errOK := usersService.AdminSearchUsersV2Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

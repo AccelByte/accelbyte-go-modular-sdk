@@ -8,8 +8,9 @@ package clients
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminDeleteClientV3Cmd represents the AdminDeleteClientV3 command
 var AdminDeleteClientV3Cmd = &cobra.Command{
-	Use:	"adminDeleteClientV3",
-	Short:  "Admin delete client V3",
-	Long:   `Admin delete client V3`,
+	Use:   "adminDeleteClientV3",
+	Short: "Admin delete client V3",
+	Long:  `Admin delete client V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsService := &iam.ClientsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,17 +31,17 @@ var AdminDeleteClientV3Cmd = &cobra.Command{
 		clientId, _ := cmd.Flags().GetString("clientId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &clients.AdminDeleteClientV3Params{
-			ClientID : clientId,
+			ClientID:  clientId,
 			Namespace: namespace,
 		}
-errNoContent := clientsService.AdminDeleteClientV3Short(input)
+		errNoContent := clientsService.AdminDeleteClientV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

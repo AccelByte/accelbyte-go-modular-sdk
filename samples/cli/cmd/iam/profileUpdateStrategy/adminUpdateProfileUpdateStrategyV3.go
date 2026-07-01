@@ -9,9 +9,10 @@ package profileUpdateStrategy
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/profile_update_strategy"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/profile_update_strategy"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminUpdateProfileUpdateStrategyV3Cmd represents the AdminUpdateProfileUpdateStrategyV3 command
 var AdminUpdateProfileUpdateStrategyV3Cmd = &cobra.Command{
-	Use:	"adminUpdateProfileUpdateStrategyV3",
-	Short:  "Admin update profile update strategy V3",
-	Long:   `Admin update profile update strategy V3`,
+	Use:   "adminUpdateProfileUpdateStrategyV3",
+	Short: "Admin update profile update strategy V3",
+	Long:  `Admin update profile update strategy V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profileUpdateStrategyService := &iam.ProfileUpdateStrategyService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,25 +32,25 @@ var AdminUpdateProfileUpdateStrategyV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelUpdateProfileUpdateStrategyConfigRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		field, _ := cmd.Flags().GetString("field")
 		input := &profile_update_strategy.AdminUpdateProfileUpdateStrategyV3Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
-			Field    : field,
+			Field:     field,
 		}
-ok,errOK := profileUpdateStrategyService.AdminUpdateProfileUpdateStrategyV3Short(input)
+		ok, errOK := profileUpdateStrategyService.AdminUpdateProfileUpdateStrategyV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

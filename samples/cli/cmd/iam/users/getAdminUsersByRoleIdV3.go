@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // GetAdminUsersByRoleIdV3Cmd represents the GetAdminUsersByRoleIdV3 command
 var GetAdminUsersByRoleIdV3Cmd = &cobra.Command{
-	Use:	"getAdminUsersByRoleIdV3",
-	Short:  "Get admin users by role id V3",
-	Long:   `Get admin users by role id V3`,
+	Use:   "getAdminUsersByRoleIdV3",
+	Short: "Get admin users by role id V3",
+	Long:  `Get admin users by role id V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -34,19 +35,19 @@ var GetAdminUsersByRoleIdV3Cmd = &cobra.Command{
 		limit, _ := cmd.Flags().GetInt64("limit")
 		input := &users.GetAdminUsersByRoleIDV3Params{
 			Namespace: namespace,
-			RoleID   : roleId,
-			After    : &after,
-			Before   : &before,
-			Limit    : &limit,
+			RoleID:    roleId,
+			After:     &after,
+			Before:    &before,
+			Limit:     &limit,
 		}
-ok,errOK := usersService.GetAdminUsersByRoleIDV3Short(input)
+		ok, errOK := usersService.GetAdminUsersByRoleIDV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

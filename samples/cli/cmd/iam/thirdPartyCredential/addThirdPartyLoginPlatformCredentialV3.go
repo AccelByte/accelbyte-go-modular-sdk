@@ -9,9 +9,10 @@ package thirdPartyCredential
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AddThirdPartyLoginPlatformCredentialV3Cmd represents the AddThirdPartyLoginPlatformCredentialV3 command
 var AddThirdPartyLoginPlatformCredentialV3Cmd = &cobra.Command{
-	Use:	"addThirdPartyLoginPlatformCredentialV3",
-	Short:  "Add third party login platform credential V3",
-	Long:   `Add third party login platform credential V3`,
+	Use:   "addThirdPartyLoginPlatformCredentialV3",
+	Short: "Add third party login platform credential V3",
+	Long:  `Add third party login platform credential V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		thirdPartyCredentialService := &iam.ThirdPartyCredentialService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,25 +32,25 @@ var AddThirdPartyLoginPlatformCredentialV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelThirdPartyLoginPlatformCredentialRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &third_party_credential.AddThirdPartyLoginPlatformCredentialV3Params{
-			Body      : body,
-			Namespace : namespace,
+			Body:       body,
+			Namespace:  namespace,
 			PlatformID: platformId,
 		}
-created,errCreated := thirdPartyCredentialService.AddThirdPartyLoginPlatformCredentialV3Short(input)
+		created, errCreated := thirdPartyCredentialService.AddThirdPartyLoginPlatformCredentialV3Short(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-        slog.Info("Response CLI success", "response", created)
+		slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

@@ -9,9 +9,10 @@ package roles
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminAddRolePermissionsV4Cmd represents the AdminAddRolePermissionsV4 command
 var AdminAddRolePermissionsV4Cmd = &cobra.Command{
-	Use:	"adminAddRolePermissionsV4",
-	Short:  "Admin add role permissions V4",
-	Long:   `Admin add role permissions V4`,
+	Use:   "adminAddRolePermissionsV4",
+	Short: "Admin add role permissions V4",
+	Long:  `Admin add role permissions V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var AdminAddRolePermissionsV4Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.AccountcommonPermissionsV3
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		roleId, _ := cmd.Flags().GetString("roleId")
 		input := &roles.AdminAddRolePermissionsV4Params{
-			Body  : body,
+			Body:   body,
 			RoleID: roleId,
 		}
-ok,errOK := rolesService.AdminAddRolePermissionsV4Short(input)
+		ok, errOK := rolesService.AdminAddRolePermissionsV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

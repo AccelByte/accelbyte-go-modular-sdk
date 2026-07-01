@@ -8,8 +8,9 @@ package usersV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicGetUserPublicInfoByUserIdV4Cmd represents the PublicGetUserPublicInfoByUserIdV4 command
 var PublicGetUserPublicInfoByUserIdV4Cmd = &cobra.Command{
-	Use:	"publicGetUserPublicInfoByUserIdV4",
-	Short:  "Public get user public info by user id V4",
-	Long:   `Public get user public info by user id V4`,
+	Use:   "publicGetUserPublicInfoByUserIdV4",
+	Short: "Public get user public info by user id V4",
+	Long:  `Public get user public info by user id V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var PublicGetUserPublicInfoByUserIdV4Cmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users_v4.PublicGetUserPublicInfoByUserIDV4Params{
 			Namespace: namespace,
-			UserID   : userId,
+			UserID:    userId,
 		}
-ok,errOK := usersV4Service.PublicGetUserPublicInfoByUserIDV4Short(input)
+		ok, errOK := usersV4Service.PublicGetUserPublicInfoByUserIDV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

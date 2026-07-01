@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminDeletePlatformLinkV2Cmd represents the AdminDeletePlatformLinkV2 command
 var AdminDeletePlatformLinkV2Cmd = &cobra.Command{
-	Use:	"adminDeletePlatformLinkV2",
-	Short:  "Admin delete platform link V2",
-	Long:   `Admin delete platform link V2`,
+	Use:   "adminDeletePlatformLinkV2",
+	Short: "Admin delete platform link V2",
+	Long:  `Admin delete platform link V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,19 +33,19 @@ var AdminDeletePlatformLinkV2Cmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		platformNamespace, _ := cmd.Flags().GetString("platformNamespace")
 		input := &users.AdminDeletePlatformLinkV2Params{
-			PlatformNamespace : &platformNamespace,
-			Namespace         : namespace,
-			PlatformID        : platformId,
-			UserID            : userId,
+			PlatformNamespace: &platformNamespace,
+			Namespace:         namespace,
+			PlatformID:        platformId,
+			UserID:            userId,
 		}
-errNoContent := usersService.AdminDeletePlatformLinkV2Short(input)
+		errNoContent := usersService.AdminDeletePlatformLinkV2Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

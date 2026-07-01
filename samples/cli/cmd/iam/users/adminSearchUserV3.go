@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminSearchUserV3Cmd represents the AdminSearchUserV3 command
 var AdminSearchUserV3Cmd = &cobra.Command{
-	Use:	"adminSearchUserV3",
-	Short:  "Admin search user V3",
-	Long:   `Admin search user V3`,
+	Use:   "adminSearchUserV3",
+	Short: "Admin search user V3",
+	Long:  `Admin search user V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -43,30 +44,30 @@ var AdminSearchUserV3Cmd = &cobra.Command{
 		tagIds, _ := cmd.Flags().GetString("tagIds")
 		testAccount, _ := cmd.Flags().GetBool("testAccount")
 		input := &users.AdminSearchUserV3Params{
-			Namespace     : namespace,
-			By            : &by,
-			EndDate       : &endDate,
-			IncludeTotal  : &includeTotal,
-			Limit         : &limit,
-			Offset        : &offset,
-			PlatformBy    : &platformBy,
-			PlatformID    : &platformId,
-			Query         : &query,
-			RoleIds       : &roleIds,
+			Namespace:      namespace,
+			By:             &by,
+			EndDate:        &endDate,
+			IncludeTotal:   &includeTotal,
+			Limit:          &limit,
+			Offset:         &offset,
+			PlatformBy:     &platformBy,
+			PlatformID:     &platformId,
+			Query:          &query,
+			RoleIds:        &roleIds,
 			SelectedFields: &selectedFields,
 			SkipLoginQueue: &skipLoginQueue,
-			StartDate     : &startDate,
-			TagIds        : &tagIds,
-			TestAccount   : &testAccount,
+			StartDate:      &startDate,
+			TagIds:         &tagIds,
+			TestAccount:    &testAccount,
 		}
-ok,errOK := usersService.AdminSearchUserV3Short(input)
+		ok, errOK := usersService.AdminSearchUserV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

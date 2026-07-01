@@ -8,19 +8,20 @@ package ssoSAML20
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_saml_2_0"
+	"net/http"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_saml_2_0"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
-	"net/http"
 )
 
 // PlatformAuthenticateSAMLV3HandlerCmd represents the PlatformAuthenticateSAMLV3Handler command
 var PlatformAuthenticateSAMLV3HandlerCmd = &cobra.Command{
-	Use:	"platformAuthenticateSAMLV3Handler",
-	Short:  "Platform authenticate SAMLV3 handler",
-	Long:   `Platform authenticate SAMLV3 handler`,
+	Use:   "platformAuthenticateSAMLV3Handler",
+	Short: "Platform authenticate SAMLV3 handler",
+	Long:  `Platform authenticate SAMLV3 handler`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ssoSAML20Service := &iam.SSOSAML20Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,25 +34,25 @@ var PlatformAuthenticateSAMLV3HandlerCmd = &cobra.Command{
 		code, _ := cmd.Flags().GetString("code")
 		error_, _ := cmd.Flags().GetString("error")
 		httpClient := &http.Client{
-		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-		   },
+			},
 		}
 		input := &sso_saml_2_0.PlatformAuthenticateSAMLV3HandlerParams{
 			PlatformID: platformId,
-			Code      : &code,
-			Error     : &error_,
-			State     : state,
+			Code:       &code,
+			Error:      &error_,
+			State:      state,
 			HTTPClient: httpClient,
 		}
-_,errFound := ssoSAML20Service.PlatformAuthenticateSAMLV3HandlerShort(input)
+		_, errFound := ssoSAML20Service.PlatformAuthenticateSAMLV3HandlerShort(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // GetUserLoginHistoriesCmd represents the GetUserLoginHistories command
 var GetUserLoginHistoriesCmd = &cobra.Command{
-	Use:	"getUserLoginHistories",
-	Short:  "Get user login histories",
-	Long:   `Get user login histories`,
+	Use:   "getUserLoginHistories",
+	Short: "Get user login histories",
+	Long:  `Get user login histories`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -34,19 +35,19 @@ var GetUserLoginHistoriesCmd = &cobra.Command{
 		limit, _ := cmd.Flags().GetInt64("limit")
 		input := &users.GetUserLoginHistoriesParams{
 			Namespace: namespace,
-			UserID   : userId,
-			After    : &after,
-			Before   : &before,
-			Limit    : &limit,
+			UserID:    userId,
+			After:     &after,
+			Before:    &before,
+			Limit:     &limit,
 		}
-ok,errOK := usersService.GetUserLoginHistoriesShort(input)
+		ok, errOK := usersService.GetUserLoginHistoriesShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

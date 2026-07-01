@@ -9,9 +9,10 @@ package thirdPartyCredential
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // UpdateThirdPartyLoginPlatformCredentialV3Cmd represents the UpdateThirdPartyLoginPlatformCredentialV3 command
 var UpdateThirdPartyLoginPlatformCredentialV3Cmd = &cobra.Command{
-	Use:	"updateThirdPartyLoginPlatformCredentialV3",
-	Short:  "Update third party login platform credential V3",
-	Long:   `Update third party login platform credential V3`,
+	Use:   "updateThirdPartyLoginPlatformCredentialV3",
+	Short: "Update third party login platform credential V3",
+	Long:  `Update third party login platform credential V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		thirdPartyCredentialService := &iam.ThirdPartyCredentialService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,25 +32,25 @@ var UpdateThirdPartyLoginPlatformCredentialV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelThirdPartyLoginPlatformCredentialRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &third_party_credential.UpdateThirdPartyLoginPlatformCredentialV3Params{
-			Body      : body,
-			Namespace : namespace,
+			Body:       body,
+			Namespace:  namespace,
 			PlatformID: platformId,
 		}
-ok,errOK := thirdPartyCredentialService.UpdateThirdPartyLoginPlatformCredentialV3Short(input)
+		ok, errOK := thirdPartyCredentialService.UpdateThirdPartyLoginPlatformCredentialV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

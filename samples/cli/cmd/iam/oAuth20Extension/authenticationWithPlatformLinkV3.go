@@ -8,8 +8,9 @@ package oAuth20Extension
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AuthenticationWithPlatformLinkV3Cmd represents the AuthenticationWithPlatformLinkV3 command
 var AuthenticationWithPlatformLinkV3Cmd = &cobra.Command{
-	Use:	"authenticationWithPlatformLinkV3",
-	Short:  "Authentication with platform link V3",
-	Long:   `Authentication with platform link V3`,
+	Use:   "authenticationWithPlatformLinkV3",
+	Short: "Authentication with platform link V3",
+	Long:  `Authentication with platform link V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,20 +34,20 @@ var AuthenticationWithPlatformLinkV3Cmd = &cobra.Command{
 		username, _ := cmd.Flags().GetString("username")
 		extendExp, _ := cmd.Flags().GetBool("extendExp")
 		input := &o_auth2_0_extension.AuthenticationWithPlatformLinkV3Params{
-			ExtendExp   : &extendExp,
-			ClientID    : clientId,
+			ExtendExp:    &extendExp,
+			ClientID:     clientId,
 			LinkingToken: linkingToken,
-			Password    : password,
-			Username    : username,
+			Password:     password,
+			Username:     username,
 		}
-ok,errOK := oAuth20ExtensionService.AuthenticationWithPlatformLinkV3Short(input)
+		ok, errOK := oAuth20ExtensionService.AuthenticationWithPlatformLinkV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

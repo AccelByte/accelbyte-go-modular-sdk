@@ -8,8 +8,9 @@ package clients
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // DeleteClientCmd represents the DeleteClient command
 var DeleteClientCmd = &cobra.Command{
-	Use:	"deleteClient",
-	Short:  "Delete client",
-	Long:   `Delete client`,
+	Use:   "deleteClient",
+	Short: "Delete client",
+	Long:  `Delete client`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsService := &iam.ClientsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var DeleteClientCmd = &cobra.Command{
 		input := &clients.DeleteClientParams{
 			ClientID: clientId,
 		}
-errNoContent := clientsService.DeleteClientShort(input)
+		errNoContent := clientsService.DeleteClientShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

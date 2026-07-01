@@ -8,8 +8,9 @@ package clientsConfigV3
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminListClientAvailablePermissionsCmd represents the AdminListClientAvailablePermissions command
 var AdminListClientAvailablePermissionsCmd = &cobra.Command{
-	Use:	"adminListClientAvailablePermissions",
-	Short:  "Admin list client available permissions",
-	Long:   `Admin list client available permissions`,
+	Use:   "adminListClientAvailablePermissions",
+	Short: "Admin list client available permissions",
+	Long:  `Admin list client available permissions`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsConfigV3Service := &iam.ClientsConfigV3Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var AdminListClientAvailablePermissionsCmd = &cobra.Command{
 		input := &clients_config_v3.AdminListClientAvailablePermissionsParams{
 			ExcludePermissions: &excludePermissions,
 		}
-ok,errOK := clientsConfigV3Service.AdminListClientAvailablePermissionsShort(input)
+		ok, errOK := clientsConfigV3Service.AdminListClientAvailablePermissionsShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

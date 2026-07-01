@@ -8,8 +8,9 @@ package usersV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetMyEnabledFactorsV4Cmd represents the AdminGetMyEnabledFactorsV4 command
 var AdminGetMyEnabledFactorsV4Cmd = &cobra.Command{
-	Use:	"adminGetMyEnabledFactorsV4",
-	Short:  "Admin get my enabled factors V4",
-	Long:   `Admin get my enabled factors V4`,
+	Use:   "adminGetMyEnabledFactorsV4",
+	Short: "Admin get my enabled factors V4",
+	Long:  `Admin get my enabled factors V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -27,16 +28,15 @@ var AdminGetMyEnabledFactorsV4Cmd = &cobra.Command{
 				TokenRepository: &repository.TokenRepositoryImpl{},
 			},
 		}
-		input := &users_v4.AdminGetMyEnabledFactorsV4Params{
-		}
-ok,errOK := usersV4Service.AdminGetMyEnabledFactorsV4Short(input)
+		input := &users_v4.AdminGetMyEnabledFactorsV4Params{}
+		ok, errOK := usersV4Service.AdminGetMyEnabledFactorsV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

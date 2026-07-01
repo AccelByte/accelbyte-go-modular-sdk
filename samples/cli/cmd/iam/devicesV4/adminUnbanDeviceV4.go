@@ -8,8 +8,9 @@ package devicesV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminUnbanDeviceV4Cmd represents the AdminUnbanDeviceV4 command
 var AdminUnbanDeviceV4Cmd = &cobra.Command{
-	Use:	"adminUnbanDeviceV4",
-	Short:  "Admin unban device V4",
-	Long:   `Admin unban device V4`,
+	Use:   "adminUnbanDeviceV4",
+	Short: "Admin unban device V4",
+	Long:  `Admin unban device V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		devicesV4Service := &iam.DevicesV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -30,17 +31,17 @@ var AdminUnbanDeviceV4Cmd = &cobra.Command{
 		deviceId, _ := cmd.Flags().GetString("deviceId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &devices_v4.AdminUnbanDeviceV4Params{
-			DeviceID : deviceId,
+			DeviceID:  deviceId,
 			Namespace: namespace,
 		}
-errNoContent := devicesV4Service.AdminUnbanDeviceV4Short(input)
+		errNoContent := devicesV4Service.AdminUnbanDeviceV4Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

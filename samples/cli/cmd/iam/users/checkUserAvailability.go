@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // CheckUserAvailabilityCmd represents the CheckUserAvailability command
 var CheckUserAvailabilityCmd = &cobra.Command{
-	Use:	"checkUserAvailability",
-	Short:  "Check user availability",
-	Long:   `Check user availability`,
+	Use:   "checkUserAvailability",
+	Short: "Check user availability",
+	Long:  `Check user availability`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,17 +33,17 @@ var CheckUserAvailabilityCmd = &cobra.Command{
 		query, _ := cmd.Flags().GetString("query")
 		input := &users.CheckUserAvailabilityParams{
 			Namespace: namespace,
-			Field    : field,
-			Query    : query,
+			Field:     field,
+			Query:     query,
 		}
-errNoContent := usersService.CheckUserAvailabilityShort(input)
+		errNoContent := usersService.CheckUserAvailabilityShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

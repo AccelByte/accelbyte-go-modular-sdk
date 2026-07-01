@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminDeleteUserLinkingRestrictionByPlatformIDV3Cmd represents the AdminDeleteUserLinkingRestrictionByPlatformIDV3 command
 var AdminDeleteUserLinkingRestrictionByPlatformIDV3Cmd = &cobra.Command{
-	Use:	"adminDeleteUserLinkingRestrictionByPlatformIDV3",
-	Short:  "Admin delete user linking restriction by platform IDV3",
-	Long:   `Admin delete user linking restriction by platform IDV3`,
+	Use:   "adminDeleteUserLinkingRestrictionByPlatformIDV3",
+	Short: "Admin delete user linking restriction by platform IDV3",
+	Long:  `Admin delete user linking restriction by platform IDV3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,18 +32,18 @@ var AdminDeleteUserLinkingRestrictionByPlatformIDV3Cmd = &cobra.Command{
 		platformId, _ := cmd.Flags().GetString("platformId")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AdminDeleteUserLinkingRestrictionByPlatformIDV3Params{
-			Namespace : namespace,
+			Namespace:  namespace,
 			PlatformID: platformId,
-			UserID    : userId,
+			UserID:     userId,
 		}
-errNoContent := usersService.AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(input)
+		errNoContent := usersService.AdminDeleteUserLinkingRestrictionByPlatformIDV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

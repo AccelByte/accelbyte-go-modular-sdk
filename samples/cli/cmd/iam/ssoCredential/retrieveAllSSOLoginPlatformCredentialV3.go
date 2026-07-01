@@ -8,8 +8,9 @@ package ssoCredential
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // RetrieveAllSSOLoginPlatformCredentialV3Cmd represents the RetrieveAllSSOLoginPlatformCredentialV3 command
 var RetrieveAllSSOLoginPlatformCredentialV3Cmd = &cobra.Command{
-	Use:	"retrieveAllSSOLoginPlatformCredentialV3",
-	Short:  "Retrieve all SSO login platform credential V3",
-	Long:   `Retrieve all SSO login platform credential V3`,
+	Use:   "retrieveAllSSOLoginPlatformCredentialV3",
+	Short: "Retrieve all SSO login platform credential V3",
+	Long:  `Retrieve all SSO login platform credential V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ssoCredentialService := &iam.SSOCredentialService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,17 +33,17 @@ var RetrieveAllSSOLoginPlatformCredentialV3Cmd = &cobra.Command{
 		offset, _ := cmd.Flags().GetInt64("offset")
 		input := &sso_credential.RetrieveAllSSOLoginPlatformCredentialV3Params{
 			Namespace: namespace,
-			Limit    : &limit,
-			Offset   : &offset,
+			Limit:     &limit,
+			Offset:    &offset,
 		}
-ok,errOK := ssoCredentialService.RetrieveAllSSOLoginPlatformCredentialV3Short(input)
+		ok, errOK := ssoCredentialService.RetrieveAllSSOLoginPlatformCredentialV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

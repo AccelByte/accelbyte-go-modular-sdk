@@ -8,8 +8,9 @@ package oAuth20V4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // Verify2faCodeV4Cmd represents the Verify2faCodeV4 command
 var Verify2faCodeV4Cmd = &cobra.Command{
-	Use:	"verify2faCodeV4",
-	Short:  "Verify2fa code V4",
-	Long:   `Verify2fa code V4`,
+	Use:   "verify2faCodeV4",
+	Short: "Verify2fa code V4",
+	Long:  `Verify2fa code V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20V4Service := &iam.OAuth20v4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -32,19 +33,19 @@ var Verify2faCodeV4Cmd = &cobra.Command{
 		mfaToken, _ := cmd.Flags().GetString("mfaToken")
 		rememberDevice, _ := cmd.Flags().GetBool("rememberDevice")
 		input := &o_auth2_0_v4.Verify2FACodeV4Params{
-			Code          : code,
-			Factor        : factor,
-			MFAToken      : mfaToken,
+			Code:           code,
+			Factor:         factor,
+			MFAToken:       mfaToken,
 			RememberDevice: rememberDevice,
 		}
-ok,errOK := oAuth20V4Service.Verify2FACodeV4Short(input)
+		ok, errOK := oAuth20V4Service.Verify2FACodeV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

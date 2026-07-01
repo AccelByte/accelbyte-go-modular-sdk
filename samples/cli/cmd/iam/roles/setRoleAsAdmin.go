@@ -8,8 +8,9 @@ package roles
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // SetRoleAsAdminCmd represents the SetRoleAsAdmin command
 var SetRoleAsAdminCmd = &cobra.Command{
-	Use:	"setRoleAsAdmin",
-	Short:  "Set role as admin",
-	Long:   `Set role as admin`,
+	Use:   "setRoleAsAdmin",
+	Short: "Set role as admin",
+	Long:  `Set role as admin`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var SetRoleAsAdminCmd = &cobra.Command{
 		input := &roles.SetRoleAsAdminParams{
 			RoleID: roleId,
 		}
-errNoContent := rolesService.SetRoleAsAdminShort(input)
+		errNoContent := rolesService.SetRoleAsAdminShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -8,8 +8,9 @@ package oAuth
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // RevokeUserCmd represents the RevokeUser command
 var RevokeUserCmd = &cobra.Command{
-	Use:	"revokeUser",
-	Short:  "Revoke user",
-	Long:   `Revoke user`,
+	Use:   "revokeUser",
+	Short: "Revoke user",
+	Long:  `Revoke user`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuthService := &iam.OAuthService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var RevokeUserCmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &o_auth.RevokeUserParams{
 			Namespace: namespace,
-			UserID   : userId,
+			UserID:    userId,
 		}
-errOK := oAuthService.RevokeUserShort(input)
+		errOK := oAuthService.RevokeUserShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

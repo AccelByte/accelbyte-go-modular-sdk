@@ -8,25 +8,26 @@ package oAuth20Extension
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	"net/http"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
-	"net/http"
 )
 
 // UserAuthenticationV3Cmd represents the UserAuthenticationV3 command
 var UserAuthenticationV3Cmd = &cobra.Command{
-	Use:	"userAuthenticationV3",
-	Short:  "User authentication V3",
-	Long:   `User authentication V3`,
+	Use:   "userAuthenticationV3",
+	Short: "User authentication V3",
+	Long:  `User authentication V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
 			Session: sdkrepository.Session{
 				ConfigRepository: &repository.ConfigRepositoryImpl{},
-				TokenRepository: &repository.TokenRepositoryImpl{},
+				TokenRepository:  &repository.TokenRepositoryImpl{},
 			},
 		}
 		password, _ := cmd.Flags().GetString("password")
@@ -36,27 +37,27 @@ var UserAuthenticationV3Cmd = &cobra.Command{
 		extendExp, _ := cmd.Flags().GetBool("extendExp")
 		redirectUri, _ := cmd.Flags().GetString("redirectUri")
 		httpClient := &http.Client{
-		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-		   },
+			},
 		}
 		input := &o_auth2_0_extension.UserAuthenticationV3Params{
-			ClientID    : &clientId,
-			ExtendExp   : &extendExp,
-			RedirectURI : &redirectUri,
-			Password    : password,
-			RequestID   : requestId,
-			UserName    : userName,
-			HTTPClient: httpClient,
+			ClientID:    &clientId,
+			ExtendExp:   &extendExp,
+			RedirectURI: &redirectUri,
+			Password:    password,
+			RequestID:   requestId,
+			UserName:    userName,
+			HTTPClient:  httpClient,
 		}
-_,errFound := oAuth20ExtensionService.UserAuthenticationV3Short(input)
+		_, errFound := oAuth20ExtensionService.UserAuthenticationV3Short(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

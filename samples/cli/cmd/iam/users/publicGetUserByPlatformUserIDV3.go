@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // PublicGetUserByPlatformUserIDV3Cmd represents the PublicGetUserByPlatformUserIDV3 command
 var PublicGetUserByPlatformUserIDV3Cmd = &cobra.Command{
-	Use:	"publicGetUserByPlatformUserIDV3",
-	Short:  "Public get user by platform user IDV3",
-	Long:   `Public get user by platform user IDV3`,
+	Use:   "publicGetUserByPlatformUserIDV3",
+	Short: "Public get user by platform user IDV3",
+	Long:  `Public get user by platform user IDV3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,18 +32,18 @@ var PublicGetUserByPlatformUserIDV3Cmd = &cobra.Command{
 		platformId, _ := cmd.Flags().GetString("platformId")
 		platformUserId, _ := cmd.Flags().GetString("platformUserId")
 		input := &users.PublicGetUserByPlatformUserIDV3Params{
-			Namespace     : namespace,
-			PlatformID    : platformId,
+			Namespace:      namespace,
+			PlatformID:     platformId,
 			PlatformUserID: platformUserId,
 		}
-ok,errOK := usersService.PublicGetUserByPlatformUserIDV3Short(input)
+		ok, errOK := usersService.PublicGetUserByPlatformUserIDV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

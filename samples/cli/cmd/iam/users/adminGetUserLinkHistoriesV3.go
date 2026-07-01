@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetUserLinkHistoriesV3Cmd represents the AdminGetUserLinkHistoriesV3 command
 var AdminGetUserLinkHistoriesV3Cmd = &cobra.Command{
-	Use:	"adminGetUserLinkHistoriesV3",
-	Short:  "Admin get user link histories V3",
-	Long:   `Admin get user link histories V3`,
+	Use:   "adminGetUserLinkHistoriesV3",
+	Short: "Admin get user link histories V3",
+	Long:  `Admin get user link histories V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,18 +32,18 @@ var AdminGetUserLinkHistoriesV3Cmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &users.AdminGetUserLinkHistoriesV3Params{
-			Namespace : namespace,
-			UserID    : userId,
+			Namespace:  namespace,
+			UserID:     userId,
 			PlatformID: platformId,
 		}
-ok,errOK := usersService.AdminGetUserLinkHistoriesV3Short(input)
+		ok, errOK := usersService.AdminGetUserLinkHistoriesV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

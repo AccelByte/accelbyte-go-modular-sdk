@@ -8,8 +8,9 @@ package namespace
 
 import (
 	"log/slog"
-	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // DeleteNamespaceCmd represents the DeleteNamespace command
 var DeleteNamespaceCmd = &cobra.Command{
-	Use:	"deleteNamespace",
-	Short:  "Delete namespace",
-	Long:   `Delete namespace`,
+	Use:   "deleteNamespace",
+	Short: "Delete namespace",
+	Long:  `Delete namespace`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		namespaceService := &basic.NamespaceService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var DeleteNamespaceCmd = &cobra.Command{
 		input := &namespace_.DeleteNamespaceParams{
 			Namespace: namespace,
 		}
-ok,errOK := namespaceService.DeleteNamespaceShort(input)
+		ok, errOK := namespaceService.DeleteNamespaceShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

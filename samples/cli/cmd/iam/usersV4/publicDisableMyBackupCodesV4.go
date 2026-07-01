@@ -9,9 +9,10 @@ package usersV4
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // PublicDisableMyBackupCodesV4Cmd represents the PublicDisableMyBackupCodesV4 command
 var PublicDisableMyBackupCodesV4Cmd = &cobra.Command{
-	Use:	"publicDisableMyBackupCodesV4",
-	Short:  "Public disable my backup codes V4",
-	Long:   `Public disable my backup codes V4`,
+	Use:   "publicDisableMyBackupCodesV4",
+	Short: "Public disable my backup codes V4",
+	Long:  `Public disable my backup codes V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var PublicDisableMyBackupCodesV4Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelDisableMFARequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users_v4.PublicDisableMyBackupCodesV4Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-errNoContent := usersV4Service.PublicDisableMyBackupCodesV4Short(input)
+		errNoContent := usersV4Service.PublicDisableMyBackupCodesV4Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

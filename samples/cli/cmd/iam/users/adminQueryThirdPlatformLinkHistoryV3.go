@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminQueryThirdPlatformLinkHistoryV3Cmd represents the AdminQueryThirdPlatformLinkHistoryV3 command
 var AdminQueryThirdPlatformLinkHistoryV3Cmd = &cobra.Command{
-	Use:	"adminQueryThirdPlatformLinkHistoryV3",
-	Short:  "Admin query third platform link history V3",
-	Long:   `Admin query third platform link history V3`,
+	Use:   "adminQueryThirdPlatformLinkHistoryV3",
+	Short: "Admin query third platform link history V3",
+	Long:  `Admin query third platform link history V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,20 +34,20 @@ var AdminQueryThirdPlatformLinkHistoryV3Cmd = &cobra.Command{
 		offset, _ := cmd.Flags().GetInt64("offset")
 		platformUserId, _ := cmd.Flags().GetString("platformUserId")
 		input := &users.AdminQueryThirdPlatformLinkHistoryV3Params{
-			Namespace     : namespace,
-			Limit         : &limit,
-			Offset        : &offset,
+			Namespace:      namespace,
+			Limit:          &limit,
+			Offset:         &offset,
 			PlatformUserID: &platformUserId,
-			PlatformID    : platformId,
+			PlatformID:     platformId,
 		}
-ok,errOK := usersService.AdminQueryThirdPlatformLinkHistoryV3Short(input)
+		ok, errOK := usersService.AdminQueryThirdPlatformLinkHistoryV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

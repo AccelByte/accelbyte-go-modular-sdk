@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // DeleteUserInformationCmd represents the DeleteUserInformation command
 var DeleteUserInformationCmd = &cobra.Command{
-	Use:	"deleteUserInformation",
-	Short:  "Delete user information",
-	Long:   `Delete user information`,
+	Use:   "deleteUserInformation",
+	Short: "Delete user information",
+	Long:  `Delete user information`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var DeleteUserInformationCmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.DeleteUserInformationParams{
 			Namespace: namespace,
-			UserID   : userId,
+			UserID:    userId,
 		}
-errNoContent := usersService.DeleteUserInformationShort(input)
+		errNoContent := usersService.DeleteUserInformationShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

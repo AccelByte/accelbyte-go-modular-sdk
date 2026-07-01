@@ -8,8 +8,9 @@ package usersV4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetUserMFAStatusV4Cmd represents the AdminGetUserMFAStatusV4 command
 var AdminGetUserMFAStatusV4Cmd = &cobra.Command{
-	Use:	"adminGetUserMFAStatusV4",
-	Short:  "Admin get user MFA status V4",
-	Long:   `Admin get user MFA status V4`,
+	Use:   "adminGetUserMFAStatusV4",
+	Short: "Admin get user MFA status V4",
+	Long:  `Admin get user MFA status V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var AdminGetUserMFAStatusV4Cmd = &cobra.Command{
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users_v4.AdminGetUserMFAStatusV4Params{
 			Namespace: namespace,
-			UserID   : userId,
+			UserID:    userId,
 		}
-ok,errOK := usersV4Service.AdminGetUserMFAStatusV4Short(input)
+		ok, errOK := usersV4Service.AdminGetUserMFAStatusV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

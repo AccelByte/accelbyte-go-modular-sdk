@@ -8,8 +8,9 @@ package users
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetAgeRestrictionStatusV2Cmd represents the AdminGetAgeRestrictionStatusV2 command
 var AdminGetAgeRestrictionStatusV2Cmd = &cobra.Command{
-	Use:	"adminGetAgeRestrictionStatusV2",
-	Short:  "Admin get age restriction status V2",
-	Long:   `Admin get age restriction status V2`,
+	Use:   "adminGetAgeRestrictionStatusV2",
+	Short: "Admin get age restriction status V2",
+	Long:  `Admin get age restriction status V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var AdminGetAgeRestrictionStatusV2Cmd = &cobra.Command{
 		input := &users.AdminGetAgeRestrictionStatusV2Params{
 			Namespace: namespace,
 		}
-ok,errOK := usersService.AdminGetAgeRestrictionStatusV2Short(input)
+		ok, errOK := usersService.AdminGetAgeRestrictionStatusV2Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

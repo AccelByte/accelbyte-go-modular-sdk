@@ -9,9 +9,10 @@ package clientsConfigV3
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients_config_v3"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminUpdateModulePackageCmd represents the AdminUpdateModulePackage command
 var AdminUpdateModulePackageCmd = &cobra.Command{
-	Use:	"adminUpdateModulePackage",
-	Short:  "Admin update module package",
-	Long:   `Admin update module package`,
+	Use:   "adminUpdateModulePackage",
+	Short: "Admin update module package",
+	Long:  `Admin update module package`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsConfigV3Service := &iam.ClientsConfigV3Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,21 +32,21 @@ var AdminUpdateModulePackageCmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ClientmodelUpsertPermissionModulePackageRequest
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &clients_config_v3.AdminUpdateModulePackageParams{
 			Body: body,
 		}
-errNoContent := clientsConfigV3Service.AdminUpdateModulePackageShort(input)
+		errNoContent := clientsConfigV3Service.AdminUpdateModulePackageShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

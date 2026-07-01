@@ -8,8 +8,9 @@ package thirdPartyCredential
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // RetrieveAllThirdPartyLoginPlatformCredentialV3Cmd represents the RetrieveAllThirdPartyLoginPlatformCredentialV3 command
 var RetrieveAllThirdPartyLoginPlatformCredentialV3Cmd = &cobra.Command{
-	Use:	"retrieveAllThirdPartyLoginPlatformCredentialV3",
-	Short:  "Retrieve all third party login platform credential V3",
-	Long:   `Retrieve all third party login platform credential V3`,
+	Use:   "retrieveAllThirdPartyLoginPlatformCredentialV3",
+	Short: "Retrieve all third party login platform credential V3",
+	Long:  `Retrieve all third party login platform credential V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		thirdPartyCredentialService := &iam.ThirdPartyCredentialService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var RetrieveAllThirdPartyLoginPlatformCredentialV3Cmd = &cobra.Command{
 		input := &third_party_credential.RetrieveAllThirdPartyLoginPlatformCredentialV3Params{
 			Namespace: namespace,
 		}
-ok,errOK := thirdPartyCredentialService.RetrieveAllThirdPartyLoginPlatformCredentialV3Short(input)
+		ok, errOK := thirdPartyCredentialService.RetrieveAllThirdPartyLoginPlatformCredentialV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

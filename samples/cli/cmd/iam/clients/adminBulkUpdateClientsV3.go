@@ -9,9 +9,10 @@ package clients
 import (
 	"encoding/json"
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -19,9 +20,9 @@ import (
 
 // AdminBulkUpdateClientsV3Cmd represents the AdminBulkUpdateClientsV3 command
 var AdminBulkUpdateClientsV3Cmd = &cobra.Command{
-	Use:	"adminBulkUpdateClientsV3",
-	Short:  "Admin bulk update clients V3",
-	Long:   `Admin bulk update clients V3`,
+	Use:   "adminBulkUpdateClientsV3",
+	Short: "Admin bulk update clients V3",
+	Long:  `Admin bulk update clients V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsService := &iam.ClientsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,23 +32,23 @@ var AdminBulkUpdateClientsV3Cmd = &cobra.Command{
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ClientmodelClientsUpdateRequestV3
-errBody := json.Unmarshal([]byte(bodyString), &body)
+		errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &clients.AdminBulkUpdateClientsV3Params{
-			Body     : body,
+			Body:      body,
 			Namespace: namespace,
 		}
-errNoContent := clientsService.AdminBulkUpdateClientsV3Short(input)
+		errNoContent := clientsService.AdminBulkUpdateClientsV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

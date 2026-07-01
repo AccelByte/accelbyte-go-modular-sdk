@@ -8,8 +8,9 @@ package thirdPartyCredential
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Cmd represents the RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3 command
 var RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Cmd = &cobra.Command{
-	Use:	"retrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3",
-	Short:  "Retrieve all active third party login platform credential public V3",
-	Long:   `Retrieve all active third party login platform credential public V3`,
+	Use:   "retrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3",
+	Short: "Retrieve all active third party login platform credential public V3",
+	Long:  `Retrieve all active third party login platform credential public V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		thirdPartyCredentialService := &iam.ThirdPartyCredentialService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Cmd = &cobra.Comma
 		input := &third_party_credential.RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Params{
 			Namespace: namespace,
 		}
-ok,errOK := thirdPartyCredentialService.RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short(input)
+		ok, errOK := thirdPartyCredentialService.RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

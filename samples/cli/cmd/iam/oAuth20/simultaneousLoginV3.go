@@ -8,8 +8,9 @@ package oAuth20
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // SimultaneousLoginV3Cmd represents the SimultaneousLoginV3 command
 var SimultaneousLoginV3Cmd = &cobra.Command{
-	Use:	"simultaneousLoginV3",
-	Short:  "Simultaneous login V3",
-	Long:   `Simultaneous login V3`,
+	Use:   "simultaneousLoginV3",
+	Short: "Simultaneous login V3",
+	Long:  `Simultaneous login V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,18 +34,18 @@ var SimultaneousLoginV3Cmd = &cobra.Command{
 		simultaneousTicket, _ := cmd.Flags().GetString("simultaneousTicket")
 		input := &o_auth2_0.SimultaneousLoginV3Params{
 			SimultaneousPlatform: &simultaneousPlatform,
-			SimultaneousTicket  : &simultaneousTicket,
-			NativePlatform      : nativePlatform,
+			SimultaneousTicket:   &simultaneousTicket,
+			NativePlatform:       nativePlatform,
 			NativePlatformTicket: nativePlatformTicket,
 		}
-ok,errOK := oAuth20Service.SimultaneousLoginV3Short(input)
+		ok, errOK := oAuth20Service.SimultaneousLoginV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

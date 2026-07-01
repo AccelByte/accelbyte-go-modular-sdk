@@ -8,8 +8,9 @@ package oAuth20V4
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_v4"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_v4"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,15 +18,15 @@ import (
 
 // TokenGrantV4Cmd represents the TokenGrantV4 command
 var TokenGrantV4Cmd = &cobra.Command{
-	Use:	"tokenGrantV4",
-	Short:  "Token grant V4",
-	Long:   `Token grant V4`,
+	Use:   "tokenGrantV4",
+	Short: "Token grant V4",
+	Long:  `Token grant V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20V4Service := &iam.OAuth20v4Service{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
 			Session: sdkrepository.Session{
 				ConfigRepository: &repository.ConfigRepositoryImpl{},
-				TokenRepository: &repository.TokenRepositoryImpl{},
+				TokenRepository:  &repository.TokenRepositoryImpl{},
 			},
 		}
 		grantType, _ := cmd.Flags().GetString("grantType")
@@ -47,33 +48,33 @@ var TokenGrantV4Cmd = &cobra.Command{
 		codeChallenge, _ := cmd.Flags().GetString("codeChallenge")
 		codeChallengeMethod, _ := cmd.Flags().GetString("codeChallengeMethod")
 		input := &o_auth2_0_v4.TokenGrantV4Params{
-			AuthTrustID          : &authTrustId,
-			DeviceID             : &deviceId,
-			AdditionalData       : &additionalData,
-			ClientID             : &clientId,
-			ClientSecret         : &clientSecret,
-			Code                 : &code,
-			CodeVerifier         : &codeVerifier,
-			ExtendNamespace      : &extendNamespace,
-			ExtendExp            : &extendExp,
-			LoginQueueTicket     : &loginQueueTicket,
-			Password             : &password,
-			RedirectURI          : &redirectUri,
-			RefreshToken         : &refreshToken,
-			Scope                : &scope,
-			Username             : &username,
-			GrantType            : grantType,
-			CodeChallenge        : &codeChallenge,
-			CodeChallengeMethod  : &codeChallengeMethod,
+			AuthTrustID:         &authTrustId,
+			DeviceID:            &deviceId,
+			AdditionalData:      &additionalData,
+			ClientID:            &clientId,
+			ClientSecret:        &clientSecret,
+			Code:                &code,
+			CodeVerifier:        &codeVerifier,
+			ExtendNamespace:     &extendNamespace,
+			ExtendExp:           &extendExp,
+			LoginQueueTicket:    &loginQueueTicket,
+			Password:            &password,
+			RedirectURI:         &redirectUri,
+			RefreshToken:        &refreshToken,
+			Scope:               &scope,
+			Username:            &username,
+			GrantType:           grantType,
+			CodeChallenge:       &codeChallenge,
+			CodeChallengeMethod: &codeChallengeMethod,
 		}
-ok,errOK := oAuth20V4Service.TokenGrantV4Short(input)
+		ok, errOK := oAuth20V4Service.TokenGrantV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -8,8 +8,9 @@ package config
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/config"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/config"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // DeleteConfigCmd represents the DeleteConfig command
 var DeleteConfigCmd = &cobra.Command{
-	Use:	"deleteConfig",
-	Short:  "Delete config",
-	Long:   `Delete config`,
+	Use:   "deleteConfig",
+	Short: "Delete config",
+	Long:  `Delete config`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &basic.ConfigService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -33,14 +34,14 @@ var DeleteConfigCmd = &cobra.Command{
 			ConfigKey: configKey,
 			Namespace: namespace,
 		}
-errNoContent := configService.DeleteConfigShort(input)
+		errNoContent := configService.DeleteConfigShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-        slog.Info("Response CLI success.")
+		slog.Info("Response CLI success.")
 
 		return nil
 	},

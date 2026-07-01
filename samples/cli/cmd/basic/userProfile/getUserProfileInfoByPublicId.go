@@ -8,8 +8,9 @@ package userProfile
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
+
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // GetUserProfileInfoByPublicIdCmd represents the GetUserProfileInfoByPublicId command
 var GetUserProfileInfoByPublicIdCmd = &cobra.Command{
-	Use:	"getUserProfileInfoByPublicId",
-	Short:  "Get user profile info by public id",
-	Long:   `Get user profile info by public id`,
+	Use:   "getUserProfileInfoByPublicId",
+	Short: "Get user profile info by public id",
+	Long:  `Get user profile info by public id`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userProfileService := &basic.UserProfileService{
 			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,16 +32,16 @@ var GetUserProfileInfoByPublicIdCmd = &cobra.Command{
 		publicId, _ := cmd.Flags().GetString("publicId")
 		input := &user_profile.GetUserProfileInfoByPublicIDParams{
 			Namespace: namespace,
-			PublicID : publicId,
+			PublicID:  publicId,
 		}
-ok,errOK := userProfileService.GetUserProfileInfoByPublicIDShort(input)
+		ok, errOK := userProfileService.GetUserProfileInfoByPublicIDShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

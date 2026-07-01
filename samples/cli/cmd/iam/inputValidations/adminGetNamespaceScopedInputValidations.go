@@ -8,8 +8,9 @@ package inputValidations
 
 import (
 	"log/slog"
-"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/input_validations"
+
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/input_validations"
 	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
@@ -17,9 +18,9 @@ import (
 
 // AdminGetNamespaceScopedInputValidationsCmd represents the AdminGetNamespaceScopedInputValidations command
 var AdminGetNamespaceScopedInputValidationsCmd = &cobra.Command{
-	Use:	"adminGetNamespaceScopedInputValidations",
-	Short:  "Admin get namespace scoped input validations",
-	Long:   `Admin get namespace scoped input validations`,
+	Use:   "adminGetNamespaceScopedInputValidations",
+	Short: "Admin get namespace scoped input validations",
+	Long:  `Admin get namespace scoped input validations`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		inputValidationsService := &iam.InputValidationsService{
 			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
@@ -31,14 +32,14 @@ var AdminGetNamespaceScopedInputValidationsCmd = &cobra.Command{
 		input := &input_validations.AdminGetNamespaceScopedInputValidationsParams{
 			Namespace: namespace,
 		}
-ok,errOK := inputValidationsService.AdminGetNamespaceScopedInputValidationsShort(input)
+		ok, errOK := inputValidationsService.AdminGetNamespaceScopedInputValidationsShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-        slog.Info("Response CLI success", "response", ok)
+		slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},
