@@ -100,10 +100,9 @@ func NewPublicGetRoleV3OK() *PublicGetRoleV3OK {
 	return &PublicGetRoleV3OK{}
 }
 
-/*
-PublicGetRoleV3OK handles this case with default header values.
+/*PublicGetRoleV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicGetRoleV3OK struct {
 	Payload *iamclientmodels.ModelRoleResponse
@@ -155,10 +154,9 @@ func NewPublicGetRoleV3BadRequest() *PublicGetRoleV3BadRequest {
 	return &PublicGetRoleV3BadRequest{}
 }
 
-/*
-PublicGetRoleV3BadRequest handles this case with default header values.
+/*PublicGetRoleV3BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetRoleV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,10 +208,9 @@ func NewPublicGetRoleV3NotFound() *PublicGetRoleV3NotFound {
 	return &PublicGetRoleV3NotFound{}
 }
 
-/*
-PublicGetRoleV3NotFound handles this case with default header values.
+/*PublicGetRoleV3NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type PublicGetRoleV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

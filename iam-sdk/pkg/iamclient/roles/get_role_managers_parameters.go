@@ -57,8 +57,7 @@ func NewGetRoleManagersParamsWithHTTPClient(client *http.Client) *GetRoleManager
 	}
 }
 
-/*
-GetRoleManagersParams contains all the parameters to send to the API endpoint
+/*GetRoleManagersParams contains all the parameters to send to the API endpoint
 for the get role managers operation typically these are written to a http.Request
 */
 type GetRoleManagersParams struct {

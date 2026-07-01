@@ -57,8 +57,7 @@ func NewGetCountryLocationV3ParamsWithHTTPClient(client *http.Client) *GetCountr
 	}
 }
 
-/*
-GetCountryLocationV3Params contains all the parameters to send to the API endpoint
+/*GetCountryLocationV3Params contains all the parameters to send to the API endpoint
 for the get country location v3 operation typically these are written to a http.Request
 */
 type GetCountryLocationV3Params struct {

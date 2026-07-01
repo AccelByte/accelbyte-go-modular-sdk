@@ -57,8 +57,7 @@ func NewSetRoleAsAdminParamsWithHTTPClient(client *http.Client) *SetRoleAsAdminP
 	}
 }
 
-/*
-SetRoleAsAdminParams contains all the parameters to send to the API endpoint
+/*SetRoleAsAdminParams contains all the parameters to send to the API endpoint
 for the set role as admin operation typically these are written to a http.Request
 */
 type SetRoleAsAdminParams struct {

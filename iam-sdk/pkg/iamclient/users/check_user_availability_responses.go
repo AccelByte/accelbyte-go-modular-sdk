@@ -109,10 +109,9 @@ func NewCheckUserAvailabilityNoContent() *CheckUserAvailabilityNoContent {
 	return &CheckUserAvailabilityNoContent{}
 }
 
-/*
-CheckUserAvailabilityNoContent handles this case with default header values.
+/*CheckUserAvailabilityNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type CheckUserAvailabilityNoContent struct {
 }
@@ -137,10 +136,9 @@ func NewCheckUserAvailabilityBadRequest() *CheckUserAvailabilityBadRequest {
 	return &CheckUserAvailabilityBadRequest{}
 }
 
-/*
-CheckUserAvailabilityBadRequest handles this case with default header values.
+/*CheckUserAvailabilityBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CheckUserAvailabilityBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -192,10 +190,9 @@ func NewCheckUserAvailabilityNotFound() *CheckUserAvailabilityNotFound {
 	return &CheckUserAvailabilityNotFound{}
 }
 
-/*
-CheckUserAvailabilityNotFound handles this case with default header values.
+/*CheckUserAvailabilityNotFound handles this case with default header values.
 
-	Not Found
+  Not Found
 */
 type CheckUserAvailabilityNotFound struct {
 }
@@ -220,10 +217,9 @@ func NewCheckUserAvailabilityUnprocessableEntity() *CheckUserAvailabilityUnproce
 	return &CheckUserAvailabilityUnprocessableEntity{}
 }
 
-/*
-CheckUserAvailabilityUnprocessableEntity handles this case with default header values.
+/*CheckUserAvailabilityUnprocessableEntity handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type CheckUserAvailabilityUnprocessableEntity struct {
 	Payload *iamclientmodels.RestErrorResponse

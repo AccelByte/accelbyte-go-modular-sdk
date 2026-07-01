@@ -124,10 +124,9 @@ func NewAddClientPermissionNoContent() *AddClientPermissionNoContent {
 	return &AddClientPermissionNoContent{}
 }
 
-/*
-AddClientPermissionNoContent handles this case with default header values.
+/*AddClientPermissionNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AddClientPermissionNoContent struct {
 }
@@ -152,10 +151,9 @@ func NewAddClientPermissionBadRequest() *AddClientPermissionBadRequest {
 	return &AddClientPermissionBadRequest{}
 }
 
-/*
-AddClientPermissionBadRequest handles this case with default header values.
+/*AddClientPermissionBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type AddClientPermissionBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -207,10 +205,9 @@ func NewAddClientPermissionUnauthorized() *AddClientPermissionUnauthorized {
 	return &AddClientPermissionUnauthorized{}
 }
 
-/*
-AddClientPermissionUnauthorized handles this case with default header values.
+/*AddClientPermissionUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AddClientPermissionUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -262,10 +259,9 @@ func NewAddClientPermissionForbidden() *AddClientPermissionForbidden {
 	return &AddClientPermissionForbidden{}
 }
 
-/*
-AddClientPermissionForbidden handles this case with default header values.
+/*AddClientPermissionForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AddClientPermissionForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -317,10 +313,9 @@ func NewAddClientPermissionNotFound() *AddClientPermissionNotFound {
 	return &AddClientPermissionNotFound{}
 }
 
-/*
-AddClientPermissionNotFound handles this case with default header values.
+/*AddClientPermissionNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type AddClientPermissionNotFound struct {
 }

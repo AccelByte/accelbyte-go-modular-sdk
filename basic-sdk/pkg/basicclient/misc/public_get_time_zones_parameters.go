@@ -57,8 +57,7 @@ func NewPublicGetTimeZonesParamsWithHTTPClient(client *http.Client) *PublicGetTi
 	}
 }
 
-/*
-PublicGetTimeZonesParams contains all the parameters to send to the API endpoint
+/*PublicGetTimeZonesParams contains all the parameters to send to the API endpoint
 for the public get time zones operation typically these are written to a http.Request
 */
 type PublicGetTimeZonesParams struct {

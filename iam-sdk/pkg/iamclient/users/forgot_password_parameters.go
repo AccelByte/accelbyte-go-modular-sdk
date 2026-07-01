@@ -59,8 +59,7 @@ func NewForgotPasswordParamsWithHTTPClient(client *http.Client) *ForgotPasswordP
 	}
 }
 
-/*
-ForgotPasswordParams contains all the parameters to send to the API endpoint
+/*ForgotPasswordParams contains all the parameters to send to the API endpoint
 for the forgot password operation typically these are written to a http.Request
 */
 type ForgotPasswordParams struct {

@@ -130,10 +130,9 @@ func NewAdminGetUserLinkHistoriesV3OK() *AdminGetUserLinkHistoriesV3OK {
 	return &AdminGetUserLinkHistoriesV3OK{}
 }
 
-/*
-AdminGetUserLinkHistoriesV3OK handles this case with default header values.
+/*AdminGetUserLinkHistoriesV3OK handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AdminGetUserLinkHistoriesV3OK struct {
 	Payload *iamclientmodels.ModelUserPlatformLinkHistories
@@ -185,10 +184,9 @@ func NewAdminGetUserLinkHistoriesV3BadRequest() *AdminGetUserLinkHistoriesV3BadR
 	return &AdminGetUserLinkHistoriesV3BadRequest{}
 }
 
-/*
-AdminGetUserLinkHistoriesV3BadRequest handles this case with default header values.
+/*AdminGetUserLinkHistoriesV3BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetUserLinkHistoriesV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,10 +238,9 @@ func NewAdminGetUserLinkHistoriesV3Unauthorized() *AdminGetUserLinkHistoriesV3Un
 	return &AdminGetUserLinkHistoriesV3Unauthorized{}
 }
 
-/*
-AdminGetUserLinkHistoriesV3Unauthorized handles this case with default header values.
+/*AdminGetUserLinkHistoriesV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserLinkHistoriesV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -295,10 +292,9 @@ func NewAdminGetUserLinkHistoriesV3Forbidden() *AdminGetUserLinkHistoriesV3Forbi
 	return &AdminGetUserLinkHistoriesV3Forbidden{}
 }
 
-/*
-AdminGetUserLinkHistoriesV3Forbidden handles this case with default header values.
+/*AdminGetUserLinkHistoriesV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserLinkHistoriesV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -350,10 +346,9 @@ func NewAdminGetUserLinkHistoriesV3InternalServerError() *AdminGetUserLinkHistor
 	return &AdminGetUserLinkHistoriesV3InternalServerError{}
 }
 
-/*
-AdminGetUserLinkHistoriesV3InternalServerError handles this case with default header values.
+/*AdminGetUserLinkHistoriesV3InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetUserLinkHistoriesV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

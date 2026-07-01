@@ -114,10 +114,9 @@ func NewPublicSendRegistrationCodeNoContent() *PublicSendRegistrationCodeNoConte
 	return &PublicSendRegistrationCodeNoContent{}
 }
 
-/*
-PublicSendRegistrationCodeNoContent handles this case with default header values.
+/*PublicSendRegistrationCodeNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type PublicSendRegistrationCodeNoContent struct {
 }
@@ -142,10 +141,9 @@ func NewPublicSendRegistrationCodeBadRequest() *PublicSendRegistrationCodeBadReq
 	return &PublicSendRegistrationCodeBadRequest{}
 }
 
-/*
-PublicSendRegistrationCodeBadRequest handles this case with default header values.
+/*PublicSendRegistrationCodeBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicSendRegistrationCodeBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -197,10 +195,9 @@ func NewPublicSendRegistrationCodeConflict() *PublicSendRegistrationCodeConflict
 	return &PublicSendRegistrationCodeConflict{}
 }
 
-/*
-PublicSendRegistrationCodeConflict handles this case with default header values.
+/*PublicSendRegistrationCodeConflict handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type PublicSendRegistrationCodeConflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -252,10 +249,9 @@ func NewPublicSendRegistrationCodeTooManyRequests() *PublicSendRegistrationCodeT
 	return &PublicSendRegistrationCodeTooManyRequests{}
 }
 
-/*
-PublicSendRegistrationCodeTooManyRequests handles this case with default header values.
+/*PublicSendRegistrationCodeTooManyRequests handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type PublicSendRegistrationCodeTooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse

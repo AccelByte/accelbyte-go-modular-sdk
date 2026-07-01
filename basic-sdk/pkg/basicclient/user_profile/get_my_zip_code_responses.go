@@ -100,10 +100,9 @@ func NewGetMyZipCodeOK() *GetMyZipCodeOK {
 	return &GetMyZipCodeOK{}
 }
 
-/*
-GetMyZipCodeOK handles this case with default header values.
+/*GetMyZipCodeOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type GetMyZipCodeOK struct {
 	Payload *basicclientmodels.UserZipCode
@@ -155,10 +154,9 @@ func NewGetMyZipCodeUnauthorized() *GetMyZipCodeUnauthorized {
 	return &GetMyZipCodeUnauthorized{}
 }
 
-/*
-GetMyZipCodeUnauthorized handles this case with default header values.
+/*GetMyZipCodeUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetMyZipCodeUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -210,10 +208,9 @@ func NewGetMyZipCodeForbidden() *GetMyZipCodeForbidden {
 	return &GetMyZipCodeForbidden{}
 }
 
-/*
-GetMyZipCodeForbidden handles this case with default header values.
+/*GetMyZipCodeForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetMyZipCodeForbidden struct {
 	Payload *basicclientmodels.ErrorEntity

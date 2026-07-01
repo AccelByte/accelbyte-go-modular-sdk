@@ -57,8 +57,7 @@ func NewPublicGetLinkHeadlessAccountToMyAccountConflictV3ParamsWithHTTPClient(cl
 	}
 }
 
-/*
-PublicGetLinkHeadlessAccountToMyAccountConflictV3Params contains all the parameters to send to the API endpoint
+/*PublicGetLinkHeadlessAccountToMyAccountConflictV3Params contains all the parameters to send to the API endpoint
 for the public get link headless account to my account conflict v3 operation typically these are written to a http.Request
 */
 type PublicGetLinkHeadlessAccountToMyAccountConflictV3Params struct {

@@ -9,45 +9,47 @@ package usersV4
 import (
 	"encoding/json"
 	"log/slog"
-
-	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminAddUserRoleV4Cmd represents the AdminAddUserRoleV4 command
 var AdminAddUserRoleV4Cmd = &cobra.Command{
-	Use:   "adminAddUserRoleV4",
-	Short: "Admin add user role V4",
-	Long:  `Admin add user role V4`,
+	Use:	"adminAddUserRoleV4",
+	Short:  "Admin add user role V4",
+	Long:   `Admin add user role V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelAddUserRoleV4Request
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users_v4.AdminAddUserRoleV4Params{
-			Body:      body,
+			Body     : body,
 			Namespace: namespace,
-			UserID:    userId,
+			UserID   : userId,
 		}
-		ok, errOK := usersV4Service.AdminAddUserRoleV4Short(input)
+ok,errOK := usersV4Service.AdminAddUserRoleV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

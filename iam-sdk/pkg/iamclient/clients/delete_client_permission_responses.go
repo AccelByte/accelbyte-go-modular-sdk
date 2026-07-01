@@ -124,10 +124,9 @@ func NewDeleteClientPermissionNoContent() *DeleteClientPermissionNoContent {
 	return &DeleteClientPermissionNoContent{}
 }
 
-/*
-DeleteClientPermissionNoContent handles this case with default header values.
+/*DeleteClientPermissionNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type DeleteClientPermissionNoContent struct {
 }
@@ -152,10 +151,9 @@ func NewDeleteClientPermissionBadRequest() *DeleteClientPermissionBadRequest {
 	return &DeleteClientPermissionBadRequest{}
 }
 
-/*
-DeleteClientPermissionBadRequest handles this case with default header values.
+/*DeleteClientPermissionBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type DeleteClientPermissionBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -207,10 +205,9 @@ func NewDeleteClientPermissionUnauthorized() *DeleteClientPermissionUnauthorized
 	return &DeleteClientPermissionUnauthorized{}
 }
 
-/*
-DeleteClientPermissionUnauthorized handles this case with default header values.
+/*DeleteClientPermissionUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteClientPermissionUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -262,10 +259,9 @@ func NewDeleteClientPermissionForbidden() *DeleteClientPermissionForbidden {
 	return &DeleteClientPermissionForbidden{}
 }
 
-/*
-DeleteClientPermissionForbidden handles this case with default header values.
+/*DeleteClientPermissionForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteClientPermissionForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -317,10 +313,9 @@ func NewDeleteClientPermissionNotFound() *DeleteClientPermissionNotFound {
 	return &DeleteClientPermissionNotFound{}
 }
 
-/*
-DeleteClientPermissionNotFound handles this case with default header values.
+/*DeleteClientPermissionNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type DeleteClientPermissionNotFound struct {
 }

@@ -125,10 +125,9 @@ func NewUpdateClientOK() *UpdateClientOK {
 	return &UpdateClientOK{}
 }
 
-/*
-UpdateClientOK handles this case with default header values.
+/*UpdateClientOK handles this case with default header values.
 
-	OK
+  OK
 */
 type UpdateClientOK struct {
 	Payload *iamclientmodels.ClientmodelClientResponse
@@ -180,10 +179,9 @@ func NewUpdateClientBadRequest() *UpdateClientBadRequest {
 	return &UpdateClientBadRequest{}
 }
 
-/*
-UpdateClientBadRequest handles this case with default header values.
+/*UpdateClientBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type UpdateClientBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewUpdateClientUnauthorized() *UpdateClientUnauthorized {
 	return &UpdateClientUnauthorized{}
 }
 
-/*
-UpdateClientUnauthorized handles this case with default header values.
+/*UpdateClientUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateClientUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewUpdateClientForbidden() *UpdateClientForbidden {
 	return &UpdateClientForbidden{}
 }
 
-/*
-UpdateClientForbidden handles this case with default header values.
+/*UpdateClientForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateClientForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewUpdateClientNotFound() *UpdateClientNotFound {
 	return &UpdateClientNotFound{}
 }
 
-/*
-UpdateClientNotFound handles this case with default header values.
+/*UpdateClientNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type UpdateClientNotFound struct {
 }

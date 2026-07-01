@@ -8,22 +8,24 @@ package fileUpload
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/file_upload"
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/file_upload"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GeneratedUserUploadContentUrlCmd represents the GeneratedUserUploadContentUrl command
 var GeneratedUserUploadContentUrlCmd = &cobra.Command{
-	Use:   "generatedUserUploadContentUrl",
-	Short: "Generated user upload content url",
-	Long:  `Generated user upload content url`,
+	Use:	"generatedUserUploadContentUrl",
+	Short:  "Generated user upload content url",
+	Long:   `Generated user upload content url`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fileUploadService := &basic.FileUploadService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
@@ -31,18 +33,18 @@ var GeneratedUserUploadContentUrlCmd = &cobra.Command{
 		category, _ := cmd.Flags().GetString("category")
 		input := &file_upload.GeneratedUserUploadContentURLParams{
 			Namespace: namespace,
-			UserID:    userId,
-			Category:  &category,
-			FileType:  fileType,
+			UserID   : userId,
+			Category : &category,
+			FileType : fileType,
 		}
-		ok, errOK := fileUploadService.GeneratedUserUploadContentURLShort(input)
+ok,errOK := fileUploadService.GeneratedUserUploadContentURLShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -8,48 +8,50 @@ package users
 
 import (
 	"log/slog"
-	"net/http"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
+	"net/http"
 )
 
 // PublicWebLinkPlatformEstablishCmd represents the PublicWebLinkPlatformEstablish command
 var PublicWebLinkPlatformEstablishCmd = &cobra.Command{
-	Use:   "publicWebLinkPlatformEstablish",
-	Short: "Public web link platform establish",
-	Long:  `Public web link platform establish`,
+	Use:	"publicWebLinkPlatformEstablish",
+	Short:  "Public web link platform establish",
+	Long:   `Public web link platform establish`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		state, _ := cmd.Flags().GetString("state")
 		code, _ := cmd.Flags().GetString("code")
 		httpClient := &http.Client{
-			CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-			},
+		   },
 		}
 		input := &users.PublicWebLinkPlatformEstablishParams{
-			Namespace:  namespace,
+			Namespace : namespace,
 			PlatformID: platformId,
-			Code:       &code,
-			State:      state,
+			Code      : &code,
+			State     : state,
 			HTTPClient: httpClient,
 		}
-		_, errFound := usersService.PublicWebLinkPlatformEstablishShort(input)
+_,errFound := usersService.PublicWebLinkPlatformEstablishShort(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

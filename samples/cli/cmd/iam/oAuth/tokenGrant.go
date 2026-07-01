@@ -8,22 +8,24 @@ package oAuth
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // TokenGrantCmd represents the TokenGrant command
 var TokenGrantCmd = &cobra.Command{
-	Use:   "tokenGrant",
-	Short: "Token grant",
-	Long:  `Token grant`,
+	Use:	"tokenGrant",
+	Short:  "Token grant",
+	Long:   `Token grant`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuthService := &iam.OAuthService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		grantType, _ := cmd.Flags().GetString("grantType")
 		deviceId, _ := cmd.Flags().GetString("deviceId")
@@ -35,24 +37,24 @@ var TokenGrantCmd = &cobra.Command{
 		refreshToken, _ := cmd.Flags().GetString("refreshToken")
 		username, _ := cmd.Flags().GetString("username")
 		input := &o_auth.TokenGrantParams{
-			DeviceID:     &deviceId,
-			Code:         &code,
-			ExtendExp:    &extendExp,
-			Namespace:    &namespace,
-			Password:     &password,
-			RedirectURI:  &redirectUri,
-			RefreshToken: &refreshToken,
-			Username:     &username,
-			GrantType:    grantType,
+			DeviceID     : &deviceId,
+			Code         : &code,
+			ExtendExp    : &extendExp,
+			Namespace    : &namespace,
+			Password     : &password,
+			RedirectURI  : &redirectUri,
+			RefreshToken : &refreshToken,
+			Username     : &username,
+			GrantType    : grantType,
 		}
-		ok, errOK := oAuthService.TokenGrantShort(input)
+ok,errOK := oAuthService.TokenGrantShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

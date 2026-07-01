@@ -8,22 +8,24 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicPlatformLinkV3Cmd represents the PublicPlatformLinkV3 command
 var PublicPlatformLinkV3Cmd = &cobra.Command{
-	Use:   "publicPlatformLinkV3",
-	Short: "Public platform link V3",
-	Long:  `Public platform link V3`,
+	Use:	"publicPlatformLinkV3",
+	Short:  "Public platform link V3",
+	Long:   `Public platform link V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		ticket, _ := cmd.Flags().GetString("ticket")
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -31,18 +33,18 @@ var PublicPlatformLinkV3Cmd = &cobra.Command{
 		redirectUri, _ := cmd.Flags().GetString("redirectUri")
 		input := &users.PublicPlatformLinkV3Params{
 			RedirectURI: &redirectUri,
-			Ticket:      ticket,
-			Namespace:   namespace,
-			PlatformID:  platformId,
+			Ticket     : ticket,
+			Namespace  : namespace,
+			PlatformID : platformId,
 		}
-		errNoContent := usersService.PublicPlatformLinkV3Short(input)
+errNoContent := usersService.PublicPlatformLinkV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -9,43 +9,45 @@ package namespace
 import (
 	"encoding/json"
 	"log/slog"
-
-	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
+	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // UpdateTestingFlagCmd represents the UpdateTestingFlag command
 var UpdateTestingFlagCmd = &cobra.Command{
-	Use:   "updateTestingFlag",
-	Short: "Update testing flag",
-	Long:  `Update testing flag`,
+	Use:	"updateTestingFlag",
+	Short:  "Update testing flag",
+	Long:   `Update testing flag`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		namespaceService := &basic.NamespaceService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *basicclientmodels.NamespaceTestingFlagUpdate
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &namespace_.UpdateTestingFlagParams{
-			Body:      body,
+			Body     : body,
 			Namespace: namespace,
 		}
-		ok, errOK := namespaceService.UpdateTestingFlagShort(input)
+ok,errOK := namespaceService.UpdateTestingFlagShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

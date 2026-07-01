@@ -9,45 +9,47 @@ package usersV4
 import (
 	"encoding/json"
 	"log/slog"
-
-	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // CreateUserFromInvitationV4Cmd represents the CreateUserFromInvitationV4 command
 var CreateUserFromInvitationV4Cmd = &cobra.Command{
-	Use:   "createUserFromInvitationV4",
-	Short: "Create user from invitation V4",
-	Long:  `Create user from invitation V4`,
+	Use:	"createUserFromInvitationV4",
+	Short:  "Create user from invitation V4",
+	Long:   `Create user from invitation V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.AccountCreateUserRequestV4
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		invitationId, _ := cmd.Flags().GetString("invitationId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users_v4.CreateUserFromInvitationV4Params{
-			Body:         body,
+			Body        : body,
 			InvitationID: invitationId,
-			Namespace:    namespace,
+			Namespace   : namespace,
 		}
-		created, errCreated := usersV4Service.CreateUserFromInvitationV4Short(input)
+created,errCreated := usersV4Service.CreateUserFromInvitationV4Short(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		slog.Info("Response CLI success", "response", created)
+        slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

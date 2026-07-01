@@ -8,32 +8,35 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicGetMyProfileAllowUpdateStatusV3Cmd represents the PublicGetMyProfileAllowUpdateStatusV3 command
 var PublicGetMyProfileAllowUpdateStatusV3Cmd = &cobra.Command{
-	Use:   "publicGetMyProfileAllowUpdateStatusV3",
-	Short: "Public get my profile allow update status V3",
-	Long:  `Public get my profile allow update status V3`,
+	Use:	"publicGetMyProfileAllowUpdateStatusV3",
+	Short:  "Public get my profile allow update status V3",
+	Long:   `Public get my profile allow update status V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
-		input := &users.PublicGetMyProfileAllowUpdateStatusV3Params{}
-		ok, errOK := usersService.PublicGetMyProfileAllowUpdateStatusV3Short(input)
+		input := &users.PublicGetMyProfileAllowUpdateStatusV3Params{
+		}
+ok,errOK := usersService.PublicGetMyProfileAllowUpdateStatusV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

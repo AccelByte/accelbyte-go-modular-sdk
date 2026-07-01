@@ -60,8 +60,7 @@ func NewAdminGetBulkUserBanV3ParamsWithHTTPClient(client *http.Client) *AdminGet
 	}
 }
 
-/*
-AdminGetBulkUserBanV3Params contains all the parameters to send to the API endpoint
+/*AdminGetBulkUserBanV3Params contains all the parameters to send to the API endpoint
 for the admin get bulk user ban v3 operation typically these are written to a http.Request
 */
 type AdminGetBulkUserBanV3Params struct {

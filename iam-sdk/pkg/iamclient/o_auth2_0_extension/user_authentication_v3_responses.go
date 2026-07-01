@@ -68,10 +68,9 @@ func NewUserAuthenticationV3Found() *UserAuthenticationV3Found {
 	return &UserAuthenticationV3Found{}
 }
 
-/*
-UserAuthenticationV3Found handles this case with default header values.
+/*UserAuthenticationV3Found handles this case with default header values.
 
-	Found. Redirect successful requests to consent page with "list of consent" in query params.
+  Found. Redirect successful requests to consent page with "list of consent" in query params.
 */
 type UserAuthenticationV3Found struct {
 	Location string

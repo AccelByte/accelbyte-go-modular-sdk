@@ -57,8 +57,7 @@ func NewPublicGetInputValidationByFieldParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*
-PublicGetInputValidationByFieldParams contains all the parameters to send to the API endpoint
+/*PublicGetInputValidationByFieldParams contains all the parameters to send to the API endpoint
 for the public get input validation by field operation typically these are written to a http.Request
 */
 type PublicGetInputValidationByFieldParams struct {

@@ -8,22 +8,24 @@ package accountIdentifierTag
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_identifier_tag"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/account_identifier_tag"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminQueryTagV3Cmd represents the AdminQueryTagV3 command
 var AdminQueryTagV3Cmd = &cobra.Command{
-	Use:   "adminQueryTagV3",
-	Short: "Admin query tag V3",
-	Long:  `Admin query tag V3`,
+	Use:	"adminQueryTagV3",
+	Short:  "Admin query tag V3",
+	Long:   `Admin query tag V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		accountIdentifierTagService := &iam.AccountIdentifierTagService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		limit, _ := cmd.Flags().GetInt64("limit")
@@ -31,18 +33,18 @@ var AdminQueryTagV3Cmd = &cobra.Command{
 		tagName, _ := cmd.Flags().GetString("tagName")
 		input := &account_identifier_tag.AdminQueryTagV3Params{
 			Namespace: namespace,
-			Limit:     &limit,
-			Offset:    &offset,
-			TagName:   &tagName,
+			Limit    : &limit,
+			Offset   : &offset,
+			TagName  : &tagName,
 		}
-		ok, errOK := accountIdentifierTagService.AdminQueryTagV3Short(input)
+ok,errOK := accountIdentifierTagService.AdminQueryTagV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

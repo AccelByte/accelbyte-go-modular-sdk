@@ -15,11 +15,8 @@ import (
 )
 
 type NamespaceService struct {
-	Client           *basicclient.JusticeBasicService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *basicclient.JusticeBasicService
+	Session repository.Session
 }
 
 var tempFlightIdNamespace *string
@@ -30,9 +27,9 @@ func (aaa *NamespaceService) UpdateFlightId(flightId string) {
 
 func (aaa *NamespaceService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *NamespaceService) GetNamespacesShort(input *namespace.GetNamespacesPa
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.GetNamespacesShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *NamespaceService) CreateNamespaceShort(input *namespace.CreateNamespa
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Namespace.CreateNamespaceShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *NamespaceService) GetNamespaceShort(input *namespace.GetNamespacePara
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.GetNamespaceShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *NamespaceService) DeleteNamespaceShort(input *namespace.DeleteNamespa
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.DeleteNamespaceShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *NamespaceService) UpdateNamespaceShort(input *namespace.UpdateNamespa
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.UpdateNamespaceShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *NamespaceService) GetChildNamespacesShort(input *namespace.GetChildNa
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.GetChildNamespacesShort(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *NamespaceService) GetNamespaceContextShort(input *namespace.GetNamesp
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.GetNamespaceContextShort(input, authInfoWriter)
@@ -292,8 +289,8 @@ func (aaa *NamespaceService) GetGameNamespacesShort(input *namespace.GetGameName
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.GetGameNamespacesShort(input, authInfoWriter)
@@ -326,8 +323,8 @@ func (aaa *NamespaceService) GetNamespacePublisherShort(input *namespace.GetName
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.GetNamespacePublisherShort(input, authInfoWriter)
@@ -360,8 +357,8 @@ func (aaa *NamespaceService) ChangeNamespaceStatusShort(input *namespace.ChangeN
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.ChangeNamespaceStatusShort(input, authInfoWriter)
@@ -394,8 +391,8 @@ func (aaa *NamespaceService) UpdateTestingFlagShort(input *namespace.UpdateTesti
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.UpdateTestingFlagShort(input, authInfoWriter)
@@ -428,8 +425,8 @@ func (aaa *NamespaceService) PublicGetNamespacesShort(input *namespace.PublicGet
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.PublicGetNamespacesShort(input, authInfoWriter)
@@ -455,8 +452,8 @@ func (aaa *NamespaceService) GetNamespace1Short(input *namespace.GetNamespace1Pa
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.GetNamespace1Short(input)
@@ -489,8 +486,8 @@ func (aaa *NamespaceService) PublicGetNamespacePublisherShort(input *namespace.P
 	}
 	if tempFlightIdNamespace != nil {
 		input.XFlightId = tempFlightIdNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Namespace.PublicGetNamespacePublisherShort(input, authInfoWriter)

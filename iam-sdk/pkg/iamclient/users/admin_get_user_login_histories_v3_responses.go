@@ -110,10 +110,9 @@ func NewAdminGetUserLoginHistoriesV3OK() *AdminGetUserLoginHistoriesV3OK {
 	return &AdminGetUserLoginHistoriesV3OK{}
 }
 
-/*
-AdminGetUserLoginHistoriesV3OK handles this case with default header values.
+/*AdminGetUserLoginHistoriesV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminGetUserLoginHistoriesV3OK struct {
 	Payload *iamclientmodels.ModelLoginHistoriesResponse
@@ -165,10 +164,9 @@ func NewAdminGetUserLoginHistoriesV3Unauthorized() *AdminGetUserLoginHistoriesV3
 	return &AdminGetUserLoginHistoriesV3Unauthorized{}
 }
 
-/*
-AdminGetUserLoginHistoriesV3Unauthorized handles this case with default header values.
+/*AdminGetUserLoginHistoriesV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserLoginHistoriesV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -220,10 +218,9 @@ func NewAdminGetUserLoginHistoriesV3Forbidden() *AdminGetUserLoginHistoriesV3For
 	return &AdminGetUserLoginHistoriesV3Forbidden{}
 }
 
-/*
-AdminGetUserLoginHistoriesV3Forbidden handles this case with default header values.
+/*AdminGetUserLoginHistoriesV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserLoginHistoriesV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -275,10 +272,9 @@ func NewAdminGetUserLoginHistoriesV3NotFound() *AdminGetUserLoginHistoriesV3NotF
 	return &AdminGetUserLoginHistoriesV3NotFound{}
 }
 
-/*
-AdminGetUserLoginHistoriesV3NotFound handles this case with default header values.
+/*AdminGetUserLoginHistoriesV3NotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type AdminGetUserLoginHistoriesV3NotFound struct {
 }

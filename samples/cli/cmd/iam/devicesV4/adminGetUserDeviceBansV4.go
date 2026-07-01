@@ -8,37 +8,39 @@ package devicesV4
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/devices_v4"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetUserDeviceBansV4Cmd represents the AdminGetUserDeviceBansV4 command
 var AdminGetUserDeviceBansV4Cmd = &cobra.Command{
-	Use:   "adminGetUserDeviceBansV4",
-	Short: "Admin get user device bans V4",
-	Long:  `Admin get user device bans V4`,
+	Use:	"adminGetUserDeviceBansV4",
+	Short:  "Admin get user device bans V4",
+	Long:   `Admin get user device bans V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		devicesV4Service := &iam.DevicesV4Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &devices_v4.AdminGetUserDeviceBansV4Params{
 			Namespace: namespace,
-			UserID:    userId,
+			UserID   : userId,
 		}
-		ok, errOK := devicesV4Service.AdminGetUserDeviceBansV4Short(input)
+ok,errOK := devicesV4Service.AdminGetUserDeviceBansV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

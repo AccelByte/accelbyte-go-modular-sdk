@@ -115,10 +115,9 @@ func NewGetUserJusticePlatformAccountOK() *GetUserJusticePlatformAccountOK {
 	return &GetUserJusticePlatformAccountOK{}
 }
 
-/*
-GetUserJusticePlatformAccountOK handles this case with default header values.
+/*GetUserJusticePlatformAccountOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetUserJusticePlatformAccountOK struct {
 	Payload *iamclientmodels.ModelGetUserJusticePlatformAccountResponse
@@ -170,10 +169,9 @@ func NewGetUserJusticePlatformAccountBadRequest() *GetUserJusticePlatformAccount
 	return &GetUserJusticePlatformAccountBadRequest{}
 }
 
-/*
-GetUserJusticePlatformAccountBadRequest handles this case with default header values.
+/*GetUserJusticePlatformAccountBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type GetUserJusticePlatformAccountBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,10 +223,9 @@ func NewGetUserJusticePlatformAccountUnauthorized() *GetUserJusticePlatformAccou
 	return &GetUserJusticePlatformAccountUnauthorized{}
 }
 
-/*
-GetUserJusticePlatformAccountUnauthorized handles this case with default header values.
+/*GetUserJusticePlatformAccountUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserJusticePlatformAccountUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -280,10 +277,9 @@ func NewGetUserJusticePlatformAccountForbidden() *GetUserJusticePlatformAccountF
 	return &GetUserJusticePlatformAccountForbidden{}
 }
 
-/*
-GetUserJusticePlatformAccountForbidden handles this case with default header values.
+/*GetUserJusticePlatformAccountForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserJusticePlatformAccountForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

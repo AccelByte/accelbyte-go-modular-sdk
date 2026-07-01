@@ -8,35 +8,37 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicGetMyRedirectionAfterLinkV3Cmd represents the PublicGetMyRedirectionAfterLinkV3 command
 var PublicGetMyRedirectionAfterLinkV3Cmd = &cobra.Command{
-	Use:   "publicGetMyRedirectionAfterLinkV3",
-	Short: "Public get my redirection after link V3",
-	Long:  `Public get my redirection after link V3`,
+	Use:	"publicGetMyRedirectionAfterLinkV3",
+	Short:  "Public get my redirection after link V3",
+	Long:   `Public get my redirection after link V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		oneTimeLinkCode, _ := cmd.Flags().GetString("oneTimeLinkCode")
 		input := &users.PublicGetMyRedirectionAfterLinkV3Params{
 			OneTimeLinkCode: oneTimeLinkCode,
 		}
-		ok, errOK := usersService.PublicGetMyRedirectionAfterLinkV3Short(input)
+ok,errOK := usersService.PublicGetMyRedirectionAfterLinkV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

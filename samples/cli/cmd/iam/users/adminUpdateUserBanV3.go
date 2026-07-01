@@ -9,27 +9,29 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-
-	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminUpdateUserBanV3Cmd represents the AdminUpdateUserBanV3 command
 var AdminUpdateUserBanV3Cmd = &cobra.Command{
-	Use:   "adminUpdateUserBanV3",
-	Short: "Admin update user ban V3",
-	Long:  `Admin update user ban V3`,
+	Use:	"adminUpdateUserBanV3",
+	Short:  "Admin update user ban V3",
+	Long:   `Admin update user ban V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelBanUpdateRequest
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
@@ -37,19 +39,19 @@ var AdminUpdateUserBanV3Cmd = &cobra.Command{
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AdminUpdateUserBanV3Params{
-			Body:      body,
-			BanID:     banId,
+			Body     : body,
+			BanID    : banId,
 			Namespace: namespace,
-			UserID:    userId,
+			UserID   : userId,
 		}
-		ok, errOK := usersService.AdminUpdateUserBanV3Short(input)
+ok,errOK := usersService.AdminUpdateUserBanV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

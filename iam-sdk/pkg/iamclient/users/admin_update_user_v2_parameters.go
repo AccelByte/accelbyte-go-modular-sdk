@@ -59,8 +59,7 @@ func NewAdminUpdateUserV2ParamsWithHTTPClient(client *http.Client) *AdminUpdateU
 	}
 }
 
-/*
-AdminUpdateUserV2Params contains all the parameters to send to the API endpoint
+/*AdminUpdateUserV2Params contains all the parameters to send to the API endpoint
 for the admin update user v2 operation typically these are written to a http.Request
 */
 type AdminUpdateUserV2Params struct {

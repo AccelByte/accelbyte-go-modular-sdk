@@ -58,8 +58,7 @@ func NewPublicGetUserLoginHistoriesV3ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*
-PublicGetUserLoginHistoriesV3Params contains all the parameters to send to the API endpoint
+/*PublicGetUserLoginHistoriesV3Params contains all the parameters to send to the API endpoint
 for the public get user login histories v3 operation typically these are written to a http.Request
 */
 type PublicGetUserLoginHistoriesV3Params struct {

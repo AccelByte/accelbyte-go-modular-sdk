@@ -8,37 +8,39 @@ package namespace
 
 import (
 	"log/slog"
-
-	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
 	namespace_ "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
+	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetGameNamespacesCmd represents the GetGameNamespaces command
 var GetGameNamespacesCmd = &cobra.Command{
-	Use:   "getGameNamespaces",
-	Short: "Get game namespaces",
-	Long:  `Get game namespaces`,
+	Use:	"getGameNamespaces",
+	Short:  "Get game namespaces",
+	Long:   `Get game namespaces`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		namespaceService := &basic.NamespaceService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		activeOnly, _ := cmd.Flags().GetBool("activeOnly")
 		input := &namespace_.GetGameNamespacesParams{
-			Namespace:  namespace,
+			Namespace : namespace,
 			ActiveOnly: &activeOnly,
 		}
-		ok, errOK := namespaceService.GetGameNamespacesShort(input)
+ok,errOK := namespaceService.GetGameNamespacesShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

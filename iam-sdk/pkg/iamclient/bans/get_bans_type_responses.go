@@ -100,10 +100,9 @@ func NewGetBansTypeOK() *GetBansTypeOK {
 	return &GetBansTypeOK{}
 }
 
-/*
-GetBansTypeOK handles this case with default header values.
+/*GetBansTypeOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetBansTypeOK struct {
 	Payload *iamclientmodels.AccountcommonBans
@@ -155,10 +154,9 @@ func NewGetBansTypeUnauthorized() *GetBansTypeUnauthorized {
 	return &GetBansTypeUnauthorized{}
 }
 
-/*
-GetBansTypeUnauthorized handles this case with default header values.
+/*GetBansTypeUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetBansTypeUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,10 +208,9 @@ func NewGetBansTypeForbidden() *GetBansTypeForbidden {
 	return &GetBansTypeForbidden{}
 }
 
-/*
-GetBansTypeForbidden handles this case with default header values.
+/*GetBansTypeForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetBansTypeForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -59,8 +59,7 @@ func NewCreateUserFromInvitationV3ParamsWithHTTPClient(client *http.Client) *Cre
 	}
 }
 
-/*
-CreateUserFromInvitationV3Params contains all the parameters to send to the API endpoint
+/*CreateUserFromInvitationV3Params contains all the parameters to send to the API endpoint
 for the create user from invitation v3 operation typically these are written to a http.Request
 */
 type CreateUserFromInvitationV3Params struct {

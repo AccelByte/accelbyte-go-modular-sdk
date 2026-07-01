@@ -145,10 +145,9 @@ func NewAdminListAllDistinctPlatformAccountsV3OK() *AdminListAllDistinctPlatform
 	return &AdminListAllDistinctPlatformAccountsV3OK{}
 }
 
-/*
-AdminListAllDistinctPlatformAccountsV3OK handles this case with default header values.
+/*AdminListAllDistinctPlatformAccountsV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminListAllDistinctPlatformAccountsV3OK struct {
 	Payload *iamclientmodels.AccountcommonDistinctPlatformResponseV3
@@ -200,10 +199,9 @@ func NewAdminListAllDistinctPlatformAccountsV3BadRequest() *AdminListAllDistinct
 	return &AdminListAllDistinctPlatformAccountsV3BadRequest{}
 }
 
-/*
-AdminListAllDistinctPlatformAccountsV3BadRequest handles this case with default header values.
+/*AdminListAllDistinctPlatformAccountsV3BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminListAllDistinctPlatformAccountsV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,10 +253,9 @@ func NewAdminListAllDistinctPlatformAccountsV3Unauthorized() *AdminListAllDistin
 	return &AdminListAllDistinctPlatformAccountsV3Unauthorized{}
 }
 
-/*
-AdminListAllDistinctPlatformAccountsV3Unauthorized handles this case with default header values.
+/*AdminListAllDistinctPlatformAccountsV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListAllDistinctPlatformAccountsV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -310,10 +307,9 @@ func NewAdminListAllDistinctPlatformAccountsV3Forbidden() *AdminListAllDistinctP
 	return &AdminListAllDistinctPlatformAccountsV3Forbidden{}
 }
 
-/*
-AdminListAllDistinctPlatformAccountsV3Forbidden handles this case with default header values.
+/*AdminListAllDistinctPlatformAccountsV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminListAllDistinctPlatformAccountsV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -365,10 +361,9 @@ func NewAdminListAllDistinctPlatformAccountsV3NotFound() *AdminListAllDistinctPl
 	return &AdminListAllDistinctPlatformAccountsV3NotFound{}
 }
 
-/*
-AdminListAllDistinctPlatformAccountsV3NotFound handles this case with default header values.
+/*AdminListAllDistinctPlatformAccountsV3NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminListAllDistinctPlatformAccountsV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -420,10 +415,9 @@ func NewAdminListAllDistinctPlatformAccountsV3InternalServerError() *AdminListAl
 	return &AdminListAllDistinctPlatformAccountsV3InternalServerError{}
 }
 
-/*
-AdminListAllDistinctPlatformAccountsV3InternalServerError handles this case with default header values.
+/*AdminListAllDistinctPlatformAccountsV3InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminListAllDistinctPlatformAccountsV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

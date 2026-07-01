@@ -119,10 +119,9 @@ func NewAdminEnableUserV2NoContent() *AdminEnableUserV2NoContent {
 	return &AdminEnableUserV2NoContent{}
 }
 
-/*
-AdminEnableUserV2NoContent handles this case with default header values.
+/*AdminEnableUserV2NoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AdminEnableUserV2NoContent struct {
 }
@@ -147,10 +146,9 @@ func NewAdminEnableUserV2Unauthorized() *AdminEnableUserV2Unauthorized {
 	return &AdminEnableUserV2Unauthorized{}
 }
 
-/*
-AdminEnableUserV2Unauthorized handles this case with default header values.
+/*AdminEnableUserV2Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminEnableUserV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -202,10 +200,9 @@ func NewAdminEnableUserV2Forbidden() *AdminEnableUserV2Forbidden {
 	return &AdminEnableUserV2Forbidden{}
 }
 
-/*
-AdminEnableUserV2Forbidden handles this case with default header values.
+/*AdminEnableUserV2Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminEnableUserV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -257,10 +254,9 @@ func NewAdminEnableUserV2NotFound() *AdminEnableUserV2NotFound {
 	return &AdminEnableUserV2NotFound{}
 }
 
-/*
-AdminEnableUserV2NotFound handles this case with default header values.
+/*AdminEnableUserV2NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminEnableUserV2NotFound struct {
 }
@@ -285,10 +281,9 @@ func NewAdminEnableUserV2InternalServerError() *AdminEnableUserV2InternalServerE
 	return &AdminEnableUserV2InternalServerError{}
 }
 
-/*
-AdminEnableUserV2InternalServerError handles this case with default header values.
+/*AdminEnableUserV2InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminEnableUserV2InternalServerError struct {
 }

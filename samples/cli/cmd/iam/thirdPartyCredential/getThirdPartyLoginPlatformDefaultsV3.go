@@ -8,35 +8,37 @@ package thirdPartyCredential
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetThirdPartyLoginPlatformDefaultsV3Cmd represents the GetThirdPartyLoginPlatformDefaultsV3 command
 var GetThirdPartyLoginPlatformDefaultsV3Cmd = &cobra.Command{
-	Use:   "getThirdPartyLoginPlatformDefaultsV3",
-	Short: "Get third party login platform defaults V3",
-	Long:  `Get third party login platform defaults V3`,
+	Use:	"getThirdPartyLoginPlatformDefaultsV3",
+	Short:  "Get third party login platform defaults V3",
+	Long:   `Get third party login platform defaults V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		thirdPartyCredentialService := &iam.ThirdPartyCredentialService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &third_party_credential.GetThirdPartyLoginPlatformDefaultsV3Params{
 			PlatformID: platformId,
 		}
-		ok, errOK := thirdPartyCredentialService.GetThirdPartyLoginPlatformDefaultsV3Short(input)
+ok,errOK := thirdPartyCredentialService.GetThirdPartyLoginPlatformDefaultsV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

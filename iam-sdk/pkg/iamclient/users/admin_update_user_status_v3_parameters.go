@@ -59,8 +59,7 @@ func NewAdminUpdateUserStatusV3ParamsWithHTTPClient(client *http.Client) *AdminU
 	}
 }
 
-/*
-AdminUpdateUserStatusV3Params contains all the parameters to send to the API endpoint
+/*AdminUpdateUserStatusV3Params contains all the parameters to send to the API endpoint
 for the admin update user status v3 operation typically these are written to a http.Request
 */
 type AdminUpdateUserStatusV3Params struct {

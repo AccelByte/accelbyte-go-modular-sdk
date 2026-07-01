@@ -145,10 +145,9 @@ func NewPublicUpgradeHeadlessAccountV4OK() *PublicUpgradeHeadlessAccountV4OK {
 	return &PublicUpgradeHeadlessAccountV4OK{}
 }
 
-/*
-PublicUpgradeHeadlessAccountV4OK handles this case with default header values.
+/*PublicUpgradeHeadlessAccountV4OK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicUpgradeHeadlessAccountV4OK struct {
 	Payload *iamclientmodels.AccountUserResponseV4
@@ -200,10 +199,9 @@ func NewPublicUpgradeHeadlessAccountV4BadRequest() *PublicUpgradeHeadlessAccount
 	return &PublicUpgradeHeadlessAccountV4BadRequest{}
 }
 
-/*
-PublicUpgradeHeadlessAccountV4BadRequest handles this case with default header values.
+/*PublicUpgradeHeadlessAccountV4BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,10 +253,9 @@ func NewPublicUpgradeHeadlessAccountV4Unauthorized() *PublicUpgradeHeadlessAccou
 	return &PublicUpgradeHeadlessAccountV4Unauthorized{}
 }
 
-/*
-PublicUpgradeHeadlessAccountV4Unauthorized handles this case with default header values.
+/*PublicUpgradeHeadlessAccountV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -310,10 +307,9 @@ func NewPublicUpgradeHeadlessAccountV4NotFound() *PublicUpgradeHeadlessAccountV4
 	return &PublicUpgradeHeadlessAccountV4NotFound{}
 }
 
-/*
-PublicUpgradeHeadlessAccountV4NotFound handles this case with default header values.
+/*PublicUpgradeHeadlessAccountV4NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -365,10 +361,9 @@ func NewPublicUpgradeHeadlessAccountV4Conflict() *PublicUpgradeHeadlessAccountV4
 	return &PublicUpgradeHeadlessAccountV4Conflict{}
 }
 
-/*
-PublicUpgradeHeadlessAccountV4Conflict handles this case with default header values.
+/*PublicUpgradeHeadlessAccountV4Conflict handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10177</td><td>username already used</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10177</td><td>username already used</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -420,10 +415,9 @@ func NewPublicUpgradeHeadlessAccountV4InternalServerError() *PublicUpgradeHeadle
 	return &PublicUpgradeHeadlessAccountV4InternalServerError{}
 }
 
-/*
-PublicUpgradeHeadlessAccountV4InternalServerError handles this case with default header values.
+/*PublicUpgradeHeadlessAccountV4InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

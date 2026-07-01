@@ -57,8 +57,7 @@ func NewPublicGetTimeParamsWithHTTPClient(client *http.Client) *PublicGetTimePar
 	}
 }
 
-/*
-PublicGetTimeParams contains all the parameters to send to the API endpoint
+/*PublicGetTimeParams contains all the parameters to send to the API endpoint
 for the public get time operation typically these are written to a http.Request
 */
 type PublicGetTimeParams struct {

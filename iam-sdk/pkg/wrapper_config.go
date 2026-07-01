@@ -15,11 +15,8 @@ import (
 )
 
 type ConfigService struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdConfig *string
@@ -30,9 +27,9 @@ func (aaa *ConfigService) UpdateFlightId(flightId string) {
 
 func (aaa *ConfigService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ConfigService) AdminGetConfigValueV3Short(input *config.AdminGetConfi
 	}
 	if tempFlightIdConfig != nil {
 		input.XFlightId = tempFlightIdConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Config.AdminGetConfigValueV3Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ConfigService) PublicGetSystemConfigV3Short(input *config.PublicGetSy
 	}
 	if tempFlightIdConfig != nil {
 		input.XFlightId = tempFlightIdConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Config.PublicGetSystemConfigV3Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ConfigService) PublicGetConfigValueV3Short(input *config.PublicGetCon
 	}
 	if tempFlightIdConfig != nil {
 		input.XFlightId = tempFlightIdConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Config.PublicGetConfigValueV3Short(input, authInfoWriter)

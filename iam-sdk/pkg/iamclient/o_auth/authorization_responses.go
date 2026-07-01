@@ -68,10 +68,9 @@ func NewAuthorizationFound() *AuthorizationFound {
 	return &AuthorizationFound{}
 }
 
-/*
-AuthorizationFound handles this case with default header values.
+/*AuthorizationFound handles this case with default header values.
 
-	Found
+  Found
 */
 type AuthorizationFound struct {
 	Location string

@@ -9,45 +9,47 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-
-	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminUpdateCountryAgeRestrictionV3Cmd represents the AdminUpdateCountryAgeRestrictionV3 command
 var AdminUpdateCountryAgeRestrictionV3Cmd = &cobra.Command{
-	Use:   "adminUpdateCountryAgeRestrictionV3",
-	Short: "Admin update country age restriction V3",
-	Long:  `Admin update country age restriction V3`,
+	Use:	"adminUpdateCountryAgeRestrictionV3",
+	Short:  "Admin update country age restriction V3",
+	Long:   `Admin update country age restriction V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelCountryAgeRestrictionV3Request
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		countryCode, _ := cmd.Flags().GetString("countryCode")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users.AdminUpdateCountryAgeRestrictionV3Params{
-			Body:        body,
+			Body       : body,
 			CountryCode: countryCode,
-			Namespace:   namespace,
+			Namespace  : namespace,
 		}
-		ok, errOK := usersService.AdminUpdateCountryAgeRestrictionV3Short(input)
+ok,errOK := usersService.AdminUpdateCountryAgeRestrictionV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

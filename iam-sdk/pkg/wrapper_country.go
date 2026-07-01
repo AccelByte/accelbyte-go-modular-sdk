@@ -15,11 +15,8 @@ import (
 )
 
 type CountryService struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdCountry *string
@@ -30,9 +27,9 @@ func (aaa *CountryService) UpdateFlightId(flightId string) {
 
 func (aaa *CountryService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *CountryService) AdminGetCountryListV3Short(input *country.AdminGetCou
 	}
 	if tempFlightIdCountry != nil {
 		input.XFlightId = tempFlightIdCountry
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Country.AdminGetCountryListV3Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *CountryService) AdminGetCountryBlacklistV3Short(input *country.AdminG
 	}
 	if tempFlightIdCountry != nil {
 		input.XFlightId = tempFlightIdCountry
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Country.AdminGetCountryBlacklistV3Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *CountryService) AdminAddCountryBlacklistV3Short(input *country.AdminA
 	}
 	if tempFlightIdCountry != nil {
 		input.XFlightId = tempFlightIdCountry
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Country.AdminAddCountryBlacklistV3Short(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *CountryService) PublicGetCountryListV3Short(input *country.PublicGetC
 	}
 	if tempFlightIdCountry != nil {
 		input.XFlightId = tempFlightIdCountry
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Country.PublicGetCountryListV3Short(input, authInfoWriter)

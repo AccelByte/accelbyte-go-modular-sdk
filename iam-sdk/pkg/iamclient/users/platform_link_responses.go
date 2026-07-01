@@ -139,10 +139,9 @@ func NewPlatformLinkNoContent() *PlatformLinkNoContent {
 	return &PlatformLinkNoContent{}
 }
 
-/*
-PlatformLinkNoContent handles this case with default header values.
+/*PlatformLinkNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type PlatformLinkNoContent struct {
 }
@@ -167,10 +166,9 @@ func NewPlatformLinkBadRequest() *PlatformLinkBadRequest {
 	return &PlatformLinkBadRequest{}
 }
 
-/*
-PlatformLinkBadRequest handles this case with default header values.
+/*PlatformLinkBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PlatformLinkBadRequest struct {
 }
@@ -195,10 +193,9 @@ func NewPlatformLinkUnauthorized() *PlatformLinkUnauthorized {
 	return &PlatformLinkUnauthorized{}
 }
 
-/*
-PlatformLinkUnauthorized handles this case with default header values.
+/*PlatformLinkUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PlatformLinkUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -250,10 +247,9 @@ func NewPlatformLinkForbidden() *PlatformLinkForbidden {
 	return &PlatformLinkForbidden{}
 }
 
-/*
-PlatformLinkForbidden handles this case with default header values.
+/*PlatformLinkForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PlatformLinkForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -305,10 +301,9 @@ func NewPlatformLinkNotFound() *PlatformLinkNotFound {
 	return &PlatformLinkNotFound{}
 }
 
-/*
-PlatformLinkNotFound handles this case with default header values.
+/*PlatformLinkNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PlatformLinkNotFound struct {
 }
@@ -333,10 +328,9 @@ func NewPlatformLinkConflict() *PlatformLinkConflict {
 	return &PlatformLinkConflict{}
 }
 
-/*
-PlatformLinkConflict handles this case with default header values.
+/*PlatformLinkConflict handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr></table>
 */
 type PlatformLinkConflict struct {
 }
@@ -361,10 +355,9 @@ func NewPlatformLinkInternalServerError() *PlatformLinkInternalServerError {
 	return &PlatformLinkInternalServerError{}
 }
 
-/*
-PlatformLinkInternalServerError handles this case with default header values.
+/*PlatformLinkInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PlatformLinkInternalServerError struct {
 }

@@ -8,39 +8,41 @@ package oAuth20Extension
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // RequestOneTimeLinkingCodeV3Cmd represents the RequestOneTimeLinkingCodeV3 command
 var RequestOneTimeLinkingCodeV3Cmd = &cobra.Command{
-	Use:   "requestOneTimeLinkingCodeV3",
-	Short: "Request one time linking code V3",
-	Long:  `Request one time linking code V3`,
+	Use:	"requestOneTimeLinkingCodeV3",
+	Short:  "Request one time linking code V3",
+	Long:   `Request one time linking code V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		platformId, _ := cmd.Flags().GetString("platformId")
 		redirectUri, _ := cmd.Flags().GetString("redirectUri")
 		state, _ := cmd.Flags().GetString("state")
 		input := &o_auth2_0_extension.RequestOneTimeLinkingCodeV3Params{
 			RedirectURI: &redirectUri,
-			State:       &state,
-			PlatformID:  platformId,
+			State      : &state,
+			PlatformID : platformId,
 		}
-		ok, errOK := oAuth20ExtensionService.RequestOneTimeLinkingCodeV3Short(input)
+ok,errOK := oAuth20ExtensionService.RequestOneTimeLinkingCodeV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

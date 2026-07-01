@@ -145,10 +145,9 @@ func NewUpdateSSOPlatformCredentialOK() *UpdateSSOPlatformCredentialOK {
 	return &UpdateSSOPlatformCredentialOK{}
 }
 
-/*
-UpdateSSOPlatformCredentialOK handles this case with default header values.
+/*UpdateSSOPlatformCredentialOK handles this case with default header values.
 
-	OK
+  OK
 */
 type UpdateSSOPlatformCredentialOK struct {
 	Payload *iamclientmodels.ModelSSOPlatformCredentialResponse
@@ -200,10 +199,9 @@ func NewUpdateSSOPlatformCredentialBadRequest() *UpdateSSOPlatformCredentialBadR
 	return &UpdateSSOPlatformCredentialBadRequest{}
 }
 
-/*
-UpdateSSOPlatformCredentialBadRequest handles this case with default header values.
+/*UpdateSSOPlatformCredentialBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type UpdateSSOPlatformCredentialBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,10 +253,9 @@ func NewUpdateSSOPlatformCredentialUnauthorized() *UpdateSSOPlatformCredentialUn
 	return &UpdateSSOPlatformCredentialUnauthorized{}
 }
 
-/*
-UpdateSSOPlatformCredentialUnauthorized handles this case with default header values.
+/*UpdateSSOPlatformCredentialUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateSSOPlatformCredentialUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -310,10 +307,9 @@ func NewUpdateSSOPlatformCredentialForbidden() *UpdateSSOPlatformCredentialForbi
 	return &UpdateSSOPlatformCredentialForbidden{}
 }
 
-/*
-UpdateSSOPlatformCredentialForbidden handles this case with default header values.
+/*UpdateSSOPlatformCredentialForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateSSOPlatformCredentialForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -365,10 +361,9 @@ func NewUpdateSSOPlatformCredentialNotFound() *UpdateSSOPlatformCredentialNotFou
 	return &UpdateSSOPlatformCredentialNotFound{}
 }
 
-/*
-UpdateSSOPlatformCredentialNotFound handles this case with default header values.
+/*UpdateSSOPlatformCredentialNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
 */
 type UpdateSSOPlatformCredentialNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -420,10 +415,9 @@ func NewUpdateSSOPlatformCredentialInternalServerError() *UpdateSSOPlatformCrede
 	return &UpdateSSOPlatformCredentialInternalServerError{}
 }
 
-/*
-UpdateSSOPlatformCredentialInternalServerError handles this case with default header values.
+/*UpdateSSOPlatformCredentialInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type UpdateSSOPlatformCredentialInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

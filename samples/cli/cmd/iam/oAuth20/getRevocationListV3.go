@@ -8,33 +8,36 @@ package oAuth20
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetRevocationListV3Cmd represents the GetRevocationListV3 command
 var GetRevocationListV3Cmd = &cobra.Command{
-	Use:   "getRevocationListV3",
-	Short: "Get revocation list V3",
-	Long:  `Get revocation list V3`,
+	Use:	"getRevocationListV3",
+	Short:  "Get revocation list V3",
+	Long:   `Get revocation list V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
-			Client:           iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			ConfigRepository: &repository.ConfigRepositoryImpl{},
-			TokenRepository:  &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				ConfigRepository: &repository.ConfigRepositoryImpl{},
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
-		input := &o_auth2_0.GetRevocationListV3Params{}
-		ok, errOK := oAuth20Service.GetRevocationListV3Short(input)
+		input := &o_auth2_0.GetRevocationListV3Params{
+		}
+ok,errOK := oAuth20Service.GetRevocationListV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -122,10 +122,9 @@ func NewGenerateTokenByNewHeadlessAccountV4OK() *GenerateTokenByNewHeadlessAccou
 	return &GenerateTokenByNewHeadlessAccountV4OK{}
 }
 
-/*
-GenerateTokenByNewHeadlessAccountV4OK handles this case with default header values.
+/*GenerateTokenByNewHeadlessAccountV4OK handles this case with default header values.
 
-	Succeed to create headless account and response token info.
+  Succeed to create headless account and response token info.
 */
 type GenerateTokenByNewHeadlessAccountV4OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3
@@ -177,10 +176,9 @@ func NewGenerateTokenByNewHeadlessAccountV4Accepted() *GenerateTokenByNewHeadles
 	return &GenerateTokenByNewHeadlessAccountV4Accepted{}
 }
 
-/*
-GenerateTokenByNewHeadlessAccountV4Accepted handles this case with default header values.
+/*GenerateTokenByNewHeadlessAccountV4Accepted handles this case with default header values.
 
-	Succeed to create headless account and response token info.
+  Succeed to create headless account and response token info.
 */
 type GenerateTokenByNewHeadlessAccountV4Accepted struct {
 	Payload *iamclientmodels.OauthmodelLoginQueueTicketResponse
@@ -232,10 +230,9 @@ func NewGenerateTokenByNewHeadlessAccountV4BadRequest() *GenerateTokenByNewHeadl
 	return &GenerateTokenByNewHeadlessAccountV4BadRequest{}
 }
 
-/*
-GenerateTokenByNewHeadlessAccountV4BadRequest handles this case with default header values.
+/*GenerateTokenByNewHeadlessAccountV4BadRequest handles this case with default header values.
 
-	Invalid platform linking token or clientID not match.
+  Invalid platform linking token or clientID not match.
 */
 type GenerateTokenByNewHeadlessAccountV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -287,10 +284,9 @@ func NewGenerateTokenByNewHeadlessAccountV4Unauthorized() *GenerateTokenByNewHea
 	return &GenerateTokenByNewHeadlessAccountV4Unauthorized{}
 }
 
-/*
-GenerateTokenByNewHeadlessAccountV4Unauthorized handles this case with default header values.
+/*GenerateTokenByNewHeadlessAccountV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
 */
 type GenerateTokenByNewHeadlessAccountV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -342,10 +338,9 @@ func NewGenerateTokenByNewHeadlessAccountV4NotFound() *GenerateTokenByNewHeadles
 	return &GenerateTokenByNewHeadlessAccountV4NotFound{}
 }
 
-/*
-GenerateTokenByNewHeadlessAccountV4NotFound handles this case with default header values.
+/*GenerateTokenByNewHeadlessAccountV4NotFound handles this case with default header values.
 
-	Platform linking token not found.
+  Platform linking token not found.
 */
 type GenerateTokenByNewHeadlessAccountV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

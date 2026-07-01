@@ -70,8 +70,7 @@ func NewVerify2FACodeForwardParamsWithHTTPClient(client *http.Client) *Verify2FA
 	}
 }
 
-/*
-Verify2FACodeForwardParams contains all the parameters to send to the API endpoint
+/*Verify2FACodeForwardParams contains all the parameters to send to the API endpoint
 for the verify2fa code forward operation typically these are written to a http.Request
 */
 type Verify2FACodeForwardParams struct {

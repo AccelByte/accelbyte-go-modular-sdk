@@ -78,8 +78,7 @@ func NewPlatformTokenGrantV3ParamsWithHTTPClient(client *http.Client) *PlatformT
 	}
 }
 
-/*
-PlatformTokenGrantV3Params contains all the parameters to send to the API endpoint
+/*PlatformTokenGrantV3Params contains all the parameters to send to the API endpoint
 for the platform token grant v3 operation typically these are written to a http.Request
 */
 type PlatformTokenGrantV3Params struct {

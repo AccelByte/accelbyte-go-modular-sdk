@@ -8,39 +8,41 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AddUserRoleCmd represents the AddUserRole command
 var AddUserRoleCmd = &cobra.Command{
-	Use:   "addUserRole",
-	Short: "Add user role",
-	Long:  `Add user role`,
+	Use:	"addUserRole",
+	Short:  "Add user role",
+	Long:   `Add user role`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		roleId, _ := cmd.Flags().GetString("roleId")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AddUserRoleParams{
 			Namespace: namespace,
-			RoleID:    roleId,
-			UserID:    userId,
+			RoleID   : roleId,
+			UserID   : userId,
 		}
-		errNoContent := usersService.AddUserRoleShort(input)
+errNoContent := usersService.AddUserRoleShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

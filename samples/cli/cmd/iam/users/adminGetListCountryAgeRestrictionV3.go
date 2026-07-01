@@ -8,35 +8,37 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetListCountryAgeRestrictionV3Cmd represents the AdminGetListCountryAgeRestrictionV3 command
 var AdminGetListCountryAgeRestrictionV3Cmd = &cobra.Command{
-	Use:   "adminGetListCountryAgeRestrictionV3",
-	Short: "Admin get list country age restriction V3",
-	Long:  `Admin get list country age restriction V3`,
+	Use:	"adminGetListCountryAgeRestrictionV3",
+	Short:  "Admin get list country age restriction V3",
+	Long:   `Admin get list country age restriction V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users.AdminGetListCountryAgeRestrictionV3Params{
 			Namespace: namespace,
 		}
-		ok, errOK := usersService.AdminGetListCountryAgeRestrictionV3Short(input)
+ok,errOK := usersService.AdminGetListCountryAgeRestrictionV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -129,10 +129,9 @@ func NewDeleteCountryGroupOK() *DeleteCountryGroupOK {
 	return &DeleteCountryGroupOK{}
 }
 
-/*
-DeleteCountryGroupOK handles this case with default header values.
+/*DeleteCountryGroupOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type DeleteCountryGroupOK struct {
 }
@@ -157,10 +156,9 @@ func NewDeleteCountryGroupBadRequest() *DeleteCountryGroupBadRequest {
 	return &DeleteCountryGroupBadRequest{}
 }
 
-/*
-DeleteCountryGroupBadRequest handles this case with default header values.
+/*DeleteCountryGroupBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type DeleteCountryGroupBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -212,10 +210,9 @@ func NewDeleteCountryGroupUnauthorized() *DeleteCountryGroupUnauthorized {
 	return &DeleteCountryGroupUnauthorized{}
 }
 
-/*
-DeleteCountryGroupUnauthorized handles this case with default header values.
+/*DeleteCountryGroupUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type DeleteCountryGroupUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -267,10 +264,9 @@ func NewDeleteCountryGroupForbidden() *DeleteCountryGroupForbidden {
 	return &DeleteCountryGroupForbidden{}
 }
 
-/*
-DeleteCountryGroupForbidden handles this case with default header values.
+/*DeleteCountryGroupForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteCountryGroupForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -322,10 +318,9 @@ func NewDeleteCountryGroupNotFound() *DeleteCountryGroupNotFound {
 	return &DeleteCountryGroupNotFound{}
 }
 
-/*
-DeleteCountryGroupNotFound handles this case with default header values.
+/*DeleteCountryGroupNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11233</td><td>Unable to {action}: Country group with code [{countryGroupCode}] is not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11233</td><td>Unable to {action}: Country group with code [{countryGroupCode}] is not found</td></tr></table>
 */
 type DeleteCountryGroupNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

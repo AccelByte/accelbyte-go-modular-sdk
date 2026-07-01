@@ -114,10 +114,9 @@ func NewAdminUpdateInputValidationsNoContent() *AdminUpdateInputValidationsNoCon
 	return &AdminUpdateInputValidationsNoContent{}
 }
 
-/*
-AdminUpdateInputValidationsNoContent handles this case with default header values.
+/*AdminUpdateInputValidationsNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type AdminUpdateInputValidationsNoContent struct {
 }
@@ -142,10 +141,9 @@ func NewAdminUpdateInputValidationsUnauthorized() *AdminUpdateInputValidationsUn
 	return &AdminUpdateInputValidationsUnauthorized{}
 }
 
-/*
-AdminUpdateInputValidationsUnauthorized handles this case with default header values.
+/*AdminUpdateInputValidationsUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateInputValidationsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -197,10 +195,9 @@ func NewAdminUpdateInputValidationsForbidden() *AdminUpdateInputValidationsForbi
 	return &AdminUpdateInputValidationsForbidden{}
 }
 
-/*
-AdminUpdateInputValidationsForbidden handles this case with default header values.
+/*AdminUpdateInputValidationsForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateInputValidationsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -252,10 +249,9 @@ func NewAdminUpdateInputValidationsNotFound() *AdminUpdateInputValidationsNotFou
 	return &AdminUpdateInputValidationsNotFound{}
 }
 
-/*
-AdminUpdateInputValidationsNotFound handles this case with default header values.
+/*AdminUpdateInputValidationsNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10188</td><td>input validation field not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10188</td><td>input validation field not found</td></tr></table>
 */
 type AdminUpdateInputValidationsNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

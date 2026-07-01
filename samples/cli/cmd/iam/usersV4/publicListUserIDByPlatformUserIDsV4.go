@@ -9,27 +9,29 @@ package usersV4
 import (
 	"encoding/json"
 	"log/slog"
-
-	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicListUserIDByPlatformUserIDsV4Cmd represents the PublicListUserIDByPlatformUserIDsV4 command
 var PublicListUserIDByPlatformUserIDsV4Cmd = &cobra.Command{
-	Use:   "publicListUserIDByPlatformUserIDsV4",
-	Short: "Public list user ID by platform user I ds V4",
-	Long:  `Public list user ID by platform user I ds V4`,
+	Use:	"publicListUserIDByPlatformUserIDsV4",
+	Short:  "Public list user ID by platform user I ds V4",
+	Long:   `Public list user ID by platform user I ds V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelPlatformUserIDRequestV4
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
@@ -37,19 +39,19 @@ var PublicListUserIDByPlatformUserIDsV4Cmd = &cobra.Command{
 		platformId, _ := cmd.Flags().GetString("platformId")
 		rawPUID, _ := cmd.Flags().GetBool("rawPUID")
 		input := &users_v4.PublicListUserIDByPlatformUserIDsV4Params{
-			Body:       body,
-			Namespace:  namespace,
+			Body      : body,
+			Namespace : namespace,
 			PlatformID: platformId,
-			RawPUID:    &rawPUID,
+			RawPUID   : &rawPUID,
 		}
-		ok, errOK := usersV4Service.PublicListUserIDByPlatformUserIDsV4Short(input)
+ok,errOK := usersV4Service.PublicListUserIDByPlatformUserIDsV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

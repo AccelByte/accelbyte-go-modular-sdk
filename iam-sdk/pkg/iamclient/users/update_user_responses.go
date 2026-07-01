@@ -125,10 +125,9 @@ func NewUpdateUserOK() *UpdateUserOK {
 	return &UpdateUserOK{}
 }
 
-/*
-UpdateUserOK handles this case with default header values.
+/*UpdateUserOK handles this case with default header values.
 
-	OK
+  OK
 */
 type UpdateUserOK struct {
 	Payload *iamclientmodels.ModelUserResponse
@@ -180,10 +179,9 @@ func NewUpdateUserBadRequest() *UpdateUserBadRequest {
 	return &UpdateUserBadRequest{}
 }
 
-/*
-UpdateUserBadRequest handles this case with default header values.
+/*UpdateUserBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10131</td><td>invalid date of birth</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr><tr><td>10132</td><td>invalid email address</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10131</td><td>invalid date of birth</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr><tr><td>10132</td><td>invalid email address</td></tr></table>
 */
 type UpdateUserBadRequest struct {
 }
@@ -208,10 +206,9 @@ func NewUpdateUserUnauthorized() *UpdateUserUnauthorized {
 	return &UpdateUserUnauthorized{}
 }
 
-/*
-UpdateUserUnauthorized handles this case with default header values.
+/*UpdateUserUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateUserUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -263,10 +260,9 @@ func NewUpdateUserNotFound() *UpdateUserNotFound {
 	return &UpdateUserNotFound{}
 }
 
-/*
-UpdateUserNotFound handles this case with default header values.
+/*UpdateUserNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type UpdateUserNotFound struct {
 }
@@ -291,10 +287,9 @@ func NewUpdateUserConflict() *UpdateUserConflict {
 	return &UpdateUserConflict{}
 }
 
-/*
-UpdateUserConflict handles this case with default header values.
+/*UpdateUserConflict handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type UpdateUserConflict struct {
 }
@@ -319,10 +314,9 @@ func NewUpdateUserInternalServerError() *UpdateUserInternalServerError {
 	return &UpdateUserInternalServerError{}
 }
 
-/*
-UpdateUserInternalServerError handles this case with default header values.
+/*UpdateUserInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type UpdateUserInternalServerError struct {
 }

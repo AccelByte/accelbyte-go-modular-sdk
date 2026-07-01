@@ -15,11 +15,8 @@ import (
 )
 
 type ConfigService struct {
-	Client           *basicclient.JusticeBasicService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *basicclient.JusticeBasicService
+	Session repository.Session
 }
 
 var tempFlightIdConfig *string
@@ -30,9 +27,9 @@ func (aaa *ConfigService) UpdateFlightId(flightId string) {
 
 func (aaa *ConfigService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ConfigService) CreateConfigShort(input *config.CreateConfigParams) (*
 	}
 	if tempFlightIdConfig != nil {
 		input.XFlightId = tempFlightIdConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Config.CreateConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ConfigService) GetConfigShort(input *config.GetConfigParams) (*config
 	}
 	if tempFlightIdConfig != nil {
 		input.XFlightId = tempFlightIdConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Config.GetConfigShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ConfigService) DeleteConfigShort(input *config.DeleteConfigParams) er
 	}
 	if tempFlightIdConfig != nil {
 		input.XFlightId = tempFlightIdConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Config.DeleteConfigShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *ConfigService) UpdateConfigShort(input *config.UpdateConfigParams) (*
 	}
 	if tempFlightIdConfig != nil {
 		input.XFlightId = tempFlightIdConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Config.UpdateConfigShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *ConfigService) GetPublisherConfigShort(input *config.GetPublisherConf
 	}
 	if tempFlightIdConfig != nil {
 		input.XFlightId = tempFlightIdConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Config.GetPublisherConfigShort(input, authInfoWriter)

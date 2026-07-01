@@ -110,10 +110,9 @@ func NewGetUserBanHistoryOK() *GetUserBanHistoryOK {
 	return &GetUserBanHistoryOK{}
 }
 
-/*
-GetUserBanHistoryOK handles this case with default header values.
+/*GetUserBanHistoryOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetUserBanHistoryOK struct {
 	Payload []*iamclientmodels.ModelUserBanResponse
@@ -163,10 +162,9 @@ func NewGetUserBanHistoryUnauthorized() *GetUserBanHistoryUnauthorized {
 	return &GetUserBanHistoryUnauthorized{}
 }
 
-/*
-GetUserBanHistoryUnauthorized handles this case with default header values.
+/*GetUserBanHistoryUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserBanHistoryUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -218,10 +216,9 @@ func NewGetUserBanHistoryForbidden() *GetUserBanHistoryForbidden {
 	return &GetUserBanHistoryForbidden{}
 }
 
-/*
-GetUserBanHistoryForbidden handles this case with default header values.
+/*GetUserBanHistoryForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserBanHistoryForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -273,10 +270,9 @@ func NewGetUserBanHistoryNotFound() *GetUserBanHistoryNotFound {
 	return &GetUserBanHistoryNotFound{}
 }
 
-/*
-GetUserBanHistoryNotFound handles this case with default header values.
+/*GetUserBanHistoryNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type GetUserBanHistoryNotFound struct {
 }

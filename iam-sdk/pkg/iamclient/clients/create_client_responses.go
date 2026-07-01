@@ -125,10 +125,9 @@ func NewCreateClientCreated() *CreateClientCreated {
 	return &CreateClientCreated{}
 }
 
-/*
-CreateClientCreated handles this case with default header values.
+/*CreateClientCreated handles this case with default header values.
 
-	Created
+  Created
 */
 type CreateClientCreated struct {
 	Payload *iamclientmodels.ClientmodelClientCreationResponse
@@ -180,10 +179,9 @@ func NewCreateClientBadRequest() *CreateClientBadRequest {
 	return &CreateClientBadRequest{}
 }
 
-/*
-CreateClientBadRequest handles this case with default header values.
+/*CreateClientBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type CreateClientBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewCreateClientUnauthorized() *CreateClientUnauthorized {
 	return &CreateClientUnauthorized{}
 }
 
-/*
-CreateClientUnauthorized handles this case with default header values.
+/*CreateClientUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateClientUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewCreateClientForbidden() *CreateClientForbidden {
 	return &CreateClientForbidden{}
 }
 
-/*
-CreateClientForbidden handles this case with default header values.
+/*CreateClientForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type CreateClientForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewCreateClientConflict() *CreateClientConflict {
 	return &CreateClientConflict{}
 }
 
-/*
-CreateClientConflict handles this case with default header values.
+/*CreateClientConflict handles this case with default header values.
 
-	Client exists
+  Client exists
 */
 type CreateClientConflict struct {
 }

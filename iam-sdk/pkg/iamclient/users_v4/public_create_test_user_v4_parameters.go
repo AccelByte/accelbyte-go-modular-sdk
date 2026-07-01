@@ -59,8 +59,7 @@ func NewPublicCreateTestUserV4ParamsWithHTTPClient(client *http.Client) *PublicC
 	}
 }
 
-/*
-PublicCreateTestUserV4Params contains all the parameters to send to the API endpoint
+/*PublicCreateTestUserV4Params contains all the parameters to send to the API endpoint
 for the public create test user v4 operation typically these are written to a http.Request
 */
 type PublicCreateTestUserV4Params struct {

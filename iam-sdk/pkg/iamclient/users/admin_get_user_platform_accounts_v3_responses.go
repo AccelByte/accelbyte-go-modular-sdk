@@ -145,10 +145,9 @@ func NewAdminGetUserPlatformAccountsV3OK() *AdminGetUserPlatformAccountsV3OK {
 	return &AdminGetUserPlatformAccountsV3OK{}
 }
 
-/*
-AdminGetUserPlatformAccountsV3OK handles this case with default header values.
+/*AdminGetUserPlatformAccountsV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminGetUserPlatformAccountsV3OK struct {
 	Payload *iamclientmodels.AccountcommonUserLinkedPlatformsResponseV3
@@ -200,10 +199,9 @@ func NewAdminGetUserPlatformAccountsV3BadRequest() *AdminGetUserPlatformAccounts
 	return &AdminGetUserPlatformAccountsV3BadRequest{}
 }
 
-/*
-AdminGetUserPlatformAccountsV3BadRequest handles this case with default header values.
+/*AdminGetUserPlatformAccountsV3BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetUserPlatformAccountsV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,10 +253,9 @@ func NewAdminGetUserPlatformAccountsV3Unauthorized() *AdminGetUserPlatformAccoun
 	return &AdminGetUserPlatformAccountsV3Unauthorized{}
 }
 
-/*
-AdminGetUserPlatformAccountsV3Unauthorized handles this case with default header values.
+/*AdminGetUserPlatformAccountsV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserPlatformAccountsV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -310,10 +307,9 @@ func NewAdminGetUserPlatformAccountsV3Forbidden() *AdminGetUserPlatformAccountsV
 	return &AdminGetUserPlatformAccountsV3Forbidden{}
 }
 
-/*
-AdminGetUserPlatformAccountsV3Forbidden handles this case with default header values.
+/*AdminGetUserPlatformAccountsV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserPlatformAccountsV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -365,10 +361,9 @@ func NewAdminGetUserPlatformAccountsV3NotFound() *AdminGetUserPlatformAccountsV3
 	return &AdminGetUserPlatformAccountsV3NotFound{}
 }
 
-/*
-AdminGetUserPlatformAccountsV3NotFound handles this case with default header values.
+/*AdminGetUserPlatformAccountsV3NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminGetUserPlatformAccountsV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -420,10 +415,9 @@ func NewAdminGetUserPlatformAccountsV3InternalServerError() *AdminGetUserPlatfor
 	return &AdminGetUserPlatformAccountsV3InternalServerError{}
 }
 
-/*
-AdminGetUserPlatformAccountsV3InternalServerError handles this case with default header values.
+/*AdminGetUserPlatformAccountsV3InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetUserPlatformAccountsV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

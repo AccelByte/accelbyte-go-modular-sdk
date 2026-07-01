@@ -145,10 +145,9 @@ func NewPublicGetMyBackupCodesV4OK() *PublicGetMyBackupCodesV4OK {
 	return &PublicGetMyBackupCodesV4OK{}
 }
 
-/*
-PublicGetMyBackupCodesV4OK handles this case with default header values.
+/*PublicGetMyBackupCodesV4OK handles this case with default header values.
 
-	Get backup codes
+  Get backup codes
 */
 type PublicGetMyBackupCodesV4OK struct {
 	Payload *iamclientmodels.ModelBackupCodesResponseV4
@@ -200,10 +199,9 @@ func NewPublicGetMyBackupCodesV4BadRequest() *PublicGetMyBackupCodesV4BadRequest
 	return &PublicGetMyBackupCodesV4BadRequest{}
 }
 
-/*
-PublicGetMyBackupCodesV4BadRequest handles this case with default header values.
+/*PublicGetMyBackupCodesV4BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type PublicGetMyBackupCodesV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,10 +253,9 @@ func NewPublicGetMyBackupCodesV4Unauthorized() *PublicGetMyBackupCodesV4Unauthor
 	return &PublicGetMyBackupCodesV4Unauthorized{}
 }
 
-/*
-PublicGetMyBackupCodesV4Unauthorized handles this case with default header values.
+/*PublicGetMyBackupCodesV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetMyBackupCodesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -310,10 +307,9 @@ func NewPublicGetMyBackupCodesV4Forbidden() *PublicGetMyBackupCodesV4Forbidden {
 	return &PublicGetMyBackupCodesV4Forbidden{}
 }
 
-/*
-PublicGetMyBackupCodesV4Forbidden handles this case with default header values.
+/*PublicGetMyBackupCodesV4Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetMyBackupCodesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -365,10 +361,9 @@ func NewPublicGetMyBackupCodesV4NotFound() *PublicGetMyBackupCodesV4NotFound {
 	return &PublicGetMyBackupCodesV4NotFound{}
 }
 
-/*
-PublicGetMyBackupCodesV4NotFound handles this case with default header values.
+/*PublicGetMyBackupCodesV4NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicGetMyBackupCodesV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -420,10 +415,9 @@ func NewPublicGetMyBackupCodesV4InternalServerError() *PublicGetMyBackupCodesV4I
 	return &PublicGetMyBackupCodesV4InternalServerError{}
 }
 
-/*
-PublicGetMyBackupCodesV4InternalServerError handles this case with default header values.
+/*PublicGetMyBackupCodesV4InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetMyBackupCodesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -8,37 +8,39 @@ package thirdPartyCredential
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // DeleteThirdPartyLoginPlatformCredentialV3Cmd represents the DeleteThirdPartyLoginPlatformCredentialV3 command
 var DeleteThirdPartyLoginPlatformCredentialV3Cmd = &cobra.Command{
-	Use:   "deleteThirdPartyLoginPlatformCredentialV3",
-	Short: "Delete third party login platform credential V3",
-	Long:  `Delete third party login platform credential V3`,
+	Use:	"deleteThirdPartyLoginPlatformCredentialV3",
+	Short:  "Delete third party login platform credential V3",
+	Long:   `Delete third party login platform credential V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		thirdPartyCredentialService := &iam.ThirdPartyCredentialService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &third_party_credential.DeleteThirdPartyLoginPlatformCredentialV3Params{
-			Namespace:  namespace,
+			Namespace : namespace,
 			PlatformID: platformId,
 		}
-		errNoContent := thirdPartyCredentialService.DeleteThirdPartyLoginPlatformCredentialV3Short(input)
+errNoContent := thirdPartyCredentialService.DeleteThirdPartyLoginPlatformCredentialV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

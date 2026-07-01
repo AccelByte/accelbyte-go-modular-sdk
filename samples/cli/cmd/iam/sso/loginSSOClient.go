@@ -8,37 +8,39 @@ package sso
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // LoginSSOClientCmd represents the LoginSSOClient command
 var LoginSSOClientCmd = &cobra.Command{
-	Use:   "loginSSOClient",
-	Short: "Login SSO client",
-	Long:  `Login SSO client`,
+	Use:	"loginSSOClient",
+	Short:  "Login SSO client",
+	Long:   `Login SSO client`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ssoService := &iam.SSOService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		platformId, _ := cmd.Flags().GetString("platformId")
 		payload, _ := cmd.Flags().GetString("payload")
 		input := &sso.LoginSSOClientParams{
 			PlatformID: platformId,
-			Payload:    &payload,
+			Payload   : &payload,
 		}
-		errOK := ssoService.LoginSSOClientShort(input)
+errOK := ssoService.LoginSSOClientShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

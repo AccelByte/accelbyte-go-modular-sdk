@@ -69,10 +69,9 @@ func NewRequestTokenByOneTimeLinkCodeResponseV3OK() *RequestTokenByOneTimeLinkCo
 	return &RequestTokenByOneTimeLinkCodeResponseV3OK{}
 }
 
-/*
-RequestTokenByOneTimeLinkCodeResponseV3OK handles this case with default header values.
+/*RequestTokenByOneTimeLinkCodeResponseV3OK handles this case with default header values.
 
-	Succeed to generate user token by one time link code.
+  Succeed to generate user token by one time link code.
 */
 type RequestTokenByOneTimeLinkCodeResponseV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3

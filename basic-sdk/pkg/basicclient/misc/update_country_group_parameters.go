@@ -59,8 +59,7 @@ func NewUpdateCountryGroupParamsWithHTTPClient(client *http.Client) *UpdateCount
 	}
 }
 
-/*
-UpdateCountryGroupParams contains all the parameters to send to the API endpoint
+/*UpdateCountryGroupParams contains all the parameters to send to the API endpoint
 for the update country group operation typically these are written to a http.Request
 */
 type UpdateCountryGroupParams struct {

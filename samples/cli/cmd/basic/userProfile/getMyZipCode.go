@@ -8,35 +8,37 @@ package userProfile
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetMyZipCodeCmd represents the GetMyZipCode command
 var GetMyZipCodeCmd = &cobra.Command{
-	Use:   "getMyZipCode",
-	Short: "Get my zip code",
-	Long:  `Get my zip code`,
+	Use:	"getMyZipCode",
+	Short:  "Get my zip code",
+	Long:   `Get my zip code`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userProfileService := &basic.UserProfileService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &user_profile.GetMyZipCodeParams{
 			Namespace: namespace,
 		}
-		ok, errOK := userProfileService.GetMyZipCodeShort(input)
+ok,errOK := userProfileService.GetMyZipCodeShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

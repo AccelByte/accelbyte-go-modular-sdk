@@ -130,10 +130,9 @@ func NewGetPublisherConfigOK() *GetPublisherConfigOK {
 	return &GetPublisherConfigOK{}
 }
 
-/*
-GetPublisherConfigOK handles this case with default header values.
+/*GetPublisherConfigOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type GetPublisherConfigOK struct {
 	Payload *basicclientmodels.ConfigInfo
@@ -185,10 +184,9 @@ func NewGetPublisherConfigBadRequest() *GetPublisherConfigBadRequest {
 	return &GetPublisherConfigBadRequest{}
 }
 
-/*
-GetPublisherConfigBadRequest handles this case with default header values.
+/*GetPublisherConfigBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetPublisherConfigBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -240,10 +238,9 @@ func NewGetPublisherConfigUnauthorized() *GetPublisherConfigUnauthorized {
 	return &GetPublisherConfigUnauthorized{}
 }
 
-/*
-GetPublisherConfigUnauthorized handles this case with default header values.
+/*GetPublisherConfigUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetPublisherConfigUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -295,10 +292,9 @@ func NewGetPublisherConfigForbidden() *GetPublisherConfigForbidden {
 	return &GetPublisherConfigForbidden{}
 }
 
-/*
-GetPublisherConfigForbidden handles this case with default header values.
+/*GetPublisherConfigForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetPublisherConfigForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -350,10 +346,9 @@ func NewGetPublisherConfigNotFound() *GetPublisherConfigNotFound {
 	return &GetPublisherConfigNotFound{}
 }
 
-/*
-GetPublisherConfigNotFound handles this case with default header values.
+/*GetPublisherConfigNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11741</td><td>Unable to {action}: Config not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11741</td><td>Unable to {action}: Config not found</td></tr></table>
 */
 type GetPublisherConfigNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

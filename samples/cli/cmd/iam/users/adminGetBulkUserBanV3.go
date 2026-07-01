@@ -9,27 +9,29 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-
-	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetBulkUserBanV3Cmd represents the AdminGetBulkUserBanV3 command
 var AdminGetBulkUserBanV3Cmd = &cobra.Command{
-	Use:   "adminGetBulkUserBanV3",
-	Short: "Admin get bulk user ban V3",
-	Long:  `Admin get bulk user ban V3`,
+	Use:	"adminGetBulkUserBanV3",
+	Short:  "Admin get bulk user ban V3",
+	Long:   `Admin get bulk user ban V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelGetBulkUserBansRequest
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
@@ -37,19 +39,19 @@ var AdminGetBulkUserBanV3Cmd = &cobra.Command{
 		activeOnly, _ := cmd.Flags().GetBool("activeOnly")
 		banType, _ := cmd.Flags().GetString("banType")
 		input := &users.AdminGetBulkUserBanV3Params{
-			Body:       body,
-			Namespace:  namespace,
+			Body      : body,
+			Namespace : namespace,
 			ActiveOnly: &activeOnly,
-			BanType:    &banType,
+			BanType   : &banType,
 		}
-		ok, errOK := usersService.AdminGetBulkUserBanV3Short(input)
+ok,errOK := usersService.AdminGetBulkUserBanV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

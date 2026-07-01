@@ -8,24 +8,26 @@ package oAuth20
 
 import (
 	"log/slog"
-	"net/http"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
+	"net/http"
 )
 
 // AuthorizeV3Cmd represents the AuthorizeV3 command
 var AuthorizeV3Cmd = &cobra.Command{
-	Use:   "authorizeV3",
-	Short: "Authorize V3",
-	Long:  `Authorize V3`,
+	Use:	"authorizeV3",
+	Short:  "Authorize V3",
+	Long:   `Authorize V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
-			Client:           iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			ConfigRepository: &repository.ConfigRepositoryImpl{},
-			TokenRepository:  &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				ConfigRepository: &repository.ConfigRepositoryImpl{},
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		clientId, _ := cmd.Flags().GetString("clientId")
 		responseType, _ := cmd.Flags().GetString("responseType")
@@ -42,35 +44,35 @@ var AuthorizeV3Cmd = &cobra.Command{
 		targetAuthPage, _ := cmd.Flags().GetString("targetAuthPage")
 		useRedirectUriAsLoginUrlWhenLocked, _ := cmd.Flags().GetBool("useRedirectUriAsLoginUrlWhenLocked")
 		httpClient := &http.Client{
-			CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-			},
+		   },
 		}
 		input := &o_auth2_0.AuthorizeV3Params{
-			BlockedPlatformID:                  &blockedPlatformId,
-			CodeChallenge:                      &codeChallenge,
-			CodeChallengeMethod:                &codeChallengeMethod,
-			CreateHeadless:                     &createHeadless,
-			LoginWebBased:                      &loginWebBased,
-			Nonce:                              &nonce,
-			OneTimeLinkCode:                    &oneTimeLinkCode,
-			RedirectURI:                        &redirectUri,
-			Scope:                              &scope,
-			State:                              &state,
-			TargetAuthPage:                     &targetAuthPage,
+			BlockedPlatformID                 : &blockedPlatformId,
+			CodeChallenge                     : &codeChallenge,
+			CodeChallengeMethod               : &codeChallengeMethod,
+			CreateHeadless                    : &createHeadless,
+			LoginWebBased                     : &loginWebBased,
+			Nonce                             : &nonce,
+			OneTimeLinkCode                   : &oneTimeLinkCode,
+			RedirectURI                       : &redirectUri,
+			Scope                             : &scope,
+			State                             : &state,
+			TargetAuthPage                    : &targetAuthPage,
 			UseRedirectURIAsLoginURLWhenLocked: &useRedirectUriAsLoginUrlWhenLocked,
-			ClientID:                           clientId,
-			ResponseType:                       responseType,
-			HTTPClient:                         httpClient,
+			ClientID                          : clientId,
+			ResponseType                      : responseType,
+			HTTPClient: httpClient,
 		}
-		_, errFound := oAuth20Service.AuthorizeV3Short(input)
+_,errFound := oAuth20Service.AuthorizeV3Short(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

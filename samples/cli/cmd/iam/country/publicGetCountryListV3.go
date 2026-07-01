@@ -8,35 +8,37 @@ package country
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/country"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/country"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicGetCountryListV3Cmd represents the PublicGetCountryListV3 command
 var PublicGetCountryListV3Cmd = &cobra.Command{
-	Use:   "publicGetCountryListV3",
-	Short: "Public get country list V3",
-	Long:  `Public get country list V3`,
+	Use:	"publicGetCountryListV3",
+	Short:  "Public get country list V3",
+	Long:   `Public get country list V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		countryService := &iam.CountryService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &country.PublicGetCountryListV3Params{
 			Namespace: namespace,
 		}
-		ok, errOK := countryService.PublicGetCountryListV3Short(input)
+ok,errOK := countryService.PublicGetCountryListV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -100,10 +100,9 @@ func NewPublicForgotPasswordWithoutNamespaceV3OK() *PublicForgotPasswordWithoutN
 	return &PublicForgotPasswordWithoutNamespaceV3OK{}
 }
 
-/*
-PublicForgotPasswordWithoutNamespaceV3OK handles this case with default header values.
+/*PublicForgotPasswordWithoutNamespaceV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicForgotPasswordWithoutNamespaceV3OK struct {
 	Payload *iamclientmodels.ModelForgotPasswordResponseV3
@@ -155,10 +154,9 @@ func NewPublicForgotPasswordWithoutNamespaceV3BadRequest() *PublicForgotPassword
 	return &PublicForgotPasswordWithoutNamespaceV3BadRequest{}
 }
 
-/*
-PublicForgotPasswordWithoutNamespaceV3BadRequest handles this case with default header values.
+/*PublicForgotPasswordWithoutNamespaceV3BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicForgotPasswordWithoutNamespaceV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,10 +208,9 @@ func NewPublicForgotPasswordWithoutNamespaceV3InternalServerError() *PublicForgo
 	return &PublicForgotPasswordWithoutNamespaceV3InternalServerError{}
 }
 
-/*
-PublicForgotPasswordWithoutNamespaceV3InternalServerError handles this case with default header values.
+/*PublicForgotPasswordWithoutNamespaceV3InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicForgotPasswordWithoutNamespaceV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

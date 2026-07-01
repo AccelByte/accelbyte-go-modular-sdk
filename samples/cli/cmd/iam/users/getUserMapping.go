@@ -8,39 +8,41 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetUserMappingCmd represents the GetUserMapping command
 var GetUserMappingCmd = &cobra.Command{
-	Use:   "getUserMapping",
-	Short: "Get user mapping",
-	Long:  `Get user mapping`,
+	Use:	"getUserMapping",
+	Short:  "Get user mapping",
+	Long:   `Get user mapping`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		targetNamespace, _ := cmd.Flags().GetString("targetNamespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.GetUserMappingParams{
-			Namespace:       namespace,
+			Namespace      : namespace,
 			TargetNamespace: targetNamespace,
-			UserID:          userId,
+			UserID         : userId,
 		}
-		ok, errOK := usersService.GetUserMappingShort(input)
+ok,errOK := usersService.GetUserMappingShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

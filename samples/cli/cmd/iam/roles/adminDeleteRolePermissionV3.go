@@ -8,39 +8,41 @@ package roles
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminDeleteRolePermissionV3Cmd represents the AdminDeleteRolePermissionV3 command
 var AdminDeleteRolePermissionV3Cmd = &cobra.Command{
-	Use:   "adminDeleteRolePermissionV3",
-	Short: "Admin delete role permission V3",
-	Long:  `Admin delete role permission V3`,
+	Use:	"adminDeleteRolePermissionV3",
+	Short:  "Admin delete role permission V3",
+	Long:   `Admin delete role permission V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		action, _ := cmd.Flags().GetInt64("action")
 		resource, _ := cmd.Flags().GetString("resource")
 		roleId, _ := cmd.Flags().GetString("roleId")
 		input := &roles.AdminDeleteRolePermissionV3Params{
-			Action:   action,
+			Action  : action,
 			Resource: resource,
-			RoleID:   roleId,
+			RoleID  : roleId,
 		}
-		errNoContent := rolesService.AdminDeleteRolePermissionV3Short(input)
+errNoContent := rolesService.AdminDeleteRolePermissionV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

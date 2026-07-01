@@ -15,11 +15,8 @@ import (
 )
 
 type LoginAllowlistService struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdLoginAllowlist *string
@@ -30,9 +27,9 @@ func (aaa *LoginAllowlistService) UpdateFlightId(flightId string) {
 
 func (aaa *LoginAllowlistService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *LoginAllowlistService) AdminGetLoginAllowlistV3Short(input *login_all
 	}
 	if tempFlightIdLoginAllowlist != nil {
 		input.XFlightId = tempFlightIdLoginAllowlist
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LoginAllowlist.AdminGetLoginAllowlistV3Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *LoginAllowlistService) AdminUpdateLoginAllowlistV3Short(input *login_
 	}
 	if tempFlightIdLoginAllowlist != nil {
 		input.XFlightId = tempFlightIdLoginAllowlist
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.LoginAllowlist.AdminUpdateLoginAllowlistV3Short(input, authInfoWriter)

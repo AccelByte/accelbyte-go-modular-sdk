@@ -144,10 +144,9 @@ func NewPublicRemoveTrustedDeviceV4NoContent() *PublicRemoveTrustedDeviceV4NoCon
 	return &PublicRemoveTrustedDeviceV4NoContent{}
 }
 
-/*
-PublicRemoveTrustedDeviceV4NoContent handles this case with default header values.
+/*PublicRemoveTrustedDeviceV4NoContent handles this case with default header values.
 
-	Device removed
+  Device removed
 */
 type PublicRemoveTrustedDeviceV4NoContent struct {
 }
@@ -172,10 +171,9 @@ func NewPublicRemoveTrustedDeviceV4BadRequest() *PublicRemoveTrustedDeviceV4BadR
 	return &PublicRemoveTrustedDeviceV4BadRequest{}
 }
 
-/*
-PublicRemoveTrustedDeviceV4BadRequest handles this case with default header values.
+/*PublicRemoveTrustedDeviceV4BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type PublicRemoveTrustedDeviceV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -227,10 +225,9 @@ func NewPublicRemoveTrustedDeviceV4Unauthorized() *PublicRemoveTrustedDeviceV4Un
 	return &PublicRemoveTrustedDeviceV4Unauthorized{}
 }
 
-/*
-PublicRemoveTrustedDeviceV4Unauthorized handles this case with default header values.
+/*PublicRemoveTrustedDeviceV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicRemoveTrustedDeviceV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -282,10 +279,9 @@ func NewPublicRemoveTrustedDeviceV4Forbidden() *PublicRemoveTrustedDeviceV4Forbi
 	return &PublicRemoveTrustedDeviceV4Forbidden{}
 }
 
-/*
-PublicRemoveTrustedDeviceV4Forbidden handles this case with default header values.
+/*PublicRemoveTrustedDeviceV4Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicRemoveTrustedDeviceV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -337,10 +333,9 @@ func NewPublicRemoveTrustedDeviceV4NotFound() *PublicRemoveTrustedDeviceV4NotFou
 	return &PublicRemoveTrustedDeviceV4NotFound{}
 }
 
-/*
-PublicRemoveTrustedDeviceV4NotFound handles this case with default header values.
+/*PublicRemoveTrustedDeviceV4NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicRemoveTrustedDeviceV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -392,10 +387,9 @@ func NewPublicRemoveTrustedDeviceV4InternalServerError() *PublicRemoveTrustedDev
 	return &PublicRemoveTrustedDeviceV4InternalServerError{}
 }
 
-/*
-PublicRemoveTrustedDeviceV4InternalServerError handles this case with default header values.
+/*PublicRemoveTrustedDeviceV4InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicRemoveTrustedDeviceV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

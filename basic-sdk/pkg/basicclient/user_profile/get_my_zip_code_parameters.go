@@ -57,8 +57,7 @@ func NewGetMyZipCodeParamsWithHTTPClient(client *http.Client) *GetMyZipCodeParam
 	}
 }
 
-/*
-GetMyZipCodeParams contains all the parameters to send to the API endpoint
+/*GetMyZipCodeParams contains all the parameters to send to the API endpoint
 for the get my zip code operation typically these are written to a http.Request
 */
 type GetMyZipCodeParams struct {

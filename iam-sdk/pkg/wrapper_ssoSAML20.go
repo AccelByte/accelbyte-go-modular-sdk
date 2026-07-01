@@ -15,11 +15,8 @@ import (
 )
 
 type SSOSAML20Service struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdSSOSAML20 *string
@@ -30,9 +27,9 @@ func (aaa *SSOSAML20Service) UpdateFlightId(flightId string) {
 
 func (aaa *SSOSAML20Service) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *SSOSAML20Service) PlatformAuthenticateSAMLV3HandlerShort(input *sso_s
 	}
 	if tempFlightIdSSOSAML20 != nil {
 		input.XFlightId = tempFlightIdSSOSAML20
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	found, err := aaa.Client.SSOSAML20.PlatformAuthenticateSAMLV3HandlerShort(input, authInfoWriter)

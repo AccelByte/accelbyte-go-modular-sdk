@@ -8,41 +8,43 @@ package roles
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicGetRolesV3Cmd represents the PublicGetRolesV3 command
 var PublicGetRolesV3Cmd = &cobra.Command{
-	Use:   "publicGetRolesV3",
-	Short: "Public get roles V3",
-	Long:  `Public get roles V3`,
+	Use:	"publicGetRolesV3",
+	Short:  "Public get roles V3",
+	Long:   `Public get roles V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		after, _ := cmd.Flags().GetString("after")
 		before, _ := cmd.Flags().GetString("before")
 		isWildcard, _ := cmd.Flags().GetBool("isWildcard")
 		limit, _ := cmd.Flags().GetInt64("limit")
 		input := &roles.PublicGetRolesV3Params{
-			After:      &after,
-			Before:     &before,
+			After     : &after,
+			Before    : &before,
 			IsWildcard: &isWildcard,
-			Limit:      &limit,
+			Limit     : &limit,
 		}
-		ok, errOK := rolesService.PublicGetRolesV3Short(input)
+ok,errOK := rolesService.PublicGetRolesV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

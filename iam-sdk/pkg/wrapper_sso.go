@@ -15,11 +15,8 @@ import (
 )
 
 type SSOService struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdSSO *string
@@ -30,9 +27,9 @@ func (aaa *SSOService) UpdateFlightId(flightId string) {
 
 func (aaa *SSOService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *SSOService) LoginSSOClientShort(input *sso.LoginSSOClientParams) erro
 	}
 	if tempFlightIdSSO != nil {
 		input.XFlightId = tempFlightIdSSO
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.SSO.LoginSSOClientShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *SSOService) LogoutSSOClientShort(input *sso.LogoutSSOClientParams) er
 	}
 	if tempFlightIdSSO != nil {
 		input.XFlightId = tempFlightIdSSO
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.SSO.LogoutSSOClientShort(input, authInfoWriter)

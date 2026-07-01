@@ -114,10 +114,9 @@ func NewDeleteUserRoleNoContent() *DeleteUserRoleNoContent {
 	return &DeleteUserRoleNoContent{}
 }
 
-/*
-DeleteUserRoleNoContent handles this case with default header values.
+/*DeleteUserRoleNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type DeleteUserRoleNoContent struct {
 }
@@ -142,10 +141,9 @@ func NewDeleteUserRoleUnauthorized() *DeleteUserRoleUnauthorized {
 	return &DeleteUserRoleUnauthorized{}
 }
 
-/*
-DeleteUserRoleUnauthorized handles this case with default header values.
+/*DeleteUserRoleUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteUserRoleUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -197,10 +195,9 @@ func NewDeleteUserRoleForbidden() *DeleteUserRoleForbidden {
 	return &DeleteUserRoleForbidden{}
 }
 
-/*
-DeleteUserRoleForbidden handles this case with default header values.
+/*DeleteUserRoleForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10159</td><td>operator is not a role manager</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10159</td><td>operator is not a role manager</td></tr></table>
 */
 type DeleteUserRoleForbidden struct {
 }
@@ -225,10 +222,9 @@ func NewDeleteUserRoleNotFound() *DeleteUserRoleNotFound {
 	return &DeleteUserRoleNotFound{}
 }
 
-/*
-DeleteUserRoleNotFound handles this case with default header values.
+/*DeleteUserRoleNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10156</td><td>role not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10156</td><td>role not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type DeleteUserRoleNotFound struct {
 }
@@ -253,10 +249,9 @@ func NewDeleteUserRoleInternalServerError() *DeleteUserRoleInternalServerError {
 	return &DeleteUserRoleInternalServerError{}
 }
 
-/*
-DeleteUserRoleInternalServerError handles this case with default header values.
+/*DeleteUserRoleInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DeleteUserRoleInternalServerError struct {
 }

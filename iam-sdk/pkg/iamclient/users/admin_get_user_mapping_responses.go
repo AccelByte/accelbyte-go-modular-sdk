@@ -125,10 +125,9 @@ func NewAdminGetUserMappingOK() *AdminGetUserMappingOK {
 	return &AdminGetUserMappingOK{}
 }
 
-/*
-AdminGetUserMappingOK handles this case with default header values.
+/*AdminGetUserMappingOK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminGetUserMappingOK struct {
 	Payload *iamclientmodels.ModelGetUserMappingV3
@@ -180,10 +179,9 @@ func NewAdminGetUserMappingBadRequest() *AdminGetUserMappingBadRequest {
 	return &AdminGetUserMappingBadRequest{}
 }
 
-/*
-AdminGetUserMappingBadRequest handles this case with default header values.
+/*AdminGetUserMappingBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type AdminGetUserMappingBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewAdminGetUserMappingUnauthorized() *AdminGetUserMappingUnauthorized {
 	return &AdminGetUserMappingUnauthorized{}
 }
 
-/*
-AdminGetUserMappingUnauthorized handles this case with default header values.
+/*AdminGetUserMappingUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserMappingUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewAdminGetUserMappingForbidden() *AdminGetUserMappingForbidden {
 	return &AdminGetUserMappingForbidden{}
 }
 
-/*
-AdminGetUserMappingForbidden handles this case with default header values.
+/*AdminGetUserMappingForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserMappingForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewAdminGetUserMappingNotFound() *AdminGetUserMappingNotFound {
 	return &AdminGetUserMappingNotFound{}
 }
 
-/*
-AdminGetUserMappingNotFound handles this case with default header values.
+/*AdminGetUserMappingNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type AdminGetUserMappingNotFound struct {
 }

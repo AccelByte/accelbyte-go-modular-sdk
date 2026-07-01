@@ -59,8 +59,7 @@ func NewPublicCreateUserV3ParamsWithHTTPClient(client *http.Client) *PublicCreat
 	}
 }
 
-/*
-PublicCreateUserV3Params contains all the parameters to send to the API endpoint
+/*PublicCreateUserV3Params contains all the parameters to send to the API endpoint
 for the public create user v3 operation typically these are written to a http.Request
 */
 type PublicCreateUserV3Params struct {

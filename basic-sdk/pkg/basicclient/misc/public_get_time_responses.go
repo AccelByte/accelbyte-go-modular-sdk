@@ -69,10 +69,9 @@ func NewPublicGetTimeOK() *PublicGetTimeOK {
 	return &PublicGetTimeOK{}
 }
 
-/*
-PublicGetTimeOK handles this case with default header values.
+/*PublicGetTimeOK handles this case with default header values.
 
-	Success retrieve server time
+  Success retrieve server time
 */
 type PublicGetTimeOK struct {
 	Payload *basicclientmodels.RetrieveTimeResponse

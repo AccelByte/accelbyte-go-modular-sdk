@@ -59,8 +59,7 @@ func NewAdminSaveUserRoleV3ParamsWithHTTPClient(client *http.Client) *AdminSaveU
 	}
 }
 
-/*
-AdminSaveUserRoleV3Params contains all the parameters to send to the API endpoint
+/*AdminSaveUserRoleV3Params contains all the parameters to send to the API endpoint
 for the admin save user role v3 operation typically these are written to a http.Request
 */
 type AdminSaveUserRoleV3Params struct {

@@ -57,8 +57,7 @@ func NewGetPublisherUserParamsWithHTTPClient(client *http.Client) *GetPublisherU
 	}
 }
 
-/*
-GetPublisherUserParams contains all the parameters to send to the API endpoint
+/*GetPublisherUserParams contains all the parameters to send to the API endpoint
 for the get publisher user operation typically these are written to a http.Request
 */
 type GetPublisherUserParams struct {

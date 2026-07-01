@@ -59,8 +59,7 @@ func NewAdminAddUserPermissionsV3ParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*
-AdminAddUserPermissionsV3Params contains all the parameters to send to the API endpoint
+/*AdminAddUserPermissionsV3Params contains all the parameters to send to the API endpoint
 for the admin add user permissions v3 operation typically these are written to a http.Request
 */
 type AdminAddUserPermissionsV3Params struct {

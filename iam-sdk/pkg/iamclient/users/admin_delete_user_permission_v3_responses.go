@@ -124,10 +124,9 @@ func NewAdminDeleteUserPermissionV3NoContent() *AdminDeleteUserPermissionV3NoCon
 	return &AdminDeleteUserPermissionV3NoContent{}
 }
 
-/*
-AdminDeleteUserPermissionV3NoContent handles this case with default header values.
+/*AdminDeleteUserPermissionV3NoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AdminDeleteUserPermissionV3NoContent struct {
 }
@@ -152,10 +151,9 @@ func NewAdminDeleteUserPermissionV3BadRequest() *AdminDeleteUserPermissionV3BadR
 	return &AdminDeleteUserPermissionV3BadRequest{}
 }
 
-/*
-AdminDeleteUserPermissionV3BadRequest handles this case with default header values.
+/*AdminDeleteUserPermissionV3BadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type AdminDeleteUserPermissionV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -207,10 +205,9 @@ func NewAdminDeleteUserPermissionV3Unauthorized() *AdminDeleteUserPermissionV3Un
 	return &AdminDeleteUserPermissionV3Unauthorized{}
 }
 
-/*
-AdminDeleteUserPermissionV3Unauthorized handles this case with default header values.
+/*AdminDeleteUserPermissionV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteUserPermissionV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -262,10 +259,9 @@ func NewAdminDeleteUserPermissionV3Forbidden() *AdminDeleteUserPermissionV3Forbi
 	return &AdminDeleteUserPermissionV3Forbidden{}
 }
 
-/*
-AdminDeleteUserPermissionV3Forbidden handles this case with default header values.
+/*AdminDeleteUserPermissionV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeleteUserPermissionV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -317,10 +313,9 @@ func NewAdminDeleteUserPermissionV3NotFound() *AdminDeleteUserPermissionV3NotFou
 	return &AdminDeleteUserPermissionV3NotFound{}
 }
 
-/*
-AdminDeleteUserPermissionV3NotFound handles this case with default header values.
+/*AdminDeleteUserPermissionV3NotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type AdminDeleteUserPermissionV3NotFound struct {
 }

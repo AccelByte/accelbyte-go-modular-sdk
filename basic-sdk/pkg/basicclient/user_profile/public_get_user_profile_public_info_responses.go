@@ -100,10 +100,9 @@ func NewPublicGetUserProfilePublicInfoOK() *PublicGetUserProfilePublicInfoOK {
 	return &PublicGetUserProfilePublicInfoOK{}
 }
 
-/*
-PublicGetUserProfilePublicInfoOK handles this case with default header values.
+/*PublicGetUserProfilePublicInfoOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type PublicGetUserProfilePublicInfoOK struct {
 	Payload *basicclientmodels.UserProfilePublicInfo
@@ -155,10 +154,9 @@ func NewPublicGetUserProfilePublicInfoBadRequest() *PublicGetUserProfilePublicIn
 	return &PublicGetUserProfilePublicInfoBadRequest{}
 }
 
-/*
-PublicGetUserProfilePublicInfoBadRequest handles this case with default header values.
+/*PublicGetUserProfilePublicInfoBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetUserProfilePublicInfoBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -210,10 +208,9 @@ func NewPublicGetUserProfilePublicInfoNotFound() *PublicGetUserProfilePublicInfo
 	return &PublicGetUserProfilePublicInfoNotFound{}
 }
 
-/*
-PublicGetUserProfilePublicInfoNotFound handles this case with default header values.
+/*PublicGetUserProfilePublicInfoNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
 */
 type PublicGetUserProfilePublicInfoNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

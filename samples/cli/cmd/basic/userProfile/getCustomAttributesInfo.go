@@ -8,37 +8,39 @@ package userProfile
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetCustomAttributesInfoCmd represents the GetCustomAttributesInfo command
 var GetCustomAttributesInfoCmd = &cobra.Command{
-	Use:   "getCustomAttributesInfo",
-	Short: "Get custom attributes info",
-	Long:  `Get custom attributes info`,
+	Use:	"getCustomAttributesInfo",
+	Short:  "Get custom attributes info",
+	Long:   `Get custom attributes info`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userProfileService := &basic.UserProfileService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &user_profile.GetCustomAttributesInfoParams{
 			Namespace: namespace,
-			UserID:    userId,
+			UserID   : userId,
 		}
-		ok, errOK := userProfileService.GetCustomAttributesInfoShort(input)
+ok,errOK := userProfileService.GetCustomAttributesInfoShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

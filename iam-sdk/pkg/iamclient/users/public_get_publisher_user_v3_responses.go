@@ -125,10 +125,9 @@ func NewPublicGetPublisherUserV3OK() *PublicGetPublisherUserV3OK {
 	return &PublicGetPublisherUserV3OK{}
 }
 
-/*
-PublicGetPublisherUserV3OK handles this case with default header values.
+/*PublicGetPublisherUserV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicGetPublisherUserV3OK struct {
 	Payload *iamclientmodels.ModelGetPublisherUserResponse
@@ -180,10 +179,9 @@ func NewPublicGetPublisherUserV3BadRequest() *PublicGetPublisherUserV3BadRequest
 	return &PublicGetPublisherUserV3BadRequest{}
 }
 
-/*
-PublicGetPublisherUserV3BadRequest handles this case with default header values.
+/*PublicGetPublisherUserV3BadRequest handles this case with default header values.
 
-	Error Code: 7239 - Error Message: wrong namespace: required game namespace
+  Error Code: 7239 - Error Message: wrong namespace: required game namespace
 */
 type PublicGetPublisherUserV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewPublicGetPublisherUserV3Unauthorized() *PublicGetPublisherUserV3Unauthor
 	return &PublicGetPublisherUserV3Unauthorized{}
 }
 
-/*
-PublicGetPublisherUserV3Unauthorized handles this case with default header values.
+/*PublicGetPublisherUserV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetPublisherUserV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewPublicGetPublisherUserV3Forbidden() *PublicGetPublisherUserV3Forbidden {
 	return &PublicGetPublisherUserV3Forbidden{}
 }
 
-/*
-PublicGetPublisherUserV3Forbidden handles this case with default header values.
+/*PublicGetPublisherUserV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetPublisherUserV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewPublicGetPublisherUserV3NotFound() *PublicGetPublisherUserV3NotFound {
 	return &PublicGetPublisherUserV3NotFound{}
 }
 
-/*
-PublicGetPublisherUserV3NotFound handles this case with default header values.
+/*PublicGetPublisherUserV3NotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type PublicGetPublisherUserV3NotFound struct {
 }

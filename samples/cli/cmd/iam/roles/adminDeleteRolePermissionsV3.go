@@ -9,42 +9,44 @@ package roles
 import (
 	"encoding/json"
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminDeleteRolePermissionsV3Cmd represents the AdminDeleteRolePermissionsV3 command
 var AdminDeleteRolePermissionsV3Cmd = &cobra.Command{
-	Use:   "adminDeleteRolePermissionsV3",
-	Short: "Admin delete role permissions V3",
-	Long:  `Admin delete role permissions V3`,
+	Use:	"adminDeleteRolePermissionsV3",
+	Short:  "Admin delete role permissions V3",
+	Long:   `Admin delete role permissions V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body []string
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		roleId, _ := cmd.Flags().GetString("roleId")
 		input := &roles.AdminDeleteRolePermissionsV3Params{
-			Body:   body,
+			Body  : body,
 			RoleID: roleId,
 		}
-		errNoContent := rolesService.AdminDeleteRolePermissionsV3Short(input)
+errNoContent := rolesService.AdminDeleteRolePermissionsV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

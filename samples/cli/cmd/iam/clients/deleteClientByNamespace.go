@@ -8,37 +8,39 @@ package clients
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // DeleteClientByNamespaceCmd represents the DeleteClientByNamespace command
 var DeleteClientByNamespaceCmd = &cobra.Command{
-	Use:   "deleteClientByNamespace",
-	Short: "Delete client by namespace",
-	Long:  `Delete client by namespace`,
+	Use:	"deleteClientByNamespace",
+	Short:  "Delete client by namespace",
+	Long:   `Delete client by namespace`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsService := &iam.ClientsService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		clientId, _ := cmd.Flags().GetString("clientId")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &clients.DeleteClientByNamespaceParams{
-			ClientID:  clientId,
+			ClientID : clientId,
 			Namespace: namespace,
 		}
-		errNoContent := clientsService.DeleteClientByNamespaceShort(input)
+errNoContent := clientsService.DeleteClientByNamespaceShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -129,10 +129,9 @@ func NewDisableUserNoContent() *DisableUserNoContent {
 	return &DisableUserNoContent{}
 }
 
-/*
-DisableUserNoContent handles this case with default header values.
+/*DisableUserNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type DisableUserNoContent struct {
 }
@@ -157,10 +156,9 @@ func NewDisableUserBadRequest() *DisableUserBadRequest {
 	return &DisableUserBadRequest{}
 }
 
-/*
-DisableUserBadRequest handles this case with default header values.
+/*DisableUserBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type DisableUserBadRequest struct {
 }
@@ -185,10 +183,9 @@ func NewDisableUserUnauthorized() *DisableUserUnauthorized {
 	return &DisableUserUnauthorized{}
 }
 
-/*
-DisableUserUnauthorized handles this case with default header values.
+/*DisableUserUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DisableUserUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,10 +237,9 @@ func NewDisableUserForbidden() *DisableUserForbidden {
 	return &DisableUserForbidden{}
 }
 
-/*
-DisableUserForbidden handles this case with default header values.
+/*DisableUserForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DisableUserForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -295,10 +291,9 @@ func NewDisableUserNotFound() *DisableUserNotFound {
 	return &DisableUserNotFound{}
 }
 
-/*
-DisableUserNotFound handles this case with default header values.
+/*DisableUserNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type DisableUserNotFound struct {
 }
@@ -323,10 +318,9 @@ func NewDisableUserInternalServerError() *DisableUserInternalServerError {
 	return &DisableUserInternalServerError{}
 }
 
-/*
-DisableUserInternalServerError handles this case with default header values.
+/*DisableUserInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DisableUserInternalServerError struct {
 }

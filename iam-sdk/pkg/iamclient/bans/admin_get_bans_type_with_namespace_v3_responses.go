@@ -115,10 +115,9 @@ func NewAdminGetBansTypeWithNamespaceV3OK() *AdminGetBansTypeWithNamespaceV3OK {
 	return &AdminGetBansTypeWithNamespaceV3OK{}
 }
 
-/*
-AdminGetBansTypeWithNamespaceV3OK handles this case with default header values.
+/*AdminGetBansTypeWithNamespaceV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminGetBansTypeWithNamespaceV3OK struct {
 	Payload *iamclientmodels.AccountcommonBansV3
@@ -170,10 +169,9 @@ func NewAdminGetBansTypeWithNamespaceV3Unauthorized() *AdminGetBansTypeWithNames
 	return &AdminGetBansTypeWithNamespaceV3Unauthorized{}
 }
 
-/*
-AdminGetBansTypeWithNamespaceV3Unauthorized handles this case with default header values.
+/*AdminGetBansTypeWithNamespaceV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetBansTypeWithNamespaceV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,10 +223,9 @@ func NewAdminGetBansTypeWithNamespaceV3Forbidden() *AdminGetBansTypeWithNamespac
 	return &AdminGetBansTypeWithNamespaceV3Forbidden{}
 }
 
-/*
-AdminGetBansTypeWithNamespaceV3Forbidden handles this case with default header values.
+/*AdminGetBansTypeWithNamespaceV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetBansTypeWithNamespaceV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -280,10 +277,9 @@ func NewAdminGetBansTypeWithNamespaceV3InternalServerError() *AdminGetBansTypeWi
 	return &AdminGetBansTypeWithNamespaceV3InternalServerError{}
 }
 
-/*
-AdminGetBansTypeWithNamespaceV3InternalServerError handles this case with default header values.
+/*AdminGetBansTypeWithNamespaceV3InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetBansTypeWithNamespaceV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -57,8 +57,7 @@ func NewRetrieveAllThirdPartyLoginPlatformCredentialV3ParamsWithHTTPClient(clien
 	}
 }
 
-/*
-RetrieveAllThirdPartyLoginPlatformCredentialV3Params contains all the parameters to send to the API endpoint
+/*RetrieveAllThirdPartyLoginPlatformCredentialV3Params contains all the parameters to send to the API endpoint
 for the retrieve all third party login platform credential v3 operation typically these are written to a http.Request
 */
 type RetrieveAllThirdPartyLoginPlatformCredentialV3Params struct {

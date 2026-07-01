@@ -145,10 +145,9 @@ func NewAdminGetBulkUserByEmailAddressV3OK() *AdminGetBulkUserByEmailAddressV3OK
 	return &AdminGetBulkUserByEmailAddressV3OK{}
 }
 
-/*
-AdminGetBulkUserByEmailAddressV3OK handles this case with default header values.
+/*AdminGetBulkUserByEmailAddressV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminGetBulkUserByEmailAddressV3OK struct {
 	Payload *iamclientmodels.ModelListUserResponseV3
@@ -200,10 +199,9 @@ func NewAdminGetBulkUserByEmailAddressV3BadRequest() *AdminGetBulkUserByEmailAdd
 	return &AdminGetBulkUserByEmailAddressV3BadRequest{}
 }
 
-/*
-AdminGetBulkUserByEmailAddressV3BadRequest handles this case with default header values.
+/*AdminGetBulkUserByEmailAddressV3BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetBulkUserByEmailAddressV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,10 +253,9 @@ func NewAdminGetBulkUserByEmailAddressV3Unauthorized() *AdminGetBulkUserByEmailA
 	return &AdminGetBulkUserByEmailAddressV3Unauthorized{}
 }
 
-/*
-AdminGetBulkUserByEmailAddressV3Unauthorized handles this case with default header values.
+/*AdminGetBulkUserByEmailAddressV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetBulkUserByEmailAddressV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -310,10 +307,9 @@ func NewAdminGetBulkUserByEmailAddressV3Forbidden() *AdminGetBulkUserByEmailAddr
 	return &AdminGetBulkUserByEmailAddressV3Forbidden{}
 }
 
-/*
-AdminGetBulkUserByEmailAddressV3Forbidden handles this case with default header values.
+/*AdminGetBulkUserByEmailAddressV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetBulkUserByEmailAddressV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -365,10 +361,9 @@ func NewAdminGetBulkUserByEmailAddressV3NotFound() *AdminGetBulkUserByEmailAddre
 	return &AdminGetBulkUserByEmailAddressV3NotFound{}
 }
 
-/*
-AdminGetBulkUserByEmailAddressV3NotFound handles this case with default header values.
+/*AdminGetBulkUserByEmailAddressV3NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminGetBulkUserByEmailAddressV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -420,10 +415,9 @@ func NewAdminGetBulkUserByEmailAddressV3InternalServerError() *AdminGetBulkUserB
 	return &AdminGetBulkUserByEmailAddressV3InternalServerError{}
 }
 
-/*
-AdminGetBulkUserByEmailAddressV3InternalServerError handles this case with default header values.
+/*AdminGetBulkUserByEmailAddressV3InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetBulkUserByEmailAddressV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

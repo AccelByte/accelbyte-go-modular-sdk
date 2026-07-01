@@ -15,11 +15,8 @@ import (
 )
 
 type UserProfileService struct {
-	Client           *basicclient.JusticeBasicService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *basicclient.JusticeBasicService
+	Session repository.Session
 }
 
 var tempFlightIdUserProfile *string
@@ -30,9 +27,9 @@ func (aaa *UserProfileService) UpdateFlightId(flightId string) {
 
 func (aaa *UserProfileService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *UserProfileService) GetUserProfileInfoByPublicIDShort(input *user_pro
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.GetUserProfileInfoByPublicIDShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *UserProfileService) AdminGetUserProfilePublicInfoByIdsShort(input *us
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.AdminGetUserProfilePublicInfoByIdsShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *UserProfileService) GetUserProfileInfoShort(input *user_profile.GetUs
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.GetUserProfileInfoShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *UserProfileService) UpdateUserProfileShort(input *user_profile.Update
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.UpdateUserProfileShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *UserProfileService) DeleteUserProfileShort(input *user_profile.Delete
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.DeleteUserProfileShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *UserProfileService) GetCustomAttributesInfoShort(input *user_profile.
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.GetCustomAttributesInfoShort(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *UserProfileService) UpdateCustomAttributesPartiallyShort(input *user_
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.UpdateCustomAttributesPartiallyShort(input, authInfoWriter)
@@ -292,8 +289,8 @@ func (aaa *UserProfileService) GetPrivateCustomAttributesInfoShort(input *user_p
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.GetPrivateCustomAttributesInfoShort(input, authInfoWriter)
@@ -326,8 +323,8 @@ func (aaa *UserProfileService) UpdatePrivateCustomAttributesPartiallyShort(input
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.UpdatePrivateCustomAttributesPartiallyShort(input, authInfoWriter)
@@ -360,8 +357,8 @@ func (aaa *UserProfileService) UpdateUserProfileStatusShort(input *user_profile.
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.UpdateUserProfileStatusShort(input, authInfoWriter)
@@ -387,8 +384,8 @@ func (aaa *UserProfileService) PublicGetUserProfilePublicInfoByIdsShort(input *u
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.PublicGetUserProfilePublicInfoByIdsShort(input)
@@ -414,8 +411,8 @@ func (aaa *UserProfileService) PublicBulkGetUserProfilePublicInfoShort(input *us
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.PublicBulkGetUserProfilePublicInfoShort(input)
@@ -441,8 +438,8 @@ func (aaa *UserProfileService) PublicGetUserProfileInfoByPublicIDShort(input *us
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.PublicGetUserProfileInfoByPublicIDShort(input)
@@ -475,8 +472,8 @@ func (aaa *UserProfileService) GetMyProfileInfoShort(input *user_profile.GetMyPr
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.GetMyProfileInfoShort(input, authInfoWriter)
@@ -509,8 +506,8 @@ func (aaa *UserProfileService) UpdateMyProfileShort(input *user_profile.UpdateMy
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.UpdateMyProfileShort(input, authInfoWriter)
@@ -543,8 +540,8 @@ func (aaa *UserProfileService) CreateMyProfileShort(input *user_profile.CreateMy
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.UserProfile.CreateMyProfileShort(input, authInfoWriter)
@@ -577,8 +574,8 @@ func (aaa *UserProfileService) GetMyPrivateCustomAttributesInfoShort(input *user
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.GetMyPrivateCustomAttributesInfoShort(input, authInfoWriter)
@@ -611,8 +608,8 @@ func (aaa *UserProfileService) UpdateMyPrivateCustomAttributesPartiallyShort(inp
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.UpdateMyPrivateCustomAttributesPartiallyShort(input, authInfoWriter)
@@ -645,8 +642,8 @@ func (aaa *UserProfileService) GetMyZipCodeShort(input *user_profile.GetMyZipCod
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.GetMyZipCodeShort(input, authInfoWriter)
@@ -679,8 +676,8 @@ func (aaa *UserProfileService) UpdateMyZipCodeShort(input *user_profile.UpdateMy
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.UpdateMyZipCodeShort(input, authInfoWriter)
@@ -713,8 +710,8 @@ func (aaa *UserProfileService) PublicGetUserProfileInfoShort(input *user_profile
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.PublicGetUserProfileInfoShort(input, authInfoWriter)
@@ -747,8 +744,8 @@ func (aaa *UserProfileService) PublicUpdateUserProfileShort(input *user_profile.
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.PublicUpdateUserProfileShort(input, authInfoWriter)
@@ -781,8 +778,8 @@ func (aaa *UserProfileService) PublicCreateUserProfileShort(input *user_profile.
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.UserProfile.PublicCreateUserProfileShort(input, authInfoWriter)
@@ -808,8 +805,8 @@ func (aaa *UserProfileService) PublicGetCustomAttributesInfoShort(input *user_pr
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.PublicGetCustomAttributesInfoShort(input)
@@ -842,8 +839,8 @@ func (aaa *UserProfileService) PublicUpdateCustomAttributesPartiallyShort(input 
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.PublicUpdateCustomAttributesPartiallyShort(input, authInfoWriter)
@@ -869,8 +866,8 @@ func (aaa *UserProfileService) PublicGetUserProfilePublicInfoShort(input *user_p
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.PublicGetUserProfilePublicInfoShort(input)
@@ -903,8 +900,8 @@ func (aaa *UserProfileService) PublicUpdateUserProfileStatusShort(input *user_pr
 	}
 	if tempFlightIdUserProfile != nil {
 		input.XFlightId = tempFlightIdUserProfile
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserProfile.PublicUpdateUserProfileStatusShort(input, authInfoWriter)

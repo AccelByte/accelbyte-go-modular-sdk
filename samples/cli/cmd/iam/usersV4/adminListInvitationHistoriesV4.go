@@ -8,39 +8,41 @@ package usersV4
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminListInvitationHistoriesV4Cmd represents the AdminListInvitationHistoriesV4 command
 var AdminListInvitationHistoriesV4Cmd = &cobra.Command{
-	Use:   "adminListInvitationHistoriesV4",
-	Short: "Admin list invitation histories V4",
-	Long:  `Admin list invitation histories V4`,
+	Use:	"adminListInvitationHistoriesV4",
+	Short:  "Admin list invitation histories V4",
+	Long:   `Admin list invitation histories V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		limit, _ := cmd.Flags().GetInt64("limit")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		input := &users_v4.AdminListInvitationHistoriesV4Params{
-			Limit:     &limit,
+			Limit    : &limit,
 			Namespace: &namespace,
-			Offset:    &offset,
+			Offset   : &offset,
 		}
-		ok, errOK := usersV4Service.AdminListInvitationHistoriesV4Short(input)
+ok,errOK := usersV4Service.AdminListInvitationHistoriesV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

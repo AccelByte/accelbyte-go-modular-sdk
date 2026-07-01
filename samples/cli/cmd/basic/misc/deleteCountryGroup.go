@@ -8,37 +8,39 @@ package misc
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // DeleteCountryGroupCmd represents the DeleteCountryGroup command
 var DeleteCountryGroupCmd = &cobra.Command{
-	Use:   "deleteCountryGroup",
-	Short: "Delete country group",
-	Long:  `Delete country group`,
+	Use:	"deleteCountryGroup",
+	Short:  "Delete country group",
+	Long:   `Delete country group`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		miscService := &basic.MiscService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		countryGroupCode, _ := cmd.Flags().GetString("countryGroupCode")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &misc.DeleteCountryGroupParams{
 			CountryGroupCode: countryGroupCode,
-			Namespace:        namespace,
+			Namespace       : namespace,
 		}
-		errOK := miscService.DeleteCountryGroupShort(input)
+errOK := miscService.DeleteCountryGroupShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -95,10 +95,9 @@ func NewPublicGetInputValidationByFieldOK() *PublicGetInputValidationByFieldOK {
 	return &PublicGetInputValidationByFieldOK{}
 }
 
-/*
-PublicGetInputValidationByFieldOK handles this case with default header values.
+/*PublicGetInputValidationByFieldOK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicGetInputValidationByFieldOK struct {
 	Payload *iamclientmodels.ModelInputValidationConfigVersion
@@ -150,10 +149,9 @@ func NewPublicGetInputValidationByFieldNotFound() *PublicGetInputValidationByFie
 	return &PublicGetInputValidationByFieldNotFound{}
 }
 
-/*
-PublicGetInputValidationByFieldNotFound handles this case with default header values.
+/*PublicGetInputValidationByFieldNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type PublicGetInputValidationByFieldNotFound struct {
 }
@@ -178,10 +176,9 @@ func NewPublicGetInputValidationByFieldInternalServerError() *PublicGetInputVali
 	return &PublicGetInputValidationByFieldInternalServerError{}
 }
 
-/*
-PublicGetInputValidationByFieldInternalServerError handles this case with default header values.
+/*PublicGetInputValidationByFieldInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetInputValidationByFieldInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

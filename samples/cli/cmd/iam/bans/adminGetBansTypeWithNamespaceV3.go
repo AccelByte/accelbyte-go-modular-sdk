@@ -8,35 +8,37 @@ package bans
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/bans"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/bans"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetBansTypeWithNamespaceV3Cmd represents the AdminGetBansTypeWithNamespaceV3 command
 var AdminGetBansTypeWithNamespaceV3Cmd = &cobra.Command{
-	Use:   "adminGetBansTypeWithNamespaceV3",
-	Short: "Admin get bans type with namespace V3",
-	Long:  `Admin get bans type with namespace V3`,
+	Use:	"adminGetBansTypeWithNamespaceV3",
+	Short:  "Admin get bans type with namespace V3",
+	Long:   `Admin get bans type with namespace V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		bansService := &iam.BansService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &bans.AdminGetBansTypeWithNamespaceV3Params{
 			Namespace: namespace,
 		}
-		ok, errOK := bansService.AdminGetBansTypeWithNamespaceV3Short(input)
+ok,errOK := bansService.AdminGetBansTypeWithNamespaceV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

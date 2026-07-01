@@ -57,8 +57,7 @@ func NewGetBansTypeParamsWithHTTPClient(client *http.Client) *GetBansTypeParams 
 	}
 }
 
-/*
-GetBansTypeParams contains all the parameters to send to the API endpoint
+/*GetBansTypeParams contains all the parameters to send to the API endpoint
 for the get bans type operation typically these are written to a http.Request
 */
 type GetBansTypeParams struct {

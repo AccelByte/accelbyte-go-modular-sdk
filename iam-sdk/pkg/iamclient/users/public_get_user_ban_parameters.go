@@ -58,8 +58,7 @@ func NewPublicGetUserBanParamsWithHTTPClient(client *http.Client) *PublicGetUser
 	}
 }
 
-/*
-PublicGetUserBanParams contains all the parameters to send to the API endpoint
+/*PublicGetUserBanParams contains all the parameters to send to the API endpoint
 for the public get user ban operation typically these are written to a http.Request
 */
 type PublicGetUserBanParams struct {

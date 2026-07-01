@@ -9,23 +9,25 @@ package usersV4
 import (
 	"bytes"
 	"log/slog"
-	"os"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
+	"os"
 )
 
 // AdminDownloadMyBackupCodesV4Cmd represents the AdminDownloadMyBackupCodesV4 command
 var AdminDownloadMyBackupCodesV4Cmd = &cobra.Command{
-	Use:   "adminDownloadMyBackupCodesV4",
-	Short: "Admin download my backup codes V4",
-	Long:  `Admin download my backup codes V4`,
+	Use:	"adminDownloadMyBackupCodesV4",
+	Short:  "Admin download my backup codes V4",
+	Long:   `Admin download my backup codes V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		file, errFile := os.Create("file")
 		slog.Info("Output", "file", file)
@@ -33,15 +35,16 @@ var AdminDownloadMyBackupCodesV4Cmd = &cobra.Command{
 			return errFile
 		}
 		writer := bytes.NewBuffer(nil)
-		input := &users_v4.AdminDownloadMyBackupCodesV4Params{}
-		ok, errOK := usersV4Service.AdminDownloadMyBackupCodesV4Short(input, writer)
+		input := &users_v4.AdminDownloadMyBackupCodesV4Params{
+		}
+ok,errOK := usersV4Service.AdminDownloadMyBackupCodesV4Short(input, writer)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

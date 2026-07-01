@@ -59,8 +59,7 @@ func NewAdminGetBulkUserByEmailAddressV3ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-AdminGetBulkUserByEmailAddressV3Params contains all the parameters to send to the API endpoint
+/*AdminGetBulkUserByEmailAddressV3Params contains all the parameters to send to the API endpoint
 for the admin get bulk user by email address v3 operation typically these are written to a http.Request
 */
 type AdminGetBulkUserByEmailAddressV3Params struct {

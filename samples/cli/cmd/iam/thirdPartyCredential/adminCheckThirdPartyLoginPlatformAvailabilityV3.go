@@ -8,35 +8,37 @@ package thirdPartyCredential
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/third_party_credential"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminCheckThirdPartyLoginPlatformAvailabilityV3Cmd represents the AdminCheckThirdPartyLoginPlatformAvailabilityV3 command
 var AdminCheckThirdPartyLoginPlatformAvailabilityV3Cmd = &cobra.Command{
-	Use:   "adminCheckThirdPartyLoginPlatformAvailabilityV3",
-	Short: "Admin check third party login platform availability V3",
-	Long:  `Admin check third party login platform availability V3`,
+	Use:	"adminCheckThirdPartyLoginPlatformAvailabilityV3",
+	Short:  "Admin check third party login platform availability V3",
+	Long:   `Admin check third party login platform availability V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		thirdPartyCredentialService := &iam.ThirdPartyCredentialService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &third_party_credential.AdminCheckThirdPartyLoginPlatformAvailabilityV3Params{
 			PlatformID: platformId,
 		}
-		ok, errOK := thirdPartyCredentialService.AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(input)
+ok,errOK := thirdPartyCredentialService.AdminCheckThirdPartyLoginPlatformAvailabilityV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

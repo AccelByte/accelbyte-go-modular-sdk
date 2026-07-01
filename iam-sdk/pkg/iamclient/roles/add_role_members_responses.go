@@ -124,10 +124,9 @@ func NewAddRoleMembersNoContent() *AddRoleMembersNoContent {
 	return &AddRoleMembersNoContent{}
 }
 
-/*
-AddRoleMembersNoContent handles this case with default header values.
+/*AddRoleMembersNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AddRoleMembersNoContent struct {
 }
@@ -152,10 +151,9 @@ func NewAddRoleMembersBadRequest() *AddRoleMembersBadRequest {
 	return &AddRoleMembersBadRequest{}
 }
 
-/*
-AddRoleMembersBadRequest handles this case with default header values.
+/*AddRoleMembersBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type AddRoleMembersBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -207,10 +205,9 @@ func NewAddRoleMembersUnauthorized() *AddRoleMembersUnauthorized {
 	return &AddRoleMembersUnauthorized{}
 }
 
-/*
-AddRoleMembersUnauthorized handles this case with default header values.
+/*AddRoleMembersUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AddRoleMembersUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -262,10 +259,9 @@ func NewAddRoleMembersForbidden() *AddRoleMembersForbidden {
 	return &AddRoleMembersForbidden{}
 }
 
-/*
-AddRoleMembersForbidden handles this case with default header values.
+/*AddRoleMembersForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AddRoleMembersForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -317,10 +313,9 @@ func NewAddRoleMembersNotFound() *AddRoleMembersNotFound {
 	return &AddRoleMembersNotFound{}
 }
 
-/*
-AddRoleMembersNotFound handles this case with default header values.
+/*AddRoleMembersNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type AddRoleMembersNotFound struct {
 }

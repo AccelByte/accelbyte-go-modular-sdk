@@ -58,8 +58,7 @@ func NewAdminGetUserLoginHistoriesV3ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*
-AdminGetUserLoginHistoriesV3Params contains all the parameters to send to the API endpoint
+/*AdminGetUserLoginHistoriesV3Params contains all the parameters to send to the API endpoint
 for the admin get user login histories v3 operation typically these are written to a http.Request
 */
 type AdminGetUserLoginHistoriesV3Params struct {

@@ -130,10 +130,9 @@ func NewGeneratedUploadURLOK() *GeneratedUploadURLOK {
 	return &GeneratedUploadURLOK{}
 }
 
-/*
-GeneratedUploadURLOK handles this case with default header values.
+/*GeneratedUploadURLOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type GeneratedUploadURLOK struct {
 	Payload *basicclientmodels.FileUploadURLInfo
@@ -185,10 +184,9 @@ func NewGeneratedUploadURLBadRequest() *GeneratedUploadURLBadRequest {
 	return &GeneratedUploadURLBadRequest{}
 }
 
-/*
-GeneratedUploadURLBadRequest handles this case with default header values.
+/*GeneratedUploadURLBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>11131</td><td>Unable to {action}: File type is not supported</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>11131</td><td>Unable to {action}: File type is not supported</td></tr></table>
 */
 type GeneratedUploadURLBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -240,10 +238,9 @@ func NewGeneratedUploadURLUnauthorized() *GeneratedUploadURLUnauthorized {
 	return &GeneratedUploadURLUnauthorized{}
 }
 
-/*
-GeneratedUploadURLUnauthorized handles this case with default header values.
+/*GeneratedUploadURLUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GeneratedUploadURLUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -295,10 +292,9 @@ func NewGeneratedUploadURLForbidden() *GeneratedUploadURLForbidden {
 	return &GeneratedUploadURLForbidden{}
 }
 
-/*
-GeneratedUploadURLForbidden handles this case with default header values.
+/*GeneratedUploadURLForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GeneratedUploadURLForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -350,10 +346,9 @@ func NewGeneratedUploadURLInternalServerError() *GeneratedUploadURLInternalServe
 	return &GeneratedUploadURLInternalServerError{}
 }
 
-/*
-GeneratedUploadURLInternalServerError handles this case with default header values.
+/*GeneratedUploadURLInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GeneratedUploadURLInternalServerError struct {
 	Payload *basicclientmodels.ErrorEntity

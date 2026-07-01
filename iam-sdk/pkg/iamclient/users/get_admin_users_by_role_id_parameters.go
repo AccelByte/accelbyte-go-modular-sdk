@@ -58,8 +58,7 @@ func NewGetAdminUsersByRoleIDParamsWithHTTPClient(client *http.Client) *GetAdmin
 	}
 }
 
-/*
-GetAdminUsersByRoleIDParams contains all the parameters to send to the API endpoint
+/*GetAdminUsersByRoleIDParams contains all the parameters to send to the API endpoint
 for the get admin users by role id operation typically these are written to a http.Request
 */
 type GetAdminUsersByRoleIDParams struct {

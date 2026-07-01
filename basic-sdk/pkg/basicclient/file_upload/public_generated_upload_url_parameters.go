@@ -57,8 +57,7 @@ func NewPublicGeneratedUploadURLParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*
-PublicGeneratedUploadURLParams contains all the parameters to send to the API endpoint
+/*PublicGeneratedUploadURLParams contains all the parameters to send to the API endpoint
 for the public generated upload url operation typically these are written to a http.Request
 */
 type PublicGeneratedUploadURLParams struct {

@@ -8,39 +8,41 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicGetUserBanCmd represents the PublicGetUserBan command
 var PublicGetUserBanCmd = &cobra.Command{
-	Use:   "publicGetUserBan",
-	Short: "Public get user ban",
-	Long:  `Public get user ban`,
+	Use:	"publicGetUserBan",
+	Short:  "Public get user ban",
+	Long:   `Public get user ban`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		activeOnly, _ := cmd.Flags().GetBool("activeOnly")
 		input := &users.PublicGetUserBanParams{
-			Namespace:  namespace,
-			UserID:     userId,
+			Namespace : namespace,
+			UserID    : userId,
 			ActiveOnly: &activeOnly,
 		}
-		ok, errOK := usersService.PublicGetUserBanShort(input)
+ok,errOK := usersService.PublicGetUserBanShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -59,8 +59,7 @@ func NewPublicUpdateUserV4ParamsWithHTTPClient(client *http.Client) *PublicUpdat
 	}
 }
 
-/*
-PublicUpdateUserV4Params contains all the parameters to send to the API endpoint
+/*PublicUpdateUserV4Params contains all the parameters to send to the API endpoint
 for the public update user v4 operation typically these are written to a http.Request
 */
 type PublicUpdateUserV4Params struct {

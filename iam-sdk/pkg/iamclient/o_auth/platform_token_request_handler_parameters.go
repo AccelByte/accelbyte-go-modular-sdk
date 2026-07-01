@@ -57,8 +57,7 @@ func NewPlatformTokenRequestHandlerParamsWithHTTPClient(client *http.Client) *Pl
 	}
 }
 
-/*
-PlatformTokenRequestHandlerParams contains all the parameters to send to the API endpoint
+/*PlatformTokenRequestHandlerParams contains all the parameters to send to the API endpoint
 for the platform token request handler operation typically these are written to a http.Request
 */
 type PlatformTokenRequestHandlerParams struct {

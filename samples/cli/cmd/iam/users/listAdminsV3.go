@@ -8,22 +8,24 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // ListAdminsV3Cmd represents the ListAdminsV3 command
 var ListAdminsV3Cmd = &cobra.Command{
-	Use:   "listAdminsV3",
-	Short: "List admins V3",
-	Long:  `List admins V3`,
+	Use:	"listAdminsV3",
+	Short:  "List admins V3",
+	Long:   `List admins V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		after, _ := cmd.Flags().GetString("after")
@@ -35,22 +37,22 @@ var ListAdminsV3Cmd = &cobra.Command{
 		startDate, _ := cmd.Flags().GetString("startDate")
 		input := &users.ListAdminsV3Params{
 			Namespace: namespace,
-			After:     &after,
-			Before:    &before,
-			EndDate:   &endDate,
-			Limit:     &limit,
-			Query:     &query,
-			RoleID:    &roleId,
+			After    : &after,
+			Before   : &before,
+			EndDate  : &endDate,
+			Limit    : &limit,
+			Query    : &query,
+			RoleID   : &roleId,
 			StartDate: &startDate,
 		}
-		ok, errOK := usersService.ListAdminsV3Short(input)
+ok,errOK := usersService.ListAdminsV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

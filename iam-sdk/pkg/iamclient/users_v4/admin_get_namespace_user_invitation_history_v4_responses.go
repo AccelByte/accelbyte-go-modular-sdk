@@ -145,10 +145,9 @@ func NewAdminGetNamespaceUserInvitationHistoryV4OK() *AdminGetNamespaceUserInvit
 	return &AdminGetNamespaceUserInvitationHistoryV4OK{}
 }
 
-/*
-AdminGetNamespaceUserInvitationHistoryV4OK handles this case with default header values.
+/*AdminGetNamespaceUserInvitationHistoryV4OK handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AdminGetNamespaceUserInvitationHistoryV4OK struct {
 	Payload *iamclientmodels.ModelNamespaceInvitationHistoryUserV4Response
@@ -200,10 +199,9 @@ func NewAdminGetNamespaceUserInvitationHistoryV4BadRequest() *AdminGetNamespaceU
 	return &AdminGetNamespaceUserInvitationHistoryV4BadRequest{}
 }
 
-/*
-AdminGetNamespaceUserInvitationHistoryV4BadRequest handles this case with default header values.
+/*AdminGetNamespaceUserInvitationHistoryV4BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetNamespaceUserInvitationHistoryV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,10 +253,9 @@ func NewAdminGetNamespaceUserInvitationHistoryV4Unauthorized() *AdminGetNamespac
 	return &AdminGetNamespaceUserInvitationHistoryV4Unauthorized{}
 }
 
-/*
-AdminGetNamespaceUserInvitationHistoryV4Unauthorized handles this case with default header values.
+/*AdminGetNamespaceUserInvitationHistoryV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetNamespaceUserInvitationHistoryV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -310,10 +307,9 @@ func NewAdminGetNamespaceUserInvitationHistoryV4Forbidden() *AdminGetNamespaceUs
 	return &AdminGetNamespaceUserInvitationHistoryV4Forbidden{}
 }
 
-/*
-AdminGetNamespaceUserInvitationHistoryV4Forbidden handles this case with default header values.
+/*AdminGetNamespaceUserInvitationHistoryV4Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetNamespaceUserInvitationHistoryV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -365,10 +361,9 @@ func NewAdminGetNamespaceUserInvitationHistoryV4InternalServerError() *AdminGetN
 	return &AdminGetNamespaceUserInvitationHistoryV4InternalServerError{}
 }
 
-/*
-AdminGetNamespaceUserInvitationHistoryV4InternalServerError handles this case with default header values.
+/*AdminGetNamespaceUserInvitationHistoryV4InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetNamespaceUserInvitationHistoryV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -420,10 +415,9 @@ func NewAdminGetNamespaceUserInvitationHistoryV4NotImplemented() *AdminGetNamesp
 	return &AdminGetNamespaceUserInvitationHistoryV4NotImplemented{}
 }
 
-/*
-AdminGetNamespaceUserInvitationHistoryV4NotImplemented handles this case with default header values.
+/*AdminGetNamespaceUserInvitationHistoryV4NotImplemented handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
 */
 type AdminGetNamespaceUserInvitationHistoryV4NotImplemented struct {
 	Payload *iamclientmodels.RestErrorResponse

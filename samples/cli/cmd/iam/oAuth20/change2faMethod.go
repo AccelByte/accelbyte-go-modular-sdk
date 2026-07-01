@@ -8,37 +8,39 @@ package oAuth20
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // Change2faMethodCmd represents the Change2faMethod command
 var Change2faMethodCmd = &cobra.Command{
-	Use:   "change2faMethod",
-	Short: "Change2fa method",
-	Long:  `Change2fa method`,
+	Use:	"change2faMethod",
+	Short:  "Change2fa method",
+	Long:   `Change2fa method`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		factor, _ := cmd.Flags().GetString("factor")
 		mfaToken, _ := cmd.Flags().GetString("mfaToken")
 		input := &o_auth2_0.Change2FAMethodParams{
-			Factor:   factor,
+			Factor  : factor,
 			MFAToken: mfaToken,
 		}
-		errNoContent := oAuth20Service.Change2FAMethodShort(input)
+errNoContent := oAuth20Service.Change2FAMethodShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

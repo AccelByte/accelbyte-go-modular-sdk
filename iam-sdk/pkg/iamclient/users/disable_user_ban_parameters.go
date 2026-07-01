@@ -57,8 +57,7 @@ func NewDisableUserBanParamsWithHTTPClient(client *http.Client) *DisableUserBanP
 	}
 }
 
-/*
-DisableUserBanParams contains all the parameters to send to the API endpoint
+/*DisableUserBanParams contains all the parameters to send to the API endpoint
 for the disable user ban operation typically these are written to a http.Request
 */
 type DisableUserBanParams struct {

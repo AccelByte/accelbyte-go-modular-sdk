@@ -68,10 +68,9 @@ func NewAuthCodeRequestV3Found() *AuthCodeRequestV3Found {
 	return &AuthCodeRequestV3Found{}
 }
 
-/*
-AuthCodeRequestV3Found handles this case with default header values.
+/*AuthCodeRequestV3Found handles this case with default header values.
 
-	Found. Redirect to client’s redirect URI with either code or error on the query parameter
+  Found. Redirect to client’s redirect URI with either code or error on the query parameter
 */
 type AuthCodeRequestV3Found struct {
 	Location string

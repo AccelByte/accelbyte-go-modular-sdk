@@ -8,22 +8,24 @@ package bans
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/bans"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/bans"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetBannedUsersV3Cmd represents the AdminGetBannedUsersV3 command
 var AdminGetBannedUsersV3Cmd = &cobra.Command{
-	Use:   "adminGetBannedUsersV3",
-	Short: "Admin get banned users V3",
-	Long:  `Admin get banned users V3`,
+	Use:	"adminGetBannedUsersV3",
+	Short:  "Admin get banned users V3",
+	Long:   `Admin get banned users V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		bansService := &iam.BansService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		activeOnly, _ := cmd.Flags().GetBool("activeOnly")
@@ -31,20 +33,20 @@ var AdminGetBannedUsersV3Cmd = &cobra.Command{
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		input := &bans.AdminGetBannedUsersV3Params{
-			Namespace:  namespace,
+			Namespace : namespace,
 			ActiveOnly: &activeOnly,
-			BanType:    &banType,
-			Limit:      &limit,
-			Offset:     &offset,
+			BanType   : &banType,
+			Limit     : &limit,
+			Offset    : &offset,
 		}
-		ok, errOK := bansService.AdminGetBannedUsersV3Short(input)
+ok,errOK := bansService.AdminGetBannedUsersV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -13,7 +13,28 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewBasicClient(configRepository repository.ConfigRepository) *basicclient.JusticeBasicService {
+type BasicClient struct {
+	Namespace     *NamespaceService
+	Config        *ConfigService
+	FileUpload    *FileUploadService
+	Misc          *MiscService
+	UserProfile   *UserProfileService
+	Anonymization *AnonymizationService
+}
+
+func NewBasicClient(session repository.Session) *BasicClient {
+	httpClient := NewBasicHttpClient(session.ConfigRepository)
+	return &BasicClient{
+		Namespace:     &NamespaceService{Client: httpClient, Session: session},
+		Config:        &ConfigService{Client: httpClient, Session: session},
+		FileUpload:    &FileUploadService{Client: httpClient, Session: session},
+		Misc:          &MiscService{Client: httpClient, Session: session},
+		UserProfile:   &UserProfileService{Client: httpClient, Session: session},
+		Anonymization: &AnonymizationService{Client: httpClient, Session: session},
+	}
+}
+
+func NewBasicHttpClient(configRepository repository.ConfigRepository) *basicclient.JusticeBasicService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

@@ -8,41 +8,43 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicWebLinkPlatformCmd represents the PublicWebLinkPlatform command
 var PublicWebLinkPlatformCmd = &cobra.Command{
-	Use:   "publicWebLinkPlatform",
-	Short: "Public web link platform",
-	Long:  `Public web link platform`,
+	Use:	"publicWebLinkPlatform",
+	Short:  "Public web link platform",
+	Long:   `Public web link platform`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		clientId, _ := cmd.Flags().GetString("clientId")
 		redirectUri, _ := cmd.Flags().GetString("redirectUri")
 		input := &users.PublicWebLinkPlatformParams{
-			Namespace:   namespace,
-			PlatformID:  platformId,
-			ClientID:    &clientId,
+			Namespace  : namespace,
+			PlatformID : platformId,
+			ClientID   : &clientId,
 			RedirectURI: &redirectUri,
 		}
-		ok, errOK := usersService.PublicWebLinkPlatformShort(input)
+ok,errOK := usersService.PublicWebLinkPlatformShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -95,10 +95,9 @@ func NewPublicGetNamespaceScopedInputValidationByFieldOK() *PublicGetNamespaceSc
 	return &PublicGetNamespaceScopedInputValidationByFieldOK{}
 }
 
-/*
-PublicGetNamespaceScopedInputValidationByFieldOK handles this case with default header values.
+/*PublicGetNamespaceScopedInputValidationByFieldOK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicGetNamespaceScopedInputValidationByFieldOK struct {
 	Payload *iamclientmodels.ModelInputValidationConfigVersion
@@ -150,10 +149,9 @@ func NewPublicGetNamespaceScopedInputValidationByFieldNotFound() *PublicGetNames
 	return &PublicGetNamespaceScopedInputValidationByFieldNotFound{}
 }
 
-/*
-PublicGetNamespaceScopedInputValidationByFieldNotFound handles this case with default header values.
+/*PublicGetNamespaceScopedInputValidationByFieldNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type PublicGetNamespaceScopedInputValidationByFieldNotFound struct {
 }
@@ -178,10 +176,9 @@ func NewPublicGetNamespaceScopedInputValidationByFieldInternalServerError() *Pub
 	return &PublicGetNamespaceScopedInputValidationByFieldInternalServerError{}
 }
 
-/*
-PublicGetNamespaceScopedInputValidationByFieldInternalServerError handles this case with default header values.
+/*PublicGetNamespaceScopedInputValidationByFieldInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetNamespaceScopedInputValidationByFieldInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

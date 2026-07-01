@@ -59,8 +59,7 @@ func NewAdminCursorGetUserV3ParamsWithHTTPClient(client *http.Client) *AdminCurs
 	}
 }
 
-/*
-AdminCursorGetUserV3Params contains all the parameters to send to the API endpoint
+/*AdminCursorGetUserV3Params contains all the parameters to send to the API endpoint
 for the admin cursor get user v3 operation typically these are written to a http.Request
 */
 type AdminCursorGetUserV3Params struct {

@@ -85,10 +85,9 @@ func NewVerify2FACodeOK() *Verify2FACodeOK {
 	return &Verify2FACodeOK{}
 }
 
-/*
-Verify2FACodeOK handles this case with default header values.
+/*Verify2FACodeOK handles this case with default header values.
 
-	Token returned
+  Token returned
 */
 type Verify2FACodeOK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3
@@ -140,10 +139,9 @@ func NewVerify2FACodeUnauthorized() *Verify2FACodeUnauthorized {
 	return &Verify2FACodeUnauthorized{}
 }
 
-/*
-Verify2FACodeUnauthorized handles this case with default header values.
+/*Verify2FACodeUnauthorized handles this case with default header values.
 
-	Unauthorized
+  Unauthorized
 */
 type Verify2FACodeUnauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

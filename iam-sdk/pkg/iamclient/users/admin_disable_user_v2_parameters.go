@@ -59,8 +59,7 @@ func NewAdminDisableUserV2ParamsWithHTTPClient(client *http.Client) *AdminDisabl
 	}
 }
 
-/*
-AdminDisableUserV2Params contains all the parameters to send to the API endpoint
+/*AdminDisableUserV2Params contains all the parameters to send to the API endpoint
 for the admin disable user v2 operation typically these are written to a http.Request
 */
 type AdminDisableUserV2Params struct {

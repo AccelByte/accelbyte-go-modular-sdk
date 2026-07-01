@@ -8,37 +8,39 @@ package profileUpdateStrategy
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/profile_update_strategy"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/profile_update_strategy"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicGetProfileUpdateStrategyV3Cmd represents the PublicGetProfileUpdateStrategyV3 command
 var PublicGetProfileUpdateStrategyV3Cmd = &cobra.Command{
-	Use:   "publicGetProfileUpdateStrategyV3",
-	Short: "Public get profile update strategy V3",
-	Long:  `Public get profile update strategy V3`,
+	Use:	"publicGetProfileUpdateStrategyV3",
+	Short:  "Public get profile update strategy V3",
+	Long:   `Public get profile update strategy V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profileUpdateStrategyService := &iam.ProfileUpdateStrategyService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		field, _ := cmd.Flags().GetString("field")
 		input := &profile_update_strategy.PublicGetProfileUpdateStrategyV3Params{
 			Namespace: namespace,
-			Field:     &field,
+			Field    : &field,
 		}
-		ok, errOK := profileUpdateStrategyService.PublicGetProfileUpdateStrategyV3Short(input)
+ok,errOK := profileUpdateStrategyService.PublicGetProfileUpdateStrategyV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

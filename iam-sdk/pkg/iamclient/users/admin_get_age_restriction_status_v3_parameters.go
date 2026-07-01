@@ -57,8 +57,7 @@ func NewAdminGetAgeRestrictionStatusV3ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-AdminGetAgeRestrictionStatusV3Params contains all the parameters to send to the API endpoint
+/*AdminGetAgeRestrictionStatusV3Params contains all the parameters to send to the API endpoint
 for the admin get age restriction status v3 operation typically these are written to a http.Request
 */
 type AdminGetAgeRestrictionStatusV3Params struct {

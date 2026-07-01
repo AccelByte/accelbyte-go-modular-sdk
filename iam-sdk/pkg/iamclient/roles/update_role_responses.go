@@ -125,10 +125,9 @@ func NewUpdateRoleOK() *UpdateRoleOK {
 	return &UpdateRoleOK{}
 }
 
-/*
-UpdateRoleOK handles this case with default header values.
+/*UpdateRoleOK handles this case with default header values.
 
-	OK
+  OK
 */
 type UpdateRoleOK struct {
 	Payload *iamclientmodels.ModelRoleResponse
@@ -180,10 +179,9 @@ func NewUpdateRoleBadRequest() *UpdateRoleBadRequest {
 	return &UpdateRoleBadRequest{}
 }
 
-/*
-UpdateRoleBadRequest handles this case with default header values.
+/*UpdateRoleBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type UpdateRoleBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewUpdateRoleUnauthorized() *UpdateRoleUnauthorized {
 	return &UpdateRoleUnauthorized{}
 }
 
-/*
-UpdateRoleUnauthorized handles this case with default header values.
+/*UpdateRoleUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateRoleUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewUpdateRoleForbidden() *UpdateRoleForbidden {
 	return &UpdateRoleForbidden{}
 }
 
-/*
-UpdateRoleForbidden handles this case with default header values.
+/*UpdateRoleForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateRoleForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewUpdateRoleNotFound() *UpdateRoleNotFound {
 	return &UpdateRoleNotFound{}
 }
 
-/*
-UpdateRoleNotFound handles this case with default header values.
+/*UpdateRoleNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type UpdateRoleNotFound struct {
 }

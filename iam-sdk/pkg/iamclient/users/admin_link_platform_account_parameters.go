@@ -72,8 +72,7 @@ func NewAdminLinkPlatformAccountParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*
-AdminLinkPlatformAccountParams contains all the parameters to send to the API endpoint
+/*AdminLinkPlatformAccountParams contains all the parameters to send to the API endpoint
 for the admin link platform account operation typically these are written to a http.Request
 */
 type AdminLinkPlatformAccountParams struct {

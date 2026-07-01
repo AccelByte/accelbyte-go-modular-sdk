@@ -8,37 +8,39 @@ package overrideRoleConfigV3
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/override_role_config_v3"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/override_role_config_v3"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetRoleNamespacePermissionV3Cmd represents the AdminGetRoleNamespacePermissionV3 command
 var AdminGetRoleNamespacePermissionV3Cmd = &cobra.Command{
-	Use:   "adminGetRoleNamespacePermissionV3",
-	Short: "Admin get role namespace permission V3",
-	Long:  `Admin get role namespace permission V3`,
+	Use:	"adminGetRoleNamespacePermissionV3",
+	Short:  "Admin get role namespace permission V3",
+	Long:   `Admin get role namespace permission V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		overrideRoleConfigV3Service := &iam.OverrideRoleConfigv3Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		roleId, _ := cmd.Flags().GetString("roleId")
 		input := &override_role_config_v3.AdminGetRoleNamespacePermissionV3Params{
 			Namespace: namespace,
-			RoleID:    roleId,
+			RoleID   : roleId,
 		}
-		ok, errOK := overrideRoleConfigV3Service.AdminGetRoleNamespacePermissionV3Short(input)
+ok,errOK := overrideRoleConfigV3Service.AdminGetRoleNamespacePermissionV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

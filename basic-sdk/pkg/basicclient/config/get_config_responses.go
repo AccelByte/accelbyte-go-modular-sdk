@@ -130,10 +130,9 @@ func NewGetConfigOK() *GetConfigOK {
 	return &GetConfigOK{}
 }
 
-/*
-GetConfigOK handles this case with default header values.
+/*GetConfigOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type GetConfigOK struct {
 	Payload *basicclientmodels.ConfigInfo
@@ -185,10 +184,9 @@ func NewGetConfigBadRequest() *GetConfigBadRequest {
 	return &GetConfigBadRequest{}
 }
 
-/*
-GetConfigBadRequest handles this case with default header values.
+/*GetConfigBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetConfigBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -240,10 +238,9 @@ func NewGetConfigUnauthorized() *GetConfigUnauthorized {
 	return &GetConfigUnauthorized{}
 }
 
-/*
-GetConfigUnauthorized handles this case with default header values.
+/*GetConfigUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetConfigUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -295,10 +292,9 @@ func NewGetConfigForbidden() *GetConfigForbidden {
 	return &GetConfigForbidden{}
 }
 
-/*
-GetConfigForbidden handles this case with default header values.
+/*GetConfigForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetConfigForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -350,10 +346,9 @@ func NewGetConfigNotFound() *GetConfigNotFound {
 	return &GetConfigNotFound{}
 }
 
-/*
-GetConfigNotFound handles this case with default header values.
+/*GetConfigNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11741</td><td>Unable to {action}: Config not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11741</td><td>Unable to {action}: Config not found</td></tr></table>
 */
 type GetConfigNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

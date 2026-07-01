@@ -8,37 +8,39 @@ package namespace
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/namespace"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetNamespacesCmd represents the GetNamespaces command
 var GetNamespacesCmd = &cobra.Command{
-	Use:   "getNamespaces",
-	Short: "Get namespaces",
-	Long:  `Get namespaces`,
+	Use:	"getNamespaces",
+	Short:  "Get namespaces",
+	Long:   `Get namespaces`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		namespaceService := &basic.NamespaceService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		activeOnly, _ := cmd.Flags().GetBool("activeOnly")
 		isTesting, _ := cmd.Flags().GetBool("isTesting")
 		input := &namespace.GetNamespacesParams{
 			ActiveOnly: &activeOnly,
-			IsTesting:  &isTesting,
+			IsTesting : &isTesting,
 		}
-		ok, errOK := namespaceService.GetNamespacesShort(input)
+ok,errOK := namespaceService.GetNamespacesShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -57,8 +57,7 @@ func NewAdminDeleteUserLinkingHistoryByPlatformIDV3ParamsWithHTTPClient(client *
 	}
 }
 
-/*
-AdminDeleteUserLinkingHistoryByPlatformIDV3Params contains all the parameters to send to the API endpoint
+/*AdminDeleteUserLinkingHistoryByPlatformIDV3Params contains all the parameters to send to the API endpoint
 for the admin delete user linking history by platform idv3 operation typically these are written to a http.Request
 */
 type AdminDeleteUserLinkingHistoryByPlatformIDV3Params struct {

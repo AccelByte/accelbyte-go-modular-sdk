@@ -8,41 +8,43 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminDeleteUserPermissionV3Cmd represents the AdminDeleteUserPermissionV3 command
 var AdminDeleteUserPermissionV3Cmd = &cobra.Command{
-	Use:   "adminDeleteUserPermissionV3",
-	Short: "Admin delete user permission V3",
-	Long:  `Admin delete user permission V3`,
+	Use:	"adminDeleteUserPermissionV3",
+	Short:  "Admin delete user permission V3",
+	Long:   `Admin delete user permission V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		action, _ := cmd.Flags().GetInt64("action")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		resource, _ := cmd.Flags().GetString("resource")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AdminDeleteUserPermissionV3Params{
-			Action:    action,
+			Action   : action,
 			Namespace: namespace,
-			Resource:  resource,
-			UserID:    userId,
+			Resource : resource,
+			UserID   : userId,
 		}
-		errNoContent := usersService.AdminDeleteUserPermissionV3Short(input)
+errNoContent := usersService.AdminDeleteUserPermissionV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

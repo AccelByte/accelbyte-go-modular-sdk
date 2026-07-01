@@ -100,10 +100,9 @@ func NewTokenGrantOK() *TokenGrantOK {
 	return &TokenGrantOK{}
 }
 
-/*
-TokenGrantOK handles this case with default header values.
+/*TokenGrantOK handles this case with default header values.
 
-	Token returned
+  Token returned
 */
 type TokenGrantOK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponse
@@ -155,10 +154,9 @@ func NewTokenGrantBadRequest() *TokenGrantBadRequest {
 	return &TokenGrantBadRequest{}
 }
 
-/*
-TokenGrantBadRequest handles this case with default header values.
+/*TokenGrantBadRequest handles this case with default header values.
 
-	General request error
+  General request error
 */
 type TokenGrantBadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -210,10 +208,9 @@ func NewTokenGrantUnauthorized() *TokenGrantUnauthorized {
 	return &TokenGrantUnauthorized{}
 }
 
-/*
-TokenGrantUnauthorized handles this case with default header values.
+/*TokenGrantUnauthorized handles this case with default header values.
 
-	Client authentication failed
+  Client authentication failed
 */
 type TokenGrantUnauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

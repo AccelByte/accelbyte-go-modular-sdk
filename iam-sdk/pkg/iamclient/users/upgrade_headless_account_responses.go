@@ -110,10 +110,9 @@ func NewUpgradeHeadlessAccountOK() *UpgradeHeadlessAccountOK {
 	return &UpgradeHeadlessAccountOK{}
 }
 
-/*
-UpgradeHeadlessAccountOK handles this case with default header values.
+/*UpgradeHeadlessAccountOK handles this case with default header values.
 
-	OK
+  OK
 */
 type UpgradeHeadlessAccountOK struct {
 	Payload *iamclientmodels.ModelUserResponse
@@ -165,10 +164,9 @@ func NewUpgradeHeadlessAccountUnauthorized() *UpgradeHeadlessAccountUnauthorized
 	return &UpgradeHeadlessAccountUnauthorized{}
 }
 
-/*
-UpgradeHeadlessAccountUnauthorized handles this case with default header values.
+/*UpgradeHeadlessAccountUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpgradeHeadlessAccountUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -220,10 +218,9 @@ func NewUpgradeHeadlessAccountForbidden() *UpgradeHeadlessAccountForbidden {
 	return &UpgradeHeadlessAccountForbidden{}
 }
 
-/*
-UpgradeHeadlessAccountForbidden handles this case with default header values.
+/*UpgradeHeadlessAccountForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpgradeHeadlessAccountForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -275,10 +272,9 @@ func NewUpgradeHeadlessAccountConflict() *UpgradeHeadlessAccountConflict {
 	return &UpgradeHeadlessAccountConflict{}
 }
 
-/*
-UpgradeHeadlessAccountConflict handles this case with default header values.
+/*UpgradeHeadlessAccountConflict handles this case with default header values.
 
-	Conflict
+  Conflict
 */
 type UpgradeHeadlessAccountConflict struct {
 }

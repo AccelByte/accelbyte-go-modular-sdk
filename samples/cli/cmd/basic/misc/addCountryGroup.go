@@ -9,43 +9,45 @@ package misc
 import (
 	"encoding/json"
 	"log/slog"
-
-	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
+"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/misc"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
+	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AddCountryGroupCmd represents the AddCountryGroup command
 var AddCountryGroupCmd = &cobra.Command{
-	Use:   "addCountryGroup",
-	Short: "Add country group",
-	Long:  `Add country group`,
+	Use:	"addCountryGroup",
+	Short:  "Add country group",
+	Long:   `Add country group`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		miscService := &basic.MiscService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *basicclientmodels.AddCountryGroupRequest
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &misc.AddCountryGroupParams{
-			Body:      body,
+			Body     : body,
 			Namespace: namespace,
 		}
-		created, errCreated := miscService.AddCountryGroupShort(input)
+created,errCreated := miscService.AddCountryGroupShort(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		slog.Info("Response CLI success", "response", created)
+        slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

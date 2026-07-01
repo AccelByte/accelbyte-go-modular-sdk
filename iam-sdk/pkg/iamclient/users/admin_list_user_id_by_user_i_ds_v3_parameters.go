@@ -59,8 +59,7 @@ func NewAdminListUserIDByUserIDsV3ParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*
-AdminListUserIDByUserIDsV3Params contains all the parameters to send to the API endpoint
+/*AdminListUserIDByUserIDsV3Params contains all the parameters to send to the API endpoint
 for the admin list user id by user i ds v3 operation typically these are written to a http.Request
 */
 type AdminListUserIDByUserIDsV3Params struct {

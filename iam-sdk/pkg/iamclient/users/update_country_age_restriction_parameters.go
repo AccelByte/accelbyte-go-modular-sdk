@@ -59,8 +59,7 @@ func NewUpdateCountryAgeRestrictionParamsWithHTTPClient(client *http.Client) *Up
 	}
 }
 
-/*
-UpdateCountryAgeRestrictionParams contains all the parameters to send to the API endpoint
+/*UpdateCountryAgeRestrictionParams contains all the parameters to send to the API endpoint
 for the update country age restriction operation typically these are written to a http.Request
 */
 type UpdateCountryAgeRestrictionParams struct {

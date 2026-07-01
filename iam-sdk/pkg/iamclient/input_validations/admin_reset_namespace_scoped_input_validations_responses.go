@@ -114,10 +114,9 @@ func NewAdminResetNamespaceScopedInputValidationsNoContent() *AdminResetNamespac
 	return &AdminResetNamespaceScopedInputValidationsNoContent{}
 }
 
-/*
-AdminResetNamespaceScopedInputValidationsNoContent handles this case with default header values.
+/*AdminResetNamespaceScopedInputValidationsNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type AdminResetNamespaceScopedInputValidationsNoContent struct {
 }
@@ -142,10 +141,9 @@ func NewAdminResetNamespaceScopedInputValidationsUnauthorized() *AdminResetNames
 	return &AdminResetNamespaceScopedInputValidationsUnauthorized{}
 }
 
-/*
-AdminResetNamespaceScopedInputValidationsUnauthorized handles this case with default header values.
+/*AdminResetNamespaceScopedInputValidationsUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminResetNamespaceScopedInputValidationsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -197,10 +195,9 @@ func NewAdminResetNamespaceScopedInputValidationsForbidden() *AdminResetNamespac
 	return &AdminResetNamespaceScopedInputValidationsForbidden{}
 }
 
-/*
-AdminResetNamespaceScopedInputValidationsForbidden handles this case with default header values.
+/*AdminResetNamespaceScopedInputValidationsForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminResetNamespaceScopedInputValidationsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -252,10 +249,9 @@ func NewAdminResetNamespaceScopedInputValidationsNotFound() *AdminResetNamespace
 	return &AdminResetNamespaceScopedInputValidationsNotFound{}
 }
 
-/*
-AdminResetNamespaceScopedInputValidationsNotFound handles this case with default header values.
+/*AdminResetNamespaceScopedInputValidationsNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10188</td><td>input validation field not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10188</td><td>input validation field not found</td></tr></table>
 */
 type AdminResetNamespaceScopedInputValidationsNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

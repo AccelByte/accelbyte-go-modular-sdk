@@ -69,10 +69,9 @@ func NewGetAuthorizationServerMetadataWithNamespaceOK() *GetAuthorizationServerM
 	return &GetAuthorizationServerMetadataWithNamespaceOK{}
 }
 
-/*
-GetAuthorizationServerMetadataWithNamespaceOK handles this case with default header values.
+/*GetAuthorizationServerMetadataWithNamespaceOK handles this case with default header values.
 
-	OAuth Authorization Metadata returned
+  OAuth Authorization Metadata returned
 */
 type GetAuthorizationServerMetadataWithNamespaceOK struct {
 	Payload *iamclientmodels.OauthcommonASMetadataResponse

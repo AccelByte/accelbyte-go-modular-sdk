@@ -59,8 +59,7 @@ func NewAdminBulkUpdateUserAccountTypeV4ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*
-AdminBulkUpdateUserAccountTypeV4Params contains all the parameters to send to the API endpoint
+/*AdminBulkUpdateUserAccountTypeV4Params contains all the parameters to send to the API endpoint
 for the admin bulk update user account type v4 operation typically these are written to a http.Request
 */
 type AdminBulkUpdateUserAccountTypeV4Params struct {

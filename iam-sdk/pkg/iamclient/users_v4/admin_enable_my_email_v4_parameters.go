@@ -57,8 +57,7 @@ func NewAdminEnableMyEmailV4ParamsWithHTTPClient(client *http.Client) *AdminEnab
 	}
 }
 
-/*
-AdminEnableMyEmailV4Params contains all the parameters to send to the API endpoint
+/*AdminEnableMyEmailV4Params contains all the parameters to send to the API endpoint
 for the admin enable my email v4 operation typically these are written to a http.Request
 */
 type AdminEnableMyEmailV4Params struct {

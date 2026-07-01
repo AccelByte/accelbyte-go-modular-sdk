@@ -57,8 +57,7 @@ func NewPublicCreateJusticeUserParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*
-PublicCreateJusticeUserParams contains all the parameters to send to the API endpoint
+/*PublicCreateJusticeUserParams contains all the parameters to send to the API endpoint
 for the public create justice user operation typically these are written to a http.Request
 */
 type PublicCreateJusticeUserParams struct {

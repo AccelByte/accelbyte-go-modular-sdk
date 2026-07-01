@@ -8,32 +8,35 @@ package oAuth20Extension
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetCountryLocationV3Cmd represents the GetCountryLocationV3 command
 var GetCountryLocationV3Cmd = &cobra.Command{
-	Use:   "getCountryLocationV3",
-	Short: "Get country location V3",
-	Long:  `Get country location V3`,
+	Use:	"getCountryLocationV3",
+	Short:  "Get country location V3",
+	Long:   `Get country location V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
-		input := &o_auth2_0_extension.GetCountryLocationV3Params{}
-		ok, errOK := oAuth20ExtensionService.GetCountryLocationV3Short(input)
+		input := &o_auth2_0_extension.GetCountryLocationV3Params{
+		}
+ok,errOK := oAuth20ExtensionService.GetCountryLocationV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

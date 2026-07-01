@@ -8,37 +8,39 @@ package ssoCredential
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // RetrieveSSOLoginPlatformCredentialCmd represents the RetrieveSSOLoginPlatformCredential command
 var RetrieveSSOLoginPlatformCredentialCmd = &cobra.Command{
-	Use:   "retrieveSSOLoginPlatformCredential",
-	Short: "Retrieve SSO login platform credential",
-	Long:  `Retrieve SSO login platform credential`,
+	Use:	"retrieveSSOLoginPlatformCredential",
+	Short:  "Retrieve SSO login platform credential",
+	Long:   `Retrieve SSO login platform credential`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ssoCredentialService := &iam.SSOCredentialService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &sso_credential.RetrieveSSOLoginPlatformCredentialParams{
-			Namespace:  namespace,
+			Namespace : namespace,
 			PlatformID: platformId,
 		}
-		ok, errOK := ssoCredentialService.RetrieveSSOLoginPlatformCredentialShort(input)
+ok,errOK := ssoCredentialService.RetrieveSSOLoginPlatformCredentialShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

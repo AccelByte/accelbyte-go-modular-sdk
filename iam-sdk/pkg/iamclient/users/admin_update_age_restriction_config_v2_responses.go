@@ -125,10 +125,9 @@ func NewAdminUpdateAgeRestrictionConfigV2OK() *AdminUpdateAgeRestrictionConfigV2
 	return &AdminUpdateAgeRestrictionConfigV2OK{}
 }
 
-/*
-AdminUpdateAgeRestrictionConfigV2OK handles this case with default header values.
+/*AdminUpdateAgeRestrictionConfigV2OK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminUpdateAgeRestrictionConfigV2OK struct {
 	Payload *iamclientmodels.ModelAgeRestrictionResponse
@@ -180,10 +179,9 @@ func NewAdminUpdateAgeRestrictionConfigV2BadRequest() *AdminUpdateAgeRestriction
 	return &AdminUpdateAgeRestrictionConfigV2BadRequest{}
 }
 
-/*
-AdminUpdateAgeRestrictionConfigV2BadRequest handles this case with default header values.
+/*AdminUpdateAgeRestrictionConfigV2BadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type AdminUpdateAgeRestrictionConfigV2BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewAdminUpdateAgeRestrictionConfigV2Unauthorized() *AdminUpdateAgeRestricti
 	return &AdminUpdateAgeRestrictionConfigV2Unauthorized{}
 }
 
-/*
-AdminUpdateAgeRestrictionConfigV2Unauthorized handles this case with default header values.
+/*AdminUpdateAgeRestrictionConfigV2Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateAgeRestrictionConfigV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewAdminUpdateAgeRestrictionConfigV2Forbidden() *AdminUpdateAgeRestrictionC
 	return &AdminUpdateAgeRestrictionConfigV2Forbidden{}
 }
 
-/*
-AdminUpdateAgeRestrictionConfigV2Forbidden handles this case with default header values.
+/*AdminUpdateAgeRestrictionConfigV2Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateAgeRestrictionConfigV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewAdminUpdateAgeRestrictionConfigV2NotFound() *AdminUpdateAgeRestrictionCo
 	return &AdminUpdateAgeRestrictionConfigV2NotFound{}
 }
 
-/*
-AdminUpdateAgeRestrictionConfigV2NotFound handles this case with default header values.
+/*AdminUpdateAgeRestrictionConfigV2NotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type AdminUpdateAgeRestrictionConfigV2NotFound struct {
 }

@@ -59,8 +59,7 @@ func NewCreateUserParamsWithHTTPClient(client *http.Client) *CreateUserParams {
 	}
 }
 
-/*
-CreateUserParams contains all the parameters to send to the API endpoint
+/*CreateUserParams contains all the parameters to send to the API endpoint
 for the create user operation typically these are written to a http.Request
 */
 type CreateUserParams struct {

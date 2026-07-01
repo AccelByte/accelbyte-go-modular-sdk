@@ -57,8 +57,7 @@ func NewAdminRetrieveUserThirdPartyPlatformTokenV3ParamsWithHTTPClient(client *h
 	}
 }
 
-/*
-AdminRetrieveUserThirdPartyPlatformTokenV3Params contains all the parameters to send to the API endpoint
+/*AdminRetrieveUserThirdPartyPlatformTokenV3Params contains all the parameters to send to the API endpoint
 for the admin retrieve user third party platform token v3 operation typically these are written to a http.Request
 */
 type AdminRetrieveUserThirdPartyPlatformTokenV3Params struct {

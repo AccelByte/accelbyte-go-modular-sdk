@@ -57,8 +57,7 @@ func NewSearchUserParamsWithHTTPClient(client *http.Client) *SearchUserParams {
 	}
 }
 
-/*
-SearchUserParams contains all the parameters to send to the API endpoint
+/*SearchUserParams contains all the parameters to send to the API endpoint
 for the search user operation typically these are written to a http.Request
 */
 type SearchUserParams struct {

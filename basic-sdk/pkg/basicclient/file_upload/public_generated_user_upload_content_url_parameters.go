@@ -69,8 +69,7 @@ func NewPublicGeneratedUserUploadContentURLParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*
-PublicGeneratedUserUploadContentURLParams contains all the parameters to send to the API endpoint
+/*PublicGeneratedUserUploadContentURLParams contains all the parameters to send to the API endpoint
 for the public generated user upload content url operation typically these are written to a http.Request
 */
 type PublicGeneratedUserUploadContentURLParams struct {

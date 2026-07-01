@@ -8,37 +8,39 @@ package ssoCredential
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // DeleteSSOLoginPlatformCredentialV3Cmd represents the DeleteSSOLoginPlatformCredentialV3 command
 var DeleteSSOLoginPlatformCredentialV3Cmd = &cobra.Command{
-	Use:   "deleteSSOLoginPlatformCredentialV3",
-	Short: "Delete SSO login platform credential V3",
-	Long:  `Delete SSO login platform credential V3`,
+	Use:	"deleteSSOLoginPlatformCredentialV3",
+	Short:  "Delete SSO login platform credential V3",
+	Long:   `Delete SSO login platform credential V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ssoCredentialService := &iam.SSOCredentialService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &sso_credential.DeleteSSOLoginPlatformCredentialV3Params{
-			Namespace:  namespace,
+			Namespace : namespace,
 			PlatformID: platformId,
 		}
-		errNoContent := ssoCredentialService.DeleteSSOLoginPlatformCredentialV3Short(input)
+errNoContent := ssoCredentialService.DeleteSSOLoginPlatformCredentialV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

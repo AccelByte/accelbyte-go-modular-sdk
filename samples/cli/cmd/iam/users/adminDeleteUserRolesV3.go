@@ -9,44 +9,46 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminDeleteUserRolesV3Cmd represents the AdminDeleteUserRolesV3 command
 var AdminDeleteUserRolesV3Cmd = &cobra.Command{
-	Use:   "adminDeleteUserRolesV3",
-	Short: "Admin delete user roles V3",
-	Long:  `Admin delete user roles V3`,
+	Use:	"adminDeleteUserRolesV3",
+	Short:  "Admin delete user roles V3",
+	Long:   `Admin delete user roles V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body []string
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.AdminDeleteUserRolesV3Params{
-			Body:      body,
+			Body     : body,
 			Namespace: namespace,
-			UserID:    userId,
+			UserID   : userId,
 		}
-		errNoContent := usersService.AdminDeleteUserRolesV3Short(input)
+errNoContent := usersService.AdminDeleteUserRolesV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -58,8 +58,7 @@ func NewAdminDeleteUserPermissionV3ParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*
-AdminDeleteUserPermissionV3Params contains all the parameters to send to the API endpoint
+/*AdminDeleteUserPermissionV3Params contains all the parameters to send to the API endpoint
 for the admin delete user permission v3 operation typically these are written to a http.Request
 */
 type AdminDeleteUserPermissionV3Params struct {

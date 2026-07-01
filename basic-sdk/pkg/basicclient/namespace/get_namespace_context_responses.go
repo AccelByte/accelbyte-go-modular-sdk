@@ -100,10 +100,9 @@ func NewGetNamespaceContextOK() *GetNamespaceContextOK {
 	return &GetNamespaceContextOK{}
 }
 
-/*
-GetNamespaceContextOK handles this case with default header values.
+/*GetNamespaceContextOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type GetNamespaceContextOK struct {
 	Payload *basicclientmodels.NamespaceContext
@@ -155,10 +154,9 @@ func NewGetNamespaceContextUnauthorized() *GetNamespaceContextUnauthorized {
 	return &GetNamespaceContextUnauthorized{}
 }
 
-/*
-GetNamespaceContextUnauthorized handles this case with default header values.
+/*GetNamespaceContextUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetNamespaceContextUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -210,10 +208,9 @@ func NewGetNamespaceContextForbidden() *GetNamespaceContextForbidden {
 	return &GetNamespaceContextForbidden{}
 }
 
-/*
-GetNamespaceContextForbidden handles this case with default header values.
+/*GetNamespaceContextForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetNamespaceContextForbidden struct {
 	Payload *basicclientmodels.ErrorEntity

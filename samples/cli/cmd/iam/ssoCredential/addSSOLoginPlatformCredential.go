@@ -9,45 +9,47 @@ package ssoCredential
 import (
 	"encoding/json"
 	"log/slog"
-
-	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/sso_credential"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AddSSOLoginPlatformCredentialCmd represents the AddSSOLoginPlatformCredential command
 var AddSSOLoginPlatformCredentialCmd = &cobra.Command{
-	Use:   "addSSOLoginPlatformCredential",
-	Short: "Add SSO login platform credential",
-	Long:  `Add SSO login platform credential`,
+	Use:	"addSSOLoginPlatformCredential",
+	Short:  "Add SSO login platform credential",
+	Long:   `Add SSO login platform credential`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ssoCredentialService := &iam.SSOCredentialService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelSSOPlatformCredentialRequest
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &sso_credential.AddSSOLoginPlatformCredentialParams{
-			Body:       body,
-			Namespace:  namespace,
+			Body      : body,
+			Namespace : namespace,
 			PlatformID: platformId,
 		}
-		created, errCreated := ssoCredentialService.AddSSOLoginPlatformCredentialShort(input)
+created,errCreated := ssoCredentialService.AddSSOLoginPlatformCredentialShort(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		slog.Info("Response CLI success", "response", created)
+        slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

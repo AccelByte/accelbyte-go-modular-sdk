@@ -8,22 +8,24 @@ package clients
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/clients"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetClientsByNamespaceV3Cmd represents the AdminGetClientsByNamespaceV3 command
 var AdminGetClientsByNamespaceV3Cmd = &cobra.Command{
-	Use:   "adminGetClientsByNamespaceV3",
-	Short: "Admin get clients by namespace V3",
-	Long:  `Admin get clients by namespace V3`,
+	Use:	"adminGetClientsByNamespaceV3",
+	Short:  "Admin get clients by namespace V3",
+	Long:   `Admin get clients by namespace V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		clientsService := &iam.ClientsService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		clientId, _ := cmd.Flags().GetString("clientId")
@@ -33,22 +35,22 @@ var AdminGetClientsByNamespaceV3Cmd = &cobra.Command{
 		offset, _ := cmd.Flags().GetInt64("offset")
 		skipLoginQueue, _ := cmd.Flags().GetBool("skipLoginQueue")
 		input := &clients.AdminGetClientsByNamespaceV3Params{
-			Namespace:      namespace,
-			ClientID:       &clientId,
-			ClientName:     &clientName,
-			ClientType:     &clientType,
-			Limit:          &limit,
-			Offset:         &offset,
+			Namespace     : namespace,
+			ClientID      : &clientId,
+			ClientName    : &clientName,
+			ClientType    : &clientType,
+			Limit         : &limit,
+			Offset        : &offset,
 			SkipLoginQueue: &skipLoginQueue,
 		}
-		ok, errOK := clientsService.AdminGetClientsByNamespaceV3Short(input)
+ok,errOK := clientsService.AdminGetClientsByNamespaceV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

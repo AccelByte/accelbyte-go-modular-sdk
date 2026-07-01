@@ -130,10 +130,9 @@ func NewUpdateConfigOK() *UpdateConfigOK {
 	return &UpdateConfigOK{}
 }
 
-/*
-UpdateConfigOK handles this case with default header values.
+/*UpdateConfigOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type UpdateConfigOK struct {
 	Payload *basicclientmodels.ConfigInfo
@@ -185,10 +184,9 @@ func NewUpdateConfigBadRequest() *UpdateConfigBadRequest {
 	return &UpdateConfigBadRequest{}
 }
 
-/*
-UpdateConfigBadRequest handles this case with default header values.
+/*UpdateConfigBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type UpdateConfigBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -240,10 +238,9 @@ func NewUpdateConfigUnauthorized() *UpdateConfigUnauthorized {
 	return &UpdateConfigUnauthorized{}
 }
 
-/*
-UpdateConfigUnauthorized handles this case with default header values.
+/*UpdateConfigUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type UpdateConfigUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -295,10 +292,9 @@ func NewUpdateConfigForbidden() *UpdateConfigForbidden {
 	return &UpdateConfigForbidden{}
 }
 
-/*
-UpdateConfigForbidden handles this case with default header values.
+/*UpdateConfigForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdateConfigForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -350,10 +346,9 @@ func NewUpdateConfigNotFound() *UpdateConfigNotFound {
 	return &UpdateConfigNotFound{}
 }
 
-/*
-UpdateConfigNotFound handles this case with default header values.
+/*UpdateConfigNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11741</td><td>Unable to {action}: Config not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11741</td><td>Unable to {action}: Config not found</td></tr></table>
 */
 type UpdateConfigNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

@@ -9,45 +9,47 @@ package users
 import (
 	"encoding/json"
 	"log/slog"
-
-	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclientmodels"
+	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicVerifyHeadlessAccountV3Cmd represents the PublicVerifyHeadlessAccountV3 command
 var PublicVerifyHeadlessAccountV3Cmd = &cobra.Command{
-	Use:   "publicVerifyHeadlessAccountV3",
-	Short: "Public verify headless account V3",
-	Long:  `Public verify headless account V3`,
+	Use:	"publicVerifyHeadlessAccountV3",
+	Short:  "Public verify headless account V3",
+	Long:   `Public verify headless account V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *iamclientmodels.ModelUpgradeHeadlessAccountV3Request
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		needVerificationCode, _ := cmd.Flags().GetBool("needVerificationCode")
 		input := &users.PublicVerifyHeadlessAccountV3Params{
-			Body:                 body,
-			Namespace:            namespace,
+			Body                : body,
+			Namespace           : namespace,
 			NeedVerificationCode: &needVerificationCode,
 		}
-		ok, errOK := usersService.PublicVerifyHeadlessAccountV3Short(input)
+ok,errOK := usersService.PublicVerifyHeadlessAccountV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

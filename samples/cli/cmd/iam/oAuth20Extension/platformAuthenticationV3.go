@@ -8,23 +8,25 @@ package oAuth20Extension
 
 import (
 	"log/slog"
-	"net/http"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
+	"net/http"
 )
 
 // PlatformAuthenticationV3Cmd represents the PlatformAuthenticationV3 command
 var PlatformAuthenticationV3Cmd = &cobra.Command{
-	Use:   "platformAuthenticationV3",
-	Short: "Platform authentication V3",
-	Long:  `Platform authentication V3`,
+	Use:	"platformAuthenticationV3",
+	Short:  "Platform authentication V3",
+	Long:   `Platform authentication V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		platformId, _ := cmd.Flags().GetString("platformId")
 		state, _ := cmd.Flags().GetString("state")
@@ -41,35 +43,35 @@ var PlatformAuthenticationV3Cmd = &cobra.Command{
 		openidSig, _ := cmd.Flags().GetString("openidSig")
 		openidSigned, _ := cmd.Flags().GetString("openidSigned")
 		httpClient := &http.Client{
-			CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-			},
+		   },
 		}
 		input := &o_auth2_0_extension.PlatformAuthenticationV3Params{
-			PlatformID:          platformId,
-			Code:                &code,
-			Error:               &error_,
-			OpenidAssocHandle:   &openidAssocHandle,
-			OpenidClaimedID:     &openidClaimedId,
-			OpenidIdentity:      &openidIdentity,
-			OpenidMode:          &openidMode,
-			OpenidNs:            &openidNs,
-			OpenidOpEndpoint:    &openidOpEndpoint,
-			OpenidResponseNonce: &openidResponseNonce,
-			OpenidReturnTo:      &openidReturnTo,
-			OpenidSig:           &openidSig,
-			OpenidSigned:        &openidSigned,
-			State:               state,
-			HTTPClient:          httpClient,
+			PlatformID           : platformId,
+			Code                 : &code,
+			Error                : &error_,
+			OpenidAssocHandle    : &openidAssocHandle,
+			OpenidClaimedID      : &openidClaimedId,
+			OpenidIdentity       : &openidIdentity,
+			OpenidMode           : &openidMode,
+			OpenidNs             : &openidNs,
+			OpenidOpEndpoint     : &openidOpEndpoint,
+			OpenidResponseNonce  : &openidResponseNonce,
+			OpenidReturnTo       : &openidReturnTo,
+			OpenidSig            : &openidSig,
+			OpenidSigned         : &openidSigned,
+			State                : state,
+			HTTPClient: httpClient,
 		}
-		_, errFound := oAuth20ExtensionService.PlatformAuthenticationV3Short(input)
+_,errFound := oAuth20ExtensionService.PlatformAuthenticationV3Short(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

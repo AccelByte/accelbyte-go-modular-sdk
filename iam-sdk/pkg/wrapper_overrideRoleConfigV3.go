@@ -15,11 +15,8 @@ import (
 )
 
 type OverrideRoleConfigv3Service struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdOverrideRoleConfigv3 *string
@@ -30,9 +27,9 @@ func (aaa *OverrideRoleConfigv3Service) UpdateFlightId(flightId string) {
 
 func (aaa *OverrideRoleConfigv3Service) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *OverrideRoleConfigv3Service) AdminGetRoleOverrideConfigV3Short(input 
 	}
 	if tempFlightIdOverrideRoleConfigv3 != nil {
 		input.XFlightId = tempFlightIdOverrideRoleConfigv3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OverrideRoleConfigV3.AdminGetRoleOverrideConfigV3Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *OverrideRoleConfigv3Service) AdminUpdateRoleOverrideConfigV3Short(inp
 	}
 	if tempFlightIdOverrideRoleConfigv3 != nil {
 		input.XFlightId = tempFlightIdOverrideRoleConfigv3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OverrideRoleConfigV3.AdminUpdateRoleOverrideConfigV3Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *OverrideRoleConfigv3Service) AdminGetRoleSourceV3Short(input *overrid
 	}
 	if tempFlightIdOverrideRoleConfigv3 != nil {
 		input.XFlightId = tempFlightIdOverrideRoleConfigv3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OverrideRoleConfigV3.AdminGetRoleSourceV3Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *OverrideRoleConfigv3Service) AdminChangeRoleOverrideConfigStatusV3Sho
 	}
 	if tempFlightIdOverrideRoleConfigv3 != nil {
 		input.XFlightId = tempFlightIdOverrideRoleConfigv3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OverrideRoleConfigV3.AdminChangeRoleOverrideConfigStatusV3Short(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *OverrideRoleConfigv3Service) AdminGetRoleNamespacePermissionV3Short(i
 	}
 	if tempFlightIdOverrideRoleConfigv3 != nil {
 		input.XFlightId = tempFlightIdOverrideRoleConfigv3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OverrideRoleConfigV3.AdminGetRoleNamespacePermissionV3Short(input, authInfoWriter)

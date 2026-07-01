@@ -57,8 +57,7 @@ func NewAdminResetNamespaceScopedInputValidationsParamsWithHTTPClient(client *ht
 	}
 }
 
-/*
-AdminResetNamespaceScopedInputValidationsParams contains all the parameters to send to the API endpoint
+/*AdminResetNamespaceScopedInputValidationsParams contains all the parameters to send to the API endpoint
 for the admin reset namespace scoped input validations operation typically these are written to a http.Request
 */
 type AdminResetNamespaceScopedInputValidationsParams struct {

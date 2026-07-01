@@ -129,10 +129,9 @@ func NewPublicLinkPlatformAccountNoContent() *PublicLinkPlatformAccountNoContent
 	return &PublicLinkPlatformAccountNoContent{}
 }
 
-/*
-PublicLinkPlatformAccountNoContent handles this case with default header values.
+/*PublicLinkPlatformAccountNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type PublicLinkPlatformAccountNoContent struct {
 }
@@ -157,10 +156,9 @@ func NewPublicLinkPlatformAccountBadRequest() *PublicLinkPlatformAccountBadReque
 	return &PublicLinkPlatformAccountBadRequest{}
 }
 
-/*
-PublicLinkPlatformAccountBadRequest handles this case with default header values.
+/*PublicLinkPlatformAccountBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicLinkPlatformAccountBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -212,10 +210,9 @@ func NewPublicLinkPlatformAccountUnauthorized() *PublicLinkPlatformAccountUnauth
 	return &PublicLinkPlatformAccountUnauthorized{}
 }
 
-/*
-PublicLinkPlatformAccountUnauthorized handles this case with default header values.
+/*PublicLinkPlatformAccountUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicLinkPlatformAccountUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -267,10 +264,9 @@ func NewPublicLinkPlatformAccountForbidden() *PublicLinkPlatformAccountForbidden
 	return &PublicLinkPlatformAccountForbidden{}
 }
 
-/*
-PublicLinkPlatformAccountForbidden handles this case with default header values.
+/*PublicLinkPlatformAccountForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicLinkPlatformAccountForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,10 +318,9 @@ func NewPublicLinkPlatformAccountInternalServerError() *PublicLinkPlatformAccoun
 	return &PublicLinkPlatformAccountInternalServerError{}
 }
 
-/*
-PublicLinkPlatformAccountInternalServerError handles this case with default header values.
+/*PublicLinkPlatformAccountInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicLinkPlatformAccountInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

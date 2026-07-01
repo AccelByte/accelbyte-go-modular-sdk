@@ -57,8 +57,7 @@ func NewGetAuthorizationServerMetadataWithNamespaceParamsWithHTTPClient(client *
 	}
 }
 
-/*
-GetAuthorizationServerMetadataWithNamespaceParams contains all the parameters to send to the API endpoint
+/*GetAuthorizationServerMetadataWithNamespaceParams contains all the parameters to send to the API endpoint
 for the get authorization server metadata with namespace operation typically these are written to a http.Request
 */
 type GetAuthorizationServerMetadataWithNamespaceParams struct {

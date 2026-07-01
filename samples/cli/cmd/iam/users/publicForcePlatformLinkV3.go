@@ -8,39 +8,41 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicForcePlatformLinkV3Cmd represents the PublicForcePlatformLinkV3 command
 var PublicForcePlatformLinkV3Cmd = &cobra.Command{
-	Use:   "publicForcePlatformLinkV3",
-	Short: "Public force platform link V3",
-	Long:  `Public force platform link V3`,
+	Use:	"publicForcePlatformLinkV3",
+	Short:  "Public force platform link V3",
+	Long:   `Public force platform link V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		ticket, _ := cmd.Flags().GetString("ticket")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		input := &users.PublicForcePlatformLinkV3Params{
-			Ticket:     ticket,
-			Namespace:  namespace,
+			Ticket    : ticket,
+			Namespace : namespace,
 			PlatformID: platformId,
 		}
-		errNoContent := usersService.PublicForcePlatformLinkV3Short(input)
+errNoContent := usersService.PublicForcePlatformLinkV3Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

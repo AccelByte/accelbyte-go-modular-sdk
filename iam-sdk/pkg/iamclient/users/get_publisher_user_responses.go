@@ -125,10 +125,9 @@ func NewGetPublisherUserOK() *GetPublisherUserOK {
 	return &GetPublisherUserOK{}
 }
 
-/*
-GetPublisherUserOK handles this case with default header values.
+/*GetPublisherUserOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetPublisherUserOK struct {
 	Payload *iamclientmodels.ModelGetPublisherUserResponse
@@ -180,10 +179,9 @@ func NewGetPublisherUserBadRequest() *GetPublisherUserBadRequest {
 	return &GetPublisherUserBadRequest{}
 }
 
-/*
-GetPublisherUserBadRequest handles this case with default header values.
+/*GetPublisherUserBadRequest handles this case with default header values.
 
-	Error Code: 7239 - Error Message: wrong namespace: required game namespace
+  Error Code: 7239 - Error Message: wrong namespace: required game namespace
 */
 type GetPublisherUserBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewGetPublisherUserUnauthorized() *GetPublisherUserUnauthorized {
 	return &GetPublisherUserUnauthorized{}
 }
 
-/*
-GetPublisherUserUnauthorized handles this case with default header values.
+/*GetPublisherUserUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetPublisherUserUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewGetPublisherUserForbidden() *GetPublisherUserForbidden {
 	return &GetPublisherUserForbidden{}
 }
 
-/*
-GetPublisherUserForbidden handles this case with default header values.
+/*GetPublisherUserForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetPublisherUserForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewGetPublisherUserNotFound() *GetPublisherUserNotFound {
 	return &GetPublisherUserNotFound{}
 }
 
-/*
-GetPublisherUserNotFound handles this case with default header values.
+/*GetPublisherUserNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type GetPublisherUserNotFound struct {
 }

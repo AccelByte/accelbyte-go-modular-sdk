@@ -57,8 +57,7 @@ func NewAdminGetMyEnabledFactorsV4ParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*
-AdminGetMyEnabledFactorsV4Params contains all the parameters to send to the API endpoint
+/*AdminGetMyEnabledFactorsV4Params contains all the parameters to send to the API endpoint
 for the admin get my enabled factors v4 operation typically these are written to a http.Request
 */
 type AdminGetMyEnabledFactorsV4Params struct {

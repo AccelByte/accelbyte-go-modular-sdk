@@ -159,10 +159,9 @@ func NewAdminTrustlyUpdateUserIdentityNoContent() *AdminTrustlyUpdateUserIdentit
 	return &AdminTrustlyUpdateUserIdentityNoContent{}
 }
 
-/*
-AdminTrustlyUpdateUserIdentityNoContent handles this case with default header values.
+/*AdminTrustlyUpdateUserIdentityNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type AdminTrustlyUpdateUserIdentityNoContent struct {
 }
@@ -187,10 +186,9 @@ func NewAdminTrustlyUpdateUserIdentityBadRequest() *AdminTrustlyUpdateUserIdenti
 	return &AdminTrustlyUpdateUserIdentityBadRequest{}
 }
 
-/*
-AdminTrustlyUpdateUserIdentityBadRequest handles this case with default header values.
+/*AdminTrustlyUpdateUserIdentityBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminTrustlyUpdateUserIdentityBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -242,10 +240,9 @@ func NewAdminTrustlyUpdateUserIdentityUnauthorized() *AdminTrustlyUpdateUserIden
 	return &AdminTrustlyUpdateUserIdentityUnauthorized{}
 }
 
-/*
-AdminTrustlyUpdateUserIdentityUnauthorized handles this case with default header values.
+/*AdminTrustlyUpdateUserIdentityUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminTrustlyUpdateUserIdentityUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -297,10 +294,9 @@ func NewAdminTrustlyUpdateUserIdentityForbidden() *AdminTrustlyUpdateUserIdentit
 	return &AdminTrustlyUpdateUserIdentityForbidden{}
 }
 
-/*
-AdminTrustlyUpdateUserIdentityForbidden handles this case with default header values.
+/*AdminTrustlyUpdateUserIdentityForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminTrustlyUpdateUserIdentityForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -352,10 +348,9 @@ func NewAdminTrustlyUpdateUserIdentityNotFound() *AdminTrustlyUpdateUserIdentity
 	return &AdminTrustlyUpdateUserIdentityNotFound{}
 }
 
-/*
-AdminTrustlyUpdateUserIdentityNotFound handles this case with default header values.
+/*AdminTrustlyUpdateUserIdentityNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminTrustlyUpdateUserIdentityNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -407,10 +402,9 @@ func NewAdminTrustlyUpdateUserIdentityConflict() *AdminTrustlyUpdateUserIdentity
 	return &AdminTrustlyUpdateUserIdentityConflict{}
 }
 
-/*
-AdminTrustlyUpdateUserIdentityConflict handles this case with default header values.
+/*AdminTrustlyUpdateUserIdentityConflict handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type AdminTrustlyUpdateUserIdentityConflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -462,10 +456,9 @@ func NewAdminTrustlyUpdateUserIdentityInternalServerError() *AdminTrustlyUpdateU
 	return &AdminTrustlyUpdateUserIdentityInternalServerError{}
 }
 
-/*
-AdminTrustlyUpdateUserIdentityInternalServerError handles this case with default header values.
+/*AdminTrustlyUpdateUserIdentityInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminTrustlyUpdateUserIdentityInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

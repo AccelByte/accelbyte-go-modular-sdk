@@ -100,10 +100,9 @@ func NewTokenIntrospectionV3OK() *TokenIntrospectionV3OK {
 	return &TokenIntrospectionV3OK{}
 }
 
-/*
-TokenIntrospectionV3OK handles this case with default header values.
+/*TokenIntrospectionV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type TokenIntrospectionV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenIntrospectResponse
@@ -155,10 +154,9 @@ func NewTokenIntrospectionV3BadRequest() *TokenIntrospectionV3BadRequest {
 	return &TokenIntrospectionV3BadRequest{}
 }
 
-/*
-TokenIntrospectionV3BadRequest handles this case with default header values.
+/*TokenIntrospectionV3BadRequest handles this case with default header values.
 
-	invalid input
+  invalid input
 */
 type TokenIntrospectionV3BadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -210,10 +208,9 @@ func NewTokenIntrospectionV3Unauthorized() *TokenIntrospectionV3Unauthorized {
 	return &TokenIntrospectionV3Unauthorized{}
 }
 
-/*
-TokenIntrospectionV3Unauthorized handles this case with default header values.
+/*TokenIntrospectionV3Unauthorized handles this case with default header values.
 
-	invalid bearer or basic authorization header
+  invalid bearer or basic authorization header
 */
 type TokenIntrospectionV3Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

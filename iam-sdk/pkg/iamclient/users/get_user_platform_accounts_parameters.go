@@ -57,8 +57,7 @@ func NewGetUserPlatformAccountsParamsWithHTTPClient(client *http.Client) *GetUse
 	}
 }
 
-/*
-GetUserPlatformAccountsParams contains all the parameters to send to the API endpoint
+/*GetUserPlatformAccountsParams contains all the parameters to send to the API endpoint
 for the get user platform accounts operation typically these are written to a http.Request
 */
 type GetUserPlatformAccountsParams struct {

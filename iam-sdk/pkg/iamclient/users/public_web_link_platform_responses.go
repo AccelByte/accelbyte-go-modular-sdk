@@ -115,10 +115,9 @@ func NewPublicWebLinkPlatformOK() *PublicWebLinkPlatformOK {
 	return &PublicWebLinkPlatformOK{}
 }
 
-/*
-PublicWebLinkPlatformOK handles this case with default header values.
+/*PublicWebLinkPlatformOK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicWebLinkPlatformOK struct {
 	Payload *iamclientmodels.ModelWebLinkingResponse
@@ -170,10 +169,9 @@ func NewPublicWebLinkPlatformBadRequest() *PublicWebLinkPlatformBadRequest {
 	return &PublicWebLinkPlatformBadRequest{}
 }
 
-/*
-PublicWebLinkPlatformBadRequest handles this case with default header values.
+/*PublicWebLinkPlatformBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicWebLinkPlatformBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,10 +223,9 @@ func NewPublicWebLinkPlatformUnauthorized() *PublicWebLinkPlatformUnauthorized {
 	return &PublicWebLinkPlatformUnauthorized{}
 }
 
-/*
-PublicWebLinkPlatformUnauthorized handles this case with default header values.
+/*PublicWebLinkPlatformUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicWebLinkPlatformUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -280,10 +277,9 @@ func NewPublicWebLinkPlatformNotFound() *PublicWebLinkPlatformNotFound {
 	return &PublicWebLinkPlatformNotFound{}
 }
 
-/*
-PublicWebLinkPlatformNotFound handles this case with default header values.
+/*PublicWebLinkPlatformNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicWebLinkPlatformNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

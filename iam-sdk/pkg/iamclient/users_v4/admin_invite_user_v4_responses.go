@@ -175,10 +175,9 @@ func NewAdminInviteUserV4Created() *AdminInviteUserV4Created {
 	return &AdminInviteUserV4Created{}
 }
 
-/*
-AdminInviteUserV4Created handles this case with default header values.
+/*AdminInviteUserV4Created handles this case with default header values.
 
-	Created
+  Created
 */
 type AdminInviteUserV4Created struct {
 	Payload *iamclientmodels.ModelInviteUserResponseV3
@@ -230,10 +229,9 @@ func NewAdminInviteUserV4BadRequest() *AdminInviteUserV4BadRequest {
 	return &AdminInviteUserV4BadRequest{}
 }
 
-/*
-AdminInviteUserV4BadRequest handles this case with default header values.
+/*AdminInviteUserV4BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminInviteUserV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -285,10 +283,9 @@ func NewAdminInviteUserV4Unauthorized() *AdminInviteUserV4Unauthorized {
 	return &AdminInviteUserV4Unauthorized{}
 }
 
-/*
-AdminInviteUserV4Unauthorized handles this case with default header values.
+/*AdminInviteUserV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminInviteUserV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -340,10 +337,9 @@ func NewAdminInviteUserV4Forbidden() *AdminInviteUserV4Forbidden {
 	return &AdminInviteUserV4Forbidden{}
 }
 
-/*
-AdminInviteUserV4Forbidden handles this case with default header values.
+/*AdminInviteUserV4Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminInviteUserV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -395,10 +391,9 @@ func NewAdminInviteUserV4NotFound() *AdminInviteUserV4NotFound {
 	return &AdminInviteUserV4NotFound{}
 }
 
-/*
-AdminInviteUserV4NotFound handles this case with default header values.
+/*AdminInviteUserV4NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
 */
 type AdminInviteUserV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -450,10 +445,9 @@ func NewAdminInviteUserV4Conflict() *AdminInviteUserV4Conflict {
 	return &AdminInviteUserV4Conflict{}
 }
 
-/*
-AdminInviteUserV4Conflict handles this case with default header values.
+/*AdminInviteUserV4Conflict handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type AdminInviteUserV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -505,10 +499,9 @@ func NewAdminInviteUserV4UnprocessableEntity() *AdminInviteUserV4UnprocessableEn
 	return &AdminInviteUserV4UnprocessableEntity{}
 }
 
-/*
-AdminInviteUserV4UnprocessableEntity handles this case with default header values.
+/*AdminInviteUserV4UnprocessableEntity handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminInviteUserV4UnprocessableEntity struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -560,10 +553,9 @@ func NewAdminInviteUserV4InternalServerError() *AdminInviteUserV4InternalServerE
 	return &AdminInviteUserV4InternalServerError{}
 }
 
-/*
-AdminInviteUserV4InternalServerError handles this case with default header values.
+/*AdminInviteUserV4InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminInviteUserV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

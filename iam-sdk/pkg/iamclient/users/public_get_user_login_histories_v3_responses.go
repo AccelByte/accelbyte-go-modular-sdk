@@ -110,10 +110,9 @@ func NewPublicGetUserLoginHistoriesV3OK() *PublicGetUserLoginHistoriesV3OK {
 	return &PublicGetUserLoginHistoriesV3OK{}
 }
 
-/*
-PublicGetUserLoginHistoriesV3OK handles this case with default header values.
+/*PublicGetUserLoginHistoriesV3OK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicGetUserLoginHistoriesV3OK struct {
 	Payload *iamclientmodels.ModelLoginHistoriesResponse
@@ -165,10 +164,9 @@ func NewPublicGetUserLoginHistoriesV3Unauthorized() *PublicGetUserLoginHistories
 	return &PublicGetUserLoginHistoriesV3Unauthorized{}
 }
 
-/*
-PublicGetUserLoginHistoriesV3Unauthorized handles this case with default header values.
+/*PublicGetUserLoginHistoriesV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetUserLoginHistoriesV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -220,10 +218,9 @@ func NewPublicGetUserLoginHistoriesV3Forbidden() *PublicGetUserLoginHistoriesV3F
 	return &PublicGetUserLoginHistoriesV3Forbidden{}
 }
 
-/*
-PublicGetUserLoginHistoriesV3Forbidden handles this case with default header values.
+/*PublicGetUserLoginHistoriesV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetUserLoginHistoriesV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -275,10 +272,9 @@ func NewPublicGetUserLoginHistoriesV3NotFound() *PublicGetUserLoginHistoriesV3No
 	return &PublicGetUserLoginHistoriesV3NotFound{}
 }
 
-/*
-PublicGetUserLoginHistoriesV3NotFound handles this case with default header values.
+/*PublicGetUserLoginHistoriesV3NotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type PublicGetUserLoginHistoriesV3NotFound struct {
 }

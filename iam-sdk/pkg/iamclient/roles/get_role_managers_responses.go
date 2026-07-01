@@ -125,10 +125,9 @@ func NewGetRoleManagersOK() *GetRoleManagersOK {
 	return &GetRoleManagersOK{}
 }
 
-/*
-GetRoleManagersOK handles this case with default header values.
+/*GetRoleManagersOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetRoleManagersOK struct {
 	Payload *iamclientmodels.ModelRoleManagersResponse
@@ -180,10 +179,9 @@ func NewGetRoleManagersBadRequest() *GetRoleManagersBadRequest {
 	return &GetRoleManagersBadRequest{}
 }
 
-/*
-GetRoleManagersBadRequest handles this case with default header values.
+/*GetRoleManagersBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type GetRoleManagersBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewGetRoleManagersUnauthorized() *GetRoleManagersUnauthorized {
 	return &GetRoleManagersUnauthorized{}
 }
 
-/*
-GetRoleManagersUnauthorized handles this case with default header values.
+/*GetRoleManagersUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetRoleManagersUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewGetRoleManagersForbidden() *GetRoleManagersForbidden {
 	return &GetRoleManagersForbidden{}
 }
 
-/*
-GetRoleManagersForbidden handles this case with default header values.
+/*GetRoleManagersForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetRoleManagersForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewGetRoleManagersNotFound() *GetRoleManagersNotFound {
 	return &GetRoleManagersNotFound{}
 }
 
-/*
-GetRoleManagersNotFound handles this case with default header values.
+/*GetRoleManagersNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type GetRoleManagersNotFound struct {
 }

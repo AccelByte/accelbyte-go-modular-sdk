@@ -8,41 +8,43 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicPlatformLinkV2Cmd represents the PublicPlatformLinkV2 command
 var PublicPlatformLinkV2Cmd = &cobra.Command{
-	Use:   "publicPlatformLinkV2",
-	Short: "Public platform link V2",
-	Long:  `Public platform link V2`,
+	Use:	"publicPlatformLinkV2",
+	Short:  "Public platform link V2",
+	Long:   `Public platform link V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		ticket, _ := cmd.Flags().GetString("ticket")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		userId, _ := cmd.Flags().GetString("userId")
 		input := &users.PublicPlatformLinkV2Params{
-			Ticket:     ticket,
-			Namespace:  namespace,
+			Ticket    : ticket,
+			Namespace : namespace,
 			PlatformID: platformId,
-			UserID:     userId,
+			UserID    : userId,
 		}
-		errNoContent := usersService.PublicPlatformLinkV2Short(input)
+errNoContent := usersService.PublicPlatformLinkV2Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

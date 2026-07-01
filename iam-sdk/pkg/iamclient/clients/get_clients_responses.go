@@ -100,10 +100,9 @@ func NewGetClientsOK() *GetClientsOK {
 	return &GetClientsOK{}
 }
 
-/*
-GetClientsOK handles this case with default header values.
+/*GetClientsOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetClientsOK struct {
 	Payload []*iamclientmodels.ClientmodelClientResponse
@@ -153,10 +152,9 @@ func NewGetClientsUnauthorized() *GetClientsUnauthorized {
 	return &GetClientsUnauthorized{}
 }
 
-/*
-GetClientsUnauthorized handles this case with default header values.
+/*GetClientsUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetClientsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -208,10 +206,9 @@ func NewGetClientsForbidden() *GetClientsForbidden {
 	return &GetClientsForbidden{}
 }
 
-/*
-GetClientsForbidden handles this case with default header values.
+/*GetClientsForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetClientsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

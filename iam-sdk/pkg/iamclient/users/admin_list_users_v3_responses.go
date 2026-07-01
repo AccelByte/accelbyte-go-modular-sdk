@@ -130,10 +130,9 @@ func NewAdminListUsersV3OK() *AdminListUsersV3OK {
 	return &AdminListUsersV3OK{}
 }
 
-/*
-AdminListUsersV3OK handles this case with default header values.
+/*AdminListUsersV3OK handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AdminListUsersV3OK struct {
 	Payload *iamclientmodels.AccountcommonListUsersWithPlatformAccountsResponse
@@ -185,10 +184,9 @@ func NewAdminListUsersV3BadRequest() *AdminListUsersV3BadRequest {
 	return &AdminListUsersV3BadRequest{}
 }
 
-/*
-AdminListUsersV3BadRequest handles this case with default header values.
+/*AdminListUsersV3BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminListUsersV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,10 +238,9 @@ func NewAdminListUsersV3Unauthorized() *AdminListUsersV3Unauthorized {
 	return &AdminListUsersV3Unauthorized{}
 }
 
-/*
-AdminListUsersV3Unauthorized handles this case with default header values.
+/*AdminListUsersV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListUsersV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -295,10 +292,9 @@ func NewAdminListUsersV3Forbidden() *AdminListUsersV3Forbidden {
 	return &AdminListUsersV3Forbidden{}
 }
 
-/*
-AdminListUsersV3Forbidden handles this case with default header values.
+/*AdminListUsersV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminListUsersV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -350,10 +346,9 @@ func NewAdminListUsersV3InternalServerError() *AdminListUsersV3InternalServerErr
 	return &AdminListUsersV3InternalServerError{}
 }
 
-/*
-AdminListUsersV3InternalServerError handles this case with default header values.
+/*AdminListUsersV3InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminListUsersV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

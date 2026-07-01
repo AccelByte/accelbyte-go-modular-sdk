@@ -100,10 +100,9 @@ func NewAdminBulkGetUsersPlatformOK() *AdminBulkGetUsersPlatformOK {
 	return &AdminBulkGetUsersPlatformOK{}
 }
 
-/*
-AdminBulkGetUsersPlatformOK handles this case with default header values.
+/*AdminBulkGetUsersPlatformOK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminBulkGetUsersPlatformOK struct {
 	Payload *iamclientmodels.ModelListBulkUserPlatformsResponse
@@ -155,10 +154,9 @@ func NewAdminBulkGetUsersPlatformBadRequest() *AdminBulkGetUsersPlatformBadReque
 	return &AdminBulkGetUsersPlatformBadRequest{}
 }
 
-/*
-AdminBulkGetUsersPlatformBadRequest handles this case with default header values.
+/*AdminBulkGetUsersPlatformBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10185</td><td>publisher namespace not allowed</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10185</td><td>publisher namespace not allowed</td></tr></table>
 */
 type AdminBulkGetUsersPlatformBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,10 +208,9 @@ func NewAdminBulkGetUsersPlatformInternalServerError() *AdminBulkGetUsersPlatfor
 	return &AdminBulkGetUsersPlatformInternalServerError{}
 }
 
-/*
-AdminBulkGetUsersPlatformInternalServerError handles this case with default header values.
+/*AdminBulkGetUsersPlatformInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminBulkGetUsersPlatformInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

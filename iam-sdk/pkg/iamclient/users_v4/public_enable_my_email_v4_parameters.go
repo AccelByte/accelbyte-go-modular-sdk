@@ -57,8 +57,7 @@ func NewPublicEnableMyEmailV4ParamsWithHTTPClient(client *http.Client) *PublicEn
 	}
 }
 
-/*
-PublicEnableMyEmailV4Params contains all the parameters to send to the API endpoint
+/*PublicEnableMyEmailV4Params contains all the parameters to send to the API endpoint
 for the public enable my email v4 operation typically these are written to a http.Request
 */
 type PublicEnableMyEmailV4Params struct {

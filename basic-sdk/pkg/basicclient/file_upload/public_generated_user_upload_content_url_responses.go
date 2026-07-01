@@ -145,10 +145,9 @@ func NewPublicGeneratedUserUploadContentURLOK() *PublicGeneratedUserUploadConten
 	return &PublicGeneratedUserUploadContentURLOK{}
 }
 
-/*
-PublicGeneratedUserUploadContentURLOK handles this case with default header values.
+/*PublicGeneratedUserUploadContentURLOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type PublicGeneratedUserUploadContentURLOK struct {
 	Payload *basicclientmodels.FileUploadURLInfo
@@ -200,10 +199,9 @@ func NewPublicGeneratedUserUploadContentURLBadRequest() *PublicGeneratedUserUplo
 	return &PublicGeneratedUserUploadContentURLBadRequest{}
 }
 
-/*
-PublicGeneratedUserUploadContentURLBadRequest handles this case with default header values.
+/*PublicGeneratedUserUploadContentURLBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>11121</td><td>Unable to {action}: category {category} is not valid</td></tr><tr><td>11131</td><td>Unable to {action}: File type is not supported</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>11121</td><td>Unable to {action}: category {category} is not valid</td></tr><tr><td>11131</td><td>Unable to {action}: File type is not supported</td></tr></table>
 */
 type PublicGeneratedUserUploadContentURLBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -255,10 +253,9 @@ func NewPublicGeneratedUserUploadContentURLUnauthorized() *PublicGeneratedUserUp
 	return &PublicGeneratedUserUploadContentURLUnauthorized{}
 }
 
-/*
-PublicGeneratedUserUploadContentURLUnauthorized handles this case with default header values.
+/*PublicGeneratedUserUploadContentURLUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type PublicGeneratedUserUploadContentURLUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -310,10 +307,9 @@ func NewPublicGeneratedUserUploadContentURLForbidden() *PublicGeneratedUserUploa
 	return &PublicGeneratedUserUploadContentURLForbidden{}
 }
 
-/*
-PublicGeneratedUserUploadContentURLForbidden handles this case with default header values.
+/*PublicGeneratedUserUploadContentURLForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGeneratedUserUploadContentURLForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -365,10 +361,9 @@ func NewPublicGeneratedUserUploadContentURLConflict() *PublicGeneratedUserUpload
 	return &PublicGeneratedUserUploadContentURLConflict{}
 }
 
-/*
-PublicGeneratedUserUploadContentURLConflict handles this case with default header values.
+/*PublicGeneratedUserUploadContentURLConflict handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11132</td><td>Unable to {action}: file storage exceed limitation, user ID: {userId}, namespace: {namespace}</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11132</td><td>Unable to {action}: file storage exceed limitation, user ID: {userId}, namespace: {namespace}</td></tr></table>
 */
 type PublicGeneratedUserUploadContentURLConflict struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -420,10 +415,9 @@ func NewPublicGeneratedUserUploadContentURLInternalServerError() *PublicGenerate
 	return &PublicGeneratedUserUploadContentURLInternalServerError{}
 }
 
-/*
-PublicGeneratedUserUploadContentURLInternalServerError handles this case with default header values.
+/*PublicGeneratedUserUploadContentURLInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGeneratedUserUploadContentURLInternalServerError struct {
 	Payload *basicclientmodels.ErrorEntity

@@ -8,41 +8,43 @@ package users
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetUserSinglePlatformAccountCmd represents the AdminGetUserSinglePlatformAccount command
 var AdminGetUserSinglePlatformAccountCmd = &cobra.Command{
-	Use:   "adminGetUserSinglePlatformAccount",
-	Short: "Admin get user single platform account",
-	Long:  `Admin get user single platform account`,
+	Use:	"adminGetUserSinglePlatformAccount",
+	Short:  "Admin get user single platform account",
+	Long:   `Admin get user single platform account`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersService := &iam.UsersService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platformId, _ := cmd.Flags().GetString("platformId")
 		userId, _ := cmd.Flags().GetString("userId")
 		crossNamespace, _ := cmd.Flags().GetBool("crossNamespace")
 		input := &users.AdminGetUserSinglePlatformAccountParams{
-			Namespace:      namespace,
-			PlatformID:     platformId,
-			UserID:         userId,
+			Namespace     : namespace,
+			PlatformID    : platformId,
+			UserID        : userId,
 			CrossNamespace: &crossNamespace,
 		}
-		ok, errOK := usersService.AdminGetUserSinglePlatformAccountShort(input)
+ok,errOK := usersService.AdminGetUserSinglePlatformAccountShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

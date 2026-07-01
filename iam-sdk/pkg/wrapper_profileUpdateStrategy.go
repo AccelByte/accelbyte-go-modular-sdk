@@ -15,11 +15,8 @@ import (
 )
 
 type ProfileUpdateStrategyService struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdProfileUpdateStrategy *string
@@ -30,9 +27,9 @@ func (aaa *ProfileUpdateStrategyService) UpdateFlightId(flightId string) {
 
 func (aaa *ProfileUpdateStrategyService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ProfileUpdateStrategyService) AdminGetProfileUpdateStrategyV3Short(in
 	}
 	if tempFlightIdProfileUpdateStrategy != nil {
 		input.XFlightId = tempFlightIdProfileUpdateStrategy
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ProfileUpdateStrategy.AdminGetProfileUpdateStrategyV3Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ProfileUpdateStrategyService) AdminUpdateProfileUpdateStrategyV3Short
 	}
 	if tempFlightIdProfileUpdateStrategy != nil {
 		input.XFlightId = tempFlightIdProfileUpdateStrategy
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ProfileUpdateStrategy.AdminUpdateProfileUpdateStrategyV3Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ProfileUpdateStrategyService) PublicGetProfileUpdateStrategyV3Short(i
 	}
 	if tempFlightIdProfileUpdateStrategy != nil {
 		input.XFlightId = tempFlightIdProfileUpdateStrategy
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ProfileUpdateStrategy.PublicGetProfileUpdateStrategyV3Short(input, authInfoWriter)

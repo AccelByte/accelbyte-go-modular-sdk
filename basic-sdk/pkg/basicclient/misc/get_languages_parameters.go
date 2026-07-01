@@ -57,8 +57,7 @@ func NewGetLanguagesParamsWithHTTPClient(client *http.Client) *GetLanguagesParam
 	}
 }
 
-/*
-GetLanguagesParams contains all the parameters to send to the API endpoint
+/*GetLanguagesParams contains all the parameters to send to the API endpoint
 for the get languages operation typically these are written to a http.Request
 */
 type GetLanguagesParams struct {

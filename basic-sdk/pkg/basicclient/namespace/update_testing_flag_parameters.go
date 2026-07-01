@@ -59,8 +59,7 @@ func NewUpdateTestingFlagParamsWithHTTPClient(client *http.Client) *UpdateTestin
 	}
 }
 
-/*
-UpdateTestingFlagParams contains all the parameters to send to the API endpoint
+/*UpdateTestingFlagParams contains all the parameters to send to the API endpoint
 for the update testing flag operation typically these are written to a http.Request
 */
 type UpdateTestingFlagParams struct {

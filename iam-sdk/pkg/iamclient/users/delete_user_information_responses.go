@@ -109,10 +109,9 @@ func NewDeleteUserInformationNoContent() *DeleteUserInformationNoContent {
 	return &DeleteUserInformationNoContent{}
 }
 
-/*
-DeleteUserInformationNoContent handles this case with default header values.
+/*DeleteUserInformationNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type DeleteUserInformationNoContent struct {
 }
@@ -137,10 +136,9 @@ func NewDeleteUserInformationUnauthorized() *DeleteUserInformationUnauthorized {
 	return &DeleteUserInformationUnauthorized{}
 }
 
-/*
-DeleteUserInformationUnauthorized handles this case with default header values.
+/*DeleteUserInformationUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteUserInformationUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -192,10 +190,9 @@ func NewDeleteUserInformationForbidden() *DeleteUserInformationForbidden {
 	return &DeleteUserInformationForbidden{}
 }
 
-/*
-DeleteUserInformationForbidden handles this case with default header values.
+/*DeleteUserInformationForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteUserInformationForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -247,10 +244,9 @@ func NewDeleteUserInformationNotFound() *DeleteUserInformationNotFound {
 	return &DeleteUserInformationNotFound{}
 }
 
-/*
-DeleteUserInformationNotFound handles this case with default header values.
+/*DeleteUserInformationNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type DeleteUserInformationNotFound struct {
 }

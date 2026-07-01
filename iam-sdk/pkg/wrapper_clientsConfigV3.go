@@ -15,11 +15,8 @@ import (
 )
 
 type ClientsConfigV3Service struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdClientsConfigV3 *string
@@ -30,9 +27,9 @@ func (aaa *ClientsConfigV3Service) UpdateFlightId(flightId string) {
 
 func (aaa *ClientsConfigV3Service) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ClientsConfigV3Service) AdminListClientAvailablePermissionsShort(inpu
 	}
 	if tempFlightIdClientsConfigV3 != nil {
 		input.XFlightId = tempFlightIdClientsConfigV3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ClientsConfigV3.AdminListClientAvailablePermissionsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ClientsConfigV3Service) AdminUpdateAvailablePermissionsByModuleShort(
 	}
 	if tempFlightIdClientsConfigV3 != nil {
 		input.XFlightId = tempFlightIdClientsConfigV3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ClientsConfigV3.AdminUpdateAvailablePermissionsByModuleShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *ClientsConfigV3Service) AdminDeleteConfigPermissionsByGroupShort(inpu
 	}
 	if tempFlightIdClientsConfigV3 != nil {
 		input.XFlightId = tempFlightIdClientsConfigV3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ClientsConfigV3.AdminDeleteConfigPermissionsByGroupShort(input, authInfoWriter)
@@ -148,8 +145,8 @@ func (aaa *ClientsConfigV3Service) AdminUpdateModulePackageShort(input *clients_
 	}
 	if tempFlightIdClientsConfigV3 != nil {
 		input.XFlightId = tempFlightIdClientsConfigV3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ClientsConfigV3.AdminUpdateModulePackageShort(input, authInfoWriter)
@@ -178,8 +175,8 @@ func (aaa *ClientsConfigV3Service) AdminListClientTemplatesShort(input *clients_
 	}
 	if tempFlightIdClientsConfigV3 != nil {
 		input.XFlightId = tempFlightIdClientsConfigV3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ClientsConfigV3.AdminListClientTemplatesShort(input, authInfoWriter)

@@ -8,38 +8,40 @@ package oAuth20Extension
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // RequestTargetTokenResponseV3Cmd represents the RequestTargetTokenResponseV3 command
 var RequestTargetTokenResponseV3Cmd = &cobra.Command{
-	Use:   "requestTargetTokenResponseV3",
-	Short: "Request target token response V3",
-	Long:  `Request target token response V3`,
+	Use:	"requestTargetTokenResponseV3",
+	Short:  "Request target token response V3",
+	Long:   `Request target token response V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
-			Client:           iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			ConfigRepository: &repository.ConfigRepositoryImpl{},
-			TokenRepository:  &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				ConfigRepository: &repository.ConfigRepositoryImpl{},
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		code, _ := cmd.Flags().GetString("code")
 		additionalData, _ := cmd.Flags().GetString("additionalData")
 		input := &o_auth2_0_extension.RequestTargetTokenResponseV3Params{
 			AdditionalData: &additionalData,
-			Code:           code,
+			Code          : code,
 		}
-		ok, errOK := oAuth20ExtensionService.RequestTargetTokenResponseV3Short(input)
+ok,errOK := oAuth20ExtensionService.RequestTargetTokenResponseV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

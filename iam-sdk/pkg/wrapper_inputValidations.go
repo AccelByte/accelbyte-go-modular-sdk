@@ -15,11 +15,8 @@ import (
 )
 
 type InputValidationsService struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdInputValidations *string
@@ -30,9 +27,9 @@ func (aaa *InputValidationsService) UpdateFlightId(flightId string) {
 
 func (aaa *InputValidationsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *InputValidationsService) AdminGetInputValidationsShort(input *input_v
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.InputValidations.AdminGetInputValidationsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *InputValidationsService) AdminUpdateInputValidationsShort(input *inpu
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.InputValidations.AdminUpdateInputValidationsShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *InputValidationsService) AdminResetInputValidationsShort(input *input
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.InputValidations.AdminResetInputValidationsShort(input, authInfoWriter)
@@ -148,8 +145,8 @@ func (aaa *InputValidationsService) AdminGetNamespaceScopedInputValidationsShort
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.InputValidations.AdminGetNamespaceScopedInputValidationsShort(input, authInfoWriter)
@@ -182,8 +179,8 @@ func (aaa *InputValidationsService) AdminUpdateNamespaceScopedInputValidationsSh
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.InputValidations.AdminUpdateNamespaceScopedInputValidationsShort(input, authInfoWriter)
@@ -212,8 +209,8 @@ func (aaa *InputValidationsService) AdminResetNamespaceScopedInputValidationsSho
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.InputValidations.AdminResetNamespaceScopedInputValidationsShort(input, authInfoWriter)
@@ -235,8 +232,8 @@ func (aaa *InputValidationsService) PublicGetInputValidationsShort(input *input_
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.InputValidations.PublicGetInputValidationsShort(input)
@@ -269,8 +266,8 @@ func (aaa *InputValidationsService) PublicGetInputValidationByFieldShort(input *
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.InputValidations.PublicGetInputValidationByFieldShort(input, authInfoWriter)
@@ -303,8 +300,8 @@ func (aaa *InputValidationsService) PublicGetNamespaceScopedInputValidationsShor
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.InputValidations.PublicGetNamespaceScopedInputValidationsShort(input, authInfoWriter)
@@ -337,8 +334,8 @@ func (aaa *InputValidationsService) PublicGetNamespaceScopedInputValidationByFie
 	}
 	if tempFlightIdInputValidations != nil {
 		input.XFlightId = tempFlightIdInputValidations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.InputValidations.PublicGetNamespaceScopedInputValidationByFieldShort(input, authInfoWriter)

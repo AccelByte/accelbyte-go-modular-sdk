@@ -145,10 +145,9 @@ func NewUpdateTestingFlagOK() *UpdateTestingFlagOK {
 	return &UpdateTestingFlagOK{}
 }
 
-/*
-UpdateTestingFlagOK handles this case with default header values.
+/*UpdateTestingFlagOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type UpdateTestingFlagOK struct {
 	Payload *basicclientmodels.NamespaceInfo
@@ -200,10 +199,9 @@ func NewUpdateTestingFlagBadRequest() *UpdateTestingFlagBadRequest {
 	return &UpdateTestingFlagBadRequest{}
 }
 
-/*
-UpdateTestingFlagBadRequest handles this case with default header values.
+/*UpdateTestingFlagBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type UpdateTestingFlagBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -255,10 +253,9 @@ func NewUpdateTestingFlagUnauthorized() *UpdateTestingFlagUnauthorized {
 	return &UpdateTestingFlagUnauthorized{}
 }
 
-/*
-UpdateTestingFlagUnauthorized handles this case with default header values.
+/*UpdateTestingFlagUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type UpdateTestingFlagUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -310,10 +307,9 @@ func NewUpdateTestingFlagForbidden() *UpdateTestingFlagForbidden {
 	return &UpdateTestingFlagForbidden{}
 }
 
-/*
-UpdateTestingFlagForbidden handles this case with default header values.
+/*UpdateTestingFlagForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdateTestingFlagForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -365,10 +361,9 @@ func NewUpdateTestingFlagNotFound() *UpdateTestingFlagNotFound {
 	return &UpdateTestingFlagNotFound{}
 }
 
-/*
-UpdateTestingFlagNotFound handles this case with default header values.
+/*UpdateTestingFlagNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
 */
 type UpdateTestingFlagNotFound struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -420,10 +415,9 @@ func NewUpdateTestingFlagConflict() *UpdateTestingFlagConflict {
 	return &UpdateTestingFlagConflict{}
 }
 
-/*
-UpdateTestingFlagConflict handles this case with default header values.
+/*UpdateTestingFlagConflict handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type UpdateTestingFlagConflict struct {
 	Payload *basicclientmodels.ErrorEntity

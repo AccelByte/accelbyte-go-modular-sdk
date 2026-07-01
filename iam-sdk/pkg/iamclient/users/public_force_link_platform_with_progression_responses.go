@@ -129,10 +129,9 @@ func NewPublicForceLinkPlatformWithProgressionNoContent() *PublicForceLinkPlatfo
 	return &PublicForceLinkPlatformWithProgressionNoContent{}
 }
 
-/*
-PublicForceLinkPlatformWithProgressionNoContent handles this case with default header values.
+/*PublicForceLinkPlatformWithProgressionNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type PublicForceLinkPlatformWithProgressionNoContent struct {
 }
@@ -157,10 +156,9 @@ func NewPublicForceLinkPlatformWithProgressionBadRequest() *PublicForceLinkPlatf
 	return &PublicForceLinkPlatformWithProgressionBadRequest{}
 }
 
-/*
-PublicForceLinkPlatformWithProgressionBadRequest handles this case with default header values.
+/*PublicForceLinkPlatformWithProgressionBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicForceLinkPlatformWithProgressionBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -212,10 +210,9 @@ func NewPublicForceLinkPlatformWithProgressionUnauthorized() *PublicForceLinkPla
 	return &PublicForceLinkPlatformWithProgressionUnauthorized{}
 }
 
-/*
-PublicForceLinkPlatformWithProgressionUnauthorized handles this case with default header values.
+/*PublicForceLinkPlatformWithProgressionUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicForceLinkPlatformWithProgressionUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -267,10 +264,9 @@ func NewPublicForceLinkPlatformWithProgressionForbidden() *PublicForceLinkPlatfo
 	return &PublicForceLinkPlatformWithProgressionForbidden{}
 }
 
-/*
-PublicForceLinkPlatformWithProgressionForbidden handles this case with default header values.
+/*PublicForceLinkPlatformWithProgressionForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicForceLinkPlatformWithProgressionForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,10 +318,9 @@ func NewPublicForceLinkPlatformWithProgressionInternalServerError() *PublicForce
 	return &PublicForceLinkPlatformWithProgressionInternalServerError{}
 }
 
-/*
-PublicForceLinkPlatformWithProgressionInternalServerError handles this case with default header values.
+/*PublicForceLinkPlatformWithProgressionInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicForceLinkPlatformWithProgressionInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

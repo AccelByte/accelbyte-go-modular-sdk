@@ -58,8 +58,7 @@ func NewGetNamespaceContextParamsWithHTTPClient(client *http.Client) *GetNamespa
 	}
 }
 
-/*
-GetNamespaceContextParams contains all the parameters to send to the API endpoint
+/*GetNamespaceContextParams contains all the parameters to send to the API endpoint
 for the get namespace context operation typically these are written to a http.Request
 */
 type GetNamespaceContextParams struct {

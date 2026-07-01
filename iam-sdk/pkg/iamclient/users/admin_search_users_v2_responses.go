@@ -115,10 +115,9 @@ func NewAdminSearchUsersV2OK() *AdminSearchUsersV2OK {
 	return &AdminSearchUsersV2OK{}
 }
 
-/*
-AdminSearchUsersV2OK handles this case with default header values.
+/*AdminSearchUsersV2OK handles this case with default header values.
 
-	OK
+  OK
 */
 type AdminSearchUsersV2OK struct {
 	Payload *iamclientmodels.ModelSearchUsersByPlatformIDResponse
@@ -170,10 +169,9 @@ func NewAdminSearchUsersV2BadRequest() *AdminSearchUsersV2BadRequest {
 	return &AdminSearchUsersV2BadRequest{}
 }
 
-/*
-AdminSearchUsersV2BadRequest handles this case with default header values.
+/*AdminSearchUsersV2BadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type AdminSearchUsersV2BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,10 +223,9 @@ func NewAdminSearchUsersV2Unauthorized() *AdminSearchUsersV2Unauthorized {
 	return &AdminSearchUsersV2Unauthorized{}
 }
 
-/*
-AdminSearchUsersV2Unauthorized handles this case with default header values.
+/*AdminSearchUsersV2Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminSearchUsersV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -280,10 +277,9 @@ func NewAdminSearchUsersV2Forbidden() *AdminSearchUsersV2Forbidden {
 	return &AdminSearchUsersV2Forbidden{}
 }
 
-/*
-AdminSearchUsersV2Forbidden handles this case with default header values.
+/*AdminSearchUsersV2Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminSearchUsersV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -100,10 +100,9 @@ func NewPublicBulkGetUsersOK() *PublicBulkGetUsersOK {
 	return &PublicBulkGetUsersOK{}
 }
 
-/*
-PublicBulkGetUsersOK handles this case with default header values.
+/*PublicBulkGetUsersOK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicBulkGetUsersOK struct {
 	Payload *iamclientmodels.ModelListBulkUserResponse
@@ -155,10 +154,9 @@ func NewPublicBulkGetUsersBadRequest() *PublicBulkGetUsersBadRequest {
 	return &PublicBulkGetUsersBadRequest{}
 }
 
-/*
-PublicBulkGetUsersBadRequest handles this case with default header values.
+/*PublicBulkGetUsersBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10185</td><td>publisher namespace not allowed</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10185</td><td>publisher namespace not allowed</td></tr></table>
 */
 type PublicBulkGetUsersBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,10 +208,9 @@ func NewPublicBulkGetUsersInternalServerError() *PublicBulkGetUsersInternalServe
 	return &PublicBulkGetUsersInternalServerError{}
 }
 
-/*
-PublicBulkGetUsersInternalServerError handles this case with default header values.
+/*PublicBulkGetUsersInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicBulkGetUsersInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

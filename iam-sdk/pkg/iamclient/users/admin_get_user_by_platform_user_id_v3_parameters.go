@@ -57,8 +57,7 @@ func NewAdminGetUserByPlatformUserIDV3ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-AdminGetUserByPlatformUserIDV3Params contains all the parameters to send to the API endpoint
+/*AdminGetUserByPlatformUserIDV3Params contains all the parameters to send to the API endpoint
 for the admin get user by platform user idv3 operation typically these are written to a http.Request
 */
 type AdminGetUserByPlatformUserIDV3Params struct {

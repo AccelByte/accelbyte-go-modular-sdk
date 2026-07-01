@@ -144,10 +144,9 @@ func NewAdminUpdateUserDeletionStatusV3NoContent() *AdminUpdateUserDeletionStatu
 	return &AdminUpdateUserDeletionStatusV3NoContent{}
 }
 
-/*
-AdminUpdateUserDeletionStatusV3NoContent handles this case with default header values.
+/*AdminUpdateUserDeletionStatusV3NoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AdminUpdateUserDeletionStatusV3NoContent struct {
 }
@@ -172,10 +171,9 @@ func NewAdminUpdateUserDeletionStatusV3BadRequest() *AdminUpdateUserDeletionStat
 	return &AdminUpdateUserDeletionStatusV3BadRequest{}
 }
 
-/*
-AdminUpdateUserDeletionStatusV3BadRequest handles this case with default header values.
+/*AdminUpdateUserDeletionStatusV3BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminUpdateUserDeletionStatusV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -227,10 +225,9 @@ func NewAdminUpdateUserDeletionStatusV3Unauthorized() *AdminUpdateUserDeletionSt
 	return &AdminUpdateUserDeletionStatusV3Unauthorized{}
 }
 
-/*
-AdminUpdateUserDeletionStatusV3Unauthorized handles this case with default header values.
+/*AdminUpdateUserDeletionStatusV3Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateUserDeletionStatusV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -282,10 +279,9 @@ func NewAdminUpdateUserDeletionStatusV3Forbidden() *AdminUpdateUserDeletionStatu
 	return &AdminUpdateUserDeletionStatusV3Forbidden{}
 }
 
-/*
-AdminUpdateUserDeletionStatusV3Forbidden handles this case with default header values.
+/*AdminUpdateUserDeletionStatusV3Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateUserDeletionStatusV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -337,10 +333,9 @@ func NewAdminUpdateUserDeletionStatusV3NotFound() *AdminUpdateUserDeletionStatus
 	return &AdminUpdateUserDeletionStatusV3NotFound{}
 }
 
-/*
-AdminUpdateUserDeletionStatusV3NotFound handles this case with default header values.
+/*AdminUpdateUserDeletionStatusV3NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminUpdateUserDeletionStatusV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -392,10 +387,9 @@ func NewAdminUpdateUserDeletionStatusV3InternalServerError() *AdminUpdateUserDel
 	return &AdminUpdateUserDeletionStatusV3InternalServerError{}
 }
 
-/*
-AdminUpdateUserDeletionStatusV3InternalServerError handles this case with default header values.
+/*AdminUpdateUserDeletionStatusV3InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpdateUserDeletionStatusV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

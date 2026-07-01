@@ -8,22 +8,24 @@ package config
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/config"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/config"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicGetConfigValueV3Cmd represents the PublicGetConfigValueV3 command
 var PublicGetConfigValueV3Cmd = &cobra.Command{
-	Use:   "publicGetConfigValueV3",
-	Short: "Public get config value V3",
-	Long:  `Public get config value V3`,
+	Use:	"publicGetConfigValueV3",
+	Short:  "Public get config value V3",
+	Long:   `Public get config value V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &iam.ConfigService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		configKey, _ := cmd.Flags().GetString("configKey")
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -31,14 +33,14 @@ var PublicGetConfigValueV3Cmd = &cobra.Command{
 			ConfigKey: configKey,
 			Namespace: namespace,
 		}
-		ok, errOK := configService.PublicGetConfigValueV3Short(input)
+ok,errOK := configService.PublicGetConfigValueV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

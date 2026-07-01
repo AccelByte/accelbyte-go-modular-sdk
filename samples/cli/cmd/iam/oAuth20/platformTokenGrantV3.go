@@ -8,23 +8,25 @@ package oAuth20
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PlatformTokenGrantV3Cmd represents the PlatformTokenGrantV3 command
 var PlatformTokenGrantV3Cmd = &cobra.Command{
-	Use:   "platformTokenGrantV3",
-	Short: "Platform token grant V3",
-	Long:  `Platform token grant V3`,
+	Use:	"platformTokenGrantV3",
+	Short:  "Platform token grant V3",
+	Long:   `Platform token grant V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
-			Client:           iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			ConfigRepository: &repository.ConfigRepositoryImpl{},
-			TokenRepository:  &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				ConfigRepository: &repository.ConfigRepositoryImpl{},
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		platformId, _ := cmd.Flags().GetString("platformId")
 		additionalData, _ := cmd.Flags().GetString("additionalData")
@@ -37,23 +39,23 @@ var PlatformTokenGrantV3Cmd = &cobra.Command{
 		skipSetCookie, _ := cmd.Flags().GetBool("skipSetCookie")
 		input := &o_auth2_0.PlatformTokenGrantV3Params{
 			AdditionalData: &additionalData,
-			ClientID:       &clientId,
+			ClientID      : &clientId,
 			CreateHeadless: &createHeadless,
-			DeviceID:       &deviceId,
-			MacAddress:     &macAddress,
-			PlatformToken:  &platformToken,
-			ServiceLabel:   &serviceLabel,
-			SkipSetCookie:  &skipSetCookie,
-			PlatformID:     platformId,
+			DeviceID      : &deviceId,
+			MacAddress    : &macAddress,
+			PlatformToken : &platformToken,
+			ServiceLabel  : &serviceLabel,
+			SkipSetCookie : &skipSetCookie,
+			PlatformID    : platformId,
 		}
-		ok, errOK := oAuth20Service.PlatformTokenGrantV3Short(input)
+ok,errOK := oAuth20Service.PlatformTokenGrantV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

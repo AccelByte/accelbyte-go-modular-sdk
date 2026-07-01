@@ -59,8 +59,7 @@ func NewUpdateClientSecretParamsWithHTTPClient(client *http.Client) *UpdateClien
 	}
 }
 
-/*
-UpdateClientSecretParams contains all the parameters to send to the API endpoint
+/*UpdateClientSecretParams contains all the parameters to send to the API endpoint
 for the update client secret operation typically these are written to a http.Request
 */
 type UpdateClientSecretParams struct {

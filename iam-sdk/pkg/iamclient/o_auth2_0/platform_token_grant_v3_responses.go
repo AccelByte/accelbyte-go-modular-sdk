@@ -130,10 +130,9 @@ func NewPlatformTokenGrantV3OK() *PlatformTokenGrantV3OK {
 	return &PlatformTokenGrantV3OK{}
 }
 
-/*
-PlatformTokenGrantV3OK handles this case with default header values.
+/*PlatformTokenGrantV3OK handles this case with default header values.
 
-	Token returned
+  Token returned
 */
 type PlatformTokenGrantV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponse
@@ -185,10 +184,9 @@ func NewPlatformTokenGrantV3BadRequest() *PlatformTokenGrantV3BadRequest {
 	return &PlatformTokenGrantV3BadRequest{}
 }
 
-/*
-PlatformTokenGrantV3BadRequest handles this case with default header values.
+/*PlatformTokenGrantV3BadRequest handles this case with default header values.
 
-	General request error
+  General request error
 */
 type PlatformTokenGrantV3BadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -240,10 +238,9 @@ func NewPlatformTokenGrantV3Unauthorized() *PlatformTokenGrantV3Unauthorized {
 	return &PlatformTokenGrantV3Unauthorized{}
 }
 
-/*
-PlatformTokenGrantV3Unauthorized handles this case with default header values.
+/*PlatformTokenGrantV3Unauthorized handles this case with default header values.
 
-	Client authentication failed
+  Client authentication failed
 */
 type PlatformTokenGrantV3Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -295,10 +292,9 @@ func NewPlatformTokenGrantV3Forbidden() *PlatformTokenGrantV3Forbidden {
 	return &PlatformTokenGrantV3Forbidden{}
 }
 
-/*
-PlatformTokenGrantV3Forbidden handles this case with default header values.
+/*PlatformTokenGrantV3Forbidden handles this case with default header values.
 
-	Forbidden
+  Forbidden
 */
 type PlatformTokenGrantV3Forbidden struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -350,10 +346,9 @@ func NewPlatformTokenGrantV3ServiceUnavailable() *PlatformTokenGrantV3ServiceUna
 	return &PlatformTokenGrantV3ServiceUnavailable{}
 }
 
-/*
-PlatformTokenGrantV3ServiceUnavailable handles this case with default header values.
+/*PlatformTokenGrantV3ServiceUnavailable handles this case with default header values.
 
-	Third Party Server timeout or unavailable
+  Third Party Server timeout or unavailable
 */
 type PlatformTokenGrantV3ServiceUnavailable struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

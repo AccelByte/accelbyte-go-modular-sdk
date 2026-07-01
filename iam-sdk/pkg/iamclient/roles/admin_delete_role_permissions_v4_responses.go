@@ -109,10 +109,9 @@ func NewAdminDeleteRolePermissionsV4NoContent() *AdminDeleteRolePermissionsV4NoC
 	return &AdminDeleteRolePermissionsV4NoContent{}
 }
 
-/*
-AdminDeleteRolePermissionsV4NoContent handles this case with default header values.
+/*AdminDeleteRolePermissionsV4NoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AdminDeleteRolePermissionsV4NoContent struct {
 }
@@ -137,10 +136,9 @@ func NewAdminDeleteRolePermissionsV4Unauthorized() *AdminDeleteRolePermissionsV4
 	return &AdminDeleteRolePermissionsV4Unauthorized{}
 }
 
-/*
-AdminDeleteRolePermissionsV4Unauthorized handles this case with default header values.
+/*AdminDeleteRolePermissionsV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteRolePermissionsV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -192,10 +190,9 @@ func NewAdminDeleteRolePermissionsV4Forbidden() *AdminDeleteRolePermissionsV4For
 	return &AdminDeleteRolePermissionsV4Forbidden{}
 }
 
-/*
-AdminDeleteRolePermissionsV4Forbidden handles this case with default header values.
+/*AdminDeleteRolePermissionsV4Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeleteRolePermissionsV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -247,10 +244,9 @@ func NewAdminDeleteRolePermissionsV4NotFound() *AdminDeleteRolePermissionsV4NotF
 	return &AdminDeleteRolePermissionsV4NotFound{}
 }
 
-/*
-AdminDeleteRolePermissionsV4NotFound handles this case with default header values.
+/*AdminDeleteRolePermissionsV4NotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type AdminDeleteRolePermissionsV4NotFound struct {
 }

@@ -144,10 +144,9 @@ func NewAdminDeleteRoleV4NoContent() *AdminDeleteRoleV4NoContent {
 	return &AdminDeleteRoleV4NoContent{}
 }
 
-/*
-AdminDeleteRoleV4NoContent handles this case with default header values.
+/*AdminDeleteRoleV4NoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AdminDeleteRoleV4NoContent struct {
 }
@@ -172,10 +171,9 @@ func NewAdminDeleteRoleV4BadRequest() *AdminDeleteRoleV4BadRequest {
 	return &AdminDeleteRoleV4BadRequest{}
 }
 
-/*
-AdminDeleteRoleV4BadRequest handles this case with default header values.
+/*AdminDeleteRoleV4BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminDeleteRoleV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -227,10 +225,9 @@ func NewAdminDeleteRoleV4Unauthorized() *AdminDeleteRoleV4Unauthorized {
 	return &AdminDeleteRoleV4Unauthorized{}
 }
 
-/*
-AdminDeleteRoleV4Unauthorized handles this case with default header values.
+/*AdminDeleteRoleV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteRoleV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -282,10 +279,9 @@ func NewAdminDeleteRoleV4Forbidden() *AdminDeleteRoleV4Forbidden {
 	return &AdminDeleteRoleV4Forbidden{}
 }
 
-/*
-AdminDeleteRoleV4Forbidden handles this case with default header values.
+/*AdminDeleteRoleV4Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeleteRoleV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -337,10 +333,9 @@ func NewAdminDeleteRoleV4NotFound() *AdminDeleteRoleV4NotFound {
 	return &AdminDeleteRoleV4NotFound{}
 }
 
-/*
-AdminDeleteRoleV4NotFound handles this case with default header values.
+/*AdminDeleteRoleV4NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminDeleteRoleV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -392,10 +387,9 @@ func NewAdminDeleteRoleV4InternalServerError() *AdminDeleteRoleV4InternalServerE
 	return &AdminDeleteRoleV4InternalServerError{}
 }
 
-/*
-AdminDeleteRoleV4InternalServerError handles this case with default header values.
+/*AdminDeleteRoleV4InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDeleteRoleV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

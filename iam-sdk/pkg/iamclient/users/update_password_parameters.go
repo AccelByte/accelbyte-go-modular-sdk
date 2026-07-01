@@ -59,8 +59,7 @@ func NewUpdatePasswordParamsWithHTTPClient(client *http.Client) *UpdatePasswordP
 	}
 }
 
-/*
-UpdatePasswordParams contains all the parameters to send to the API endpoint
+/*UpdatePasswordParams contains all the parameters to send to the API endpoint
 for the update password operation typically these are written to a http.Request
 */
 type UpdatePasswordParams struct {

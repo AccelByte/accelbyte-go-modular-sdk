@@ -8,35 +8,37 @@ package loginAllowlist
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/login_allowlist"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/login_allowlist"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetLoginAllowlistV3Cmd represents the AdminGetLoginAllowlistV3 command
 var AdminGetLoginAllowlistV3Cmd = &cobra.Command{
-	Use:   "adminGetLoginAllowlistV3",
-	Short: "Admin get login allowlist V3",
-	Long:  `Admin get login allowlist V3`,
+	Use:	"adminGetLoginAllowlistV3",
+	Short:  "Admin get login allowlist V3",
+	Long:   `Admin get login allowlist V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		loginAllowlistService := &iam.LoginAllowlistService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &login_allowlist.AdminGetLoginAllowlistV3Params{
 			Namespace: namespace,
 		}
-		ok, errOK := loginAllowlistService.AdminGetLoginAllowlistV3Short(input)
+ok,errOK := loginAllowlistService.AdminGetLoginAllowlistV3Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

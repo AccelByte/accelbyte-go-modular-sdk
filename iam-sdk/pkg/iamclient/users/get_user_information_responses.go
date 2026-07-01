@@ -110,10 +110,9 @@ func NewGetUserInformationOK() *GetUserInformationOK {
 	return &GetUserInformationOK{}
 }
 
-/*
-GetUserInformationOK handles this case with default header values.
+/*GetUserInformationOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetUserInformationOK struct {
 	Payload *iamclientmodels.ModelUserInformation
@@ -165,10 +164,9 @@ func NewGetUserInformationUnauthorized() *GetUserInformationUnauthorized {
 	return &GetUserInformationUnauthorized{}
 }
 
-/*
-GetUserInformationUnauthorized handles this case with default header values.
+/*GetUserInformationUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserInformationUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -220,10 +218,9 @@ func NewGetUserInformationForbidden() *GetUserInformationForbidden {
 	return &GetUserInformationForbidden{}
 }
 
-/*
-GetUserInformationForbidden handles this case with default header values.
+/*GetUserInformationForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserInformationForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -275,10 +272,9 @@ func NewGetUserInformationNotFound() *GetUserInformationNotFound {
 	return &GetUserInformationNotFound{}
 }
 
-/*
-GetUserInformationNotFound handles this case with default header values.
+/*GetUserInformationNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type GetUserInformationNotFound struct {
 }

@@ -8,22 +8,24 @@ package config
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/config"
 	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/config"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetConfigCmd represents the GetConfig command
 var GetConfigCmd = &cobra.Command{
-	Use:   "getConfig",
-	Short: "Get config",
-	Long:  `Get config`,
+	Use:	"getConfig",
+	Short:  "Get config",
+	Long:   `Get config`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &basic.ConfigService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		configKey, _ := cmd.Flags().GetString("configKey")
 		namespace, _ := cmd.Flags().GetString("namespace")
@@ -31,14 +33,14 @@ var GetConfigCmd = &cobra.Command{
 			ConfigKey: configKey,
 			Namespace: namespace,
 		}
-		ok, errOK := configService.GetConfigShort(input)
+ok,errOK := configService.GetConfigShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -15,11 +15,8 @@ import (
 )
 
 type MiscService struct {
-	Client           *basicclient.JusticeBasicService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *basicclient.JusticeBasicService
+	Session repository.Session
 }
 
 var tempFlightIdMisc *string
@@ -30,9 +27,9 @@ func (aaa *MiscService) UpdateFlightId(flightId string) {
 
 func (aaa *MiscService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *MiscService) GetCountriesShort(input *misc.GetCountriesParams) (*misc
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Misc.GetCountriesShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *MiscService) GetCountryGroupsShort(input *misc.GetCountryGroupsParams
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Misc.GetCountryGroupsShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *MiscService) AddCountryGroupShort(input *misc.AddCountryGroupParams) 
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Misc.AddCountryGroupShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *MiscService) UpdateCountryGroupShort(input *misc.UpdateCountryGroupPa
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Misc.UpdateCountryGroupShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *MiscService) DeleteCountryGroupShort(input *misc.DeleteCountryGroupPa
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Misc.DeleteCountryGroupShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *MiscService) GetLanguagesShort(input *misc.GetLanguagesParams) (*misc
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Misc.GetLanguagesShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *MiscService) GetTimeZonesShort(input *misc.GetTimeZonesParams) (*misc
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Misc.GetTimeZonesShort(input, authInfoWriter)
@@ -281,8 +278,8 @@ func (aaa *MiscService) PublicGetTimeShort(input *misc.PublicGetTimeParams) (*mi
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Misc.PublicGetTimeShort(input)
@@ -308,8 +305,8 @@ func (aaa *MiscService) PublicGetCountriesShort(input *misc.PublicGetCountriesPa
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Misc.PublicGetCountriesShort(input)
@@ -335,8 +332,8 @@ func (aaa *MiscService) PublicGetLanguagesShort(input *misc.PublicGetLanguagesPa
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Misc.PublicGetLanguagesShort(input)
@@ -362,8 +359,8 @@ func (aaa *MiscService) PublicGetTimeZonesShort(input *misc.PublicGetTimeZonesPa
 	}
 	if tempFlightIdMisc != nil {
 		input.XFlightId = tempFlightIdMisc
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Misc.PublicGetTimeZonesShort(input)

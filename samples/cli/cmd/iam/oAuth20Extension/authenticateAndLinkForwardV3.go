@@ -8,23 +8,25 @@ package oAuth20Extension
 
 import (
 	"log/slog"
-	"net/http"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0_extension"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
+	"net/http"
 )
 
 // AuthenticateAndLinkForwardV3Cmd represents the AuthenticateAndLinkForwardV3 command
 var AuthenticateAndLinkForwardV3Cmd = &cobra.Command{
-	Use:   "authenticateAndLinkForwardV3",
-	Short: "Authenticate and link forward V3",
-	Long:  `Authenticate and link forward V3`,
+	Use:	"authenticateAndLinkForwardV3",
+	Short:  "Authenticate and link forward V3",
+	Long:   `Authenticate and link forward V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20ExtensionService := &iam.OAuth20ExtensionService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		clientId, _ := cmd.Flags().GetString("clientId")
 		linkingToken, _ := cmd.Flags().GetString("linkingToken")
@@ -32,26 +34,26 @@ var AuthenticateAndLinkForwardV3Cmd = &cobra.Command{
 		username, _ := cmd.Flags().GetString("username")
 		extendExp, _ := cmd.Flags().GetBool("extendExp")
 		httpClient := &http.Client{
-			CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		   CheckRedirect: func(req *http.Request, via []*http.Request) error {
 				return http.ErrUseLastResponse
-			},
+		   },
 		}
 		input := &o_auth2_0_extension.AuthenticateAndLinkForwardV3Params{
-			ExtendExp:    &extendExp,
-			ClientID:     clientId,
+			ExtendExp   : &extendExp,
+			ClientID    : clientId,
 			LinkingToken: linkingToken,
-			Password:     password,
-			Username:     username,
-			HTTPClient:   httpClient,
+			Password    : password,
+			Username    : username,
+			HTTPClient: httpClient,
 		}
-		_, errFound := oAuth20ExtensionService.AuthenticateAndLinkForwardV3Short(input)
+_,errFound := oAuth20ExtensionService.AuthenticateAndLinkForwardV3Short(input)
 		if errFound != nil {
 			slog.Error("operation failed", "error", errFound)
 
 			return errFound
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

@@ -57,8 +57,7 @@ func NewRevokeUserParamsWithHTTPClient(client *http.Client) *RevokeUserParams {
 	}
 }
 
-/*
-RevokeUserParams contains all the parameters to send to the API endpoint
+/*RevokeUserParams contains all the parameters to send to the API endpoint
 for the revoke user operation typically these are written to a http.Request
 */
 type RevokeUserParams struct {

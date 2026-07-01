@@ -8,35 +8,37 @@ package usersV4
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicGetMyOwnMFAStatusV4Cmd represents the PublicGetMyOwnMFAStatusV4 command
 var PublicGetMyOwnMFAStatusV4Cmd = &cobra.Command{
-	Use:   "publicGetMyOwnMFAStatusV4",
-	Short: "Public get my own MFA status V4",
-	Long:  `Public get my own MFA status V4`,
+	Use:	"publicGetMyOwnMFAStatusV4",
+	Short:  "Public get my own MFA status V4",
+	Long:   `Public get my own MFA status V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users_v4.PublicGetMyOwnMFAStatusV4Params{
 			Namespace: namespace,
 		}
-		ok, errOK := usersV4Service.PublicGetMyOwnMFAStatusV4Short(input)
+ok,errOK := usersV4Service.PublicGetMyOwnMFAStatusV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

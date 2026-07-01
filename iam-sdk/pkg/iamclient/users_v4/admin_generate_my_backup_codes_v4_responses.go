@@ -145,10 +145,9 @@ func NewAdminGenerateMyBackupCodesV4OK() *AdminGenerateMyBackupCodesV4OK {
 	return &AdminGenerateMyBackupCodesV4OK{}
 }
 
-/*
-AdminGenerateMyBackupCodesV4OK handles this case with default header values.
+/*AdminGenerateMyBackupCodesV4OK handles this case with default header values.
 
-	Backup codes generated
+  Backup codes generated
 */
 type AdminGenerateMyBackupCodesV4OK struct {
 	Payload *iamclientmodels.ModelBackupCodesResponseV4
@@ -200,10 +199,9 @@ func NewAdminGenerateMyBackupCodesV4BadRequest() *AdminGenerateMyBackupCodesV4Ba
 	return &AdminGenerateMyBackupCodesV4BadRequest{}
 }
 
-/*
-AdminGenerateMyBackupCodesV4BadRequest handles this case with default header values.
+/*AdminGenerateMyBackupCodesV4BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type AdminGenerateMyBackupCodesV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,10 +253,9 @@ func NewAdminGenerateMyBackupCodesV4Unauthorized() *AdminGenerateMyBackupCodesV4
 	return &AdminGenerateMyBackupCodesV4Unauthorized{}
 }
 
-/*
-AdminGenerateMyBackupCodesV4Unauthorized handles this case with default header values.
+/*AdminGenerateMyBackupCodesV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGenerateMyBackupCodesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -310,10 +307,9 @@ func NewAdminGenerateMyBackupCodesV4Forbidden() *AdminGenerateMyBackupCodesV4For
 	return &AdminGenerateMyBackupCodesV4Forbidden{}
 }
 
-/*
-AdminGenerateMyBackupCodesV4Forbidden handles this case with default header values.
+/*AdminGenerateMyBackupCodesV4Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGenerateMyBackupCodesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -365,10 +361,9 @@ func NewAdminGenerateMyBackupCodesV4NotFound() *AdminGenerateMyBackupCodesV4NotF
 	return &AdminGenerateMyBackupCodesV4NotFound{}
 }
 
-/*
-AdminGenerateMyBackupCodesV4NotFound handles this case with default header values.
+/*AdminGenerateMyBackupCodesV4NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminGenerateMyBackupCodesV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -420,10 +415,9 @@ func NewAdminGenerateMyBackupCodesV4InternalServerError() *AdminGenerateMyBackup
 	return &AdminGenerateMyBackupCodesV4InternalServerError{}
 }
 
-/*
-AdminGenerateMyBackupCodesV4InternalServerError handles this case with default header values.
+/*AdminGenerateMyBackupCodesV4InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGenerateMyBackupCodesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

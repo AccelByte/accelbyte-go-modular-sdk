@@ -9,45 +9,47 @@ package userProfile
 import (
 	"encoding/json"
 	"log/slog"
-
-	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
+"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclient/user_profile"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg/basicclientmodels"
+	basic "github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk/pkg"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicCreateUserProfileCmd represents the PublicCreateUserProfile command
 var PublicCreateUserProfileCmd = &cobra.Command{
-	Use:   "publicCreateUserProfile",
-	Short: "Public create user profile",
-	Long:  `Public create user profile`,
+	Use:	"publicCreateUserProfile",
+	Short:  "Public create user profile",
+	Long:   `Public create user profile`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userProfileService := &basic.UserProfileService{
-			Client:          basic.NewBasicClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: basic.NewBasicHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")
 		bodyString := cmd.Flag("body").Value.String()
 		var body *basicclientmodels.UserProfileCreate
-		errBody := json.Unmarshal([]byte(bodyString), &body)
+errBody := json.Unmarshal([]byte(bodyString), &body)
 		if errBody != nil {
 			return errBody
 		}
 		input := &user_profile.PublicCreateUserProfileParams{
-			Body:      body,
+			Body     : body,
 			Namespace: namespace,
-			UserID:    userId,
+			UserID   : userId,
 		}
-		created, errCreated := userProfileService.PublicCreateUserProfileShort(input)
+created,errCreated := userProfileService.PublicCreateUserProfileShort(input)
 		if errCreated != nil {
 			slog.Error("operation failed", "error", errCreated)
 
 			return errCreated
 		}
 
-		slog.Info("Response CLI success", "response", created)
+        slog.Info("Response CLI success", "response", created)
 
 		return nil
 	},

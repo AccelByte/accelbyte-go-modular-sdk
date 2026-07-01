@@ -114,10 +114,9 @@ func NewAdminUpdateNamespaceScopedInputValidationsNoContent() *AdminUpdateNamesp
 	return &AdminUpdateNamespaceScopedInputValidationsNoContent{}
 }
 
-/*
-AdminUpdateNamespaceScopedInputValidationsNoContent handles this case with default header values.
+/*AdminUpdateNamespaceScopedInputValidationsNoContent handles this case with default header values.
 
-	No Content
+  No Content
 */
 type AdminUpdateNamespaceScopedInputValidationsNoContent struct {
 }
@@ -142,10 +141,9 @@ func NewAdminUpdateNamespaceScopedInputValidationsUnauthorized() *AdminUpdateNam
 	return &AdminUpdateNamespaceScopedInputValidationsUnauthorized{}
 }
 
-/*
-AdminUpdateNamespaceScopedInputValidationsUnauthorized handles this case with default header values.
+/*AdminUpdateNamespaceScopedInputValidationsUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateNamespaceScopedInputValidationsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -197,10 +195,9 @@ func NewAdminUpdateNamespaceScopedInputValidationsForbidden() *AdminUpdateNamesp
 	return &AdminUpdateNamespaceScopedInputValidationsForbidden{}
 }
 
-/*
-AdminUpdateNamespaceScopedInputValidationsForbidden handles this case with default header values.
+/*AdminUpdateNamespaceScopedInputValidationsForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateNamespaceScopedInputValidationsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -252,10 +249,9 @@ func NewAdminUpdateNamespaceScopedInputValidationsNotFound() *AdminUpdateNamespa
 	return &AdminUpdateNamespaceScopedInputValidationsNotFound{}
 }
 
-/*
-AdminUpdateNamespaceScopedInputValidationsNotFound handles this case with default header values.
+/*AdminUpdateNamespaceScopedInputValidationsNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10188</td><td>input validation field not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10188</td><td>input validation field not found</td></tr></table>
 */
 type AdminUpdateNamespaceScopedInputValidationsNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

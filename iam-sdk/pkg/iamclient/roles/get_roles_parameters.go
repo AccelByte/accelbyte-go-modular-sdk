@@ -57,8 +57,7 @@ func NewGetRolesParamsWithHTTPClient(client *http.Client) *GetRolesParams {
 	}
 }
 
-/*
-GetRolesParams contains all the parameters to send to the API endpoint
+/*GetRolesParams contains all the parameters to send to the API endpoint
 for the get roles operation typically these are written to a http.Request
 */
 type GetRolesParams struct {

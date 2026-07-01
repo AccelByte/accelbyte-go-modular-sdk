@@ -114,10 +114,9 @@ func NewAnonymizeUserProfileNoContent() *AnonymizeUserProfileNoContent {
 	return &AnonymizeUserProfileNoContent{}
 }
 
-/*
-AnonymizeUserProfileNoContent handles this case with default header values.
+/*AnonymizeUserProfileNoContent handles this case with default header values.
 
-	Anonymized profile successfully
+  Anonymized profile successfully
 */
 type AnonymizeUserProfileNoContent struct {
 }
@@ -142,10 +141,9 @@ func NewAnonymizeUserProfileBadRequest() *AnonymizeUserProfileBadRequest {
 	return &AnonymizeUserProfileBadRequest{}
 }
 
-/*
-AnonymizeUserProfileBadRequest handles this case with default header values.
+/*AnonymizeUserProfileBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AnonymizeUserProfileBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -197,10 +195,9 @@ func NewAnonymizeUserProfileUnauthorized() *AnonymizeUserProfileUnauthorized {
 	return &AnonymizeUserProfileUnauthorized{}
 }
 
-/*
-AnonymizeUserProfileUnauthorized handles this case with default header values.
+/*AnonymizeUserProfileUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AnonymizeUserProfileUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -252,10 +249,9 @@ func NewAnonymizeUserProfileForbidden() *AnonymizeUserProfileForbidden {
 	return &AnonymizeUserProfileForbidden{}
 }
 
-/*
-AnonymizeUserProfileForbidden handles this case with default header values.
+/*AnonymizeUserProfileForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AnonymizeUserProfileForbidden struct {
 	Payload *basicclientmodels.ErrorEntity

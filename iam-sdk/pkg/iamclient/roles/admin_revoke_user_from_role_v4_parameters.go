@@ -59,8 +59,7 @@ func NewAdminRevokeUserFromRoleV4ParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*
-AdminRevokeUserFromRoleV4Params contains all the parameters to send to the API endpoint
+/*AdminRevokeUserFromRoleV4Params contains all the parameters to send to the API endpoint
 for the admin revoke user from role v4 operation typically these are written to a http.Request
 */
 type AdminRevokeUserFromRoleV4Params struct {

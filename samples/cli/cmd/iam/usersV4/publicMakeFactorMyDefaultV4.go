@@ -8,37 +8,39 @@ package usersV4
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/users_v4"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // PublicMakeFactorMyDefaultV4Cmd represents the PublicMakeFactorMyDefaultV4 command
 var PublicMakeFactorMyDefaultV4Cmd = &cobra.Command{
-	Use:   "publicMakeFactorMyDefaultV4",
-	Short: "Public make factor my default V4",
-	Long:  `Public make factor my default V4`,
+	Use:	"publicMakeFactorMyDefaultV4",
+	Short:  "Public make factor my default V4",
+	Long:   `Public make factor my default V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		usersV4Service := &iam.UsersV4Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		factor, _ := cmd.Flags().GetString("factor")
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &users_v4.PublicMakeFactorMyDefaultV4Params{
-			Factor:    factor,
+			Factor   : factor,
 			Namespace: namespace,
 		}
-		errNoContent := usersV4Service.PublicMakeFactorMyDefaultV4Short(input)
+errNoContent := usersV4Service.PublicMakeFactorMyDefaultV4Short(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

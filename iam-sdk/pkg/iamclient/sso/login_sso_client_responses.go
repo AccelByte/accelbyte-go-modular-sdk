@@ -66,10 +66,9 @@ func NewLoginSSOClientOK() *LoginSSOClientOK {
 	return &LoginSSOClientOK{}
 }
 
-/*
-LoginSSOClientOK handles this case with default header values.
+/*LoginSSOClientOK handles this case with default header values.
 
-	OK
+  OK
 */
 type LoginSSOClientOK struct {
 }

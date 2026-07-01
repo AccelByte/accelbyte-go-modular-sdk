@@ -130,10 +130,9 @@ func NewTokenGrantV3OK() *TokenGrantV3OK {
 	return &TokenGrantV3OK{}
 }
 
-/*
-TokenGrantV3OK handles this case with default header values.
+/*TokenGrantV3OK handles this case with default header values.
 
-	Token returned
+  Token returned
 */
 type TokenGrantV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenWithDeviceCookieResponseV3
@@ -185,10 +184,9 @@ func NewTokenGrantV3BadRequest() *TokenGrantV3BadRequest {
 	return &TokenGrantV3BadRequest{}
 }
 
-/*
-TokenGrantV3BadRequest handles this case with default header values.
+/*TokenGrantV3BadRequest handles this case with default header values.
 
-	InvalidRequest
+  InvalidRequest
 */
 type TokenGrantV3BadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -240,10 +238,9 @@ func NewTokenGrantV3Unauthorized() *TokenGrantV3Unauthorized {
 	return &TokenGrantV3Unauthorized{}
 }
 
-/*
-TokenGrantV3Unauthorized handles this case with default header values.
+/*TokenGrantV3Unauthorized handles this case with default header values.
 
-	Client authentication failed
+  Client authentication failed
 */
 type TokenGrantV3Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -295,10 +292,9 @@ func NewTokenGrantV3Forbidden() *TokenGrantV3Forbidden {
 	return &TokenGrantV3Forbidden{}
 }
 
-/*
-TokenGrantV3Forbidden handles this case with default header values.
+/*TokenGrantV3Forbidden handles this case with default header values.
 
-	Unauthorized access
+  Unauthorized access
 */
 type TokenGrantV3Forbidden struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -350,10 +346,9 @@ func NewTokenGrantV3TooManyRequests() *TokenGrantV3TooManyRequests {
 	return &TokenGrantV3TooManyRequests{}
 }
 
-/*
-TokenGrantV3TooManyRequests handles this case with default header values.
+/*TokenGrantV3TooManyRequests handles this case with default header values.
 
-	Too many failed auth attempt
+  Too many failed auth attempt
 */
 type TokenGrantV3TooManyRequests struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

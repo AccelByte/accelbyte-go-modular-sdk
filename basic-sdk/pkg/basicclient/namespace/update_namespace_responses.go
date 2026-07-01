@@ -145,10 +145,9 @@ func NewUpdateNamespaceOK() *UpdateNamespaceOK {
 	return &UpdateNamespaceOK{}
 }
 
-/*
-UpdateNamespaceOK handles this case with default header values.
+/*UpdateNamespaceOK handles this case with default header values.
 
-	Successful operation
+  Successful operation
 */
 type UpdateNamespaceOK struct {
 	Payload *basicclientmodels.NamespaceInfo
@@ -200,10 +199,9 @@ func NewUpdateNamespaceBadRequest() *UpdateNamespaceBadRequest {
 	return &UpdateNamespaceBadRequest{}
 }
 
-/*
-UpdateNamespaceBadRequest handles this case with default header values.
+/*UpdateNamespaceBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type UpdateNamespaceBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -255,10 +253,9 @@ func NewUpdateNamespaceUnauthorized() *UpdateNamespaceUnauthorized {
 	return &UpdateNamespaceUnauthorized{}
 }
 
-/*
-UpdateNamespaceUnauthorized handles this case with default header values.
+/*UpdateNamespaceUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type UpdateNamespaceUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -310,10 +307,9 @@ func NewUpdateNamespaceForbidden() *UpdateNamespaceForbidden {
 	return &UpdateNamespaceForbidden{}
 }
 
-/*
-UpdateNamespaceForbidden handles this case with default header values.
+/*UpdateNamespaceForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdateNamespaceForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -365,10 +361,9 @@ func NewUpdateNamespaceNotFound() *UpdateNamespaceNotFound {
 	return &UpdateNamespaceNotFound{}
 }
 
-/*
-UpdateNamespaceNotFound handles this case with default header values.
+/*UpdateNamespaceNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
 */
 type UpdateNamespaceNotFound struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -420,10 +415,9 @@ func NewUpdateNamespaceConflict() *UpdateNamespaceConflict {
 	return &UpdateNamespaceConflict{}
 }
 
-/*
-UpdateNamespaceConflict handles this case with default header values.
+/*UpdateNamespaceConflict handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20006</td><td>optimistic lock</td></tr></table>
 */
 type UpdateNamespaceConflict struct {
 	Payload *basicclientmodels.ErrorEntity

@@ -17,11 +17,8 @@ import (
 )
 
 type OAuth20ExtensionService struct {
-	Client           *iamclient.JusticeIamService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *iamclient.JusticeIamService
+	Session repository.Session
 }
 
 var tempFlightIdOAuth20Extension *string
@@ -32,9 +29,9 @@ func (aaa *OAuth20ExtensionService) UpdateFlightId(flightId string) {
 
 func (aaa *OAuth20ExtensionService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -56,8 +53,8 @@ func (aaa *OAuth20ExtensionService) UserAuthenticationV3Short(input *o_auth2_0_e
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	found, err := aaa.Client.OAuth20Extension.UserAuthenticationV3Short(input, authInfoWriter)
@@ -96,8 +93,8 @@ func (aaa *OAuth20ExtensionService) AuthenticationWithPlatformLinkV3Short(input 
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OAuth20Extension.AuthenticationWithPlatformLinkV3Short(input, authInfoWriter)
@@ -130,8 +127,8 @@ func (aaa *OAuth20ExtensionService) AuthenticateAndLinkForwardV3Short(input *o_a
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	found, err := aaa.Client.OAuth20Extension.AuthenticateAndLinkForwardV3Short(input, authInfoWriter)
@@ -160,8 +157,8 @@ func (aaa *OAuth20ExtensionService) GenerateTokenByNewHeadlessAccountV3Short(inp
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OAuth20Extension.GenerateTokenByNewHeadlessAccountV3Short(input, authInfoWriter)
@@ -194,8 +191,8 @@ func (aaa *OAuth20ExtensionService) RequestOneTimeLinkingCodeV3Short(input *o_au
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OAuth20Extension.RequestOneTimeLinkingCodeV3Short(input, authInfoWriter)
@@ -221,8 +218,8 @@ func (aaa *OAuth20ExtensionService) ValidateOneTimeLinkingCodeV3Short(input *o_a
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OAuth20Extension.ValidateOneTimeLinkingCodeV3Short(input)
@@ -248,8 +245,8 @@ func (aaa *OAuth20ExtensionService) RequestTokenByOneTimeLinkCodeResponseV3Short
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OAuth20Extension.RequestTokenByOneTimeLinkCodeResponseV3Short(input)
@@ -282,8 +279,8 @@ func (aaa *OAuth20ExtensionService) GetCountryLocationV3Short(input *o_auth2_0_e
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OAuth20Extension.GetCountryLocationV3Short(input, authInfoWriter)
@@ -316,8 +313,8 @@ func (aaa *OAuth20ExtensionService) LogoutShort(input *o_auth2_0_extension.Logou
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.OAuth20Extension.LogoutShort(input, authInfoWriter)
@@ -346,8 +343,8 @@ func (aaa *OAuth20ExtensionService) RequestTokenExchangeCodeV3Short(input *o_aut
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OAuth20Extension.RequestTokenExchangeCodeV3Short(input, authInfoWriter)
@@ -380,8 +377,8 @@ func (aaa *OAuth20ExtensionService) PlatformAuthenticationV3Short(input *o_auth2
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	found, err := aaa.Client.OAuth20Extension.PlatformAuthenticationV3Short(input, authInfoWriter)
@@ -410,8 +407,8 @@ func (aaa *OAuth20ExtensionService) PlatformTokenRefreshV3Short(input *o_auth2_0
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OAuth20Extension.PlatformTokenRefreshV3Short(input, authInfoWriter)
@@ -444,8 +441,8 @@ func (aaa *OAuth20ExtensionService) RequestTargetTokenResponseV3Short(input *o_a
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.OAuth20Extension.RequestTargetTokenResponseV3Short(input, authInfoWriter)
@@ -478,8 +475,8 @@ func (aaa *OAuth20ExtensionService) UpgradeAndAuthenticateForwardV3Short(input *
 	}
 	if tempFlightIdOAuth20Extension != nil {
 		input.XFlightId = tempFlightIdOAuth20Extension
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	found, err := aaa.Client.OAuth20Extension.UpgradeAndAuthenticateForwardV3Short(input, authInfoWriter)

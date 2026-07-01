@@ -57,8 +57,7 @@ func NewPlatformLinkParamsWithHTTPClient(client *http.Client) *PlatformLinkParam
 	}
 }
 
-/*
-PlatformLinkParams contains all the parameters to send to the API endpoint
+/*PlatformLinkParams contains all the parameters to send to the API endpoint
 for the platform link operation typically these are written to a http.Request
 */
 type PlatformLinkParams struct {

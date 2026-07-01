@@ -59,8 +59,7 @@ func NewDeleteThirdPartyLoginPlatformDomainV3ParamsWithHTTPClient(client *http.C
 	}
 }
 
-/*
-DeleteThirdPartyLoginPlatformDomainV3Params contains all the parameters to send to the API endpoint
+/*DeleteThirdPartyLoginPlatformDomainV3Params contains all the parameters to send to the API endpoint
 for the delete third party login platform domain v3 operation typically these are written to a http.Request
 */
 type DeleteThirdPartyLoginPlatformDomainV3Params struct {

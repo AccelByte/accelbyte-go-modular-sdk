@@ -8,41 +8,43 @@ package roles
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // AdminGetRolesV4Cmd represents the AdminGetRolesV4 command
 var AdminGetRolesV4Cmd = &cobra.Command{
-	Use:   "adminGetRolesV4",
-	Short: "Admin get roles V4",
-	Long:  `Admin get roles V4`,
+	Use:	"adminGetRolesV4",
+	Short:  "Admin get roles V4",
+	Long:   `Admin get roles V4`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		adminRole, _ := cmd.Flags().GetBool("adminRole")
 		isWildcard, _ := cmd.Flags().GetBool("isWildcard")
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		input := &roles.AdminGetRolesV4Params{
-			AdminRole:  &adminRole,
+			AdminRole : &adminRole,
 			IsWildcard: &isWildcard,
-			Limit:      &limit,
-			Offset:     &offset,
+			Limit     : &limit,
+			Offset    : &offset,
 		}
-		ok, errOK := rolesService.AdminGetRolesV4Short(input)
+ok,errOK := rolesService.AdminGetRolesV4Short(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

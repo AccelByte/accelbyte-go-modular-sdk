@@ -8,39 +8,41 @@ package oAuth20
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // SendMFAAuthenticationCodeCmd represents the SendMFAAuthenticationCode command
 var SendMFAAuthenticationCodeCmd = &cobra.Command{
-	Use:   "sendMFAAuthenticationCode",
-	Short: "Send MFA authentication code",
-	Long:  `Send MFA authentication code`,
+	Use:	"sendMFAAuthenticationCode",
+	Short:  "Send MFA authentication code",
+	Long:   `Send MFA authentication code`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		clientId, _ := cmd.Flags().GetString("clientId")
 		factor, _ := cmd.Flags().GetString("factor")
 		mfaToken, _ := cmd.Flags().GetString("mfaToken")
 		input := &o_auth2_0.SendMFAAuthenticationCodeParams{
 			ClientID: clientId,
-			Factor:   factor,
+			Factor  : factor,
 			MFAToken: mfaToken,
 		}
-		errNoContent := oAuth20Service.SendMFAAuthenticationCodeShort(input)
+errNoContent := oAuth20Service.SendMFAAuthenticationCodeShort(input)
 		if errNoContent != nil {
 			slog.Error("operation failed", "error", errNoContent)
 
 			return errNoContent
 		}
 
-		slog.Info("Response CLI success.")
+        slog.Info("Response CLI success.")
 
 		return nil
 	},

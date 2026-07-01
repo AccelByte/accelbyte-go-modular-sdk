@@ -125,10 +125,9 @@ func NewUpdateCountryAgeRestrictionOK() *UpdateCountryAgeRestrictionOK {
 	return &UpdateCountryAgeRestrictionOK{}
 }
 
-/*
-UpdateCountryAgeRestrictionOK handles this case with default header values.
+/*UpdateCountryAgeRestrictionOK handles this case with default header values.
 
-	OK
+  OK
 */
 type UpdateCountryAgeRestrictionOK struct {
 	Payload *iamclientmodels.ModelCountry
@@ -180,10 +179,9 @@ func NewUpdateCountryAgeRestrictionBadRequest() *UpdateCountryAgeRestrictionBadR
 	return &UpdateCountryAgeRestrictionBadRequest{}
 }
 
-/*
-UpdateCountryAgeRestrictionBadRequest handles this case with default header values.
+/*UpdateCountryAgeRestrictionBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type UpdateCountryAgeRestrictionBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewUpdateCountryAgeRestrictionUnauthorized() *UpdateCountryAgeRestrictionUn
 	return &UpdateCountryAgeRestrictionUnauthorized{}
 }
 
-/*
-UpdateCountryAgeRestrictionUnauthorized handles this case with default header values.
+/*UpdateCountryAgeRestrictionUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateCountryAgeRestrictionUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewUpdateCountryAgeRestrictionForbidden() *UpdateCountryAgeRestrictionForbi
 	return &UpdateCountryAgeRestrictionForbidden{}
 }
 
-/*
-UpdateCountryAgeRestrictionForbidden handles this case with default header values.
+/*UpdateCountryAgeRestrictionForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateCountryAgeRestrictionForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewUpdateCountryAgeRestrictionNotFound() *UpdateCountryAgeRestrictionNotFou
 	return &UpdateCountryAgeRestrictionNotFound{}
 }
 
-/*
-UpdateCountryAgeRestrictionNotFound handles this case with default header values.
+/*UpdateCountryAgeRestrictionNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type UpdateCountryAgeRestrictionNotFound struct {
 }

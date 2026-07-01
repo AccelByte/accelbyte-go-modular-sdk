@@ -145,10 +145,9 @@ func NewAdminListInvitationHistoriesV4OK() *AdminListInvitationHistoriesV4OK {
 	return &AdminListInvitationHistoriesV4OK{}
 }
 
-/*
-AdminListInvitationHistoriesV4OK handles this case with default header values.
+/*AdminListInvitationHistoriesV4OK handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type AdminListInvitationHistoriesV4OK struct {
 	Payload *iamclientmodels.ModelListInvitationHistoriesV4Response
@@ -200,10 +199,9 @@ func NewAdminListInvitationHistoriesV4BadRequest() *AdminListInvitationHistories
 	return &AdminListInvitationHistoriesV4BadRequest{}
 }
 
-/*
-AdminListInvitationHistoriesV4BadRequest handles this case with default header values.
+/*AdminListInvitationHistoriesV4BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminListInvitationHistoriesV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -255,10 +253,9 @@ func NewAdminListInvitationHistoriesV4Unauthorized() *AdminListInvitationHistori
 	return &AdminListInvitationHistoriesV4Unauthorized{}
 }
 
-/*
-AdminListInvitationHistoriesV4Unauthorized handles this case with default header values.
+/*AdminListInvitationHistoriesV4Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListInvitationHistoriesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -310,10 +307,9 @@ func NewAdminListInvitationHistoriesV4Forbidden() *AdminListInvitationHistoriesV
 	return &AdminListInvitationHistoriesV4Forbidden{}
 }
 
-/*
-AdminListInvitationHistoriesV4Forbidden handles this case with default header values.
+/*AdminListInvitationHistoriesV4Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminListInvitationHistoriesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -365,10 +361,9 @@ func NewAdminListInvitationHistoriesV4InternalServerError() *AdminListInvitation
 	return &AdminListInvitationHistoriesV4InternalServerError{}
 }
 
-/*
-AdminListInvitationHistoriesV4InternalServerError handles this case with default header values.
+/*AdminListInvitationHistoriesV4InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminListInvitationHistoriesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -420,10 +415,9 @@ func NewAdminListInvitationHistoriesV4NotImplemented() *AdminListInvitationHisto
 	return &AdminListInvitationHistoriesV4NotImplemented{}
 }
 
-/*
-AdminListInvitationHistoriesV4NotImplemented handles this case with default header values.
+/*AdminListInvitationHistoriesV4NotImplemented handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
 */
 type AdminListInvitationHistoriesV4NotImplemented struct {
 	Payload *iamclientmodels.RestErrorResponse

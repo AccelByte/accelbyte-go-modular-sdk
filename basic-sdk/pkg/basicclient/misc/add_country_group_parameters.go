@@ -59,8 +59,7 @@ func NewAddCountryGroupParamsWithHTTPClient(client *http.Client) *AddCountryGrou
 	}
 }
 
-/*
-AddCountryGroupParams contains all the parameters to send to the API endpoint
+/*AddCountryGroupParams contains all the parameters to send to the API endpoint
 for the add country group operation typically these are written to a http.Request
 */
 type AddCountryGroupParams struct {

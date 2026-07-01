@@ -8,41 +8,43 @@ package oAuth20
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/o_auth2_0"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // Verify2faCodeCmd represents the Verify2faCode command
 var Verify2faCodeCmd = &cobra.Command{
-	Use:   "verify2faCode",
-	Short: "Verify2fa code",
-	Long:  `Verify2fa code`,
+	Use:	"verify2faCode",
+	Short:  "Verify2fa code",
+	Long:   `Verify2fa code`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		oAuth20Service := &iam.OAuth20Service{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		code, _ := cmd.Flags().GetString("code")
 		factor, _ := cmd.Flags().GetString("factor")
 		mfaToken, _ := cmd.Flags().GetString("mfaToken")
 		rememberDevice, _ := cmd.Flags().GetBool("rememberDevice")
 		input := &o_auth2_0.Verify2FACodeParams{
-			Code:           code,
-			Factor:         factor,
-			MFAToken:       mfaToken,
+			Code          : code,
+			Factor        : factor,
+			MFAToken      : mfaToken,
 			RememberDevice: rememberDevice,
 		}
-		ok, errOK := oAuth20Service.Verify2FACodeShort(input)
+ok,errOK := oAuth20Service.Verify2FACodeShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

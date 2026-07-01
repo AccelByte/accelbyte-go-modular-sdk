@@ -130,10 +130,9 @@ func NewAdminBanUserV2Created() *AdminBanUserV2Created {
 	return &AdminBanUserV2Created{}
 }
 
-/*
-AdminBanUserV2Created handles this case with default header values.
+/*AdminBanUserV2Created handles this case with default header values.
 
-	Created
+  Created
 */
 type AdminBanUserV2Created struct {
 	Payload *iamclientmodels.ModelUserBanResponse
@@ -185,10 +184,9 @@ func NewAdminBanUserV2BadRequest() *AdminBanUserV2BadRequest {
 	return &AdminBanUserV2BadRequest{}
 }
 
-/*
-AdminBanUserV2BadRequest handles this case with default header values.
+/*AdminBanUserV2BadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminBanUserV2BadRequest struct {
 }
@@ -213,10 +211,9 @@ func NewAdminBanUserV2Unauthorized() *AdminBanUserV2Unauthorized {
 	return &AdminBanUserV2Unauthorized{}
 }
 
-/*
-AdminBanUserV2Unauthorized handles this case with default header values.
+/*AdminBanUserV2Unauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminBanUserV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -268,10 +265,9 @@ func NewAdminBanUserV2Forbidden() *AdminBanUserV2Forbidden {
 	return &AdminBanUserV2Forbidden{}
 }
 
-/*
-AdminBanUserV2Forbidden handles this case with default header values.
+/*AdminBanUserV2Forbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminBanUserV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -323,10 +319,9 @@ func NewAdminBanUserV2NotFound() *AdminBanUserV2NotFound {
 	return &AdminBanUserV2NotFound{}
 }
 
-/*
-AdminBanUserV2NotFound handles this case with default header values.
+/*AdminBanUserV2NotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10158</td><td>ban not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10158</td><td>ban not found</td></tr></table>
 */
 type AdminBanUserV2NotFound struct {
 }
@@ -351,10 +346,9 @@ func NewAdminBanUserV2InternalServerError() *AdminBanUserV2InternalServerError {
 	return &AdminBanUserV2InternalServerError{}
 }
 
-/*
-AdminBanUserV2InternalServerError handles this case with default header values.
+/*AdminBanUserV2InternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminBanUserV2InternalServerError struct {
 }

@@ -8,35 +8,37 @@ package roles
 
 import (
 	"log/slog"
-
+"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
 	iam "github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg"
-	"github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk/pkg/iamclient/roles"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
 
 // GetRoleAdminStatusCmd represents the GetRoleAdminStatus command
 var GetRoleAdminStatusCmd = &cobra.Command{
-	Use:   "getRoleAdminStatus",
-	Short: "Get role admin status",
-	Long:  `Get role admin status`,
+	Use:	"getRoleAdminStatus",
+	Short:  "Get role admin status",
+	Long:   `Get role admin status`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rolesService := &iam.RolesService{
-			Client:          iam.NewIamClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: iam.NewIamHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		roleId, _ := cmd.Flags().GetString("roleId")
 		input := &roles.GetRoleAdminStatusParams{
 			RoleID: roleId,
 		}
-		ok, errOK := rolesService.GetRoleAdminStatusShort(input)
+ok,errOK := rolesService.GetRoleAdminStatusShort(input)
 		if errOK != nil {
 			slog.Error("operation failed", "error", errOK)
 
 			return errOK
 		}
 
-		slog.Info("Response CLI success", "response", ok)
+        slog.Info("Response CLI success", "response", ok)
 
 		return nil
 	},

@@ -115,10 +115,9 @@ func NewPublicGetAsyncStatusOK() *PublicGetAsyncStatusOK {
 	return &PublicGetAsyncStatusOK{}
 }
 
-/*
-PublicGetAsyncStatusOK handles this case with default header values.
+/*PublicGetAsyncStatusOK handles this case with default header values.
 
-	OK
+  OK
 */
 type PublicGetAsyncStatusOK struct {
 	Payload *iamclientmodels.ModelLinkRequest
@@ -170,10 +169,9 @@ func NewPublicGetAsyncStatusUnauthorized() *PublicGetAsyncStatusUnauthorized {
 	return &PublicGetAsyncStatusUnauthorized{}
 }
 
-/*
-PublicGetAsyncStatusUnauthorized handles this case with default header values.
+/*PublicGetAsyncStatusUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicGetAsyncStatusUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,10 +223,9 @@ func NewPublicGetAsyncStatusForbidden() *PublicGetAsyncStatusForbidden {
 	return &PublicGetAsyncStatusForbidden{}
 }
 
-/*
-PublicGetAsyncStatusForbidden handles this case with default header values.
+/*PublicGetAsyncStatusForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetAsyncStatusForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -280,10 +277,9 @@ func NewPublicGetAsyncStatusInternalServerError() *PublicGetAsyncStatusInternalS
 	return &PublicGetAsyncStatusInternalServerError{}
 }
 
-/*
-PublicGetAsyncStatusInternalServerError handles this case with default header values.
+/*PublicGetAsyncStatusInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetAsyncStatusInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -119,10 +119,9 @@ func NewEnableUserNoContent() *EnableUserNoContent {
 	return &EnableUserNoContent{}
 }
 
-/*
-EnableUserNoContent handles this case with default header values.
+/*EnableUserNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type EnableUserNoContent struct {
 }
@@ -147,10 +146,9 @@ func NewEnableUserUnauthorized() *EnableUserUnauthorized {
 	return &EnableUserUnauthorized{}
 }
 
-/*
-EnableUserUnauthorized handles this case with default header values.
+/*EnableUserUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type EnableUserUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -202,10 +200,9 @@ func NewEnableUserForbidden() *EnableUserForbidden {
 	return &EnableUserForbidden{}
 }
 
-/*
-EnableUserForbidden handles this case with default header values.
+/*EnableUserForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type EnableUserForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -257,10 +254,9 @@ func NewEnableUserNotFound() *EnableUserNotFound {
 	return &EnableUserNotFound{}
 }
 
-/*
-EnableUserNotFound handles this case with default header values.
+/*EnableUserNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type EnableUserNotFound struct {
 }
@@ -285,10 +281,9 @@ func NewEnableUserInternalServerError() *EnableUserInternalServerError {
 	return &EnableUserInternalServerError{}
 }
 
-/*
-EnableUserInternalServerError handles this case with default header values.
+/*EnableUserInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type EnableUserInternalServerError struct {
 }

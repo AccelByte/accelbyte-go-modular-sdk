@@ -124,10 +124,9 @@ func NewForgotPasswordNoContent() *ForgotPasswordNoContent {
 	return &ForgotPasswordNoContent{}
 }
 
-/*
-ForgotPasswordNoContent handles this case with default header values.
+/*ForgotPasswordNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type ForgotPasswordNoContent struct {
 }
@@ -152,10 +151,9 @@ func NewForgotPasswordBadRequest() *ForgotPasswordBadRequest {
 	return &ForgotPasswordBadRequest{}
 }
 
-/*
-ForgotPasswordBadRequest handles this case with default header values.
+/*ForgotPasswordBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type ForgotPasswordBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -207,10 +205,9 @@ func NewForgotPasswordUnauthorized() *ForgotPasswordUnauthorized {
 	return &ForgotPasswordUnauthorized{}
 }
 
-/*
-ForgotPasswordUnauthorized handles this case with default header values.
+/*ForgotPasswordUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type ForgotPasswordUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -262,10 +259,9 @@ func NewForgotPasswordForbidden() *ForgotPasswordForbidden {
 	return &ForgotPasswordForbidden{}
 }
 
-/*
-ForgotPasswordForbidden handles this case with default header values.
+/*ForgotPasswordForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type ForgotPasswordForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -317,10 +313,9 @@ func NewForgotPasswordNotFound() *ForgotPasswordNotFound {
 	return &ForgotPasswordNotFound{}
 }
 
-/*
-ForgotPasswordNotFound handles this case with default header values.
+/*ForgotPasswordNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type ForgotPasswordNotFound struct {
 }

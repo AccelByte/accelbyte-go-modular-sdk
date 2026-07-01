@@ -57,8 +57,7 @@ func NewGetListJusticePlatformAccountsParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*
-GetListJusticePlatformAccountsParams contains all the parameters to send to the API endpoint
+/*GetListJusticePlatformAccountsParams contains all the parameters to send to the API endpoint
 for the get list justice platform accounts operation typically these are written to a http.Request
 */
 type GetListJusticePlatformAccountsParams struct {

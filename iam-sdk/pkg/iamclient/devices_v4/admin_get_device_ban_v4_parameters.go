@@ -57,8 +57,7 @@ func NewAdminGetDeviceBanV4ParamsWithHTTPClient(client *http.Client) *AdminGetDe
 	}
 }
 
-/*
-AdminGetDeviceBanV4Params contains all the parameters to send to the API endpoint
+/*AdminGetDeviceBanV4Params contains all the parameters to send to the API endpoint
 for the admin get device ban v4 operation typically these are written to a http.Request
 */
 type AdminGetDeviceBanV4Params struct {

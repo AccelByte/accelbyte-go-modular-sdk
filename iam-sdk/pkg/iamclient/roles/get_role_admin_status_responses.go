@@ -125,10 +125,9 @@ func NewGetRoleAdminStatusOK() *GetRoleAdminStatusOK {
 	return &GetRoleAdminStatusOK{}
 }
 
-/*
-GetRoleAdminStatusOK handles this case with default header values.
+/*GetRoleAdminStatusOK handles this case with default header values.
 
-	OK
+  OK
 */
 type GetRoleAdminStatusOK struct {
 	Payload *iamclientmodels.ModelRoleAdminStatusResponse
@@ -180,10 +179,9 @@ func NewGetRoleAdminStatusBadRequest() *GetRoleAdminStatusBadRequest {
 	return &GetRoleAdminStatusBadRequest{}
 }
 
-/*
-GetRoleAdminStatusBadRequest handles this case with default header values.
+/*GetRoleAdminStatusBadRequest handles this case with default header values.
 
-	Invalid request
+  Invalid request
 */
 type GetRoleAdminStatusBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -235,10 +233,9 @@ func NewGetRoleAdminStatusUnauthorized() *GetRoleAdminStatusUnauthorized {
 	return &GetRoleAdminStatusUnauthorized{}
 }
 
-/*
-GetRoleAdminStatusUnauthorized handles this case with default header values.
+/*GetRoleAdminStatusUnauthorized handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetRoleAdminStatusUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,10 +287,9 @@ func NewGetRoleAdminStatusForbidden() *GetRoleAdminStatusForbidden {
 	return &GetRoleAdminStatusForbidden{}
 }
 
-/*
-GetRoleAdminStatusForbidden handles this case with default header values.
+/*GetRoleAdminStatusForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetRoleAdminStatusForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -345,10 +341,9 @@ func NewGetRoleAdminStatusNotFound() *GetRoleAdminStatusNotFound {
 	return &GetRoleAdminStatusNotFound{}
 }
 
-/*
-GetRoleAdminStatusNotFound handles this case with default header values.
+/*GetRoleAdminStatusNotFound handles this case with default header values.
 
-	Data not found
+  Data not found
 */
 type GetRoleAdminStatusNotFound struct {
 }

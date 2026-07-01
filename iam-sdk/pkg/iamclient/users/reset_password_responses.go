@@ -107,10 +107,9 @@ func NewResetPasswordNoContent() *ResetPasswordNoContent {
 	return &ResetPasswordNoContent{}
 }
 
-/*
-ResetPasswordNoContent handles this case with default header values.
+/*ResetPasswordNoContent handles this case with default header values.
 
-	Operation succeeded
+  Operation succeeded
 */
 type ResetPasswordNoContent struct {
 }
@@ -135,10 +134,9 @@ func NewResetPasswordBadRequest() *ResetPasswordBadRequest {
 	return &ResetPasswordBadRequest{}
 }
 
-/*
-ResetPasswordBadRequest handles this case with default header values.
+/*ResetPasswordBadRequest handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014016</td><td>unable to parse request body</td></tr><tr><td>1015073</td><td>new password same as old password</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014016</td><td>unable to parse request body</td></tr><tr><td>1015073</td><td>new password same as old password</td></tr></table>
 */
 type ResetPasswordBadRequest struct {
 }
@@ -163,10 +161,9 @@ func NewResetPasswordForbidden() *ResetPasswordForbidden {
 	return &ResetPasswordForbidden{}
 }
 
-/*
-ResetPasswordForbidden handles this case with default header values.
+/*ResetPasswordForbidden handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014021</td><td>verification code expired</td></tr><tr><td>1014019</td><td>verification code already used</td></tr><tr><td>1014020</td><td>verification code invalid</td></tr><tr><td>1014018</td><td>verification code not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014021</td><td>verification code expired</td></tr><tr><td>1014019</td><td>verification code already used</td></tr><tr><td>1014020</td><td>verification code invalid</td></tr><tr><td>1014018</td><td>verification code not found</td></tr></table>
 */
 type ResetPasswordForbidden struct {
 }
@@ -191,10 +188,9 @@ func NewResetPasswordNotFound() *ResetPasswordNotFound {
 	return &ResetPasswordNotFound{}
 }
 
-/*
-ResetPasswordNotFound handles this case with default header values.
+/*ResetPasswordNotFound handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014017</td><td>user not found</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>1014017</td><td>user not found</td></tr></table>
 */
 type ResetPasswordNotFound struct {
 }
@@ -219,10 +215,9 @@ func NewResetPasswordInternalServerError() *ResetPasswordInternalServerError {
 	return &ResetPasswordInternalServerError{}
 }
 
-/*
-ResetPasswordInternalServerError handles this case with default header values.
+/*ResetPasswordInternalServerError handles this case with default header values.
 
-	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type ResetPasswordInternalServerError struct {
 }

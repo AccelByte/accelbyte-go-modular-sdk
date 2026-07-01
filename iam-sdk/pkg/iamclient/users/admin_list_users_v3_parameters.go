@@ -58,8 +58,7 @@ func NewAdminListUsersV3ParamsWithHTTPClient(client *http.Client) *AdminListUser
 	}
 }
 
-/*
-AdminListUsersV3Params contains all the parameters to send to the API endpoint
+/*AdminListUsersV3Params contains all the parameters to send to the API endpoint
 for the admin list users v3 operation typically these are written to a http.Request
 */
 type AdminListUsersV3Params struct {
