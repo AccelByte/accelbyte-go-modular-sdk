@@ -10,6 +10,7 @@ import (
 	"log/slog"
 	"os"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/certificate"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -23,8 +24,10 @@ var AdminUploadXBoxCertificateCmd = &cobra.Command{
 	Long:  `Admin upload X box certificate`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		certificateService := &session.CertificateService{
-			Client:          session.NewSessionClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: session.NewSessionHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		certname, _ := cmd.Flags().GetString("certname")
 		outputFile := cmd.Flag("file").Value.String()

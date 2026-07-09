@@ -13,6 +13,7 @@ import (
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleets"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var FleetClaimByKeysCmd = &cobra.Command{
 	Long:  `Fleet claim by keys`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fleetsService := &ams.FleetsService{
-			Client:          ams.NewAmsClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ams.NewAmsHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *amsclientmodels.APIFleetClaimByKeysReq

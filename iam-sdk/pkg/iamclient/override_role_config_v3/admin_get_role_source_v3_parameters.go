@@ -84,7 +84,8 @@ func NewAdminGetRoleSourceV3ParamsWithHTTPClient(client *http.Client) *AdminGetR
 	}
 }
 
-/*AdminGetRoleSourceV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetRoleSourceV3Params contains all the parameters to send to the API endpoint
 for the admin get role source v3 operation typically these are written to a http.Request
 */
 type AdminGetRoleSourceV3Params struct {

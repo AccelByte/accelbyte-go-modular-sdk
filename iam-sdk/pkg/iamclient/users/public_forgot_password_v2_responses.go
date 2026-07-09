@@ -107,9 +107,10 @@ func NewPublicForgotPasswordV2NoContent() *PublicForgotPasswordV2NoContent {
 	return &PublicForgotPasswordV2NoContent{}
 }
 
-/*PublicForgotPasswordV2NoContent handles this case with default header values.
+/*
+PublicForgotPasswordV2NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicForgotPasswordV2NoContent struct {
 }
@@ -134,9 +135,10 @@ func NewPublicForgotPasswordV2BadRequest() *PublicForgotPasswordV2BadRequest {
 	return &PublicForgotPasswordV2BadRequest{}
 }
 
-/*PublicForgotPasswordV2BadRequest handles this case with default header values.
+/*
+PublicForgotPasswordV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicForgotPasswordV2BadRequest struct {
 }
@@ -161,9 +163,10 @@ func NewPublicForgotPasswordV2NotFound() *PublicForgotPasswordV2NotFound {
 	return &PublicForgotPasswordV2NotFound{}
 }
 
-/*PublicForgotPasswordV2NotFound handles this case with default header values.
+/*
+PublicForgotPasswordV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicForgotPasswordV2NotFound struct {
 }
@@ -188,9 +191,10 @@ func NewPublicForgotPasswordV2TooManyRequests() *PublicForgotPasswordV2TooManyRe
 	return &PublicForgotPasswordV2TooManyRequests{}
 }
 
-/*PublicForgotPasswordV2TooManyRequests handles this case with default header values.
+/*
+PublicForgotPasswordV2TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type PublicForgotPasswordV2TooManyRequests struct {
 }
@@ -215,9 +219,10 @@ func NewPublicForgotPasswordV2InternalServerError() *PublicForgotPasswordV2Inter
 	return &PublicForgotPasswordV2InternalServerError{}
 }
 
-/*PublicForgotPasswordV2InternalServerError handles this case with default header values.
+/*
+PublicForgotPasswordV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicForgotPasswordV2InternalServerError struct {
 }

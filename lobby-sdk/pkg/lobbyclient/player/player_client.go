@@ -909,11 +909,7 @@ func (a *Client) PublicPlayerBlockPlayersV1Short(params *PublicPlayerBlockPlayer
 
 /*
 PublicGetPlayerBlockedPlayersV1Short get blocked players by user id
-Required valid user authorization
-
-load blocked players in a namespace based on user id
-
-Action Code: 50101
+Load blocked players in a namespace for the current user.
 */
 func (a *Client) PublicGetPlayerBlockedPlayersV1Short(params *PublicGetPlayerBlockedPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedPlayersV1Response, error) {
 	// TODO: Validate the params before sending
@@ -1002,11 +998,7 @@ func (a *Client) PublicGetPlayerBlockedPlayersV1Short(params *PublicGetPlayerBlo
 
 /*
 PublicGetPlayerBlockedByPlayersV1Short get players who blocked this player by user id
-Required valid user authorization
-
-load get players who blocked this player in a namespace based on user id
-
-Action Code: 50101
+Load players who have blocked the current user in a namespace.
 */
 func (a *Client) PublicGetPlayerBlockedByPlayersV1Short(params *PublicGetPlayerBlockedByPlayersV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPlayerBlockedByPlayersV1Response, error) {
 	// TODO: Validate the params before sending

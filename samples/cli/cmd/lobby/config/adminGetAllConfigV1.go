@@ -11,6 +11,7 @@ import (
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/config"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminGetAllConfigV1Cmd = &cobra.Command{
 	Long:  `Admin get all config V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &lobby.ConfigService{
-			Client:          lobby.NewLobbyClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: lobby.NewLobbyHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		input := &config.AdminGetAllConfigV1Params{}
 		ok, errOK := configService.AdminGetAllConfigV1Short(input)

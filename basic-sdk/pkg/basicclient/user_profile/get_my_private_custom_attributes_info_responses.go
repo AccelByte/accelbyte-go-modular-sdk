@@ -115,9 +115,10 @@ func NewGetMyPrivateCustomAttributesInfoOK() *GetMyPrivateCustomAttributesInfoOK
 	return &GetMyPrivateCustomAttributesInfoOK{}
 }
 
-/*GetMyPrivateCustomAttributesInfoOK handles this case with default header values.
+/*
+GetMyPrivateCustomAttributesInfoOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetMyPrivateCustomAttributesInfoOK struct {
 	Payload map[string]interface{}
@@ -167,9 +168,10 @@ func NewGetMyPrivateCustomAttributesInfoUnauthorized() *GetMyPrivateCustomAttrib
 	return &GetMyPrivateCustomAttributesInfoUnauthorized{}
 }
 
-/*GetMyPrivateCustomAttributesInfoUnauthorized handles this case with default header values.
+/*
+GetMyPrivateCustomAttributesInfoUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetMyPrivateCustomAttributesInfoUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -221,9 +223,10 @@ func NewGetMyPrivateCustomAttributesInfoForbidden() *GetMyPrivateCustomAttribute
 	return &GetMyPrivateCustomAttributesInfoForbidden{}
 }
 
-/*GetMyPrivateCustomAttributesInfoForbidden handles this case with default header values.
+/*
+GetMyPrivateCustomAttributesInfoForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetMyPrivateCustomAttributesInfoForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -275,9 +278,10 @@ func NewGetMyPrivateCustomAttributesInfoNotFound() *GetMyPrivateCustomAttributes
 	return &GetMyPrivateCustomAttributesInfoNotFound{}
 }
 
-/*GetMyPrivateCustomAttributesInfoNotFound handles this case with default header values.
+/*
+GetMyPrivateCustomAttributesInfoNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
 */
 type GetMyPrivateCustomAttributesInfoNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

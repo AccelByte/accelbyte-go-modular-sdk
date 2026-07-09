@@ -144,9 +144,10 @@ func NewAdminDisableMyAuthenticatorV4NoContent() *AdminDisableMyAuthenticatorV4N
 	return &AdminDisableMyAuthenticatorV4NoContent{}
 }
 
-/*AdminDisableMyAuthenticatorV4NoContent handles this case with default header values.
+/*
+AdminDisableMyAuthenticatorV4NoContent handles this case with default header values.
 
-  Authenticator disabled
+	Authenticator disabled
 */
 type AdminDisableMyAuthenticatorV4NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDisableMyAuthenticatorV4BadRequest() *AdminDisableMyAuthenticatorV4
 	return &AdminDisableMyAuthenticatorV4BadRequest{}
 }
 
-/*AdminDisableMyAuthenticatorV4BadRequest handles this case with default header values.
+/*
+AdminDisableMyAuthenticatorV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10228</td><td>invalid mfa token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10228</td><td>invalid mfa token</td></tr></table>
 */
 type AdminDisableMyAuthenticatorV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminDisableMyAuthenticatorV4Unauthorized() *AdminDisableMyAuthenticator
 	return &AdminDisableMyAuthenticatorV4Unauthorized{}
 }
 
-/*AdminDisableMyAuthenticatorV4Unauthorized handles this case with default header values.
+/*
+AdminDisableMyAuthenticatorV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDisableMyAuthenticatorV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminDisableMyAuthenticatorV4Forbidden() *AdminDisableMyAuthenticatorV4F
 	return &AdminDisableMyAuthenticatorV4Forbidden{}
 }
 
-/*AdminDisableMyAuthenticatorV4Forbidden handles this case with default header values.
+/*
+AdminDisableMyAuthenticatorV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDisableMyAuthenticatorV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminDisableMyAuthenticatorV4NotFound() *AdminDisableMyAuthenticatorV4No
 	return &AdminDisableMyAuthenticatorV4NotFound{}
 }
 
-/*AdminDisableMyAuthenticatorV4NotFound handles this case with default header values.
+/*
+AdminDisableMyAuthenticatorV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminDisableMyAuthenticatorV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminDisableMyAuthenticatorV4InternalServerError() *AdminDisableMyAuthen
 	return &AdminDisableMyAuthenticatorV4InternalServerError{}
 }
 
-/*AdminDisableMyAuthenticatorV4InternalServerError handles this case with default header values.
+/*
+AdminDisableMyAuthenticatorV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDisableMyAuthenticatorV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

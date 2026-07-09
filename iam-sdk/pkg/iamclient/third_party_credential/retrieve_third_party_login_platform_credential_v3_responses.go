@@ -130,9 +130,10 @@ func NewRetrieveThirdPartyLoginPlatformCredentialV3OK() *RetrieveThirdPartyLogin
 	return &RetrieveThirdPartyLoginPlatformCredentialV3OK{}
 }
 
-/*RetrieveThirdPartyLoginPlatformCredentialV3OK handles this case with default header values.
+/*
+RetrieveThirdPartyLoginPlatformCredentialV3OK handles this case with default header values.
 
-  Third Party Credential Found
+	Third Party Credential Found
 */
 type RetrieveThirdPartyLoginPlatformCredentialV3OK struct {
 	Payload *iamclientmodels.ModelThirdPartyLoginPlatformCredentialResponse
@@ -184,9 +185,10 @@ func NewRetrieveThirdPartyLoginPlatformCredentialV3Unauthorized() *RetrieveThird
 	return &RetrieveThirdPartyLoginPlatformCredentialV3Unauthorized{}
 }
 
-/*RetrieveThirdPartyLoginPlatformCredentialV3Unauthorized handles this case with default header values.
+/*
+RetrieveThirdPartyLoginPlatformCredentialV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type RetrieveThirdPartyLoginPlatformCredentialV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewRetrieveThirdPartyLoginPlatformCredentialV3Forbidden() *RetrieveThirdPar
 	return &RetrieveThirdPartyLoginPlatformCredentialV3Forbidden{}
 }
 
-/*RetrieveThirdPartyLoginPlatformCredentialV3Forbidden handles this case with default header values.
+/*
+RetrieveThirdPartyLoginPlatformCredentialV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type RetrieveThirdPartyLoginPlatformCredentialV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewRetrieveThirdPartyLoginPlatformCredentialV3NotFound() *RetrieveThirdPart
 	return &RetrieveThirdPartyLoginPlatformCredentialV3NotFound{}
 }
 
-/*RetrieveThirdPartyLoginPlatformCredentialV3NotFound handles this case with default header values.
+/*
+RetrieveThirdPartyLoginPlatformCredentialV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
 */
 type RetrieveThirdPartyLoginPlatformCredentialV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewRetrieveThirdPartyLoginPlatformCredentialV3InternalServerError() *Retrie
 	return &RetrieveThirdPartyLoginPlatformCredentialV3InternalServerError{}
 }
 
-/*RetrieveThirdPartyLoginPlatformCredentialV3InternalServerError handles this case with default header values.
+/*
+RetrieveThirdPartyLoginPlatformCredentialV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type RetrieveThirdPartyLoginPlatformCredentialV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

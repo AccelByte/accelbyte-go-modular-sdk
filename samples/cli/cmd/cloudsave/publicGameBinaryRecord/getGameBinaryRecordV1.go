@@ -11,6 +11,7 @@ import (
 
 	cloudsave "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/public_game_binary_record"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var GetGameBinaryRecordV1Cmd = &cobra.Command{
 	Long:  `Get game binary record V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		publicGameBinaryRecordService := &cloudsave.PublicGameBinaryRecordService{
-			Client:          cloudsave.NewCloudsaveClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: cloudsave.NewCloudsaveHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		key, _ := cmd.Flags().GetString("key")
 		namespace, _ := cmd.Flags().GetString("namespace")

@@ -15,11 +15,8 @@ import (
 )
 
 type AppService struct {
-	Client           *csmclient.JusticeCsmService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *csmclient.JusticeCsmService
+	Session repository.Session
 }
 
 var tempFlightIdApp *string
@@ -30,9 +27,9 @@ func (aaa *AppService) UpdateFlightId(flightId string) {
 
 func (aaa *AppService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AppService) GetAppListV1Short(input *app.GetAppListV1Params) (*app.Ge
 	}
 	if tempFlightIdApp != nil {
 		input.XFlightId = tempFlightIdApp
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.App.GetAppListV1Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AppService) GetAppV1Short(input *app.GetAppV1Params) (*app.GetAppV1Re
 	}
 	if tempFlightIdApp != nil {
 		input.XFlightId = tempFlightIdApp
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.App.GetAppV1Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AppService) CreateAppV1Short(input *app.CreateAppV1Params) (*app.Crea
 	}
 	if tempFlightIdApp != nil {
 		input.XFlightId = tempFlightIdApp
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.App.CreateAppV1Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *AppService) DeleteAppV1Short(input *app.DeleteAppV1Params) error {
 	}
 	if tempFlightIdApp != nil {
 		input.XFlightId = tempFlightIdApp
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.App.DeleteAppV1Short(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *AppService) UpdateAppV1Short(input *app.UpdateAppV1Params) (*app.Upda
 	}
 	if tempFlightIdApp != nil {
 		input.XFlightId = tempFlightIdApp
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.App.UpdateAppV1Short(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *AppService) GetAppReleaseV1Short(input *app.GetAppReleaseV1Params) (*
 	}
 	if tempFlightIdApp != nil {
 		input.XFlightId = tempFlightIdApp
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.App.GetAppReleaseV1Short(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *AppService) StartAppV1Short(input *app.StartAppV1Params) (*app.StartA
 	}
 	if tempFlightIdApp != nil {
 		input.XFlightId = tempFlightIdApp
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.App.StartAppV1Short(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *AppService) StopAppV1Short(input *app.StopAppV1Params) (*app.StopAppV
 	}
 	if tempFlightIdApp != nil {
 		input.XFlightId = tempFlightIdApp
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.App.StopAppV1Short(input, authInfoWriter)

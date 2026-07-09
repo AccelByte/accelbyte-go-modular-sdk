@@ -129,9 +129,10 @@ func NewDeleteThirdPartyLoginPlatformCredentialV3NoContent() *DeleteThirdPartyLo
 	return &DeleteThirdPartyLoginPlatformCredentialV3NoContent{}
 }
 
-/*DeleteThirdPartyLoginPlatformCredentialV3NoContent handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformCredentialV3NoContent handles this case with default header values.
 
-  Delete Process Successful
+	Delete Process Successful
 */
 type DeleteThirdPartyLoginPlatformCredentialV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteThirdPartyLoginPlatformCredentialV3Unauthorized() *DeleteThirdPart
 	return &DeleteThirdPartyLoginPlatformCredentialV3Unauthorized{}
 }
 
-/*DeleteThirdPartyLoginPlatformCredentialV3Unauthorized handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformCredentialV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteThirdPartyLoginPlatformCredentialV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,9 +212,10 @@ func NewDeleteThirdPartyLoginPlatformCredentialV3Forbidden() *DeleteThirdPartyLo
 	return &DeleteThirdPartyLoginPlatformCredentialV3Forbidden{}
 }
 
-/*DeleteThirdPartyLoginPlatformCredentialV3Forbidden handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformCredentialV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteThirdPartyLoginPlatformCredentialV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +267,10 @@ func NewDeleteThirdPartyLoginPlatformCredentialV3NotFound() *DeleteThirdPartyLog
 	return &DeleteThirdPartyLoginPlatformCredentialV3NotFound{}
 }
 
-/*DeleteThirdPartyLoginPlatformCredentialV3NotFound handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformCredentialV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
 */
 type DeleteThirdPartyLoginPlatformCredentialV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +322,10 @@ func NewDeleteThirdPartyLoginPlatformCredentialV3InternalServerError() *DeleteTh
 	return &DeleteThirdPartyLoginPlatformCredentialV3InternalServerError{}
 }
 
-/*DeleteThirdPartyLoginPlatformCredentialV3InternalServerError handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformCredentialV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DeleteThirdPartyLoginPlatformCredentialV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

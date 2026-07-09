@@ -13,6 +13,7 @@ import (
 	csm "github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var UpdateVariableV1Cmd = &cobra.Command{
 	Long:  `Update variable V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configurationService := &csm.ConfigurationService{
-			Client:          csm.NewCsmClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: csm.NewCsmHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *csmclientmodels.GeneratedUpdateConfigurationV1Request

@@ -9,6 +9,7 @@ package publicGroup
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_group"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var GetGroupsCmd = &cobra.Command{
 	Long:  `Get groups`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		publicGroupService := &ugc.PublicGroupService{
-			Client:          ugc.NewUgcClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ugc.NewUgcHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")

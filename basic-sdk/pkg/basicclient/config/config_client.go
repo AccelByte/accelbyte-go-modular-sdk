@@ -44,7 +44,7 @@ CreateConfigShort create a config
 Create a config.
 Other detail info:
 
-  * Returns : created config
+  - Returns : created config
 */
 func (a *Client) CreateConfigShort(params *CreateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*CreateConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -129,7 +129,7 @@ GetConfigShort get a config
 Get a config.
 Other detail info:
 
-  * Returns : config
+  - Returns : config
 */
 func (a *Client) GetConfigShort(params *GetConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -214,7 +214,7 @@ DeleteConfigShort delete a config
 Delete a config.
 Other detail info:
 
-  * Returns : created config
+  - Returns : created config
 */
 func (a *Client) DeleteConfigShort(params *DeleteConfigParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -298,7 +298,7 @@ UpdateConfigShort update a config
 Update a config.
 Other detail info:
 
-  * Returns : created config
+  - Returns : created config
 */
 func (a *Client) UpdateConfigShort(params *UpdateConfigParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -384,7 +384,7 @@ Get a publisher config.
 It will return a publisher namespace config of the given namespace and key.
 Other detail info:
 
-  * Returns : config
+  - Returns : config
 */
 func (a *Client) GetPublisherConfigShort(params *GetPublisherConfigParams, authInfo runtime.ClientAuthInfoWriter) (*GetPublisherConfigResponse, error) {
 	// TODO: Validate the params before sending

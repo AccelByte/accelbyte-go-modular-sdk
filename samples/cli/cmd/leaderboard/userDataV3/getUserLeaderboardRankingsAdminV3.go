@@ -11,6 +11,7 @@ import (
 
 	leaderboard "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/user_data_v3"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var GetUserLeaderboardRankingsAdminV3Cmd = &cobra.Command{
 	Long:  `Get user leaderboard rankings admin V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userDataV3Service := &leaderboard.UserDataV3Service{
-			Client:          leaderboard.NewLeaderboardClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: leaderboard.NewLeaderboardHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")

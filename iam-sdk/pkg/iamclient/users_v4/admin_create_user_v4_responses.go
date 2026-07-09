@@ -160,9 +160,10 @@ func NewAdminCreateUserV4Created() *AdminCreateUserV4Created {
 	return &AdminCreateUserV4Created{}
 }
 
-/*AdminCreateUserV4Created handles this case with default header values.
+/*
+AdminCreateUserV4Created handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateUserV4Created struct {
 	Payload *iamclientmodels.AccountCreateUserResponseV4
@@ -214,9 +215,10 @@ func NewAdminCreateUserV4BadRequest() *AdminCreateUserV4BadRequest {
 	return &AdminCreateUserV4BadRequest{}
 }
 
-/*AdminCreateUserV4BadRequest handles this case with default header values.
+/*
+AdminCreateUserV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
 */
 type AdminCreateUserV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -268,9 +270,10 @@ func NewAdminCreateUserV4Unauthorized() *AdminCreateUserV4Unauthorized {
 	return &AdminCreateUserV4Unauthorized{}
 }
 
-/*AdminCreateUserV4Unauthorized handles this case with default header values.
+/*
+AdminCreateUserV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCreateUserV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,9 +325,10 @@ func NewAdminCreateUserV4Forbidden() *AdminCreateUserV4Forbidden {
 	return &AdminCreateUserV4Forbidden{}
 }
 
-/*AdminCreateUserV4Forbidden handles this case with default header values.
+/*
+AdminCreateUserV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20003</td><td>forbidden access</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>20003</td><td>forbidden access</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
 */
 type AdminCreateUserV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -376,9 +380,10 @@ func NewAdminCreateUserV4NotFound() *AdminCreateUserV4NotFound {
 	return &AdminCreateUserV4NotFound{}
 }
 
-/*AdminCreateUserV4NotFound handles this case with default header values.
+/*
+AdminCreateUserV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
 */
 type AdminCreateUserV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -430,9 +435,10 @@ func NewAdminCreateUserV4Conflict() *AdminCreateUserV4Conflict {
 	return &AdminCreateUserV4Conflict{}
 }
 
-/*AdminCreateUserV4Conflict handles this case with default header values.
+/*
+AdminCreateUserV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10177</td><td>username already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10177</td><td>username already used</td></tr></table>
 */
 type AdminCreateUserV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -484,9 +490,10 @@ func NewAdminCreateUserV4InternalServerError() *AdminCreateUserV4InternalServerE
 	return &AdminCreateUserV4InternalServerError{}
 }
 
-/*AdminCreateUserV4InternalServerError handles this case with default header values.
+/*
+AdminCreateUserV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminCreateUserV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

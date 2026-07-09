@@ -37,7 +37,7 @@ type ClientService interface {
 
 /*
 AdminGetListNativeSessionShort list of native sessions.
-List of native sessions.
+Returns paginated list of native platform sessions. Native sessions are synchronized with PSN, Xbox Live, and Steam platform session systems.
 */
 func (a *Client) AdminGetListNativeSessionShort(params *AdminGetListNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetListNativeSessionResponse, error) {
 	// TODO: Validate the params before sending

@@ -15,11 +15,8 @@ import (
 )
 
 type TagsService struct {
-	Client           *achievementclient.JusticeAchievementService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *achievementclient.JusticeAchievementService
+	Session repository.Session
 }
 
 var tempFlightIdTags *string
@@ -30,9 +27,9 @@ func (aaa *TagsService) UpdateFlightId(flightId string) {
 
 func (aaa *TagsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *TagsService) AdminListTagsShort(input *tags.AdminListTagsParams) (*ta
 	}
 	if tempFlightIdTags != nil {
 		input.XFlightId = tempFlightIdTags
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Tags.AdminListTagsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *TagsService) PublicListTagsShort(input *tags.PublicListTagsParams) (*
 	}
 	if tempFlightIdTags != nil {
 		input.XFlightId = tempFlightIdTags
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Tags.PublicListTagsShort(input, authInfoWriter)

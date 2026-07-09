@@ -12,6 +12,7 @@ import (
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/item"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -23,8 +24,10 @@ var ListBasicItemsByFeaturesCmd = &cobra.Command{
 	Long:  `List basic items by features`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		itemService := &platform.ItemService{
-			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: platform.NewPlatformHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		activeOnly, _ := cmd.Flags().GetBool("activeOnly")

@@ -41,8 +41,6 @@ type ClientService interface {
 
 /*
 CreateSubscriptionHandlerShort subscribe to topic
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:SUBSCRIPTIONS [CREATE]`
-
 Subscribe App queue to given Topic name list inside a game namespace.
 */
 func (a *Client) CreateSubscriptionHandlerShort(params *CreateSubscriptionHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*CreateSubscriptionHandlerResponse, error) {
@@ -132,8 +130,6 @@ func (a *Client) CreateSubscriptionHandlerShort(params *CreateSubscriptionHandle
 
 /*
 UnsubscribeTopicHandlerShort unsubscribe from topic
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:SUBSCRIPTIONS [DELETE]`
-
 Unsubscribe App queue from a topic by Topic Name.
 */
 func (a *Client) UnsubscribeTopicHandlerShort(params *UnsubscribeTopicHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeTopicHandlerResponse, error) {
@@ -216,8 +212,6 @@ func (a *Client) UnsubscribeTopicHandlerShort(params *UnsubscribeTopicHandlerPar
 
 /*
 ListTopicsHandlerShort list async messaging topics
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:TOPICS [READ]`
-
 List all Async Messaging Topics inside a game namespace.
 */
 func (a *Client) ListTopicsHandlerShort(params *ListTopicsHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*ListTopicsHandlerResponse, error) {
@@ -300,8 +294,6 @@ func (a *Client) ListTopicsHandlerShort(params *ListTopicsHandlerParams, authInf
 
 /*
 CreateTopicHandlerShort create async messaging topic
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:TOPICS [CREATE]`
-
 Create New Async Messaging Topic, the topic name is unique inside a game namespace.
 */
 func (a *Client) CreateTopicHandlerShort(params *CreateTopicHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*CreateTopicHandlerResponse, error) {
@@ -391,8 +383,6 @@ func (a *Client) CreateTopicHandlerShort(params *CreateTopicHandlerParams, authI
 
 /*
 DeleteTopicHandlerShort delete async messaging topic
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:ASYNCMESSAGING:TOPICS [DELETE]`
-
 Delete Async Messaging Topic inside a game namespace given its topic name.
 */
 func (a *Client) DeleteTopicHandlerShort(params *DeleteTopicHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTopicHandlerResponse, error) {

@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/party"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclientmodels"
@@ -24,8 +25,10 @@ var PublicPartyInviteCmd = &cobra.Command{
 	Long:  `Public party invite`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		partyService := &session.PartyService{
-			Client:          session.NewSessionClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: session.NewSessionHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *sessionclientmodels.ApimodelsSessionInviteRequest

@@ -11,6 +11,7 @@ import (
 
 	cloudsave "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/ttl_config"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var DeleteGameBinaryRecordTTLConfigCmd = &cobra.Command{
 	Long:  `Delete game binary record TTL config`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ttlConfigService := &cloudsave.TTLConfigService{
-			Client:          cloudsave.NewCloudsaveClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: cloudsave.NewCloudsaveHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		key, _ := cmd.Flags().GetString("key")
 		namespace, _ := cmd.Flags().GetString("namespace")

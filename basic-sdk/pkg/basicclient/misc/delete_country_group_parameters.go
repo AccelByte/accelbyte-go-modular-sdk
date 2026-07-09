@@ -57,7 +57,8 @@ func NewDeleteCountryGroupParamsWithHTTPClient(client *http.Client) *DeleteCount
 	}
 }
 
-/*DeleteCountryGroupParams contains all the parameters to send to the API endpoint
+/*
+DeleteCountryGroupParams contains all the parameters to send to the API endpoint
 for the delete country group operation typically these are written to a http.Request
 */
 type DeleteCountryGroupParams struct {

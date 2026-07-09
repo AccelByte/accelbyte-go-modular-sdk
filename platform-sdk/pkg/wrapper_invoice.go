@@ -17,11 +17,8 @@ import (
 )
 
 type InvoiceService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdInvoice *string
@@ -32,9 +29,9 @@ func (aaa *InvoiceService) UpdateFlightId(flightId string) {
 
 func (aaa *InvoiceService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -56,8 +53,8 @@ func (aaa *InvoiceService) DownloadInvoiceDetailsShort(input *invoice.DownloadIn
 	}
 	if tempFlightIdInvoice != nil {
 		input.XFlightId = tempFlightIdInvoice
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Invoice.DownloadInvoiceDetailsShort(input, authInfoWriter, writer)
@@ -90,8 +87,8 @@ func (aaa *InvoiceService) GenerateInvoiceSummaryShort(input *invoice.GenerateIn
 	}
 	if tempFlightIdInvoice != nil {
 		input.XFlightId = tempFlightIdInvoice
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Invoice.GenerateInvoiceSummaryShort(input, authInfoWriter)

@@ -13,6 +13,7 @@ import (
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	topic_ "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var PublicMuteUserCmd = &cobra.Command{
 	Long:  `Public mute user`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: chat.NewChatHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *chatclientmodels.APIMuteUserRequest

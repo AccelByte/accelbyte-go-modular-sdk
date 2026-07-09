@@ -13,6 +13,7 @@ import (
 	inventory "github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_inventories"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var AdminUpdateUserInventoriesByInventoryCodeCmd = &cobra.Command{
 	Long:  `Admin update user inventories by inventory code`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminInventoriesService := &inventory.AdminInventoriesService{
-			Client:          inventory.NewInventoryClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: inventory.NewInventoryHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *inventoryclientmodels.ApimodelsUpdateInventoryReq

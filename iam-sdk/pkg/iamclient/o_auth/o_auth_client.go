@@ -32,7 +32,7 @@ type Client struct {
 type ClientService interface {
 	AuthorizationShort(params *AuthorizationParams, authInfo runtime.ClientAuthInfoWriter) (*AuthorizationResponse, error)
 	GetJWKSShort(params *GetJWKSParams, authInfo runtime.ClientAuthInfoWriter) (*GetJWKSResponse, error)
-	PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRequestHandlerResponse, error)
+	NamespaceScopedPlatformTokenGrantShort(params *NamespaceScopedPlatformTokenGrantParams, authInfo runtime.ClientAuthInfoWriter) (*NamespaceScopedPlatformTokenGrantResponse, error)
 	RevokeUserShort(params *RevokeUserParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeUserResponse, error)
 	GetRevocationListShort(params *GetRevocationListParams, authInfo runtime.ClientAuthInfoWriter) (*GetRevocationListResponse, error)
 	RevokeTokenShort(params *RevokeTokenParams, authInfo runtime.ClientAuthInfoWriter) (*RevokeTokenResponse, error)
@@ -187,7 +187,7 @@ func (a *Client) GetJWKSShort(params *GetJWKSParams, authInfo runtime.ClientAuth
 }
 
 /*
-PlatformTokenRequestHandlerShort oauth2 access token generation specific to platform
+NamespaceScopedPlatformTokenGrantShort oauth2 access token generation specific to platform
 **This endpoint is deprecated.**
 Requires all requests to have Authorization header set with Basic access authentication
 constructed from client id and client secret. For publisher-game namespace schema : Specify only either platform_token or device_id. Device token grant
@@ -201,10 +201,10 @@ The JWT contains user's active bans with its expiry date. List of ban types can 
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/oauth/platforms/{platformId}/token [POST]_**
 */
-func (a *Client) PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHandlerParams, authInfo runtime.ClientAuthInfoWriter) (*PlatformTokenRequestHandlerResponse, error) {
+func (a *Client) NamespaceScopedPlatformTokenGrantShort(params *NamespaceScopedPlatformTokenGrantParams, authInfo runtime.ClientAuthInfoWriter) (*NamespaceScopedPlatformTokenGrantResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPlatformTokenRequestHandlerParams()
+		params = NewNamespaceScopedPlatformTokenGrantParams()
 	}
 
 	if params.Context == nil {
@@ -220,14 +220,14 @@ func (a *Client) PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHa
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "PlatformTokenRequestHandler",
+		ID:                 "NamespaceScopedPlatformTokenGrant",
 		Method:             "POST",
 		PathPattern:        "/iam/oauth/namespaces/{namespace}/platforms/{platformId}/token",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PlatformTokenRequestHandlerReader{formats: a.formats},
+		Reader:             &NamespaceScopedPlatformTokenGrantReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -238,22 +238,22 @@ func (a *Client) PlatformTokenRequestHandlerShort(params *PlatformTokenRequestHa
 
 	switch v := result.(type) {
 
-	case *PlatformTokenRequestHandlerOK:
-		response := &PlatformTokenRequestHandlerResponse{}
+	case *NamespaceScopedPlatformTokenGrantOK:
+		response := &NamespaceScopedPlatformTokenGrantResponse{}
 		response.Data = v.Payload
 
 		response.IsSuccess = true
 
 		return response, nil
-	case *PlatformTokenRequestHandlerBadRequest:
-		response := &PlatformTokenRequestHandlerResponse{}
+	case *NamespaceScopedPlatformTokenGrantBadRequest:
+		response := &NamespaceScopedPlatformTokenGrantResponse{}
 		response.Error400 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *PlatformTokenRequestHandlerUnauthorized:
-		response := &PlatformTokenRequestHandlerResponse{}
+	case *NamespaceScopedPlatformTokenGrantUnauthorized:
+		response := &NamespaceScopedPlatformTokenGrantResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false

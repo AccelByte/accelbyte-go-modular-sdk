@@ -11,6 +11,7 @@ import (
 
 	leaderboard "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/leaderboard_configuration"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var HardDeleteLeaderboardAdminV1Cmd = &cobra.Command{
 	Long:  `Hard delete leaderboard admin V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		leaderboardConfigurationService := &leaderboard.LeaderboardConfigurationService{
-			Client:          leaderboard.NewLeaderboardClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: leaderboard.NewLeaderboardHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		leaderboardCode, _ := cmd.Flags().GetString("leaderboardCode")
 		namespace, _ := cmd.Flags().GetString("namespace")

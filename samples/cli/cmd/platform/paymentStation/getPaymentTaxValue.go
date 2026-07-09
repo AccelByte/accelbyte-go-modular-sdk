@@ -11,6 +11,7 @@ import (
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/payment_station"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var GetPaymentTaxValueCmd = &cobra.Command{
 	Long:  `Get payment tax value`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		paymentStationService := &platform.PaymentStationService{
-			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: platform.NewPlatformHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		paymentOrderNo, _ := cmd.Flags().GetString("paymentOrderNo")

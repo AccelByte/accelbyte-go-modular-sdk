@@ -13,6 +13,7 @@ import (
 
 	seasonpass "github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/export"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var ExportSeasonCmd = &cobra.Command{
 	Long:  `Export season`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		exportService := &seasonpass.ExportService{
-			Client:          seasonpass.NewSeasonpassClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: seasonpass.NewSeasonpassHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		file, errFile := os.Create("file")

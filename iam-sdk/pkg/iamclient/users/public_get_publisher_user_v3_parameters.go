@@ -57,7 +57,8 @@ func NewPublicGetPublisherUserV3ParamsWithHTTPClient(client *http.Client) *Publi
 	}
 }
 
-/*PublicGetPublisherUserV3Params contains all the parameters to send to the API endpoint
+/*
+PublicGetPublisherUserV3Params contains all the parameters to send to the API endpoint
 for the public get publisher user v3 operation typically these are written to a http.Request
 */
 type PublicGetPublisherUserV3Params struct {

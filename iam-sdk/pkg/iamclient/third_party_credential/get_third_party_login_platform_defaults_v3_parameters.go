@@ -57,7 +57,8 @@ func NewGetThirdPartyLoginPlatformDefaultsV3ParamsWithHTTPClient(client *http.Cl
 	}
 }
 
-/*GetThirdPartyLoginPlatformDefaultsV3Params contains all the parameters to send to the API endpoint
+/*
+GetThirdPartyLoginPlatformDefaultsV3Params contains all the parameters to send to the API endpoint
 for the get third party login platform defaults v3 operation typically these are written to a http.Request
 */
 type GetThirdPartyLoginPlatformDefaultsV3Params struct {

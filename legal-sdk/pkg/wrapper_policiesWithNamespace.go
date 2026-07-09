@@ -15,11 +15,8 @@ import (
 )
 
 type PoliciesWithNamespaceService struct {
-	Client           *legalclient.JusticeLegalService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *legalclient.JusticeLegalService
+	Session repository.Session
 }
 
 var tempFlightIdPoliciesWithNamespace *string
@@ -30,9 +27,9 @@ func (aaa *PoliciesWithNamespaceService) UpdateFlightId(flightId string) {
 
 func (aaa *PoliciesWithNamespaceService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PoliciesWithNamespaceService) DeletePolicyShort(input *policies_with_
 	}
 	if tempFlightIdPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PoliciesWithNamespace.DeletePolicyShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *PoliciesWithNamespaceService) UpdatePolicyShort(input *policies_with_
 	}
 	if tempFlightIdPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PoliciesWithNamespace.UpdatePolicyShort(input, authInfoWriter)
@@ -114,8 +111,8 @@ func (aaa *PoliciesWithNamespaceService) SetDefaultPolicyShort(input *policies_w
 	}
 	if tempFlightIdPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PoliciesWithNamespace.SetDefaultPolicyShort(input, authInfoWriter)

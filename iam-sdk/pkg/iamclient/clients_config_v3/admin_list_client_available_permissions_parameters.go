@@ -70,7 +70,8 @@ func NewAdminListClientAvailablePermissionsParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*AdminListClientAvailablePermissionsParams contains all the parameters to send to the API endpoint
+/*
+AdminListClientAvailablePermissionsParams contains all the parameters to send to the API endpoint
 for the admin list client available permissions operation typically these are written to a http.Request
 */
 type AdminListClientAvailablePermissionsParams struct {

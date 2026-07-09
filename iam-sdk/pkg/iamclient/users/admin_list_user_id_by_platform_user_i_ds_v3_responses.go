@@ -130,9 +130,10 @@ func NewAdminListUserIDByPlatformUserIDsV3OK() *AdminListUserIDByPlatformUserIDs
 	return &AdminListUserIDByPlatformUserIDsV3OK{}
 }
 
-/*AdminListUserIDByPlatformUserIDsV3OK handles this case with default header values.
+/*
+AdminListUserIDByPlatformUserIDsV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListUserIDByPlatformUserIDsV3OK struct {
 	Payload *iamclientmodels.AccountcommonUserPlatforms
@@ -184,9 +185,10 @@ func NewAdminListUserIDByPlatformUserIDsV3BadRequest() *AdminListUserIDByPlatfor
 	return &AdminListUserIDByPlatformUserIDsV3BadRequest{}
 }
 
-/*AdminListUserIDByPlatformUserIDsV3BadRequest handles this case with default header values.
+/*
+AdminListUserIDByPlatformUserIDsV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminListUserIDByPlatformUserIDsV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminListUserIDByPlatformUserIDsV3Unauthorized() *AdminListUserIDByPlatf
 	return &AdminListUserIDByPlatformUserIDsV3Unauthorized{}
 }
 
-/*AdminListUserIDByPlatformUserIDsV3Unauthorized handles this case with default header values.
+/*
+AdminListUserIDByPlatformUserIDsV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListUserIDByPlatformUserIDsV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminListUserIDByPlatformUserIDsV3Forbidden() *AdminListUserIDByPlatform
 	return &AdminListUserIDByPlatformUserIDsV3Forbidden{}
 }
 
-/*AdminListUserIDByPlatformUserIDsV3Forbidden handles this case with default header values.
+/*
+AdminListUserIDByPlatformUserIDsV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminListUserIDByPlatformUserIDsV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminListUserIDByPlatformUserIDsV3InternalServerError() *AdminListUserID
 	return &AdminListUserIDByPlatformUserIDsV3InternalServerError{}
 }
 
-/*AdminListUserIDByPlatformUserIDsV3InternalServerError handles this case with default header values.
+/*
+AdminListUserIDByPlatformUserIDsV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminListUserIDByPlatformUserIDsV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

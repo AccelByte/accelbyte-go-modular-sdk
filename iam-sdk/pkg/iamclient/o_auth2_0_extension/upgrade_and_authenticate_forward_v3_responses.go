@@ -68,9 +68,10 @@ func NewUpgradeAndAuthenticateForwardV3Found() *UpgradeAndAuthenticateForwardV3F
 	return &UpgradeAndAuthenticateForwardV3Found{}
 }
 
-/*UpgradeAndAuthenticateForwardV3Found handles this case with default header values.
+/*
+UpgradeAndAuthenticateForwardV3Found handles this case with default header values.
 
-  Found. Redirect to clients redirection URL with code
+	Found. Redirect to clients redirection URL with code
 */
 type UpgradeAndAuthenticateForwardV3Found struct {
 	Location string

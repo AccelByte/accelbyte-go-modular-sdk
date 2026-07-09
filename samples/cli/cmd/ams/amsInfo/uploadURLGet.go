@@ -11,6 +11,7 @@ import (
 
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/a_m_s_info"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var UploadURLGetCmd = &cobra.Command{
 	Long:  `Upload URL get`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		amsInfoService := &ams.AMSInfoService{
-			Client:          ams.NewAmsClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ams.NewAmsHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		input := &a_m_s_info.UploadURLGetParams{}
 		errOK := amsInfoService.UploadURLGetShort(input)

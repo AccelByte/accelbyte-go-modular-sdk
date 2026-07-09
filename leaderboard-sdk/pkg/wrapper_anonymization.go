@@ -15,11 +15,8 @@ import (
 )
 
 type AnonymizationService struct {
-	Client           *leaderboardclient.JusticeLeaderboardService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *leaderboardclient.JusticeLeaderboardService
+	Session repository.Session
 }
 
 var tempFlightIdAnonymization *string
@@ -30,9 +27,9 @@ func (aaa *AnonymizationService) UpdateFlightId(flightId string) {
 
 func (aaa *AnonymizationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AnonymizationService) AdminAnonymizeUserLeaderboardAdminV1Short(input
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AdminAnonymizeUserLeaderboardAdminV1Short(input, authInfoWriter)

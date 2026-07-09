@@ -12,6 +12,7 @@ import (
 
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/topic"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -23,8 +24,10 @@ var AdminQueryTopicLogCmd = &cobra.Command{
 	Long:  `Admin query topic log`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		topicService := &chat.TopicService{
-			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: chat.NewChatHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		endCreatedAt, _ := cmd.Flags().GetInt64("endCreatedAt")

@@ -115,9 +115,10 @@ func NewSearchUserOK() *SearchUserOK {
 	return &SearchUserOK{}
 }
 
-/*SearchUserOK handles this case with default header values.
+/*
+SearchUserOK handles this case with default header values.
 
-  OK
+	OK
 */
 type SearchUserOK struct {
 	Payload *iamclientmodels.ModelSearchUsersResponse
@@ -169,9 +170,10 @@ func NewSearchUserBadRequest() *SearchUserBadRequest {
 	return &SearchUserBadRequest{}
 }
 
-/*SearchUserBadRequest handles this case with default header values.
+/*
+SearchUserBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type SearchUserBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewSearchUserUnauthorized() *SearchUserUnauthorized {
 	return &SearchUserUnauthorized{}
 }
 
-/*SearchUserUnauthorized handles this case with default header values.
+/*
+SearchUserUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SearchUserUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewSearchUserForbidden() *SearchUserForbidden {
 	return &SearchUserForbidden{}
 }
 
-/*SearchUserForbidden handles this case with default header values.
+/*
+SearchUserForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type SearchUserForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

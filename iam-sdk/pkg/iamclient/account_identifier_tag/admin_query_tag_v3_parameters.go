@@ -78,7 +78,8 @@ func NewAdminQueryTagV3ParamsWithHTTPClient(client *http.Client) *AdminQueryTagV
 	}
 }
 
-/*AdminQueryTagV3Params contains all the parameters to send to the API endpoint
+/*
+AdminQueryTagV3Params contains all the parameters to send to the API endpoint
 for the admin query tag v3 operation typically these are written to a http.Request
 */
 type AdminQueryTagV3Params struct {

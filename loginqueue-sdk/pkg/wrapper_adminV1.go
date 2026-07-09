@@ -15,11 +15,8 @@ import (
 )
 
 type AdminV1Service struct {
-	Client           *loginqueueclient.JusticeLoginqueueService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *loginqueueclient.JusticeLoginqueueService
+	Session repository.Session
 }
 
 var tempFlightIdAdminV1 *string
@@ -30,9 +27,9 @@ func (aaa *AdminV1Service) UpdateFlightId(flightId string) {
 
 func (aaa *AdminV1Service) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminV1Service) AdminGetConfigurationShort(input *admin_v1.AdminGetCo
 	}
 	if tempFlightIdAdminV1 != nil {
 		input.XFlightId = tempFlightIdAdminV1
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminV1.AdminGetConfigurationShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AdminV1Service) AdminUpdateConfigurationShort(input *admin_v1.AdminUp
 	}
 	if tempFlightIdAdminV1 != nil {
 		input.XFlightId = tempFlightIdAdminV1
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminV1.AdminUpdateConfigurationShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AdminV1Service) AdminGetStatusShort(input *admin_v1.AdminGetStatusPar
 	}
 	if tempFlightIdAdminV1 != nil {
 		input.XFlightId = tempFlightIdAdminV1
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminV1.AdminGetStatusShort(input, authInfoWriter)

@@ -124,9 +124,10 @@ func NewUpdateClientPermissionNoContent() *UpdateClientPermissionNoContent {
 	return &UpdateClientPermissionNoContent{}
 }
 
-/*UpdateClientPermissionNoContent handles this case with default header values.
+/*
+UpdateClientPermissionNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type UpdateClientPermissionNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewUpdateClientPermissionBadRequest() *UpdateClientPermissionBadRequest {
 	return &UpdateClientPermissionBadRequest{}
 }
 
-/*UpdateClientPermissionBadRequest handles this case with default header values.
+/*
+UpdateClientPermissionBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type UpdateClientPermissionBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewUpdateClientPermissionUnauthorized() *UpdateClientPermissionUnauthorized
 	return &UpdateClientPermissionUnauthorized{}
 }
 
-/*UpdateClientPermissionUnauthorized handles this case with default header values.
+/*
+UpdateClientPermissionUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type UpdateClientPermissionUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewUpdateClientPermissionForbidden() *UpdateClientPermissionForbidden {
 	return &UpdateClientPermissionForbidden{}
 }
 
-/*UpdateClientPermissionForbidden handles this case with default header values.
+/*
+UpdateClientPermissionForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type UpdateClientPermissionForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewUpdateClientPermissionNotFound() *UpdateClientPermissionNotFound {
 	return &UpdateClientPermissionNotFound{}
 }
 
-/*UpdateClientPermissionNotFound handles this case with default header values.
+/*
+UpdateClientPermissionNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type UpdateClientPermissionNotFound struct {
 }

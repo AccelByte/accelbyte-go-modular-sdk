@@ -15,11 +15,8 @@ import (
 )
 
 type FulfillmentService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdFulfillment *string
@@ -30,9 +27,9 @@ func (aaa *FulfillmentService) UpdateFlightId(flightId string) {
 
 func (aaa *FulfillmentService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *FulfillmentService) QueryFulfillmentHistoriesShort(input *fulfillment
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.QueryFulfillmentHistoriesShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *FulfillmentService) FulfillItemShort(input *fulfillment.FulfillItemPa
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.FulfillItemShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *FulfillmentService) RedeemCodeShort(input *fulfillment.RedeemCodePara
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.RedeemCodeShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *FulfillmentService) PreCheckFulfillItemShort(input *fulfillment.PreCh
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.PreCheckFulfillItemShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *FulfillmentService) FulfillRewardsShort(input *fulfillment.FulfillRew
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Fulfillment.FulfillRewardsShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *FulfillmentService) PublicRedeemCodeShort(input *fulfillment.PublicRe
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.PublicRedeemCodeShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *FulfillmentService) QueryFulfillmentsShort(input *fulfillment.QueryFu
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.QueryFulfillmentsShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *FulfillmentService) FulfillRewardsV2Short(input *fulfillment.FulfillR
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.FulfillRewardsV2Short(input, authInfoWriter)
@@ -322,8 +319,8 @@ func (aaa *FulfillmentService) FulfillItemsShort(input *fulfillment.FulfillItems
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.FulfillItemsShort(input, authInfoWriter)
@@ -356,8 +353,8 @@ func (aaa *FulfillmentService) RetryFulfillItemsShort(input *fulfillment.RetryFu
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.RetryFulfillItemsShort(input, authInfoWriter)
@@ -390,8 +387,8 @@ func (aaa *FulfillmentService) RevokeItemsShort(input *fulfillment.RevokeItemsPa
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.RevokeItemsShort(input, authInfoWriter)
@@ -424,8 +421,8 @@ func (aaa *FulfillmentService) BulkFulfillItemsV3Short(input *fulfillment.BulkFu
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.BulkFulfillItemsV3Short(input, authInfoWriter)
@@ -458,8 +455,8 @@ func (aaa *FulfillmentService) FulfillItemsV3Short(input *fulfillment.FulfillIte
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.FulfillItemsV3Short(input, authInfoWriter)
@@ -492,8 +489,8 @@ func (aaa *FulfillmentService) RetryFulfillItemsV3Short(input *fulfillment.Retry
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.RetryFulfillItemsV3Short(input, authInfoWriter)
@@ -526,8 +523,8 @@ func (aaa *FulfillmentService) RevokeItemsV3Short(input *fulfillment.RevokeItems
 	}
 	if tempFlightIdFulfillment != nil {
 		input.XFlightId = tempFlightIdFulfillment
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Fulfillment.RevokeItemsV3Short(input, authInfoWriter)

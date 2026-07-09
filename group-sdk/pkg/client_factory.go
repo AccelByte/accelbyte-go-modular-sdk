@@ -13,7 +13,26 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewGroupClient(configRepository repository.ConfigRepository) *groupclient.JusticeGroupService {
+type GroupClient struct {
+	Configuration *ConfigurationService
+	Group         *GroupService
+	GroupMember   *GroupMemberService
+	GroupRoles    *GroupRolesService
+	MemberRequest *MemberRequestService
+}
+
+func NewGroupClient(session repository.Session) *GroupClient {
+	httpClient := NewGroupHttpClient(session.ConfigRepository)
+	return &GroupClient{
+		Configuration: &ConfigurationService{Client: httpClient, Session: session},
+		Group:         &GroupService{Client: httpClient, Session: session},
+		GroupMember:   &GroupMemberService{Client: httpClient, Session: session},
+		GroupRoles:    &GroupRolesService{Client: httpClient, Session: session},
+		MemberRequest: &MemberRequestService{Client: httpClient, Session: session},
+	}
+}
+
+func NewGroupHttpClient(configRepository repository.ConfigRepository) *groupclient.JusticeGroupService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

@@ -15,11 +15,8 @@ import (
 )
 
 type CurrencyService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdCurrency *string
@@ -30,9 +27,9 @@ func (aaa *CurrencyService) UpdateFlightId(flightId string) {
 
 func (aaa *CurrencyService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *CurrencyService) ListCurrenciesShort(input *currency.ListCurrenciesPa
 	}
 	if tempFlightIdCurrency != nil {
 		input.XFlightId = tempFlightIdCurrency
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Currency.ListCurrenciesShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *CurrencyService) CreateCurrencyShort(input *currency.CreateCurrencyPa
 	}
 	if tempFlightIdCurrency != nil {
 		input.XFlightId = tempFlightIdCurrency
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Currency.CreateCurrencyShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *CurrencyService) UpdateCurrencyShort(input *currency.UpdateCurrencyPa
 	}
 	if tempFlightIdCurrency != nil {
 		input.XFlightId = tempFlightIdCurrency
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Currency.UpdateCurrencyShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *CurrencyService) DeleteCurrencyShort(input *currency.DeleteCurrencyPa
 	}
 	if tempFlightIdCurrency != nil {
 		input.XFlightId = tempFlightIdCurrency
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Currency.DeleteCurrencyShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *CurrencyService) GetCurrencyConfigShort(input *currency.GetCurrencyCo
 	}
 	if tempFlightIdCurrency != nil {
 		input.XFlightId = tempFlightIdCurrency
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Currency.GetCurrencyConfigShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *CurrencyService) GetCurrencySummaryShort(input *currency.GetCurrencyS
 	}
 	if tempFlightIdCurrency != nil {
 		input.XFlightId = tempFlightIdCurrency
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Currency.GetCurrencySummaryShort(input, authInfoWriter)
@@ -251,8 +248,8 @@ func (aaa *CurrencyService) PublicListCurrenciesShort(input *currency.PublicList
 	}
 	if tempFlightIdCurrency != nil {
 		input.XFlightId = tempFlightIdCurrency
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Currency.PublicListCurrenciesShort(input)

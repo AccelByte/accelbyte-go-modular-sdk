@@ -85,9 +85,10 @@ func NewPublicGetRolesV3OK() *PublicGetRolesV3OK {
 	return &PublicGetRolesV3OK{}
 }
 
-/*PublicGetRolesV3OK handles this case with default header values.
+/*
+PublicGetRolesV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetRolesV3OK struct {
 	Payload *iamclientmodels.ModelRoleNamesResponseV3
@@ -139,9 +140,10 @@ func NewPublicGetRolesV3BadRequest() *PublicGetRolesV3BadRequest {
 	return &PublicGetRolesV3BadRequest{}
 }
 
-/*PublicGetRolesV3BadRequest handles this case with default header values.
+/*
+PublicGetRolesV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetRolesV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse

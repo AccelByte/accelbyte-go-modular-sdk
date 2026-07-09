@@ -124,9 +124,10 @@ func NewSaveUserPermissionNoContent() *SaveUserPermissionNoContent {
 	return &SaveUserPermissionNoContent{}
 }
 
-/*SaveUserPermissionNoContent handles this case with default header values.
+/*
+SaveUserPermissionNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type SaveUserPermissionNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewSaveUserPermissionBadRequest() *SaveUserPermissionBadRequest {
 	return &SaveUserPermissionBadRequest{}
 }
 
-/*SaveUserPermissionBadRequest handles this case with default header values.
+/*
+SaveUserPermissionBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type SaveUserPermissionBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewSaveUserPermissionUnauthorized() *SaveUserPermissionUnauthorized {
 	return &SaveUserPermissionUnauthorized{}
 }
 
-/*SaveUserPermissionUnauthorized handles this case with default header values.
+/*
+SaveUserPermissionUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SaveUserPermissionUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewSaveUserPermissionForbidden() *SaveUserPermissionForbidden {
 	return &SaveUserPermissionForbidden{}
 }
 
-/*SaveUserPermissionForbidden handles this case with default header values.
+/*
+SaveUserPermissionForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type SaveUserPermissionForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewSaveUserPermissionNotFound() *SaveUserPermissionNotFound {
 	return &SaveUserPermissionNotFound{}
 }
 
-/*SaveUserPermissionNotFound handles this case with default header values.
+/*
+SaveUserPermissionNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type SaveUserPermissionNotFound struct {
 }

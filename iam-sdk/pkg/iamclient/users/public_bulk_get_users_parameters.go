@@ -59,7 +59,8 @@ func NewPublicBulkGetUsersParamsWithHTTPClient(client *http.Client) *PublicBulkG
 	}
 }
 
-/*PublicBulkGetUsersParams contains all the parameters to send to the API endpoint
+/*
+PublicBulkGetUsersParams contains all the parameters to send to the API endpoint
 for the public bulk get users operation typically these are written to a http.Request
 */
 type PublicBulkGetUsersParams struct {

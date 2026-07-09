@@ -15,11 +15,8 @@ import (
 )
 
 type NotificationSubscriptionService struct {
-	Client           *csmclient.JusticeCsmService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *csmclient.JusticeCsmService
+	Session repository.Session
 }
 
 var tempFlightIdNotificationSubscription *string
@@ -30,9 +27,9 @@ func (aaa *NotificationSubscriptionService) UpdateFlightId(flightId string) {
 
 func (aaa *NotificationSubscriptionService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *NotificationSubscriptionService) GetNotificationSubscriberListV2Short
 	}
 	if tempFlightIdNotificationSubscription != nil {
 		input.XFlightId = tempFlightIdNotificationSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.NotificationSubscription.GetNotificationSubscriberListV2Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *NotificationSubscriptionService) BulkSaveSubscriptionAppNotificationV
 	}
 	if tempFlightIdNotificationSubscription != nil {
 		input.XFlightId = tempFlightIdNotificationSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.NotificationSubscription.BulkSaveSubscriptionAppNotificationV2Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *NotificationSubscriptionService) SubscribeAppNotificationV2Short(inpu
 	}
 	if tempFlightIdNotificationSubscription != nil {
 		input.XFlightId = tempFlightIdNotificationSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.NotificationSubscription.SubscribeAppNotificationV2Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *NotificationSubscriptionService) GetSubscriptionV2HandlerShort(input 
 	}
 	if tempFlightIdNotificationSubscription != nil {
 		input.XFlightId = tempFlightIdNotificationSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.NotificationSubscription.GetSubscriptionV2HandlerShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *NotificationSubscriptionService) SubscribeV2HandlerShort(input *notif
 	}
 	if tempFlightIdNotificationSubscription != nil {
 		input.XFlightId = tempFlightIdNotificationSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.NotificationSubscription.SubscribeV2HandlerShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *NotificationSubscriptionService) UnsubscribeV2HandlerShort(input *not
 	}
 	if tempFlightIdNotificationSubscription != nil {
 		input.XFlightId = tempFlightIdNotificationSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.NotificationSubscription.UnsubscribeV2HandlerShort(input, authInfoWriter)
@@ -250,8 +247,8 @@ func (aaa *NotificationSubscriptionService) DeleteSubscriptionAppNotificationByU
 	}
 	if tempFlightIdNotificationSubscription != nil {
 		input.XFlightId = tempFlightIdNotificationSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.NotificationSubscription.DeleteSubscriptionAppNotificationByUserIDV2Short(input, authInfoWriter)
@@ -280,8 +277,8 @@ func (aaa *NotificationSubscriptionService) DeleteSubscriptionAppNotificationV2S
 	}
 	if tempFlightIdNotificationSubscription != nil {
 		input.XFlightId = tempFlightIdNotificationSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.NotificationSubscription.DeleteSubscriptionAppNotificationV2Short(input, authInfoWriter)

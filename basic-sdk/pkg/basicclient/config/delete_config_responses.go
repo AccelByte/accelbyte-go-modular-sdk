@@ -129,9 +129,10 @@ func NewDeleteConfigNoContent() *DeleteConfigNoContent {
 	return &DeleteConfigNoContent{}
 }
 
-/*DeleteConfigNoContent handles this case with default header values.
+/*
+DeleteConfigNoContent handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type DeleteConfigNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewDeleteConfigBadRequest() *DeleteConfigBadRequest {
 	return &DeleteConfigBadRequest{}
 }
 
-/*DeleteConfigBadRequest handles this case with default header values.
+/*
+DeleteConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type DeleteConfigBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -210,9 +212,10 @@ func NewDeleteConfigUnauthorized() *DeleteConfigUnauthorized {
 	return &DeleteConfigUnauthorized{}
 }
 
-/*DeleteConfigUnauthorized handles this case with default header values.
+/*
+DeleteConfigUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type DeleteConfigUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -264,9 +267,10 @@ func NewDeleteConfigForbidden() *DeleteConfigForbidden {
 	return &DeleteConfigForbidden{}
 }
 
-/*DeleteConfigForbidden handles this case with default header values.
+/*
+DeleteConfigForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type DeleteConfigForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -318,9 +322,10 @@ func NewDeleteConfigNotFound() *DeleteConfigNotFound {
 	return &DeleteConfigNotFound{}
 }
 
-/*DeleteConfigNotFound handles this case with default header values.
+/*
+DeleteConfigNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11741</td><td>Unable to {action}: Config not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11741</td><td>Unable to {action}: Config not found</td></tr></table>
 */
 type DeleteConfigNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

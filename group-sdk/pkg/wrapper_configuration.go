@@ -15,11 +15,8 @@ import (
 )
 
 type ConfigurationService struct {
-	Client           *groupclient.JusticeGroupService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *groupclient.JusticeGroupService
+	Session repository.Session
 }
 
 var tempFlightIdConfiguration *string
@@ -30,9 +27,9 @@ func (aaa *ConfigurationService) UpdateFlightId(flightId string) {
 
 func (aaa *ConfigurationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ConfigurationService) ListGroupConfigurationAdminV1Short(input *confi
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.ListGroupConfigurationAdminV1Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ConfigurationService) CreateGroupConfigurationAdminV1Short(input *con
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Configuration.CreateGroupConfigurationAdminV1Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ConfigurationService) InitiateGroupConfigurationAdminV1Short(input *c
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Configuration.InitiateGroupConfigurationAdminV1Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *ConfigurationService) GetGroupConfigurationAdminV1Short(input *config
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.GetGroupConfigurationAdminV1Short(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *ConfigurationService) DeleteGroupConfigurationV1Short(input *configur
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Configuration.DeleteGroupConfigurationV1Short(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *ConfigurationService) UpdateGroupConfigurationAdminV1Short(input *con
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.UpdateGroupConfigurationAdminV1Short(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *ConfigurationService) UpdateGroupConfigurationGlobalRuleAdminV1Short(
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.UpdateGroupConfigurationGlobalRuleAdminV1Short(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *ConfigurationService) DeleteGroupConfigurationGlobalRuleAdminV1Short(
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.DeleteGroupConfigurationGlobalRuleAdminV1Short(input, authInfoWriter)

@@ -57,7 +57,8 @@ func NewAdminEnableMyAuthenticatorV4ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminEnableMyAuthenticatorV4Params contains all the parameters to send to the API endpoint
+/*
+AdminEnableMyAuthenticatorV4Params contains all the parameters to send to the API endpoint
 for the admin enable my authenticator v4 operation typically these are written to a http.Request
 */
 type AdminEnableMyAuthenticatorV4Params struct {

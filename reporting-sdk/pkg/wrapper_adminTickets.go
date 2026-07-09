@@ -15,11 +15,8 @@ import (
 )
 
 type AdminTicketsService struct {
-	Client           *reportingclient.JusticeReportingService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *reportingclient.JusticeReportingService
+	Session repository.Session
 }
 
 var tempFlightIdAdminTickets *string
@@ -30,9 +27,9 @@ func (aaa *AdminTicketsService) UpdateFlightId(flightId string) {
 
 func (aaa *AdminTicketsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminTicketsService) ListTicketsShort(input *admin_tickets.ListTicket
 	}
 	if tempFlightIdAdminTickets != nil {
 		input.XFlightId = tempFlightIdAdminTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminTickets.ListTicketsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AdminTicketsService) TicketStatisticShort(input *admin_tickets.Ticket
 	}
 	if tempFlightIdAdminTickets != nil {
 		input.XFlightId = tempFlightIdAdminTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminTickets.TicketStatisticShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AdminTicketsService) GetTicketDetailShort(input *admin_tickets.GetTic
 	}
 	if tempFlightIdAdminTickets != nil {
 		input.XFlightId = tempFlightIdAdminTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminTickets.GetTicketDetailShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *AdminTicketsService) DeleteTicketShort(input *admin_tickets.DeleteTic
 	}
 	if tempFlightIdAdminTickets != nil {
 		input.XFlightId = tempFlightIdAdminTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminTickets.DeleteTicketShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *AdminTicketsService) GetReportsByTicketShort(input *admin_tickets.Get
 	}
 	if tempFlightIdAdminTickets != nil {
 		input.XFlightId = tempFlightIdAdminTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminTickets.GetReportsByTicketShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *AdminTicketsService) UpdateTicketResolutionsShort(input *admin_ticket
 	}
 	if tempFlightIdAdminTickets != nil {
 		input.XFlightId = tempFlightIdAdminTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminTickets.UpdateTicketResolutionsShort(input, authInfoWriter)

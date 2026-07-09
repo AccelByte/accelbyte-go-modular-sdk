@@ -13,6 +13,7 @@ import (
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/plugins"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var AdminCreateAssignmentPluginCmd = &cobra.Command{
 	Long:  `Admin create assignment plugin`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		pluginsService := &challenge.PluginsService{
-			Client:          challenge.NewChallengeClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: challenge.NewChallengeHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *challengeclientmodels.ModelPluginAssignmentRequest

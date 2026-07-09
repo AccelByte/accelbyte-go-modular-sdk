@@ -15,11 +15,8 @@ import (
 )
 
 type PluginsService struct {
-	Client           *challengeclient.JusticeChallengeService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *challengeclient.JusticeChallengeService
+	Session repository.Session
 }
 
 var tempFlightIdPlugins *string
@@ -30,9 +27,9 @@ func (aaa *PluginsService) UpdateFlightId(flightId string) {
 
 func (aaa *PluginsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PluginsService) AdminGetAssignmentPluginShort(input *plugins.AdminGet
 	}
 	if tempFlightIdPlugins != nil {
 		input.XFlightId = tempFlightIdPlugins
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Plugins.AdminGetAssignmentPluginShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PluginsService) AdminUpdateAssignmentPluginShort(input *plugins.Admin
 	}
 	if tempFlightIdPlugins != nil {
 		input.XFlightId = tempFlightIdPlugins
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Plugins.AdminUpdateAssignmentPluginShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PluginsService) AdminCreateAssignmentPluginShort(input *plugins.Admin
 	}
 	if tempFlightIdPlugins != nil {
 		input.XFlightId = tempFlightIdPlugins
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Plugins.AdminCreateAssignmentPluginShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PluginsService) AdminDeleteAssignmentPluginShort(input *plugins.Admin
 	}
 	if tempFlightIdPlugins != nil {
 		input.XFlightId = tempFlightIdPlugins
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Plugins.AdminDeleteAssignmentPluginShort(input, authInfoWriter)

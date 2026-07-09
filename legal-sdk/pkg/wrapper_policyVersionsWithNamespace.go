@@ -15,11 +15,8 @@ import (
 )
 
 type PolicyVersionsWithNamespaceService struct {
-	Client           *legalclient.JusticeLegalService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *legalclient.JusticeLegalService
+	Session repository.Session
 }
 
 var tempFlightIdPolicyVersionsWithNamespace *string
@@ -30,9 +27,9 @@ func (aaa *PolicyVersionsWithNamespaceService) UpdateFlightId(flightId string) {
 
 func (aaa *PolicyVersionsWithNamespaceService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PolicyVersionsWithNamespaceService) DeletePolicyVersionShort(input *p
 	}
 	if tempFlightIdPolicyVersionsWithNamespace != nil {
 		input.XFlightId = tempFlightIdPolicyVersionsWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PolicyVersionsWithNamespace.DeletePolicyVersionShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *PolicyVersionsWithNamespaceService) UpdatePolicyVersionShort(input *p
 	}
 	if tempFlightIdPolicyVersionsWithNamespace != nil {
 		input.XFlightId = tempFlightIdPolicyVersionsWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PolicyVersionsWithNamespace.UpdatePolicyVersionShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *PolicyVersionsWithNamespaceService) PublishPolicyVersionShort(input *
 	}
 	if tempFlightIdPolicyVersionsWithNamespace != nil {
 		input.XFlightId = tempFlightIdPolicyVersionsWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PolicyVersionsWithNamespace.PublishPolicyVersionShort(input, authInfoWriter)
@@ -148,8 +145,8 @@ func (aaa *PolicyVersionsWithNamespaceService) UnpublishPolicyVersionShort(input
 	}
 	if tempFlightIdPolicyVersionsWithNamespace != nil {
 		input.XFlightId = tempFlightIdPolicyVersionsWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PolicyVersionsWithNamespace.UnpublishPolicyVersionShort(input, authInfoWriter)
@@ -178,8 +175,8 @@ func (aaa *PolicyVersionsWithNamespaceService) RetrieveSinglePolicyVersionShort(
 	}
 	if tempFlightIdPolicyVersionsWithNamespace != nil {
 		input.XFlightId = tempFlightIdPolicyVersionsWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PolicyVersionsWithNamespace.RetrieveSinglePolicyVersionShort(input, authInfoWriter)
@@ -212,8 +209,8 @@ func (aaa *PolicyVersionsWithNamespaceService) CreatePolicyVersionShort(input *p
 	}
 	if tempFlightIdPolicyVersionsWithNamespace != nil {
 		input.XFlightId = tempFlightIdPolicyVersionsWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PolicyVersionsWithNamespace.CreatePolicyVersionShort(input, authInfoWriter)

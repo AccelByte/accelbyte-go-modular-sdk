@@ -15,11 +15,8 @@ import (
 )
 
 type TierService struct {
-	Client           *seasonpassclient.JusticeSeasonpassService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *seasonpassclient.JusticeSeasonpassService
+	Session repository.Session
 }
 
 var tempFlightIdTier *string
@@ -30,9 +27,9 @@ func (aaa *TierService) UpdateFlightId(flightId string) {
 
 func (aaa *TierService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *TierService) QueryTiersShort(input *tier.QueryTiersParams) (*tier.Que
 	}
 	if tempFlightIdTier != nil {
 		input.XFlightId = tempFlightIdTier
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Tier.QueryTiersShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *TierService) CreateTierShort(input *tier.CreateTierParams) (*tier.Cre
 	}
 	if tempFlightIdTier != nil {
 		input.XFlightId = tempFlightIdTier
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Tier.CreateTierShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *TierService) UpdateTierShort(input *tier.UpdateTierParams) (*tier.Upd
 	}
 	if tempFlightIdTier != nil {
 		input.XFlightId = tempFlightIdTier
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Tier.UpdateTierShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *TierService) DeleteTierShort(input *tier.DeleteTierParams) error {
 	}
 	if tempFlightIdTier != nil {
 		input.XFlightId = tempFlightIdTier
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Tier.DeleteTierShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *TierService) ReorderTierShort(input *tier.ReorderTierParams) (*tier.R
 	}
 	if tempFlightIdTier != nil {
 		input.XFlightId = tempFlightIdTier
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Tier.ReorderTierShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *TierService) GrantUserExpShort(input *tier.GrantUserExpParams) (*tier
 	}
 	if tempFlightIdTier != nil {
 		input.XFlightId = tempFlightIdTier
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Tier.GrantUserExpShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *TierService) GrantUserTierShort(input *tier.GrantUserTierParams) (*ti
 	}
 	if tempFlightIdTier != nil {
 		input.XFlightId = tempFlightIdTier
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Tier.GrantUserTierShort(input, authInfoWriter)

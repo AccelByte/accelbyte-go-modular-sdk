@@ -70,7 +70,8 @@ func NewPublicGetInputValidationsParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*PublicGetInputValidationsParams contains all the parameters to send to the API endpoint
+/*
+PublicGetInputValidationsParams contains all the parameters to send to the API endpoint
 for the public get input validations operation typically these are written to a http.Request
 */
 type PublicGetInputValidationsParams struct {

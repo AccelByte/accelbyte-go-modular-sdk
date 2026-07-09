@@ -115,9 +115,10 @@ func NewListAdminsV3OK() *ListAdminsV3OK {
 	return &ListAdminsV3OK{}
 }
 
-/*ListAdminsV3OK handles this case with default header values.
+/*
+ListAdminsV3OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type ListAdminsV3OK struct {
 	Payload *iamclientmodels.ModelGetUsersResponseWithPaginationV3
@@ -169,9 +170,10 @@ func NewListAdminsV3Unauthorized() *ListAdminsV3Unauthorized {
 	return &ListAdminsV3Unauthorized{}
 }
 
-/*ListAdminsV3Unauthorized handles this case with default header values.
+/*
+ListAdminsV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type ListAdminsV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewListAdminsV3Forbidden() *ListAdminsV3Forbidden {
 	return &ListAdminsV3Forbidden{}
 }
 
-/*ListAdminsV3Forbidden handles this case with default header values.
+/*
+ListAdminsV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type ListAdminsV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewListAdminsV3InternalServerError() *ListAdminsV3InternalServerError {
 	return &ListAdminsV3InternalServerError{}
 }
 
-/*ListAdminsV3InternalServerError handles this case with default header values.
+/*
+ListAdminsV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type ListAdminsV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

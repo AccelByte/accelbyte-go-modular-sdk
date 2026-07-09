@@ -59,7 +59,8 @@ func NewPublicPlatformUnlinkV3ParamsWithHTTPClient(client *http.Client) *PublicP
 	}
 }
 
-/*PublicPlatformUnlinkV3Params contains all the parameters to send to the API endpoint
+/*
+PublicPlatformUnlinkV3Params contains all the parameters to send to the API endpoint
 for the public platform unlink v3 operation typically these are written to a http.Request
 */
 type PublicPlatformUnlinkV3Params struct {

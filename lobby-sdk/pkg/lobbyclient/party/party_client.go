@@ -219,11 +219,7 @@ func (a *Client) AdminGetUserPartyV1Short(params *AdminGetUserPartyV1Params, aut
 
 /*
 PublicGetPartyDataV1Short get party data by party id
-Required valid user authorization
-
-load personal party data in a namespace based on Party ID
-
-Action Code: 50101
+Load party data in a namespace by Party ID.
 */
 func (a *Client) PublicGetPartyDataV1Short(params *PublicGetPartyDataV1Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyDataV1Response, error) {
 	// TODO: Validate the params before sending

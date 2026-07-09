@@ -15,11 +15,8 @@ import (
 )
 
 type GlobalAchievementsService struct {
-	Client           *achievementclient.JusticeAchievementService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *achievementclient.JusticeAchievementService
+	Session repository.Session
 }
 
 var tempFlightIdGlobalAchievements *string
@@ -30,9 +27,9 @@ func (aaa *GlobalAchievementsService) UpdateFlightId(flightId string) {
 
 func (aaa *GlobalAchievementsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *GlobalAchievementsService) AdminListGlobalAchievementsShort(input *gl
 	}
 	if tempFlightIdGlobalAchievements != nil {
 		input.XFlightId = tempFlightIdGlobalAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalAchievements.AdminListGlobalAchievementsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *GlobalAchievementsService) AdminListGlobalAchievementContributorsShor
 	}
 	if tempFlightIdGlobalAchievements != nil {
 		input.XFlightId = tempFlightIdGlobalAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalAchievements.AdminListGlobalAchievementContributorsShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *GlobalAchievementsService) ResetGlobalAchievementShort(input *global_
 	}
 	if tempFlightIdGlobalAchievements != nil {
 		input.XFlightId = tempFlightIdGlobalAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.GlobalAchievements.ResetGlobalAchievementShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *GlobalAchievementsService) AdminListUserContributionsShort(input *glo
 	}
 	if tempFlightIdGlobalAchievements != nil {
 		input.XFlightId = tempFlightIdGlobalAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalAchievements.AdminListUserContributionsShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *GlobalAchievementsService) PublicListGlobalAchievementsShort(input *g
 	}
 	if tempFlightIdGlobalAchievements != nil {
 		input.XFlightId = tempFlightIdGlobalAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalAchievements.PublicListGlobalAchievementsShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *GlobalAchievementsService) ListGlobalAchievementContributorsShort(inp
 	}
 	if tempFlightIdGlobalAchievements != nil {
 		input.XFlightId = tempFlightIdGlobalAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalAchievements.ListGlobalAchievementContributorsShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *GlobalAchievementsService) ListUserContributionsShort(input *global_a
 	}
 	if tempFlightIdGlobalAchievements != nil {
 		input.XFlightId = tempFlightIdGlobalAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalAchievements.ListUserContributionsShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *GlobalAchievementsService) ClaimGlobalAchievementRewardShort(input *g
 	}
 	if tempFlightIdGlobalAchievements != nil {
 		input.XFlightId = tempFlightIdGlobalAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.GlobalAchievements.ClaimGlobalAchievementRewardShort(input, authInfoWriter)

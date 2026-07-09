@@ -130,9 +130,10 @@ func NewAdminDecryptDeviceV4OK() *AdminDecryptDeviceV4OK {
 	return &AdminDecryptDeviceV4OK{}
 }
 
-/*AdminDecryptDeviceV4OK handles this case with default header values.
+/*
+AdminDecryptDeviceV4OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDecryptDeviceV4OK struct {
 	Payload *iamclientmodels.ModelDeviceIDDecryptResponseV4
@@ -184,9 +185,10 @@ func NewAdminDecryptDeviceV4BadRequest() *AdminDecryptDeviceV4BadRequest {
 	return &AdminDecryptDeviceV4BadRequest{}
 }
 
-/*AdminDecryptDeviceV4BadRequest handles this case with default header values.
+/*
+AdminDecryptDeviceV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminDecryptDeviceV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminDecryptDeviceV4Unauthorized() *AdminDecryptDeviceV4Unauthorized {
 	return &AdminDecryptDeviceV4Unauthorized{}
 }
 
-/*AdminDecryptDeviceV4Unauthorized handles this case with default header values.
+/*
+AdminDecryptDeviceV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDecryptDeviceV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminDecryptDeviceV4Forbidden() *AdminDecryptDeviceV4Forbidden {
 	return &AdminDecryptDeviceV4Forbidden{}
 }
 
-/*AdminDecryptDeviceV4Forbidden handles this case with default header values.
+/*
+AdminDecryptDeviceV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDecryptDeviceV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminDecryptDeviceV4InternalServerError() *AdminDecryptDeviceV4InternalS
 	return &AdminDecryptDeviceV4InternalServerError{}
 }
 
-/*AdminDecryptDeviceV4InternalServerError handles this case with default header values.
+/*
+AdminDecryptDeviceV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDecryptDeviceV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -1,0 +1,156 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package gdpr
+
+import (
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_retrieval_s2_s"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+)
+
+// DataRetrievalS2SService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use DataRetrievalS2SService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
+type DataRetrievalS2SService struct {
+	Client  *gdprclient.JusticeGdprService
+	Session repository.Session
+}
+
+var tempFlightIdDataRetrievalS2S *string
+
+func (aaa *DataRetrievalS2SService) UpdateFlightId(flightId string) {
+	tempFlightIdDataRetrievalS2S = &flightId
+}
+
+func (aaa *DataRetrievalS2SService) GetAuthSession() auth.Session {
+	return auth.Session{
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
+	}
+}
+
+func (aaa *DataRetrievalS2SService) S2SGetListFinishedPersonalDataRequestShort(input *data_retrieval_s2_s.S2SGetListFinishedPersonalDataRequestParams) (*data_retrieval_s2_s.S2SGetListFinishedPersonalDataRequestResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdDataRetrievalS2S != nil {
+		input.XFlightId = tempFlightIdDataRetrievalS2S
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.DataRetrievalS2s.S2SGetListFinishedPersonalDataRequestShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
+func (aaa *DataRetrievalS2SService) S2SGetDataRequestByRequestIDShort(input *data_retrieval_s2_s.S2SGetDataRequestByRequestIDParams) (*data_retrieval_s2_s.S2SGetDataRequestByRequestIDResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdDataRetrievalS2S != nil {
+		input.XFlightId = tempFlightIdDataRetrievalS2S
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.DataRetrievalS2s.S2SGetDataRequestByRequestIDShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
+func (aaa *DataRetrievalS2SService) S2SRequestDataRetrievalShort(input *data_retrieval_s2_s.S2SRequestDataRetrievalParams) (*data_retrieval_s2_s.S2SRequestDataRetrievalResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdDataRetrievalS2S != nil {
+		input.XFlightId = tempFlightIdDataRetrievalS2S
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	created, err := aaa.Client.DataRetrievalS2s.S2SRequestDataRetrievalShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return created, nil
+}
+
+func (aaa *DataRetrievalS2SService) S2SGeneratePersonalDataURLShort(input *data_retrieval_s2_s.S2SGeneratePersonalDataURLParams) (*data_retrieval_s2_s.S2SGeneratePersonalDataURLResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdDataRetrievalS2S != nil {
+		input.XFlightId = tempFlightIdDataRetrievalS2S
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.DataRetrievalS2s.S2SGeneratePersonalDataURLShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}

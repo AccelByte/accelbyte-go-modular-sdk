@@ -57,7 +57,8 @@ func NewPlatformTokenRefreshV3ParamsWithHTTPClient(client *http.Client) *Platfor
 	}
 }
 
-/*PlatformTokenRefreshV3Params contains all the parameters to send to the API endpoint
+/*
+PlatformTokenRefreshV3Params contains all the parameters to send to the API endpoint
 for the platform token refresh v3 operation typically these are written to a http.Request
 */
 type PlatformTokenRefreshV3Params struct {

@@ -57,7 +57,8 @@ func NewAdminGetMyBackupCodesV4ParamsWithHTTPClient(client *http.Client) *AdminG
 	}
 }
 
-/*AdminGetMyBackupCodesV4Params contains all the parameters to send to the API endpoint
+/*
+AdminGetMyBackupCodesV4Params contains all the parameters to send to the API endpoint
 for the admin get my backup codes v4 operation typically these are written to a http.Request
 */
 type AdminGetMyBackupCodesV4Params struct {

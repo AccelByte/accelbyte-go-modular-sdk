@@ -145,9 +145,10 @@ func NewPublicInviteUserV4Created() *PublicInviteUserV4Created {
 	return &PublicInviteUserV4Created{}
 }
 
-/*PublicInviteUserV4Created handles this case with default header values.
+/*
+PublicInviteUserV4Created handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicInviteUserV4Created struct {
 	Payload *iamclientmodels.ModelInviteUserResponseV3
@@ -199,9 +200,10 @@ func NewPublicInviteUserV4BadRequest() *PublicInviteUserV4BadRequest {
 	return &PublicInviteUserV4BadRequest{}
 }
 
-/*PublicInviteUserV4BadRequest handles this case with default header values.
+/*
+PublicInviteUserV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicInviteUserV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewPublicInviteUserV4Conflict() *PublicInviteUserV4Conflict {
 	return &PublicInviteUserV4Conflict{}
 }
 
-/*PublicInviteUserV4Conflict handles this case with default header values.
+/*
+PublicInviteUserV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10207</td><td>user namespace is not available</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10207</td><td>user namespace is not available</td></tr></table>
 */
 type PublicInviteUserV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewPublicInviteUserV4UnprocessableEntity() *PublicInviteUserV4Unprocessable
 	return &PublicInviteUserV4UnprocessableEntity{}
 }
 
-/*PublicInviteUserV4UnprocessableEntity handles this case with default header values.
+/*
+PublicInviteUserV4UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10183</td><td>unprocessable entity</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10183</td><td>unprocessable entity</td></tr></table>
 */
 type PublicInviteUserV4UnprocessableEntity struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewPublicInviteUserV4TooManyRequests() *PublicInviteUserV4TooManyRequests {
 	return &PublicInviteUserV4TooManyRequests{}
 }
 
-/*PublicInviteUserV4TooManyRequests handles this case with default header values.
+/*
+PublicInviteUserV4TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type PublicInviteUserV4TooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewPublicInviteUserV4InternalServerError() *PublicInviteUserV4InternalServe
 	return &PublicInviteUserV4InternalServerError{}
 }
 
-/*PublicInviteUserV4InternalServerError handles this case with default header values.
+/*
+PublicInviteUserV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicInviteUserV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

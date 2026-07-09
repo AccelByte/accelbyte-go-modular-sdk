@@ -15,11 +15,8 @@ import (
 )
 
 type AMSInfoService struct {
-	Client           *amsclient.JusticeAmsService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *amsclient.JusticeAmsService
+	Session repository.Session
 }
 
 var tempFlightIdAMSInfo *string
@@ -30,9 +27,9 @@ func (aaa *AMSInfoService) UpdateFlightId(flightId string) {
 
 func (aaa *AMSInfoService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AMSInfoService) InfoRegionsShort(input *a_m_s_info.InfoRegionsParams)
 	}
 	if tempFlightIdAMSInfo != nil {
 		input.XFlightId = tempFlightIdAMSInfo
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AmsInfo.InfoRegionsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AMSInfoService) InfoSupportedInstancesShort(input *a_m_s_info.InfoSup
 	}
 	if tempFlightIdAMSInfo != nil {
 		input.XFlightId = tempFlightIdAMSInfo
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AmsInfo.InfoSupportedInstancesShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AMSInfoService) UploadURLGetShort(input *a_m_s_info.UploadURLGetParam
 	}
 	if tempFlightIdAMSInfo != nil {
 		input.XFlightId = tempFlightIdAMSInfo
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AmsInfo.UploadURLGetShort(input, authInfoWriter)

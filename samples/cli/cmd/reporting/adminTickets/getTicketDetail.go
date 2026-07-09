@@ -11,6 +11,7 @@ import (
 
 	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_tickets"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var GetTicketDetailCmd = &cobra.Command{
 	Long:  `Get ticket detail`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminTicketsService := &reporting.AdminTicketsService{
-			Client:          reporting.NewReportingClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: reporting.NewReportingHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		ticketId, _ := cmd.Flags().GetString("ticketId")

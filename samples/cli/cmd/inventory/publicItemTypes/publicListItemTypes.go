@@ -11,6 +11,7 @@ import (
 
 	inventory "github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/public_item_types"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var PublicListItemTypesCmd = &cobra.Command{
 	Long:  `Public list item types`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		publicItemTypesService := &inventory.PublicItemTypesService{
-			Client:          inventory.NewInventoryClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: inventory.NewInventoryHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		limit, _ := cmd.Flags().GetInt64("limit")

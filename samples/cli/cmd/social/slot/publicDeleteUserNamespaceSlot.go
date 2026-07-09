@@ -9,6 +9,7 @@ package slot
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/slot"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var PublicDeleteUserNamespaceSlotCmd = &cobra.Command{
 	Long:  `Public delete user namespace slot`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		slotService := &social.SlotService{
-			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: social.NewSocialHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		slotId, _ := cmd.Flags().GetString("slotId")

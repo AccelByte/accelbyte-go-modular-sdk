@@ -114,9 +114,10 @@ func NewRevokeUserV3NoContent() *RevokeUserV3NoContent {
 	return &RevokeUserV3NoContent{}
 }
 
-/*RevokeUserV3NoContent handles this case with default header values.
+/*
+RevokeUserV3NoContent handles this case with default header values.
 
-  user revoked
+	user revoked
 */
 type RevokeUserV3NoContent struct {
 }
@@ -141,9 +142,10 @@ func NewRevokeUserV3BadRequest() *RevokeUserV3BadRequest {
 	return &RevokeUserV3BadRequest{}
 }
 
-/*RevokeUserV3BadRequest handles this case with default header values.
+/*
+RevokeUserV3BadRequest handles this case with default header values.
 
-  invalid input
+	invalid input
 */
 type RevokeUserV3BadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -195,9 +197,10 @@ func NewRevokeUserV3Unauthorized() *RevokeUserV3Unauthorized {
 	return &RevokeUserV3Unauthorized{}
 }
 
-/*RevokeUserV3Unauthorized handles this case with default header values.
+/*
+RevokeUserV3Unauthorized handles this case with default header values.
 
-  Token is not exist, expired, or invalid
+	Token is not exist, expired, or invalid
 */
 type RevokeUserV3Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -249,9 +252,10 @@ func NewRevokeUserV3Forbidden() *RevokeUserV3Forbidden {
 	return &RevokeUserV3Forbidden{}
 }
 
-/*RevokeUserV3Forbidden handles this case with default header values.
+/*
+RevokeUserV3Forbidden handles this case with default header values.
 
-  insufficient permission
+	insufficient permission
 */
 type RevokeUserV3Forbidden struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

@@ -59,7 +59,8 @@ func NewAdminUpdateUserDeletionStatusV3ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*AdminUpdateUserDeletionStatusV3Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateUserDeletionStatusV3Params contains all the parameters to send to the API endpoint
 for the admin update user deletion status v3 operation typically these are written to a http.Request
 */
 type AdminUpdateUserDeletionStatusV3Params struct {

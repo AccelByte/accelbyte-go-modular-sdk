@@ -57,7 +57,8 @@ func NewGetUserInformationParamsWithHTTPClient(client *http.Client) *GetUserInfo
 	}
 }
 
-/*GetUserInformationParams contains all the parameters to send to the API endpoint
+/*
+GetUserInformationParams contains all the parameters to send to the API endpoint
 for the get user information operation typically these are written to a http.Request
 */
 type GetUserInformationParams struct {

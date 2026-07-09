@@ -137,9 +137,10 @@ func NewPlatformTokenGrantV4OK() *PlatformTokenGrantV4OK {
 	return &PlatformTokenGrantV4OK{}
 }
 
-/*PlatformTokenGrantV4OK handles this case with default header values.
+/*
+PlatformTokenGrantV4OK handles this case with default header values.
 
-  Token returned
+	Token returned
 */
 type PlatformTokenGrantV4OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3
@@ -191,9 +192,10 @@ func NewPlatformTokenGrantV4Accepted() *PlatformTokenGrantV4Accepted {
 	return &PlatformTokenGrantV4Accepted{}
 }
 
-/*PlatformTokenGrantV4Accepted handles this case with default header values.
+/*
+PlatformTokenGrantV4Accepted handles this case with default header values.
 
-  Login ticket returned
+	Login ticket returned
 */
 type PlatformTokenGrantV4Accepted struct {
 	Payload *iamclientmodels.OauthmodelLoginQueueTicketResponse
@@ -245,9 +247,10 @@ func NewPlatformTokenGrantV4BadRequest() *PlatformTokenGrantV4BadRequest {
 	return &PlatformTokenGrantV4BadRequest{}
 }
 
-/*PlatformTokenGrantV4BadRequest handles this case with default header values.
+/*
+PlatformTokenGrantV4BadRequest handles this case with default header values.
 
-  General request error
+	General request error
 */
 type PlatformTokenGrantV4BadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -299,9 +302,10 @@ func NewPlatformTokenGrantV4Unauthorized() *PlatformTokenGrantV4Unauthorized {
 	return &PlatformTokenGrantV4Unauthorized{}
 }
 
-/*PlatformTokenGrantV4Unauthorized handles this case with default header values.
+/*
+PlatformTokenGrantV4Unauthorized handles this case with default header values.
 
-  Client authentication failed
+	Client authentication failed
 */
 type PlatformTokenGrantV4Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -353,9 +357,10 @@ func NewPlatformTokenGrantV4Forbidden() *PlatformTokenGrantV4Forbidden {
 	return &PlatformTokenGrantV4Forbidden{}
 }
 
-/*PlatformTokenGrantV4Forbidden handles this case with default header values.
+/*
+PlatformTokenGrantV4Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PlatformTokenGrantV4Forbidden struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -407,9 +412,10 @@ func NewPlatformTokenGrantV4ServiceUnavailable() *PlatformTokenGrantV4ServiceUna
 	return &PlatformTokenGrantV4ServiceUnavailable{}
 }
 
-/*PlatformTokenGrantV4ServiceUnavailable handles this case with default header values.
+/*
+PlatformTokenGrantV4ServiceUnavailable handles this case with default header values.
 
-  Third Party Server timeout or unavailable
+	Third Party Server timeout or unavailable
 */
 type PlatformTokenGrantV4ServiceUnavailable struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

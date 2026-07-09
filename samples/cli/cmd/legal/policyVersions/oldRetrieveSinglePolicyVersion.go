@@ -11,6 +11,7 @@ import (
 
 	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/policy_versions"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var OldRetrieveSinglePolicyVersionCmd = &cobra.Command{
 	Long:  `Old retrieve single policy version`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		policyVersionsService := &legal.PolicyVersionsService{
-			Client:          legal.NewLegalClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: legal.NewLegalHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		policyId, _ := cmd.Flags().GetString("policyId")
 		versionId, _ := cmd.Flags().GetString("versionId")

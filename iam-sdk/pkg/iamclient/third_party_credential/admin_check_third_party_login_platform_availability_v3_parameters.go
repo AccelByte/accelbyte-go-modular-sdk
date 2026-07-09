@@ -57,7 +57,8 @@ func NewAdminCheckThirdPartyLoginPlatformAvailabilityV3ParamsWithHTTPClient(clie
 	}
 }
 
-/*AdminCheckThirdPartyLoginPlatformAvailabilityV3Params contains all the parameters to send to the API endpoint
+/*
+AdminCheckThirdPartyLoginPlatformAvailabilityV3Params contains all the parameters to send to the API endpoint
 for the admin check third party login platform availability v3 operation typically these are written to a http.Request
 */
 type AdminCheckThirdPartyLoginPlatformAvailabilityV3Params struct {

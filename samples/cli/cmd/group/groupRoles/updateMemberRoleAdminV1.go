@@ -13,6 +13,7 @@ import (
 	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/group_roles"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var UpdateMemberRoleAdminV1Cmd = &cobra.Command{
 	Long:  `Update member role admin V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		groupRolesService := &group.GroupRolesService{
-			Client:          group.NewGroupClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: group.NewGroupHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *groupclientmodels.ModelsUpdateMemberRoleRequestV1

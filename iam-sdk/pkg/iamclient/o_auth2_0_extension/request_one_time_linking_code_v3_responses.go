@@ -69,9 +69,10 @@ func NewRequestOneTimeLinkingCodeV3OK() *RequestOneTimeLinkingCodeV3OK {
 	return &RequestOneTimeLinkingCodeV3OK{}
 }
 
-/*RequestOneTimeLinkingCodeV3OK handles this case with default header values.
+/*
+RequestOneTimeLinkingCodeV3OK handles this case with default header values.
 
-  Succeed to one time code.
+	Succeed to one time code.
 */
 type RequestOneTimeLinkingCodeV3OK struct {
 	Payload *iamclientmodels.OauthmodelOneTimeLinkingCodeResponse

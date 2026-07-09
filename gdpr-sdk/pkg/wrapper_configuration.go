@@ -15,11 +15,8 @@ import (
 )
 
 type ConfigurationService struct {
-	Client           *gdprclient.JusticeGdprService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *gdprclient.JusticeGdprService
+	Session repository.Session
 }
 
 var tempFlightIdConfiguration *string
@@ -30,9 +27,9 @@ func (aaa *ConfigurationService) UpdateFlightId(flightId string) {
 
 func (aaa *ConfigurationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ConfigurationService) GetAdminEmailConfigurationShort(input *configur
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.GetAdminEmailConfigurationShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ConfigurationService) UpdateAdminEmailConfigurationShort(input *confi
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Configuration.UpdateAdminEmailConfigurationShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *ConfigurationService) SaveAdminEmailConfigurationShort(input *configu
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Configuration.SaveAdminEmailConfigurationShort(input, authInfoWriter)
@@ -148,8 +145,8 @@ func (aaa *ConfigurationService) DeleteAdminEmailConfigurationShort(input *confi
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Configuration.DeleteAdminEmailConfigurationShort(input, authInfoWriter)
@@ -178,8 +175,8 @@ func (aaa *ConfigurationService) AdminGetServicesConfigurationShort(input *confi
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.AdminGetServicesConfigurationShort(input, authInfoWriter)
@@ -212,8 +209,8 @@ func (aaa *ConfigurationService) AdminUpdateServicesConfigurationShort(input *co
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.AdminUpdateServicesConfigurationShort(input, authInfoWriter)
@@ -246,8 +243,8 @@ func (aaa *ConfigurationService) AdminResetServicesConfigurationShort(input *con
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Configuration.AdminResetServicesConfigurationShort(input, authInfoWriter)
@@ -276,8 +273,8 @@ func (aaa *ConfigurationService) AdminGetPlatformAccountClosureServicesConfigura
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.AdminGetPlatformAccountClosureServicesConfigurationShort(input, authInfoWriter)
@@ -310,8 +307,8 @@ func (aaa *ConfigurationService) AdminUpdatePlatformAccountClosureServicesConfig
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Configuration.AdminUpdatePlatformAccountClosureServicesConfigurationShort(input, authInfoWriter)
@@ -344,8 +341,8 @@ func (aaa *ConfigurationService) AdminResetPlatformAccountClosureServicesConfigu
 	}
 	if tempFlightIdConfiguration != nil {
 		input.XFlightId = tempFlightIdConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Configuration.AdminResetPlatformAccountClosureServicesConfigurationShort(input, authInfoWriter)

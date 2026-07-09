@@ -44,8 +44,6 @@ type ClientService interface {
 
 /*
 GetNotificationSubscriberListV2Short get a list of the app notification subscriber
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [READ]`
-
 Request param:
 - notificationType : type of the subscribed app notification
 - values:
@@ -135,8 +133,6 @@ func (a *Client) GetNotificationSubscriberListV2Short(params *GetNotificationSub
 
 /*
 BulkSaveSubscriptionAppNotificationV2Short bulk update of users subscribed to an app's notifications
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [UPDATE]`
-
 Bulk update of users subscribed to an app's notifications.
 
 Request body:
@@ -227,8 +223,6 @@ func (a *Client) BulkSaveSubscriptionAppNotificationV2Short(params *BulkSaveSubs
 
 /*
 SubscribeAppNotificationV2Short subscribe the user(s) an app notification
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [CREATE]`
-
 Subscribe the user(s) an app notification.
 
 Request body:
@@ -319,8 +313,6 @@ func (a *Client) SubscribeAppNotificationV2Short(params *SubscribeAppNotificatio
 
 /*
 GetSubscriptionV2HandlerShort get subscription status of a user
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRIPTION [READ]`
-
 Get Subscription status of a user
 */
 func (a *Client) GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*GetSubscriptionV2HandlerResponse, error) {
@@ -403,8 +395,6 @@ func (a *Client) GetSubscriptionV2HandlerShort(params *GetSubscriptionV2HandlerP
 
 /*
 SubscribeV2HandlerShort subscribe to app notification
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRIPTION [CREATE]`
-
 Subscribe to app notification
 Request body:
 - notificationType : type of the app notification to be subscribed - Required.
@@ -492,8 +482,6 @@ func (a *Client) SubscribeV2HandlerShort(params *SubscribeV2HandlerParams, authI
 
 /*
 UnsubscribeV2HandlerShort unsubscribe to app notification
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SELF:SUBSCRIPTION [DELETE]`
-
 Unsubscribe to app notification
 */
 func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, authInfo runtime.ClientAuthInfoWriter) (*UnsubscribeV2HandlerResponse, error) {
@@ -575,8 +563,6 @@ func (a *Client) UnsubscribeV2HandlerShort(params *UnsubscribeV2HandlerParams, a
 
 /*
 DeleteSubscriptionAppNotificationByUserIDV2Short remove other person subscription by user id
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [DELETE]`
-
 Remove a user from the notification subscription by user ID.
 */
 func (a *Client) DeleteSubscriptionAppNotificationByUserIDV2Short(params *DeleteSubscriptionAppNotificationByUserIDV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationByUserIDV2Response, error) {
@@ -658,8 +644,6 @@ func (a *Client) DeleteSubscriptionAppNotificationByUserIDV2Short(params *Delete
 
 /*
 DeleteSubscriptionAppNotificationV2Short remove other person subscription
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP:ALERT:SUBSCRIPTION [DELETE]`
-
 Remove a user from the notification subscription.
 */
 func (a *Client) DeleteSubscriptionAppNotificationV2Short(params *DeleteSubscriptionAppNotificationV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSubscriptionAppNotificationV2Response, error) {

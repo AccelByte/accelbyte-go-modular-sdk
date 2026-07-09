@@ -13,6 +13,7 @@ import (
 	cloudsave "github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclient/public_player_record"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk/pkg/cloudsaveclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var GetPlayerRecordsBulkHandlerV1Cmd = &cobra.Command{
 	Long:  `Get player records bulk handler V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		publicPlayerRecordService := &cloudsave.PublicPlayerRecordService{
-			Client:          cloudsave.NewCloudsaveClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: cloudsave.NewCloudsaveHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *cloudsaveclientmodels.ModelsBulkGetPlayerRecordsRequest

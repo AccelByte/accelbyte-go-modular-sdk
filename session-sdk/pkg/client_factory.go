@@ -13,7 +13,46 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient"
 )
 
-func NewSessionClient(configRepository repository.ConfigRepository) *sessionclient.JusticeSessionService {
+type SessionClient struct {
+	Operations               *OperationsService
+	Config                   *ConfigService
+	DSMCDefaultConfiguration *DSMCDefaultConfigurationService
+	EnvironmentVariable      *EnvironmentVariableService
+	GlobalConfiguration      *GlobalConfigurationService
+	ConfigurationTemplate    *ConfigurationTemplateService
+	Certificate              *CertificateService
+	MaxActive                *MaxActiveService
+	GameSession              *GameSessionService
+	NativeSession            *NativeSessionService
+	Party                    *PartyService
+	SessionStorage           *SessionStorageService
+	PlatformCredential       *PlatformCredentialService
+	RecentPlayer             *RecentPlayerService
+	Player                   *PlayerService
+}
+
+func NewSessionClient(session repository.Session) *SessionClient {
+	httpClient := NewSessionHttpClient(session.ConfigRepository)
+	return &SessionClient{
+		Operations:               &OperationsService{Client: httpClient, Session: session},
+		Config:                   &ConfigService{Client: httpClient, Session: session},
+		DSMCDefaultConfiguration: &DSMCDefaultConfigurationService{Client: httpClient, Session: session},
+		EnvironmentVariable:      &EnvironmentVariableService{Client: httpClient, Session: session},
+		GlobalConfiguration:      &GlobalConfigurationService{Client: httpClient, Session: session},
+		ConfigurationTemplate:    &ConfigurationTemplateService{Client: httpClient, Session: session},
+		Certificate:              &CertificateService{Client: httpClient, Session: session},
+		MaxActive:                &MaxActiveService{Client: httpClient, Session: session},
+		GameSession:              &GameSessionService{Client: httpClient, Session: session},
+		NativeSession:            &NativeSessionService{Client: httpClient, Session: session},
+		Party:                    &PartyService{Client: httpClient, Session: session},
+		SessionStorage:           &SessionStorageService{Client: httpClient, Session: session},
+		PlatformCredential:       &PlatformCredentialService{Client: httpClient, Session: session},
+		RecentPlayer:             &RecentPlayerService{Client: httpClient, Session: session},
+		Player:                   &PlayerService{Client: httpClient, Session: session},
+	}
+}
+
+func NewSessionHttpClient(configRepository repository.ConfigRepository) *sessionclient.JusticeSessionService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

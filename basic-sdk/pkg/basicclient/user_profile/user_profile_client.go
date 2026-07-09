@@ -66,7 +66,7 @@ GetUserProfileInfoByPublicIDShort get user profile info by public id
 Get user profile by public id.
 Other detail info:
 
-  * Returns : user profile info
+  - Returns : user profile info
 */
 func (a *Client) GetUserProfileInfoByPublicIDShort(params *GetUserProfileInfoByPublicIDParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoByPublicIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -151,9 +151,9 @@ AdminGetUserProfilePublicInfoByIdsShort admin get user profile public info by id
 Admin get user public profile by ids.
 Other detail info:
 
-  * Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (GET)
-  *  Action code : 11405
-  *  Returns : user public profiles
+  - Required permission : resource= "ADMIN:NAMESPACE:{namespace}:PROFILE" , action=2 (GET)
+  - Action code : 11405
+  - Returns : user public profiles
 */
 func (a *Client) AdminGetUserProfilePublicInfoByIdsShort(params *AdminGetUserProfilePublicInfoByIdsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetUserProfilePublicInfoByIdsResponse, error) {
 	// TODO: Validate the params before sending
@@ -217,8 +217,8 @@ GetUserProfileInfoShort get user profile
 Get user profile.
 Other detail info:
 
-  * Returns : user profile
-  *  Action code : 11403
+  - Returns : user profile
+  - Action code : 11403
 */
 func (a *Client) GetUserProfileInfoShort(params *GetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetUserProfileInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -303,8 +303,8 @@ UpdateUserProfileShort update user profile
 Update user profile.
 Other detail info:
 
-  * Action code : 11402
-  *  Returns : Updated user profile
+  - Action code : 11402
+  - Returns : Updated user profile
 */
 func (a *Client) UpdateUserProfileShort(params *UpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileResponse, error) {
 	// TODO: Validate the params before sending
@@ -389,8 +389,8 @@ DeleteUserProfileShort delete user profile
 Delete user profile.
 Other detail info:
 
-  * Action code : 11407
-  *  Returns : Delete user profile
+  - Action code : 11407
+  - Returns : Delete user profile
 */
 func (a *Client) DeleteUserProfileShort(params *DeleteUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteUserProfileResponse, error) {
 	// TODO: Validate the params before sending
@@ -475,8 +475,8 @@ GetCustomAttributesInfoShort get user custom attributes
 Get user custom attributes.
 Other detail info:
 
-  * Returns : custom attributes
-  *  Action code : 11403
+  - Returns : custom attributes
+  - Action code : 11403
 */
 func (a *Client) GetCustomAttributesInfoShort(params *GetCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetCustomAttributesInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -554,9 +554,9 @@ UpdateCustomAttributesPartiallyShort update partially custom attributes tied to 
 Update partially custom attributes tied to the user id.
 Other detail info:
 
-  * Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) UpdateCustomAttributesPartiallyShort(params *UpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateCustomAttributesPartiallyResponse, error) {
 	// TODO: Validate the params before sending
@@ -641,8 +641,8 @@ GetPrivateCustomAttributesInfoShort get user private custom attributes
 Get user private custom attributes.
 Other detail info:
 
-  * Returns : custom attributes
-  *  Action code : 11403
+  - Returns : custom attributes
+  - Action code : 11403
 */
 func (a *Client) GetPrivateCustomAttributesInfoShort(params *GetPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetPrivateCustomAttributesInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -720,9 +720,9 @@ UpdatePrivateCustomAttributesPartiallyShort update partially private custom attr
 Update partially private custom attributes tied to the user id.
 Other detail info:
 
-  * Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) UpdatePrivateCustomAttributesPartiallyShort(params *UpdatePrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdatePrivateCustomAttributesPartiallyResponse, error) {
 	// TODO: Validate the params before sending
@@ -807,8 +807,8 @@ UpdateUserProfileStatusShort update user profile status
 Update user profile status.
 Other detail info:
 
-  * Action code : 11406
-  *  Returns : user profile
+  - Action code : 11406
+  - Returns : user profile
 */
 func (a *Client) UpdateUserProfileStatusShort(params *UpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateUserProfileStatusResponse, error) {
 	// TODO: Validate the params before sending
@@ -893,8 +893,8 @@ PublicGetUserProfilePublicInfoByIdsShort get user profile public info by ids
 Get user public profile by ids.
 Other detail info:
 
-  * Action code : 11405
-  *  Returns : user public profiles
+  - Action code : 11405
+  - Returns : user public profiles
 */
 func (a *Client) PublicGetUserProfilePublicInfoByIdsShort(params *PublicGetUserProfilePublicInfoByIdsParams) (*PublicGetUserProfilePublicInfoByIdsResponse, error) {
 	// TODO: Validate the params before sending
@@ -957,7 +957,7 @@ PublicBulkGetUserProfilePublicInfoShort bulk get user profile public info by ids
 Bulk get user public profile by ids.
 Other detail info:
 
-  * Returns : user public profiles
+  - Returns : user public profiles
 */
 func (a *Client) PublicBulkGetUserProfilePublicInfoShort(params *PublicBulkGetUserProfilePublicInfoParams) (*PublicBulkGetUserProfilePublicInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -1020,7 +1020,7 @@ PublicGetUserProfileInfoByPublicIDShort get user profile public info by public i
 Get user public profile by public id.
 Other detail info:
 
-  * Returns : user public profile
+  - Returns : user public profile
 */
 func (a *Client) PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserProfileInfoByPublicIDParams) (*PublicGetUserProfileInfoByPublicIDResponse, error) {
 	// TODO: Validate the params before sending
@@ -1088,16 +1088,18 @@ func (a *Client) PublicGetUserProfileInfoByPublicIDShort(params *PublicGetUserPr
 /*
 GetMyProfileInfoShort get my profile
 Get my profile
- Client with user token can get user profile in target namespace
+
+	Client with user token can get user profile in target namespace
+
 Other detail info:
 
-  * Action code : 11403
-  *  Returns : user profile
-  *  Path's namespace :
-    * can be filled with publisher namespace in order to get publisher user profile
-    * can be filled with game namespace in order to get game user profile
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Action code : 11403
+  - Returns : user profile
+  - Path's namespace :
+  - can be filled with publisher namespace in order to get publisher user profile
+  - can be filled with game namespace in order to get game user profile
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
 */
 func (a *Client) GetMyProfileInfoShort(params *GetMyProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyProfileInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -1183,13 +1185,13 @@ Update my profile.
 Updates user profile in the target namespace (namespace in the path). If token's namespace doesn't match the target namespace, the service automatically maps the token's user ID into the user ID in the target namespace. The endpoint returns the updated user profile on a successful call.
 Other detail info:
 
-  * Action code : 11402
-  *  Returns : user profile
-  *  Path's namespace :
-    * can be filled with publisher namespace in order to update publisher user profile
-    * can be filled with game namespace in order to update game user profile
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Action code : 11402
+  - Returns : user profile
+  - Path's namespace :
+  - can be filled with publisher namespace in order to update publisher user profile
+  - can be filled with game namespace in order to update game user profile
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
 */
 func (a *Client) UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyProfileResponse, error) {
 	// TODO: Validate the params before sending
@@ -1272,17 +1274,19 @@ func (a *Client) UpdateMyProfileShort(params *UpdateMyProfileParams, authInfo ru
 /*
 CreateMyProfileShort create my profile
 Create my profile.
- Client with user token can create user profile in target namespace
+
+	Client with user token can create user profile in target namespace
+
 Other detail info:
 
-  * Action code : 11401
-  *  Returns : Created user profile
-  *  Path's namespace :
-    * can be filled with publisher namespace in order to create publisher user profile
-    * can be filled with game namespace in order to create game user profile
-  *  Language : allowed format: en, en-US
-  *  Country : ISO3166-1 alpha-2 two letter, e.g. US
-  * Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Action code : 11401
+  - Returns : Created user profile
+  - Path's namespace :
+  - can be filled with publisher namespace in order to create publisher user profile
+  - can be filled with game namespace in order to create game user profile
+  - Language : allowed format: en, en-US
+  - Country : ISO3166-1 alpha-2 two letter, e.g. US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
 */
 func (a *Client) CreateMyProfileShort(params *CreateMyProfileParams, authInfo runtime.ClientAuthInfoWriter) (*CreateMyProfileResponse, error) {
 	// TODO: Validate the params before sending
@@ -1374,8 +1378,8 @@ GetMyPrivateCustomAttributesInfoShort get my private custom attributes
 Get my private custom attributes.
 Other detail info:
 
-  * Returns : custom attributes
-  *  Action code : 11403
+  - Returns : custom attributes
+  - Action code : 11403
 */
 func (a *Client) GetMyPrivateCustomAttributesInfoShort(params *GetMyPrivateCustomAttributesInfoParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyPrivateCustomAttributesInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -1453,9 +1457,9 @@ UpdateMyPrivateCustomAttributesPartiallyShort update partially private custom at
 Update partially private custom attributes tied to me.
 Other detail info:
 
-  * Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) UpdateMyPrivateCustomAttributesPartiallyShort(params *UpdateMyPrivateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyPrivateCustomAttributesPartiallyResponse, error) {
 	// TODO: Validate the params before sending
@@ -1540,8 +1544,8 @@ GetMyZipCodeShort get my zip code
 Get my zip code.
 Other detail info:
 
-  * Action code : 11407
-  *  Returns : user zip code
+  - Action code : 11407
+  - Returns : user zip code
 */
 func (a *Client) GetMyZipCodeShort(params *GetMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*GetMyZipCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -1612,8 +1616,8 @@ UpdateMyZipCodeShort update my zip code
 Update my zip code.
 Other detail info:
 
-  * Action code : 11408
-  *  Returns : user zip code
+  - Action code : 11408
+  - Returns : user zip code
 */
 func (a *Client) UpdateMyZipCodeShort(params *UpdateMyZipCodeParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateMyZipCodeResponse, error) {
 	// TODO: Validate the params before sending
@@ -1691,8 +1695,8 @@ PublicGetUserProfileInfoShort get user profile
 Get user profile.
 Other detail info:
 
-  * Action code : 11403
-  *  Returns : user profile
+  - Action code : 11403
+  - Returns : user profile
 */
 func (a *Client) PublicGetUserProfileInfoShort(params *PublicGetUserProfileInfoParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserProfileInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -1777,10 +1781,10 @@ PublicUpdateUserProfileShort update user profile
 Update user profile.
 Other detail info:
 
-  * Action code : 11402
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
-  *  Returns : Updated user profile
+  - Action code : 11402
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Returns : Updated user profile
 */
 func (a *Client) PublicUpdateUserProfileShort(params *PublicUpdateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileResponse, error) {
 	// TODO: Validate the params before sending
@@ -1865,10 +1869,10 @@ PublicCreateUserProfileShort create user profile
 Create user profile.
 Other detail info:
 
-  * Action code : 11401
-  *  Language : allowed format: en, en-US
-  *  Timezone : IANA time zone, e.g. Asia/Shanghai
-  *  Returns : Created user profile
+  - Action code : 11401
+  - Language : allowed format: en, en-US
+  - Timezone : IANA time zone, e.g. Asia/Shanghai
+  - Returns : Created user profile
 */
 func (a *Client) PublicCreateUserProfileShort(params *PublicCreateUserProfileParams, authInfo runtime.ClientAuthInfoWriter) (*PublicCreateUserProfileResponse, error) {
 	// TODO: Validate the params before sending
@@ -1953,8 +1957,8 @@ PublicGetCustomAttributesInfoShort get custom attributes info
 Get custom attributes info.
 Other detail info:
 
-  * Action code : 11404
-  *  Returns : user custom attributes
+  - Action code : 11404
+  - Returns : user custom attributes
 */
 func (a *Client) PublicGetCustomAttributesInfoShort(params *PublicGetCustomAttributesInfoParams) (*PublicGetCustomAttributesInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -2017,9 +2021,9 @@ PublicUpdateCustomAttributesPartiallyShort update partially custom attributes ti
 Update partially custom attributes tied to user id.
 Other detail info:
 
-  * Action code : 11402
-  *  Request body : allowed format: JSON object
-  *  Returns : Updated custom attributes
+  - Action code : 11402
+  - Request body : allowed format: JSON object
+  - Returns : Updated custom attributes
 */
 func (a *Client) PublicUpdateCustomAttributesPartiallyShort(params *PublicUpdateCustomAttributesPartiallyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateCustomAttributesPartiallyResponse, error) {
 	// TODO: Validate the params before sending
@@ -2104,8 +2108,8 @@ PublicGetUserProfilePublicInfoShort get user profile public info
 Get user profile public info.
 Other detail info:
 
-  * Action code : 11404
-  *  Returns : user public profile
+  - Action code : 11404
+  - Returns : user public profile
 */
 func (a *Client) PublicGetUserProfilePublicInfoShort(params *PublicGetUserProfilePublicInfoParams) (*PublicGetUserProfilePublicInfoResponse, error) {
 	// TODO: Validate the params before sending
@@ -2175,8 +2179,8 @@ PublicUpdateUserProfileStatusShort update user profile status
 Update user profile status.
 Other detail info:
 
-  * Action code : 11406
-  *  Returns : user profile
+  - Action code : 11406
+  - Returns : user profile
 */
 func (a *Client) PublicUpdateUserProfileStatusShort(params *PublicUpdateUserProfileStatusParams, authInfo runtime.ClientAuthInfoWriter) (*PublicUpdateUserProfileStatusResponse, error) {
 	// TODO: Validate the params before sending

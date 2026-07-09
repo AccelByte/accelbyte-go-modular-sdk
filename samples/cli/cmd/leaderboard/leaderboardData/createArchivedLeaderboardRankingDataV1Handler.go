@@ -13,6 +13,7 @@ import (
 	leaderboard "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/leaderboard_data"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var CreateArchivedLeaderboardRankingDataV1HandlerCmd = &cobra.Command{
 	Long:  `Create archived leaderboard ranking data V1 handler`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		leaderboardDataService := &leaderboard.LeaderboardDataService{
-			Client:          leaderboard.NewLeaderboardClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: leaderboard.NewLeaderboardHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *leaderboardclientmodels.ModelsArchiveLeaderboardReq

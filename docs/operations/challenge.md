@@ -33,6 +33,8 @@
 | `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/goals/{code}` | GET | AdminGetGoalShort | [AdminGetGoalShort](../../challenge-sdk/pkg/challengeclient/goal_configuration/goal_configuration_client.go) | [AdminGetGoalShort](../../challenge-sdk/pkg/wrapper_goalConfiguration.go) | [AdminGetGoalShort](../../samples/cli/cmd/challenge/goalConfiguration/adminGetGoal.go) |
 | `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/goals/{code}` | PUT | AdminUpdateGoalsShort | [AdminUpdateGoalsShort](../../challenge-sdk/pkg/challengeclient/goal_configuration/goal_configuration_client.go) | [AdminUpdateGoalsShort](../../challenge-sdk/pkg/wrapper_goalConfiguration.go) | [AdminUpdateGoalsShort](../../samples/cli/cmd/challenge/goalConfiguration/adminUpdateGoals.go) |
 | `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/goals/{code}` | DELETE | AdminDeleteGoalShort | [AdminDeleteGoalShort](../../challenge-sdk/pkg/challengeclient/goal_configuration/goal_configuration_client.go) | [AdminDeleteGoalShort](../../challenge-sdk/pkg/wrapper_goalConfiguration.go) | [AdminDeleteGoalShort](../../samples/cli/cmd/challenge/goalConfiguration/adminDeleteGoal.go) |
+| `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/goals/{code}/slots` | PUT | AdminMoveGoalToSlotShort | [AdminMoveGoalToSlotShort](../../challenge-sdk/pkg/challengeclient/goal_configuration/goal_configuration_client.go) | [AdminMoveGoalToSlotShort](../../challenge-sdk/pkg/wrapper_goalConfiguration.go) | [AdminMoveGoalToSlotShort](../../samples/cli/cmd/challenge/goalConfiguration/adminMoveGoalToSlot.go) |
+| `/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/slots` | GET | AdminGetChallengeSlotsShort | [AdminGetChallengeSlotsShort](../../challenge-sdk/pkg/challengeclient/goal_configuration/goal_configuration_client.go) | [AdminGetChallengeSlotsShort](../../challenge-sdk/pkg/wrapper_goalConfiguration.go) | [AdminGetChallengeSlotsShort](../../samples/cli/cmd/challenge/goalConfiguration/adminGetChallengeSlots.go) |
 
 ### Schedules Wrapper:  [Schedules](../../challenge-sdk/pkg/wrapper_schedules.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
@@ -55,7 +57,7 @@
 |---|---|---|---|---|---|
 | `/challenge/v1/admin/namespaces/{namespace}/progress/evaluate` | POST | AdminEvaluateProgressShort | [AdminEvaluateProgressShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [AdminEvaluateProgressShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [AdminEvaluateProgressShort](../../samples/cli/cmd/challenge/challengeProgression/adminEvaluateProgress.go) |
 | `/challenge/v1/admin/namespaces/{namespace}/users/{userId}/progress/{challengeCode}` | GET | AdminGetUserProgressionShort | [AdminGetUserProgressionShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [AdminGetUserProgressionShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [AdminGetUserProgressionShort](../../samples/cli/cmd/challenge/challengeProgression/adminGetUserProgression.go) |
-| `/challenge/v1/public/namespaces/{namespace}/users/me/progress/evaluate` | POST | EvaluateMyProgressShort | [EvaluateMyProgressShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [EvaluateMyProgressShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [EvaluateMyProgressShort](../../samples/cli/cmd/challenge/challengeProgression/evaluateMyProgress.go) |
+| `/challenge/v1/public/namespaces/{namespace}/users/me/progress/evaluate` | POST | PublicEvaluateMyProgressShort | [PublicEvaluateMyProgressShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [PublicEvaluateMyProgressShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [PublicEvaluateMyProgressShort](../../samples/cli/cmd/challenge/challengeProgression/publicEvaluateMyProgress.go) |
 | `/challenge/v1/public/namespaces/{namespace}/users/me/progress/{challengeCode}` | GET | PublicGetUserProgressionShort | [PublicGetUserProgressionShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [PublicGetUserProgressionShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [PublicGetUserProgressionShort](../../samples/cli/cmd/challenge/challengeProgression/publicGetUserProgression.go) |
 | `/challenge/v1/public/namespaces/{namespace}/users/me/progress/{challengeCode}/index/{index}` | GET | PublicGetPastUserProgressionShort | [PublicGetPastUserProgressionShort](../../challenge-sdk/pkg/challengeclient/challenge_progression/challenge_progression_client.go) | [PublicGetPastUserProgressionShort](../../challenge-sdk/pkg/wrapper_challengeProgression.go) | [PublicGetPastUserProgressionShort](../../samples/cli/cmd/challenge/challengeProgression/publicGetPastUserProgression.go) |
 
@@ -73,7 +75,7 @@
 ### Challenge List Wrapper:  [ChallengeList](../../challenge-sdk/pkg/wrapper_challengeList.go)
 | Endpoint | Method | ID | Class | Wrapper | Example |
 |---|---|---|---|---|---|
-| `/challenge/v1/public/namespaces/{namespace}/challenges` | GET | GetChallengesShort | [GetChallengesShort](../../challenge-sdk/pkg/challengeclient/challenge_list/challenge_list_client.go) | [GetChallengesShort](../../challenge-sdk/pkg/wrapper_challengeList.go) | [GetChallengesShort](../../samples/cli/cmd/challenge/challengeList/getChallenges.go) |
+| `/challenge/v1/public/namespaces/{namespace}/challenges` | GET | PublicGetChallengesShort | [PublicGetChallengesShort](../../challenge-sdk/pkg/challengeclient/challenge_list/challenge_list_client.go) | [PublicGetChallengesShort](../../challenge-sdk/pkg/wrapper_challengeList.go) | [PublicGetChallengesShort](../../samples/cli/cmd/challenge/challengeList/publicGetChallenges.go) |
 | `/challenge/v1/public/namespaces/{namespace}/challenges/{challengeCode}/goals` | GET | PublicGetScheduledGoalsShort | [PublicGetScheduledGoalsShort](../../challenge-sdk/pkg/challengeclient/challenge_list/challenge_list_client.go) | [PublicGetScheduledGoalsShort](../../challenge-sdk/pkg/wrapper_challengeList.go) | [PublicGetScheduledGoalsShort](../../samples/cli/cmd/challenge/challengeList/publicGetScheduledGoals.go) |
 
 
@@ -87,6 +89,7 @@
 | `iam.Permission` | [IamPermission ](../../challenge-sdk/pkg/challengeclientmodels/iam_permission.go) |
 | `model.ChallengeReference` | [ModelChallengeReference ](../../challenge-sdk/pkg/challengeclientmodels/model_challenge_reference.go) |
 | `model.ChallengeResponse` | [ModelChallengeResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_challenge_response.go) |
+| `model.ChallengeSlotResponse` | [ModelChallengeSlotResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_challenge_slot_response.go) |
 | `model.ClaimUserRewardsByGoalCodeRequest` | [ModelClaimUserRewardsByGoalCodeRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_claim_user_rewards_by_goal_code_request.go) |
 | `model.ClaimUserRewardsReq` | [ModelClaimUserRewardsReq ](../../challenge-sdk/pkg/challengeclientmodels/model_claim_user_rewards_req.go) |
 | `model.ClaimUsersRewardsRequest` | [ModelClaimUsersRewardsRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_claim_users_rewards_request.go) |
@@ -94,8 +97,10 @@
 | `model.ClaimableUserReward` | [ModelClaimableUserReward ](../../challenge-sdk/pkg/challengeclientmodels/model_claimable_user_reward.go) |
 | `model.CreateChallengeRequest` | [ModelCreateChallengeRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_create_challenge_request.go) |
 | `model.CreateGoalRequest` | [ModelCreateGoalRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_create_goal_request.go) |
+| `model.CurrentRoundSlotResponse` | [ModelCurrentRoundSlotResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_current_round_slot_response.go) |
 | `model.EvaluatePlayerProgressionRequest` | [ModelEvaluatePlayerProgressionRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_evaluate_player_progression_request.go) |
 | `model.GetGoalsResponse` | [ModelGetGoalsResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_get_goals_response.go) |
+| `model.GetSlotsResponse` | [ModelGetSlotsResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_get_slots_response.go) |
 | `model.GoalInSchedulesResponse` | [ModelGoalInSchedulesResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_goal_in_schedules_response.go) |
 | `model.GoalMeta` | [ModelGoalMeta ](../../challenge-sdk/pkg/challengeclientmodels/model_goal_meta.go) |
 | `model.GoalOrder` | [ModelGoalOrder ](../../challenge-sdk/pkg/challengeclientmodels/model_goal_order.go) |
@@ -110,6 +115,7 @@
 | `model.ListScheduleByGoalResponse` | [ModelListScheduleByGoalResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_list_schedule_by_goal_response.go) |
 | `model.ListSchedulesResponse` | [ModelListSchedulesResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_list_schedules_response.go) |
 | `model.ListUserRewardsResponse` | [ModelListUserRewardsResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_list_user_rewards_response.go) |
+| `model.MoveGoalToSlotRequest` | [ModelMoveGoalToSlotRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_move_goal_to_slot_request.go) |
 | `model.Pagination` | [ModelPagination ](../../challenge-sdk/pkg/challengeclientmodels/model_pagination.go) |
 | `model.PluginAsignmentAppConfig` | [ModelPluginAsignmentAppConfig ](../../challenge-sdk/pkg/challengeclientmodels/model_plugin_asignment_app_config.go) |
 | `model.PluginAssignmentCustomConfig` | [ModelPluginAssignmentCustomConfig ](../../challenge-sdk/pkg/challengeclientmodels/model_plugin_assignment_custom_config.go) |
@@ -123,6 +129,7 @@
 | `model.Schedule` | [ModelSchedule ](../../challenge-sdk/pkg/challengeclientmodels/model_schedule.go) |
 | `model.ScheduleByGoalResponse` | [ModelScheduleByGoalResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_schedule_by_goal_response.go) |
 | `model.ScheduleResponse` | [ModelScheduleResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_schedule_response.go) |
+| `model.TemplateSlotResponse` | [ModelTemplateSlotResponse ](../../challenge-sdk/pkg/challengeclientmodels/model_template_slot_response.go) |
 | `model.UpdateChallengeRequest` | [ModelUpdateChallengeRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_update_challenge_request.go) |
 | `model.UpdateChallengeScheduleRequest` | [ModelUpdateChallengeScheduleRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_update_challenge_schedule_request.go) |
 | `model.UpdateGoalRequest` | [ModelUpdateGoalRequest ](../../challenge-sdk/pkg/challengeclientmodels/model_update_goal_request.go) |

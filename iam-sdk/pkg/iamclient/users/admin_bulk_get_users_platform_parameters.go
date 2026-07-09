@@ -59,7 +59,8 @@ func NewAdminBulkGetUsersPlatformParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminBulkGetUsersPlatformParams contains all the parameters to send to the API endpoint
+/*
+AdminBulkGetUsersPlatformParams contains all the parameters to send to the API endpoint
 for the admin bulk get users platform operation typically these are written to a http.Request
 */
 type AdminBulkGetUsersPlatformParams struct {

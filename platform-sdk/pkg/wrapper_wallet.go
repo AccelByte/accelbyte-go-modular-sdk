@@ -15,11 +15,8 @@ import (
 )
 
 type WalletService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdWallet *string
@@ -30,9 +27,9 @@ func (aaa *WalletService) UpdateFlightId(flightId string) {
 
 func (aaa *WalletService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *WalletService) GetPlatformWalletConfigShort(input *wallet.GetPlatform
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.GetPlatformWalletConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *WalletService) UpdatePlatformWalletConfigShort(input *wallet.UpdatePl
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.UpdatePlatformWalletConfigShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *WalletService) ResetPlatformWalletConfigShort(input *wallet.ResetPlat
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.ResetPlatformWalletConfigShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *WalletService) QueryUserCurrencyWalletsShort(input *wallet.QueryUserC
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.QueryUserCurrencyWalletsShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *WalletService) DebitUserWalletByCurrencyCodeShort(input *wallet.Debit
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.DebitUserWalletByCurrencyCodeShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *WalletService) ListUserCurrencyTransactionsShort(input *wallet.ListUs
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.ListUserCurrencyTransactionsShort(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *WalletService) CheckBalanceShort(input *wallet.CheckBalanceParams) (*
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.CheckBalanceShort(input, authInfoWriter)
@@ -292,8 +289,8 @@ func (aaa *WalletService) CheckWalletShort(input *wallet.CheckWalletParams) erro
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Wallet.CheckWalletShort(input, authInfoWriter)
@@ -322,8 +319,8 @@ func (aaa *WalletService) CreditUserWalletShort(input *wallet.CreditUserWalletPa
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.CreditUserWalletShort(input, authInfoWriter)
@@ -356,8 +353,8 @@ func (aaa *WalletService) DebitByWalletPlatformShort(input *wallet.DebitByWallet
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.DebitByWalletPlatformShort(input, authInfoWriter)
@@ -390,8 +387,8 @@ func (aaa *WalletService) PayWithUserWalletShort(input *wallet.PayWithUserWallet
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.PayWithUserWalletShort(input, authInfoWriter)
@@ -424,8 +421,8 @@ func (aaa *WalletService) GetUserWalletShort(input *wallet.GetUserWalletParams) 
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.GetUserWalletShort(input, authInfoWriter)
@@ -458,8 +455,8 @@ func (aaa *WalletService) DebitUserWalletShort(input *wallet.DebitUserWalletPara
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.DebitUserWalletShort(input, authInfoWriter)
@@ -492,8 +489,8 @@ func (aaa *WalletService) DisableUserWalletShort(input *wallet.DisableUserWallet
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Wallet.DisableUserWalletShort(input, authInfoWriter)
@@ -522,8 +519,8 @@ func (aaa *WalletService) EnableUserWalletShort(input *wallet.EnableUserWalletPa
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Wallet.EnableUserWalletShort(input, authInfoWriter)
@@ -552,8 +549,8 @@ func (aaa *WalletService) ListUserWalletTransactionsShort(input *wallet.ListUser
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.ListUserWalletTransactionsShort(input, authInfoWriter)
@@ -586,8 +583,8 @@ func (aaa *WalletService) GetWalletConfigShort(input *wallet.GetWalletConfigPara
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.GetWalletConfigShort(input, authInfoWriter)
@@ -620,8 +617,8 @@ func (aaa *WalletService) UpdateWalletConfigShort(input *wallet.UpdateWalletConf
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.UpdateWalletConfigShort(input, authInfoWriter)
@@ -654,8 +651,8 @@ func (aaa *WalletService) QueryWalletsShort(input *wallet.QueryWalletsParams) (*
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.QueryWalletsShort(input, authInfoWriter)
@@ -688,8 +685,8 @@ func (aaa *WalletService) BulkCreditShort(input *wallet.BulkCreditParams) (*wall
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.BulkCreditShort(input, authInfoWriter)
@@ -722,8 +719,8 @@ func (aaa *WalletService) BulkDebitShort(input *wallet.BulkDebitParams) (*wallet
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.BulkDebitShort(input, authInfoWriter)
@@ -756,8 +753,8 @@ func (aaa *WalletService) GetWalletShort(input *wallet.GetWalletParams) (*wallet
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.GetWalletShort(input, authInfoWriter)
@@ -790,8 +787,8 @@ func (aaa *WalletService) PublicGetMyWalletShort(input *wallet.PublicGetMyWallet
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.PublicGetMyWalletShort(input, authInfoWriter)
@@ -824,8 +821,8 @@ func (aaa *WalletService) PublicGetWalletShort(input *wallet.PublicGetWalletPara
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.PublicGetWalletShort(input, authInfoWriter)
@@ -858,8 +855,8 @@ func (aaa *WalletService) PublicListUserWalletTransactionsShort(input *wallet.Pu
 	}
 	if tempFlightIdWallet != nil {
 		input.XFlightId = tempFlightIdWallet
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Wallet.PublicListUserWalletTransactionsShort(input, authInfoWriter)

@@ -15,11 +15,8 @@ import (
 )
 
 type ChallengeListService struct {
-	Client           *challengeclient.JusticeChallengeService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *challengeclient.JusticeChallengeService
+	Session repository.Session
 }
 
 var tempFlightIdChallengeList *string
@@ -30,13 +27,13 @@ func (aaa *ChallengeListService) UpdateFlightId(flightId string) {
 
 func (aaa *ChallengeListService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
-func (aaa *ChallengeListService) GetChallengesShort(input *challenge_list.GetChallengesParams) (*challenge_list.GetChallengesResponse, error) {
+func (aaa *ChallengeListService) PublicGetChallengesShort(input *challenge_list.PublicGetChallengesParams) (*challenge_list.PublicGetChallengesResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -54,11 +51,11 @@ func (aaa *ChallengeListService) GetChallengesShort(input *challenge_list.GetCha
 	}
 	if tempFlightIdChallengeList != nil {
 		input.XFlightId = tempFlightIdChallengeList
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.ChallengeList.GetChallengesShort(input, authInfoWriter)
+	ok, err := aaa.Client.ChallengeList.PublicGetChallengesShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}
@@ -88,8 +85,8 @@ func (aaa *ChallengeListService) PublicGetScheduledGoalsShort(input *challenge_l
 	}
 	if tempFlightIdChallengeList != nil {
 		input.XFlightId = tempFlightIdChallengeList
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeList.PublicGetScheduledGoalsShort(input, authInfoWriter)

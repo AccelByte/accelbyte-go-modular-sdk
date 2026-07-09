@@ -59,7 +59,8 @@ func NewPublicUpdatePasswordV3ParamsWithHTTPClient(client *http.Client) *PublicU
 	}
 }
 
-/*PublicUpdatePasswordV3Params contains all the parameters to send to the API endpoint
+/*
+PublicUpdatePasswordV3Params contains all the parameters to send to the API endpoint
 for the public update password v3 operation typically these are written to a http.Request
 */
 type PublicUpdatePasswordV3Params struct {

@@ -9,6 +9,7 @@ package party
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/party"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var PublicGeneratePartyCodeCmd = &cobra.Command{
 	Long:  `Public generate party code`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		partyService := &session.PartyService{
-			Client:          session.NewSessionClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: session.NewSessionHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		partyId, _ := cmd.Flags().GetString("partyId")

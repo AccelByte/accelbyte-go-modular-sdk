@@ -95,9 +95,10 @@ func NewPublicGetCountryAgeRestrictionV3OK() *PublicGetCountryAgeRestrictionV3OK
 	return &PublicGetCountryAgeRestrictionV3OK{}
 }
 
-/*PublicGetCountryAgeRestrictionV3OK handles this case with default header values.
+/*
+PublicGetCountryAgeRestrictionV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetCountryAgeRestrictionV3OK struct {
 	Payload *iamclientmodels.ModelCountryV3Response
@@ -149,9 +150,10 @@ func NewPublicGetCountryAgeRestrictionV3Unauthorized() *PublicGetCountryAgeRestr
 	return &PublicGetCountryAgeRestrictionV3Unauthorized{}
 }
 
-/*PublicGetCountryAgeRestrictionV3Unauthorized handles this case with default header values.
+/*
+PublicGetCountryAgeRestrictionV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetCountryAgeRestrictionV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -203,9 +205,10 @@ func NewPublicGetCountryAgeRestrictionV3NotFound() *PublicGetCountryAgeRestricti
 	return &PublicGetCountryAgeRestrictionV3NotFound{}
 }
 
-/*PublicGetCountryAgeRestrictionV3NotFound handles this case with default header values.
+/*
+PublicGetCountryAgeRestrictionV3NotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type PublicGetCountryAgeRestrictionV3NotFound struct {
 }

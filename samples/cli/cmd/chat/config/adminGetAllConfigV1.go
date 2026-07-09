@@ -11,6 +11,7 @@ import (
 
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/config"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminGetAllConfigV1Cmd = &cobra.Command{
 	Long:  `Admin get all config V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configService := &chat.ConfigService{
-			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: chat.NewChatHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		input := &config.AdminGetAllConfigV1Params{}
 		ok, errOK := configService.AdminGetAllConfigV1Short(input)

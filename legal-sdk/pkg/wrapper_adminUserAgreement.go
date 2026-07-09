@@ -15,11 +15,8 @@ import (
 )
 
 type AdminUserAgreementService struct {
-	Client           *legalclient.JusticeLegalService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *legalclient.JusticeLegalService
+	Session repository.Session
 }
 
 var tempFlightIdAdminUserAgreement *string
@@ -30,9 +27,9 @@ func (aaa *AdminUserAgreementService) UpdateFlightId(flightId string) {
 
 func (aaa *AdminUserAgreementService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminUserAgreementService) IndirectBulkAcceptVersionedPolicyShort(inp
 	}
 	if tempFlightIdAdminUserAgreement != nil {
 		input.XFlightId = tempFlightIdAdminUserAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.AdminUserAgreement.IndirectBulkAcceptVersionedPolicyShort(input, authInfoWriter)

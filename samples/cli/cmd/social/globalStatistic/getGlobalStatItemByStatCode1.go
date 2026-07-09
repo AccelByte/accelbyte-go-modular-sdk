@@ -9,6 +9,7 @@ package globalStatistic
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/global_statistic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var GetGlobalStatItemByStatCode1Cmd = &cobra.Command{
 	Long:  `Get global stat item by stat code 1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		globalStatisticService := &social.GlobalStatisticService{
-			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: social.NewSocialHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		statCode, _ := cmd.Flags().GetString("statCode")

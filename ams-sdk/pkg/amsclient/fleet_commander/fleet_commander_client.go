@@ -31,7 +31,7 @@ type Client struct {
 // ClientService is the interface for Client methods
 type ClientService interface {
 	PortalHealthCheckShort(params *PortalHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*PortalHealthCheckResponse, error)
-	Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfoWriter) (*Func1Response, error)
+	VersionInfoShort(params *VersionInfoParams, authInfo runtime.ClientAuthInfoWriter) (*VersionInfoResponse, error)
 	BasicHealthCheckShort(params *BasicHealthCheckParams, authInfo runtime.ClientAuthInfoWriter) (*BasicHealthCheckResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
@@ -90,12 +90,12 @@ func (a *Client) PortalHealthCheckShort(params *PortalHealthCheckParams, authInf
 }
 
 /*
-Func1Short version info
+VersionInfoShort version info
 */
-func (a *Client) Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfoWriter) (*Func1Response, error) {
+func (a *Client) VersionInfoShort(params *VersionInfoParams, authInfo runtime.ClientAuthInfoWriter) (*VersionInfoResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewFunc1Params()
+		params = NewVersionInfoParams()
 	}
 
 	if params.Context == nil {
@@ -111,14 +111,14 @@ func (a *Client) Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfo
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "func1",
+		ID:                 "VersionInfo",
 		Method:             "GET",
 		PathPattern:        "/ams/version",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &Func1Reader{formats: a.formats},
+		Reader:             &VersionInfoReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -129,8 +129,8 @@ func (a *Client) Func1Short(params *Func1Params, authInfo runtime.ClientAuthInfo
 
 	switch v := result.(type) {
 
-	case *Func1OK:
-		response := &Func1Response{}
+	case *VersionInfoOK:
+		response := &VersionInfoResponse{}
 
 		response.IsSuccess = true
 

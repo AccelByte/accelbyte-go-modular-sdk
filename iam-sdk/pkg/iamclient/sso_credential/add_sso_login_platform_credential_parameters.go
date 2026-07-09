@@ -59,7 +59,8 @@ func NewAddSSOLoginPlatformCredentialParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*AddSSOLoginPlatformCredentialParams contains all the parameters to send to the API endpoint
+/*
+AddSSOLoginPlatformCredentialParams contains all the parameters to send to the API endpoint
 for the add sso login platform credential operation typically these are written to a http.Request
 */
 type AddSSOLoginPlatformCredentialParams struct {

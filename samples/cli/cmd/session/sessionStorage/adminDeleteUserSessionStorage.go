@@ -9,6 +9,7 @@ package sessionStorage
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/session_storage"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var AdminDeleteUserSessionStorageCmd = &cobra.Command{
 	Long:  `Admin delete user session storage`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		sessionStorageService := &session.SessionStorageService{
-			Client:          session.NewSessionClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: session.NewSessionHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		sessionId, _ := cmd.Flags().GetString("sessionId")

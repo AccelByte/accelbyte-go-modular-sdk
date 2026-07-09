@@ -15,11 +15,8 @@ import (
 )
 
 type PublicDownloadCountLegacyService struct {
-	Client           *ugcclient.JusticeUgcService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
 }
 
 var tempFlightIdPublicDownloadCountLegacy *string
@@ -30,9 +27,9 @@ func (aaa *PublicDownloadCountLegacyService) UpdateFlightId(flightId string) {
 
 func (aaa *PublicDownloadCountLegacyService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicDownloadCountLegacyService) AddDownloadCountShort(input *public
 	}
 	if tempFlightIdPublicDownloadCountLegacy != nil {
 		input.XFlightId = tempFlightIdPublicDownloadCountLegacy
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicDownloadCountLegacy.AddDownloadCountShort(input, authInfoWriter)

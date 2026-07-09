@@ -15,11 +15,8 @@ import (
 )
 
 type PlatformCredentialService struct {
-	Client           *sessionclient.JusticeSessionService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *sessionclient.JusticeSessionService
+	Session repository.Session
 }
 
 var tempFlightIdPlatformCredential *string
@@ -30,9 +27,9 @@ func (aaa *PlatformCredentialService) UpdateFlightId(flightId string) {
 
 func (aaa *PlatformCredentialService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PlatformCredentialService) AdminGetPlatformCredentialsShort(input *pl
 	}
 	if tempFlightIdPlatformCredential != nil {
 		input.XFlightId = tempFlightIdPlatformCredential
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlatformCredential.AdminGetPlatformCredentialsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PlatformCredentialService) AdminUpdatePlatformCredentialsShort(input 
 	}
 	if tempFlightIdPlatformCredential != nil {
 		input.XFlightId = tempFlightIdPlatformCredential
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlatformCredential.AdminUpdatePlatformCredentialsShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PlatformCredentialService) AdminDeletePlatformCredentialsShort(input 
 	}
 	if tempFlightIdPlatformCredential != nil {
 		input.XFlightId = tempFlightIdPlatformCredential
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PlatformCredential.AdminDeletePlatformCredentialsShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *PlatformCredentialService) AdminDeletePlatformCredentialsByPlatformID
 	}
 	if tempFlightIdPlatformCredential != nil {
 		input.XFlightId = tempFlightIdPlatformCredential
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PlatformCredential.AdminDeletePlatformCredentialsByPlatformIDShort(input, authInfoWriter)
@@ -182,8 +179,8 @@ func (aaa *PlatformCredentialService) AdminSyncPlatformCredentialsShort(input *p
 	}
 	if tempFlightIdPlatformCredential != nil {
 		input.XFlightId = tempFlightIdPlatformCredential
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlatformCredential.AdminSyncPlatformCredentialsShort(input, authInfoWriter)
@@ -216,8 +213,8 @@ func (aaa *PlatformCredentialService) AdminUploadPlatformCredentialsShort(input 
 	}
 	if tempFlightIdPlatformCredential != nil {
 		input.XFlightId = tempFlightIdPlatformCredential
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PlatformCredential.AdminUploadPlatformCredentialsShort(input, authInfoWriter)

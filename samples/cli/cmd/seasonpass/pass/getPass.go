@@ -11,6 +11,7 @@ import (
 
 	seasonpass "github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/pass"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var GetPassCmd = &cobra.Command{
 	Long:  `Get pass`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		passService := &seasonpass.PassService{
-			Client:          seasonpass.NewSeasonpassClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: seasonpass.NewSeasonpassHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		code, _ := cmd.Flags().GetString("code")
 		namespace, _ := cmd.Flags().GetString("namespace")

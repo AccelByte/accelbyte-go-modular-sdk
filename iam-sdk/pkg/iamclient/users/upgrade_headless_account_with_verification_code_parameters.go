@@ -59,7 +59,8 @@ func NewUpgradeHeadlessAccountWithVerificationCodeParamsWithHTTPClient(client *h
 	}
 }
 
-/*UpgradeHeadlessAccountWithVerificationCodeParams contains all the parameters to send to the API endpoint
+/*
+UpgradeHeadlessAccountWithVerificationCodeParams contains all the parameters to send to the API endpoint
 for the upgrade headless account with verification code operation typically these are written to a http.Request
 */
 type UpgradeHeadlessAccountWithVerificationCodeParams struct {

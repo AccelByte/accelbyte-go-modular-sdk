@@ -57,7 +57,8 @@ func NewAdminChallengeMyMFAV4ParamsWithHTTPClient(client *http.Client) *AdminCha
 	}
 }
 
-/*AdminChallengeMyMFAV4Params contains all the parameters to send to the API endpoint
+/*
+AdminChallengeMyMFAV4Params contains all the parameters to send to the API endpoint
 for the admin challenge my mfav4 operation typically these are written to a http.Request
 */
 type AdminChallengeMyMFAV4Params struct {

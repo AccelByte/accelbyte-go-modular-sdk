@@ -90,9 +90,10 @@ func NewPublicGetUserByUserIDV2OK() *PublicGetUserByUserIDV2OK {
 	return &PublicGetUserByUserIDV2OK{}
 }
 
-/*PublicGetUserByUserIDV2OK handles this case with default header values.
+/*
+PublicGetUserByUserIDV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetUserByUserIDV2OK struct {
 	Payload *iamclientmodels.ModelUserResponse
@@ -144,9 +145,10 @@ func NewPublicGetUserByUserIDV2NotFound() *PublicGetUserByUserIDV2NotFound {
 	return &PublicGetUserByUserIDV2NotFound{}
 }
 
-/*PublicGetUserByUserIDV2NotFound handles this case with default header values.
+/*
+PublicGetUserByUserIDV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type PublicGetUserByUserIDV2NotFound struct {
 }
@@ -171,9 +173,10 @@ func NewPublicGetUserByUserIDV2InternalServerError() *PublicGetUserByUserIDV2Int
 	return &PublicGetUserByUserIDV2InternalServerError{}
 }
 
-/*PublicGetUserByUserIDV2InternalServerError handles this case with default header values.
+/*
+PublicGetUserByUserIDV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetUserByUserIDV2InternalServerError struct {
 }

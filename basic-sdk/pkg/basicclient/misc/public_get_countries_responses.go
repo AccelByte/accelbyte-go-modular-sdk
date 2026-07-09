@@ -85,9 +85,10 @@ func NewPublicGetCountriesOK() *PublicGetCountriesOK {
 	return &PublicGetCountriesOK{}
 }
 
-/*PublicGetCountriesOK handles this case with default header values.
+/*
+PublicGetCountriesOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type PublicGetCountriesOK struct {
 	Payload []*basicclientmodels.CountryObject
@@ -137,9 +138,10 @@ func NewPublicGetCountriesBadRequest() *PublicGetCountriesBadRequest {
 	return &PublicGetCountriesBadRequest{}
 }
 
-/*PublicGetCountriesBadRequest handles this case with default header values.
+/*
+PublicGetCountriesBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetCountriesBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity

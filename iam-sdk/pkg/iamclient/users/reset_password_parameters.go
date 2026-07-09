@@ -59,7 +59,8 @@ func NewResetPasswordParamsWithHTTPClient(client *http.Client) *ResetPasswordPar
 	}
 }
 
-/*ResetPasswordParams contains all the parameters to send to the API endpoint
+/*
+ResetPasswordParams contains all the parameters to send to the API endpoint
 for the reset password operation typically these are written to a http.Request
 */
 type ResetPasswordParams struct {

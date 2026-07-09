@@ -43,8 +43,8 @@ GeneratedUploadURLShort generate upload url
 Generate an upload URL. It's valid for 10 minutes.
 Other detail info:
 
-  * Action code : 11101
-  *  Returns : URL data
+  - Action code : 11101
+  - Returns : URL data
 */
 func (a *Client) GeneratedUploadURLShort(params *GeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUploadURLResponse, error) {
 	// TODO: Validate the params before sending
@@ -129,8 +129,8 @@ GeneratedUserUploadContentURLShort generate upload url for user content
 Generate an upload URL for user content. It's valid for 10 minutes.
 Other detail info:
 
-  * Action code : 11102
-  *  Returns : URL data
+  - Action code : 11102
+  - Returns : URL data
 */
 func (a *Client) GeneratedUserUploadContentURLShort(params *GeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*GeneratedUserUploadContentURLResponse, error) {
 	// TODO: Validate the params before sending
@@ -222,8 +222,8 @@ PublicGeneratedUploadURLShort generate upload url
 Generate an upload URL. It's valid for 10 minutes.
 Other detail info:
 
-  * Action code : 11101
-  *  Returns : URL data
+  - Action code : 11101
+  - Returns : URL data
 */
 func (a *Client) PublicGeneratedUploadURLShort(params *PublicGeneratedUploadURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUploadURLResponse, error) {
 	// TODO: Validate the params before sending
@@ -310,17 +310,18 @@ There are two types of storage limits per user: maximum file count and maximum t
 These limits vary depending on the upload category used.
 
  1. Default category:
+
 - Maximum file count per user: 10 files
 - Maximum total file size per user: 100MB
  2. Reporting category:
+
 - Maximum file count per user: 3 files every 1 hour
 - Maximum total file size per user: 30MB every 1 hour
 
-
 Other detail info:
 
-  * Action code : 11102
-  *  Returns : URL data
+  - Action code : 11102
+  - Returns : URL data
 */
 func (a *Client) PublicGeneratedUserUploadContentURLShort(params *PublicGeneratedUserUploadContentURLParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGeneratedUserUploadContentURLResponse, error) {
 	// TODO: Validate the params before sending

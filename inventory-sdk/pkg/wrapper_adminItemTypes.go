@@ -15,11 +15,8 @@ import (
 )
 
 type AdminItemTypesService struct {
-	Client           *inventoryclient.JusticeInventoryService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *inventoryclient.JusticeInventoryService
+	Session repository.Session
 }
 
 var tempFlightIdAdminItemTypes *string
@@ -30,9 +27,9 @@ func (aaa *AdminItemTypesService) UpdateFlightId(flightId string) {
 
 func (aaa *AdminItemTypesService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminItemTypesService) AdminListItemTypesShort(input *admin_item_type
 	}
 	if tempFlightIdAdminItemTypes != nil {
 		input.XFlightId = tempFlightIdAdminItemTypes
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItemTypes.AdminListItemTypesShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AdminItemTypesService) AdminCreateItemTypeShort(input *admin_item_typ
 	}
 	if tempFlightIdAdminItemTypes != nil {
 		input.XFlightId = tempFlightIdAdminItemTypes
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.AdminItemTypes.AdminCreateItemTypeShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AdminItemTypesService) AdminDeleteItemTypeShort(input *admin_item_typ
 	}
 	if tempFlightIdAdminItemTypes != nil {
 		input.XFlightId = tempFlightIdAdminItemTypes
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminItemTypes.AdminDeleteItemTypeShort(input, authInfoWriter)

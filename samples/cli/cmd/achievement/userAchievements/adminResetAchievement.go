@@ -11,6 +11,7 @@ import (
 
 	achievement "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/user_achievements"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminResetAchievementCmd = &cobra.Command{
 	Long:  `Admin reset achievement`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userAchievementsService := &achievement.UserAchievementsService{
-			Client:          achievement.NewAchievementClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: achievement.NewAchievementHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		achievementCode, _ := cmd.Flags().GetString("achievementCode")
 		namespace, _ := cmd.Flags().GetString("namespace")

@@ -15,11 +15,8 @@ import (
 )
 
 type TradeActionService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdTradeAction *string
@@ -30,9 +27,9 @@ func (aaa *TradeActionService) UpdateFlightId(flightId string) {
 
 func (aaa *TradeActionService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *TradeActionService) CommitShort(input *trade_action.CommitParams) (*t
 	}
 	if tempFlightIdTradeAction != nil {
 		input.XFlightId = tempFlightIdTradeAction
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.TradeAction.CommitShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *TradeActionService) GetTradeHistoryByCriteriaShort(input *trade_actio
 	}
 	if tempFlightIdTradeAction != nil {
 		input.XFlightId = tempFlightIdTradeAction
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.TradeAction.GetTradeHistoryByCriteriaShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *TradeActionService) GetTradeHistoryByTransactionIDShort(input *trade_
 	}
 	if tempFlightIdTradeAction != nil {
 		input.XFlightId = tempFlightIdTradeAction
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.TradeAction.GetTradeHistoryByTransactionIDShort(input, authInfoWriter)

@@ -13,6 +13,7 @@ import (
 	gametelemetry "github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclient/gametelemetry_operations"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostCmd = &cobra.Command{
 	Long:  `Protected save events game telemetry v1 protected events post`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		gametelemetryOperationsService := &gametelemetry.GametelemetryOperationsService{
-			Client:          gametelemetry.NewGametelemetryClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: gametelemetry.NewGametelemetryHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body []*gametelemetryclientmodels.TelemetryBody

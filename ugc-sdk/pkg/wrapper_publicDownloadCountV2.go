@@ -15,11 +15,8 @@ import (
 )
 
 type PublicDownloadCountV2Service struct {
-	Client           *ugcclient.JusticeUgcService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
 }
 
 var tempFlightIdPublicDownloadCountV2 *string
@@ -30,9 +27,9 @@ func (aaa *PublicDownloadCountV2Service) UpdateFlightId(flightId string) {
 
 func (aaa *PublicDownloadCountV2Service) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicDownloadCountV2Service) PublicAddDownloadCountV2Short(input *pu
 	}
 	if tempFlightIdPublicDownloadCountV2 != nil {
 		input.XFlightId = tempFlightIdPublicDownloadCountV2
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicDownloadCountV2.PublicAddDownloadCountV2Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PublicDownloadCountV2Service) PublicListContentDownloaderV2Short(inpu
 	}
 	if tempFlightIdPublicDownloadCountV2 != nil {
 		input.XFlightId = tempFlightIdPublicDownloadCountV2
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicDownloadCountV2.PublicListContentDownloaderV2Short(input, authInfoWriter)

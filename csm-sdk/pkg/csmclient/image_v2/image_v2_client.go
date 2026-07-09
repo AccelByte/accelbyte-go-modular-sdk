@@ -38,9 +38,7 @@ type ClientService interface {
 
 /*
 GetAppImageListV2Short get a list of container images
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:IMAGE [READ]`
-
-# Get a list of container images
+Get a list of container images
 
 Default 'cached' parameter is 'true'
 */
@@ -124,8 +122,6 @@ func (a *Client) GetAppImageListV2Short(params *GetAppImageListV2Params, authInf
 
 /*
 DeleteAppImagesV2Short delete app images
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:IMAGE [DELETE]`
-
 Deletes list of provided image tags from the app image repository
 */
 func (a *Client) DeleteAppImagesV2Short(params *DeleteAppImagesV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppImagesV2Response, error) {

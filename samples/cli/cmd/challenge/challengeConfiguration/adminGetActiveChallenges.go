@@ -11,6 +11,7 @@ import (
 
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/challenge_configuration"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminGetActiveChallengesCmd = &cobra.Command{
 	Long:  `Admin get active challenges`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		challengeConfigurationService := &challenge.ChallengeConfigurationService{
-			Client:          challenge.NewChallengeClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: challenge.NewChallengeHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")

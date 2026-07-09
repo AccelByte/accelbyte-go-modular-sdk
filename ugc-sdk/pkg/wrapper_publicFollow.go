@@ -15,11 +15,8 @@ import (
 )
 
 type PublicFollowService struct {
-	Client           *ugcclient.JusticeUgcService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
 }
 
 var tempFlightIdPublicFollow *string
@@ -30,9 +27,9 @@ func (aaa *PublicFollowService) UpdateFlightId(flightId string) {
 
 func (aaa *PublicFollowService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicFollowService) GetFollowedContentShort(input *public_follow.Get
 	}
 	if tempFlightIdPublicFollow != nil {
 		input.XFlightId = tempFlightIdPublicFollow
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicFollow.GetFollowedContentShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PublicFollowService) GetFollowedUsersShort(input *public_follow.GetFo
 	}
 	if tempFlightIdPublicFollow != nil {
 		input.XFlightId = tempFlightIdPublicFollow
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicFollow.GetFollowedUsersShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PublicFollowService) UpdateUserFollowStatusShort(input *public_follow
 	}
 	if tempFlightIdPublicFollow != nil {
 		input.XFlightId = tempFlightIdPublicFollow
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicFollow.UpdateUserFollowStatusShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PublicFollowService) GetPublicFollowersShort(input *public_follow.Get
 	}
 	if tempFlightIdPublicFollow != nil {
 		input.XFlightId = tempFlightIdPublicFollow
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicFollow.GetPublicFollowersShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *PublicFollowService) GetPublicFollowingShort(input *public_follow.Get
 	}
 	if tempFlightIdPublicFollow != nil {
 		input.XFlightId = tempFlightIdPublicFollow
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicFollow.GetPublicFollowingShort(input, authInfoWriter)

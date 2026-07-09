@@ -14,6 +14,7 @@ import (
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/campaign"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -25,8 +26,10 @@ var DownloadCmd = &cobra.Command{
 	Long:  `Download`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		campaignService := &platform.CampaignService{
-			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: platform.NewPlatformHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		campaignId, _ := cmd.Flags().GetString("campaignId")
 		namespace, _ := cmd.Flags().GetString("namespace")

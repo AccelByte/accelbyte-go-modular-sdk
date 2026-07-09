@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_content"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
@@ -24,8 +25,10 @@ var AdminGetContentBulkByShareCodesCmd = &cobra.Command{
 	Long:  `Admin get content bulk by share codes`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminContentService := &ugc.AdminContentService{
-			Client:          ugc.NewUgcClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ugc.NewUgcHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *ugcclientmodels.ModelsGetContentBulkByShareCodesRequest

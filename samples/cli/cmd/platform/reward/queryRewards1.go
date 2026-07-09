@@ -12,6 +12,7 @@ import (
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/reward"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -23,8 +24,10 @@ var QueryRewards1Cmd = &cobra.Command{
 	Long:  `Query rewards 1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rewardService := &platform.RewardService{
-			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: platform.NewPlatformHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		eventTopic, _ := cmd.Flags().GetString("eventTopic")

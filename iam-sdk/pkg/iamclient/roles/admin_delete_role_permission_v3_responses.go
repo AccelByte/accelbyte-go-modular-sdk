@@ -144,9 +144,10 @@ func NewAdminDeleteRolePermissionV3NoContent() *AdminDeleteRolePermissionV3NoCon
 	return &AdminDeleteRolePermissionV3NoContent{}
 }
 
-/*AdminDeleteRolePermissionV3NoContent handles this case with default header values.
+/*
+AdminDeleteRolePermissionV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDeleteRolePermissionV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeleteRolePermissionV3BadRequest() *AdminDeleteRolePermissionV3BadR
 	return &AdminDeleteRolePermissionV3BadRequest{}
 }
 
-/*AdminDeleteRolePermissionV3BadRequest handles this case with default header values.
+/*
+AdminDeleteRolePermissionV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminDeleteRolePermissionV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminDeleteRolePermissionV3Unauthorized() *AdminDeleteRolePermissionV3Un
 	return &AdminDeleteRolePermissionV3Unauthorized{}
 }
 
-/*AdminDeleteRolePermissionV3Unauthorized handles this case with default header values.
+/*
+AdminDeleteRolePermissionV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteRolePermissionV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminDeleteRolePermissionV3Forbidden() *AdminDeleteRolePermissionV3Forbi
 	return &AdminDeleteRolePermissionV3Forbidden{}
 }
 
-/*AdminDeleteRolePermissionV3Forbidden handles this case with default header values.
+/*
+AdminDeleteRolePermissionV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeleteRolePermissionV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminDeleteRolePermissionV3NotFound() *AdminDeleteRolePermissionV3NotFou
 	return &AdminDeleteRolePermissionV3NotFound{}
 }
 
-/*AdminDeleteRolePermissionV3NotFound handles this case with default header values.
+/*
+AdminDeleteRolePermissionV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminDeleteRolePermissionV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminDeleteRolePermissionV3InternalServerError() *AdminDeleteRolePermiss
 	return &AdminDeleteRolePermissionV3InternalServerError{}
 }
 
-/*AdminDeleteRolePermissionV3InternalServerError handles this case with default header values.
+/*
+AdminDeleteRolePermissionV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDeleteRolePermissionV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

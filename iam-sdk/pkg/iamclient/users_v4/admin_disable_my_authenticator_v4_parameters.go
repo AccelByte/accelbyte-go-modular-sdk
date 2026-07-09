@@ -59,7 +59,8 @@ func NewAdminDisableMyAuthenticatorV4ParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*AdminDisableMyAuthenticatorV4Params contains all the parameters to send to the API endpoint
+/*
+AdminDisableMyAuthenticatorV4Params contains all the parameters to send to the API endpoint
 for the admin disable my authenticator v4 operation typically these are written to a http.Request
 */
 type AdminDisableMyAuthenticatorV4Params struct {

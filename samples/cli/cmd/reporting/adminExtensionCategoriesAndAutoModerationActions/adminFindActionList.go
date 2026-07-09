@@ -11,6 +11,7 @@ import (
 
 	reporting "github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk/pkg/reportingclient/admin_extension_categories_and_auto_moderation_actions"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminFindActionListCmd = &cobra.Command{
 	Long:  `Admin find action list`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminExtensionCategoriesAndAutoModerationActionsService := &reporting.AdminExtensionCategoriesandAutoModerationActionsService{
-			Client:          reporting.NewReportingClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: reporting.NewReportingHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		input := &admin_extension_categories_and_auto_moderation_actions.AdminFindActionListParams{}
 		ok, errOK := adminExtensionCategoriesAndAutoModerationActionsService.AdminFindActionListShort(input)

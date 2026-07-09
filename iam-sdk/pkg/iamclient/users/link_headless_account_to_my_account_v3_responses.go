@@ -129,9 +129,10 @@ func NewLinkHeadlessAccountToMyAccountV3NoContent() *LinkHeadlessAccountToMyAcco
 	return &LinkHeadlessAccountToMyAccountV3NoContent{}
 }
 
-/*LinkHeadlessAccountToMyAccountV3NoContent handles this case with default header values.
+/*
+LinkHeadlessAccountToMyAccountV3NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type LinkHeadlessAccountToMyAccountV3NoContent struct {
 }
@@ -156,10 +157,9 @@ func NewLinkHeadlessAccountToMyAccountV3BadRequest() *LinkHeadlessAccountToMyAcc
 	return &LinkHeadlessAccountToMyAccountV3BadRequest{}
 }
 
-/*LinkHeadlessAccountToMyAccountV3BadRequest handles this case with default header values.
-
-
- */
+/*
+LinkHeadlessAccountToMyAccountV3BadRequest handles this case with default header values.
+*/
 type LinkHeadlessAccountToMyAccountV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
 }
@@ -210,9 +210,10 @@ func NewLinkHeadlessAccountToMyAccountV3Unauthorized() *LinkHeadlessAccountToMyA
 	return &LinkHeadlessAccountToMyAccountV3Unauthorized{}
 }
 
-/*LinkHeadlessAccountToMyAccountV3Unauthorized handles this case with default header values.
+/*
+LinkHeadlessAccountToMyAccountV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type LinkHeadlessAccountToMyAccountV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +265,10 @@ func NewLinkHeadlessAccountToMyAccountV3Forbidden() *LinkHeadlessAccountToMyAcco
 	return &LinkHeadlessAccountToMyAccountV3Forbidden{}
 }
 
-/*LinkHeadlessAccountToMyAccountV3Forbidden handles this case with default header values.
+/*
+LinkHeadlessAccountToMyAccountV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type LinkHeadlessAccountToMyAccountV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +320,10 @@ func NewLinkHeadlessAccountToMyAccountV3InternalServerError() *LinkHeadlessAccou
 	return &LinkHeadlessAccountToMyAccountV3InternalServerError{}
 }
 
-/*LinkHeadlessAccountToMyAccountV3InternalServerError handles this case with default header values.
+/*
+LinkHeadlessAccountToMyAccountV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type LinkHeadlessAccountToMyAccountV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

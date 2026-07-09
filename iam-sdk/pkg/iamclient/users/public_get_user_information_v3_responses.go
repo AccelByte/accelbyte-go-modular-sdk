@@ -130,9 +130,10 @@ func NewPublicGetUserInformationV3OK() *PublicGetUserInformationV3OK {
 	return &PublicGetUserInformationV3OK{}
 }
 
-/*PublicGetUserInformationV3OK handles this case with default header values.
+/*
+PublicGetUserInformationV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetUserInformationV3OK struct {
 	Payload *iamclientmodels.AccountcommonUserInformationV3
@@ -184,9 +185,10 @@ func NewPublicGetUserInformationV3Unauthorized() *PublicGetUserInformationV3Unau
 	return &PublicGetUserInformationV3Unauthorized{}
 }
 
-/*PublicGetUserInformationV3Unauthorized handles this case with default header values.
+/*
+PublicGetUserInformationV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicGetUserInformationV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewPublicGetUserInformationV3Forbidden() *PublicGetUserInformationV3Forbidd
 	return &PublicGetUserInformationV3Forbidden{}
 }
 
-/*PublicGetUserInformationV3Forbidden handles this case with default header values.
+/*
+PublicGetUserInformationV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetUserInformationV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewPublicGetUserInformationV3NotFound() *PublicGetUserInformationV3NotFound
 	return &PublicGetUserInformationV3NotFound{}
 }
 
-/*PublicGetUserInformationV3NotFound handles this case with default header values.
+/*
+PublicGetUserInformationV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicGetUserInformationV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewPublicGetUserInformationV3InternalServerError() *PublicGetUserInformatio
 	return &PublicGetUserInformationV3InternalServerError{}
 }
 
-/*PublicGetUserInformationV3InternalServerError handles this case with default header values.
+/*
+PublicGetUserInformationV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetUserInformationV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

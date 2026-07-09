@@ -9,6 +9,7 @@ package operations
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/operations"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var GetHealthcheckInfoV1Cmd = &cobra.Command{
 	Long:  `Get healthcheck info V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		operationsService := &session.OperationsService{
-			Client:          session.NewSessionClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: session.NewSessionHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		input := &operations.GetHealthcheckInfoV1Params{}
 		errOK := operationsService.GetHealthcheckInfoV1Short(input)

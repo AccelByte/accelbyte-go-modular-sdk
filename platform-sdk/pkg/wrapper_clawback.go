@@ -15,11 +15,8 @@ import (
 )
 
 type ClawbackService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdClawback *string
@@ -30,9 +27,9 @@ func (aaa *ClawbackService) UpdateFlightId(flightId string) {
 
 func (aaa *ClawbackService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ClawbackService) QueryIAPClawbackHistoryShort(input *clawback.QueryIA
 	}
 	if tempFlightIdClawback != nil {
 		input.XFlightId = tempFlightIdClawback
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Clawback.QueryIAPClawbackHistoryShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ClawbackService) MockPlayStationStreamEventShort(input *clawback.Mock
 	}
 	if tempFlightIdClawback != nil {
 		input.XFlightId = tempFlightIdClawback
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Clawback.MockPlayStationStreamEventShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ClawbackService) MockXblClawbackEventShort(input *clawback.MockXblCla
 	}
 	if tempFlightIdClawback != nil {
 		input.XFlightId = tempFlightIdClawback
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Clawback.MockXblClawbackEventShort(input, authInfoWriter)

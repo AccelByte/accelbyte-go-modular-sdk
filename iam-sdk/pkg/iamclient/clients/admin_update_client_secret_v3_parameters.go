@@ -59,7 +59,8 @@ func NewAdminUpdateClientSecretV3ParamsWithHTTPClient(client *http.Client) *Admi
 	}
 }
 
-/*AdminUpdateClientSecretV3Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateClientSecretV3Params contains all the parameters to send to the API endpoint
 for the admin update client secret v3 operation typically these are written to a http.Request
 */
 type AdminUpdateClientSecretV3Params struct {

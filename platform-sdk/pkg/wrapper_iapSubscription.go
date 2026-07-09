@@ -15,11 +15,8 @@ import (
 )
 
 type IAPSubscriptionService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdIAPSubscription *string
@@ -30,9 +27,9 @@ func (aaa *IAPSubscriptionService) UpdateFlightId(flightId string) {
 
 func (aaa *IAPSubscriptionService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *IAPSubscriptionService) ListOculusSubscriptionGroupsShort(input *iap_
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.ListOculusSubscriptionGroupsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *IAPSubscriptionService) CreateOculusSubscriptionGroupShort(input *iap
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.CreateOculusSubscriptionGroupShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *IAPSubscriptionService) DeleteOculusSubscriptionGroupShort(input *iap
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAPSubscription.DeleteOculusSubscriptionGroupShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *IAPSubscriptionService) ListOculusSubscriptionGroupTierShort(input *i
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.ListOculusSubscriptionGroupTierShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *IAPSubscriptionService) AddTierIntoMetaQuestSubscriptionGroupShort(in
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.AddTierIntoMetaQuestSubscriptionGroupShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *IAPSubscriptionService) DeleteOculusSubscriptionTierShort(input *iap_
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAPSubscription.DeleteOculusSubscriptionTierShort(input, authInfoWriter)
@@ -250,8 +247,8 @@ func (aaa *IAPSubscriptionService) QueryThirdPartySubscriptionShort(input *iap_s
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.QueryThirdPartySubscriptionShort(input, authInfoWriter)
@@ -284,8 +281,8 @@ func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionShort(input *i
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.QueryUserThirdPartySubscriptionShort(input, authInfoWriter)
@@ -318,8 +315,8 @@ func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByG
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.GetThirdPartyPlatformSubscriptionOwnershipByGroupIDShort(input, authInfoWriter)
@@ -352,8 +349,8 @@ func (aaa *IAPSubscriptionService) GetThirdPartyPlatformSubscriptionOwnershipByP
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.GetThirdPartyPlatformSubscriptionOwnershipByProductIDShort(input, authInfoWriter)
@@ -386,8 +383,8 @@ func (aaa *IAPSubscriptionService) QueryUserThirdPartySubscriptionTransactionsSh
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.QueryUserThirdPartySubscriptionTransactionsShort(input, authInfoWriter)
@@ -420,8 +417,8 @@ func (aaa *IAPSubscriptionService) GetThirdPartySubscriptionDetailsShort(input *
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.GetThirdPartySubscriptionDetailsShort(input, authInfoWriter)
@@ -454,8 +451,8 @@ func (aaa *IAPSubscriptionService) GetSubscriptionHistoryShort(input *iap_subscr
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.GetSubscriptionHistoryShort(input, authInfoWriter)
@@ -488,8 +485,8 @@ func (aaa *IAPSubscriptionService) SyncSubscriptionTransactionShort(input *iap_s
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.SyncSubscriptionTransactionShort(input, authInfoWriter)
@@ -522,8 +519,8 @@ func (aaa *IAPSubscriptionService) GetThirdPartyUserSubscriptionDetailsShort(inp
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.GetThirdPartyUserSubscriptionDetailsShort(input, authInfoWriter)
@@ -556,8 +553,8 @@ func (aaa *IAPSubscriptionService) SyncSubscriptionShort(input *iap_subscription
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.SyncSubscriptionShort(input, authInfoWriter)
@@ -590,8 +587,8 @@ func (aaa *IAPSubscriptionService) PublicQueryUserThirdPartySubscriptionShort(in
 	}
 	if tempFlightIdIAPSubscription != nil {
 		input.XFlightId = tempFlightIdIAPSubscription
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAPSubscription.PublicQueryUserThirdPartySubscriptionShort(input, authInfoWriter)

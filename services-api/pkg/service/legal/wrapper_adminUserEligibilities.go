@@ -1,0 +1,66 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package legal
+
+import (
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/admin_user_eligibilities"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+)
+
+// AdminUserEligibilitiesService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use AdminUserEligibilitiesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
+type AdminUserEligibilitiesService struct {
+	Client  *legalclient.JusticeLegalService
+	Session repository.Session
+}
+
+var tempFlightIdAdminUserEligibilities *string
+
+func (aaa *AdminUserEligibilitiesService) UpdateFlightId(flightId string) {
+	tempFlightIdAdminUserEligibilities = &flightId
+}
+
+func (aaa *AdminUserEligibilitiesService) GetAuthSession() auth.Session {
+	return auth.Session{
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
+	}
+}
+
+func (aaa *AdminUserEligibilitiesService) AdminRetrieveEligibilitiesShort(input *admin_user_eligibilities.AdminRetrieveEligibilitiesParams) (*admin_user_eligibilities.AdminRetrieveEligibilitiesResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdAdminUserEligibilities != nil {
+		input.XFlightId = tempFlightIdAdminUserEligibilities
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.AdminUserEligibilities.AdminRetrieveEligibilitiesShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}

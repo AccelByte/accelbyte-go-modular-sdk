@@ -70,7 +70,8 @@ func NewAdminSearchUserV3ParamsWithHTTPClient(client *http.Client) *AdminSearchU
 	}
 }
 
-/*AdminSearchUserV3Params contains all the parameters to send to the API endpoint
+/*
+AdminSearchUserV3Params contains all the parameters to send to the API endpoint
 for the admin search user v3 operation typically these are written to a http.Request
 */
 type AdminSearchUserV3Params struct {

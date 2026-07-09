@@ -130,9 +130,10 @@ func NewPublicGetMyProfileAllowUpdateStatusV3OK() *PublicGetMyProfileAllowUpdate
 	return &PublicGetMyProfileAllowUpdateStatusV3OK{}
 }
 
-/*PublicGetMyProfileAllowUpdateStatusV3OK handles this case with default header values.
+/*
+PublicGetMyProfileAllowUpdateStatusV3OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicGetMyProfileAllowUpdateStatusV3OK struct {
 	Payload *iamclientmodels.ModelUserProfileUpdateAllowStatus
@@ -184,9 +185,10 @@ func NewPublicGetMyProfileAllowUpdateStatusV3BadRequest() *PublicGetMyProfileAll
 	return &PublicGetMyProfileAllowUpdateStatusV3BadRequest{}
 }
 
-/*PublicGetMyProfileAllowUpdateStatusV3BadRequest handles this case with default header values.
+/*
+PublicGetMyProfileAllowUpdateStatusV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetMyProfileAllowUpdateStatusV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewPublicGetMyProfileAllowUpdateStatusV3Unauthorized() *PublicGetMyProfileA
 	return &PublicGetMyProfileAllowUpdateStatusV3Unauthorized{}
 }
 
-/*PublicGetMyProfileAllowUpdateStatusV3Unauthorized handles this case with default header values.
+/*
+PublicGetMyProfileAllowUpdateStatusV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGetMyProfileAllowUpdateStatusV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewPublicGetMyProfileAllowUpdateStatusV3Forbidden() *PublicGetMyProfileAllo
 	return &PublicGetMyProfileAllowUpdateStatusV3Forbidden{}
 }
 
-/*PublicGetMyProfileAllowUpdateStatusV3Forbidden handles this case with default header values.
+/*
+PublicGetMyProfileAllowUpdateStatusV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetMyProfileAllowUpdateStatusV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewPublicGetMyProfileAllowUpdateStatusV3InternalServerError() *PublicGetMyP
 	return &PublicGetMyProfileAllowUpdateStatusV3InternalServerError{}
 }
 
-/*PublicGetMyProfileAllowUpdateStatusV3InternalServerError handles this case with default header values.
+/*
+PublicGetMyProfileAllowUpdateStatusV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetMyProfileAllowUpdateStatusV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

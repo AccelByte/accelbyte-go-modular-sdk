@@ -57,7 +57,8 @@ func NewPublicProcessWebLinkPlatformV3ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*PublicProcessWebLinkPlatformV3Params contains all the parameters to send to the API endpoint
+/*
+PublicProcessWebLinkPlatformV3Params contains all the parameters to send to the API endpoint
 for the public process web link platform v3 operation typically these are written to a http.Request
 */
 type PublicProcessWebLinkPlatformV3Params struct {
@@ -70,7 +71,7 @@ type PublicProcessWebLinkPlatformV3Params struct {
 	*/
 	Code *string
 	/*State
-	  state
+	  state, comes from the response of <code>GET /users/me/platforms/{platformId}/web/link</code> endpoint
 
 	*/
 	State string

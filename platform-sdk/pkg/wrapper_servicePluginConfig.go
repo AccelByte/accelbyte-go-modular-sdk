@@ -15,11 +15,8 @@ import (
 )
 
 type ServicePluginConfigService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdServicePluginConfig *string
@@ -30,9 +27,9 @@ func (aaa *ServicePluginConfigService) UpdateFlightId(flightId string) {
 
 func (aaa *ServicePluginConfigService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ServicePluginConfigService) GetLootBoxPluginConfigShort(input *servic
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.GetLootBoxPluginConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ServicePluginConfigService) UpdateLootBoxPluginConfigShort(input *ser
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.UpdateLootBoxPluginConfigShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ServicePluginConfigService) DeleteLootBoxPluginConfigShort(input *ser
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ServicePluginConfig.DeleteLootBoxPluginConfigShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *ServicePluginConfigService) UplodLootBoxPluginConfigCertShort(input *
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.UplodLootBoxPluginConfigCertShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *ServicePluginConfigService) GetLootBoxGrpcInfoShort(input *service_pl
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.GetLootBoxGrpcInfoShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *ServicePluginConfigService) GetSectionPluginConfigShort(input *servic
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.GetSectionPluginConfigShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *ServicePluginConfigService) UpdateSectionPluginConfigShort(input *ser
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.UpdateSectionPluginConfigShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *ServicePluginConfigService) DeleteSectionPluginConfigShort(input *ser
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ServicePluginConfig.DeleteSectionPluginConfigShort(input, authInfoWriter)
@@ -318,8 +315,8 @@ func (aaa *ServicePluginConfigService) UploadSectionPluginConfigCertShort(input 
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.UploadSectionPluginConfigCertShort(input, authInfoWriter)
@@ -352,8 +349,8 @@ func (aaa *ServicePluginConfigService) GetServicePluginConfigShort(input *servic
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.GetServicePluginConfigShort(input, authInfoWriter)
@@ -386,8 +383,8 @@ func (aaa *ServicePluginConfigService) UpdateServicePluginConfigShort(input *ser
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.UpdateServicePluginConfigShort(input, authInfoWriter)
@@ -420,8 +417,8 @@ func (aaa *ServicePluginConfigService) DeleteServicePluginConfigShort(input *ser
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ServicePluginConfig.DeleteServicePluginConfigShort(input, authInfoWriter)
@@ -450,8 +447,8 @@ func (aaa *ServicePluginConfigService) GetRevocationPluginConfigShort(input *ser
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.GetRevocationPluginConfigShort(input, authInfoWriter)
@@ -484,8 +481,8 @@ func (aaa *ServicePluginConfigService) UpdateRevocationPluginConfigShort(input *
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.UpdateRevocationPluginConfigShort(input, authInfoWriter)
@@ -518,8 +515,8 @@ func (aaa *ServicePluginConfigService) DeleteRevocationPluginConfigShort(input *
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ServicePluginConfig.DeleteRevocationPluginConfigShort(input, authInfoWriter)
@@ -548,8 +545,8 @@ func (aaa *ServicePluginConfigService) UploadRevocationPluginConfigCertV2Short(i
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.UploadRevocationPluginConfigCertV2Short(input, authInfoWriter)
@@ -582,8 +579,8 @@ func (aaa *ServicePluginConfigService) UploadRevocationPluginConfigCertShort(inp
 	}
 	if tempFlightIdServicePluginConfig != nil {
 		input.XFlightId = tempFlightIdServicePluginConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ServicePluginConfig.UploadRevocationPluginConfigCertShort(input, authInfoWriter)

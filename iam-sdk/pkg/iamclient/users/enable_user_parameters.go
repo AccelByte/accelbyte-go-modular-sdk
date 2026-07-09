@@ -57,7 +57,8 @@ func NewEnableUserParamsWithHTTPClient(client *http.Client) *EnableUserParams {
 	}
 }
 
-/*EnableUserParams contains all the parameters to send to the API endpoint
+/*
+EnableUserParams contains all the parameters to send to the API endpoint
 for the enable user operation typically these are written to a http.Request
 */
 type EnableUserParams struct {

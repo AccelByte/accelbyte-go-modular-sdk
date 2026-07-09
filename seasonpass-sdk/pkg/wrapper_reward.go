@@ -15,11 +15,8 @@ import (
 )
 
 type RewardService struct {
-	Client           *seasonpassclient.JusticeSeasonpassService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *seasonpassclient.JusticeSeasonpassService
+	Session repository.Session
 }
 
 var tempFlightIdReward *string
@@ -30,9 +27,9 @@ func (aaa *RewardService) UpdateFlightId(flightId string) {
 
 func (aaa *RewardService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *RewardService) QueryRewardsShort(input *reward.QueryRewardsParams) (*
 	}
 	if tempFlightIdReward != nil {
 		input.XFlightId = tempFlightIdReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.QueryRewardsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *RewardService) CreateRewardShort(input *reward.CreateRewardParams) (*
 	}
 	if tempFlightIdReward != nil {
 		input.XFlightId = tempFlightIdReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Reward.CreateRewardShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *RewardService) GetRewardShort(input *reward.GetRewardParams) (*reward
 	}
 	if tempFlightIdReward != nil {
 		input.XFlightId = tempFlightIdReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.GetRewardShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *RewardService) DeleteRewardShort(input *reward.DeleteRewardParams) er
 	}
 	if tempFlightIdReward != nil {
 		input.XFlightId = tempFlightIdReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Reward.DeleteRewardShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *RewardService) UpdateRewardShort(input *reward.UpdateRewardParams) (*
 	}
 	if tempFlightIdReward != nil {
 		input.XFlightId = tempFlightIdReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.UpdateRewardShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *RewardService) PublicClaimUserRewardShort(input *reward.PublicClaimUs
 	}
 	if tempFlightIdReward != nil {
 		input.XFlightId = tempFlightIdReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.PublicClaimUserRewardShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *RewardService) PublicBulkClaimUserRewardsShort(input *reward.PublicBu
 	}
 	if tempFlightIdReward != nil {
 		input.XFlightId = tempFlightIdReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Reward.PublicBulkClaimUserRewardsShort(input, authInfoWriter)

@@ -15,11 +15,8 @@ import (
 )
 
 type OperationsService struct {
-	Client           *match2client.JusticeMatch2Service
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *match2client.JusticeMatch2Service
+	Session repository.Session
 }
 
 var tempFlightIdOperations *string
@@ -30,9 +27,9 @@ func (aaa *OperationsService) UpdateFlightId(flightId string) {
 
 func (aaa *OperationsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *OperationsService) GetHealthcheckInfoShort(input *operations.GetHealt
 	}
 	if tempFlightIdOperations != nil {
 		input.XFlightId = tempFlightIdOperations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Operations.GetHealthcheckInfoShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *OperationsService) GetHealthcheckInfoV1Short(input *operations.GetHea
 	}
 	if tempFlightIdOperations != nil {
 		input.XFlightId = tempFlightIdOperations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Operations.GetHealthcheckInfoV1Short(input, authInfoWriter)
@@ -114,8 +111,8 @@ func (aaa *OperationsService) VersionCheckHandlerShort(input *operations.Version
 	}
 	if tempFlightIdOperations != nil {
 		input.XFlightId = tempFlightIdOperations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Operations.VersionCheckHandlerShort(input, authInfoWriter)

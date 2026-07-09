@@ -100,9 +100,10 @@ func NewGetUserByLoginIDOK() *GetUserByLoginIDOK {
 	return &GetUserByLoginIDOK{}
 }
 
-/*GetUserByLoginIDOK handles this case with default header values.
+/*
+GetUserByLoginIDOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserByLoginIDOK struct {
 	Payload *iamclientmodels.ModelPublicUserResponse
@@ -154,9 +155,10 @@ func NewGetUserByLoginIDBadRequest() *GetUserByLoginIDBadRequest {
 	return &GetUserByLoginIDBadRequest{}
 }
 
-/*GetUserByLoginIDBadRequest handles this case with default header values.
+/*
+GetUserByLoginIDBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetUserByLoginIDBadRequest struct {
 }
@@ -181,9 +183,10 @@ func NewGetUserByLoginIDNotFound() *GetUserByLoginIDNotFound {
 	return &GetUserByLoginIDNotFound{}
 }
 
-/*GetUserByLoginIDNotFound handles this case with default header values.
+/*
+GetUserByLoginIDNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type GetUserByLoginIDNotFound struct {
 }
@@ -208,9 +211,10 @@ func NewGetUserByLoginIDInternalServerError() *GetUserByLoginIDInternalServerErr
 	return &GetUserByLoginIDInternalServerError{}
 }
 
-/*GetUserByLoginIDInternalServerError handles this case with default header values.
+/*
+GetUserByLoginIDInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetUserByLoginIDInternalServerError struct {
 }

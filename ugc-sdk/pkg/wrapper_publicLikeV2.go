@@ -15,11 +15,8 @@ import (
 )
 
 type PublicLikeV2Service struct {
-	Client           *ugcclient.JusticeUgcService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
 }
 
 var tempFlightIdPublicLikeV2 *string
@@ -30,9 +27,9 @@ func (aaa *PublicLikeV2Service) UpdateFlightId(flightId string) {
 
 func (aaa *PublicLikeV2Service) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicLikeV2Service) PublicListContentLikeV2Short(input *public_like_
 	}
 	if tempFlightIdPublicLikeV2 != nil {
 		input.XFlightId = tempFlightIdPublicLikeV2
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicLikeV2.PublicListContentLikeV2Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PublicLikeV2Service) UpdateContentLikeStatusV2Short(input *public_lik
 	}
 	if tempFlightIdPublicLikeV2 != nil {
 		input.XFlightId = tempFlightIdPublicLikeV2
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicLikeV2.UpdateContentLikeStatusV2Short(input, authInfoWriter)

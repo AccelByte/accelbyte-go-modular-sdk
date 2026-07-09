@@ -57,7 +57,8 @@ func NewAdminGetUserStateByUserIDV3ParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminGetUserStateByUserIDV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetUserStateByUserIDV3Params contains all the parameters to send to the API endpoint
 for the admin get user state by user id v3 operation typically these are written to a http.Request
 */
 type AdminGetUserStateByUserIDV3Params struct {

@@ -57,7 +57,8 @@ func NewAdminUnbanDeviceV4ParamsWithHTTPClient(client *http.Client) *AdminUnbanD
 	}
 }
 
-/*AdminUnbanDeviceV4Params contains all the parameters to send to the API endpoint
+/*
+AdminUnbanDeviceV4Params contains all the parameters to send to the API endpoint
 for the admin unban device v4 operation typically these are written to a http.Request
 */
 type AdminUnbanDeviceV4Params struct {

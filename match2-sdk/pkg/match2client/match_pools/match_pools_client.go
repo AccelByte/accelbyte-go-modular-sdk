@@ -227,7 +227,8 @@ func (a *Client) CreateMatchPoolShort(params *CreateMatchPoolParams, authInfo ru
 
 /*
 MatchPoolDetailsShort get details for a specific match pool
-Get details for a specific match pool
+Get details for a specific match pool, including its configuration such as match function,
+ticket expiration, ruleset, and backfill settings.
 */
 func (a *Client) MatchPoolDetailsShort(params *MatchPoolDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchPoolDetailsResponse, error) {
 	// TODO: Validate the params before sending
@@ -578,7 +579,10 @@ func (a *Client) MatchPoolMetricShort(params *MatchPoolMetricParams, authInfo ru
 
 /*
 PostMatchErrorMetricShort post metrics for external flow failure in a specific match pool
-Post metrics for external flow failure in a specific match pool
+Post metrics for external flow failure in a specific match pool.
+
+Records an external match error metric for the given match pool. Used to track failures
+from custom (gRPC) match functions during the matchmaking process.
 */
 func (a *Client) PostMatchErrorMetricShort(params *PostMatchErrorMetricParams, authInfo runtime.ClientAuthInfoWriter) (*PostMatchErrorMetricResponse, error) {
 	// TODO: Validate the params before sending

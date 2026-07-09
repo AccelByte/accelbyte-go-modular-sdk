@@ -144,9 +144,10 @@ func NewAdminDeleteClientV3NoContent() *AdminDeleteClientV3NoContent {
 	return &AdminDeleteClientV3NoContent{}
 }
 
-/*AdminDeleteClientV3NoContent handles this case with default header values.
+/*
+AdminDeleteClientV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDeleteClientV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeleteClientV3BadRequest() *AdminDeleteClientV3BadRequest {
 	return &AdminDeleteClientV3BadRequest{}
 }
 
-/*AdminDeleteClientV3BadRequest handles this case with default header values.
+/*
+AdminDeleteClientV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminDeleteClientV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminDeleteClientV3Unauthorized() *AdminDeleteClientV3Unauthorized {
 	return &AdminDeleteClientV3Unauthorized{}
 }
 
-/*AdminDeleteClientV3Unauthorized handles this case with default header values.
+/*
+AdminDeleteClientV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteClientV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminDeleteClientV3Forbidden() *AdminDeleteClientV3Forbidden {
 	return &AdminDeleteClientV3Forbidden{}
 }
 
-/*AdminDeleteClientV3Forbidden handles this case with default header values.
+/*
+AdminDeleteClientV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeleteClientV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminDeleteClientV3NotFound() *AdminDeleteClientV3NotFound {
 	return &AdminDeleteClientV3NotFound{}
 }
 
-/*AdminDeleteClientV3NotFound handles this case with default header values.
+/*
+AdminDeleteClientV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr></table>
 */
 type AdminDeleteClientV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminDeleteClientV3Conflict() *AdminDeleteClientV3Conflict {
 	return &AdminDeleteClientV3Conflict{}
 }
 
-/*AdminDeleteClientV3Conflict handles this case with default header values.
+/*
+AdminDeleteClientV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20009</td><td>request_conflict</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20009</td><td>request_conflict</td></tr></table>
 */
 type AdminDeleteClientV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse

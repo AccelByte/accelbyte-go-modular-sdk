@@ -57,7 +57,8 @@ func NewAdminGetRoleNamespacePermissionV3ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*AdminGetRoleNamespacePermissionV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetRoleNamespacePermissionV3Params contains all the parameters to send to the API endpoint
 for the admin get role namespace permission v3 operation typically these are written to a http.Request
 */
 type AdminGetRoleNamespacePermissionV3Params struct {

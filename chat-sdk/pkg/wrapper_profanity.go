@@ -15,11 +15,8 @@ import (
 )
 
 type ProfanityService struct {
-	Client           *chatclient.JusticeChatService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *chatclient.JusticeChatService
+	Session repository.Session
 }
 
 var tempFlightIdProfanity *string
@@ -30,9 +27,9 @@ func (aaa *ProfanityService) UpdateFlightId(flightId string) {
 
 func (aaa *ProfanityService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ProfanityService) AdminProfanityQueryShort(input *profanity.AdminProf
 	}
 	if tempFlightIdProfanity != nil {
 		input.XFlightId = tempFlightIdProfanity
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityQueryShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ProfanityService) AdminProfanityCreateShort(input *profanity.AdminPro
 	}
 	if tempFlightIdProfanity != nil {
 		input.XFlightId = tempFlightIdProfanity
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityCreateShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ProfanityService) AdminProfanityCreateBulkShort(input *profanity.Admi
 	}
 	if tempFlightIdProfanity != nil {
 		input.XFlightId = tempFlightIdProfanity
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Profanity.AdminProfanityCreateBulkShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *ProfanityService) AdminProfanityExportShort(input *profanity.AdminPro
 	}
 	if tempFlightIdProfanity != nil {
 		input.XFlightId = tempFlightIdProfanity
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityExportShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *ProfanityService) AdminProfanityGroupShort(input *profanity.AdminProf
 	}
 	if tempFlightIdProfanity != nil {
 		input.XFlightId = tempFlightIdProfanity
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityGroupShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *ProfanityService) AdminProfanityImportShort(input *profanity.AdminPro
 	}
 	if tempFlightIdProfanity != nil {
 		input.XFlightId = tempFlightIdProfanity
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityImportShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *ProfanityService) AdminProfanityUpdateShort(input *profanity.AdminPro
 	}
 	if tempFlightIdProfanity != nil {
 		input.XFlightId = tempFlightIdProfanity
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Profanity.AdminProfanityUpdateShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *ProfanityService) AdminProfanityDeleteShort(input *profanity.AdminPro
 	}
 	if tempFlightIdProfanity != nil {
 		input.XFlightId = tempFlightIdProfanity
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Profanity.AdminProfanityDeleteShort(input, authInfoWriter)

@@ -110,9 +110,10 @@ func NewGetRoleOK() *GetRoleOK {
 	return &GetRoleOK{}
 }
 
-/*GetRoleOK handles this case with default header values.
+/*
+GetRoleOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetRoleOK struct {
 	Payload *iamclientmodels.ModelRoleResponse
@@ -164,9 +165,10 @@ func NewGetRoleUnauthorized() *GetRoleUnauthorized {
 	return &GetRoleUnauthorized{}
 }
 
-/*GetRoleUnauthorized handles this case with default header values.
+/*
+GetRoleUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetRoleUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -218,9 +220,10 @@ func NewGetRoleForbidden() *GetRoleForbidden {
 	return &GetRoleForbidden{}
 }
 
-/*GetRoleForbidden handles this case with default header values.
+/*
+GetRoleForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetRoleForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -272,9 +275,10 @@ func NewGetRoleNotFound() *GetRoleNotFound {
 	return &GetRoleNotFound{}
 }
 
-/*GetRoleNotFound handles this case with default header values.
+/*
+GetRoleNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type GetRoleNotFound struct {
 }

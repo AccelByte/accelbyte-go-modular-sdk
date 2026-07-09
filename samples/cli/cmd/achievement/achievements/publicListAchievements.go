@@ -12,6 +12,7 @@ import (
 
 	achievement "github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk/pkg/achievementclient/achievements"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -23,8 +24,10 @@ var PublicListAchievementsCmd = &cobra.Command{
 	Long:  `Public list achievements`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		achievementsService := &achievement.AchievementsService{
-			Client:          achievement.NewAchievementClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: achievement.NewAchievementHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		language, _ := cmd.Flags().GetString("language")

@@ -15,11 +15,8 @@ import (
 )
 
 type PresenceService struct {
-	Client           *lobbyclient.JusticeLobbyService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *lobbyclient.JusticeLobbyService
+	Session repository.Session
 }
 
 var tempFlightIdPresence *string
@@ -30,9 +27,9 @@ func (aaa *PresenceService) UpdateFlightId(flightId string) {
 
 func (aaa *PresenceService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PresenceService) UsersPresenceHandlerV1Short(input *presence.UsersPre
 	}
 	if tempFlightIdPresence != nil {
 		input.XFlightId = tempFlightIdPresence
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Presence.UsersPresenceHandlerV1Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PresenceService) UsersPresenceHandlerV2Short(input *presence.UsersPre
 	}
 	if tempFlightIdPresence != nil {
 		input.XFlightId = tempFlightIdPresence
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Presence.UsersPresenceHandlerV2Short(input, authInfoWriter)

@@ -10,6 +10,7 @@ import (
 	"log/slog"
 	"os"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/platform_credential"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -23,8 +24,10 @@ var AdminUploadPlatformCredentialsCmd = &cobra.Command{
 	Long:  `Admin upload platform credentials`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		platformCredentialService := &session.PlatformCredentialService{
-			Client:          session.NewSessionClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: session.NewSessionHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		outputFile := cmd.Flag("file").Value.String()
 		slog.Info("file", "value", outputFile)

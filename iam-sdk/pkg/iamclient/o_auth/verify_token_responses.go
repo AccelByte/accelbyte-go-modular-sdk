@@ -80,9 +80,10 @@ func NewVerifyTokenOK() *VerifyTokenOK {
 	return &VerifyTokenOK{}
 }
 
-/*VerifyTokenOK handles this case with default header values.
+/*
+VerifyTokenOK handles this case with default header values.
 
-  Access Token verified
+	Access Token verified
 */
 type VerifyTokenOK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponse
@@ -134,9 +135,10 @@ func NewVerifyTokenBadRequest() *VerifyTokenBadRequest {
 	return &VerifyTokenBadRequest{}
 }
 
-/*VerifyTokenBadRequest handles this case with default header values.
+/*
+VerifyTokenBadRequest handles this case with default header values.
 
-  Access Token not exist or expired
+	Access Token not exist or expired
 */
 type VerifyTokenBadRequest struct {
 }

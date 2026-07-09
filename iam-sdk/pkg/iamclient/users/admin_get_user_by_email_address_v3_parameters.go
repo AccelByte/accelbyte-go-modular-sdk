@@ -57,7 +57,8 @@ func NewAdminGetUserByEmailAddressV3ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminGetUserByEmailAddressV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetUserByEmailAddressV3Params contains all the parameters to send to the API endpoint
 for the admin get user by email address v3 operation typically these are written to a http.Request
 */
 type AdminGetUserByEmailAddressV3Params struct {

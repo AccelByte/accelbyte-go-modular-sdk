@@ -144,9 +144,10 @@ func NewPublicUpdateUserEmailAddressV4NoContent() *PublicUpdateUserEmailAddressV
 	return &PublicUpdateUserEmailAddressV4NoContent{}
 }
 
-/*PublicUpdateUserEmailAddressV4NoContent handles this case with default header values.
+/*
+PublicUpdateUserEmailAddressV4NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicUpdateUserEmailAddressV4NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicUpdateUserEmailAddressV4BadRequest() *PublicUpdateUserEmailAddress
 	return &PublicUpdateUserEmailAddressV4BadRequest{}
 }
 
-/*PublicUpdateUserEmailAddressV4BadRequest handles this case with default header values.
+/*
+PublicUpdateUserEmailAddressV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicUpdateUserEmailAddressV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewPublicUpdateUserEmailAddressV4Unauthorized() *PublicUpdateUserEmailAddre
 	return &PublicUpdateUserEmailAddressV4Unauthorized{}
 }
 
-/*PublicUpdateUserEmailAddressV4Unauthorized handles this case with default header values.
+/*
+PublicUpdateUserEmailAddressV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicUpdateUserEmailAddressV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewPublicUpdateUserEmailAddressV4NotFound() *PublicUpdateUserEmailAddressV4
 	return &PublicUpdateUserEmailAddressV4NotFound{}
 }
 
-/*PublicUpdateUserEmailAddressV4NotFound handles this case with default header values.
+/*
+PublicUpdateUserEmailAddressV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicUpdateUserEmailAddressV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewPublicUpdateUserEmailAddressV4Conflict() *PublicUpdateUserEmailAddressV4
 	return &PublicUpdateUserEmailAddressV4Conflict{}
 }
 
-/*PublicUpdateUserEmailAddressV4Conflict handles this case with default header values.
+/*
+PublicUpdateUserEmailAddressV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type PublicUpdateUserEmailAddressV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewPublicUpdateUserEmailAddressV4InternalServerError() *PublicUpdateUserEma
 	return &PublicUpdateUserEmailAddressV4InternalServerError{}
 }
 
-/*PublicUpdateUserEmailAddressV4InternalServerError handles this case with default header values.
+/*
+PublicUpdateUserEmailAddressV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicUpdateUserEmailAddressV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

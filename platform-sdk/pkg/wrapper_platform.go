@@ -15,11 +15,8 @@ import (
 )
 
 type PlatformService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdPlatform *string
@@ -30,9 +27,9 @@ func (aaa *PlatformService) UpdateFlightId(flightId string) {
 
 func (aaa *PlatformService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PlatformService) GetPsnEntitlementOwnershipShort(input *platform.GetP
 	}
 	if tempFlightIdPlatform != nil {
 		input.XFlightId = tempFlightIdPlatform
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Platform.GetPsnEntitlementOwnershipShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PlatformService) GetXboxEntitlementOwnershipShort(input *platform.Get
 	}
 	if tempFlightIdPlatform != nil {
 		input.XFlightId = tempFlightIdPlatform
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Platform.GetXboxEntitlementOwnershipShort(input, authInfoWriter)

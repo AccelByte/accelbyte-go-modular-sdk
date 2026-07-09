@@ -145,9 +145,10 @@ func NewAdminGetRoleV4OK() *AdminGetRoleV4OK {
 	return &AdminGetRoleV4OK{}
 }
 
-/*AdminGetRoleV4OK handles this case with default header values.
+/*
+AdminGetRoleV4OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetRoleV4OK struct {
 	Payload *iamclientmodels.ModelRoleV4Response
@@ -199,9 +200,10 @@ func NewAdminGetRoleV4BadRequest() *AdminGetRoleV4BadRequest {
 	return &AdminGetRoleV4BadRequest{}
 }
 
-/*AdminGetRoleV4BadRequest handles this case with default header values.
+/*
+AdminGetRoleV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGetRoleV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewAdminGetRoleV4Unauthorized() *AdminGetRoleV4Unauthorized {
 	return &AdminGetRoleV4Unauthorized{}
 }
 
-/*AdminGetRoleV4Unauthorized handles this case with default header values.
+/*
+AdminGetRoleV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetRoleV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewAdminGetRoleV4Forbidden() *AdminGetRoleV4Forbidden {
 	return &AdminGetRoleV4Forbidden{}
 }
 
-/*AdminGetRoleV4Forbidden handles this case with default header values.
+/*
+AdminGetRoleV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetRoleV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewAdminGetRoleV4NotFound() *AdminGetRoleV4NotFound {
 	return &AdminGetRoleV4NotFound{}
 }
 
-/*AdminGetRoleV4NotFound handles this case with default header values.
+/*
+AdminGetRoleV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminGetRoleV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewAdminGetRoleV4InternalServerError() *AdminGetRoleV4InternalServerError {
 	return &AdminGetRoleV4InternalServerError{}
 }
 
-/*AdminGetRoleV4InternalServerError handles this case with default header values.
+/*
+AdminGetRoleV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetRoleV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -144,9 +144,10 @@ func NewDeleteThirdPartyLoginPlatformDomainV3NoContent() *DeleteThirdPartyLoginP
 	return &DeleteThirdPartyLoginPlatformDomainV3NoContent{}
 }
 
-/*DeleteThirdPartyLoginPlatformDomainV3NoContent handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformDomainV3NoContent handles this case with default header values.
 
-  Domain unregister succeeded
+	Domain unregister succeeded
 */
 type DeleteThirdPartyLoginPlatformDomainV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewDeleteThirdPartyLoginPlatformDomainV3BadRequest() *DeleteThirdPartyLogin
 	return &DeleteThirdPartyLoginPlatformDomainV3BadRequest{}
 }
 
-/*DeleteThirdPartyLoginPlatformDomainV3BadRequest handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformDomainV3BadRequest handles this case with default header values.
 
-  Bad Request
+	Bad Request
 */
 type DeleteThirdPartyLoginPlatformDomainV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewDeleteThirdPartyLoginPlatformDomainV3Unauthorized() *DeleteThirdPartyLog
 	return &DeleteThirdPartyLoginPlatformDomainV3Unauthorized{}
 }
 
-/*DeleteThirdPartyLoginPlatformDomainV3Unauthorized handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformDomainV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteThirdPartyLoginPlatformDomainV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewDeleteThirdPartyLoginPlatformDomainV3Forbidden() *DeleteThirdPartyLoginP
 	return &DeleteThirdPartyLoginPlatformDomainV3Forbidden{}
 }
 
-/*DeleteThirdPartyLoginPlatformDomainV3Forbidden handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformDomainV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteThirdPartyLoginPlatformDomainV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewDeleteThirdPartyLoginPlatformDomainV3NotFound() *DeleteThirdPartyLoginPl
 	return &DeleteThirdPartyLoginPlatformDomainV3NotFound{}
 }
 
-/*DeleteThirdPartyLoginPlatformDomainV3NotFound handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformDomainV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
 */
 type DeleteThirdPartyLoginPlatformDomainV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewDeleteThirdPartyLoginPlatformDomainV3InternalServerError() *DeleteThirdP
 	return &DeleteThirdPartyLoginPlatformDomainV3InternalServerError{}
 }
 
-/*DeleteThirdPartyLoginPlatformDomainV3InternalServerError handles this case with default header values.
+/*
+DeleteThirdPartyLoginPlatformDomainV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DeleteThirdPartyLoginPlatformDomainV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

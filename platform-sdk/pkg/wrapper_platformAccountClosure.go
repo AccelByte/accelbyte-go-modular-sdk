@@ -15,11 +15,8 @@ import (
 )
 
 type PlatformAccountClosureService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdPlatformAccountClosure *string
@@ -30,9 +27,9 @@ func (aaa *PlatformAccountClosureService) UpdateFlightId(flightId string) {
 
 func (aaa *PlatformAccountClosureService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PlatformAccountClosureService) GetUserPlatformAccountClosureHistories
 	}
 	if tempFlightIdPlatformAccountClosure != nil {
 		input.XFlightId = tempFlightIdPlatformAccountClosure
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlatformAccountClosure.GetUserPlatformAccountClosureHistoriesShort(input, authInfoWriter)

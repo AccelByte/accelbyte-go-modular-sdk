@@ -11,6 +11,7 @@ import (
 
 	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/rule_sets"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var RuleSetListCmd = &cobra.Command{
 	Long:  `Rule set list`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		ruleSetsService := &match2.RuleSetsService{
-			Client:          match2.NewMatch2Client(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: match2.NewMatch2HttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		limit, _ := cmd.Flags().GetInt64("limit")

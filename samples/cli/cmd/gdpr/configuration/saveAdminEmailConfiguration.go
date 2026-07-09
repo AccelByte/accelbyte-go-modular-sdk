@@ -12,6 +12,7 @@ import (
 
 	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/configuration"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -23,8 +24,10 @@ var SaveAdminEmailConfigurationCmd = &cobra.Command{
 	Long:  `Save admin email configuration`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configurationService := &gdpr.ConfigurationService{
-			Client:          gdpr.NewGdprClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: gdpr.NewGdprHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body []string

@@ -15,11 +15,8 @@ import (
 )
 
 type AdminItemsService struct {
-	Client           *inventoryclient.JusticeInventoryService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *inventoryclient.JusticeInventoryService
+	Session repository.Session
 }
 
 var tempFlightIdAdminItems *string
@@ -30,9 +27,9 @@ func (aaa *AdminItemsService) UpdateFlightId(flightId string) {
 
 func (aaa *AdminItemsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminItemsService) AdminListItemsShort(input *admin_items.AdminListIt
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItems.AdminListItemsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AdminItemsService) AdminGetInventoryItemShort(input *admin_items.Admi
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItems.AdminGetInventoryItemShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AdminItemsService) AdminConsumeUserItemShort(input *admin_items.Admin
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItems.AdminConsumeUserItemShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *AdminItemsService) AdminBulkUpdateMyItemsShort(input *admin_items.Adm
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItems.AdminBulkUpdateMyItemsShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *AdminItemsService) AdminSaveItemToInventoryShort(input *admin_items.A
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItems.AdminSaveItemToInventoryShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *AdminItemsService) AdminBulkRemoveItemsShort(input *admin_items.Admin
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItems.AdminBulkRemoveItemsShort(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *AdminItemsService) AdminBulkSaveItemToInventoryShort(input *admin_ite
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItems.AdminBulkSaveItemToInventoryShort(input, authInfoWriter)
@@ -292,8 +289,8 @@ func (aaa *AdminItemsService) AdminSaveItemShort(input *admin_items.AdminSaveIte
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItems.AdminSaveItemShort(input, authInfoWriter)
@@ -326,8 +323,8 @@ func (aaa *AdminItemsService) AdminBulkSaveItemShort(input *admin_items.AdminBul
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminItems.AdminBulkSaveItemShort(input, authInfoWriter)
@@ -360,8 +357,8 @@ func (aaa *AdminItemsService) AdminSyncUserEntitlementsShort(input *admin_items.
 	}
 	if tempFlightIdAdminItems != nil {
 		input.XFlightId = tempFlightIdAdminItems
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminItems.AdminSyncUserEntitlementsShort(input, authInfoWriter)

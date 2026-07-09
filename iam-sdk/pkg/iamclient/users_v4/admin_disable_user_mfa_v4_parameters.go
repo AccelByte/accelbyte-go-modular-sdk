@@ -59,7 +59,8 @@ func NewAdminDisableUserMFAV4ParamsWithHTTPClient(client *http.Client) *AdminDis
 	}
 }
 
-/*AdminDisableUserMFAV4Params contains all the parameters to send to the API endpoint
+/*
+AdminDisableUserMFAV4Params contains all the parameters to send to the API endpoint
 for the admin disable user mfav4 operation typically these are written to a http.Request
 */
 type AdminDisableUserMFAV4Params struct {

@@ -11,6 +11,7 @@ import (
 
 	seasonpass "github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk/pkg/seasonpassclient/season"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var DeleteSeasonCmd = &cobra.Command{
 	Long:  `Delete season`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		seasonService := &seasonpass.SeasonService{
-			Client:          seasonpass.NewSeasonpassClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: seasonpass.NewSeasonpassHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		seasonId, _ := cmd.Flags().GetString("seasonId")

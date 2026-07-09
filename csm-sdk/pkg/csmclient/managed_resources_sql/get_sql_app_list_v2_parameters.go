@@ -82,7 +82,7 @@ type GetSQLAppListV2Params struct {
 	*/
 	AppName *string
 	/*GameNamespace
-	  Game Name
+	  Game Namespace
 
 	*/
 	GameNamespace *string

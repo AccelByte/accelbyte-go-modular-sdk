@@ -44,9 +44,7 @@ type ClientService interface {
 
 /*
 GetAppListV1Short gets the list of apps for ab-extend customer
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
-
-# Gets the List of Apps for AB-Extend Customer
+Gets the List of Apps for AB-Extend Customer
 
 Available scenario:
 - scenario 1: `function-override`
@@ -140,8 +138,6 @@ func (a *Client) GetAppListV1Short(params *GetAppListV1Params, authInfo runtime.
 
 /*
 GetAppV1Short gets the app by name
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
-
 Gets the App By Name
 */
 func (a *Client) GetAppV1Short(params *GetAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppV1Response, error) {
@@ -224,9 +220,7 @@ func (a *Client) GetAppV1Short(params *GetAppV1Params, authInfo runtime.ClientAu
 
 /*
 CreateAppV1Short creates new app for ab-extend customers
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [CREATE]`
-
-# Creates new App for AB-Extend Customers
+Creates new App for AB-Extend Customers
 
 Available scenario:
 - scenario 1: `function-override`
@@ -329,9 +323,7 @@ func (a *Client) CreateAppV1Short(params *CreateAppV1Params, authInfo runtime.Cl
 
 /*
 DeleteAppV1Short delete app by åpp name
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [DELETE]`
-
-# Delete App by given DeploymentID
+Delete App by given DeploymentID
 
 This endpoint intended to delete ECR repo, ECR manifests, service images, uninstall helm-release,
 and update the deleted_at in DB by given App Name.
@@ -424,8 +416,6 @@ func (a *Client) DeleteAppV1Short(params *DeleteAppV1Params, authInfo runtime.Cl
 
 /*
 UpdateAppV1Short update app partially
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
-
 Update App Partially
 */
 func (a *Client) UpdateAppV1Short(params *UpdateAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV1Response, error) {
@@ -515,8 +505,6 @@ func (a *Client) UpdateAppV1Short(params *UpdateAppV1Params, authInfo runtime.Cl
 
 /*
 GetAppReleaseV1Short gets the latest release version info of this app
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
-
 Gets the Latest Release Version info of this App
 */
 func (a *Client) GetAppReleaseV1Short(params *GetAppReleaseV1Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppReleaseV1Response, error) {
@@ -599,8 +587,6 @@ func (a *Client) GetAppReleaseV1Short(params *GetAppReleaseV1Params, authInfo ru
 
 /*
 StartAppV1Short starts the application
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
-
 Starts the Application
 */
 func (a *Client) StartAppV1Short(params *StartAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV1Response, error) {
@@ -690,8 +676,6 @@ func (a *Client) StartAppV1Short(params *StartAppV1Params, authInfo runtime.Clie
 
 /*
 StopAppV1Short stops the application
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
-
 Stops the Application
 */
 func (a *Client) StopAppV1Short(params *StopAppV1Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV1Response, error) {

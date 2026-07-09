@@ -11,6 +11,7 @@ import (
 
 	inventory "github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/public_items"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var PublicGetItemCmd = &cobra.Command{
 	Long:  `Public get item`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		publicItemsService := &inventory.PublicItemsService{
-			Client:          inventory.NewInventoryClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: inventory.NewInventoryHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		inventoryId, _ := cmd.Flags().GetString("inventoryId")
 		namespace, _ := cmd.Flags().GetString("namespace")

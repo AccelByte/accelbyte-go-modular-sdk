@@ -9,6 +9,7 @@ package adminType
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_type"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var AdminDeleteTypeCmd = &cobra.Command{
 	Long:  `Admin delete type`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminTypeService := &ugc.AdminTypeService{
-			Client:          ugc.NewUgcClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ugc.NewUgcHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		typeId, _ := cmd.Flags().GetString("typeId")

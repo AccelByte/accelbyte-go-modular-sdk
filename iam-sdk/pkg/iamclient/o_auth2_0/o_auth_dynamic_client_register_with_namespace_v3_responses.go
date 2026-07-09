@@ -130,9 +130,10 @@ func NewOAuthDynamicClientRegisterWithNamespaceV3Created() *OAuthDynamicClientRe
 	return &OAuthDynamicClientRegisterWithNamespaceV3Created{}
 }
 
-/*OAuthDynamicClientRegisterWithNamespaceV3Created handles this case with default header values.
+/*
+OAuthDynamicClientRegisterWithNamespaceV3Created handles this case with default header values.
 
-  Created
+	Created
 */
 type OAuthDynamicClientRegisterWithNamespaceV3Created struct {
 	Payload *iamclientmodels.OauthmodelClientRegisterResponse
@@ -184,8 +185,8 @@ func NewOAuthDynamicClientRegisterWithNamespaceV3BadRequest() *OAuthDynamicClien
 	return &OAuthDynamicClientRegisterWithNamespaceV3BadRequest{}
 }
 
-/*OAuthDynamicClientRegisterWithNamespaceV3BadRequest handles this case with default header values.
-
+/*
+OAuthDynamicClientRegisterWithNamespaceV3BadRequest handles this case with default header values.
 
 Possible error field values in the response:
 <ul>
@@ -243,9 +244,10 @@ func NewOAuthDynamicClientRegisterWithNamespaceV3TooManyRequests() *OAuthDynamic
 	return &OAuthDynamicClientRegisterWithNamespaceV3TooManyRequests{}
 }
 
-/*OAuthDynamicClientRegisterWithNamespaceV3TooManyRequests handles this case with default header values.
+/*
+OAuthDynamicClientRegisterWithNamespaceV3TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type OAuthDynamicClientRegisterWithNamespaceV3TooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -297,8 +299,8 @@ func NewOAuthDynamicClientRegisterWithNamespaceV3InternalServerError() *OAuthDyn
 	return &OAuthDynamicClientRegisterWithNamespaceV3InternalServerError{}
 }
 
-/*OAuthDynamicClientRegisterWithNamespaceV3InternalServerError handles this case with default header values.
-
+/*
+OAuthDynamicClientRegisterWithNamespaceV3InternalServerError handles this case with default header values.
 
 Possible error field values in the response:
 <ul>
@@ -355,9 +357,10 @@ func NewOAuthDynamicClientRegisterWithNamespaceV3NotImplemented() *OAuthDynamicC
 	return &OAuthDynamicClientRegisterWithNamespaceV3NotImplemented{}
 }
 
-/*OAuthDynamicClientRegisterWithNamespaceV3NotImplemented handles this case with default header values.
+/*
+OAuthDynamicClientRegisterWithNamespaceV3NotImplemented handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
 */
 type OAuthDynamicClientRegisterWithNamespaceV3NotImplemented struct {
 	Payload *iamclientmodels.RestErrorResponse

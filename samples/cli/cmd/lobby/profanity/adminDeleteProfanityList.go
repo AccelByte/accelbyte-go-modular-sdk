@@ -11,6 +11,7 @@ import (
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/profanity"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminDeleteProfanityListCmd = &cobra.Command{
 	Long:  `Admin delete profanity list`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		profanityService := &lobby.ProfanityService{
-			Client:          lobby.NewLobbyClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: lobby.NewLobbyHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		list_, _ := cmd.Flags().GetString("list")
 		namespace, _ := cmd.Flags().GetString("namespace")

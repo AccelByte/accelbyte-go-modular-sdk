@@ -144,9 +144,10 @@ func NewAdminVerifyAccountV3NoContent() *AdminVerifyAccountV3NoContent {
 	return &AdminVerifyAccountV3NoContent{}
 }
 
-/*AdminVerifyAccountV3NoContent handles this case with default header values.
+/*
+AdminVerifyAccountV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminVerifyAccountV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminVerifyAccountV3BadRequest() *AdminVerifyAccountV3BadRequest {
 	return &AdminVerifyAccountV3BadRequest{}
 }
 
-/*AdminVerifyAccountV3BadRequest handles this case with default header values.
+/*
+AdminVerifyAccountV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminVerifyAccountV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminVerifyAccountV3Unauthorized() *AdminVerifyAccountV3Unauthorized {
 	return &AdminVerifyAccountV3Unauthorized{}
 }
 
-/*AdminVerifyAccountV3Unauthorized handles this case with default header values.
+/*
+AdminVerifyAccountV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminVerifyAccountV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminVerifyAccountV3Forbidden() *AdminVerifyAccountV3Forbidden {
 	return &AdminVerifyAccountV3Forbidden{}
 }
 
-/*AdminVerifyAccountV3Forbidden handles this case with default header values.
+/*
+AdminVerifyAccountV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr><tr><td>10162</td><td>invalid verification</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr><tr><td>10162</td><td>invalid verification</td></tr></table>
 */
 type AdminVerifyAccountV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminVerifyAccountV3NotFound() *AdminVerifyAccountV3NotFound {
 	return &AdminVerifyAccountV3NotFound{}
 }
 
-/*AdminVerifyAccountV3NotFound handles this case with default header values.
+/*
+AdminVerifyAccountV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminVerifyAccountV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminVerifyAccountV3InternalServerError() *AdminVerifyAccountV3InternalS
 	return &AdminVerifyAccountV3InternalServerError{}
 }
 
-/*AdminVerifyAccountV3InternalServerError handles this case with default header values.
+/*
+AdminVerifyAccountV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminVerifyAccountV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

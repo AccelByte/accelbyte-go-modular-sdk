@@ -57,7 +57,8 @@ func NewAdminListClientTemplatesParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminListClientTemplatesParams contains all the parameters to send to the API endpoint
+/*
+AdminListClientTemplatesParams contains all the parameters to send to the API endpoint
 for the admin list client templates operation typically these are written to a http.Request
 */
 type AdminListClientTemplatesParams struct {

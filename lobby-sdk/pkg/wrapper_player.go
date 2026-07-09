@@ -15,11 +15,8 @@ import (
 )
 
 type PlayerService struct {
-	Client           *lobbyclient.JusticeLobbyService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *lobbyclient.JusticeLobbyService
+	Session repository.Session
 }
 
 var tempFlightIdPlayer *string
@@ -30,9 +27,9 @@ func (aaa *PlayerService) UpdateFlightId(flightId string) {
 
 func (aaa *PlayerService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PlayerService) AdminGetLobbyCCUShort(input *player.AdminGetLobbyCCUPa
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.AdminGetLobbyCCUShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PlayerService) AdminGetBulkPlayerBlockedPlayersV1Short(input *player.
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.AdminGetBulkPlayerBlockedPlayersV1Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PlayerService) AdminGetAllPlayerSessionAttributeShort(input *player.A
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.AdminGetAllPlayerSessionAttributeShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PlayerService) AdminSetPlayerSessionAttributeShort(input *player.Admi
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Player.AdminSetPlayerSessionAttributeShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *PlayerService) AdminGetPlayerSessionAttributeShort(input *player.Admi
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.AdminGetPlayerSessionAttributeShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *PlayerService) AdminGetPlayerBlockedPlayersV1Short(input *player.Admi
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.AdminGetPlayerBlockedPlayersV1Short(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *PlayerService) AdminGetPlayerBlockedByPlayersV1Short(input *player.Ad
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.AdminGetPlayerBlockedByPlayersV1Short(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *PlayerService) AdminBulkBlockPlayersV1Short(input *player.AdminBulkBl
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Player.AdminBulkBlockPlayersV1Short(input, authInfoWriter)
@@ -318,8 +315,8 @@ func (aaa *PlayerService) AdminBulkUnblockPlayersV1Short(input *player.AdminBulk
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Player.AdminBulkUnblockPlayersV1Short(input, authInfoWriter)
@@ -348,8 +345,8 @@ func (aaa *PlayerService) PublicPlayerBlockPlayersV1Short(input *player.PublicPl
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Player.PublicPlayerBlockPlayersV1Short(input, authInfoWriter)
@@ -378,8 +375,8 @@ func (aaa *PlayerService) PublicGetPlayerBlockedPlayersV1Short(input *player.Pub
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.PublicGetPlayerBlockedPlayersV1Short(input, authInfoWriter)
@@ -412,8 +409,8 @@ func (aaa *PlayerService) PublicGetPlayerBlockedByPlayersV1Short(input *player.P
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.PublicGetPlayerBlockedByPlayersV1Short(input, authInfoWriter)
@@ -446,8 +443,8 @@ func (aaa *PlayerService) PublicUnblockPlayerV1Short(input *player.PublicUnblock
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Player.PublicUnblockPlayerV1Short(input, authInfoWriter)

@@ -144,9 +144,10 @@ func NewAdminAddRoleManagersV3NoContent() *AdminAddRoleManagersV3NoContent {
 	return &AdminAddRoleManagersV3NoContent{}
 }
 
-/*AdminAddRoleManagersV3NoContent handles this case with default header values.
+/*
+AdminAddRoleManagersV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminAddRoleManagersV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminAddRoleManagersV3BadRequest() *AdminAddRoleManagersV3BadRequest {
 	return &AdminAddRoleManagersV3BadRequest{}
 }
 
-/*AdminAddRoleManagersV3BadRequest handles this case with default header values.
+/*
+AdminAddRoleManagersV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminAddRoleManagersV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminAddRoleManagersV3Unauthorized() *AdminAddRoleManagersV3Unauthorized
 	return &AdminAddRoleManagersV3Unauthorized{}
 }
 
-/*AdminAddRoleManagersV3Unauthorized handles this case with default header values.
+/*
+AdminAddRoleManagersV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminAddRoleManagersV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminAddRoleManagersV3Forbidden() *AdminAddRoleManagersV3Forbidden {
 	return &AdminAddRoleManagersV3Forbidden{}
 }
 
-/*AdminAddRoleManagersV3Forbidden handles this case with default header values.
+/*
+AdminAddRoleManagersV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminAddRoleManagersV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminAddRoleManagersV3NotFound() *AdminAddRoleManagersV3NotFound {
 	return &AdminAddRoleManagersV3NotFound{}
 }
 
-/*AdminAddRoleManagersV3NotFound handles this case with default header values.
+/*
+AdminAddRoleManagersV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminAddRoleManagersV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminAddRoleManagersV3Conflict() *AdminAddRoleManagersV3Conflict {
 	return &AdminAddRoleManagersV3Conflict{}
 }
 
-/*AdminAddRoleManagersV3Conflict handles this case with default header values.
+/*
+AdminAddRoleManagersV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10468</td><td>role manager exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10468</td><td>role manager exist</td></tr></table>
 */
 type AdminAddRoleManagersV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse

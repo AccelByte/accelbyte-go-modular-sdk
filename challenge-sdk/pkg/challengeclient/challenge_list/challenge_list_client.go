@@ -30,20 +30,20 @@ type Client struct {
 
 // ClientService is the interface for Client methods
 type ClientService interface {
-	GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesResponse, error)
+	PublicGetChallengesShort(params *PublicGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetChallengesResponse, error)
 	PublicGetScheduledGoalsShort(params *PublicGetScheduledGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetScheduledGoalsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-GetChallengesShort list challenges
+PublicGetChallengesShort list challenges
 - Required permission: NAMESPACE:{namespace}:CHALLENGE [READ]
 */
-func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*GetChallengesResponse, error) {
+func (a *Client) PublicGetChallengesShort(params *PublicGetChallengesParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetChallengesResponse, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewGetChallengesParams()
+		params = NewPublicGetChallengesParams()
 	}
 
 	if params.Context == nil {
@@ -59,14 +59,14 @@ func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtim
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "GetChallenges",
+		ID:                 "publicGetChallenges",
 		Method:             "GET",
 		PathPattern:        "/challenge/v1/public/namespaces/{namespace}/challenges",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &GetChallengesReader{formats: a.formats},
+		Reader:             &PublicGetChallengesReader{formats: a.formats},
 		AuthInfo:           authInfo,
 		Context:            params.Context,
 		Client:             params.HTTPClient,
@@ -77,36 +77,36 @@ func (a *Client) GetChallengesShort(params *GetChallengesParams, authInfo runtim
 
 	switch v := result.(type) {
 
-	case *GetChallengesOK:
-		response := &GetChallengesResponse{}
+	case *PublicGetChallengesOK:
+		response := &PublicGetChallengesResponse{}
 		response.Data = v.Payload
 
 		response.IsSuccess = true
 
 		return response, nil
-	case *GetChallengesBadRequest:
-		response := &GetChallengesResponse{}
+	case *PublicGetChallengesBadRequest:
+		response := &PublicGetChallengesResponse{}
 		response.Error400 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *GetChallengesUnauthorized:
-		response := &GetChallengesResponse{}
+	case *PublicGetChallengesUnauthorized:
+		response := &PublicGetChallengesResponse{}
 		response.Error401 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *GetChallengesForbidden:
-		response := &GetChallengesResponse{}
+	case *PublicGetChallengesForbidden:
+		response := &PublicGetChallengesResponse{}
 		response.Error403 = v.Payload
 
 		response.IsSuccess = false
 
 		return response, v
-	case *GetChallengesInternalServerError:
-		response := &GetChallengesResponse{}
+	case *PublicGetChallengesInternalServerError:
+		response := &PublicGetChallengesResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

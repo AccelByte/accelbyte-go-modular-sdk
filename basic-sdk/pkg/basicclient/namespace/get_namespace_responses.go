@@ -130,9 +130,10 @@ func NewGetNamespaceOK() *GetNamespaceOK {
 	return &GetNamespaceOK{}
 }
 
-/*GetNamespaceOK handles this case with default header values.
+/*
+GetNamespaceOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type GetNamespaceOK struct {
 	Payload *basicclientmodels.NamespaceInfo
@@ -184,9 +185,10 @@ func NewGetNamespaceBadRequest() *GetNamespaceBadRequest {
 	return &GetNamespaceBadRequest{}
 }
 
-/*GetNamespaceBadRequest handles this case with default header values.
+/*
+GetNamespaceBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetNamespaceBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -238,9 +240,10 @@ func NewGetNamespaceUnauthorized() *GetNamespaceUnauthorized {
 	return &GetNamespaceUnauthorized{}
 }
 
-/*GetNamespaceUnauthorized handles this case with default header values.
+/*
+GetNamespaceUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetNamespaceUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewGetNamespaceForbidden() *GetNamespaceForbidden {
 	return &GetNamespaceForbidden{}
 }
 
-/*GetNamespaceForbidden handles this case with default header values.
+/*
+GetNamespaceForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetNamespaceForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewGetNamespaceNotFound() *GetNamespaceNotFound {
 	return &GetNamespaceNotFound{}
 }
 
-/*GetNamespaceNotFound handles this case with default header values.
+/*
+GetNamespaceNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
 */
 type GetNamespaceNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

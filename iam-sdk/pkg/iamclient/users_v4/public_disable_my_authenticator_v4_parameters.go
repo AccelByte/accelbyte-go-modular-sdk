@@ -59,7 +59,8 @@ func NewPublicDisableMyAuthenticatorV4ParamsWithHTTPClient(client *http.Client) 
 	}
 }
 
-/*PublicDisableMyAuthenticatorV4Params contains all the parameters to send to the API endpoint
+/*
+PublicDisableMyAuthenticatorV4Params contains all the parameters to send to the API endpoint
 for the public disable my authenticator v4 operation typically these are written to a http.Request
 */
 type PublicDisableMyAuthenticatorV4Params struct {

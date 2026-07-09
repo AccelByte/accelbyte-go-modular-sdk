@@ -15,11 +15,8 @@ import (
 )
 
 type LeaderboardConfigurationService struct {
-	Client           *leaderboardclient.JusticeLeaderboardService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *leaderboardclient.JusticeLeaderboardService
+	Session repository.Session
 }
 
 var tempFlightIdLeaderboardConfiguration *string
@@ -30,9 +27,9 @@ func (aaa *LeaderboardConfigurationService) UpdateFlightId(flightId string) {
 
 func (aaa *LeaderboardConfigurationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *LeaderboardConfigurationService) GetLeaderboardConfigurationsAdminV1S
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardConfiguration.GetLeaderboardConfigurationsAdminV1Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *LeaderboardConfigurationService) CreateLeaderboardConfigurationAdminV
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.LeaderboardConfiguration.CreateLeaderboardConfigurationAdminV1Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *LeaderboardConfigurationService) DeleteBulkLeaderboardConfigurationAd
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardConfiguration.DeleteBulkLeaderboardConfigurationAdminV1Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *LeaderboardConfigurationService) GetLeaderboardConfigurationAdminV1Sh
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardConfiguration.GetLeaderboardConfigurationAdminV1Short(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *LeaderboardConfigurationService) UpdateLeaderboardConfigurationAdminV
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardConfiguration.UpdateLeaderboardConfigurationAdminV1Short(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *LeaderboardConfigurationService) DeleteLeaderboardConfigurationAdminV
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.LeaderboardConfiguration.DeleteLeaderboardConfigurationAdminV1Short(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *LeaderboardConfigurationService) HardDeleteLeaderboardAdminV1Short(in
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.LeaderboardConfiguration.HardDeleteLeaderboardAdminV1Short(input, authInfoWriter)
@@ -284,8 +281,8 @@ func (aaa *LeaderboardConfigurationService) GetLeaderboardConfigurationsPublicV1
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardConfiguration.GetLeaderboardConfigurationsPublicV1Short(input, authInfoWriter)
@@ -318,8 +315,8 @@ func (aaa *LeaderboardConfigurationService) CreateLeaderboardConfigurationPublic
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.LeaderboardConfiguration.CreateLeaderboardConfigurationPublicV1Short(input, authInfoWriter)
@@ -352,8 +349,8 @@ func (aaa *LeaderboardConfigurationService) GetLeaderboardConfigurationsPublicV2
 	}
 	if tempFlightIdLeaderboardConfiguration != nil {
 		input.XFlightId = tempFlightIdLeaderboardConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardConfiguration.GetLeaderboardConfigurationsPublicV2Short(input, authInfoWriter)

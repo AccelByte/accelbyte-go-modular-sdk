@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/slot_config"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclientmodels"
@@ -24,8 +25,10 @@ var UpdateUserSlotConfigCmd = &cobra.Command{
 	Long:  `Update user slot config`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		slotConfigService := &social.SlotConfigService{
-			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: social.NewSocialHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userId, _ := cmd.Flags().GetString("userId")

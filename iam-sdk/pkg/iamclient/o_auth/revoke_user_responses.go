@@ -77,9 +77,10 @@ func NewRevokeUserOK() *RevokeUserOK {
 	return &RevokeUserOK{}
 }
 
-/*RevokeUserOK handles this case with default header values.
+/*
+RevokeUserOK handles this case with default header values.
 
-  User revoked
+	User revoked
 */
 type RevokeUserOK struct {
 }
@@ -104,9 +105,10 @@ func NewRevokeUserUnauthorized() *RevokeUserUnauthorized {
 	return &RevokeUserUnauthorized{}
 }
 
-/*RevokeUserUnauthorized handles this case with default header values.
+/*
+RevokeUserUnauthorized handles this case with default header values.
 
-  Invalid basic auth header
+	Invalid basic auth header
 */
 type RevokeUserUnauthorized struct {
 }

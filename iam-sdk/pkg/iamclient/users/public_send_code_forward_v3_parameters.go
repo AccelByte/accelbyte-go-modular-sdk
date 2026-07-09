@@ -59,7 +59,8 @@ func NewPublicSendCodeForwardV3ParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicSendCodeForwardV3Params contains all the parameters to send to the API endpoint
+/*
+PublicSendCodeForwardV3Params contains all the parameters to send to the API endpoint
 for the public send code forward v3 operation typically these are written to a http.Request
 */
 type PublicSendCodeForwardV3Params struct {

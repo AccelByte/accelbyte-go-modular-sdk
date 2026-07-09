@@ -145,9 +145,10 @@ func NewPublicGenerateMyAuthenticatorKeyV4OK() *PublicGenerateMyAuthenticatorKey
 	return &PublicGenerateMyAuthenticatorKeyV4OK{}
 }
 
-/*PublicGenerateMyAuthenticatorKeyV4OK handles this case with default header values.
+/*
+PublicGenerateMyAuthenticatorKeyV4OK handles this case with default header values.
 
-  Key generated
+	Key generated
 */
 type PublicGenerateMyAuthenticatorKeyV4OK struct {
 	Payload *iamclientmodels.ModelAuthenticatorKeyResponseV4
@@ -199,9 +200,10 @@ func NewPublicGenerateMyAuthenticatorKeyV4BadRequest() *PublicGenerateMyAuthenti
 	return &PublicGenerateMyAuthenticatorKeyV4BadRequest{}
 }
 
-/*PublicGenerateMyAuthenticatorKeyV4BadRequest handles this case with default header values.
+/*
+PublicGenerateMyAuthenticatorKeyV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type PublicGenerateMyAuthenticatorKeyV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewPublicGenerateMyAuthenticatorKeyV4Unauthorized() *PublicGenerateMyAuthen
 	return &PublicGenerateMyAuthenticatorKeyV4Unauthorized{}
 }
 
-/*PublicGenerateMyAuthenticatorKeyV4Unauthorized handles this case with default header values.
+/*
+PublicGenerateMyAuthenticatorKeyV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicGenerateMyAuthenticatorKeyV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewPublicGenerateMyAuthenticatorKeyV4Forbidden() *PublicGenerateMyAuthentic
 	return &PublicGenerateMyAuthenticatorKeyV4Forbidden{}
 }
 
-/*PublicGenerateMyAuthenticatorKeyV4Forbidden handles this case with default header values.
+/*
+PublicGenerateMyAuthenticatorKeyV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGenerateMyAuthenticatorKeyV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewPublicGenerateMyAuthenticatorKeyV4NotFound() *PublicGenerateMyAuthentica
 	return &PublicGenerateMyAuthenticatorKeyV4NotFound{}
 }
 
-/*PublicGenerateMyAuthenticatorKeyV4NotFound handles this case with default header values.
+/*
+PublicGenerateMyAuthenticatorKeyV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicGenerateMyAuthenticatorKeyV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewPublicGenerateMyAuthenticatorKeyV4InternalServerError() *PublicGenerateM
 	return &PublicGenerateMyAuthenticatorKeyV4InternalServerError{}
 }
 
-/*PublicGenerateMyAuthenticatorKeyV4InternalServerError handles this case with default header values.
+/*
+PublicGenerateMyAuthenticatorKeyV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGenerateMyAuthenticatorKeyV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

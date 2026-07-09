@@ -15,11 +15,8 @@ import (
 )
 
 type GoalConfigurationService struct {
-	Client           *challengeclient.JusticeChallengeService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *challengeclient.JusticeChallengeService
+	Session repository.Session
 }
 
 var tempFlightIdGoalConfiguration *string
@@ -30,9 +27,9 @@ func (aaa *GoalConfigurationService) UpdateFlightId(flightId string) {
 
 func (aaa *GoalConfigurationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *GoalConfigurationService) AdminGetGoalsShort(input *goal_configuratio
 	}
 	if tempFlightIdGoalConfiguration != nil {
 		input.XFlightId = tempFlightIdGoalConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GoalConfiguration.AdminGetGoalsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *GoalConfigurationService) AdminCreateGoalShort(input *goal_configurat
 	}
 	if tempFlightIdGoalConfiguration != nil {
 		input.XFlightId = tempFlightIdGoalConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.GoalConfiguration.AdminCreateGoalShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *GoalConfigurationService) AdminGetGoalShort(input *goal_configuration
 	}
 	if tempFlightIdGoalConfiguration != nil {
 		input.XFlightId = tempFlightIdGoalConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GoalConfiguration.AdminGetGoalShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *GoalConfigurationService) AdminUpdateGoalsShort(input *goal_configura
 	}
 	if tempFlightIdGoalConfiguration != nil {
 		input.XFlightId = tempFlightIdGoalConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GoalConfiguration.AdminUpdateGoalsShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *GoalConfigurationService) AdminDeleteGoalShort(input *goal_configurat
 	}
 	if tempFlightIdGoalConfiguration != nil {
 		input.XFlightId = tempFlightIdGoalConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.GoalConfiguration.AdminDeleteGoalShort(input, authInfoWriter)
@@ -200,4 +197,68 @@ func (aaa *GoalConfigurationService) AdminDeleteGoalShort(input *goal_configurat
 	}
 
 	return nil
+}
+
+func (aaa *GoalConfigurationService) AdminMoveGoalToSlotShort(input *goal_configuration.AdminMoveGoalToSlotParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdGoalConfiguration != nil {
+		input.XFlightId = tempFlightIdGoalConfiguration
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.GoalConfiguration.AdminMoveGoalToSlotShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (aaa *GoalConfigurationService) AdminGetChallengeSlotsShort(input *goal_configuration.AdminGetChallengeSlotsParams) (*goal_configuration.AdminGetChallengeSlotsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdGoalConfiguration != nil {
+		input.XFlightId = tempFlightIdGoalConfiguration
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.GoalConfiguration.AdminGetChallengeSlotsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
 }

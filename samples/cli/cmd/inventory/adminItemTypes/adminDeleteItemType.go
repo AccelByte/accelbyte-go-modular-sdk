@@ -11,6 +11,7 @@ import (
 
 	inventory "github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk/pkg/inventoryclient/admin_item_types"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminDeleteItemTypeCmd = &cobra.Command{
 	Long:  `Admin delete item type`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminItemTypesService := &inventory.AdminItemTypesService{
-			Client:          inventory.NewInventoryClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: inventory.NewInventoryHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		itemTypeName, _ := cmd.Flags().GetString("itemTypeName")
 		namespace, _ := cmd.Flags().GetString("namespace")

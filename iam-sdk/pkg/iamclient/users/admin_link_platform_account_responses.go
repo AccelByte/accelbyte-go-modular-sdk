@@ -144,9 +144,10 @@ func NewAdminLinkPlatformAccountNoContent() *AdminLinkPlatformAccountNoContent {
 	return &AdminLinkPlatformAccountNoContent{}
 }
 
-/*AdminLinkPlatformAccountNoContent handles this case with default header values.
+/*
+AdminLinkPlatformAccountNoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminLinkPlatformAccountNoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminLinkPlatformAccountBadRequest() *AdminLinkPlatformAccountBadRequest
 	return &AdminLinkPlatformAccountBadRequest{}
 }
 
-/*AdminLinkPlatformAccountBadRequest handles this case with default header values.
+/*
+AdminLinkPlatformAccountBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminLinkPlatformAccountBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminLinkPlatformAccountUnauthorized() *AdminLinkPlatformAccountUnauthor
 	return &AdminLinkPlatformAccountUnauthorized{}
 }
 
-/*AdminLinkPlatformAccountUnauthorized handles this case with default header values.
+/*
+AdminLinkPlatformAccountUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type AdminLinkPlatformAccountUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminLinkPlatformAccountForbidden() *AdminLinkPlatformAccountForbidden {
 	return &AdminLinkPlatformAccountForbidden{}
 }
 
-/*AdminLinkPlatformAccountForbidden handles this case with default header values.
+/*
+AdminLinkPlatformAccountForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminLinkPlatformAccountForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminLinkPlatformAccountConflict() *AdminLinkPlatformAccountConflict {
 	return &AdminLinkPlatformAccountConflict{}
 }
 
-/*AdminLinkPlatformAccountConflict handles this case with default header values.
+/*
+AdminLinkPlatformAccountConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr><tr><td>10200</td><td>link to a different platform account is not allowed</td></tr><tr><td>10173</td><td>platform is already linked with another user account</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr><tr><td>10200</td><td>link to a different platform account is not allowed</td></tr><tr><td>10173</td><td>platform is already linked with another user account</td></tr></table>
 */
 type AdminLinkPlatformAccountConflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminLinkPlatformAccountInternalServerError() *AdminLinkPlatformAccountI
 	return &AdminLinkPlatformAccountInternalServerError{}
 }
 
-/*AdminLinkPlatformAccountInternalServerError handles this case with default header values.
+/*
+AdminLinkPlatformAccountInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminLinkPlatformAccountInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

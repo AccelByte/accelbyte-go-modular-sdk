@@ -39,7 +39,7 @@ type ClientService interface {
 /*
 AdminGetMemberActiveSessionShort get member active session.
 
-Get Member Active Session.
+Returns the number of active sessions the specified user is participating in under the given configuration template.
 */
 func (a *Client) AdminGetMemberActiveSessionShort(params *AdminGetMemberActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetMemberActiveSessionResponse, error) {
 	// TODO: Validate the params before sending
@@ -115,7 +115,7 @@ func (a *Client) AdminGetMemberActiveSessionShort(params *AdminGetMemberActiveSe
 /*
 AdminReconcileMaxActiveSessionShort reconcile max active session.
 
-Reconcile Max Active Session.
+Reconciles the max active session count for the specified configuration template. Scans active sessions and updates the counter to reflect the actual count.
 */
 func (a *Client) AdminReconcileMaxActiveSessionShort(params *AdminReconcileMaxActiveSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminReconcileMaxActiveSessionResponse, error) {
 	// TODO: Validate the params before sending

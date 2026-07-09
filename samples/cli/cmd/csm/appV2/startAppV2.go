@@ -11,6 +11,7 @@ import (
 
 	csm "github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/app_v2"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var StartAppV2Cmd = &cobra.Command{
 	Long:  `Start app V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		appV2Service := &csm.AppV2Service{
-			Client:          csm.NewCsmClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: csm.NewCsmHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		app, _ := cmd.Flags().GetString("app")
 		namespace, _ := cmd.Flags().GetString("namespace")

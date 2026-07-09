@@ -11,6 +11,7 @@ import (
 
 	csm "github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg"
 	app_ "github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk/pkg/csmclient/app"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var DeleteAppV1Cmd = &cobra.Command{
 	Long:  `Delete app V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		appService := &csm.AppService{
-			Client:          csm.NewCsmClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: csm.NewCsmHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		app, _ := cmd.Flags().GetString("app")
 		namespace, _ := cmd.Flags().GetString("namespace")

@@ -15,11 +15,8 @@ import (
 )
 
 type AchievementPlatformService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdAchievementPlatform *string
@@ -30,9 +27,9 @@ func (aaa *AchievementPlatformService) UpdateFlightId(flightId string) {
 
 func (aaa *AchievementPlatformService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AchievementPlatformService) UnlockSteamUserAchievementShort(input *ac
 	}
 	if tempFlightIdAchievementPlatform != nil {
 		input.XFlightId = tempFlightIdAchievementPlatform
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AchievementPlatform.UnlockSteamUserAchievementShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *AchievementPlatformService) GetXblUserAchievementsShort(input *achiev
 	}
 	if tempFlightIdAchievementPlatform != nil {
 		input.XFlightId = tempFlightIdAchievementPlatform
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AchievementPlatform.GetXblUserAchievementsShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *AchievementPlatformService) UpdateXblUserAchievementShort(input *achi
 	}
 	if tempFlightIdAchievementPlatform != nil {
 		input.XFlightId = tempFlightIdAchievementPlatform
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AchievementPlatform.UpdateXblUserAchievementShort(input, authInfoWriter)

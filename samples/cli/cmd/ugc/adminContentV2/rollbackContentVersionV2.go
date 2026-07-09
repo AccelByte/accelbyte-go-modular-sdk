@@ -9,6 +9,7 @@ package adminContentV2
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_content_v2"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var RollbackContentVersionV2Cmd = &cobra.Command{
 	Long:  `Rollback content version V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminContentV2Service := &ugc.AdminContentV2Service{
-			Client:          ugc.NewUgcClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ugc.NewUgcHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		contentId, _ := cmd.Flags().GetString("contentId")
 		namespace, _ := cmd.Flags().GetString("namespace")

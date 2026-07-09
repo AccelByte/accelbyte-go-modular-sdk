@@ -124,9 +124,10 @@ func NewAdminUpdateClientSecretV3NoContent() *AdminUpdateClientSecretV3NoContent
 	return &AdminUpdateClientSecretV3NoContent{}
 }
 
-/*AdminUpdateClientSecretV3NoContent handles this case with default header values.
+/*
+AdminUpdateClientSecretV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminUpdateClientSecretV3NoContent struct {
 }
@@ -151,9 +152,10 @@ func NewAdminUpdateClientSecretV3BadRequest() *AdminUpdateClientSecretV3BadReque
 	return &AdminUpdateClientSecretV3BadRequest{}
 }
 
-/*AdminUpdateClientSecretV3BadRequest handles this case with default header values.
+/*
+AdminUpdateClientSecretV3BadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type AdminUpdateClientSecretV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewAdminUpdateClientSecretV3Unauthorized() *AdminUpdateClientSecretV3Unauth
 	return &AdminUpdateClientSecretV3Unauthorized{}
 }
 
-/*AdminUpdateClientSecretV3Unauthorized handles this case with default header values.
+/*
+AdminUpdateClientSecretV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateClientSecretV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewAdminUpdateClientSecretV3Forbidden() *AdminUpdateClientSecretV3Forbidden
 	return &AdminUpdateClientSecretV3Forbidden{}
 }
 
-/*AdminUpdateClientSecretV3Forbidden handles this case with default header values.
+/*
+AdminUpdateClientSecretV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateClientSecretV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewAdminUpdateClientSecretV3NotFound() *AdminUpdateClientSecretV3NotFound {
 	return &AdminUpdateClientSecretV3NotFound{}
 }
 
-/*AdminUpdateClientSecretV3NotFound handles this case with default header values.
+/*
+AdminUpdateClientSecretV3NotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type AdminUpdateClientSecretV3NotFound struct {
 }

@@ -15,11 +15,8 @@ import (
 )
 
 type BaseLegalPoliciesWithNamespaceService struct {
-	Client           *legalclient.JusticeLegalService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *legalclient.JusticeLegalService
+	Session repository.Session
 }
 
 var tempFlightIdBaseLegalPoliciesWithNamespace *string
@@ -30,9 +27,9 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) UpdateFlightId(flightId string
 
 func (aaa *BaseLegalPoliciesWithNamespaceService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllLegalPoliciesByName
 	}
 	if tempFlightIdBaseLegalPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdBaseLegalPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveAllLegalPoliciesByNamespaceShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicyShort(input *base_
 	}
 	if tempFlightIdBaseLegalPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdBaseLegalPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.BaseLegalPoliciesWithNamespace.CreatePolicyShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveSinglePolicyShort(inpu
 	}
 	if tempFlightIdBaseLegalPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdBaseLegalPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveSinglePolicyShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) DeleteBasePolicyShort(input *b
 	}
 	if tempFlightIdBaseLegalPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdBaseLegalPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.BaseLegalPoliciesWithNamespace.DeleteBasePolicyShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) PartialUpdatePolicyShort(input
 	}
 	if tempFlightIdBaseLegalPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdBaseLegalPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.PartialUpdatePolicyShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrievePolicyCountryShort(inp
 	}
 	if tempFlightIdBaseLegalPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdBaseLegalPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrievePolicyCountryShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPoliciesFromBasePol
 	}
 	if tempFlightIdBaseLegalPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdBaseLegalPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveAllPoliciesFromBasePolicyShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) CreatePolicyUnderBasePolicySho
 	}
 	if tempFlightIdBaseLegalPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdBaseLegalPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.BaseLegalPoliciesWithNamespace.CreatePolicyUnderBasePolicyShort(input, authInfoWriter)
@@ -322,8 +319,8 @@ func (aaa *BaseLegalPoliciesWithNamespaceService) RetrieveAllPolicyTypesShort(in
 	}
 	if tempFlightIdBaseLegalPoliciesWithNamespace != nil {
 		input.XFlightId = tempFlightIdBaseLegalPoliciesWithNamespace
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.BaseLegalPoliciesWithNamespace.RetrieveAllPolicyTypesShort(input, authInfoWriter)

@@ -5049,6 +5049,104 @@ func (aaa *UsersService) PublicProcessWebLinkPlatformV3Short(input *users.Public
 	return ok, nil
 }
 
+func (aaa *UsersService) PublicWebReauthPlatformShort(input *users.PublicWebReauthPlatformParams) (*users.PublicWebReauthPlatformResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsers != nil {
+		input.XFlightId = tempFlightIdUsers
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Users.PublicWebReauthPlatformShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
+func (aaa *UsersService) PublicWebReauthPlatformEstablishShort(input *users.PublicWebReauthPlatformEstablishParams) (string, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsers != nil {
+		input.XFlightId = tempFlightIdUsers
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	found, err := aaa.Client.Users.PublicWebReauthPlatformEstablishShort(input, authInfoWriter)
+	if err != nil {
+		return "", err
+	}
+
+	return found.Data, nil
+}
+
+func (aaa *UsersService) PublicWebReauthPlatformProcessShort(input *users.PublicWebReauthPlatformProcessParams) (*users.PublicWebReauthPlatformProcessResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdUsers != nil {
+		input.XFlightId = tempFlightIdUsers
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.Users.PublicWebReauthPlatformProcessShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	if ok == nil {
+		return nil, nil
+	}
+
+	return ok, nil
+}
+
 func (aaa *UsersService) PublicGetUsersPlatformInfosV3Short(input *users.PublicGetUsersPlatformInfosV3Params) (*users.PublicGetUsersPlatformInfosV3Response, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {

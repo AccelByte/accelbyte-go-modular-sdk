@@ -9,6 +9,7 @@ package environmentVariable
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/environment_variable"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var AdminListEnvironmentVariablesCmd = &cobra.Command{
 	Long:  `Admin list environment variables`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		environmentVariableService := &session.EnvironmentVariableService{
-			Client:          session.NewSessionClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: session.NewSessionHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		input := &environment_variable.AdminListEnvironmentVariablesParams{}
 		ok, errOK := environmentVariableService.AdminListEnvironmentVariablesShort(input)

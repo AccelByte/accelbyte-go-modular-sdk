@@ -57,7 +57,8 @@ func NewPublicMakeFactorMyDefaultV4ParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*PublicMakeFactorMyDefaultV4Params contains all the parameters to send to the API endpoint
+/*
+PublicMakeFactorMyDefaultV4Params contains all the parameters to send to the API endpoint
 for the public make factor my default v4 operation typically these are written to a http.Request
 */
 type PublicMakeFactorMyDefaultV4Params struct {

@@ -15,11 +15,8 @@ import (
 )
 
 type MatchFunctionsService struct {
-	Client           *match2client.JusticeMatch2Service
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *match2client.JusticeMatch2Service
+	Session repository.Session
 }
 
 var tempFlightIdMatchFunctions *string
@@ -30,9 +27,9 @@ func (aaa *MatchFunctionsService) UpdateFlightId(flightId string) {
 
 func (aaa *MatchFunctionsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *MatchFunctionsService) MatchFunctionListShort(input *match_functions.
 	}
 	if tempFlightIdMatchFunctions != nil {
 		input.XFlightId = tempFlightIdMatchFunctions
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MatchFunctions.MatchFunctionListShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *MatchFunctionsService) CreateMatchFunctionShort(input *match_function
 	}
 	if tempFlightIdMatchFunctions != nil {
 		input.XFlightId = tempFlightIdMatchFunctions
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.MatchFunctions.CreateMatchFunctionShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *MatchFunctionsService) MatchFunctionGetShort(input *match_functions.M
 	}
 	if tempFlightIdMatchFunctions != nil {
 		input.XFlightId = tempFlightIdMatchFunctions
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MatchFunctions.MatchFunctionGetShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *MatchFunctionsService) UpdateMatchFunctionShort(input *match_function
 	}
 	if tempFlightIdMatchFunctions != nil {
 		input.XFlightId = tempFlightIdMatchFunctions
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MatchFunctions.UpdateMatchFunctionShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *MatchFunctionsService) DeleteMatchFunctionShort(input *match_function
 	}
 	if tempFlightIdMatchFunctions != nil {
 		input.XFlightId = tempFlightIdMatchFunctions
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.MatchFunctions.DeleteMatchFunctionShort(input, authInfoWriter)

@@ -15,11 +15,8 @@ import (
 )
 
 type PlayerService struct {
-	Client           *sessionclient.JusticeSessionService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *sessionclient.JusticeSessionService
+	Session repository.Session
 }
 
 var tempFlightIdPlayer *string
@@ -30,9 +27,9 @@ func (aaa *PlayerService) UpdateFlightId(flightId string) {
 
 func (aaa *PlayerService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PlayerService) AdminQueryPlayerAttributesShort(input *player.AdminQue
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.AdminQueryPlayerAttributesShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PlayerService) AdminGetPlayerAttributesShort(input *player.AdminGetPl
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.AdminGetPlayerAttributesShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PlayerService) PublicGetBulkPlayerCurrentPlatformShort(input *player.
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.PublicGetBulkPlayerCurrentPlatformShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PlayerService) PublicGetPlayerAttributesShort(input *player.PublicGet
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.PublicGetPlayerAttributesShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *PlayerService) PublicStorePlayerAttributesShort(input *player.PublicS
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Player.PublicStorePlayerAttributesShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *PlayerService) PublicDeletePlayerAttributesShort(input *player.Public
 	}
 	if tempFlightIdPlayer != nil {
 		input.XFlightId = tempFlightIdPlayer
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Player.PublicDeletePlayerAttributesShort(input, authInfoWriter)

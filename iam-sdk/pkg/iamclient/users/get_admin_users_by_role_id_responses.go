@@ -135,9 +135,10 @@ func NewGetAdminUsersByRoleIDOK() *GetAdminUsersByRoleIDOK {
 	return &GetAdminUsersByRoleIDOK{}
 }
 
-/*GetAdminUsersByRoleIDOK handles this case with default header values.
+/*
+GetAdminUsersByRoleIDOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetAdminUsersByRoleIDOK struct {
 	Payload *iamclientmodels.ModelGetAdminUsersResponse
@@ -189,9 +190,10 @@ func NewGetAdminUsersByRoleIDBadRequest() *GetAdminUsersByRoleIDBadRequest {
 	return &GetAdminUsersByRoleIDBadRequest{}
 }
 
-/*GetAdminUsersByRoleIDBadRequest handles this case with default header values.
+/*
+GetAdminUsersByRoleIDBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20021</td><td>invalid pagination parameter</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10157</td><td>specified role is not admin role</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20021</td><td>invalid pagination parameter</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10157</td><td>specified role is not admin role</td></tr></table>
 */
 type GetAdminUsersByRoleIDBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -243,9 +245,10 @@ func NewGetAdminUsersByRoleIDUnauthorized() *GetAdminUsersByRoleIDUnauthorized {
 	return &GetAdminUsersByRoleIDUnauthorized{}
 }
 
-/*GetAdminUsersByRoleIDUnauthorized handles this case with default header values.
+/*
+GetAdminUsersByRoleIDUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetAdminUsersByRoleIDUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -297,9 +300,10 @@ func NewGetAdminUsersByRoleIDForbidden() *GetAdminUsersByRoleIDForbidden {
 	return &GetAdminUsersByRoleIDForbidden{}
 }
 
-/*GetAdminUsersByRoleIDForbidden handles this case with default header values.
+/*
+GetAdminUsersByRoleIDForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetAdminUsersByRoleIDForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -351,9 +355,10 @@ func NewGetAdminUsersByRoleIDNotFound() *GetAdminUsersByRoleIDNotFound {
 	return &GetAdminUsersByRoleIDNotFound{}
 }
 
-/*GetAdminUsersByRoleIDNotFound handles this case with default header values.
+/*
+GetAdminUsersByRoleIDNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type GetAdminUsersByRoleIDNotFound struct {
 }
@@ -378,9 +383,10 @@ func NewGetAdminUsersByRoleIDInternalServerError() *GetAdminUsersByRoleIDInterna
 	return &GetAdminUsersByRoleIDInternalServerError{}
 }
 
-/*GetAdminUsersByRoleIDInternalServerError handles this case with default header values.
+/*
+GetAdminUsersByRoleIDInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetAdminUsersByRoleIDInternalServerError struct {
 }

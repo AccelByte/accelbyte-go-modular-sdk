@@ -57,7 +57,8 @@ func NewPublicGetSystemConfigV3ParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicGetSystemConfigV3Params contains all the parameters to send to the API endpoint
+/*
+PublicGetSystemConfigV3Params contains all the parameters to send to the API endpoint
 for the public get system config v3 operation typically these are written to a http.Request
 */
 type PublicGetSystemConfigV3Params struct {

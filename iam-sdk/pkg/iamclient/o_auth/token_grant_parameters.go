@@ -87,7 +87,8 @@ func NewTokenGrantParamsWithHTTPClient(client *http.Client) *TokenGrantParams {
 	}
 }
 
-/*TokenGrantParams contains all the parameters to send to the API endpoint
+/*
+TokenGrantParams contains all the parameters to send to the API endpoint
 for the token grant operation typically these are written to a http.Request
 */
 type TokenGrantParams struct {

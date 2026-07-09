@@ -15,11 +15,8 @@ import (
 )
 
 type ResourcesLimitsService struct {
-	Client           *csmclient.JusticeCsmService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *csmclient.JusticeCsmService
+	Session repository.Session
 }
 
 var tempFlightIdResourcesLimits *string
@@ -30,9 +27,9 @@ func (aaa *ResourcesLimitsService) UpdateFlightId(flightId string) {
 
 func (aaa *ResourcesLimitsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ResourcesLimitsService) GetResourcesLimitsShort(input *resources_limi
 	}
 	if tempFlightIdResourcesLimits != nil {
 		input.XFlightId = tempFlightIdResourcesLimits
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ResourcesLimits.GetResourcesLimitsShort(input, authInfoWriter)

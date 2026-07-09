@@ -13,7 +13,18 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient"
 )
 
-func NewSessionhistoryClient(configRepository repository.ConfigRepository) *sessionhistoryclient.JusticeSessionhistoryService {
+type SessionhistoryClient struct {
+	XRay *XRayService
+}
+
+func NewSessionhistoryClient(session repository.Session) *SessionhistoryClient {
+	httpClient := NewSessionhistoryHttpClient(session.ConfigRepository)
+	return &SessionhistoryClient{
+		XRay: &XRayService{Client: httpClient, Session: session},
+	}
+}
+
+func NewSessionhistoryHttpClient(configRepository repository.ConfigRepository) *sessionhistoryclient.JusticeSessionhistoryService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

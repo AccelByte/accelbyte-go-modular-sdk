@@ -144,9 +144,10 @@ func NewAdminDeleteUserLinkingHistoryByPlatformIDV3NoContent() *AdminDeleteUserL
 	return &AdminDeleteUserLinkingHistoryByPlatformIDV3NoContent{}
 }
 
-/*AdminDeleteUserLinkingHistoryByPlatformIDV3NoContent handles this case with default header values.
+/*
+AdminDeleteUserLinkingHistoryByPlatformIDV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDeleteUserLinkingHistoryByPlatformIDV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDeleteUserLinkingHistoryByPlatformIDV3BadRequest() *AdminDeleteUser
 	return &AdminDeleteUserLinkingHistoryByPlatformIDV3BadRequest{}
 }
 
-/*AdminDeleteUserLinkingHistoryByPlatformIDV3BadRequest handles this case with default header values.
+/*
+AdminDeleteUserLinkingHistoryByPlatformIDV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminDeleteUserLinkingHistoryByPlatformIDV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminDeleteUserLinkingHistoryByPlatformIDV3Unauthorized() *AdminDeleteUs
 	return &AdminDeleteUserLinkingHistoryByPlatformIDV3Unauthorized{}
 }
 
-/*AdminDeleteUserLinkingHistoryByPlatformIDV3Unauthorized handles this case with default header values.
+/*
+AdminDeleteUserLinkingHistoryByPlatformIDV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDeleteUserLinkingHistoryByPlatformIDV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminDeleteUserLinkingHistoryByPlatformIDV3Forbidden() *AdminDeleteUserL
 	return &AdminDeleteUserLinkingHistoryByPlatformIDV3Forbidden{}
 }
 
-/*AdminDeleteUserLinkingHistoryByPlatformIDV3Forbidden handles this case with default header values.
+/*
+AdminDeleteUserLinkingHistoryByPlatformIDV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDeleteUserLinkingHistoryByPlatformIDV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminDeleteUserLinkingHistoryByPlatformIDV3NotFound() *AdminDeleteUserLi
 	return &AdminDeleteUserLinkingHistoryByPlatformIDV3NotFound{}
 }
 
-/*AdminDeleteUserLinkingHistoryByPlatformIDV3NotFound handles this case with default header values.
+/*
+AdminDeleteUserLinkingHistoryByPlatformIDV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminDeleteUserLinkingHistoryByPlatformIDV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminDeleteUserLinkingHistoryByPlatformIDV3InternalServerError() *AdminD
 	return &AdminDeleteUserLinkingHistoryByPlatformIDV3InternalServerError{}
 }
 
-/*AdminDeleteUserLinkingHistoryByPlatformIDV3InternalServerError handles this case with default header values.
+/*
+AdminDeleteUserLinkingHistoryByPlatformIDV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDeleteUserLinkingHistoryByPlatformIDV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

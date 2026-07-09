@@ -9,6 +9,7 @@ package adminContent
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_content"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var DeleteContentByShareCodeCmd = &cobra.Command{
 	Long:  `Delete content by share code`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminContentService := &ugc.AdminContentService{
-			Client:          ugc.NewUgcClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ugc.NewUgcHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		channelId, _ := cmd.Flags().GetString("channelId")
 		namespace, _ := cmd.Flags().GetString("namespace")

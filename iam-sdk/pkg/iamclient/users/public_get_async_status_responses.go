@@ -21,14 +21,14 @@ import (
 
 type PublicGetAsyncStatusResponse struct {
 	iamclientmodels.ApiResponse
-	Data *iamclientmodels.ModelLinkRequest
+	Data *iamclientmodels.ModelReAuthRequest
 
 	Error401 *iamclientmodels.RestErrorResponse
 	Error403 *iamclientmodels.RestErrorResponse
 	Error500 *iamclientmodels.RestErrorResponse
 }
 
-func (m *PublicGetAsyncStatusResponse) Unpack() (*iamclientmodels.ModelLinkRequest, *iamclientmodels.ApiError) {
+func (m *PublicGetAsyncStatusResponse) Unpack() (*iamclientmodels.ModelReAuthRequest, *iamclientmodels.ApiError) {
 	if !m.IsSuccess {
 		var errCode int
 		errCode = m.StatusCode
@@ -115,12 +115,13 @@ func NewPublicGetAsyncStatusOK() *PublicGetAsyncStatusOK {
 	return &PublicGetAsyncStatusOK{}
 }
 
-/*PublicGetAsyncStatusOK handles this case with default header values.
+/*
+PublicGetAsyncStatusOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetAsyncStatusOK struct {
-	Payload *iamclientmodels.ModelLinkRequest
+	Payload *iamclientmodels.ModelReAuthRequest
 }
 
 func (o *PublicGetAsyncStatusOK) Error() string {
@@ -142,7 +143,7 @@ func (o *PublicGetAsyncStatusOK) ToJSONString() string {
 	return fmt.Sprintf("%+v", string(b))
 }
 
-func (o *PublicGetAsyncStatusOK) GetPayload() *iamclientmodels.ModelLinkRequest {
+func (o *PublicGetAsyncStatusOK) GetPayload() *iamclientmodels.ModelReAuthRequest {
 	return o.Payload
 }
 
@@ -154,7 +155,7 @@ func (o *PublicGetAsyncStatusOK) readResponse(response runtime.ClientResponse, c
 		consumer = runtime.ByteStreamConsumer()
 	}
 
-	o.Payload = new(iamclientmodels.ModelLinkRequest)
+	o.Payload = new(iamclientmodels.ModelReAuthRequest)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
@@ -169,9 +170,10 @@ func NewPublicGetAsyncStatusUnauthorized() *PublicGetAsyncStatusUnauthorized {
 	return &PublicGetAsyncStatusUnauthorized{}
 }
 
-/*PublicGetAsyncStatusUnauthorized handles this case with default header values.
+/*
+PublicGetAsyncStatusUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicGetAsyncStatusUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewPublicGetAsyncStatusForbidden() *PublicGetAsyncStatusForbidden {
 	return &PublicGetAsyncStatusForbidden{}
 }
 
-/*PublicGetAsyncStatusForbidden handles this case with default header values.
+/*
+PublicGetAsyncStatusForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicGetAsyncStatusForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewPublicGetAsyncStatusInternalServerError() *PublicGetAsyncStatusInternalS
 	return &PublicGetAsyncStatusInternalServerError{}
 }
 
-/*PublicGetAsyncStatusInternalServerError handles this case with default header values.
+/*
+PublicGetAsyncStatusInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetAsyncStatusInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

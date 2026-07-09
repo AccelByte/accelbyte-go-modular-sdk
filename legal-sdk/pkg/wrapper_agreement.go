@@ -15,11 +15,8 @@ import (
 )
 
 type AgreementService struct {
-	Client           *legalclient.JusticeLegalService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *legalclient.JusticeLegalService
+	Session repository.Session
 }
 
 var tempFlightIdAgreement *string
@@ -30,9 +27,9 @@ func (aaa *AgreementService) UpdateFlightId(flightId string) {
 
 func (aaa *AgreementService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AgreementService) ChangePreferenceConsentShort(input *agreement.Chang
 	}
 	if tempFlightIdAgreement != nil {
 		input.XFlightId = tempFlightIdAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Agreement.ChangePreferenceConsentShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *AgreementService) OldRetrieveAcceptedAgreementsShort(input *agreement
 	}
 	if tempFlightIdAgreement != nil {
 		input.XFlightId = tempFlightIdAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Agreement.OldRetrieveAcceptedAgreementsShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *AgreementService) OldRetrieveAllUsersByPolicyVersionShort(input *agre
 	}
 	if tempFlightIdAgreement != nil {
 		input.XFlightId = tempFlightIdAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Agreement.OldRetrieveAllUsersByPolicyVersionShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *AgreementService) PublicChangePreferenceConsentShort(input *agreement
 	}
 	if tempFlightIdAgreement != nil {
 		input.XFlightId = tempFlightIdAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Agreement.PublicChangePreferenceConsentShort(input, authInfoWriter)
@@ -182,8 +179,8 @@ func (aaa *AgreementService) AcceptVersionedPolicyShort(input *agreement.AcceptV
 	}
 	if tempFlightIdAgreement != nil {
 		input.XFlightId = tempFlightIdAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Agreement.AcceptVersionedPolicyShort(input, authInfoWriter)
@@ -212,8 +209,8 @@ func (aaa *AgreementService) RetrieveAgreementsPublicShort(input *agreement.Retr
 	}
 	if tempFlightIdAgreement != nil {
 		input.XFlightId = tempFlightIdAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Agreement.RetrieveAgreementsPublicShort(input, authInfoWriter)
@@ -246,8 +243,8 @@ func (aaa *AgreementService) BulkAcceptVersionedPolicyShort(input *agreement.Bul
 	}
 	if tempFlightIdAgreement != nil {
 		input.XFlightId = tempFlightIdAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Agreement.BulkAcceptVersionedPolicyShort(input, authInfoWriter)
@@ -280,8 +277,8 @@ func (aaa *AgreementService) IndirectBulkAcceptVersionedPolicyV2Short(input *agr
 	}
 	if tempFlightIdAgreement != nil {
 		input.XFlightId = tempFlightIdAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Agreement.IndirectBulkAcceptVersionedPolicyV2Short(input, authInfoWriter)
@@ -314,8 +311,8 @@ func (aaa *AgreementService) PublicIndirectBulkAcceptVersionedPolicyShort(input 
 	}
 	if tempFlightIdAgreement != nil {
 		input.XFlightId = tempFlightIdAgreement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Agreement.PublicIndirectBulkAcceptVersionedPolicyShort(input, authInfoWriter)

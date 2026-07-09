@@ -130,9 +130,10 @@ func NewRetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3OK() *Retrieve
 	return &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3OK{}
 }
 
-/*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3OK handles this case with default header values.
+/*
+RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3OK handles this case with default header values.
 
-  All Active Third Party Credential Retrieved
+	All Active Third Party Credential Retrieved
 */
 type RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3OK struct {
 	Payload []*iamclientmodels.ModelPublicThirdPartyPlatformInfo
@@ -182,9 +183,10 @@ func NewRetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Unauthorized()
 	return &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Unauthorized{}
 }
 
-/*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Unauthorized handles this case with default header values.
+/*
+RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -236,9 +238,10 @@ func NewRetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Forbidden() *R
 	return &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Forbidden{}
 }
 
-/*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Forbidden handles this case with default header values.
+/*
+RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -290,9 +293,10 @@ func NewRetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3NotFound() *Re
 	return &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3NotFound{}
 }
 
-/*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3NotFound handles this case with default header values.
+/*
+RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10175</td><td>third party credential not found</td></tr></table>
 */
 type RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -344,9 +348,10 @@ func NewRetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3InternalServer
 	return &RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3InternalServerError{}
 }
 
-/*RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3InternalServerError handles this case with default header values.
+/*
+RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type RetrieveAllActiveThirdPartyLoginPlatformCredentialPublicV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

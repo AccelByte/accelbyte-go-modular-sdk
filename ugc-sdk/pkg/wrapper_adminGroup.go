@@ -15,11 +15,8 @@ import (
 )
 
 type AdminGroupService struct {
-	Client           *ugcclient.JusticeUgcService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
 }
 
 var tempFlightIdAdminGroup *string
@@ -30,9 +27,9 @@ func (aaa *AdminGroupService) UpdateFlightId(flightId string) {
 
 func (aaa *AdminGroupService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminGroupService) SingleAdminGetAllGroupsShort(input *admin_group.Si
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.SingleAdminGetAllGroupsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AdminGroupService) AdminCreateGroupShort(input *admin_group.AdminCrea
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.AdminGroup.AdminCreateGroupShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AdminGroupService) SingleAdminGetGroupShort(input *admin_group.Single
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.SingleAdminGetGroupShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *AdminGroupService) SingleAdminUpdateGroupShort(input *admin_group.Sin
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.SingleAdminUpdateGroupShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *AdminGroupService) SingleAdminDeleteGroupShort(input *admin_group.Sin
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminGroup.SingleAdminDeleteGroupShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *AdminGroupService) SingleAdminGetGroupContentsShort(input *admin_grou
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.SingleAdminGetGroupContentsShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *AdminGroupService) AdminGetAllGroupsShort(input *admin_group.AdminGet
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.AdminGetAllGroupsShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *AdminGroupService) AdminGetGroupShort(input *admin_group.AdminGetGrou
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.AdminGetGroupShort(input, authInfoWriter)
@@ -322,8 +319,8 @@ func (aaa *AdminGroupService) AdminUpdateGroupShort(input *admin_group.AdminUpda
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.AdminUpdateGroupShort(input, authInfoWriter)
@@ -356,8 +353,8 @@ func (aaa *AdminGroupService) AdminDeleteGroupShort(input *admin_group.AdminDele
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminGroup.AdminDeleteGroupShort(input, authInfoWriter)
@@ -386,8 +383,8 @@ func (aaa *AdminGroupService) AdminGetGroupContentsShort(input *admin_group.Admi
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.AdminGetGroupContentsShort(input, authInfoWriter)
@@ -420,8 +417,8 @@ func (aaa *AdminGroupService) AdminGetOfficialGroupContentsV2Short(input *admin_
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.AdminGetOfficialGroupContentsV2Short(input, authInfoWriter)
@@ -454,8 +451,8 @@ func (aaa *AdminGroupService) AdminGetUserGroupContentsV2Short(input *admin_grou
 	}
 	if tempFlightIdAdminGroup != nil {
 		input.XFlightId = tempFlightIdAdminGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminGroup.AdminGetUserGroupContentsV2Short(input, authInfoWriter)

@@ -15,11 +15,8 @@ import (
 )
 
 type DeploymentV2Service struct {
-	Client           *csmclient.JusticeCsmService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *csmclient.JusticeCsmService
+	Session repository.Session
 }
 
 var tempFlightIdDeploymentV2 *string
@@ -30,9 +27,9 @@ func (aaa *DeploymentV2Service) UpdateFlightId(flightId string) {
 
 func (aaa *DeploymentV2Service) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *DeploymentV2Service) CreateDeploymentV2Short(input *deployment_v2.Cre
 	}
 	if tempFlightIdDeploymentV2 != nil {
 		input.XFlightId = tempFlightIdDeploymentV2
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.DeploymentV2.CreateDeploymentV2Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *DeploymentV2Service) GetListOfDeploymentV2Short(input *deployment_v2.
 	}
 	if tempFlightIdDeploymentV2 != nil {
 		input.XFlightId = tempFlightIdDeploymentV2
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DeploymentV2.GetListOfDeploymentV2Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *DeploymentV2Service) GetDeploymentV2Short(input *deployment_v2.GetDep
 	}
 	if tempFlightIdDeploymentV2 != nil {
 		input.XFlightId = tempFlightIdDeploymentV2
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DeploymentV2.GetDeploymentV2Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *DeploymentV2Service) DeleteDeploymentV2Short(input *deployment_v2.Del
 	}
 	if tempFlightIdDeploymentV2 != nil {
 		input.XFlightId = tempFlightIdDeploymentV2
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DeploymentV2.DeleteDeploymentV2Short(input, authInfoWriter)

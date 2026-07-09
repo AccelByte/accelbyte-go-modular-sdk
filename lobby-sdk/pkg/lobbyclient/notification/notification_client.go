@@ -65,8 +65,7 @@ type ClientService interface {
 
 /*
 SendMultipleUsersFreeformNotificationV1AdminShort send freeform notification to multiple users
-Sends notification to multiple user.
-Action Code: 50211
+Sends freeform notification to multiple users by user ID list.
 */
 func (a *Client) SendMultipleUsersFreeformNotificationV1AdminShort(params *SendMultipleUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendMultipleUsersFreeformNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -141,8 +140,6 @@ func (a *Client) SendMultipleUsersFreeformNotificationV1AdminShort(params *SendM
 /*
 SendUsersFreeformNotificationV1AdminShort send freeform notification to connected users
 Sends notification to all connected users in a namespace.
-
-Action Code: 50201
 */
 func (a *Client) SendUsersFreeformNotificationV1AdminShort(params *SendUsersFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersFreeformNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -390,9 +387,7 @@ func (a *Client) SendPartyTemplatedNotificationV1AdminShort(params *SendPartyTem
 
 /*
 GetAllNotificationTemplatesV1AdminShort get all notification template in a namespace
-Get all templates in a namespace
-
-Action Code: 50203
+Get all notification templates in a namespace.
 */
 func (a *Client) GetAllNotificationTemplatesV1AdminShort(params *GetAllNotificationTemplatesV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTemplatesV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -484,10 +479,7 @@ CreateNotificationTemplateV1AdminShort create new notification template
 Create new notification template. Include handlebars {{key}} for replaceable contexts. The key inside
 handlebars will be the key to be replaced when sending notification. Already existing template with the same
 slug and language can not be created.
-
 Check model description for detailed input restrictions.
-
-Action Code: 50204
 */
 func (a *Client) CreateNotificationTemplateV1AdminShort(params *CreateNotificationTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTemplateV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -576,13 +568,9 @@ func (a *Client) CreateNotificationTemplateV1AdminShort(params *CreateNotificati
 /*
 SendUsersTemplatedNotificationV1AdminShort send notification to connected users with template
 Sends notification to all connected users in a namespace with predefined template.
-
 In the request body, specify which template slug (template identifier) to use and the template language.
-
 NotificationTemplate context is the key-value pair defining the value of each handlebar specified in the template content.
-Template need to be published before it can be use to send notifications
-
-Action Code: 50202
+Template need to be published before it can be used to send notifications.
 */
 func (a *Client) SendUsersTemplatedNotificationV1AdminShort(params *SendUsersTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendUsersTemplatedNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -663,9 +651,7 @@ func (a *Client) SendUsersTemplatedNotificationV1AdminShort(params *SendUsersTem
 
 /*
 GetTemplateSlugLocalizationsTemplateV1AdminShort get all notification template localization in a slug
-Get all templates in a namespace
-
-Action Code: 50205
+Get all localization variants for a given notification template slug.
 */
 func (a *Client) GetTemplateSlugLocalizationsTemplateV1AdminShort(params *GetTemplateSlugLocalizationsTemplateV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetTemplateSlugLocalizationsTemplateV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -747,9 +733,7 @@ func (a *Client) GetTemplateSlugLocalizationsTemplateV1AdminShort(params *GetTem
 
 /*
 DeleteNotificationTemplateSlugV1AdminShort delete template slug in notification template
-Delete template slug in notification template
-
-Action Code: 50206
+Delete all localizations for the given notification template slug.
 */
 func (a *Client) DeleteNotificationTemplateSlugV1AdminShort(params *DeleteNotificationTemplateSlugV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTemplateSlugV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -830,9 +814,7 @@ func (a *Client) DeleteNotificationTemplateSlugV1AdminShort(params *DeleteNotifi
 
 /*
 GetSingleTemplateLocalizationV1AdminShort get a template localization
-Get a template localization
-
-Action Code: 50207
+Get a single notification template localization by slug and language.
 */
 func (a *Client) GetSingleTemplateLocalizationV1AdminShort(params *GetSingleTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetSingleTemplateLocalizationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -914,9 +896,7 @@ func (a *Client) GetSingleTemplateLocalizationV1AdminShort(params *GetSingleTemp
 
 /*
 UpdateTemplateLocalizationV1AdminShort update template localization
-Update template localization
-
-Action Code: 50208
+Update the content and subject of an existing notification template localization.
 */
 func (a *Client) UpdateTemplateLocalizationV1AdminShort(params *UpdateTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateTemplateLocalizationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -1004,9 +984,7 @@ func (a *Client) UpdateTemplateLocalizationV1AdminShort(params *UpdateTemplateLo
 
 /*
 DeleteTemplateLocalizationV1AdminShort delete template localization
-Delete template localization
-
-Action Code: 50209
+Delete a notification template localization by slug and language.
 */
 func (a *Client) DeleteTemplateLocalizationV1AdminShort(params *DeleteTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteTemplateLocalizationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -1087,9 +1065,7 @@ func (a *Client) DeleteTemplateLocalizationV1AdminShort(params *DeleteTemplateLo
 
 /*
 PublishTemplateLocalizationV1AdminShort publish template localization draft
-Publish notification template draft. Empty draft can not be published.
-
-Action Code: 50210
+Publish a notification template draft. Empty drafts cannot be published.
 */
 func (a *Client) PublishTemplateLocalizationV1AdminShort(params *PublishTemplateLocalizationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*PublishTemplateLocalizationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -1170,9 +1146,7 @@ func (a *Client) PublishTemplateLocalizationV1AdminShort(params *PublishTemplate
 
 /*
 GetAllNotificationTopicsV1AdminShort get topic by namespace
-Get topic by namespace.
-
-Action Code: 50213
+Get all notification topics in a namespace.
 */
 func (a *Client) GetAllNotificationTopicsV1AdminShort(params *GetAllNotificationTopicsV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetAllNotificationTopicsV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -1255,11 +1229,8 @@ func (a *Client) GetAllNotificationTopicsV1AdminShort(params *GetAllNotification
 /*
 CreateNotificationTopicV1AdminShort create new notification topic
 Create new notification topic.
-
-topic should be alphabets, no special char except underscore, uppercase and no spacing. for example: TOPIC_TEST.
-Already existing topic can not be created
-
-Action Code: 50214
+Topic name must be uppercase alphabets and underscores only, no spaces or special characters (e.g. TOPIC_TEST).
+Already existing topics cannot be created again.
 */
 func (a *Client) CreateNotificationTopicV1AdminShort(params *CreateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*CreateNotificationTopicV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -1333,9 +1304,7 @@ func (a *Client) CreateNotificationTopicV1AdminShort(params *CreateNotificationT
 
 /*
 GetNotificationTopicV1AdminShort get topic information by topic name
-Get topic information by topic name.
-
-Action Code: 50215
+Get notification topic information by topic name.
 */
 func (a *Client) GetNotificationTopicV1AdminShort(params *GetNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*GetNotificationTopicV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -1417,12 +1386,8 @@ func (a *Client) GetNotificationTopicV1AdminShort(params *GetNotificationTopicV1
 
 /*
 UpdateNotificationTopicV1AdminShort update topic information by topic name
-Update topic information by topic name.
-
-topic should be alphabets, no special char except underscore, uppercase and no spacing. for example: TOPIC_TEST.
-Already existing topic can not be created
-
-Action Code: 50216
+Update notification topic information by topic name.
+Topic name must be uppercase alphabets and underscores only, no spaces or special characters (e.g. TOPIC_TEST).
 */
 func (a *Client) UpdateNotificationTopicV1AdminShort(params *UpdateNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*UpdateNotificationTopicV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -1510,12 +1475,7 @@ func (a *Client) UpdateNotificationTopicV1AdminShort(params *UpdateNotificationT
 
 /*
 DeleteNotificationTopicV1AdminShort delete topic information by topic name
-Delete topic information by topic name.
-
-topic should be alphabets, no special char except underscore, uppercase and no spacing. for example: TOPIC_TEST.
-Already existing topic can not be created
-
-Action Code: 50217
+Delete a notification topic by topic name.
 */
 func (a *Client) DeleteNotificationTopicV1AdminShort(params *DeleteNotificationTopicV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteNotificationTopicV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -1597,7 +1557,6 @@ func (a *Client) DeleteNotificationTopicV1AdminShort(params *DeleteNotificationT
 /*
 SendSpecificUserFreeformNotificationV1AdminShort send freeform notification to a user
 Sends notification to a user.
-Action Code: 50211
 */
 func (a *Client) SendSpecificUserFreeformNotificationV1AdminShort(params *SendSpecificUserFreeformNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserFreeformNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending
@@ -1679,13 +1638,9 @@ func (a *Client) SendSpecificUserFreeformNotificationV1AdminShort(params *SendSp
 /*
 SendSpecificUserTemplatedNotificationV1AdminShort send templated notification to specific user
 Sends templated notification to a user.
-
 In the request body, specify which template slug (template identifier) to use and the template language.
-
 NotificationTemplate context is the key-value pair defining the value of each handlebar specified in the template content.
-Template need to be published before it can be use to send notifications
-
-Action Code: 50212
+Template need to be published before it can be used to send notifications.
 */
 func (a *Client) SendSpecificUserTemplatedNotificationV1AdminShort(params *SendSpecificUserTemplatedNotificationV1AdminParams, authInfo runtime.ClientAuthInfoWriter) (*SendSpecificUserTemplatedNotificationV1AdminResponse, error) {
 	// TODO: Validate the params before sending

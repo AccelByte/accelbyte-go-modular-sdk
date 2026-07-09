@@ -11,6 +11,7 @@ import (
 
 	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/data_deletion_s2_s"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var S2SGetListFinishedAccountDeletionRequestCmd = &cobra.Command{
 	Long:  `S2S get list finished account deletion request`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		dataDeletionS2SService := &gdpr.DataDeletionS2SService{
-			Client:          gdpr.NewGdprClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: gdpr.NewGdprHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		end, _ := cmd.Flags().GetString("end")

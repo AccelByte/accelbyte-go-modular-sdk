@@ -15,11 +15,8 @@ import (
 )
 
 type DataDeletionS2SService struct {
-	Client           *gdprclient.JusticeGdprService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *gdprclient.JusticeGdprService
+	Session repository.Session
 }
 
 var tempFlightIdDataDeletionS2S *string
@@ -30,9 +27,9 @@ func (aaa *DataDeletionS2SService) UpdateFlightId(flightId string) {
 
 func (aaa *DataDeletionS2SService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *DataDeletionS2SService) S2SGetListFinishedAccountDeletionRequestShort
 	}
 	if tempFlightIdDataDeletionS2S != nil {
 		input.XFlightId = tempFlightIdDataDeletionS2S
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DataDeletionS2s.S2SGetListFinishedAccountDeletionRequestShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *DataDeletionS2SService) S2SSubmitUserAccountDeletionRequestShort(inpu
 	}
 	if tempFlightIdDataDeletionS2S != nil {
 		input.XFlightId = tempFlightIdDataDeletionS2S
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.DataDeletionS2s.S2SSubmitUserAccountDeletionRequestShort(input, authInfoWriter)

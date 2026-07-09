@@ -68,9 +68,10 @@ func NewPublicWebLinkPlatformEstablishFound() *PublicWebLinkPlatformEstablishFou
 	return &PublicWebLinkPlatformEstablishFound{}
 }
 
-/*PublicWebLinkPlatformEstablishFound handles this case with default header values.
+/*
+PublicWebLinkPlatformEstablishFound handles this case with default header values.
 
-  Handle Redirect from third party
+	Handle Redirect from third party
 */
 type PublicWebLinkPlatformEstablishFound struct {
 	Location string

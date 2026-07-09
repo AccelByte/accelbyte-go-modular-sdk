@@ -11,6 +11,7 @@ import (
 
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/artifacts"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var FleetArtifactSamplingRulesGetCmd = &cobra.Command{
 	Long:  `Fleet artifact sampling rules get`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		artifactsService := &ams.ArtifactsService{
-			Client:          ams.NewAmsClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ams.NewAmsHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		fleetID, _ := cmd.Flags().GetString("fleetID")
 		namespace, _ := cmd.Flags().GetString("namespace")

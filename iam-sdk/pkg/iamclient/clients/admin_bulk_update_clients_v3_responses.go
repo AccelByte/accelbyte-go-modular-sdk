@@ -129,9 +129,10 @@ func NewAdminBulkUpdateClientsV3NoContent() *AdminBulkUpdateClientsV3NoContent {
 	return &AdminBulkUpdateClientsV3NoContent{}
 }
 
-/*AdminBulkUpdateClientsV3NoContent handles this case with default header values.
+/*
+AdminBulkUpdateClientsV3NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminBulkUpdateClientsV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminBulkUpdateClientsV3BadRequest() *AdminBulkUpdateClientsV3BadRequest
 	return &AdminBulkUpdateClientsV3BadRequest{}
 }
 
-/*AdminBulkUpdateClientsV3BadRequest handles this case with default header values.
+/*
+AdminBulkUpdateClientsV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminBulkUpdateClientsV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,9 +212,10 @@ func NewAdminBulkUpdateClientsV3Unauthorized() *AdminBulkUpdateClientsV3Unauthor
 	return &AdminBulkUpdateClientsV3Unauthorized{}
 }
 
-/*AdminBulkUpdateClientsV3Unauthorized handles this case with default header values.
+/*
+AdminBulkUpdateClientsV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminBulkUpdateClientsV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +267,10 @@ func NewAdminBulkUpdateClientsV3Forbidden() *AdminBulkUpdateClientsV3Forbidden {
 	return &AdminBulkUpdateClientsV3Forbidden{}
 }
 
-/*AdminBulkUpdateClientsV3Forbidden handles this case with default header values.
+/*
+AdminBulkUpdateClientsV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminBulkUpdateClientsV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +322,10 @@ func NewAdminBulkUpdateClientsV3NotFound() *AdminBulkUpdateClientsV3NotFound {
 	return &AdminBulkUpdateClientsV3NotFound{}
 }
 
-/*AdminBulkUpdateClientsV3NotFound handles this case with default header values.
+/*
+AdminBulkUpdateClientsV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr></table>
 */
 type AdminBulkUpdateClientsV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

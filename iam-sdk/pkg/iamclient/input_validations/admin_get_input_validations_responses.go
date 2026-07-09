@@ -100,9 +100,10 @@ func NewAdminGetInputValidationsOK() *AdminGetInputValidationsOK {
 	return &AdminGetInputValidationsOK{}
 }
 
-/*AdminGetInputValidationsOK handles this case with default header values.
+/*
+AdminGetInputValidationsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetInputValidationsOK struct {
 	Payload *iamclientmodels.ModelInputValidationsResponse
@@ -154,9 +155,10 @@ func NewAdminGetInputValidationsUnauthorized() *AdminGetInputValidationsUnauthor
 	return &AdminGetInputValidationsUnauthorized{}
 }
 
-/*AdminGetInputValidationsUnauthorized handles this case with default header values.
+/*
+AdminGetInputValidationsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetInputValidationsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -208,9 +210,10 @@ func NewAdminGetInputValidationsForbidden() *AdminGetInputValidationsForbidden {
 	return &AdminGetInputValidationsForbidden{}
 }
 
-/*AdminGetInputValidationsForbidden handles this case with default header values.
+/*
+AdminGetInputValidationsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetInputValidationsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

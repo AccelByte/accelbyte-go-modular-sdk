@@ -114,9 +114,10 @@ func NewPublicForgotPasswordV3NoContent() *PublicForgotPasswordV3NoContent {
 	return &PublicForgotPasswordV3NoContent{}
 }
 
-/*PublicForgotPasswordV3NoContent handles this case with default header values.
+/*
+PublicForgotPasswordV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicForgotPasswordV3NoContent struct {
 }
@@ -141,9 +142,10 @@ func NewPublicForgotPasswordV3BadRequest() *PublicForgotPasswordV3BadRequest {
 	return &PublicForgotPasswordV3BadRequest{}
 }
 
-/*PublicForgotPasswordV3BadRequest handles this case with default header values.
+/*
+PublicForgotPasswordV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicForgotPasswordV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -195,9 +197,10 @@ func NewPublicForgotPasswordV3NotFound() *PublicForgotPasswordV3NotFound {
 	return &PublicForgotPasswordV3NotFound{}
 }
 
-/*PublicForgotPasswordV3NotFound handles this case with default header values.
+/*
+PublicForgotPasswordV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicForgotPasswordV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -249,9 +252,10 @@ func NewPublicForgotPasswordV3TooManyRequests() *PublicForgotPasswordV3TooManyRe
 	return &PublicForgotPasswordV3TooManyRequests{}
 }
 
-/*PublicForgotPasswordV3TooManyRequests handles this case with default header values.
+/*
+PublicForgotPasswordV3TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type PublicForgotPasswordV3TooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse

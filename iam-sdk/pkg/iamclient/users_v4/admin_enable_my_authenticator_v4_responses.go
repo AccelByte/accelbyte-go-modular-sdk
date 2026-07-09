@@ -159,9 +159,10 @@ func NewAdminEnableMyAuthenticatorV4NoContent() *AdminEnableMyAuthenticatorV4NoC
 	return &AdminEnableMyAuthenticatorV4NoContent{}
 }
 
-/*AdminEnableMyAuthenticatorV4NoContent handles this case with default header values.
+/*
+AdminEnableMyAuthenticatorV4NoContent handles this case with default header values.
 
-  Authenticator enabled
+	Authenticator enabled
 */
 type AdminEnableMyAuthenticatorV4NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewAdminEnableMyAuthenticatorV4BadRequest() *AdminEnableMyAuthenticatorV4Ba
 	return &AdminEnableMyAuthenticatorV4BadRequest{}
 }
 
-/*AdminEnableMyAuthenticatorV4BadRequest handles this case with default header values.
+/*
+AdminEnableMyAuthenticatorV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10190</td><td>auth secret key expired</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10190</td><td>auth secret key expired</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type AdminEnableMyAuthenticatorV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewAdminEnableMyAuthenticatorV4Unauthorized() *AdminEnableMyAuthenticatorV4
 	return &AdminEnableMyAuthenticatorV4Unauthorized{}
 }
 
-/*AdminEnableMyAuthenticatorV4Unauthorized handles this case with default header values.
+/*
+AdminEnableMyAuthenticatorV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminEnableMyAuthenticatorV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewAdminEnableMyAuthenticatorV4Forbidden() *AdminEnableMyAuthenticatorV4For
 	return &AdminEnableMyAuthenticatorV4Forbidden{}
 }
 
-/*AdminEnableMyAuthenticatorV4Forbidden handles this case with default header values.
+/*
+AdminEnableMyAuthenticatorV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminEnableMyAuthenticatorV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewAdminEnableMyAuthenticatorV4NotFound() *AdminEnableMyAuthenticatorV4NotF
 	return &AdminEnableMyAuthenticatorV4NotFound{}
 }
 
-/*AdminEnableMyAuthenticatorV4NotFound handles this case with default header values.
+/*
+AdminEnableMyAuthenticatorV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminEnableMyAuthenticatorV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewAdminEnableMyAuthenticatorV4Conflict() *AdminEnableMyAuthenticatorV4Conf
 	return &AdminEnableMyAuthenticatorV4Conflict{}
 }
 
-/*AdminEnableMyAuthenticatorV4Conflict handles this case with default header values.
+/*
+AdminEnableMyAuthenticatorV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10194</td><td>factor already enabled</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10194</td><td>factor already enabled</td></tr></table>
 */
 type AdminEnableMyAuthenticatorV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewAdminEnableMyAuthenticatorV4InternalServerError() *AdminEnableMyAuthenti
 	return &AdminEnableMyAuthenticatorV4InternalServerError{}
 }
 
-/*AdminEnableMyAuthenticatorV4InternalServerError handles this case with default header values.
+/*
+AdminEnableMyAuthenticatorV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminEnableMyAuthenticatorV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -144,9 +144,10 @@ func NewAdminDisableMyBackupCodesV4NoContent() *AdminDisableMyBackupCodesV4NoCon
 	return &AdminDisableMyBackupCodesV4NoContent{}
 }
 
-/*AdminDisableMyBackupCodesV4NoContent handles this case with default header values.
+/*
+AdminDisableMyBackupCodesV4NoContent handles this case with default header values.
 
-  Backup codes disabled
+	Backup codes disabled
 */
 type AdminDisableMyBackupCodesV4NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDisableMyBackupCodesV4BadRequest() *AdminDisableMyBackupCodesV4BadR
 	return &AdminDisableMyBackupCodesV4BadRequest{}
 }
 
-/*AdminDisableMyBackupCodesV4BadRequest handles this case with default header values.
+/*
+AdminDisableMyBackupCodesV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10228</td><td>invalid mfa token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10228</td><td>invalid mfa token</td></tr></table>
 */
 type AdminDisableMyBackupCodesV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminDisableMyBackupCodesV4Unauthorized() *AdminDisableMyBackupCodesV4Un
 	return &AdminDisableMyBackupCodesV4Unauthorized{}
 }
 
-/*AdminDisableMyBackupCodesV4Unauthorized handles this case with default header values.
+/*
+AdminDisableMyBackupCodesV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDisableMyBackupCodesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminDisableMyBackupCodesV4Forbidden() *AdminDisableMyBackupCodesV4Forbi
 	return &AdminDisableMyBackupCodesV4Forbidden{}
 }
 
-/*AdminDisableMyBackupCodesV4Forbidden handles this case with default header values.
+/*
+AdminDisableMyBackupCodesV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDisableMyBackupCodesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminDisableMyBackupCodesV4NotFound() *AdminDisableMyBackupCodesV4NotFou
 	return &AdminDisableMyBackupCodesV4NotFound{}
 }
 
-/*AdminDisableMyBackupCodesV4NotFound handles this case with default header values.
+/*
+AdminDisableMyBackupCodesV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminDisableMyBackupCodesV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminDisableMyBackupCodesV4InternalServerError() *AdminDisableMyBackupCo
 	return &AdminDisableMyBackupCodesV4InternalServerError{}
 }
 
-/*AdminDisableMyBackupCodesV4InternalServerError handles this case with default header values.
+/*
+AdminDisableMyBackupCodesV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDisableMyBackupCodesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -125,9 +125,10 @@ func NewAdminUpdateUserV2OK() *AdminUpdateUserV2OK {
 	return &AdminUpdateUserV2OK{}
 }
 
-/*AdminUpdateUserV2OK handles this case with default header values.
+/*
+AdminUpdateUserV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateUserV2OK struct {
 	Payload *iamclientmodels.ModelUserResponse
@@ -179,9 +180,10 @@ func NewAdminUpdateUserV2BadRequest() *AdminUpdateUserV2BadRequest {
 	return &AdminUpdateUserV2BadRequest{}
 }
 
-/*AdminUpdateUserV2BadRequest handles this case with default header values.
+/*
+AdminUpdateUserV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10131</td><td>invalid date of birth</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr><tr><td>10132</td><td>invalid email address</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10131</td><td>invalid date of birth</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr><tr><td>10132</td><td>invalid email address</td></tr></table>
 */
 type AdminUpdateUserV2BadRequest struct {
 }
@@ -206,9 +208,10 @@ func NewAdminUpdateUserV2Unauthorized() *AdminUpdateUserV2Unauthorized {
 	return &AdminUpdateUserV2Unauthorized{}
 }
 
-/*AdminUpdateUserV2Unauthorized handles this case with default header values.
+/*
+AdminUpdateUserV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateUserV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -260,9 +263,10 @@ func NewAdminUpdateUserV2NotFound() *AdminUpdateUserV2NotFound {
 	return &AdminUpdateUserV2NotFound{}
 }
 
-/*AdminUpdateUserV2NotFound handles this case with default header values.
+/*
+AdminUpdateUserV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminUpdateUserV2NotFound struct {
 }
@@ -287,9 +291,10 @@ func NewAdminUpdateUserV2Conflict() *AdminUpdateUserV2Conflict {
 	return &AdminUpdateUserV2Conflict{}
 }
 
-/*AdminUpdateUserV2Conflict handles this case with default header values.
+/*
+AdminUpdateUserV2Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type AdminUpdateUserV2Conflict struct {
 }
@@ -314,9 +319,10 @@ func NewAdminUpdateUserV2InternalServerError() *AdminUpdateUserV2InternalServerE
 	return &AdminUpdateUserV2InternalServerError{}
 }
 
-/*AdminUpdateUserV2InternalServerError handles this case with default header values.
+/*
+AdminUpdateUserV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpdateUserV2InternalServerError struct {
 }

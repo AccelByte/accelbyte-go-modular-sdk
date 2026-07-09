@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_content_v2"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclientmodels"
@@ -24,8 +25,10 @@ var AdminUpdateContentByShareCodeV2Cmd = &cobra.Command{
 	Long:  `Admin update content by share code V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminContentV2Service := &ugc.AdminContentV2Service{
-			Client:          ugc.NewUgcClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ugc.NewUgcHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *ugcclientmodels.ModelsAdminUpdateContentRequestV2

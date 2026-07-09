@@ -129,9 +129,10 @@ func NewPublicDeletePlatformLinkV2NoContent() *PublicDeletePlatformLinkV2NoConte
 	return &PublicDeletePlatformLinkV2NoContent{}
 }
 
-/*PublicDeletePlatformLinkV2NoContent handles this case with default header values.
+/*
+PublicDeletePlatformLinkV2NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicDeletePlatformLinkV2NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicDeletePlatformLinkV2BadRequest() *PublicDeletePlatformLinkV2BadReq
 	return &PublicDeletePlatformLinkV2BadRequest{}
 }
 
-/*PublicDeletePlatformLinkV2BadRequest handles this case with default header values.
+/*
+PublicDeletePlatformLinkV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicDeletePlatformLinkV2BadRequest struct {
 }
@@ -183,9 +185,10 @@ func NewPublicDeletePlatformLinkV2Unauthorized() *PublicDeletePlatformLinkV2Unau
 	return &PublicDeletePlatformLinkV2Unauthorized{}
 }
 
-/*PublicDeletePlatformLinkV2Unauthorized handles this case with default header values.
+/*
+PublicDeletePlatformLinkV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicDeletePlatformLinkV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -237,9 +240,10 @@ func NewPublicDeletePlatformLinkV2Forbidden() *PublicDeletePlatformLinkV2Forbidd
 	return &PublicDeletePlatformLinkV2Forbidden{}
 }
 
-/*PublicDeletePlatformLinkV2Forbidden handles this case with default header values.
+/*
+PublicDeletePlatformLinkV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicDeletePlatformLinkV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -291,9 +295,10 @@ func NewPublicDeletePlatformLinkV2NotFound() *PublicDeletePlatformLinkV2NotFound
 	return &PublicDeletePlatformLinkV2NotFound{}
 }
 
-/*PublicDeletePlatformLinkV2NotFound handles this case with default header values.
+/*
+PublicDeletePlatformLinkV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicDeletePlatformLinkV2NotFound struct {
 }
@@ -318,9 +323,10 @@ func NewPublicDeletePlatformLinkV2InternalServerError() *PublicDeletePlatformLin
 	return &PublicDeletePlatformLinkV2InternalServerError{}
 }
 
-/*PublicDeletePlatformLinkV2InternalServerError handles this case with default header values.
+/*
+PublicDeletePlatformLinkV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicDeletePlatformLinkV2InternalServerError struct {
 }

@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_content_legacy"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -23,8 +24,10 @@ var SearchChannelSpecificContentCmd = &cobra.Command{
 	Long:  `Search channel specific content`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		publicContentLegacyService := &ugc.PublicContentLegacyService{
-			Client:          ugc.NewUgcClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ugc.NewUgcHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		channelId, _ := cmd.Flags().GetString("channelId")
 		namespace, _ := cmd.Flags().GetString("namespace")

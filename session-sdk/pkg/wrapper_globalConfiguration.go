@@ -15,11 +15,8 @@ import (
 )
 
 type GlobalConfigurationService struct {
-	Client           *sessionclient.JusticeSessionService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *sessionclient.JusticeSessionService
+	Session repository.Session
 }
 
 var tempFlightIdGlobalConfiguration *string
@@ -30,9 +27,9 @@ func (aaa *GlobalConfigurationService) UpdateFlightId(flightId string) {
 
 func (aaa *GlobalConfigurationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *GlobalConfigurationService) AdminListGlobalConfigurationShort(input *
 	}
 	if tempFlightIdGlobalConfiguration != nil {
 		input.XFlightId = tempFlightIdGlobalConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalConfiguration.AdminListGlobalConfigurationShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *GlobalConfigurationService) AdminUpdateGlobalConfigurationShort(input
 	}
 	if tempFlightIdGlobalConfiguration != nil {
 		input.XFlightId = tempFlightIdGlobalConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalConfiguration.AdminUpdateGlobalConfigurationShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *GlobalConfigurationService) AdminDeleteGlobalConfigurationShort(input
 	}
 	if tempFlightIdGlobalConfiguration != nil {
 		input.XFlightId = tempFlightIdGlobalConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	noContent, err := aaa.Client.GlobalConfiguration.AdminDeleteGlobalConfigurationShort(input, authInfoWriter)

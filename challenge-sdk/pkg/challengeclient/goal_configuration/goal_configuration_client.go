@@ -35,6 +35,8 @@ type ClientService interface {
 	AdminGetGoalShort(params *AdminGetGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetGoalResponse, error)
 	AdminUpdateGoalsShort(params *AdminUpdateGoalsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGoalsResponse, error)
 	AdminDeleteGoalShort(params *AdminDeleteGoalParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGoalResponse, error)
+	AdminMoveGoalToSlotShort(params *AdminMoveGoalToSlotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminMoveGoalToSlotResponse, error)
+	AdminGetChallengeSlotsShort(params *AdminGetChallengeSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeSlotsResponse, error)
 
 	SetTransport(transport runtime.ClientTransport)
 }
@@ -521,6 +523,203 @@ func (a *Client) AdminDeleteGoalShort(params *AdminDeleteGoalParams, authInfo ru
 		return response, v
 	case *AdminDeleteGoalInternalServerError:
 		response := &AdminDeleteGoalResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminMoveGoalToSlotShort move goal to another slot
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [UPDATE]
+Moves a goal to a target slot in a FIXED or non-per-rotation RANDOMIZED challenge with repeatAfter set.
+slotIndex is 0-based and must be in [0, repeatAfter-1].
+Pass slotIndex = -1 to remove the goal from all slots; it will no longer appear in future rounds.
+TemplateSlots and all non-finished schedule documents are updated immediately.
+The currently active schedule document for the affected slot is skipped to avoid
+disrupting in-progress user progressions; the change takes effect from the next round.
+Finished (past) schedule documents are never modified.
+*/
+func (a *Client) AdminMoveGoalToSlotShort(params *AdminMoveGoalToSlotParams, authInfo runtime.ClientAuthInfoWriter) (*AdminMoveGoalToSlotResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminMoveGoalToSlotParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminMoveGoalToSlot",
+		Method:             "PUT",
+		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/goals/{code}/slots",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminMoveGoalToSlotReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminMoveGoalToSlotNoContent:
+		response := &AdminMoveGoalToSlotResponse{}
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminMoveGoalToSlotBadRequest:
+		response := &AdminMoveGoalToSlotResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminMoveGoalToSlotUnauthorized:
+		response := &AdminMoveGoalToSlotResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminMoveGoalToSlotForbidden:
+		response := &AdminMoveGoalToSlotResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminMoveGoalToSlotNotFound:
+		response := &AdminMoveGoalToSlotResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminMoveGoalToSlotUnprocessableEntity:
+		response := &AdminMoveGoalToSlotResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminMoveGoalToSlotInternalServerError:
+		response := &AdminMoveGoalToSlotResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+AdminGetChallengeSlotsShort get challenge slots
+- Required permission: ADMIN:NAMESPACE:{namespace}:CHALLENGE [READ]
+Returns the slot configuration for a FIXED or RANDOMIZED (non-per-rotation) assignment challenge.
+For repeating challenges (repeatAfter set), the response contains two separate fields:
+- templateSlots: the authoritative future configuration from TemplateSlots (goals only, no timing).
+- currentRound: the actual running state of the current (or nearest) round (goals + startTime/endTime from schedule documents).
+These two may differ when a slot move was deferred because the target slot was active.
+For non-repeating challenges, only currentRound is returned (templateSlots is absent).
+*/
+func (a *Client) AdminGetChallengeSlotsShort(params *AdminGetChallengeSlotsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGetChallengeSlotsResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewAdminGetChallengeSlotsParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "adminGetChallengeSlots",
+		Method:             "GET",
+		PathPattern:        "/challenge/v1/admin/namespaces/{namespace}/challenges/{challengeCode}/slots",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &AdminGetChallengeSlotsReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *AdminGetChallengeSlotsOK:
+		response := &AdminGetChallengeSlotsResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *AdminGetChallengeSlotsUnauthorized:
+		response := &AdminGetChallengeSlotsResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetChallengeSlotsForbidden:
+		response := &AdminGetChallengeSlotsResponse{}
+		response.Error403 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetChallengeSlotsNotFound:
+		response := &AdminGetChallengeSlotsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetChallengeSlotsUnprocessableEntity:
+		response := &AdminGetChallengeSlotsResponse{}
+		response.Error422 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *AdminGetChallengeSlotsInternalServerError:
+		response := &AdminGetChallengeSlotsResponse{}
 		response.Error500 = v.Payload
 
 		response.IsSuccess = false

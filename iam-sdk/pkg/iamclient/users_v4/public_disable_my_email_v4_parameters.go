@@ -59,7 +59,8 @@ func NewPublicDisableMyEmailV4ParamsWithHTTPClient(client *http.Client) *PublicD
 	}
 }
 
-/*PublicDisableMyEmailV4Params contains all the parameters to send to the API endpoint
+/*
+PublicDisableMyEmailV4Params contains all the parameters to send to the API endpoint
 for the public disable my email v4 operation typically these are written to a http.Request
 */
 type PublicDisableMyEmailV4Params struct {

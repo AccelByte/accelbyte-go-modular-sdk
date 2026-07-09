@@ -11,6 +11,7 @@ import (
 
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/plugins"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminDeleteAssignmentPluginCmd = &cobra.Command{
 	Long:  `Admin delete assignment plugin`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		pluginsService := &challenge.PluginsService{
-			Client:          challenge.NewChallengeClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: challenge.NewChallengeHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &plugins.AdminDeleteAssignmentPluginParams{

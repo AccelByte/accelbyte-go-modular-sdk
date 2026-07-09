@@ -13,7 +13,32 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewChallengeClient(configRepository repository.ConfigRepository) *challengeclient.JusticeChallengeService {
+type ChallengeClient struct {
+	ChallengeConfiguration *ChallengeConfigurationService
+	Utilities              *UtilitiesService
+	GoalConfiguration      *GoalConfigurationService
+	Schedules              *SchedulesService
+	Plugins                *PluginsService
+	ChallengeProgression   *ChallengeProgressionService
+	PlayerReward           *PlayerRewardService
+	ChallengeList          *ChallengeListService
+}
+
+func NewChallengeClient(session repository.Session) *ChallengeClient {
+	httpClient := NewChallengeHttpClient(session.ConfigRepository)
+	return &ChallengeClient{
+		ChallengeConfiguration: &ChallengeConfigurationService{Client: httpClient, Session: session},
+		Utilities:              &UtilitiesService{Client: httpClient, Session: session},
+		GoalConfiguration:      &GoalConfigurationService{Client: httpClient, Session: session},
+		Schedules:              &SchedulesService{Client: httpClient, Session: session},
+		Plugins:                &PluginsService{Client: httpClient, Session: session},
+		ChallengeProgression:   &ChallengeProgressionService{Client: httpClient, Session: session},
+		PlayerReward:           &PlayerRewardService{Client: httpClient, Session: session},
+		ChallengeList:          &ChallengeListService{Client: httpClient, Session: session},
+	}
+}
+
+func NewChallengeHttpClient(configRepository repository.ConfigRepository) *challengeclient.JusticeChallengeService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

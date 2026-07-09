@@ -9,6 +9,7 @@ package globalConfiguration
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/global_configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var AdminDeleteGlobalConfigurationCmd = &cobra.Command{
 	Long:  `Admin delete global configuration`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		globalConfigurationService := &session.GlobalConfigurationService{
-			Client:          session.NewSessionClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: session.NewSessionHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		input := &global_configuration.AdminDeleteGlobalConfigurationParams{}
 		noContent, errNoContent := globalConfigurationService.AdminDeleteGlobalConfigurationShort(input)

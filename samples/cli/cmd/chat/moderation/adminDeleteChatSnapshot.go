@@ -11,6 +11,7 @@ import (
 
 	chat "github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk/pkg/chatclient/moderation"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminDeleteChatSnapshotCmd = &cobra.Command{
 	Long:  `Admin delete chat snapshot`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		moderationService := &chat.ModerationService{
-			Client:          chat.NewChatClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: chat.NewChatHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		chatId, _ := cmd.Flags().GetString("chatId")
 		namespace, _ := cmd.Flags().GetString("namespace")

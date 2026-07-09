@@ -58,7 +58,8 @@ func NewGenerateTokenByNewHeadlessAccountV4ParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*GenerateTokenByNewHeadlessAccountV4Params contains all the parameters to send to the API endpoint
+/*
+GenerateTokenByNewHeadlessAccountV4Params contains all the parameters to send to the API endpoint
 for the generate token by new headless account v4 operation typically these are written to a http.Request
 */
 type GenerateTokenByNewHeadlessAccountV4Params struct {

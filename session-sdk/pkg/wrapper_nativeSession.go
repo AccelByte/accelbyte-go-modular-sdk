@@ -15,11 +15,8 @@ import (
 )
 
 type NativeSessionService struct {
-	Client           *sessionclient.JusticeSessionService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *sessionclient.JusticeSessionService
+	Session repository.Session
 }
 
 var tempFlightIdNativeSession *string
@@ -30,9 +27,9 @@ func (aaa *NativeSessionService) UpdateFlightId(flightId string) {
 
 func (aaa *NativeSessionService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *NativeSessionService) AdminGetListNativeSessionShort(input *native_se
 	}
 	if tempFlightIdNativeSession != nil {
 		input.XFlightId = tempFlightIdNativeSession
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.NativeSession.AdminGetListNativeSessionShort(input, authInfoWriter)

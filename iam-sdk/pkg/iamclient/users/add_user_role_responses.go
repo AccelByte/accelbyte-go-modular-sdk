@@ -124,9 +124,10 @@ func NewAddUserRoleNoContent() *AddUserRoleNoContent {
 	return &AddUserRoleNoContent{}
 }
 
-/*AddUserRoleNoContent handles this case with default header values.
+/*
+AddUserRoleNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AddUserRoleNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewAddUserRoleUnauthorized() *AddUserRoleUnauthorized {
 	return &AddUserRoleUnauthorized{}
 }
 
-/*AddUserRoleUnauthorized handles this case with default header values.
+/*
+AddUserRoleUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AddUserRoleUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewAddUserRoleForbidden() *AddUserRoleForbidden {
 	return &AddUserRoleForbidden{}
 }
 
-/*AddUserRoleForbidden handles this case with default header values.
+/*
+AddUserRoleForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10159</td><td>operator is not a role manager</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10159</td><td>operator is not a role manager</td></tr></table>
 */
 type AddUserRoleForbidden struct {
 }
@@ -232,9 +235,10 @@ func NewAddUserRoleNotFound() *AddUserRoleNotFound {
 	return &AddUserRoleNotFound{}
 }
 
-/*AddUserRoleNotFound handles this case with default header values.
+/*
+AddUserRoleNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10156</td><td>role not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10156</td><td>role not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AddUserRoleNotFound struct {
 }
@@ -259,9 +263,10 @@ func NewAddUserRoleConflict() *AddUserRoleConflict {
 	return &AddUserRoleConflict{}
 }
 
-/*AddUserRoleConflict handles this case with default header values.
+/*
+AddUserRoleConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10160</td><td>user already has the role</td></tr><tr><td>10161</td><td>user already the role member</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10160</td><td>user already has the role</td></tr><tr><td>10161</td><td>user already the role member</td></tr></table>
 */
 type AddUserRoleConflict struct {
 }
@@ -286,9 +291,10 @@ func NewAddUserRoleInternalServerError() *AddUserRoleInternalServerError {
 	return &AddUserRoleInternalServerError{}
 }
 
-/*AddUserRoleInternalServerError handles this case with default header values.
+/*
+AddUserRoleInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AddUserRoleInternalServerError struct {
 }

@@ -57,7 +57,8 @@ func NewGetUserByPlatformUserIDParamsWithHTTPClient(client *http.Client) *GetUse
 	}
 }
 
-/*GetUserByPlatformUserIDParams contains all the parameters to send to the API endpoint
+/*
+GetUserByPlatformUserIDParams contains all the parameters to send to the API endpoint
 for the get user by platform user id operation typically these are written to a http.Request
 */
 type GetUserByPlatformUserIDParams struct {

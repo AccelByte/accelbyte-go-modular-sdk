@@ -185,6 +185,9 @@ type ClientService interface {
 	PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformResponse, error)
 	PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishResponse, error)
 	PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3Response, error)
+	PublicWebReauthPlatformShort(params *PublicWebReauthPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebReauthPlatformResponse, error)
+	PublicWebReauthPlatformEstablishShort(params *PublicWebReauthPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebReauthPlatformEstablishResponse, error)
+	PublicWebReauthPlatformProcessShort(params *PublicWebReauthPlatformProcessParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebReauthPlatformProcessResponse, error)
 	PublicGetUsersPlatformInfosV3Short(params *PublicGetUsersPlatformInfosV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUsersPlatformInfosV3Response, error)
 	ResetPasswordV3Short(params *ResetPasswordV3Params, authInfo runtime.ClientAuthInfoWriter) (*ResetPasswordV3Response, error)
 	PublicGetUserByUserIDV3Short(params *PublicGetUserByUserIDV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicGetUserByUserIDV3Response, error)
@@ -312,7 +315,7 @@ GetAdminUsersByRoleIDShort get admin users by roleid
 - **Note:**
 difference in V3 response, format difference: Pascal case => Camel case
 
-Searches admin users which have the roleId
+# Searches admin users which have the roleId
 
 Notes: only accepts admin role. Admin Role is role which have admin status and members.
 Use endpoint [GET] /roles/{roleId}/admin to check the role status
@@ -2513,7 +2516,7 @@ GetUserJusticePlatformAccountShort get the justice linked accounts on the design
 ### Endpoint migration guide
 - **Substitute endpoint: _/iam/v3/admin/namespaces/{namespace}/users/{userId}/platforms/justice/{targetNamespace} [GET]_**
 
-Requires the client access token as the bearer token
+# Requires the client access token as the bearer token
 
 Returns user Justice platform account linked with the given user. If the user Justice platform account doesn't exist in the designated namespace, automatically *creates and returns the new Justice platform account.*
 The newly user Justice platform account is going to be forced to perform token grant through the given user and can't perform password update
@@ -9242,7 +9245,6 @@ AdminGetUserPlatformAccountsV3Short get platform accounts linked to the user
 Gets platform accounts that are already linked with user account.
 Action code : 10128
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -10050,7 +10052,6 @@ Unlink user's account from third platform in all namespaces.
 Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
 example: to unlink steam third party account, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -10646,7 +10647,6 @@ func (a *Client) AdminGetThirdPartyPlatformTokenLinkStatusV3Short(params *AdminG
 /*
 AdminGetUserSinglePlatformAccountShort admin get user single platform account metadata
 Gets user single platform account metadata.
-
 
 **Supported Platforms:**
 - Steam group (steamnetwork):
@@ -11765,7 +11765,6 @@ Several platforms are grouped under account groups, you can use either platform 
 example: for steam network platform, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 **Note**: this is deprecated, substitute endpoint: /iam/v4/public/namespaces/{namespace}/platforms/{platformId}/users/{platformUserId} [GET]
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -11969,7 +11968,6 @@ Step when searching by 3rd party platform display name:
 1. set __by__ to __thirdPartyPlatform__
 2. set __platformId__ to the _supported platform id_
 3. set __platformBy__ to __platformDisplayName__
-
 
 **Supported Platforms:**
 - Steam group (steamnetwork):
@@ -13776,7 +13774,6 @@ Unlink user's account from third platform in all namespaces.
 Several platforms are grouped under account groups, you can use either platform ID or platform group as platformId path parameter.
 example: to unlink steam third party account, you can use steamnetwork / steam / steamopenid as platformId path parameter.
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -14009,8 +14006,9 @@ func (a *Client) PublicForcePlatformLinkV3Short(params *PublicForcePlatformLinkV
 }
 
 /*
-PublicWebLinkPlatformShort create public web linking
-Generates a third party login page which will redirect to the establish API.
+PublicWebLinkPlatformShort initiate platform web linking
+Generates a redirect to a third party login page for account linking authentication.
+
 Supported platforms:
 - ps4web
 - xblweb
@@ -14024,6 +14022,10 @@ Supported platforms:
 - discord
 - amazon
 - oculusweb
+
+## New API version
+
+This API remains fully functional, but `GET /users/me/platforms/{platformId}/web/reauth` is recommended for new integrations.
 */
 func (a *Client) PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformResponse, error) {
 	// TODO: Validate the params before sending
@@ -14090,6 +14092,13 @@ func (a *Client) PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams,
 		response.IsSuccess = false
 
 		return response, v
+	case *PublicWebLinkPlatformInternalServerError:
+		response := &PublicWebLinkPlatformResponse{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 
 	default:
 		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
@@ -14097,8 +14106,10 @@ func (a *Client) PublicWebLinkPlatformShort(params *PublicWebLinkPlatformParams,
 }
 
 /*
-PublicWebLinkPlatformEstablishShort establish link progress
-Used by a third party to redirect the code for the purpose of linking the third party account to an IAM account.
+PublicWebLinkPlatformEstablishShort platform web link callback
+Callback endpoint for the third party to redirect to after authentication to complete the linking process for the IAM account.
+After successfully perform the account linking, it will redirect to the **redirectUri** defined when calling the `GET /users/me/platforms/{platformId}/web/link` endpoint.
+
 Supported platforms:
 - ps4web
 - xblweb
@@ -14112,6 +14123,10 @@ Supported platforms:
 - discord
 - amazon
 - oculusweb
+
+## New API version
+
+This API remains fully functional, but `GET /users/me/platforms/{platformId}/web/reauth/establish` is recommended for new integrations.
 */
 func (a *Client) PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebLinkPlatformEstablishResponse, error) {
 	// TODO: Validate the params before sending
@@ -14164,9 +14179,9 @@ func (a *Client) PublicWebLinkPlatformEstablishShort(params *PublicWebLinkPlatfo
 }
 
 /*
-PublicProcessWebLinkPlatformV3Short process link progress
-Processes third party account link and returns the link status directly instead of redirecting to the original page.
-The param **state** comes from the response of `/users/me/platforms/{platformId}/web/link`
+PublicProcessWebLinkPlatformV3Short complete platform web link
+Completes the third party account link and returns the link status directly instead of redirecting to the **redirectUri** defined when calling the `GET /users/me/platforms/{platformId}/web/link` endpoint.
+
 Supported platforms:
 - ps4web
 - xblweb
@@ -14180,6 +14195,10 @@ Supported platforms:
 - discord
 - amazon
 - oculusweb
+
+## New API version
+
+This API remains fully functional, but `POST /users/me/platforms/{platformId}/web/reauth/process` is recommended for new integrations.
 */
 func (a *Client) PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLinkPlatformV3Params, authInfo runtime.ClientAuthInfoWriter) (*PublicProcessWebLinkPlatformV3Response, error) {
 	// TODO: Validate the params before sending
@@ -14228,6 +14247,260 @@ func (a *Client) PublicProcessWebLinkPlatformV3Short(params *PublicProcessWebLin
 	case *PublicProcessWebLinkPlatformV3BadRequest:
 		response := &PublicProcessWebLinkPlatformV3Response{}
 		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicProcessWebLinkPlatformV3InternalServerError:
+		response := &PublicProcessWebLinkPlatformV3Response{}
+		response.Error500 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicWebReauthPlatformShort initiate platform web re-authentication
+Generates a redirect to a third party login page for re-authentication purpose.
+
+Supported platforms:
+- ps4web
+- xblweb
+- steamopenid
+- epicgames
+- facebook
+- twitch
+- google
+- apple
+- snapchat
+- discord
+- amazon
+- oculusweb
+*/
+func (a *Client) PublicWebReauthPlatformShort(params *PublicWebReauthPlatformParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebReauthPlatformResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicWebReauthPlatformParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PublicWebReauthPlatform",
+		Method:             "GET",
+		PathPattern:        "/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/web/reauth",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicWebReauthPlatformReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicWebReauthPlatformOK:
+		response := &PublicWebReauthPlatformResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicWebReauthPlatformBadRequest:
+		response := &PublicWebReauthPlatformResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicWebReauthPlatformUnauthorized:
+		response := &PublicWebReauthPlatformResponse{}
+		response.Error401 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicWebReauthPlatformNotFound:
+		response := &PublicWebReauthPlatformResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicWebReauthPlatformEstablishShort platform web re-auth callback
+Callback endpoint for the third party to redirect to after authentication to complete the re-auth flow on the IAM side.
+
+The re-auth flow inside IAM depends on the **operation** parameter passed to `GET /users/me/platforms/{platformId}/web/reauth` endpoint.
+For **operation=GDPR**, the **gdpr_token** cookie is set in the response headers on success.
+
+After completing the re-auth flow, it will redirect to the **redirectUri** defined when calling the `GET /users/me/platforms/{platformId}/web/reauth` endpoint.
+
+Supported platforms:
+- ps4web
+- xblweb
+- steamopenid
+- epicgames
+- facebook
+- twitch
+- google
+- apple
+- snapchat
+- discord
+- amazon
+- oculusweb
+*/
+func (a *Client) PublicWebReauthPlatformEstablishShort(params *PublicWebReauthPlatformEstablishParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebReauthPlatformEstablishResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicWebReauthPlatformEstablishParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PublicWebReauthPlatformEstablish",
+		Method:             "GET",
+		PathPattern:        "/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/web/reauth/establish",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicWebReauthPlatformEstablishReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicWebReauthPlatformEstablishFound:
+		response := &PublicWebReauthPlatformEstablishResponse{}
+		response.Data = v.Location
+
+		response.IsSuccess = true
+
+		return response, nil
+
+	default:
+		return nil, fmt.Errorf("Unexpected Type %v", reflect.TypeOf(v))
+	}
+}
+
+/*
+PublicWebReauthPlatformProcessShort complete platform web re-auth
+Completes the re-auth flow on the IAM side and returns the result directly instead of redirecting to the **redirectUri** defined when calling the `GET /users/me/platforms/{platformId}/web/reauth` endpoint.
+
+The re-auth flow inside IAM depends on the **operation** parameter passed to `GET /users/me/platforms/{platformId}/web/reauth` endpoint.
+For **operation=GDPR**, the **gdpr_token** cookie is set in the response headers on success.
+
+Supported platforms:
+- ps4web
+- xblweb
+- steamopenid
+- epicgames
+- facebook
+- twitch
+- google
+- apple
+- snapchat
+- discord
+- amazon
+- oculusweb
+*/
+func (a *Client) PublicWebReauthPlatformProcessShort(params *PublicWebReauthPlatformProcessParams, authInfo runtime.ClientAuthInfoWriter) (*PublicWebReauthPlatformProcessResponse, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewPublicWebReauthPlatformProcessParams()
+	}
+
+	if params.Context == nil {
+		params.Context = context.Background()
+	}
+
+	if params.RetryPolicy != nil {
+		params.SetHTTPClientTransport(params.RetryPolicy)
+	}
+
+	if params.XFlightId != nil {
+		params.SetFlightId(*params.XFlightId)
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "PublicWebReauthPlatformProcess",
+		Method:             "POST",
+		PathPattern:        "/iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/web/reauth/process",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/x-www-form-urlencoded"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PublicWebReauthPlatformProcessReader{formats: a.formats},
+		AuthInfo:           authInfo,
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	switch v := result.(type) {
+
+	case *PublicWebReauthPlatformProcessOK:
+		response := &PublicWebReauthPlatformProcessResponse{}
+		response.Data = v.Payload
+
+		response.IsSuccess = true
+
+		return response, nil
+	case *PublicWebReauthPlatformProcessBadRequest:
+		response := &PublicWebReauthPlatformProcessResponse{}
+		response.Error400 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *PublicWebReauthPlatformProcessInternalServerError:
+		response := &PublicWebReauthPlatformProcessResponse{}
+		response.Error500 = v.Payload
 
 		response.IsSuccess = false
 
@@ -14580,7 +14853,6 @@ PublicListUserAllPlatformAccountsDistinctV3Short get distinct platform accounts 
 Retrieves platform accounts linked to user.
 It will query all linked platform accounts. The results will be distinct and grouped by platform, and for each platform, we will select the oldest linked one.
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
@@ -14673,7 +14945,6 @@ func (a *Client) PublicListUserAllPlatformAccountsDistinctV3Short(params *Public
 PublicGetUserInformationV3Short get user's information v3
 Retrieves user info and linked platform accounts.
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
@@ -14762,7 +15033,6 @@ PublicGetUserLoginHistoriesV3Short get user's login histories
 - Returns the next page of the data if we provide `after` parameters with valid Unix timestamp.
 - Returns the previous page of the data if we provide `before` parameter with valid data Unix timestamp.
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
@@ -14840,7 +15110,6 @@ func (a *Client) PublicGetUserLoginHistoriesV3Short(params *PublicGetUserLoginHi
 PublicGetUserPlatformAccountsV3Short get platform accounts linked to the user
 Retrieves platform accounts linked to user.
 
-
 **Supported Platforms:**
 - Steam group (steamnetwork):
 - steam
@@ -14876,7 +15145,6 @@ Retrieves platform accounts linked to user.
 Note:
 - You can use either platform id or platform group as **platformId** parameter.
 - **Nintendo platform user id**: NSA ID need to be appended with Environment ID using colon as separator. e.g kmzwa8awaa:dd1
-
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -14971,7 +15239,6 @@ PublicListJusticePlatformAccountsV3Short get user justice platform accounts
 Retrieves the list of Justice platform accounts linked to the given user.
 
 **Namespace restriction:** The {namespace} path parameter must be a **publisher namespace**. Passing a game namespace returns HTTP 400.
-
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -15072,7 +15339,6 @@ Update Platform Account relation to current User Account.
 Note: Game progression data (statistics, reward, etc) associated with previous User Account will not be
 transferred. If the data is tight to game user ID, the user will have the game progression data.
 
-
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
 */
@@ -15158,7 +15424,6 @@ PublicForceLinkPlatformWithProgressionShort force link 3rd platform account and 
 Force update other account's Platform Account relation to current User Account.
 Can transfer progression from 3rd platform binding account's to current account.
 Requires the same requestID used in [Get link status](#operations-Users-PublicGetAsyncStatus).
-
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.
@@ -15325,7 +15590,6 @@ func (a *Client) PublicGetPublisherUserV3Short(params *PublicGetPublisherUserV3P
 /*
 PublicValidateUserByUserIDAndPasswordV3Short validate user password by user id and password
 Validates the user password by specifying the userId and password.
-
 
 **Authentication:**
 The _**userId**_ parameter should match the one in the access token.

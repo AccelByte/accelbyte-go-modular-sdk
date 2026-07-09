@@ -15,11 +15,8 @@ import (
 )
 
 type UserInfoService struct {
-	Client           *legalclient.JusticeLegalService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *legalclient.JusticeLegalService
+	Session repository.Session
 }
 
 var tempFlightIdUserInfo *string
@@ -30,9 +27,9 @@ func (aaa *UserInfoService) UpdateFlightId(flightId string) {
 
 func (aaa *UserInfoService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *UserInfoService) GetUserInfoStatusShort(input *user_info.GetUserInfoS
 	}
 	if tempFlightIdUserInfo != nil {
 		input.XFlightId = tempFlightIdUserInfo
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserInfo.GetUserInfoStatusShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *UserInfoService) SyncUserInfoShort(input *user_info.SyncUserInfoParam
 	}
 	if tempFlightIdUserInfo != nil {
 		input.XFlightId = tempFlightIdUserInfo
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UserInfo.SyncUserInfoShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *UserInfoService) InvalidateUserInfoCacheShort(input *user_info.Invali
 	}
 	if tempFlightIdUserInfo != nil {
 		input.XFlightId = tempFlightIdUserInfo
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UserInfo.InvalidateUserInfoCacheShort(input, authInfoWriter)

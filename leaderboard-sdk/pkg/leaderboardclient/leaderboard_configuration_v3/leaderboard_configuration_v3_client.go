@@ -156,6 +156,9 @@ CreateLeaderboardConfigurationAdminV3Short create new leaderboard
 
 
 	 * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
+
+
+	 * enableServerHiddenFilter: if true, the leaderboard will filter hidden users on server side. If false, the leaderboard will not filter hidden users. default is false. (optional).
 */
 func (a *Client) CreateLeaderboardConfigurationAdminV3Short(params *CreateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*CreateLeaderboardConfigurationAdminV3Response, error) {
 	// TODO: Validate the params before sending
@@ -445,6 +448,9 @@ UpdateLeaderboardConfigurationAdminV3Short update leaderboard by leaderboardcode
 
 
 	 * cycleIds: Statistic cycle ids that will be tracked in the leaderboard. (required).
+
+
+	 * enableServerHiddenFilter: if true, the leaderboard will filter hidden users on server side. If false, the leaderboard will not filter hidden users. default is false. (optional).
 */
 func (a *Client) UpdateLeaderboardConfigurationAdminV3Short(params *UpdateLeaderboardConfigurationAdminV3Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateLeaderboardConfigurationAdminV3Response, error) {
 	// TODO: Validate the params before sending

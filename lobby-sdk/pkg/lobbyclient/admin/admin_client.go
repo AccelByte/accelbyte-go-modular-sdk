@@ -138,7 +138,7 @@ func (a *Client) AdminGetGlobalConfigShort(params *AdminGetGlobalConfigParams, a
 
 /*
 AdminUpdateGlobalConfigShort upsert global configuration data.
-Upsert global configuration data.
+Overwrite existing global configuration with the provided values. Creates the record if it does not exist.
 */
 func (a *Client) AdminUpdateGlobalConfigShort(params *AdminUpdateGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminUpdateGlobalConfigResponse, error) {
 	// TODO: Validate the params before sending
@@ -206,7 +206,7 @@ func (a *Client) AdminUpdateGlobalConfigShort(params *AdminUpdateGlobalConfigPar
 
 /*
 AdminDeleteGlobalConfigShort delete of global configuration data.
-Delete of global configuration data.
+Remove the global configuration record. This operation is permanent.
 */
 func (a *Client) AdminDeleteGlobalConfigShort(params *AdminDeleteGlobalConfigParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteGlobalConfigResponse, error) {
 	// TODO: Validate the params before sending

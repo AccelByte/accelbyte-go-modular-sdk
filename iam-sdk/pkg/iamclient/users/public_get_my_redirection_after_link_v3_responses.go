@@ -110,9 +110,10 @@ func NewPublicGetMyRedirectionAfterLinkV3OK() *PublicGetMyRedirectionAfterLinkV3
 	return &PublicGetMyRedirectionAfterLinkV3OK{}
 }
 
-/*PublicGetMyRedirectionAfterLinkV3OK handles this case with default header values.
+/*
+PublicGetMyRedirectionAfterLinkV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetMyRedirectionAfterLinkV3OK struct {
 	Payload *iamclientmodels.ModelOneTimeCodeLinkRedirectionResponse
@@ -164,9 +165,10 @@ func NewPublicGetMyRedirectionAfterLinkV3Unauthorized() *PublicGetMyRedirectionA
 	return &PublicGetMyRedirectionAfterLinkV3Unauthorized{}
 }
 
-/*PublicGetMyRedirectionAfterLinkV3Unauthorized handles this case with default header values.
+/*
+PublicGetMyRedirectionAfterLinkV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicGetMyRedirectionAfterLinkV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -218,9 +220,10 @@ func NewPublicGetMyRedirectionAfterLinkV3NotFound() *PublicGetMyRedirectionAfter
 	return &PublicGetMyRedirectionAfterLinkV3NotFound{}
 }
 
-/*PublicGetMyRedirectionAfterLinkV3NotFound handles this case with default header values.
+/*
+PublicGetMyRedirectionAfterLinkV3NotFound handles this case with default header values.
 
-  Not Found
+	Not Found
 */
 type PublicGetMyRedirectionAfterLinkV3NotFound struct {
 }
@@ -245,9 +248,10 @@ func NewPublicGetMyRedirectionAfterLinkV3InternalServerError() *PublicGetMyRedir
 	return &PublicGetMyRedirectionAfterLinkV3InternalServerError{}
 }
 
-/*PublicGetMyRedirectionAfterLinkV3InternalServerError handles this case with default header values.
+/*
+PublicGetMyRedirectionAfterLinkV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetMyRedirectionAfterLinkV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

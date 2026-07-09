@@ -38,9 +38,7 @@ type ClientService interface {
 
 /*
 GetAppImageListV1Short get a list of container images
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:IMAGE [READ]`
-
-# Get a list of container images
+Get a list of container images
 
 Default 'cached' parameter is 'true'
 */
@@ -124,8 +122,6 @@ func (a *Client) GetAppImageListV1Short(params *GetAppImageListV1Params, authInf
 
 /*
 DeleteAppImagesV1Short deletes the images
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:IMAGE [DELETE]`
-
 Deletes the images uploaded to the repository
 */
 func (a *Client) DeleteAppImagesV1Short(params *DeleteAppImagesV1Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppImagesV1Response, error) {

@@ -15,11 +15,8 @@ import (
 )
 
 type UtilitiesService struct {
-	Client           *challengeclient.JusticeChallengeService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *challengeclient.JusticeChallengeService
+	Session repository.Session
 }
 
 var tempFlightIdUtilities *string
@@ -30,9 +27,9 @@ func (aaa *UtilitiesService) UpdateFlightId(flightId string) {
 
 func (aaa *UtilitiesService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *UtilitiesService) AdminGetItemReferencesShort(input *utilities.AdminG
 	}
 	if tempFlightIdUtilities != nil {
 		input.XFlightId = tempFlightIdUtilities
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Utilities.AdminGetItemReferencesShort(input, authInfoWriter)

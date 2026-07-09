@@ -15,11 +15,8 @@ import (
 )
 
 type IAPService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdIAP *string
@@ -30,9 +27,9 @@ func (aaa *IAPService) UpdateFlightId(flightId string) {
 
 func (aaa *IAPService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *IAPService) GetAppleIAPConfigShort(input *iap.GetAppleIAPConfigParams
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetAppleIAPConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *IAPService) UpdateAppleIAPConfigShort(input *iap.UpdateAppleIAPConfig
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateAppleIAPConfigShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *IAPService) DeleteAppleIAPConfigShort(input *iap.DeleteAppleIAPConfig
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.DeleteAppleIAPConfigShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *IAPService) UpdateAppleP8FileShort(input *iap.UpdateAppleP8FileParams
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateAppleP8FileShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *IAPService) GetEpicGamesIAPConfigShort(input *iap.GetEpicGamesIAPConf
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetEpicGamesIAPConfigShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *IAPService) UpdateEpicGamesIAPConfigShort(input *iap.UpdateEpicGamesI
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateEpicGamesIAPConfigShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *IAPService) DeleteEpicGamesIAPConfigShort(input *iap.DeleteEpicGamesI
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.DeleteEpicGamesIAPConfigShort(input, authInfoWriter)
@@ -284,8 +281,8 @@ func (aaa *IAPService) GetGoogleIAPConfigShort(input *iap.GetGoogleIAPConfigPara
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetGoogleIAPConfigShort(input, authInfoWriter)
@@ -318,8 +315,8 @@ func (aaa *IAPService) UpdateGoogleIAPConfigShort(input *iap.UpdateGoogleIAPConf
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateGoogleIAPConfigShort(input, authInfoWriter)
@@ -352,8 +349,8 @@ func (aaa *IAPService) DeleteGoogleIAPConfigShort(input *iap.DeleteGoogleIAPConf
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.DeleteGoogleIAPConfigShort(input, authInfoWriter)
@@ -382,8 +379,8 @@ func (aaa *IAPService) UpdateGoogleP12FileShort(input *iap.UpdateGoogleP12FilePa
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateGoogleP12FileShort(input, authInfoWriter)
@@ -416,8 +413,8 @@ func (aaa *IAPService) GetIAPItemConfigShort(input *iap.GetIAPItemConfigParams) 
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetIAPItemConfigShort(input, authInfoWriter)
@@ -450,8 +447,8 @@ func (aaa *IAPService) UpdateIAPItemConfigShort(input *iap.UpdateIAPItemConfigPa
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateIAPItemConfigShort(input, authInfoWriter)
@@ -484,8 +481,8 @@ func (aaa *IAPService) DeleteIAPItemConfigShort(input *iap.DeleteIAPItemConfigPa
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.DeleteIAPItemConfigShort(input, authInfoWriter)
@@ -514,8 +511,8 @@ func (aaa *IAPService) GetOculusIAPConfigShort(input *iap.GetOculusIAPConfigPara
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetOculusIAPConfigShort(input, authInfoWriter)
@@ -548,8 +545,8 @@ func (aaa *IAPService) UpdateOculusIAPConfigShort(input *iap.UpdateOculusIAPConf
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateOculusIAPConfigShort(input, authInfoWriter)
@@ -582,8 +579,8 @@ func (aaa *IAPService) DeleteOculusIAPConfigShort(input *iap.DeleteOculusIAPConf
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.DeleteOculusIAPConfigShort(input, authInfoWriter)
@@ -612,8 +609,8 @@ func (aaa *IAPService) GetPlayStationIAPConfigShort(input *iap.GetPlayStationIAP
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetPlayStationIAPConfigShort(input, authInfoWriter)
@@ -646,8 +643,8 @@ func (aaa *IAPService) UpdatePlaystationIAPConfigShort(input *iap.UpdatePlaystat
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdatePlaystationIAPConfigShort(input, authInfoWriter)
@@ -680,8 +677,8 @@ func (aaa *IAPService) DeletePlaystationIAPConfigShort(input *iap.DeletePlaystat
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.DeletePlaystationIAPConfigShort(input, authInfoWriter)
@@ -710,8 +707,8 @@ func (aaa *IAPService) ValidateExistedPlaystationIAPConfigShort(input *iap.Valid
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.ValidateExistedPlaystationIAPConfigShort(input, authInfoWriter)
@@ -744,8 +741,8 @@ func (aaa *IAPService) ValidatePlaystationIAPConfigShort(input *iap.ValidatePlay
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.ValidatePlaystationIAPConfigShort(input, authInfoWriter)
@@ -778,8 +775,8 @@ func (aaa *IAPService) GetSteamIAPConfigShort(input *iap.GetSteamIAPConfigParams
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetSteamIAPConfigShort(input, authInfoWriter)
@@ -812,8 +809,8 @@ func (aaa *IAPService) UpdateSteamIAPConfigShort(input *iap.UpdateSteamIAPConfig
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateSteamIAPConfigShort(input, authInfoWriter)
@@ -846,8 +843,8 @@ func (aaa *IAPService) DeleteSteamIAPConfigShort(input *iap.DeleteSteamIAPConfig
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.DeleteSteamIAPConfigShort(input, authInfoWriter)
@@ -876,8 +873,8 @@ func (aaa *IAPService) GetTwitchIAPConfigShort(input *iap.GetTwitchIAPConfigPara
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetTwitchIAPConfigShort(input, authInfoWriter)
@@ -910,8 +907,8 @@ func (aaa *IAPService) UpdateTwitchIAPConfigShort(input *iap.UpdateTwitchIAPConf
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateTwitchIAPConfigShort(input, authInfoWriter)
@@ -944,8 +941,8 @@ func (aaa *IAPService) DeleteTwitchIAPConfigShort(input *iap.DeleteTwitchIAPConf
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.DeleteTwitchIAPConfigShort(input, authInfoWriter)
@@ -974,8 +971,8 @@ func (aaa *IAPService) GetXblIAPConfigShort(input *iap.GetXblIAPConfigParams) (*
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetXblIAPConfigShort(input, authInfoWriter)
@@ -1008,8 +1005,8 @@ func (aaa *IAPService) UpdateXblIAPConfigShort(input *iap.UpdateXblIAPConfigPara
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateXblIAPConfigShort(input, authInfoWriter)
@@ -1042,8 +1039,8 @@ func (aaa *IAPService) DeleteXblAPConfigShort(input *iap.DeleteXblAPConfigParams
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.DeleteXblAPConfigShort(input, authInfoWriter)
@@ -1072,8 +1069,8 @@ func (aaa *IAPService) UpdateXblBPCertFileShort(input *iap.UpdateXblBPCertFilePa
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.UpdateXblBPCertFileShort(input, authInfoWriter)
@@ -1106,8 +1103,8 @@ func (aaa *IAPService) QueryAbnormalTransactionsShort(input *iap.QueryAbnormalTr
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.QueryAbnormalTransactionsShort(input, authInfoWriter)
@@ -1140,8 +1137,8 @@ func (aaa *IAPService) AdminGetSteamJobInfoShort(input *iap.AdminGetSteamJobInfo
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.AdminGetSteamJobInfoShort(input, authInfoWriter)
@@ -1174,8 +1171,8 @@ func (aaa *IAPService) AdminResetSteamJobTimeShort(input *iap.AdminResetSteamJob
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.AdminResetSteamJobTimeShort(input, authInfoWriter)
@@ -1208,8 +1205,8 @@ func (aaa *IAPService) AdminRefundIAPOrderShort(input *iap.AdminRefundIAPOrderPa
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.AdminRefundIAPOrderShort(input, authInfoWriter)
@@ -1242,8 +1239,8 @@ func (aaa *IAPService) QuerySteamReportHistoriesShort(input *iap.QuerySteamRepor
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.QuerySteamReportHistoriesShort(input, authInfoWriter)
@@ -1276,8 +1273,8 @@ func (aaa *IAPService) GetIAPOrderConsumeDetailsShort(input *iap.GetIAPOrderCons
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetIAPOrderConsumeDetailsShort(input, authInfoWriter)
@@ -1310,8 +1307,8 @@ func (aaa *IAPService) QueryUserIAPOrdersShort(input *iap.QueryUserIAPOrdersPara
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.QueryUserIAPOrdersShort(input, authInfoWriter)
@@ -1344,8 +1341,8 @@ func (aaa *IAPService) QueryAllUserIAPOrdersShort(input *iap.QueryAllUserIAPOrde
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.QueryAllUserIAPOrdersShort(input, authInfoWriter)
@@ -1378,8 +1375,8 @@ func (aaa *IAPService) QueryUserIAPConsumeHistoryShort(input *iap.QueryUserIAPCo
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.QueryUserIAPConsumeHistoryShort(input, authInfoWriter)
@@ -1412,8 +1409,8 @@ func (aaa *IAPService) MockFulfillIAPItemShort(input *iap.MockFulfillIAPItemPara
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.MockFulfillIAPItemShort(input, authInfoWriter)
@@ -1442,8 +1439,8 @@ func (aaa *IAPService) AdminSyncOculusSubscriptionsShort(input *iap.AdminSyncOcu
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.AdminSyncOculusSubscriptionsShort(input, authInfoWriter)
@@ -1476,8 +1473,8 @@ func (aaa *IAPService) AdminGetIAPOrderLineItemsShort(input *iap.AdminGetIAPOrde
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.AdminGetIAPOrderLineItemsShort(input, authInfoWriter)
@@ -1510,8 +1507,8 @@ func (aaa *IAPService) AdminSyncSteamAbnormalTransactionShort(input *iap.AdminSy
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.AdminSyncSteamAbnormalTransactionShort(input, authInfoWriter)
@@ -1544,8 +1541,8 @@ func (aaa *IAPService) AdminSyncSteamIAPByTransactionShort(input *iap.AdminSyncS
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.AdminSyncSteamIAPByTransactionShort(input, authInfoWriter)
@@ -1578,8 +1575,8 @@ func (aaa *IAPService) AdminSyncTwitchDropsEntitlementShort(input *iap.AdminSync
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.AdminSyncTwitchDropsEntitlementShort(input, authInfoWriter)
@@ -1608,8 +1605,8 @@ func (aaa *IAPService) GetAppleConfigVersionShort(input *iap.GetAppleConfigVersi
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetAppleConfigVersionShort(input, authInfoWriter)
@@ -1642,8 +1639,8 @@ func (aaa *IAPService) GetIAPItemMappingShort(input *iap.GetIAPItemMappingParams
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.GetIAPItemMappingShort(input, authInfoWriter)
@@ -1676,8 +1673,8 @@ func (aaa *IAPService) SyncTwitchDropsEntitlementShort(input *iap.SyncTwitchDrop
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.SyncTwitchDropsEntitlementShort(input, authInfoWriter)
@@ -1710,8 +1707,8 @@ func (aaa *IAPService) PublicFulfillAppleIAPItemShort(input *iap.PublicFulfillAp
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.PublicFulfillAppleIAPItemShort(input, authInfoWriter)
@@ -1740,8 +1737,8 @@ func (aaa *IAPService) SyncEpicGamesInventoryShort(input *iap.SyncEpicGamesInven
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.SyncEpicGamesInventoryShort(input, authInfoWriter)
@@ -1774,8 +1771,8 @@ func (aaa *IAPService) PublicFulfillGoogleIAPItemShort(input *iap.PublicFulfillG
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.PublicFulfillGoogleIAPItemShort(input, authInfoWriter)
@@ -1808,8 +1805,8 @@ func (aaa *IAPService) SyncOculusSubscriptionsShort(input *iap.SyncOculusSubscri
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.SyncOculusSubscriptionsShort(input, authInfoWriter)
@@ -1842,8 +1839,8 @@ func (aaa *IAPService) SyncOculusConsumableEntitlementsShort(input *iap.SyncOcul
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.SyncOculusConsumableEntitlementsShort(input, authInfoWriter)
@@ -1876,8 +1873,8 @@ func (aaa *IAPService) PublicReconcilePlayStationStoreShort(input *iap.PublicRec
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.PublicReconcilePlayStationStoreShort(input, authInfoWriter)
@@ -1910,8 +1907,8 @@ func (aaa *IAPService) PublicReconcilePlayStationStoreWithMultipleServiceLabelsS
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.PublicReconcilePlayStationStoreWithMultipleServiceLabelsShort(input, authInfoWriter)
@@ -1944,8 +1941,8 @@ func (aaa *IAPService) SyncSteamInventoryShort(input *iap.SyncSteamInventoryPara
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.SyncSteamInventoryShort(input, authInfoWriter)
@@ -1974,8 +1971,8 @@ func (aaa *IAPService) SyncSteamAbnormalTransactionShort(input *iap.SyncSteamAbn
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.SyncSteamAbnormalTransactionShort(input, authInfoWriter)
@@ -2008,8 +2005,8 @@ func (aaa *IAPService) SyncSteamIAPByTransactionShort(input *iap.SyncSteamIAPByT
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.SyncSteamIAPByTransactionShort(input, authInfoWriter)
@@ -2042,8 +2039,8 @@ func (aaa *IAPService) SyncTwitchDropsEntitlement1Short(input *iap.SyncTwitchDro
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.SyncTwitchDropsEntitlement1Short(input, authInfoWriter)
@@ -2072,8 +2069,8 @@ func (aaa *IAPService) SyncXboxInventoryShort(input *iap.SyncXboxInventoryParams
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.IAP.SyncXboxInventoryShort(input, authInfoWriter)
@@ -2106,8 +2103,8 @@ func (aaa *IAPService) V2PublicFulfillAppleIAPItemShort(input *iap.V2PublicFulfi
 	}
 	if tempFlightIdIAP != nil {
 		input.XFlightId = tempFlightIdIAP
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.IAP.V2PublicFulfillAppleIAPItemShort(input, authInfoWriter)

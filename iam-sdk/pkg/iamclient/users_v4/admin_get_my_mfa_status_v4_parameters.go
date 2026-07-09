@@ -57,7 +57,8 @@ func NewAdminGetMyMFAStatusV4ParamsWithHTTPClient(client *http.Client) *AdminGet
 	}
 }
 
-/*AdminGetMyMFAStatusV4Params contains all the parameters to send to the API endpoint
+/*
+AdminGetMyMFAStatusV4Params contains all the parameters to send to the API endpoint
 for the admin get my mfa status v4 operation typically these are written to a http.Request
 */
 type AdminGetMyMFAStatusV4Params struct {

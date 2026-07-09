@@ -15,11 +15,8 @@ import (
 )
 
 type PublicInventoriesService struct {
-	Client           *inventoryclient.JusticeInventoryService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *inventoryclient.JusticeInventoryService
+	Session repository.Session
 }
 
 var tempFlightIdPublicInventories *string
@@ -30,9 +27,9 @@ func (aaa *PublicInventoriesService) UpdateFlightId(flightId string) {
 
 func (aaa *PublicInventoriesService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicInventoriesService) PublicListInventoriesShort(input *public_in
 	}
 	if tempFlightIdPublicInventories != nil {
 		input.XFlightId = tempFlightIdPublicInventories
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicInventories.PublicListInventoriesShort(input, authInfoWriter)

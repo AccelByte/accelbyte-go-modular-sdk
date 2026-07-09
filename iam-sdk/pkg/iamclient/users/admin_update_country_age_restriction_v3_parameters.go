@@ -59,7 +59,8 @@ func NewAdminUpdateCountryAgeRestrictionV3ParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*AdminUpdateCountryAgeRestrictionV3Params contains all the parameters to send to the API endpoint
+/*
+AdminUpdateCountryAgeRestrictionV3Params contains all the parameters to send to the API endpoint
 for the admin update country age restriction v3 operation typically these are written to a http.Request
 */
 type AdminUpdateCountryAgeRestrictionV3Params struct {

@@ -15,11 +15,8 @@ import (
 )
 
 type AdminUserEligibilitiesService struct {
-	Client           *legalclient.JusticeLegalService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *legalclient.JusticeLegalService
+	Session repository.Session
 }
 
 var tempFlightIdAdminUserEligibilities *string
@@ -30,9 +27,9 @@ func (aaa *AdminUserEligibilitiesService) UpdateFlightId(flightId string) {
 
 func (aaa *AdminUserEligibilitiesService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminUserEligibilitiesService) AdminRetrieveEligibilitiesShort(input 
 	}
 	if tempFlightIdAdminUserEligibilities != nil {
 		input.XFlightId = tempFlightIdAdminUserEligibilities
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminUserEligibilities.AdminRetrieveEligibilitiesShort(input, authInfoWriter)

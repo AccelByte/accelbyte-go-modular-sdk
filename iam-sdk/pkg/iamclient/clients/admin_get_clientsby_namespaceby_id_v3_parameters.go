@@ -57,7 +57,8 @@ func NewAdminGetClientsbyNamespacebyIDV3ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*AdminGetClientsbyNamespacebyIDV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetClientsbyNamespacebyIDV3Params contains all the parameters to send to the API endpoint
 for the admin get clientsby namespaceby idv3 operation typically these are written to a http.Request
 */
 type AdminGetClientsbyNamespacebyIDV3Params struct {

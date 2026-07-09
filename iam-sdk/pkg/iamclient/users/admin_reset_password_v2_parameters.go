@@ -59,7 +59,8 @@ func NewAdminResetPasswordV2ParamsWithHTTPClient(client *http.Client) *AdminRese
 	}
 }
 
-/*AdminResetPasswordV2Params contains all the parameters to send to the API endpoint
+/*
+AdminResetPasswordV2Params contains all the parameters to send to the API endpoint
 for the admin reset password v2 operation typically these are written to a http.Request
 */
 type AdminResetPasswordV2Params struct {

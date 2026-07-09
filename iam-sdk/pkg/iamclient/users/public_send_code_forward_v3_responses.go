@@ -68,9 +68,10 @@ func NewPublicSendCodeForwardV3Found() *PublicSendCodeForwardV3Found {
 	return &PublicSendCodeForwardV3Found{}
 }
 
-/*PublicSendCodeForwardV3Found handles this case with default header values.
+/*
+PublicSendCodeForwardV3Found handles this case with default header values.
 
-  Found. Redirected to login website if there is any error.
+	Found. Redirected to login website if there is any error.
 */
 type PublicSendCodeForwardV3Found struct {
 	Location string

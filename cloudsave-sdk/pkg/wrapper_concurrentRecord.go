@@ -15,11 +15,8 @@ import (
 )
 
 type ConcurrentRecordService struct {
-	Client           *cloudsaveclient.JusticeCloudsaveService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *cloudsaveclient.JusticeCloudsaveService
+	Session repository.Session
 }
 
 var tempFlightIdConcurrentRecord *string
@@ -30,9 +27,9 @@ func (aaa *ConcurrentRecordService) UpdateFlightId(flightId string) {
 
 func (aaa *ConcurrentRecordService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ConcurrentRecordService) PutGameRecordConcurrentHandlerV1Short(input 
 	}
 	if tempFlightIdConcurrentRecord != nil {
 		input.XFlightId = tempFlightIdConcurrentRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ConcurrentRecord.PutGameRecordConcurrentHandlerV1Short(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *ConcurrentRecordService) PutPlayerRecordConcurrentHandlerV1Short(inpu
 	}
 	if tempFlightIdConcurrentRecord != nil {
 		input.XFlightId = tempFlightIdConcurrentRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ConcurrentRecord.PutPlayerRecordConcurrentHandlerV1Short(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *ConcurrentRecordService) PutPlayerPublicRecordConcurrentHandlerV1Shor
 	}
 	if tempFlightIdConcurrentRecord != nil {
 		input.XFlightId = tempFlightIdConcurrentRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ConcurrentRecord.PutPlayerPublicRecordConcurrentHandlerV1Short(input, authInfoWriter)

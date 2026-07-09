@@ -58,7 +58,8 @@ func NewAdminGetNamespaceUserInvitationHistoryV4ParamsWithHTTPClient(client *htt
 	}
 }
 
-/*AdminGetNamespaceUserInvitationHistoryV4Params contains all the parameters to send to the API endpoint
+/*
+AdminGetNamespaceUserInvitationHistoryV4Params contains all the parameters to send to the API endpoint
 for the admin get namespace user invitation history v4 operation typically these are written to a http.Request
 */
 type AdminGetNamespaceUserInvitationHistoryV4Params struct {

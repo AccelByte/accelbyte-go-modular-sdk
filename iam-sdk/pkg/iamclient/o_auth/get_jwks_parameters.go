@@ -57,7 +57,8 @@ func NewGetJWKSParamsWithHTTPClient(client *http.Client) *GetJWKSParams {
 	}
 }
 
-/*GetJWKSParams contains all the parameters to send to the API endpoint
+/*
+GetJWKSParams contains all the parameters to send to the API endpoint
 for the get jwks operation typically these are written to a http.Request
 */
 type GetJWKSParams struct {

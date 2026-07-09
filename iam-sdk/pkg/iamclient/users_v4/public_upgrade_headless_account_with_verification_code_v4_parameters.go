@@ -59,7 +59,8 @@ func NewPublicUpgradeHeadlessAccountWithVerificationCodeV4ParamsWithHTTPClient(c
 	}
 }
 
-/*PublicUpgradeHeadlessAccountWithVerificationCodeV4Params contains all the parameters to send to the API endpoint
+/*
+PublicUpgradeHeadlessAccountWithVerificationCodeV4Params contains all the parameters to send to the API endpoint
 for the public upgrade headless account with verification code v4 operation typically these are written to a http.Request
 */
 type PublicUpgradeHeadlessAccountWithVerificationCodeV4Params struct {

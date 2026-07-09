@@ -125,9 +125,10 @@ func NewCreateClientByNamespaceCreated() *CreateClientByNamespaceCreated {
 	return &CreateClientByNamespaceCreated{}
 }
 
-/*CreateClientByNamespaceCreated handles this case with default header values.
+/*
+CreateClientByNamespaceCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateClientByNamespaceCreated struct {
 	Payload *iamclientmodels.ClientmodelClientCreationResponse
@@ -179,9 +180,10 @@ func NewCreateClientByNamespaceBadRequest() *CreateClientByNamespaceBadRequest {
 	return &CreateClientByNamespaceBadRequest{}
 }
 
-/*CreateClientByNamespaceBadRequest handles this case with default header values.
+/*
+CreateClientByNamespaceBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type CreateClientByNamespaceBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -233,9 +235,10 @@ func NewCreateClientByNamespaceUnauthorized() *CreateClientByNamespaceUnauthoriz
 	return &CreateClientByNamespaceUnauthorized{}
 }
 
-/*CreateClientByNamespaceUnauthorized handles this case with default header values.
+/*
+CreateClientByNamespaceUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type CreateClientByNamespaceUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -287,9 +290,10 @@ func NewCreateClientByNamespaceForbidden() *CreateClientByNamespaceForbidden {
 	return &CreateClientByNamespaceForbidden{}
 }
 
-/*CreateClientByNamespaceForbidden handles this case with default header values.
+/*
+CreateClientByNamespaceForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type CreateClientByNamespaceForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -341,9 +345,10 @@ func NewCreateClientByNamespaceConflict() *CreateClientByNamespaceConflict {
 	return &CreateClientByNamespaceConflict{}
 }
 
-/*CreateClientByNamespaceConflict handles this case with default header values.
+/*
+CreateClientByNamespaceConflict handles this case with default header values.
 
-  Client exists
+	Client exists
 */
 type CreateClientByNamespaceConflict struct {
 }

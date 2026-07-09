@@ -13,7 +13,32 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient"
 )
 
-func NewSocialClient(configRepository repository.ConfigRepository) *socialclient.JusticeSocialService {
+type SocialClient struct {
+	SlotConfig             *SlotConfigService
+	GameProfile            *GameProfileService
+	Slot                   *SlotService
+	GlobalStatistic        *GlobalStatisticService
+	StatCycleConfiguration *StatCycleConfigurationService
+	UserStatistic          *UserStatisticService
+	StatConfiguration      *StatConfigurationService
+	UserStatisticCycle     *UserStatisticCycleService
+}
+
+func NewSocialClient(session repository.Session) *SocialClient {
+	httpClient := NewSocialHttpClient(session.ConfigRepository)
+	return &SocialClient{
+		SlotConfig:             &SlotConfigService{Client: httpClient, Session: session},
+		GameProfile:            &GameProfileService{Client: httpClient, Session: session},
+		Slot:                   &SlotService{Client: httpClient, Session: session},
+		GlobalStatistic:        &GlobalStatisticService{Client: httpClient, Session: session},
+		StatCycleConfiguration: &StatCycleConfigurationService{Client: httpClient, Session: session},
+		UserStatistic:          &UserStatisticService{Client: httpClient, Session: session},
+		StatConfiguration:      &StatConfigurationService{Client: httpClient, Session: session},
+		UserStatisticCycle:     &UserStatisticCycleService{Client: httpClient, Session: session},
+	}
+}
+
+func NewSocialHttpClient(configRepository repository.ConfigRepository) *socialclient.JusticeSocialService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

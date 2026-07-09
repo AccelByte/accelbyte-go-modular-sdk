@@ -15,11 +15,8 @@ import (
 )
 
 type PlayFeatureFlagService struct {
-	Client           *match2client.JusticeMatch2Service
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *match2client.JusticeMatch2Service
+	Session repository.Session
 }
 
 var tempFlightIdPlayFeatureFlag *string
@@ -30,9 +27,9 @@ func (aaa *PlayFeatureFlagService) UpdateFlightId(flightId string) {
 
 func (aaa *PlayFeatureFlagService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PlayFeatureFlagService) AdminGetPlayFeatureFlagShort(input *play_feat
 	}
 	if tempFlightIdPlayFeatureFlag != nil {
 		input.XFlightId = tempFlightIdPlayFeatureFlag
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlayFeatureFlag.AdminGetPlayFeatureFlagShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PlayFeatureFlagService) AdminUpsertPlayFeatureFlagShort(input *play_f
 	}
 	if tempFlightIdPlayFeatureFlag != nil {
 		input.XFlightId = tempFlightIdPlayFeatureFlag
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlayFeatureFlag.AdminUpsertPlayFeatureFlagShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PlayFeatureFlagService) AdminDeletePlayFeatureFlagShort(input *play_f
 	}
 	if tempFlightIdPlayFeatureFlag != nil {
 		input.XFlightId = tempFlightIdPlayFeatureFlag
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PlayFeatureFlag.AdminDeletePlayFeatureFlagShort(input, authInfoWriter)

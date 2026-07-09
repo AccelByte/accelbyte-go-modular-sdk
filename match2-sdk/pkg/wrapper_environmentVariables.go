@@ -15,11 +15,8 @@ import (
 )
 
 type EnvironmentVariablesService struct {
-	Client           *match2client.JusticeMatch2Service
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *match2client.JusticeMatch2Service
+	Session repository.Session
 }
 
 var tempFlightIdEnvironmentVariables *string
@@ -30,9 +27,9 @@ func (aaa *EnvironmentVariablesService) UpdateFlightId(flightId string) {
 
 func (aaa *EnvironmentVariablesService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *EnvironmentVariablesService) EnvironmentVariableListShort(input *envi
 	}
 	if tempFlightIdEnvironmentVariables != nil {
 		input.XFlightId = tempFlightIdEnvironmentVariables
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.EnvironmentVariables.EnvironmentVariableListShort(input, authInfoWriter)

@@ -124,9 +124,10 @@ func NewSetRoleAsAdminNoContent() *SetRoleAsAdminNoContent {
 	return &SetRoleAsAdminNoContent{}
 }
 
-/*SetRoleAsAdminNoContent handles this case with default header values.
+/*
+SetRoleAsAdminNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type SetRoleAsAdminNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewSetRoleAsAdminBadRequest() *SetRoleAsAdminBadRequest {
 	return &SetRoleAsAdminBadRequest{}
 }
 
-/*SetRoleAsAdminBadRequest handles this case with default header values.
+/*
+SetRoleAsAdminBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type SetRoleAsAdminBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewSetRoleAsAdminUnauthorized() *SetRoleAsAdminUnauthorized {
 	return &SetRoleAsAdminUnauthorized{}
 }
 
-/*SetRoleAsAdminUnauthorized handles this case with default header values.
+/*
+SetRoleAsAdminUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SetRoleAsAdminUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewSetRoleAsAdminForbidden() *SetRoleAsAdminForbidden {
 	return &SetRoleAsAdminForbidden{}
 }
 
-/*SetRoleAsAdminForbidden handles this case with default header values.
+/*
+SetRoleAsAdminForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type SetRoleAsAdminForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewSetRoleAsAdminNotFound() *SetRoleAsAdminNotFound {
 	return &SetRoleAsAdminNotFound{}
 }
 
-/*SetRoleAsAdminNotFound handles this case with default header values.
+/*
+SetRoleAsAdminNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type SetRoleAsAdminNotFound struct {
 }

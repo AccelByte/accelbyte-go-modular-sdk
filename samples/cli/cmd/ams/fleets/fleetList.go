@@ -11,6 +11,7 @@ import (
 
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleets"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,26 +23,30 @@ var FleetListCmd = &cobra.Command{
 	Long:  `Fleet list`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fleetsService := &ams.FleetsService{
-			Client:          ams.NewAmsClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ams.NewAmsHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		active, _ := cmd.Flags().GetBool("active")
 		count, _ := cmd.Flags().GetInt64("count")
+		includeInactiveRegions, _ := cmd.Flags().GetBool("includeInactiveRegions")
 		name, _ := cmd.Flags().GetString("name")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		region, _ := cmd.Flags().GetString("region")
 		sortBy, _ := cmd.Flags().GetString("sortBy")
 		sortDirection, _ := cmd.Flags().GetString("sortDirection")
 		input := &fleets.FleetListParams{
-			Namespace:     namespace,
-			Active:        &active,
-			Count:         &count,
-			Name:          &name,
-			Offset:        &offset,
-			Region:        &region,
-			SortBy:        &sortBy,
-			SortDirection: &sortDirection,
+			Namespace:              namespace,
+			Active:                 &active,
+			Count:                  &count,
+			IncludeInactiveRegions: &includeInactiveRegions,
+			Name:                   &name,
+			Offset:                 &offset,
+			Region:                 &region,
+			SortBy:                 &sortBy,
+			SortDirection:          &sortDirection,
 		}
 		ok, errOK := fleetsService.FleetListShort(input)
 		if errOK != nil {
@@ -61,6 +66,7 @@ func init() {
 	_ = FleetListCmd.MarkFlagRequired("namespace")
 	FleetListCmd.Flags().Bool("active", false, "Active")
 	FleetListCmd.Flags().Int64("count", 1, "Count")
+	FleetListCmd.Flags().Bool("includeInactiveRegions", false, "Include inactive regions")
 	FleetListCmd.Flags().String("name", "", "Name")
 	FleetListCmd.Flags().Int64("offset", 0, "Offset")
 	FleetListCmd.Flags().String("region", "", "Region")

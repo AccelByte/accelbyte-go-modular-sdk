@@ -11,6 +11,7 @@ import (
 
 	gametelemetry "github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclient/telemetry"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var GetEventsGameTelemetryV1AdminNamespacesNamespaceEventsGetCmd = &cobra.Comman
 	Long:  `Get events game telemetry v1 admin namespaces namespace events get`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		telemetryService := &gametelemetry.TelemetryService{
-			Client:          gametelemetry.NewGametelemetryClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: gametelemetry.NewGametelemetryHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		deviceType, _ := cmd.Flags().GetString("deviceType")

@@ -1,0 +1,96 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package ams
+
+import (
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/watchdogs"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+)
+
+// WatchdogsService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use WatchdogsService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
+type WatchdogsService struct {
+	Client  *amsclient.JusticeAmsService
+	Session repository.Session
+}
+
+var tempFlightIdWatchdogs *string
+
+func (aaa *WatchdogsService) UpdateFlightId(flightId string) {
+	tempFlightIdWatchdogs = &flightId
+}
+
+func (aaa *WatchdogsService) GetAuthSession() auth.Session {
+	return auth.Session{
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
+	}
+}
+
+func (aaa *WatchdogsService) LocalWatchdogConnectShort(input *watchdogs.LocalWatchdogConnectParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdWatchdogs != nil {
+		input.XFlightId = tempFlightIdWatchdogs
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.Watchdogs.LocalWatchdogConnectShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (aaa *WatchdogsService) WatchdogConnectShort(input *watchdogs.WatchdogConnectParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdWatchdogs != nil {
+		input.XFlightId = tempFlightIdWatchdogs
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.Watchdogs.WatchdogConnectShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

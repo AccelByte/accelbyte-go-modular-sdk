@@ -15,11 +15,8 @@ import (
 )
 
 type AdminReasonsService struct {
-	Client           *reportingclient.JusticeReportingService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *reportingclient.JusticeReportingService
+	Session repository.Session
 }
 
 var tempFlightIdAdminReasons *string
@@ -30,9 +27,9 @@ func (aaa *AdminReasonsService) UpdateFlightId(flightId string) {
 
 func (aaa *AdminReasonsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminReasonsService) AdminListReasonGroupsShort(input *admin_reasons.
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminReasons.AdminListReasonGroupsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AdminReasonsService) CreateReasonGroupShort(input *admin_reasons.Crea
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.AdminReasons.CreateReasonGroupShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AdminReasonsService) GetReasonGroupShort(input *admin_reasons.GetReas
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminReasons.GetReasonGroupShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *AdminReasonsService) DeleteReasonGroupShort(input *admin_reasons.Dele
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminReasons.DeleteReasonGroupShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *AdminReasonsService) UpdateReasonGroupShort(input *admin_reasons.Upda
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminReasons.UpdateReasonGroupShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *AdminReasonsService) AdminGetReasonsShort(input *admin_reasons.AdminG
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminReasons.AdminGetReasonsShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *AdminReasonsService) CreateReasonShort(input *admin_reasons.CreateRea
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.AdminReasons.CreateReasonShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *AdminReasonsService) AdminGetAllReasonsShort(input *admin_reasons.Adm
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminReasons.AdminGetAllReasonsShort(input, authInfoWriter)
@@ -322,8 +319,8 @@ func (aaa *AdminReasonsService) AdminGetUnusedReasonsShort(input *admin_reasons.
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminReasons.AdminGetUnusedReasonsShort(input, authInfoWriter)
@@ -356,8 +353,8 @@ func (aaa *AdminReasonsService) AdminGetReasonShort(input *admin_reasons.AdminGe
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminReasons.AdminGetReasonShort(input, authInfoWriter)
@@ -390,8 +387,8 @@ func (aaa *AdminReasonsService) DeleteReasonShort(input *admin_reasons.DeleteRea
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AdminReasons.DeleteReasonShort(input, authInfoWriter)
@@ -420,8 +417,8 @@ func (aaa *AdminReasonsService) UpdateReasonShort(input *admin_reasons.UpdateRea
 	}
 	if tempFlightIdAdminReasons != nil {
 		input.XFlightId = tempFlightIdAdminReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminReasons.UpdateReasonShort(input, authInfoWriter)

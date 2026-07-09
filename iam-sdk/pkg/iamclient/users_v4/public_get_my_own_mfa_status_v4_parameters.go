@@ -57,7 +57,8 @@ func NewPublicGetMyOwnMFAStatusV4ParamsWithHTTPClient(client *http.Client) *Publ
 	}
 }
 
-/*PublicGetMyOwnMFAStatusV4Params contains all the parameters to send to the API endpoint
+/*
+PublicGetMyOwnMFAStatusV4Params contains all the parameters to send to the API endpoint
 for the public get my own mfa status v4 operation typically these are written to a http.Request
 */
 type PublicGetMyOwnMFAStatusV4Params struct {

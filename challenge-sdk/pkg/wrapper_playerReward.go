@@ -15,11 +15,8 @@ import (
 )
 
 type PlayerRewardService struct {
-	Client           *challengeclient.JusticeChallengeService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *challengeclient.JusticeChallengeService
+	Session repository.Session
 }
 
 var tempFlightIdPlayerReward *string
@@ -30,9 +27,9 @@ func (aaa *PlayerRewardService) UpdateFlightId(flightId string) {
 
 func (aaa *PlayerRewardService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PlayerRewardService) AdminClaimUsersRewardsShort(input *player_reward
 	}
 	if tempFlightIdPlayerReward != nil {
 		input.XFlightId = tempFlightIdPlayerReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlayerReward.AdminClaimUsersRewardsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PlayerRewardService) AdminClaimUserRewardsByGoalCodeShort(input *play
 	}
 	if tempFlightIdPlayerReward != nil {
 		input.XFlightId = tempFlightIdPlayerReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlayerReward.AdminClaimUserRewardsByGoalCodeShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PlayerRewardService) AdminGetUserRewardsShort(input *player_reward.Ad
 	}
 	if tempFlightIdPlayerReward != nil {
 		input.XFlightId = tempFlightIdPlayerReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlayerReward.AdminGetUserRewardsShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PlayerRewardService) AdminClaimUserRewardsShort(input *player_reward.
 	}
 	if tempFlightIdPlayerReward != nil {
 		input.XFlightId = tempFlightIdPlayerReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlayerReward.AdminClaimUserRewardsShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *PlayerRewardService) PublicClaimUserRewardsByGoalCodeShort(input *pla
 	}
 	if tempFlightIdPlayerReward != nil {
 		input.XFlightId = tempFlightIdPlayerReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlayerReward.PublicClaimUserRewardsByGoalCodeShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *PlayerRewardService) PublicGetUserRewardsShort(input *player_reward.P
 	}
 	if tempFlightIdPlayerReward != nil {
 		input.XFlightId = tempFlightIdPlayerReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlayerReward.PublicGetUserRewardsShort(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *PlayerRewardService) PublicClaimUserRewardsShort(input *player_reward
 	}
 	if tempFlightIdPlayerReward != nil {
 		input.XFlightId = tempFlightIdPlayerReward
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlayerReward.PublicClaimUserRewardsShort(input, authInfoWriter)

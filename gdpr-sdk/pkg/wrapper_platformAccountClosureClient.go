@@ -15,11 +15,8 @@ import (
 )
 
 type PlatformAccountClosureClientService struct {
-	Client           *gdprclient.JusticeGdprService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *gdprclient.JusticeGdprService
+	Session repository.Session
 }
 
 var tempFlightIdPlatformAccountClosureClient *string
@@ -30,9 +27,9 @@ func (aaa *PlatformAccountClosureClientService) UpdateFlightId(flightId string) 
 
 func (aaa *PlatformAccountClosureClientService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PlatformAccountClosureClientService) AdminGetPlatformAccountClosureCl
 	}
 	if tempFlightIdPlatformAccountClosureClient != nil {
 		input.XFlightId = tempFlightIdPlatformAccountClosureClient
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlatformAccountClosureClient.AdminGetPlatformAccountClosureClientsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PlatformAccountClosureClientService) AdminValidateXboxBPCertFileShort
 	}
 	if tempFlightIdPlatformAccountClosureClient != nil {
 		input.XFlightId = tempFlightIdPlatformAccountClosureClient
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlatformAccountClosureClient.AdminValidateXboxBPCertFileShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PlatformAccountClosureClientService) AdminGetPlatformAccountClosureCl
 	}
 	if tempFlightIdPlatformAccountClosureClient != nil {
 		input.XFlightId = tempFlightIdPlatformAccountClosureClient
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlatformAccountClosureClient.AdminGetPlatformAccountClosureClientShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PlatformAccountClosureClientService) AdminUpdatePlatformAccountClosur
 	}
 	if tempFlightIdPlatformAccountClosureClient != nil {
 		input.XFlightId = tempFlightIdPlatformAccountClosureClient
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PlatformAccountClosureClient.AdminUpdatePlatformAccountClosureClientShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *PlatformAccountClosureClientService) AdminDeletePlatformAccountClosur
 	}
 	if tempFlightIdPlatformAccountClosureClient != nil {
 		input.XFlightId = tempFlightIdPlatformAccountClosureClient
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PlatformAccountClosureClient.AdminDeletePlatformAccountClosureClientShort(input, authInfoWriter)
@@ -216,8 +213,8 @@ func (aaa *PlatformAccountClosureClientService) AdminMockPlatformAccountClosureD
 	}
 	if tempFlightIdPlatformAccountClosureClient != nil {
 		input.XFlightId = tempFlightIdPlatformAccountClosureClient
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PlatformAccountClosureClient.AdminMockPlatformAccountClosureDataShort(input, authInfoWriter)

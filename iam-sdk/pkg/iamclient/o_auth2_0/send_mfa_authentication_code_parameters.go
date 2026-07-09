@@ -57,7 +57,8 @@ func NewSendMFAAuthenticationCodeParamsWithHTTPClient(client *http.Client) *Send
 	}
 }
 
-/*SendMFAAuthenticationCodeParams contains all the parameters to send to the API endpoint
+/*
+SendMFAAuthenticationCodeParams contains all the parameters to send to the API endpoint
 for the send mfa authentication code operation typically these are written to a http.Request
 */
 type SendMFAAuthenticationCodeParams struct {

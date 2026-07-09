@@ -15,11 +15,8 @@ import (
 )
 
 type ArtifactsService struct {
-	Client           *amsclient.JusticeAmsService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *amsclient.JusticeAmsService
+	Session repository.Session
 }
 
 var tempFlightIdArtifacts *string
@@ -30,9 +27,9 @@ func (aaa *ArtifactsService) UpdateFlightId(flightId string) {
 
 func (aaa *ArtifactsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ArtifactsService) ArtifactGetShort(input *artifacts.ArtifactGetParams
 	}
 	if tempFlightIdArtifacts != nil {
 		input.XFlightId = tempFlightIdArtifacts
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Artifacts.ArtifactGetShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ArtifactsService) ArtifactBulkDeleteShort(input *artifacts.ArtifactBu
 	}
 	if tempFlightIdArtifacts != nil {
 		input.XFlightId = tempFlightIdArtifacts
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Artifacts.ArtifactBulkDeleteShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *ArtifactsService) ArtifactUsageGetShort(input *artifacts.ArtifactUsag
 	}
 	if tempFlightIdArtifacts != nil {
 		input.XFlightId = tempFlightIdArtifacts
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Artifacts.ArtifactUsageGetShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *ArtifactsService) ArtifactDeleteShort(input *artifacts.ArtifactDelete
 	}
 	if tempFlightIdArtifacts != nil {
 		input.XFlightId = tempFlightIdArtifacts
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Artifacts.ArtifactDeleteShort(input, authInfoWriter)
@@ -182,8 +179,8 @@ func (aaa *ArtifactsService) ArtifactGetURLShort(input *artifacts.ArtifactGetURL
 	}
 	if tempFlightIdArtifacts != nil {
 		input.XFlightId = tempFlightIdArtifacts
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Artifacts.ArtifactGetURLShort(input, authInfoWriter)
@@ -216,8 +213,8 @@ func (aaa *ArtifactsService) FleetArtifactSamplingRulesGetShort(input *artifacts
 	}
 	if tempFlightIdArtifacts != nil {
 		input.XFlightId = tempFlightIdArtifacts
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Artifacts.FleetArtifactSamplingRulesGetShort(input, authInfoWriter)
@@ -250,8 +247,8 @@ func (aaa *ArtifactsService) FleetArtifactSamplingRulesSetShort(input *artifacts
 	}
 	if tempFlightIdArtifacts != nil {
 		input.XFlightId = tempFlightIdArtifacts
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Artifacts.FleetArtifactSamplingRulesSetShort(input, authInfoWriter)

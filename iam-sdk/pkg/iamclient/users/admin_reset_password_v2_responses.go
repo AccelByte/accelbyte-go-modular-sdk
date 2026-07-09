@@ -129,9 +129,10 @@ func NewAdminResetPasswordV2NoContent() *AdminResetPasswordV2NoContent {
 	return &AdminResetPasswordV2NoContent{}
 }
 
-/*AdminResetPasswordV2NoContent handles this case with default header values.
+/*
+AdminResetPasswordV2NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminResetPasswordV2NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminResetPasswordV2BadRequest() *AdminResetPasswordV2BadRequest {
 	return &AdminResetPasswordV2BadRequest{}
 }
 
-/*AdminResetPasswordV2BadRequest handles this case with default header values.
+/*
+AdminResetPasswordV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr><tr><td>10143</td><td>password not match</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10142</td><td>new password cannot be same with original</td></tr><tr><td>10143</td><td>password not match</td></tr></table>
 */
 type AdminResetPasswordV2BadRequest struct {
 }
@@ -183,9 +185,10 @@ func NewAdminResetPasswordV2Unauthorized() *AdminResetPasswordV2Unauthorized {
 	return &AdminResetPasswordV2Unauthorized{}
 }
 
-/*AdminResetPasswordV2Unauthorized handles this case with default header values.
+/*
+AdminResetPasswordV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminResetPasswordV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -237,9 +240,10 @@ func NewAdminResetPasswordV2Forbidden() *AdminResetPasswordV2Forbidden {
 	return &AdminResetPasswordV2Forbidden{}
 }
 
-/*AdminResetPasswordV2Forbidden handles this case with default header values.
+/*
+AdminResetPasswordV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminResetPasswordV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -291,9 +295,10 @@ func NewAdminResetPasswordV2NotFound() *AdminResetPasswordV2NotFound {
 	return &AdminResetPasswordV2NotFound{}
 }
 
-/*AdminResetPasswordV2NotFound handles this case with default header values.
+/*
+AdminResetPasswordV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminResetPasswordV2NotFound struct {
 }
@@ -318,9 +323,10 @@ func NewAdminResetPasswordV2InternalServerError() *AdminResetPasswordV2InternalS
 	return &AdminResetPasswordV2InternalServerError{}
 }
 
-/*AdminResetPasswordV2InternalServerError handles this case with default header values.
+/*
+AdminResetPasswordV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminResetPasswordV2InternalServerError struct {
 }

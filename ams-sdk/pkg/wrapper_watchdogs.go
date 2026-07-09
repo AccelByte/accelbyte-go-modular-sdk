@@ -15,11 +15,8 @@ import (
 )
 
 type WatchdogsService struct {
-	Client           *amsclient.JusticeAmsService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *amsclient.JusticeAmsService
+	Session repository.Session
 }
 
 var tempFlightIdWatchdogs *string
@@ -30,9 +27,9 @@ func (aaa *WatchdogsService) UpdateFlightId(flightId string) {
 
 func (aaa *WatchdogsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *WatchdogsService) LocalWatchdogConnectShort(input *watchdogs.LocalWat
 	}
 	if tempFlightIdWatchdogs != nil {
 		input.XFlightId = tempFlightIdWatchdogs
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Watchdogs.LocalWatchdogConnectShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *WatchdogsService) WatchdogConnectShort(input *watchdogs.WatchdogConne
 	}
 	if tempFlightIdWatchdogs != nil {
 		input.XFlightId = tempFlightIdWatchdogs
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Watchdogs.WatchdogConnectShort(input, authInfoWriter)

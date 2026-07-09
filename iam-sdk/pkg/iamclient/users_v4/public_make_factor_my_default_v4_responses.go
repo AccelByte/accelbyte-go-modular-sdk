@@ -144,9 +144,10 @@ func NewPublicMakeFactorMyDefaultV4NoContent() *PublicMakeFactorMyDefaultV4NoCon
 	return &PublicMakeFactorMyDefaultV4NoContent{}
 }
 
-/*PublicMakeFactorMyDefaultV4NoContent handles this case with default header values.
+/*
+PublicMakeFactorMyDefaultV4NoContent handles this case with default header values.
 
-  Default method changed
+	Default method changed
 */
 type PublicMakeFactorMyDefaultV4NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicMakeFactorMyDefaultV4BadRequest() *PublicMakeFactorMyDefaultV4BadR
 	return &PublicMakeFactorMyDefaultV4BadRequest{}
 }
 
-/*PublicMakeFactorMyDefaultV4BadRequest handles this case with default header values.
+/*
+PublicMakeFactorMyDefaultV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10189</td><td>invalid factor</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10189</td><td>invalid factor</td></tr><tr><td>10192</td><td>factor not enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type PublicMakeFactorMyDefaultV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewPublicMakeFactorMyDefaultV4Unauthorized() *PublicMakeFactorMyDefaultV4Un
 	return &PublicMakeFactorMyDefaultV4Unauthorized{}
 }
 
-/*PublicMakeFactorMyDefaultV4Unauthorized handles this case with default header values.
+/*
+PublicMakeFactorMyDefaultV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicMakeFactorMyDefaultV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewPublicMakeFactorMyDefaultV4Forbidden() *PublicMakeFactorMyDefaultV4Forbi
 	return &PublicMakeFactorMyDefaultV4Forbidden{}
 }
 
-/*PublicMakeFactorMyDefaultV4Forbidden handles this case with default header values.
+/*
+PublicMakeFactorMyDefaultV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicMakeFactorMyDefaultV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewPublicMakeFactorMyDefaultV4NotFound() *PublicMakeFactorMyDefaultV4NotFou
 	return &PublicMakeFactorMyDefaultV4NotFound{}
 }
 
-/*PublicMakeFactorMyDefaultV4NotFound handles this case with default header values.
+/*
+PublicMakeFactorMyDefaultV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicMakeFactorMyDefaultV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewPublicMakeFactorMyDefaultV4InternalServerError() *PublicMakeFactorMyDefa
 	return &PublicMakeFactorMyDefaultV4InternalServerError{}
 }
 
-/*PublicMakeFactorMyDefaultV4InternalServerError handles this case with default header values.
+/*
+PublicMakeFactorMyDefaultV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicMakeFactorMyDefaultV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

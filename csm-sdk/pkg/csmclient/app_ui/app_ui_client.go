@@ -40,8 +40,6 @@ type ClientService interface {
 
 /*
 ListAppUIShort list all app ui instances in the namespace
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APPUI [READ]`
-
 Retrieves a paginated list of App UI instances. Supports filtering by name and pagination using limit/offset.
 */
 func (a *Client) ListAppUIShort(params *ListAppUIParams, authInfo runtime.ClientAuthInfoWriter) (*ListAppUIResponse, error) {
@@ -110,8 +108,6 @@ func (a *Client) ListAppUIShort(params *ListAppUIParams, authInfo runtime.Client
 
 /*
 CreateAppUIShort create a new app ui instance
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APPUI [CREATE]`
-
 Creates a new App UI configuration. The App UI can be hosted either by AccelByte (default) or externally.
 */
 func (a *Client) CreateAppUIShort(params *CreateAppUIParams, authInfo runtime.ClientAuthInfoWriter) (*CreateAppUIResponse, error) {
@@ -187,8 +183,6 @@ func (a *Client) CreateAppUIShort(params *CreateAppUIParams, authInfo runtime.Cl
 
 /*
 DeleteAppUIShort delete an app ui instance
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APPUI [DELETE]`
-
 Permanently deletes an App UI instance and schedules cleanup of associated S3 assets.
 */
 func (a *Client) DeleteAppUIShort(params *DeleteAppUIParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteAppUIResponse, error) {
@@ -256,8 +250,6 @@ func (a *Client) DeleteAppUIShort(params *DeleteAppUIParams, authInfo runtime.Cl
 
 /*
 UploadAppUIFileShort upload app ui assets as a zip file
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APPUI [UPDATE]`
-
 Uploads a ZIP archive containing App UI static assets (HTML, CSS, JS, etc.). Files are stored in S3 and served with immutable caching.
 */
 func (a *Client) UploadAppUIFileShort(params *UploadAppUIFileParams, authInfo runtime.ClientAuthInfoWriter) (*UploadAppUIFileResponse, error) {

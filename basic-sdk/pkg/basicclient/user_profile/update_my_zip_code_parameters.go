@@ -59,7 +59,8 @@ func NewUpdateMyZipCodeParamsWithHTTPClient(client *http.Client) *UpdateMyZipCod
 	}
 }
 
-/*UpdateMyZipCodeParams contains all the parameters to send to the API endpoint
+/*
+UpdateMyZipCodeParams contains all the parameters to send to the API endpoint
 for the update my zip code operation typically these are written to a http.Request
 */
 type UpdateMyZipCodeParams struct {

@@ -9,6 +9,7 @@ package gameProfile
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/game_profile"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var PublicGetProfileAttributeCmd = &cobra.Command{
 	Long:  `Public get profile attribute`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		gameProfileService := &social.GameProfileService{
-			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: social.NewSocialHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		attributeName, _ := cmd.Flags().GetString("attributeName")
 		namespace, _ := cmd.Flags().GetString("namespace")

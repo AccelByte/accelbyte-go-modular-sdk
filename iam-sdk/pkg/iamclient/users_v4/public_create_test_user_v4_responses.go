@@ -130,9 +130,10 @@ func NewPublicCreateTestUserV4Created() *PublicCreateTestUserV4Created {
 	return &PublicCreateTestUserV4Created{}
 }
 
-/*PublicCreateTestUserV4Created handles this case with default header values.
+/*
+PublicCreateTestUserV4Created handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicCreateTestUserV4Created struct {
 	Payload *iamclientmodels.AccountCreateUserResponseV4
@@ -184,9 +185,10 @@ func NewPublicCreateTestUserV4BadRequest() *PublicCreateTestUserV4BadRequest {
 	return &PublicCreateTestUserV4BadRequest{}
 }
 
-/*PublicCreateTestUserV4BadRequest handles this case with default header values.
+/*
+PublicCreateTestUserV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
 */
 type PublicCreateTestUserV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewPublicCreateTestUserV4NotFound() *PublicCreateTestUserV4NotFound {
 	return &PublicCreateTestUserV4NotFound{}
 }
 
-/*PublicCreateTestUserV4NotFound handles this case with default header values.
+/*
+PublicCreateTestUserV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
 */
 type PublicCreateTestUserV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewPublicCreateTestUserV4Conflict() *PublicCreateTestUserV4Conflict {
 	return &PublicCreateTestUserV4Conflict{}
 }
 
-/*PublicCreateTestUserV4Conflict handles this case with default header values.
+/*
+PublicCreateTestUserV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10177</td><td>username already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10177</td><td>username already used</td></tr></table>
 */
 type PublicCreateTestUserV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewPublicCreateTestUserV4InternalServerError() *PublicCreateTestUserV4Inter
 	return &PublicCreateTestUserV4InternalServerError{}
 }
 
-/*PublicCreateTestUserV4InternalServerError handles this case with default header values.
+/*
+PublicCreateTestUserV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicCreateTestUserV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

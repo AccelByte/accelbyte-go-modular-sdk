@@ -9,6 +9,7 @@ package maxActive
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	session "github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk/pkg/sessionclient/max_active"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var AdminGetMemberActiveSessionCmd = &cobra.Command{
 	Long:  `Admin get member active session`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		maxActiveService := &session.MaxActiveService{
-			Client:          session.NewSessionClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: session.NewSessionHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		name, _ := cmd.Flags().GetString("name")
 		namespace, _ := cmd.Flags().GetString("namespace")

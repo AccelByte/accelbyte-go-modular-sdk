@@ -58,7 +58,8 @@ func NewPublicSearchUserV3ParamsWithHTTPClient(client *http.Client) *PublicSearc
 	}
 }
 
-/*PublicSearchUserV3Params contains all the parameters to send to the API endpoint
+/*
+PublicSearchUserV3Params contains all the parameters to send to the API endpoint
 for the public search user v3 operation typically these are written to a http.Request
 */
 type PublicSearchUserV3Params struct {

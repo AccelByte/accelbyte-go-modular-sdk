@@ -15,11 +15,8 @@ import (
 )
 
 type FriendsService struct {
-	Client           *lobbyclient.JusticeLobbyService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *lobbyclient.JusticeLobbyService
+	Session repository.Session
 }
 
 var tempFlightIdFriends *string
@@ -30,9 +27,9 @@ func (aaa *FriendsService) UpdateFlightId(flightId string) {
 
 func (aaa *FriendsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *FriendsService) GetUserFriendsUpdatedShort(input *friends.GetUserFrie
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.GetUserFriendsUpdatedShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *FriendsService) GetUserIncomingFriendsShort(input *friends.GetUserInc
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.GetUserIncomingFriendsShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *FriendsService) GetUserIncomingFriendsWithTimeShort(input *friends.Ge
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.GetUserIncomingFriendsWithTimeShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *FriendsService) GetUserOutgoingFriendsShort(input *friends.GetUserOut
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.GetUserOutgoingFriendsShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *FriendsService) GetUserOutgoingFriendsWithTimeShort(input *friends.Ge
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.GetUserOutgoingFriendsWithTimeShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *FriendsService) GetUserFriendsWithPlatformShort(input *friends.GetUse
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.GetUserFriendsWithPlatformShort(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *FriendsService) UserRequestFriendShort(input *friends.UserRequestFrie
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Friends.UserRequestFriendShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *FriendsService) UserAcceptFriendRequestShort(input *friends.UserAccep
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Friends.UserAcceptFriendRequestShort(input, authInfoWriter)
@@ -318,8 +315,8 @@ func (aaa *FriendsService) UserCancelFriendRequestShort(input *friends.UserCance
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Friends.UserCancelFriendRequestShort(input, authInfoWriter)
@@ -348,8 +345,8 @@ func (aaa *FriendsService) UserRejectFriendRequestShort(input *friends.UserRejec
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Friends.UserRejectFriendRequestShort(input, authInfoWriter)
@@ -378,8 +375,8 @@ func (aaa *FriendsService) UserGetFriendshipStatusShort(input *friends.UserGetFr
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.UserGetFriendshipStatusShort(input, authInfoWriter)
@@ -412,8 +409,8 @@ func (aaa *FriendsService) UserUnfriendRequestShort(input *friends.UserUnfriendR
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Friends.UserUnfriendRequestShort(input, authInfoWriter)
@@ -442,8 +439,8 @@ func (aaa *FriendsService) AddFriendsWithoutConfirmationShort(input *friends.Add
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Friends.AddFriendsWithoutConfirmationShort(input, authInfoWriter)
@@ -472,8 +469,8 @@ func (aaa *FriendsService) BulkDeleteFriendsShort(input *friends.BulkDeleteFrien
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.BulkDeleteFriendsShort(input, authInfoWriter)
@@ -506,8 +503,8 @@ func (aaa *FriendsService) SyncNativeFriendsShort(input *friends.SyncNativeFrien
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.SyncNativeFriendsShort(input, authInfoWriter)
@@ -540,8 +537,8 @@ func (aaa *FriendsService) GetListOfFriendsShort(input *friends.GetListOfFriends
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.GetListOfFriendsShort(input, authInfoWriter)
@@ -574,8 +571,8 @@ func (aaa *FriendsService) GetIncomingFriendRequestsShort(input *friends.GetInco
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.GetIncomingFriendRequestsShort(input, authInfoWriter)
@@ -608,8 +605,8 @@ func (aaa *FriendsService) AdminListFriendsOfFriendsShort(input *friends.AdminLi
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.AdminListFriendsOfFriendsShort(input, authInfoWriter)
@@ -642,8 +639,8 @@ func (aaa *FriendsService) GetOutgoingFriendRequestsShort(input *friends.GetOutg
 	}
 	if tempFlightIdFriends != nil {
 		input.XFlightId = tempFlightIdFriends
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Friends.GetOutgoingFriendRequestsShort(input, authInfoWriter)

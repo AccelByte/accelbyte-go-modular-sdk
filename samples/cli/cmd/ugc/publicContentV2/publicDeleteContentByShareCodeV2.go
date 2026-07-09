@@ -9,6 +9,7 @@ package publicContentV2
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_content_v2"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var PublicDeleteContentByShareCodeV2Cmd = &cobra.Command{
 	Long:  `Public delete content by share code V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		publicContentV2Service := &ugc.PublicContentV2Service{
-			Client:          ugc.NewUgcClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ugc.NewUgcHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		channelId, _ := cmd.Flags().GetString("channelId")
 		namespace, _ := cmd.Flags().GetString("namespace")

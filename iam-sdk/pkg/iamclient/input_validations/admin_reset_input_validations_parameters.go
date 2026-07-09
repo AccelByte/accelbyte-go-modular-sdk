@@ -57,7 +57,8 @@ func NewAdminResetInputValidationsParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminResetInputValidationsParams contains all the parameters to send to the API endpoint
+/*
+AdminResetInputValidationsParams contains all the parameters to send to the API endpoint
 for the admin reset input validations operation typically these are written to a http.Request
 */
 type AdminResetInputValidationsParams struct {

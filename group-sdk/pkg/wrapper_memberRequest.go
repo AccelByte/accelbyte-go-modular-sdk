@@ -15,11 +15,8 @@ import (
 )
 
 type MemberRequestService struct {
-	Client           *groupclient.JusticeGroupService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *groupclient.JusticeGroupService
+	Session repository.Session
 }
 
 var tempFlightIdMemberRequest *string
@@ -30,9 +27,9 @@ func (aaa *MemberRequestService) UpdateFlightId(flightId string) {
 
 func (aaa *MemberRequestService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *MemberRequestService) GetGroupJoinRequestPublicV1Short(input *member_
 	}
 	if tempFlightIdMemberRequest != nil {
 		input.XFlightId = tempFlightIdMemberRequest
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MemberRequest.GetGroupJoinRequestPublicV1Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *MemberRequestService) GetGroupInvitationRequestPublicV1Short(input *m
 	}
 	if tempFlightIdMemberRequest != nil {
 		input.XFlightId = tempFlightIdMemberRequest
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MemberRequest.GetGroupInvitationRequestPublicV1Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *MemberRequestService) GetGroupInviteRequestPublicV2Short(input *membe
 	}
 	if tempFlightIdMemberRequest != nil {
 		input.XFlightId = tempFlightIdMemberRequest
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MemberRequest.GetGroupInviteRequestPublicV2Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *MemberRequestService) GetGroupJoinRequestPublicV2Short(input *member_
 	}
 	if tempFlightIdMemberRequest != nil {
 		input.XFlightId = tempFlightIdMemberRequest
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MemberRequest.GetGroupJoinRequestPublicV2Short(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *MemberRequestService) GetMyGroupJoinRequestV2Short(input *member_requ
 	}
 	if tempFlightIdMemberRequest != nil {
 		input.XFlightId = tempFlightIdMemberRequest
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MemberRequest.GetMyGroupJoinRequestV2Short(input, authInfoWriter)

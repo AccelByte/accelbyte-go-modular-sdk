@@ -145,9 +145,10 @@ func NewPublicSearchUserV3OK() *PublicSearchUserV3OK {
 	return &PublicSearchUserV3OK{}
 }
 
-/*PublicSearchUserV3OK handles this case with default header values.
+/*
+PublicSearchUserV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicSearchUserV3OK struct {
 	Payload *iamclientmodels.ModelPublicUserInformationResponseV3
@@ -199,9 +200,10 @@ func NewPublicSearchUserV3BadRequest() *PublicSearchUserV3BadRequest {
 	return &PublicSearchUserV3BadRequest{}
 }
 
-/*PublicSearchUserV3BadRequest handles this case with default header values.
+/*
+PublicSearchUserV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicSearchUserV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewPublicSearchUserV3Unauthorized() *PublicSearchUserV3Unauthorized {
 	return &PublicSearchUserV3Unauthorized{}
 }
 
-/*PublicSearchUserV3Unauthorized handles this case with default header values.
+/*
+PublicSearchUserV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicSearchUserV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewPublicSearchUserV3NotFound() *PublicSearchUserV3NotFound {
 	return &PublicSearchUserV3NotFound{}
 }
 
-/*PublicSearchUserV3NotFound handles this case with default header values.
+/*
+PublicSearchUserV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicSearchUserV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewPublicSearchUserV3TooManyRequests() *PublicSearchUserV3TooManyRequests {
 	return &PublicSearchUserV3TooManyRequests{}
 }
 
-/*PublicSearchUserV3TooManyRequests handles this case with default header values.
+/*
+PublicSearchUserV3TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type PublicSearchUserV3TooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewPublicSearchUserV3InternalServerError() *PublicSearchUserV3InternalServe
 	return &PublicSearchUserV3InternalServerError{}
 }
 
-/*PublicSearchUserV3InternalServerError handles this case with default header values.
+/*
+PublicSearchUserV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicSearchUserV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

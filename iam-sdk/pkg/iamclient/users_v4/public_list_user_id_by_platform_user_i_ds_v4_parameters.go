@@ -72,7 +72,8 @@ func NewPublicListUserIDByPlatformUserIDsV4ParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*PublicListUserIDByPlatformUserIDsV4Params contains all the parameters to send to the API endpoint
+/*
+PublicListUserIDByPlatformUserIDsV4Params contains all the parameters to send to the API endpoint
 for the public list user id by platform user i ds v4 operation typically these are written to a http.Request
 */
 type PublicListUserIDByPlatformUserIDsV4Params struct {

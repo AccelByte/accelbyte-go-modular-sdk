@@ -59,7 +59,8 @@ func NewAdminPlatformUnlinkV3ParamsWithHTTPClient(client *http.Client) *AdminPla
 	}
 }
 
-/*AdminPlatformUnlinkV3Params contains all the parameters to send to the API endpoint
+/*
+AdminPlatformUnlinkV3Params contains all the parameters to send to the API endpoint
 for the admin platform unlink v3 operation typically these are written to a http.Request
 */
 type AdminPlatformUnlinkV3Params struct {

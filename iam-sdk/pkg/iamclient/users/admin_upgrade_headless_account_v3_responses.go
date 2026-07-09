@@ -160,9 +160,10 @@ func NewAdminUpgradeHeadlessAccountV3OK() *AdminUpgradeHeadlessAccountV3OK {
 	return &AdminUpgradeHeadlessAccountV3OK{}
 }
 
-/*AdminUpgradeHeadlessAccountV3OK handles this case with default header values.
+/*
+AdminUpgradeHeadlessAccountV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpgradeHeadlessAccountV3OK struct {
 	Payload *iamclientmodels.ModelUserResponseV3
@@ -214,9 +215,10 @@ func NewAdminUpgradeHeadlessAccountV3BadRequest() *AdminUpgradeHeadlessAccountV3
 	return &AdminUpgradeHeadlessAccountV3BadRequest{}
 }
 
-/*AdminUpgradeHeadlessAccountV3BadRequest handles this case with default header values.
+/*
+AdminUpgradeHeadlessAccountV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
 */
 type AdminUpgradeHeadlessAccountV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -268,9 +270,10 @@ func NewAdminUpgradeHeadlessAccountV3Unauthorized() *AdminUpgradeHeadlessAccount
 	return &AdminUpgradeHeadlessAccountV3Unauthorized{}
 }
 
-/*AdminUpgradeHeadlessAccountV3Unauthorized handles this case with default header values.
+/*
+AdminUpgradeHeadlessAccountV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpgradeHeadlessAccountV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,9 +325,10 @@ func NewAdminUpgradeHeadlessAccountV3Forbidden() *AdminUpgradeHeadlessAccountV3F
 	return &AdminUpgradeHeadlessAccountV3Forbidden{}
 }
 
-/*AdminUpgradeHeadlessAccountV3Forbidden handles this case with default header values.
+/*
+AdminUpgradeHeadlessAccountV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
 */
 type AdminUpgradeHeadlessAccountV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -376,9 +380,10 @@ func NewAdminUpgradeHeadlessAccountV3NotFound() *AdminUpgradeHeadlessAccountV3No
 	return &AdminUpgradeHeadlessAccountV3NotFound{}
 }
 
-/*AdminUpgradeHeadlessAccountV3NotFound handles this case with default header values.
+/*
+AdminUpgradeHeadlessAccountV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
 */
 type AdminUpgradeHeadlessAccountV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -430,9 +435,10 @@ func NewAdminUpgradeHeadlessAccountV3Conflict() *AdminUpgradeHeadlessAccountV3Co
 	return &AdminUpgradeHeadlessAccountV3Conflict{}
 }
 
-/*AdminUpgradeHeadlessAccountV3Conflict handles this case with default header values.
+/*
+AdminUpgradeHeadlessAccountV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
 */
 type AdminUpgradeHeadlessAccountV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -484,9 +490,10 @@ func NewAdminUpgradeHeadlessAccountV3InternalServerError() *AdminUpgradeHeadless
 	return &AdminUpgradeHeadlessAccountV3InternalServerError{}
 }
 
-/*AdminUpgradeHeadlessAccountV3InternalServerError handles this case with default header values.
+/*
+AdminUpgradeHeadlessAccountV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminUpgradeHeadlessAccountV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

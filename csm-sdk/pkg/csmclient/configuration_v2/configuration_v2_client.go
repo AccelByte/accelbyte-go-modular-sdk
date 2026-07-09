@@ -44,8 +44,6 @@ type ClientService interface {
 
 /*
 GetListOfSecretsV2Short get list of environment secrets
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SECRET [READ]`
-
 Get list of environment secrets per app
 Available Deployment Status:
 `deployed` = app config is already deployed
@@ -138,8 +136,6 @@ func (a *Client) GetListOfSecretsV2Short(params *GetListOfSecretsV2Params, authI
 
 /*
 SaveSecretV2Short save an environment secret
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SECRET [CREATE]`
-
 Save an environment secret.
 Secret will always be masked.
 Request body:
@@ -228,8 +224,6 @@ func (a *Client) SaveSecretV2Short(params *SaveSecretV2Params, authInfo runtime.
 
 /*
 UpdateSecretV2Short update an environment secret
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SECRET [UPDATE]`
-
 Update an environment secret.
 Secret will always be masked.
 Request body:
@@ -316,8 +310,6 @@ func (a *Client) UpdateSecretV2Short(params *UpdateSecretV2Params, authInfo runt
 
 /*
 DeleteSecretV2Short delete an environment secret
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:SECRET [DELETE]`
-
 Delete an environment secret by its config id
 */
 func (a *Client) DeleteSecretV2Short(params *DeleteSecretV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteSecretV2Response, error) {
@@ -399,8 +391,6 @@ func (a *Client) DeleteSecretV2Short(params *DeleteSecretV2Params, authInfo runt
 
 /*
 GetListOfVariablesV2Short get list of environment variables
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:VARIABLE [READ]`
-
 Get list of environment variables per app
 Available Deployment Status:
 `deployed` = app config is already deployed
@@ -493,8 +483,6 @@ func (a *Client) GetListOfVariablesV2Short(params *GetListOfVariablesV2Params, a
 
 /*
 SaveVariableV2Short save an environment variable
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:VARIABLE [CREATE]`
-
 Save an environment variable.
 Request body:
 - configName : environment variable name - Required.
@@ -583,8 +571,6 @@ func (a *Client) SaveVariableV2Short(params *SaveVariableV2Params, authInfo runt
 
 /*
 UpdateVariableV2Short update an environment variable
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:VARIABLE [UPDATE]`
-
 Update an environment variable.
 Request body:
 - value : configuration value - Required.
@@ -671,8 +657,6 @@ func (a *Client) UpdateVariableV2Short(params *UpdateVariableV2Params, authInfo 
 
 /*
 DeleteVariableV2Short delete an environment variable
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:VARIABLE [DELETE]`
-
 Delete an environment variable by its config id
 */
 func (a *Client) DeleteVariableV2Short(params *DeleteVariableV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteVariableV2Response, error) {

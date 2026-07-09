@@ -15,11 +15,8 @@ import (
 )
 
 type ChallengeConfigurationService struct {
-	Client           *challengeclient.JusticeChallengeService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *challengeclient.JusticeChallengeService
+	Session repository.Session
 }
 
 var tempFlightIdChallengeConfiguration *string
@@ -30,9 +27,9 @@ func (aaa *ChallengeConfigurationService) UpdateFlightId(flightId string) {
 
 func (aaa *ChallengeConfigurationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ChallengeConfigurationService) AdminGetChallengesShort(input *challen
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeConfiguration.AdminGetChallengesShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ChallengeConfigurationService) AdminCreateChallengeShort(input *chall
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.ChallengeConfiguration.AdminCreateChallengeShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ChallengeConfigurationService) AdminGetActiveChallengesShort(input *c
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeConfiguration.AdminGetActiveChallengesShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *ChallengeConfigurationService) AdminGetChallengeShort(input *challeng
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeConfiguration.AdminGetChallengeShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *ChallengeConfigurationService) AdminUpdateChallengeShort(input *chall
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeConfiguration.AdminUpdateChallengeShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *ChallengeConfigurationService) AdminDeleteChallengeShort(input *chall
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ChallengeConfiguration.AdminDeleteChallengeShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *ChallengeConfigurationService) AdminGetPeriodsShort(input *challenge_
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeConfiguration.AdminGetPeriodsShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *ChallengeConfigurationService) AdminRandomizeChallengeShort(input *ch
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeConfiguration.AdminRandomizeChallengeShort(input, authInfoWriter)
@@ -322,8 +319,8 @@ func (aaa *ChallengeConfigurationService) AdminDeleteTiedChallengeShort(input *c
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ChallengeConfiguration.AdminDeleteTiedChallengeShort(input, authInfoWriter)
@@ -352,8 +349,8 @@ func (aaa *ChallengeConfigurationService) AdminUpdateTiedChallengeScheduleShort(
 	}
 	if tempFlightIdChallengeConfiguration != nil {
 		input.XFlightId = tempFlightIdChallengeConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeConfiguration.AdminUpdateTiedChallengeScheduleShort(input, authInfoWriter)

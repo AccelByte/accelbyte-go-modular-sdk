@@ -115,9 +115,10 @@ func NewPublicGetUsersPlatformInfosV3OK() *PublicGetUsersPlatformInfosV3OK {
 	return &PublicGetUsersPlatformInfosV3OK{}
 }
 
-/*PublicGetUsersPlatformInfosV3OK handles this case with default header values.
+/*
+PublicGetUsersPlatformInfosV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetUsersPlatformInfosV3OK struct {
 	Payload *iamclientmodels.ModelUsersPlatformInfosResponse
@@ -169,9 +170,10 @@ func NewPublicGetUsersPlatformInfosV3BadRequest() *PublicGetUsersPlatformInfosV3
 	return &PublicGetUsersPlatformInfosV3BadRequest{}
 }
 
-/*PublicGetUsersPlatformInfosV3BadRequest handles this case with default header values.
+/*
+PublicGetUsersPlatformInfosV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetUsersPlatformInfosV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewPublicGetUsersPlatformInfosV3Unauthorized() *PublicGetUsersPlatformInfos
 	return &PublicGetUsersPlatformInfosV3Unauthorized{}
 }
 
-/*PublicGetUsersPlatformInfosV3Unauthorized handles this case with default header values.
+/*
+PublicGetUsersPlatformInfosV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicGetUsersPlatformInfosV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewPublicGetUsersPlatformInfosV3InternalServerError() *PublicGetUsersPlatfo
 	return &PublicGetUsersPlatformInfosV3InternalServerError{}
 }
 
-/*PublicGetUsersPlatformInfosV3InternalServerError handles this case with default header values.
+/*
+PublicGetUsersPlatformInfosV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetUsersPlatformInfosV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

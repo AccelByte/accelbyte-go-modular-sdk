@@ -130,9 +130,10 @@ func NewAdminGetUserMFAStatusV4OK() *AdminGetUserMFAStatusV4OK {
 	return &AdminGetUserMFAStatusV4OK{}
 }
 
-/*AdminGetUserMFAStatusV4OK handles this case with default header values.
+/*
+AdminGetUserMFAStatusV4OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserMFAStatusV4OK struct {
 	Payload *iamclientmodels.ModelUserMFAStatusResponseV4
@@ -184,9 +185,10 @@ func NewAdminGetUserMFAStatusV4Unauthorized() *AdminGetUserMFAStatusV4Unauthoriz
 	return &AdminGetUserMFAStatusV4Unauthorized{}
 }
 
-/*AdminGetUserMFAStatusV4Unauthorized handles this case with default header values.
+/*
+AdminGetUserMFAStatusV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserMFAStatusV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminGetUserMFAStatusV4Forbidden() *AdminGetUserMFAStatusV4Forbidden {
 	return &AdminGetUserMFAStatusV4Forbidden{}
 }
 
-/*AdminGetUserMFAStatusV4Forbidden handles this case with default header values.
+/*
+AdminGetUserMFAStatusV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserMFAStatusV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetUserMFAStatusV4NotFound() *AdminGetUserMFAStatusV4NotFound {
 	return &AdminGetUserMFAStatusV4NotFound{}
 }
 
-/*AdminGetUserMFAStatusV4NotFound handles this case with default header values.
+/*
+AdminGetUserMFAStatusV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminGetUserMFAStatusV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetUserMFAStatusV4InternalServerError() *AdminGetUserMFAStatusV4Int
 	return &AdminGetUserMFAStatusV4InternalServerError{}
 }
 
-/*AdminGetUserMFAStatusV4InternalServerError handles this case with default header values.
+/*
+AdminGetUserMFAStatusV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetUserMFAStatusV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

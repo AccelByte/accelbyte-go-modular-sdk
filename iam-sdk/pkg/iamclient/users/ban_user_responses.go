@@ -130,9 +130,10 @@ func NewBanUserCreated() *BanUserCreated {
 	return &BanUserCreated{}
 }
 
-/*BanUserCreated handles this case with default header values.
+/*
+BanUserCreated handles this case with default header values.
 
-  Created
+	Created
 */
 type BanUserCreated struct {
 	Payload *iamclientmodels.ModelUserBanResponse
@@ -184,9 +185,10 @@ func NewBanUserBadRequest() *BanUserBadRequest {
 	return &BanUserBadRequest{}
 }
 
-/*BanUserBadRequest handles this case with default header values.
+/*
+BanUserBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type BanUserBadRequest struct {
 }
@@ -211,9 +213,10 @@ func NewBanUserUnauthorized() *BanUserUnauthorized {
 	return &BanUserUnauthorized{}
 }
 
-/*BanUserUnauthorized handles this case with default header values.
+/*
+BanUserUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type BanUserUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -265,9 +268,10 @@ func NewBanUserForbidden() *BanUserForbidden {
 	return &BanUserForbidden{}
 }
 
-/*BanUserForbidden handles this case with default header values.
+/*
+BanUserForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type BanUserForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -319,9 +323,10 @@ func NewBanUserNotFound() *BanUserNotFound {
 	return &BanUserNotFound{}
 }
 
-/*BanUserNotFound handles this case with default header values.
+/*
+BanUserNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10158</td><td>ban not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10158</td><td>ban not found</td></tr></table>
 */
 type BanUserNotFound struct {
 }
@@ -346,9 +351,10 @@ func NewBanUserInternalServerError() *BanUserInternalServerError {
 	return &BanUserInternalServerError{}
 }
 
-/*BanUserInternalServerError handles this case with default header values.
+/*
+BanUserInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type BanUserInternalServerError struct {
 }

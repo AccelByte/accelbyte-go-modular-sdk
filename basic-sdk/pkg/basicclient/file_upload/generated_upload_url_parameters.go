@@ -57,7 +57,8 @@ func NewGeneratedUploadURLParamsWithHTTPClient(client *http.Client) *GeneratedUp
 	}
 }
 
-/*GeneratedUploadURLParams contains all the parameters to send to the API endpoint
+/*
+GeneratedUploadURLParams contains all the parameters to send to the API endpoint
 for the generated upload url operation typically these are written to a http.Request
 */
 type GeneratedUploadURLParams struct {

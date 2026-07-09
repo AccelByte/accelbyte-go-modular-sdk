@@ -130,9 +130,10 @@ func NewCreateConfigCreated() *CreateConfigCreated {
 	return &CreateConfigCreated{}
 }
 
-/*CreateConfigCreated handles this case with default header values.
+/*
+CreateConfigCreated handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type CreateConfigCreated struct {
 	Payload *basicclientmodels.ConfigInfo
@@ -184,9 +185,10 @@ func NewCreateConfigBadRequest() *CreateConfigBadRequest {
 	return &CreateConfigBadRequest{}
 }
 
-/*CreateConfigBadRequest handles this case with default header values.
+/*
+CreateConfigBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type CreateConfigBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -238,9 +240,10 @@ func NewCreateConfigUnauthorized() *CreateConfigUnauthorized {
 	return &CreateConfigUnauthorized{}
 }
 
-/*CreateConfigUnauthorized handles this case with default header values.
+/*
+CreateConfigUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type CreateConfigUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewCreateConfigForbidden() *CreateConfigForbidden {
 	return &CreateConfigForbidden{}
 }
 
-/*CreateConfigForbidden handles this case with default header values.
+/*
+CreateConfigForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type CreateConfigForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewCreateConfigConflict() *CreateConfigConflict {
 	return &CreateConfigConflict{}
 }
 
-/*CreateConfigConflict handles this case with default header values.
+/*
+CreateConfigConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11771</td><td>Unable to {action}: Config already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11771</td><td>Unable to {action}: Config already exists</td></tr></table>
 */
 type CreateConfigConflict struct {
 	Payload *basicclientmodels.ErrorEntity

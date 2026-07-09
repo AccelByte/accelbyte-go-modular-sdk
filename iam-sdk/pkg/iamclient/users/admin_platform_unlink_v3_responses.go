@@ -144,9 +144,10 @@ func NewAdminPlatformUnlinkV3NoContent() *AdminPlatformUnlinkV3NoContent {
 	return &AdminPlatformUnlinkV3NoContent{}
 }
 
-/*AdminPlatformUnlinkV3NoContent handles this case with default header values.
+/*
+AdminPlatformUnlinkV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminPlatformUnlinkV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminPlatformUnlinkV3BadRequest() *AdminPlatformUnlinkV3BadRequest {
 	return &AdminPlatformUnlinkV3BadRequest{}
 }
 
-/*AdminPlatformUnlinkV3BadRequest handles this case with default header values.
+/*
+AdminPlatformUnlinkV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminPlatformUnlinkV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminPlatformUnlinkV3Unauthorized() *AdminPlatformUnlinkV3Unauthorized {
 	return &AdminPlatformUnlinkV3Unauthorized{}
 }
 
-/*AdminPlatformUnlinkV3Unauthorized handles this case with default header values.
+/*
+AdminPlatformUnlinkV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPlatformUnlinkV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminPlatformUnlinkV3Forbidden() *AdminPlatformUnlinkV3Forbidden {
 	return &AdminPlatformUnlinkV3Forbidden{}
 }
 
-/*AdminPlatformUnlinkV3Forbidden handles this case with default header values.
+/*
+AdminPlatformUnlinkV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminPlatformUnlinkV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminPlatformUnlinkV3NotFound() *AdminPlatformUnlinkV3NotFound {
 	return &AdminPlatformUnlinkV3NotFound{}
 }
 
-/*AdminPlatformUnlinkV3NotFound handles this case with default header values.
+/*
+AdminPlatformUnlinkV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminPlatformUnlinkV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminPlatformUnlinkV3InternalServerError() *AdminPlatformUnlinkV3Interna
 	return &AdminPlatformUnlinkV3InternalServerError{}
 }
 
-/*AdminPlatformUnlinkV3InternalServerError handles this case with default header values.
+/*
+AdminPlatformUnlinkV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminPlatformUnlinkV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

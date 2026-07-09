@@ -134,9 +134,10 @@ func NewAdminCreateUserRolesV2NoContent() *AdminCreateUserRolesV2NoContent {
 	return &AdminCreateUserRolesV2NoContent{}
 }
 
-/*AdminCreateUserRolesV2NoContent handles this case with default header values.
+/*
+AdminCreateUserRolesV2NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminCreateUserRolesV2NoContent struct {
 }
@@ -161,9 +162,10 @@ func NewAdminCreateUserRolesV2BadRequest() *AdminCreateUserRolesV2BadRequest {
 	return &AdminCreateUserRolesV2BadRequest{}
 }
 
-/*AdminCreateUserRolesV2BadRequest handles this case with default header values.
+/*
+AdminCreateUserRolesV2BadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type AdminCreateUserRolesV2BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -215,9 +217,10 @@ func NewAdminCreateUserRolesV2Unauthorized() *AdminCreateUserRolesV2Unauthorized
 	return &AdminCreateUserRolesV2Unauthorized{}
 }
 
-/*AdminCreateUserRolesV2Unauthorized handles this case with default header values.
+/*
+AdminCreateUserRolesV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCreateUserRolesV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -269,9 +272,10 @@ func NewAdminCreateUserRolesV2Forbidden() *AdminCreateUserRolesV2Forbidden {
 	return &AdminCreateUserRolesV2Forbidden{}
 }
 
-/*AdminCreateUserRolesV2Forbidden handles this case with default header values.
+/*
+AdminCreateUserRolesV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminCreateUserRolesV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -323,9 +327,10 @@ func NewAdminCreateUserRolesV2NotFound() *AdminCreateUserRolesV2NotFound {
 	return &AdminCreateUserRolesV2NotFound{}
 }
 
-/*AdminCreateUserRolesV2NotFound handles this case with default header values.
+/*
+AdminCreateUserRolesV2NotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type AdminCreateUserRolesV2NotFound struct {
 }
@@ -350,9 +355,10 @@ func NewAdminCreateUserRolesV2Conflict() *AdminCreateUserRolesV2Conflict {
 	return &AdminCreateUserRolesV2Conflict{}
 }
 
-/*AdminCreateUserRolesV2Conflict handles this case with default header values.
+/*
+AdminCreateUserRolesV2Conflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type AdminCreateUserRolesV2Conflict struct {
 }

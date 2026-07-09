@@ -15,11 +15,8 @@ import (
 )
 
 type PlatformAchievementService struct {
-	Client           *achievementclient.JusticeAchievementService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *achievementclient.JusticeAchievementService
+	Session repository.Session
 }
 
 var tempFlightIdPlatformAchievement *string
@@ -30,9 +27,9 @@ func (aaa *PlatformAchievementService) UpdateFlightId(flightId string) {
 
 func (aaa *PlatformAchievementService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PlatformAchievementService) BulkCreatePSNEventShort(input *platform_a
 	}
 	if tempFlightIdPlatformAchievement != nil {
 		input.XFlightId = tempFlightIdPlatformAchievement
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PlatformAchievement.BulkCreatePSNEventShort(input, authInfoWriter)

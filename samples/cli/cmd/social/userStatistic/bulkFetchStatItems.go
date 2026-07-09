@@ -9,6 +9,7 @@ package userStatistic
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/user_statistic"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var BulkFetchStatItemsCmd = &cobra.Command{
 	Long:  `Bulk fetch stat items`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userStatisticService := &social.UserStatisticService{
-			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: social.NewSocialHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		statCode, _ := cmd.Flags().GetString("statCode")

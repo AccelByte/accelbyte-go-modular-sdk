@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	sessionhistory "github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclient/x_ray"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk/pkg/sessionhistoryclientmodels"
@@ -24,8 +25,10 @@ var CreateXrayBulkTicketObservabilityCmd = &cobra.Command{
 	Long:  `Create xray bulk ticket observability`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		xRayService := &sessionhistory.XRayService{
-			Client:          sessionhistory.NewSessionhistoryClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: sessionhistory.NewSessionhistoryHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *sessionhistoryclientmodels.ApimodelsXRayBulkTicketObservabilityRequest

@@ -97,7 +97,7 @@ func (aaa *OAuthService) GetJWKSShort(input *o_auth.GetJWKSParams) (*o_auth.GetJ
 	return ok, nil
 }
 
-func (aaa *OAuthService) PlatformTokenRequestHandlerShort(input *o_auth.PlatformTokenRequestHandlerParams) (*o_auth.PlatformTokenRequestHandlerResponse, error) {
+func (aaa *OAuthService) NamespaceScopedPlatformTokenGrantShort(input *o_auth.NamespaceScopedPlatformTokenGrantParams) (*o_auth.NamespaceScopedPlatformTokenGrantResponse, error) {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -119,7 +119,7 @@ func (aaa *OAuthService) PlatformTokenRequestHandlerShort(input *o_auth.Platform
 		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
-	ok, err := aaa.Client.OAuth.PlatformTokenRequestHandlerShort(input, authInfoWriter)
+	ok, err := aaa.Client.OAuth.NamespaceScopedPlatformTokenGrantShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

@@ -15,11 +15,8 @@ import (
 )
 
 type PaymentCallbackConfigService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdPaymentCallbackConfig *string
@@ -30,9 +27,9 @@ func (aaa *PaymentCallbackConfigService) UpdateFlightId(flightId string) {
 
 func (aaa *PaymentCallbackConfigService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PaymentCallbackConfigService) GetPaymentCallbackConfigShort(input *pa
 	}
 	if tempFlightIdPaymentCallbackConfig != nil {
 		input.XFlightId = tempFlightIdPaymentCallbackConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentCallbackConfig.GetPaymentCallbackConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PaymentCallbackConfigService) UpdatePaymentCallbackConfigShort(input 
 	}
 	if tempFlightIdPaymentCallbackConfig != nil {
 		input.XFlightId = tempFlightIdPaymentCallbackConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentCallbackConfig.UpdatePaymentCallbackConfigShort(input, authInfoWriter)

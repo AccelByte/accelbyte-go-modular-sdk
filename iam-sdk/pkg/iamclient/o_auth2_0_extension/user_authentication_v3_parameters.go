@@ -58,7 +58,8 @@ func NewUserAuthenticationV3ParamsWithHTTPClient(client *http.Client) *UserAuthe
 	}
 }
 
-/*UserAuthenticationV3Params contains all the parameters to send to the API endpoint
+/*
+UserAuthenticationV3Params contains all the parameters to send to the API endpoint
 for the user authentication v3 operation typically these are written to a http.Request
 */
 type UserAuthenticationV3Params struct {

@@ -59,7 +59,8 @@ func NewCreateMyProfileParamsWithHTTPClient(client *http.Client) *CreateMyProfil
 	}
 }
 
-/*CreateMyProfileParams contains all the parameters to send to the API endpoint
+/*
+CreateMyProfileParams contains all the parameters to send to the API endpoint
 for the create my profile operation typically these are written to a http.Request
 */
 type CreateMyProfileParams struct {

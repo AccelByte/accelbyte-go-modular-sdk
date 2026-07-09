@@ -15,11 +15,8 @@ import (
 )
 
 type EligibilitiesService struct {
-	Client           *legalclient.JusticeLegalService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *legalclient.JusticeLegalService
+	Session repository.Session
 }
 
 var tempFlightIdEligibilities *string
@@ -30,9 +27,9 @@ func (aaa *EligibilitiesService) UpdateFlightId(flightId string) {
 
 func (aaa *EligibilitiesService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *EligibilitiesService) RetrieveEligibilitiesPublicShort(input *eligibi
 	}
 	if tempFlightIdEligibilities != nil {
 		input.XFlightId = tempFlightIdEligibilities
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Eligibilities.RetrieveEligibilitiesPublicShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *EligibilitiesService) RetrieveEligibilitiesPublicIndirectShort(input 
 	}
 	if tempFlightIdEligibilities != nil {
 		input.XFlightId = tempFlightIdEligibilities
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Eligibilities.RetrieveEligibilitiesPublicIndirectShort(input, authInfoWriter)

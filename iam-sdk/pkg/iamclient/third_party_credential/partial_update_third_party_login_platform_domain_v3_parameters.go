@@ -59,7 +59,8 @@ func NewPartialUpdateThirdPartyLoginPlatformDomainV3ParamsWithHTTPClient(client 
 	}
 }
 
-/*PartialUpdateThirdPartyLoginPlatformDomainV3Params contains all the parameters to send to the API endpoint
+/*
+PartialUpdateThirdPartyLoginPlatformDomainV3Params contains all the parameters to send to the API endpoint
 for the partial update third party login platform domain v3 operation typically these are written to a http.Request
 */
 type PartialUpdateThirdPartyLoginPlatformDomainV3Params struct {

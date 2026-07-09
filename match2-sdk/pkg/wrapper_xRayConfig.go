@@ -15,11 +15,8 @@ import (
 )
 
 type XRayConfigService struct {
-	Client           *match2client.JusticeMatch2Service
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *match2client.JusticeMatch2Service
+	Session repository.Session
 }
 
 var tempFlightIdXRayConfig *string
@@ -30,9 +27,9 @@ func (aaa *XRayConfigService) UpdateFlightId(flightId string) {
 
 func (aaa *XRayConfigService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *XRayConfigService) AdminGetXRayConfigShort(input *x_ray_config.AdminG
 	}
 	if tempFlightIdXRayConfig != nil {
 		input.XFlightId = tempFlightIdXRayConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.XRayConfig.AdminGetXRayConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *XRayConfigService) AdminUpdateXRayConfigShort(input *x_ray_config.Adm
 	}
 	if tempFlightIdXRayConfig != nil {
 		input.XFlightId = tempFlightIdXRayConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.XRayConfig.AdminUpdateXRayConfigShort(input, authInfoWriter)

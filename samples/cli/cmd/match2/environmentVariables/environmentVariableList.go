@@ -11,6 +11,7 @@ import (
 
 	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/environment_variables"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var EnvironmentVariableListCmd = &cobra.Command{
 	Long:  `Environment variable list`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		environmentVariablesService := &match2.EnvironmentVariablesService{
-			Client:          match2.NewMatch2Client(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: match2.NewMatch2HttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		input := &environment_variables.EnvironmentVariableListParams{}
 		ok, errOK := environmentVariablesService.EnvironmentVariableListShort(input)

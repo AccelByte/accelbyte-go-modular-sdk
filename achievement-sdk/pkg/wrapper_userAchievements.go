@@ -15,11 +15,8 @@ import (
 )
 
 type UserAchievementsService struct {
-	Client           *achievementclient.JusticeAchievementService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *achievementclient.JusticeAchievementService
+	Session repository.Session
 }
 
 var tempFlightIdUserAchievements *string
@@ -30,9 +27,9 @@ func (aaa *UserAchievementsService) UpdateFlightId(flightId string) {
 
 func (aaa *UserAchievementsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *UserAchievementsService) AdminListUserAchievementsShort(input *user_a
 	}
 	if tempFlightIdUserAchievements != nil {
 		input.XFlightId = tempFlightIdUserAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserAchievements.AdminListUserAchievementsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *UserAchievementsService) AdminBatchQueryUserAchievementsShort(input *
 	}
 	if tempFlightIdUserAchievements != nil {
 		input.XFlightId = tempFlightIdUserAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserAchievements.AdminBatchQueryUserAchievementsShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *UserAchievementsService) AdminBulkUnlockAchievementShort(input *user_
 	}
 	if tempFlightIdUserAchievements != nil {
 		input.XFlightId = tempFlightIdUserAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserAchievements.AdminBulkUnlockAchievementShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *UserAchievementsService) AdminResetAchievementShort(input *user_achie
 	}
 	if tempFlightIdUserAchievements != nil {
 		input.XFlightId = tempFlightIdUserAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UserAchievements.AdminResetAchievementShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *UserAchievementsService) AdminUnlockAchievementShort(input *user_achi
 	}
 	if tempFlightIdUserAchievements != nil {
 		input.XFlightId = tempFlightIdUserAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UserAchievements.AdminUnlockAchievementShort(input, authInfoWriter)
@@ -216,8 +213,8 @@ func (aaa *UserAchievementsService) PublicListUserAchievementsShort(input *user_
 	}
 	if tempFlightIdUserAchievements != nil {
 		input.XFlightId = tempFlightIdUserAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserAchievements.PublicListUserAchievementsShort(input, authInfoWriter)
@@ -250,8 +247,8 @@ func (aaa *UserAchievementsService) PublicBulkUnlockAchievementShort(input *user
 	}
 	if tempFlightIdUserAchievements != nil {
 		input.XFlightId = tempFlightIdUserAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserAchievements.PublicBulkUnlockAchievementShort(input, authInfoWriter)
@@ -284,8 +281,8 @@ func (aaa *UserAchievementsService) PublicUnlockAchievementShort(input *user_ach
 	}
 	if tempFlightIdUserAchievements != nil {
 		input.XFlightId = tempFlightIdUserAchievements
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.UserAchievements.PublicUnlockAchievementShort(input, authInfoWriter)

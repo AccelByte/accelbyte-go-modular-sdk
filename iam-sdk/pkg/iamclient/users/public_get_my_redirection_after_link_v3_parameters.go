@@ -57,7 +57,8 @@ func NewPublicGetMyRedirectionAfterLinkV3ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*PublicGetMyRedirectionAfterLinkV3Params contains all the parameters to send to the API endpoint
+/*
+PublicGetMyRedirectionAfterLinkV3Params contains all the parameters to send to the API endpoint
 for the public get my redirection after link v3 operation typically these are written to a http.Request
 */
 type PublicGetMyRedirectionAfterLinkV3Params struct {

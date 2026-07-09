@@ -59,7 +59,8 @@ func NewPublicValidateUserInputParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicValidateUserInputParams contains all the parameters to send to the API endpoint
+/*
+PublicValidateUserInputParams contains all the parameters to send to the API endpoint
 for the public validate user input operation typically these are written to a http.Request
 */
 type PublicValidateUserInputParams struct {

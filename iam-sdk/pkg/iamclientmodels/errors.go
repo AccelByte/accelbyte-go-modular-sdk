@@ -81,6 +81,7 @@ var (
 	Error10237   = ApiError{Code: "10237", Message: "display name not allowed to update"}
 	Error10238   = ApiError{Code: "10238", Message: "country not allowed to update"}
 	Error10240   = ApiError{Code: "10240", Message: "namespace is not game namespace"}
+	Error10249   = ApiError{Code: "10249", Message: "platform re-authentication failed"}
 	Error10364   = ApiError{Code: "10364", Message: "client exists"}
 	Error10365   = ApiError{Code: "10365", Message: "client not found"}
 	Error10456   = ApiError{Code: "10456", Message: "role not found"}

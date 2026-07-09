@@ -46,8 +46,6 @@ type ClientService interface {
 
 /*
 GetAppListV2Short get list of extend apps on a given game namespace
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
-
 Get list of extend apps on a given game namespace
 */
 func (a *Client) GetAppListV2Short(params *GetAppListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetAppListV2Response, error) {
@@ -137,14 +135,12 @@ func (a *Client) GetAppListV2Short(params *GetAppListV2Params, authInfo runtime.
 
 /*
 GetAppV2Short get extend app by name
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [READ]`
-
-# Get extend app by name
+Get extend app by name
 
 Available scenario:
-- scenario 3: `event-handler`
 - scenario 1: `function-override`
 - scenario 2: `service-extension`
+- scenario 3: `event-handler`
 
 Available app status:
 - `app-creating`
@@ -244,14 +240,14 @@ func (a *Client) GetAppV2Short(params *GetAppV2Params, authInfo runtime.ClientAu
 
 /*
 CreateAppV2Short create new extend app
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [CREATE]`
+[Deprecated] Please use v5 endpoint instead.
 
 Create new extend app with name provided by {app} path parameter and specified scenario type
 
 Available scenario:
-- scenario 3: `event-handler`
 - scenario 1: `function-override`
 - scenario 2: `service-extension`
+- scenario 3: `event-handler`
 
 Available app status:
 - `app-creating`
@@ -365,8 +361,6 @@ func (a *Client) CreateAppV2Short(params *CreateAppV2Params, authInfo runtime.Cl
 
 /*
 DeleteAppV2Short delete extend app by name
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [DELETE]`
-
 Delete extend app by given {app} name
 
 This endpoint will delete app information, configuration, deployments and all related manifest from
@@ -458,9 +452,7 @@ func (a *Client) DeleteAppV2Short(params *DeleteAppV2Params, authInfo runtime.Cl
 
 /*
 UpdateAppV2Short update app info
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
-
-Update app info provided on request body
+Update app info provided on request body%!(EXTRA string=ADMIN:NAMESPACE:{namespace}:EXTEND:APP, string=UPDATE)
 */
 func (a *Client) UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppV2Response, error) {
 	// TODO: Validate the params before sending
@@ -549,8 +541,6 @@ func (a *Client) UpdateAppV2Short(params *UpdateAppV2Params, authInfo runtime.Cl
 
 /*
 ApplyAppConfigV2Short declaratively create or update an extend app from a spec
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP []`
-
 Idempotent endpoint that creates or updates an Extend app from a declarative spec.
 Uses three-way merge semantics (kubectl apply) for variables, secrets, and permissions.
 
@@ -651,8 +641,6 @@ func (a *Client) ApplyAppConfigV2Short(params *ApplyAppConfigV2Params, authInfo 
 
 /*
 UpdateAppResourcesV2Short update app info
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
-
 Update app resources provided on request body
 */
 func (a *Client) UpdateAppResourcesV2Short(params *UpdateAppResourcesV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesV2Response, error) {
@@ -742,8 +730,6 @@ func (a *Client) UpdateAppResourcesV2Short(params *UpdateAppResourcesV2Params, a
 
 /*
 UpdateAppResourcesResourceLimitFormV2Short request resource limit to be increased
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
-
 Update app resources provided on request body
 */
 func (a *Client) UpdateAppResourcesResourceLimitFormV2Short(params *UpdateAppResourcesResourceLimitFormV2Params, authInfo runtime.ClientAuthInfoWriter) (*UpdateAppResourcesResourceLimitFormV2Response, error) {
@@ -832,8 +818,6 @@ func (a *Client) UpdateAppResourcesResourceLimitFormV2Short(params *UpdateAppRes
 
 /*
 StartAppV2Short starts the application
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
-
 Starts the Application
 */
 func (a *Client) StartAppV2Short(params *StartAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StartAppV2Response, error) {
@@ -922,8 +906,6 @@ func (a *Client) StartAppV2Short(params *StartAppV2Params, authInfo runtime.Clie
 
 /*
 StopAppV2Short stops the application
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:APP [UPDATE]`
-
 Stops the Application
 */
 func (a *Client) StopAppV2Short(params *StopAppV2Params, authInfo runtime.ClientAuthInfoWriter) (*StopAppV2Response, error) {

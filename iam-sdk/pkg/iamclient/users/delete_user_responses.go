@@ -109,9 +109,10 @@ func NewDeleteUserNoContent() *DeleteUserNoContent {
 	return &DeleteUserNoContent{}
 }
 
-/*DeleteUserNoContent handles this case with default header values.
+/*
+DeleteUserNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type DeleteUserNoContent struct {
 }
@@ -136,9 +137,10 @@ func NewDeleteUserUnauthorized() *DeleteUserUnauthorized {
 	return &DeleteUserUnauthorized{}
 }
 
-/*DeleteUserUnauthorized handles this case with default header values.
+/*
+DeleteUserUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DeleteUserUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -190,9 +192,10 @@ func NewDeleteUserForbidden() *DeleteUserForbidden {
 	return &DeleteUserForbidden{}
 }
 
-/*DeleteUserForbidden handles this case with default header values.
+/*
+DeleteUserForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type DeleteUserForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -244,9 +247,10 @@ func NewDeleteUserNotFound() *DeleteUserNotFound {
 	return &DeleteUserNotFound{}
 }
 
-/*DeleteUserNotFound handles this case with default header values.
+/*
+DeleteUserNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type DeleteUserNotFound struct {
 }

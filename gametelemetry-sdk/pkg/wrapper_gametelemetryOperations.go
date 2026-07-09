@@ -16,11 +16,8 @@ import (
 )
 
 type GametelemetryOperationsService struct {
-	Client           *gametelemetryclient.JusticeGametelemetryService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *gametelemetryclient.JusticeGametelemetryService
+	Session repository.Session
 }
 
 var tempFlightIdGametelemetryOperations *string
@@ -31,9 +28,9 @@ func (aaa *GametelemetryOperationsService) UpdateFlightId(flightId string) {
 
 func (aaa *GametelemetryOperationsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -56,8 +53,8 @@ func (aaa *GametelemetryOperationsService) ProtectedSaveEventsGameTelemetryV1Pro
 	}
 	if tempFlightIdGametelemetryOperations != nil {
 		input.XFlightId = tempFlightIdGametelemetryOperations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.GametelemetryOperations.ProtectedSaveEventsGameTelemetryV1ProtectedEventsPostShort(input, authInfoWriter)
@@ -87,8 +84,8 @@ func (aaa *GametelemetryOperationsService) ProtectedGetPlaytimeGameTelemetryV1Pr
 	}
 	if tempFlightIdGametelemetryOperations != nil {
 		input.XFlightId = tempFlightIdGametelemetryOperations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GametelemetryOperations.ProtectedGetPlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimeGetShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *GametelemetryOperationsService) ProtectedUpdatePlaytimeGameTelemetryV
 	}
 	if tempFlightIdGametelemetryOperations != nil {
 		input.XFlightId = tempFlightIdGametelemetryOperations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GametelemetryOperations.ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIDPlaytimePlaytimePutShort(input, authInfoWriter)

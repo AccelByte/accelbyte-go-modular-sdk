@@ -57,7 +57,8 @@ func NewAdminGetUserLinkHistoriesV3ParamsWithHTTPClient(client *http.Client) *Ad
 	}
 }
 
-/*AdminGetUserLinkHistoriesV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetUserLinkHistoriesV3Params contains all the parameters to send to the API endpoint
 for the admin get user link histories v3 operation typically these are written to a http.Request
 */
 type AdminGetUserLinkHistoriesV3Params struct {

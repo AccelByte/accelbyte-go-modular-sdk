@@ -1,0 +1,66 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package match2
+
+import (
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/environment_variables"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+)
+
+// EnvironmentVariablesService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use EnvironmentVariablesService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
+type EnvironmentVariablesService struct {
+	Client  *match2client.JusticeMatch2Service
+	Session repository.Session
+}
+
+var tempFlightIdEnvironmentVariables *string
+
+func (aaa *EnvironmentVariablesService) UpdateFlightId(flightId string) {
+	tempFlightIdEnvironmentVariables = &flightId
+}
+
+func (aaa *EnvironmentVariablesService) GetAuthSession() auth.Session {
+	return auth.Session{
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
+	}
+}
+
+func (aaa *EnvironmentVariablesService) EnvironmentVariableListShort(input *environment_variables.EnvironmentVariableListParams) (*environment_variables.EnvironmentVariableListResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdEnvironmentVariables != nil {
+		input.XFlightId = tempFlightIdEnvironmentVariables
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.EnvironmentVariables.EnvironmentVariableListShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}

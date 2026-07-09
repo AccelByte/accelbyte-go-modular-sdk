@@ -57,7 +57,8 @@ func NewAdminGetCountryBlacklistV3ParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminGetCountryBlacklistV3Params contains all the parameters to send to the API endpoint
+/*
+AdminGetCountryBlacklistV3Params contains all the parameters to send to the API endpoint
 for the admin get country blacklist v3 operation typically these are written to a http.Request
 */
 type AdminGetCountryBlacklistV3Params struct {

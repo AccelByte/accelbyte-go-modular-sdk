@@ -57,7 +57,8 @@ func NewPublicGetNamespaceScopedInputValidationByFieldParamsWithHTTPClient(clien
 	}
 }
 
-/*PublicGetNamespaceScopedInputValidationByFieldParams contains all the parameters to send to the API endpoint
+/*
+PublicGetNamespaceScopedInputValidationByFieldParams contains all the parameters to send to the API endpoint
 for the public get namespace scoped input validation by field operation typically these are written to a http.Request
 */
 type PublicGetNamespaceScopedInputValidationByFieldParams struct {

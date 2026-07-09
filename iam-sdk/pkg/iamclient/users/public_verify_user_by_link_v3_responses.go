@@ -68,9 +68,10 @@ func NewPublicVerifyUserByLinkV3Found() *PublicVerifyUserByLinkV3Found {
 	return &PublicVerifyUserByLinkV3Found{}
 }
 
-/*PublicVerifyUserByLinkV3Found handles this case with default header values.
+/*
+PublicVerifyUserByLinkV3Found handles this case with default header values.
 
-  Found. Redirected to verification finish page.
+	Found. Redirected to verification finish page.
 */
 type PublicVerifyUserByLinkV3Found struct {
 	Location string

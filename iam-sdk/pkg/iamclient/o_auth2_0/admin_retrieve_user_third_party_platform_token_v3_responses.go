@@ -115,9 +115,10 @@ func NewAdminRetrieveUserThirdPartyPlatformTokenV3OK() *AdminRetrieveUserThirdPa
 	return &AdminRetrieveUserThirdPartyPlatformTokenV3OK{}
 }
 
-/*AdminRetrieveUserThirdPartyPlatformTokenV3OK handles this case with default header values.
+/*
+AdminRetrieveUserThirdPartyPlatformTokenV3OK handles this case with default header values.
 
-  Token returned
+	Token returned
 */
 type AdminRetrieveUserThirdPartyPlatformTokenV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenThirdPartyResponse
@@ -169,9 +170,10 @@ func NewAdminRetrieveUserThirdPartyPlatformTokenV3Unauthorized() *AdminRetrieveU
 	return &AdminRetrieveUserThirdPartyPlatformTokenV3Unauthorized{}
 }
 
-/*AdminRetrieveUserThirdPartyPlatformTokenV3Unauthorized handles this case with default header values.
+/*
+AdminRetrieveUserThirdPartyPlatformTokenV3Unauthorized handles this case with default header values.
 
-  Client authentication failed
+	Client authentication failed
 */
 type AdminRetrieveUserThirdPartyPlatformTokenV3Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -223,9 +225,10 @@ func NewAdminRetrieveUserThirdPartyPlatformTokenV3Forbidden() *AdminRetrieveUser
 	return &AdminRetrieveUserThirdPartyPlatformTokenV3Forbidden{}
 }
 
-/*AdminRetrieveUserThirdPartyPlatformTokenV3Forbidden handles this case with default header values.
+/*
+AdminRetrieveUserThirdPartyPlatformTokenV3Forbidden handles this case with default header values.
 
-  Unauthorized access
+	Unauthorized access
 */
 type AdminRetrieveUserThirdPartyPlatformTokenV3Forbidden struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -277,9 +280,10 @@ func NewAdminRetrieveUserThirdPartyPlatformTokenV3NotFound() *AdminRetrieveUserT
 	return &AdminRetrieveUserThirdPartyPlatformTokenV3NotFound{}
 }
 
-/*AdminRetrieveUserThirdPartyPlatformTokenV3NotFound handles this case with default header values.
+/*
+AdminRetrieveUserThirdPartyPlatformTokenV3NotFound handles this case with default header values.
 
-  Platform Token Not Found
+	Platform Token Not Found
 */
 type AdminRetrieveUserThirdPartyPlatformTokenV3NotFound struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

@@ -59,7 +59,8 @@ func NewRemoveRoleMembersParamsWithHTTPClient(client *http.Client) *RemoveRoleMe
 	}
 }
 
-/*RemoveRoleMembersParams contains all the parameters to send to the API endpoint
+/*
+RemoveRoleMembersParams contains all the parameters to send to the API endpoint
 for the remove role members operation typically these are written to a http.Request
 */
 type RemoveRoleMembersParams struct {

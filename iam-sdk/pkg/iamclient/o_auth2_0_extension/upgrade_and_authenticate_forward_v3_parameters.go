@@ -57,7 +57,8 @@ func NewUpgradeAndAuthenticateForwardV3ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*UpgradeAndAuthenticateForwardV3Params contains all the parameters to send to the API endpoint
+/*
+UpgradeAndAuthenticateForwardV3Params contains all the parameters to send to the API endpoint
 for the upgrade and authenticate forward v3 operation typically these are written to a http.Request
 */
 type UpgradeAndAuthenticateForwardV3Params struct {

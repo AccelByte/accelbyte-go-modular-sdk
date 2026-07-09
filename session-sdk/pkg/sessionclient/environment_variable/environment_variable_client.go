@@ -37,7 +37,7 @@ type ClientService interface {
 
 /*
 AdminListEnvironmentVariablesShort list of environment variables.
-List of environment variables.
+Returns all environment variables currently set for the session service. Useful for debugging configuration and verifying runtime settings.
 */
 func (a *Client) AdminListEnvironmentVariablesShort(params *AdminListEnvironmentVariablesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminListEnvironmentVariablesResponse, error) {
 	// TODO: Validate the params before sending

@@ -159,9 +159,10 @@ func NewAdminVerifyUserWithoutVerificationCodeV3NoContent() *AdminVerifyUserWith
 	return &AdminVerifyUserWithoutVerificationCodeV3NoContent{}
 }
 
-/*AdminVerifyUserWithoutVerificationCodeV3NoContent handles this case with default header values.
+/*
+AdminVerifyUserWithoutVerificationCodeV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminVerifyUserWithoutVerificationCodeV3NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewAdminVerifyUserWithoutVerificationCodeV3BadRequest() *AdminVerifyUserWit
 	return &AdminVerifyUserWithoutVerificationCodeV3BadRequest{}
 }
 
-/*AdminVerifyUserWithoutVerificationCodeV3BadRequest handles this case with default header values.
+/*
+AdminVerifyUserWithoutVerificationCodeV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminVerifyUserWithoutVerificationCodeV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewAdminVerifyUserWithoutVerificationCodeV3Unauthorized() *AdminVerifyUserW
 	return &AdminVerifyUserWithoutVerificationCodeV3Unauthorized{}
 }
 
-/*AdminVerifyUserWithoutVerificationCodeV3Unauthorized handles this case with default header values.
+/*
+AdminVerifyUserWithoutVerificationCodeV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminVerifyUserWithoutVerificationCodeV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewAdminVerifyUserWithoutVerificationCodeV3Forbidden() *AdminVerifyUserWith
 	return &AdminVerifyUserWithoutVerificationCodeV3Forbidden{}
 }
 
-/*AdminVerifyUserWithoutVerificationCodeV3Forbidden handles this case with default header values.
+/*
+AdminVerifyUserWithoutVerificationCodeV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminVerifyUserWithoutVerificationCodeV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewAdminVerifyUserWithoutVerificationCodeV3NotFound() *AdminVerifyUserWitho
 	return &AdminVerifyUserWithoutVerificationCodeV3NotFound{}
 }
 
-/*AdminVerifyUserWithoutVerificationCodeV3NotFound handles this case with default header values.
+/*
+AdminVerifyUserWithoutVerificationCodeV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminVerifyUserWithoutVerificationCodeV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewAdminVerifyUserWithoutVerificationCodeV3Conflict() *AdminVerifyUserWitho
 	return &AdminVerifyUserWithoutVerificationCodeV3Conflict{}
 }
 
-/*AdminVerifyUserWithoutVerificationCodeV3Conflict handles this case with default header values.
+/*
+AdminVerifyUserWithoutVerificationCodeV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10140</td><td>user verified</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10140</td><td>user verified</td></tr></table>
 */
 type AdminVerifyUserWithoutVerificationCodeV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewAdminVerifyUserWithoutVerificationCodeV3InternalServerError() *AdminVeri
 	return &AdminVerifyUserWithoutVerificationCodeV3InternalServerError{}
 }
 
-/*AdminVerifyUserWithoutVerificationCodeV3InternalServerError handles this case with default header values.
+/*
+AdminVerifyUserWithoutVerificationCodeV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminVerifyUserWithoutVerificationCodeV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

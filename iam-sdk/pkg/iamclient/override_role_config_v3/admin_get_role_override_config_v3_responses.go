@@ -115,9 +115,10 @@ func NewAdminGetRoleOverrideConfigV3OK() *AdminGetRoleOverrideConfigV3OK {
 	return &AdminGetRoleOverrideConfigV3OK{}
 }
 
-/*AdminGetRoleOverrideConfigV3OK handles this case with default header values.
+/*
+AdminGetRoleOverrideConfigV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetRoleOverrideConfigV3OK struct {
 	Payload *iamclientmodels.ModelRoleOverrideResponse
@@ -169,9 +170,10 @@ func NewAdminGetRoleOverrideConfigV3Unauthorized() *AdminGetRoleOverrideConfigV3
 	return &AdminGetRoleOverrideConfigV3Unauthorized{}
 }
 
-/*AdminGetRoleOverrideConfigV3Unauthorized handles this case with default header values.
+/*
+AdminGetRoleOverrideConfigV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetRoleOverrideConfigV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetRoleOverrideConfigV3Forbidden() *AdminGetRoleOverrideConfigV3For
 	return &AdminGetRoleOverrideConfigV3Forbidden{}
 }
 
-/*AdminGetRoleOverrideConfigV3Forbidden handles this case with default header values.
+/*
+AdminGetRoleOverrideConfigV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetRoleOverrideConfigV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetRoleOverrideConfigV3InternalServerError() *AdminGetRoleOverrideC
 	return &AdminGetRoleOverrideConfigV3InternalServerError{}
 }
 
-/*AdminGetRoleOverrideConfigV3InternalServerError handles this case with default header values.
+/*
+AdminGetRoleOverrideConfigV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetRoleOverrideConfigV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

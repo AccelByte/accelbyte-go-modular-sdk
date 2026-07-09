@@ -59,7 +59,8 @@ func NewAdminRemoveUserRoleV4ParamsWithHTTPClient(client *http.Client) *AdminRem
 	}
 }
 
-/*AdminRemoveUserRoleV4Params contains all the parameters to send to the API endpoint
+/*
+AdminRemoveUserRoleV4Params contains all the parameters to send to the API endpoint
 for the admin remove user role v4 operation typically these are written to a http.Request
 */
 type AdminRemoveUserRoleV4Params struct {

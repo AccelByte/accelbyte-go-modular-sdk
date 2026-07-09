@@ -15,11 +15,8 @@ import (
 )
 
 type DataRetrievalS2SService struct {
-	Client           *gdprclient.JusticeGdprService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *gdprclient.JusticeGdprService
+	Session repository.Session
 }
 
 var tempFlightIdDataRetrievalS2S *string
@@ -30,9 +27,9 @@ func (aaa *DataRetrievalS2SService) UpdateFlightId(flightId string) {
 
 func (aaa *DataRetrievalS2SService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *DataRetrievalS2SService) S2SGetListFinishedPersonalDataRequestShort(i
 	}
 	if tempFlightIdDataRetrievalS2S != nil {
 		input.XFlightId = tempFlightIdDataRetrievalS2S
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DataRetrievalS2s.S2SGetListFinishedPersonalDataRequestShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *DataRetrievalS2SService) S2SGetDataRequestByRequestIDShort(input *dat
 	}
 	if tempFlightIdDataRetrievalS2S != nil {
 		input.XFlightId = tempFlightIdDataRetrievalS2S
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DataRetrievalS2s.S2SGetDataRequestByRequestIDShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *DataRetrievalS2SService) S2SRequestDataRetrievalShort(input *data_ret
 	}
 	if tempFlightIdDataRetrievalS2S != nil {
 		input.XFlightId = tempFlightIdDataRetrievalS2S
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.DataRetrievalS2s.S2SRequestDataRetrievalShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *DataRetrievalS2SService) S2SGeneratePersonalDataURLShort(input *data_
 	}
 	if tempFlightIdDataRetrievalS2S != nil {
 		input.XFlightId = tempFlightIdDataRetrievalS2S
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DataRetrievalS2s.S2SGeneratePersonalDataURLShort(input, authInfoWriter)

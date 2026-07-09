@@ -1,0 +1,156 @@
+// Copyright (c) 2021 AccelByte Inc. All Rights Reserved.
+// This is licensed software from AccelByte Inc, for limitations
+// and restrictions contact your company contract manager.
+
+// Code generated. DO NOT EDIT.
+
+package ugc
+
+import (
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/utils/auth"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient"
+	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/public_staging_content"
+)
+
+// PublicStagingContentService this is use for compatibility with latest modular sdk only
+// Deprecated: 2023-03-30 - please use PublicStagingContentService imported from "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
+type PublicStagingContentService struct {
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
+}
+
+var tempFlightIdPublicStagingContent *string
+
+func (aaa *PublicStagingContentService) UpdateFlightId(flightId string) {
+	tempFlightIdPublicStagingContent = &flightId
+}
+
+func (aaa *PublicStagingContentService) GetAuthSession() auth.Session {
+	return auth.Session{
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
+	}
+}
+
+func (aaa *PublicStagingContentService) ListUserStagingContentsShort(input *public_staging_content.ListUserStagingContentsParams) (*public_staging_content.ListUserStagingContentsResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPublicStagingContent != nil {
+		input.XFlightId = tempFlightIdPublicStagingContent
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.PublicStagingContent.ListUserStagingContentsShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
+func (aaa *PublicStagingContentService) GetUserStagingContentByIDShort(input *public_staging_content.GetUserStagingContentByIDParams) (*public_staging_content.GetUserStagingContentByIDResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPublicStagingContent != nil {
+		input.XFlightId = tempFlightIdPublicStagingContent
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.PublicStagingContent.GetUserStagingContentByIDShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
+func (aaa *PublicStagingContentService) UpdateStagingContentShort(input *public_staging_content.UpdateStagingContentParams) (*public_staging_content.UpdateStagingContentResponse, error) {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPublicStagingContent != nil {
+		input.XFlightId = tempFlightIdPublicStagingContent
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	ok, err := aaa.Client.PublicStagingContent.UpdateStagingContentShort(input, authInfoWriter)
+	if err != nil {
+		return nil, err
+	}
+
+	return ok, nil
+}
+
+func (aaa *PublicStagingContentService) DeleteUserStagingContentByIDShort(input *public_staging_content.DeleteUserStagingContentByIDParams) error {
+	authInfoWriter := input.AuthInfoWriter
+	if authInfoWriter == nil {
+		security := [][]string{
+			{"bearer"},
+		}
+		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
+	}
+	if input.RetryPolicy == nil {
+		input.RetryPolicy = &utils.Retry{
+			MaxTries:   utils.MaxTries,
+			Backoff:    utils.NewConstantBackoff(0),
+			Transport:  aaa.Client.Runtime.Transport,
+			RetryCodes: utils.RetryCodes,
+		}
+	}
+	if tempFlightIdPublicStagingContent != nil {
+		input.XFlightId = tempFlightIdPublicStagingContent
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
+	}
+
+	_, err := aaa.Client.PublicStagingContent.DeleteUserStagingContentByIDShort(input, authInfoWriter)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}

@@ -130,9 +130,10 @@ func NewAdminChangeRoleOverrideConfigStatusV3OK() *AdminChangeRoleOverrideConfig
 	return &AdminChangeRoleOverrideConfigStatusV3OK{}
 }
 
-/*AdminChangeRoleOverrideConfigStatusV3OK handles this case with default header values.
+/*
+AdminChangeRoleOverrideConfigStatusV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminChangeRoleOverrideConfigStatusV3OK struct {
 	Payload *iamclientmodels.ModelRoleOverrideResponse
@@ -184,9 +185,10 @@ func NewAdminChangeRoleOverrideConfigStatusV3BadRequest() *AdminChangeRoleOverri
 	return &AdminChangeRoleOverrideConfigStatusV3BadRequest{}
 }
 
-/*AdminChangeRoleOverrideConfigStatusV3BadRequest handles this case with default header values.
+/*
+AdminChangeRoleOverrideConfigStatusV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminChangeRoleOverrideConfigStatusV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminChangeRoleOverrideConfigStatusV3Unauthorized() *AdminChangeRoleOver
 	return &AdminChangeRoleOverrideConfigStatusV3Unauthorized{}
 }
 
-/*AdminChangeRoleOverrideConfigStatusV3Unauthorized handles this case with default header values.
+/*
+AdminChangeRoleOverrideConfigStatusV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminChangeRoleOverrideConfigStatusV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminChangeRoleOverrideConfigStatusV3Forbidden() *AdminChangeRoleOverrid
 	return &AdminChangeRoleOverrideConfigStatusV3Forbidden{}
 }
 
-/*AdminChangeRoleOverrideConfigStatusV3Forbidden handles this case with default header values.
+/*
+AdminChangeRoleOverrideConfigStatusV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminChangeRoleOverrideConfigStatusV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminChangeRoleOverrideConfigStatusV3InternalServerError() *AdminChangeR
 	return &AdminChangeRoleOverrideConfigStatusV3InternalServerError{}
 }
 
-/*AdminChangeRoleOverrideConfigStatusV3InternalServerError handles this case with default header values.
+/*
+AdminChangeRoleOverrideConfigStatusV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminChangeRoleOverrideConfigStatusV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

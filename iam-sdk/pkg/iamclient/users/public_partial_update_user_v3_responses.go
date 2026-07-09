@@ -145,9 +145,10 @@ func NewPublicPartialUpdateUserV3OK() *PublicPartialUpdateUserV3OK {
 	return &PublicPartialUpdateUserV3OK{}
 }
 
-/*PublicPartialUpdateUserV3OK handles this case with default header values.
+/*
+PublicPartialUpdateUserV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicPartialUpdateUserV3OK struct {
 	Payload *iamclientmodels.ModelUserResponseV3
@@ -199,9 +200,10 @@ func NewPublicPartialUpdateUserV3BadRequest() *PublicPartialUpdateUserV3BadReque
 	return &PublicPartialUpdateUserV3BadRequest{}
 }
 
-/*PublicPartialUpdateUserV3BadRequest handles this case with default header values.
+/*
+PublicPartialUpdateUserV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10154</td><td>country not found</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
 */
 type PublicPartialUpdateUserV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewPublicPartialUpdateUserV3Unauthorized() *PublicPartialUpdateUserV3Unauth
 	return &PublicPartialUpdateUserV3Unauthorized{}
 }
 
-/*PublicPartialUpdateUserV3Unauthorized handles this case with default header values.
+/*
+PublicPartialUpdateUserV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicPartialUpdateUserV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewPublicPartialUpdateUserV3Forbidden() *PublicPartialUpdateUserV3Forbidden
 	return &PublicPartialUpdateUserV3Forbidden{}
 }
 
-/*PublicPartialUpdateUserV3Forbidden handles this case with default header values.
+/*
+PublicPartialUpdateUserV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10213</td><td>country is blocked</td></tr><tr><td>10235</td><td>date of birth not allowed to update</td></tr><tr><td>10236</td><td>username not allowed to update</td></tr><tr><td>10237</td><td>display name not allowed to update</td></tr><tr><td>10238</td><td>country not allowed to update</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10213</td><td>country is blocked</td></tr><tr><td>10235</td><td>date of birth not allowed to update</td></tr><tr><td>10236</td><td>username not allowed to update</td></tr><tr><td>10237</td><td>display name not allowed to update</td></tr><tr><td>10238</td><td>country not allowed to update</td></tr></table>
 */
 type PublicPartialUpdateUserV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewPublicPartialUpdateUserV3Conflict() *PublicPartialUpdateUserV3Conflict {
 	return &PublicPartialUpdateUserV3Conflict{}
 }
 
-/*PublicPartialUpdateUserV3Conflict handles this case with default header values.
+/*
+PublicPartialUpdateUserV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10133</td><td>email already used</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
 */
 type PublicPartialUpdateUserV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewPublicPartialUpdateUserV3InternalServerError() *PublicPartialUpdateUserV
 	return &PublicPartialUpdateUserV3InternalServerError{}
 }
 
-/*PublicPartialUpdateUserV3InternalServerError handles this case with default header values.
+/*
+PublicPartialUpdateUserV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicPartialUpdateUserV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

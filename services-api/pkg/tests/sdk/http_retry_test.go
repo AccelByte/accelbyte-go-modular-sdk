@@ -35,7 +35,7 @@ var (
 	}
 	contentTypeApplicationJson = "application/json"
 	emptyString                = ""
-	iamBansService = &iam.BansService{
+	iamBansService             = &iam.BansService{
 		Client: iam.NewIamHttpClient(&configRepo),
 		Session: repository.Session{
 			ConfigRepository: &configRepo,

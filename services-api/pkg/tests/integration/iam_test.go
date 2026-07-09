@@ -39,7 +39,7 @@ var (
 	}
 	tokenRepository  = auth.DefaultTokenRepositoryImpl()
 	configRepository = auth.DefaultConfigRepositoryImpl()
-	oAuth20Service = &iam.OAuth20Service{
+	oAuth20Service   = &iam.OAuth20Service{
 		Client: iam.NewIamHttpClient(configRepository),
 		Session: repository.Session{
 			ConfigRepository: configRepository,

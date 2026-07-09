@@ -129,9 +129,10 @@ func NewAdminDisableUserV2NoContent() *AdminDisableUserV2NoContent {
 	return &AdminDisableUserV2NoContent{}
 }
 
-/*AdminDisableUserV2NoContent handles this case with default header values.
+/*
+AdminDisableUserV2NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminDisableUserV2NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewAdminDisableUserV2BadRequest() *AdminDisableUserV2BadRequest {
 	return &AdminDisableUserV2BadRequest{}
 }
 
-/*AdminDisableUserV2BadRequest handles this case with default header values.
+/*
+AdminDisableUserV2BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminDisableUserV2BadRequest struct {
 }
@@ -183,9 +185,10 @@ func NewAdminDisableUserV2Unauthorized() *AdminDisableUserV2Unauthorized {
 	return &AdminDisableUserV2Unauthorized{}
 }
 
-/*AdminDisableUserV2Unauthorized handles this case with default header values.
+/*
+AdminDisableUserV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminDisableUserV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -237,9 +240,10 @@ func NewAdminDisableUserV2Forbidden() *AdminDisableUserV2Forbidden {
 	return &AdminDisableUserV2Forbidden{}
 }
 
-/*AdminDisableUserV2Forbidden handles this case with default header values.
+/*
+AdminDisableUserV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDisableUserV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -291,9 +295,10 @@ func NewAdminDisableUserV2NotFound() *AdminDisableUserV2NotFound {
 	return &AdminDisableUserV2NotFound{}
 }
 
-/*AdminDisableUserV2NotFound handles this case with default header values.
+/*
+AdminDisableUserV2NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminDisableUserV2NotFound struct {
 }
@@ -318,9 +323,10 @@ func NewAdminDisableUserV2InternalServerError() *AdminDisableUserV2InternalServe
 	return &AdminDisableUserV2InternalServerError{}
 }
 
-/*AdminDisableUserV2InternalServerError handles this case with default header values.
+/*
+AdminDisableUserV2InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDisableUserV2InternalServerError struct {
 }

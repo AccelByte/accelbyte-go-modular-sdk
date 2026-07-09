@@ -13,7 +13,46 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewCloudsaveClient(configRepository repository.ConfigRepository) *cloudsaveclient.JusticeCloudsaveService {
+type CloudsaveClient struct {
+	AdminRecord              *AdminRecordService
+	TTLConfig                *TTLConfigService
+	AdminGameBinaryRecord    *AdminGameBinaryRecordService
+	AdminConcurrentRecord    *AdminConcurrentRecordService
+	PluginConfig             *PluginConfigService
+	AdminGameRecord          *AdminGameRecordService
+	AdminTags                *AdminTagsService
+	AdminPlayerRecord        *AdminPlayerRecordService
+	AdminPlayerBinaryRecord  *AdminPlayerBinaryRecordService
+	PublicGameBinaryRecord   *PublicGameBinaryRecordService
+	ConcurrentRecord         *ConcurrentRecordService
+	PublicGameRecord         *PublicGameRecordService
+	PublicTags               *PublicTagsService
+	PublicPlayerBinaryRecord *PublicPlayerBinaryRecordService
+	PublicPlayerRecord       *PublicPlayerRecordService
+}
+
+func NewCloudsaveClient(session repository.Session) *CloudsaveClient {
+	httpClient := NewCloudsaveHttpClient(session.ConfigRepository)
+	return &CloudsaveClient{
+		AdminRecord:              &AdminRecordService{Client: httpClient, Session: session},
+		TTLConfig:                &TTLConfigService{Client: httpClient, Session: session},
+		AdminGameBinaryRecord:    &AdminGameBinaryRecordService{Client: httpClient, Session: session},
+		AdminConcurrentRecord:    &AdminConcurrentRecordService{Client: httpClient, Session: session},
+		PluginConfig:             &PluginConfigService{Client: httpClient, Session: session},
+		AdminGameRecord:          &AdminGameRecordService{Client: httpClient, Session: session},
+		AdminTags:                &AdminTagsService{Client: httpClient, Session: session},
+		AdminPlayerRecord:        &AdminPlayerRecordService{Client: httpClient, Session: session},
+		AdminPlayerBinaryRecord:  &AdminPlayerBinaryRecordService{Client: httpClient, Session: session},
+		PublicGameBinaryRecord:   &PublicGameBinaryRecordService{Client: httpClient, Session: session},
+		ConcurrentRecord:         &ConcurrentRecordService{Client: httpClient, Session: session},
+		PublicGameRecord:         &PublicGameRecordService{Client: httpClient, Session: session},
+		PublicTags:               &PublicTagsService{Client: httpClient, Session: session},
+		PublicPlayerBinaryRecord: &PublicPlayerBinaryRecordService{Client: httpClient, Session: session},
+		PublicPlayerRecord:       &PublicPlayerRecordService{Client: httpClient, Session: session},
+	}
+}
+
+func NewCloudsaveHttpClient(configRepository repository.ConfigRepository) *cloudsaveclient.JusticeCloudsaveService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

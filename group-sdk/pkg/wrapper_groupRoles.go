@@ -15,11 +15,8 @@ import (
 )
 
 type GroupRolesService struct {
-	Client           *groupclient.JusticeGroupService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *groupclient.JusticeGroupService
+	Session repository.Session
 }
 
 var tempFlightIdGroupRoles *string
@@ -30,9 +27,9 @@ func (aaa *GroupRolesService) UpdateFlightId(flightId string) {
 
 func (aaa *GroupRolesService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *GroupRolesService) GetMemberRolesListAdminV1Short(input *group_roles.
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GroupRoles.GetMemberRolesListAdminV1Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *GroupRolesService) CreateMemberRoleAdminV1Short(input *group_roles.Cr
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.GroupRoles.CreateMemberRoleAdminV1Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *GroupRolesService) GetSingleMemberRoleAdminV1Short(input *group_roles
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GroupRoles.GetSingleMemberRoleAdminV1Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *GroupRolesService) DeleteMemberRoleAdminV1Short(input *group_roles.De
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.GroupRoles.DeleteMemberRoleAdminV1Short(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *GroupRolesService) UpdateMemberRoleAdminV1Short(input *group_roles.Up
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GroupRoles.UpdateMemberRoleAdminV1Short(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *GroupRolesService) UpdateMemberRolePermissionAdminV1Short(input *grou
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GroupRoles.UpdateMemberRolePermissionAdminV1Short(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *GroupRolesService) GetMemberRolesListPublicV1Short(input *group_roles
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GroupRoles.GetMemberRolesListPublicV1Short(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *GroupRolesService) UpdateMemberRolePublicV1Short(input *group_roles.U
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GroupRoles.UpdateMemberRolePublicV1Short(input, authInfoWriter)
@@ -322,8 +319,8 @@ func (aaa *GroupRolesService) DeleteMemberRolePublicV1Short(input *group_roles.D
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.GroupRoles.DeleteMemberRolePublicV1Short(input, authInfoWriter)
@@ -352,8 +349,8 @@ func (aaa *GroupRolesService) GetMemberRolesListPublicV2Short(input *group_roles
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GroupRoles.GetMemberRolesListPublicV2Short(input, authInfoWriter)
@@ -386,8 +383,8 @@ func (aaa *GroupRolesService) UpdateMemberRolePublicV2Short(input *group_roles.U
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GroupRoles.UpdateMemberRolePublicV2Short(input, authInfoWriter)
@@ -420,8 +417,8 @@ func (aaa *GroupRolesService) DeleteMemberRolePublicV2Short(input *group_roles.D
 	}
 	if tempFlightIdGroupRoles != nil {
 		input.XFlightId = tempFlightIdGroupRoles
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.GroupRoles.DeleteMemberRolePublicV2Short(input, authInfoWriter)

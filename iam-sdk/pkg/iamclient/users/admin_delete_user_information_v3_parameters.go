@@ -57,7 +57,8 @@ func NewAdminDeleteUserInformationV3ParamsWithHTTPClient(client *http.Client) *A
 	}
 }
 
-/*AdminDeleteUserInformationV3Params contains all the parameters to send to the API endpoint
+/*
+AdminDeleteUserInformationV3Params contains all the parameters to send to the API endpoint
 for the admin delete user information v3 operation typically these are written to a http.Request
 */
 type AdminDeleteUserInformationV3Params struct {

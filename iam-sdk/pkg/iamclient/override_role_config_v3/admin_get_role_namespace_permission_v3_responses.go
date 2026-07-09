@@ -130,9 +130,10 @@ func NewAdminGetRoleNamespacePermissionV3OK() *AdminGetRoleNamespacePermissionV3
 	return &AdminGetRoleNamespacePermissionV3OK{}
 }
 
-/*AdminGetRoleNamespacePermissionV3OK handles this case with default header values.
+/*
+AdminGetRoleNamespacePermissionV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetRoleNamespacePermissionV3OK struct {
 	Payload *iamclientmodels.ModelRolePermissionResponseV3
@@ -184,9 +185,10 @@ func NewAdminGetRoleNamespacePermissionV3Unauthorized() *AdminGetRoleNamespacePe
 	return &AdminGetRoleNamespacePermissionV3Unauthorized{}
 }
 
-/*AdminGetRoleNamespacePermissionV3Unauthorized handles this case with default header values.
+/*
+AdminGetRoleNamespacePermissionV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetRoleNamespacePermissionV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminGetRoleNamespacePermissionV3Forbidden() *AdminGetRoleNamespacePermi
 	return &AdminGetRoleNamespacePermissionV3Forbidden{}
 }
 
-/*AdminGetRoleNamespacePermissionV3Forbidden handles this case with default header values.
+/*
+AdminGetRoleNamespacePermissionV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetRoleNamespacePermissionV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetRoleNamespacePermissionV3NotFound() *AdminGetRoleNamespacePermis
 	return &AdminGetRoleNamespacePermissionV3NotFound{}
 }
 
-/*AdminGetRoleNamespacePermissionV3NotFound handles this case with default header values.
+/*
+AdminGetRoleNamespacePermissionV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminGetRoleNamespacePermissionV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetRoleNamespacePermissionV3InternalServerError() *AdminGetRoleName
 	return &AdminGetRoleNamespacePermissionV3InternalServerError{}
 }
 
-/*AdminGetRoleNamespacePermissionV3InternalServerError handles this case with default header values.
+/*
+AdminGetRoleNamespacePermissionV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetRoleNamespacePermissionV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

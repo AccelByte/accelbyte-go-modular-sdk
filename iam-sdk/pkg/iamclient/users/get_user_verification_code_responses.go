@@ -125,9 +125,10 @@ func NewGetUserVerificationCodeOK() *GetUserVerificationCodeOK {
 	return &GetUserVerificationCodeOK{}
 }
 
-/*GetUserVerificationCodeOK handles this case with default header values.
+/*
+GetUserVerificationCodeOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserVerificationCodeOK struct {
 	Payload *iamclientmodels.ModelVerificationCodeResponse
@@ -179,9 +180,10 @@ func NewGetUserVerificationCodeUnauthorized() *GetUserVerificationCodeUnauthoriz
 	return &GetUserVerificationCodeUnauthorized{}
 }
 
-/*GetUserVerificationCodeUnauthorized handles this case with default header values.
+/*
+GetUserVerificationCodeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserVerificationCodeUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -233,9 +235,10 @@ func NewGetUserVerificationCodeForbidden() *GetUserVerificationCodeForbidden {
 	return &GetUserVerificationCodeForbidden{}
 }
 
-/*GetUserVerificationCodeForbidden handles this case with default header values.
+/*
+GetUserVerificationCodeForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserVerificationCodeForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -287,9 +290,10 @@ func NewGetUserVerificationCodeNotFound() *GetUserVerificationCodeNotFound {
 	return &GetUserVerificationCodeNotFound{}
 }
 
-/*GetUserVerificationCodeNotFound handles this case with default header values.
+/*
+GetUserVerificationCodeNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type GetUserVerificationCodeNotFound struct {
 }
@@ -314,9 +318,10 @@ func NewGetUserVerificationCodeInternalServerError() *GetUserVerificationCodeInt
 	return &GetUserVerificationCodeInternalServerError{}
 }
 
-/*GetUserVerificationCodeInternalServerError handles this case with default header values.
+/*
+GetUserVerificationCodeInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type GetUserVerificationCodeInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

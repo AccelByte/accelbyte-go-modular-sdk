@@ -11,6 +11,7 @@ import (
 
 	platform "github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk/pkg/platformclient/fulfillment"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,20 +23,22 @@ var QueryFulfillmentHistoriesCmd = &cobra.Command{
 	Long:  `Query fulfillment histories`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fulfillmentService := &platform.FulfillmentService{
-			Client:          platform.NewPlatformClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: platform.NewPlatformHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
+		userId, _ := cmd.Flags().GetString("userId")
 		limit, _ := cmd.Flags().GetInt32("limit")
 		offset, _ := cmd.Flags().GetInt32("offset")
 		status, _ := cmd.Flags().GetString("status")
-		userId, _ := cmd.Flags().GetString("userId")
 		input := &fulfillment.QueryFulfillmentHistoriesParams{
 			Namespace: namespace,
 			Limit:     &limit,
 			Offset:    &offset,
 			Status:    &status,
-			UserID:    &userId,
+			UserID:    userId,
 		}
 		ok, errOK := fulfillmentService.QueryFulfillmentHistoriesShort(input)
 		if errOK != nil {
@@ -57,4 +60,5 @@ func init() {
 	QueryFulfillmentHistoriesCmd.Flags().Int32("offset", 0, "Offset")
 	QueryFulfillmentHistoriesCmd.Flags().String("status", "", "Status")
 	QueryFulfillmentHistoriesCmd.Flags().String("userId", "", "User id")
+	_ = QueryFulfillmentHistoriesCmd.MarkFlagRequired("userId")
 }

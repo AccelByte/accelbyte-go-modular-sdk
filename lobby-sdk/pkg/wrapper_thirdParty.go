@@ -15,11 +15,8 @@ import (
 )
 
 type ThirdPartyService struct {
-	Client           *lobbyclient.JusticeLobbyService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *lobbyclient.JusticeLobbyService
+	Session repository.Session
 }
 
 var tempFlightIdThirdParty *string
@@ -30,9 +27,9 @@ func (aaa *ThirdPartyService) UpdateFlightId(flightId string) {
 
 func (aaa *ThirdPartyService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ThirdPartyService) AdminGetThirdPartyConfigShort(input *third_party.A
 	}
 	if tempFlightIdThirdParty != nil {
 		input.XFlightId = tempFlightIdThirdParty
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ThirdParty.AdminGetThirdPartyConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ThirdPartyService) AdminUpdateThirdPartyConfigShort(input *third_part
 	}
 	if tempFlightIdThirdParty != nil {
 		input.XFlightId = tempFlightIdThirdParty
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ThirdParty.AdminUpdateThirdPartyConfigShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ThirdPartyService) AdminCreateThirdPartyConfigShort(input *third_part
 	}
 	if tempFlightIdThirdParty != nil {
 		input.XFlightId = tempFlightIdThirdParty
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.ThirdParty.AdminCreateThirdPartyConfigShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *ThirdPartyService) AdminDeleteThirdPartyConfigShort(input *third_part
 	}
 	if tempFlightIdThirdParty != nil {
 		input.XFlightId = tempFlightIdThirdParty
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	noContent, err := aaa.Client.ThirdParty.AdminDeleteThirdPartyConfigShort(input, authInfoWriter)

@@ -15,11 +15,8 @@ import (
 )
 
 type UserVisibilityService struct {
-	Client           *leaderboardclient.JusticeLeaderboardService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *leaderboardclient.JusticeLeaderboardService
+	Session repository.Session
 }
 
 var tempFlightIdUserVisibility *string
@@ -30,9 +27,9 @@ func (aaa *UserVisibilityService) UpdateFlightId(flightId string) {
 
 func (aaa *UserVisibilityService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *UserVisibilityService) GetHiddenUsersV2Short(input *user_visibility.G
 	}
 	if tempFlightIdUserVisibility != nil {
 		input.XFlightId = tempFlightIdUserVisibility
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserVisibility.GetHiddenUsersV2Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *UserVisibilityService) GetUserVisibilityStatusV2Short(input *user_vis
 	}
 	if tempFlightIdUserVisibility != nil {
 		input.XFlightId = tempFlightIdUserVisibility
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserVisibility.GetUserVisibilityStatusV2Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *UserVisibilityService) SetUserLeaderboardVisibilityStatusV2Short(inpu
 	}
 	if tempFlightIdUserVisibility != nil {
 		input.XFlightId = tempFlightIdUserVisibility
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserVisibility.SetUserLeaderboardVisibilityStatusV2Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *UserVisibilityService) SetUserVisibilityStatusV2Short(input *user_vis
 	}
 	if tempFlightIdUserVisibility != nil {
 		input.XFlightId = tempFlightIdUserVisibility
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserVisibility.SetUserVisibilityStatusV2Short(input, authInfoWriter)

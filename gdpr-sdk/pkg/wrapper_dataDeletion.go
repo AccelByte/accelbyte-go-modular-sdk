@@ -15,11 +15,8 @@ import (
 )
 
 type DataDeletionService struct {
-	Client           *gdprclient.JusticeGdprService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *gdprclient.JusticeGdprService
+	Session repository.Session
 }
 
 var tempFlightIdDataDeletion *string
@@ -30,9 +27,9 @@ func (aaa *DataDeletionService) UpdateFlightId(flightId string) {
 
 func (aaa *DataDeletionService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *DataDeletionService) AdminGetListDeletionDataRequestShort(input *data
 	}
 	if tempFlightIdDataDeletion != nil {
 		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DataDeletion.AdminGetListDeletionDataRequestShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *DataDeletionService) AdminGetUserAccountDeletionRequestShort(input *d
 	}
 	if tempFlightIdDataDeletion != nil {
 		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DataDeletion.AdminGetUserAccountDeletionRequestShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *DataDeletionService) AdminSubmitUserAccountDeletionRequestShort(input
 	}
 	if tempFlightIdDataDeletion != nil {
 		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.DataDeletion.AdminSubmitUserAccountDeletionRequestShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *DataDeletionService) AdminCancelUserAccountDeletionRequestShort(input
 	}
 	if tempFlightIdDataDeletion != nil {
 		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DataDeletion.AdminCancelUserAccountDeletionRequestShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *DataDeletionService) PublicSubmitUserAccountDeletionRequestShort(inpu
 	}
 	if tempFlightIdDataDeletion != nil {
 		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.DataDeletion.PublicSubmitUserAccountDeletionRequestShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *DataDeletionService) PublicCancelUserAccountDeletionRequestShort(inpu
 	}
 	if tempFlightIdDataDeletion != nil {
 		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DataDeletion.PublicCancelUserAccountDeletionRequestShort(input, authInfoWriter)
@@ -250,109 +247,11 @@ func (aaa *DataDeletionService) PublicGetUserAccountDeletionStatusShort(input *d
 	}
 	if tempFlightIdDataDeletion != nil {
 		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DataDeletion.PublicGetUserAccountDeletionStatusShort(input, authInfoWriter)
-	if err != nil {
-		return nil, err
-	}
-
-	if ok == nil {
-		return nil, nil
-	}
-
-	return ok, nil
-}
-
-func (aaa *DataDeletionService) PublicSubmitMyAccountDeletionRequestShort(input *data_deletion.PublicSubmitMyAccountDeletionRequestParams) (*data_deletion.PublicSubmitMyAccountDeletionRequestResponse, error) {
-	authInfoWriter := input.AuthInfoWriter
-	if authInfoWriter == nil {
-		security := [][]string{
-			{"bearer"},
-		}
-		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
-	}
-	if input.RetryPolicy == nil {
-		input.RetryPolicy = &utils.Retry{
-			MaxTries:   utils.MaxTries,
-			Backoff:    utils.NewConstantBackoff(0),
-			Transport:  aaa.Client.Runtime.Transport,
-			RetryCodes: utils.RetryCodes,
-		}
-	}
-	if tempFlightIdDataDeletion != nil {
-		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
-	}
-
-	created, err := aaa.Client.DataDeletion.PublicSubmitMyAccountDeletionRequestShort(input, authInfoWriter)
-	if err != nil {
-		return nil, err
-	}
-
-	if created == nil {
-		return nil, nil
-	}
-
-	return created, nil
-}
-
-func (aaa *DataDeletionService) PublicCancelMyAccountDeletionRequestShort(input *data_deletion.PublicCancelMyAccountDeletionRequestParams) error {
-	authInfoWriter := input.AuthInfoWriter
-	if authInfoWriter == nil {
-		security := [][]string{
-			{"bearer"},
-		}
-		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
-	}
-	if input.RetryPolicy == nil {
-		input.RetryPolicy = &utils.Retry{
-			MaxTries:   utils.MaxTries,
-			Backoff:    utils.NewConstantBackoff(0),
-			Transport:  aaa.Client.Runtime.Transport,
-			RetryCodes: utils.RetryCodes,
-		}
-	}
-	if tempFlightIdDataDeletion != nil {
-		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
-	}
-
-	_, err := aaa.Client.DataDeletion.PublicCancelMyAccountDeletionRequestShort(input, authInfoWriter)
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (aaa *DataDeletionService) PublicGetMyAccountDeletionStatusShort(input *data_deletion.PublicGetMyAccountDeletionStatusParams) (*data_deletion.PublicGetMyAccountDeletionStatusResponse, error) {
-	authInfoWriter := input.AuthInfoWriter
-	if authInfoWriter == nil {
-		security := [][]string{
-			{"bearer"},
-		}
-		authInfoWriter = auth.AuthInfoWriter(aaa.GetAuthSession(), security, "")
-	}
-	if input.RetryPolicy == nil {
-		input.RetryPolicy = &utils.Retry{
-			MaxTries:   utils.MaxTries,
-			Backoff:    utils.NewConstantBackoff(0),
-			Transport:  aaa.Client.Runtime.Transport,
-			RetryCodes: utils.RetryCodes,
-		}
-	}
-	if tempFlightIdDataDeletion != nil {
-		input.XFlightId = tempFlightIdDataDeletion
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
-	}
-
-	ok, err := aaa.Client.DataDeletion.PublicGetMyAccountDeletionStatusShort(input, authInfoWriter)
 	if err != nil {
 		return nil, err
 	}

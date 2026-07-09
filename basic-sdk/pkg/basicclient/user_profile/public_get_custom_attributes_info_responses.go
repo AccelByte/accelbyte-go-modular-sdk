@@ -85,9 +85,10 @@ func NewPublicGetCustomAttributesInfoOK() *PublicGetCustomAttributesInfoOK {
 	return &PublicGetCustomAttributesInfoOK{}
 }
 
-/*PublicGetCustomAttributesInfoOK handles this case with default header values.
+/*
+PublicGetCustomAttributesInfoOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type PublicGetCustomAttributesInfoOK struct {
 	Payload map[string]interface{}
@@ -137,9 +138,10 @@ func NewPublicGetCustomAttributesInfoNotFound() *PublicGetCustomAttributesInfoNo
 	return &PublicGetCustomAttributesInfoNotFound{}
 }
 
-/*PublicGetCustomAttributesInfoNotFound handles this case with default header values.
+/*
+PublicGetCustomAttributesInfoNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
 */
 type PublicGetCustomAttributesInfoNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

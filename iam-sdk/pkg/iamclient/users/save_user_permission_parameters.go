@@ -59,7 +59,8 @@ func NewSaveUserPermissionParamsWithHTTPClient(client *http.Client) *SaveUserPer
 	}
 }
 
-/*SaveUserPermissionParams contains all the parameters to send to the API endpoint
+/*
+SaveUserPermissionParams contains all the parameters to send to the API endpoint
 for the save user permission operation typically these are written to a http.Request
 */
 type SaveUserPermissionParams struct {

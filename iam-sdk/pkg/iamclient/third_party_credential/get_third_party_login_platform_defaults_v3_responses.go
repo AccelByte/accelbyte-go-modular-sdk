@@ -69,9 +69,10 @@ func NewGetThirdPartyLoginPlatformDefaultsV3OK() *GetThirdPartyLoginPlatformDefa
 	return &GetThirdPartyLoginPlatformDefaultsV3OK{}
 }
 
-/*GetThirdPartyLoginPlatformDefaultsV3OK handles this case with default header values.
+/*
+GetThirdPartyLoginPlatformDefaultsV3OK handles this case with default header values.
 
-  Platform defaults retrieved
+	Platform defaults retrieved
 */
 type GetThirdPartyLoginPlatformDefaultsV3OK struct {
 	Payload *iamclientmodels.ModelPlatformDefaultsResponse

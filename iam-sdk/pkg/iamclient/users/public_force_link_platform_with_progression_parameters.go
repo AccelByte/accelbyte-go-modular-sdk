@@ -59,7 +59,8 @@ func NewPublicForceLinkPlatformWithProgressionParamsWithHTTPClient(client *http.
 	}
 }
 
-/*PublicForceLinkPlatformWithProgressionParams contains all the parameters to send to the API endpoint
+/*
+PublicForceLinkPlatformWithProgressionParams contains all the parameters to send to the API endpoint
 for the public force link platform with progression operation typically these are written to a http.Request
 */
 type PublicForceLinkPlatformWithProgressionParams struct {

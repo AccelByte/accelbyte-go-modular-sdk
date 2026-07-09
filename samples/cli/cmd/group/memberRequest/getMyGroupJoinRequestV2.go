@@ -11,6 +11,7 @@ import (
 
 	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/member_request"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var GetMyGroupJoinRequestV2Cmd = &cobra.Command{
 	Long:  `Get my group join request V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		memberRequestService := &group.MemberRequestService{
-			Client:          group.NewGroupClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: group.NewGroupHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		limit, _ := cmd.Flags().GetInt64("limit")

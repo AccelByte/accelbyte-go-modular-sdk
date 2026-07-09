@@ -69,9 +69,10 @@ func NewRequestTargetTokenResponseV3OK() *RequestTargetTokenResponseV3OK {
 	return &RequestTargetTokenResponseV3OK{}
 }
 
-/*RequestTargetTokenResponseV3OK handles this case with default header values.
+/*
+RequestTargetTokenResponseV3OK handles this case with default header values.
 
-  Succeed to exchange token.
+	Succeed to exchange token.
 */
 type RequestTargetTokenResponseV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3

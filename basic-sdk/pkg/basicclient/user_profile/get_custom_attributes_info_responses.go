@@ -115,9 +115,10 @@ func NewGetCustomAttributesInfoOK() *GetCustomAttributesInfoOK {
 	return &GetCustomAttributesInfoOK{}
 }
 
-/*GetCustomAttributesInfoOK handles this case with default header values.
+/*
+GetCustomAttributesInfoOK handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type GetCustomAttributesInfoOK struct {
 	Payload map[string]interface{}
@@ -167,9 +168,10 @@ func NewGetCustomAttributesInfoUnauthorized() *GetCustomAttributesInfoUnauthoriz
 	return &GetCustomAttributesInfoUnauthorized{}
 }
 
-/*GetCustomAttributesInfoUnauthorized handles this case with default header values.
+/*
+GetCustomAttributesInfoUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetCustomAttributesInfoUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -221,9 +223,10 @@ func NewGetCustomAttributesInfoForbidden() *GetCustomAttributesInfoForbidden {
 	return &GetCustomAttributesInfoForbidden{}
 }
 
-/*GetCustomAttributesInfoForbidden handles this case with default header values.
+/*
+GetCustomAttributesInfoForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetCustomAttributesInfoForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -275,9 +278,10 @@ func NewGetCustomAttributesInfoNotFound() *GetCustomAttributesInfoNotFound {
 	return &GetCustomAttributesInfoNotFound{}
 }
 
-/*GetCustomAttributesInfoNotFound handles this case with default header values.
+/*
+GetCustomAttributesInfoNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
 */
 type GetCustomAttributesInfoNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

@@ -57,7 +57,8 @@ func NewAdminDeleteUserLinkingRestrictionByPlatformIDV3ParamsWithHTTPClient(clie
 	}
 }
 
-/*AdminDeleteUserLinkingRestrictionByPlatformIDV3Params contains all the parameters to send to the API endpoint
+/*
+AdminDeleteUserLinkingRestrictionByPlatformIDV3Params contains all the parameters to send to the API endpoint
 for the admin delete user linking restriction by platform idv3 operation typically these are written to a http.Request
 */
 type AdminDeleteUserLinkingRestrictionByPlatformIDV3Params struct {

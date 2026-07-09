@@ -57,7 +57,8 @@ func NewPublicGetMyEnabledFactorsV4ParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*PublicGetMyEnabledFactorsV4Params contains all the parameters to send to the API endpoint
+/*
+PublicGetMyEnabledFactorsV4Params contains all the parameters to send to the API endpoint
 for the public get my enabled factors v4 operation typically these are written to a http.Request
 */
 type PublicGetMyEnabledFactorsV4Params struct {

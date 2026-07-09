@@ -130,9 +130,10 @@ func NewGetMyProfileInfoOK() *GetMyProfileInfoOK {
 	return &GetMyProfileInfoOK{}
 }
 
-/*GetMyProfileInfoOK handles this case with default header values.
+/*
+GetMyProfileInfoOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type GetMyProfileInfoOK struct {
 	Payload *basicclientmodels.UserProfilePrivateInfo
@@ -184,9 +185,10 @@ func NewGetMyProfileInfoBadRequest() *GetMyProfileInfoBadRequest {
 	return &GetMyProfileInfoBadRequest{}
 }
 
-/*GetMyProfileInfoBadRequest handles this case with default header values.
+/*
+GetMyProfileInfoBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type GetMyProfileInfoBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -238,9 +240,10 @@ func NewGetMyProfileInfoUnauthorized() *GetMyProfileInfoUnauthorized {
 	return &GetMyProfileInfoUnauthorized{}
 }
 
-/*GetMyProfileInfoUnauthorized handles this case with default header values.
+/*
+GetMyProfileInfoUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type GetMyProfileInfoUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewGetMyProfileInfoForbidden() *GetMyProfileInfoForbidden {
 	return &GetMyProfileInfoForbidden{}
 }
 
-/*GetMyProfileInfoForbidden handles this case with default header values.
+/*
+GetMyProfileInfoForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type GetMyProfileInfoForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewGetMyProfileInfoNotFound() *GetMyProfileInfoNotFound {
 	return &GetMyProfileInfoNotFound{}
 }
 
-/*GetMyProfileInfoNotFound handles this case with default header values.
+/*
+GetMyProfileInfoNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>20017</td><td>user not linked</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>20017</td><td>user not linked</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
 */
 type GetMyProfileInfoNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

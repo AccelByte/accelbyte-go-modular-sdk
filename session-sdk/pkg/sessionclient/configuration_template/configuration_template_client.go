@@ -327,7 +327,7 @@ func (a *Client) AdminCreateConfigurationAlertV1Short(params *AdminCreateConfigu
 
 /*
 AdminDeleteConfigurationAlertV1Short delete configuration alert.
-Delete configuration alert.
+Deletes the configuration alert for the specified namespace. After deletion, no alerts are generated for session configuration issues.
 */
 func (a *Client) AdminDeleteConfigurationAlertV1Short(params *AdminDeleteConfigurationAlertV1Params, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteConfigurationAlertV1Response, error) {
 	// TODO: Validate the params before sending
@@ -1052,7 +1052,7 @@ func (a *Client) AdminGetDSMCConfigurationShort(params *AdminGetDSMCConfiguratio
 
 /*
 AdminSyncDSMCConfigurationShort sync dsmc configuration.
-sync dsmc configuration.
+**Deprecated.** Synchronizes the dedicated server manager controller configuration from DSMC. The DSMC config is cached locally for use during session creation.
 */
 func (a *Client) AdminSyncDSMCConfigurationShort(params *AdminSyncDSMCConfigurationParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncDSMCConfigurationResponse, error) {
 	// TODO: Validate the params before sending

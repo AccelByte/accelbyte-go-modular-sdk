@@ -59,7 +59,8 @@ func NewAddThirdPartyLoginPlatformCredentialV3ParamsWithHTTPClient(client *http.
 	}
 }
 
-/*AddThirdPartyLoginPlatformCredentialV3Params contains all the parameters to send to the API endpoint
+/*
+AddThirdPartyLoginPlatformCredentialV3Params contains all the parameters to send to the API endpoint
 for the add third party login platform credential v3 operation typically these are written to a http.Request
 */
 type AddThirdPartyLoginPlatformCredentialV3Params struct {

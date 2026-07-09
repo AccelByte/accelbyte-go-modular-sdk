@@ -11,6 +11,7 @@ import (
 
 	group "github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk/pkg/groupclient/configuration"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var DeleteGroupConfigurationGlobalRuleAdminV1Cmd = &cobra.Command{
 	Long:  `Delete group configuration global rule admin V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		configurationService := &group.ConfigurationService{
-			Client:          group.NewGroupClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: group.NewGroupHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		allowedAction, _ := cmd.Flags().GetString("allowedAction")
 		configurationCode, _ := cmd.Flags().GetString("configurationCode")

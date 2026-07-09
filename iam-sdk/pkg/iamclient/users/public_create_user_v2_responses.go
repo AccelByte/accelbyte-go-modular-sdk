@@ -125,9 +125,10 @@ func NewPublicCreateUserV2Created() *PublicCreateUserV2Created {
 	return &PublicCreateUserV2Created{}
 }
 
-/*PublicCreateUserV2Created handles this case with default header values.
+/*
+PublicCreateUserV2Created handles this case with default header values.
 
-  Created
+	Created
 */
 type PublicCreateUserV2Created struct {
 	Payload *iamclientmodels.ModelUserCreateResponse
@@ -179,9 +180,10 @@ func NewPublicCreateUserV2BadRequest() *PublicCreateUserV2BadRequest {
 	return &PublicCreateUserV2BadRequest{}
 }
 
-/*PublicCreateUserV2BadRequest handles this case with default header values.
+/*
+PublicCreateUserV2BadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type PublicCreateUserV2BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -233,9 +235,10 @@ func NewPublicCreateUserV2Unauthorized() *PublicCreateUserV2Unauthorized {
 	return &PublicCreateUserV2Unauthorized{}
 }
 
-/*PublicCreateUserV2Unauthorized handles this case with default header values.
+/*
+PublicCreateUserV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PublicCreateUserV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -287,9 +290,10 @@ func NewPublicCreateUserV2Forbidden() *PublicCreateUserV2Forbidden {
 	return &PublicCreateUserV2Forbidden{}
 }
 
-/*PublicCreateUserV2Forbidden handles this case with default header values.
+/*
+PublicCreateUserV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PublicCreateUserV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -341,9 +345,10 @@ func NewPublicCreateUserV2Conflict() *PublicCreateUserV2Conflict {
 	return &PublicCreateUserV2Conflict{}
 }
 
-/*PublicCreateUserV2Conflict handles this case with default header values.
+/*
+PublicCreateUserV2Conflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type PublicCreateUserV2Conflict struct {
 }

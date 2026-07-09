@@ -11,6 +11,7 @@ import (
 
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/schedules"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminListSchedulesCmd = &cobra.Command{
 	Long:  `Admin list schedules`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		schedulesService := &challenge.SchedulesService{
-			Client:          challenge.NewChallengeClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: challenge.NewChallengeHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		challengeCode, _ := cmd.Flags().GetString("challengeCode")
 		namespace, _ := cmd.Flags().GetString("namespace")

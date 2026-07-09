@@ -11,6 +11,7 @@ import (
 
 	gametelemetry "github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk/pkg/gametelemetryclient/gametelemetry_operations"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var ProtectedUpdatePlaytimeGameTelemetryV1ProtectedSteamIdsSteamIdPlaytimePlayti
 	Long:  `Protected update playtime game telemetry v1 protected steam ids steam id playtime playtime put`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		gametelemetryOperationsService := &gametelemetry.GametelemetryOperationsService{
-			Client:          gametelemetry.NewGametelemetryClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: gametelemetry.NewGametelemetryHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		playtime, _ := cmd.Flags().GetString("playtime")
 		steamId, _ := cmd.Flags().GetString("steamId")

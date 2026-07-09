@@ -13,6 +13,7 @@ import (
 	leaderboard "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/leaderboard_configuration"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclientmodels"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -24,8 +25,10 @@ var UpdateLeaderboardConfigurationAdminV1Cmd = &cobra.Command{
 	Long:  `Update leaderboard configuration admin V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		leaderboardConfigurationService := &leaderboard.LeaderboardConfigurationService{
-			Client:          leaderboard.NewLeaderboardClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: leaderboard.NewLeaderboardHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		bodyString := cmd.Flag("body").Value.String()
 		var body *leaderboardclientmodels.ModelsUpdateLeaderboardConfigReq

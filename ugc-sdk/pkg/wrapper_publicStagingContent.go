@@ -15,11 +15,8 @@ import (
 )
 
 type PublicStagingContentService struct {
-	Client           *ugcclient.JusticeUgcService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
 }
 
 var tempFlightIdPublicStagingContent *string
@@ -30,9 +27,9 @@ func (aaa *PublicStagingContentService) UpdateFlightId(flightId string) {
 
 func (aaa *PublicStagingContentService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicStagingContentService) ListUserStagingContentsShort(input *publ
 	}
 	if tempFlightIdPublicStagingContent != nil {
 		input.XFlightId = tempFlightIdPublicStagingContent
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicStagingContent.ListUserStagingContentsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PublicStagingContentService) GetUserStagingContentByIDShort(input *pu
 	}
 	if tempFlightIdPublicStagingContent != nil {
 		input.XFlightId = tempFlightIdPublicStagingContent
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicStagingContent.GetUserStagingContentByIDShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PublicStagingContentService) UpdateStagingContentShort(input *public_
 	}
 	if tempFlightIdPublicStagingContent != nil {
 		input.XFlightId = tempFlightIdPublicStagingContent
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicStagingContent.UpdateStagingContentShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PublicStagingContentService) DeleteUserStagingContentByIDShort(input 
 	}
 	if tempFlightIdPublicStagingContent != nil {
 		input.XFlightId = tempFlightIdPublicStagingContent
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PublicStagingContent.DeleteUserStagingContentByIDShort(input, authInfoWriter)

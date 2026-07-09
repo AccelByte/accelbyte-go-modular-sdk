@@ -68,9 +68,10 @@ func NewAuthenticateAndLinkForwardV3Found() *AuthenticateAndLinkForwardV3Found {
 	return &AuthenticateAndLinkForwardV3Found{}
 }
 
-/*AuthenticateAndLinkForwardV3Found handles this case with default header values.
+/*
+AuthenticateAndLinkForwardV3Found handles this case with default header values.
 
-  Found. Redirect to clients redirection URL with code or redirect to login web with error on the query parameter
+	Found. Redirect to clients redirection URL with code or redirect to login web with error on the query parameter
 */
 type AuthenticateAndLinkForwardV3Found struct {
 	Location string

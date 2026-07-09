@@ -15,11 +15,8 @@ import (
 )
 
 type KeyGroupService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdKeyGroup *string
@@ -30,9 +27,9 @@ func (aaa *KeyGroupService) UpdateFlightId(flightId string) {
 
 func (aaa *KeyGroupService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *KeyGroupService) QueryKeyGroupsShort(input *key_group.QueryKeyGroupsP
 	}
 	if tempFlightIdKeyGroup != nil {
 		input.XFlightId = tempFlightIdKeyGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.QueryKeyGroupsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *KeyGroupService) CreateKeyGroupShort(input *key_group.CreateKeyGroupP
 	}
 	if tempFlightIdKeyGroup != nil {
 		input.XFlightId = tempFlightIdKeyGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.KeyGroup.CreateKeyGroupShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *KeyGroupService) GetKeyGroupByBoothNameShort(input *key_group.GetKeyG
 	}
 	if tempFlightIdKeyGroup != nil {
 		input.XFlightId = tempFlightIdKeyGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.GetKeyGroupByBoothNameShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *KeyGroupService) GetKeyGroupShort(input *key_group.GetKeyGroupParams)
 	}
 	if tempFlightIdKeyGroup != nil {
 		input.XFlightId = tempFlightIdKeyGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.GetKeyGroupShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *KeyGroupService) UpdateKeyGroupShort(input *key_group.UpdateKeyGroupP
 	}
 	if tempFlightIdKeyGroup != nil {
 		input.XFlightId = tempFlightIdKeyGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.UpdateKeyGroupShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *KeyGroupService) GetKeyGroupDynamicShort(input *key_group.GetKeyGroup
 	}
 	if tempFlightIdKeyGroup != nil {
 		input.XFlightId = tempFlightIdKeyGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.GetKeyGroupDynamicShort(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *KeyGroupService) ListKeysShort(input *key_group.ListKeysParams) (*key
 	}
 	if tempFlightIdKeyGroup != nil {
 		input.XFlightId = tempFlightIdKeyGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.ListKeysShort(input, authInfoWriter)
@@ -292,8 +289,8 @@ func (aaa *KeyGroupService) UploadKeysShort(input *key_group.UploadKeysParams) (
 	}
 	if tempFlightIdKeyGroup != nil {
 		input.XFlightId = tempFlightIdKeyGroup
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.KeyGroup.UploadKeysShort(input, authInfoWriter)

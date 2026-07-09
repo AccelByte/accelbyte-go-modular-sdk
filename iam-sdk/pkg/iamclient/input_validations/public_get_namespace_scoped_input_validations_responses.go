@@ -95,9 +95,10 @@ func NewPublicGetNamespaceScopedInputValidationsOK() *PublicGetNamespaceScopedIn
 	return &PublicGetNamespaceScopedInputValidationsOK{}
 }
 
-/*PublicGetNamespaceScopedInputValidationsOK handles this case with default header values.
+/*
+PublicGetNamespaceScopedInputValidationsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetNamespaceScopedInputValidationsOK struct {
 	Payload *iamclientmodels.ModelInputValidationsPublicResponse
@@ -149,9 +150,10 @@ func NewPublicGetNamespaceScopedInputValidationsNotFound() *PublicGetNamespaceSc
 	return &PublicGetNamespaceScopedInputValidationsNotFound{}
 }
 
-/*PublicGetNamespaceScopedInputValidationsNotFound handles this case with default header values.
+/*
+PublicGetNamespaceScopedInputValidationsNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type PublicGetNamespaceScopedInputValidationsNotFound struct {
 }
@@ -176,9 +178,10 @@ func NewPublicGetNamespaceScopedInputValidationsInternalServerError() *PublicGet
 	return &PublicGetNamespaceScopedInputValidationsInternalServerError{}
 }
 
-/*PublicGetNamespaceScopedInputValidationsInternalServerError handles this case with default header values.
+/*
+PublicGetNamespaceScopedInputValidationsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetNamespaceScopedInputValidationsInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

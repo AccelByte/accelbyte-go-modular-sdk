@@ -15,11 +15,8 @@ import (
 )
 
 type UserDataV3Service struct {
-	Client           *leaderboardclient.JusticeLeaderboardService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *leaderboardclient.JusticeLeaderboardService
+	Session repository.Session
 }
 
 var tempFlightIdUserDataV3 *string
@@ -30,9 +27,9 @@ func (aaa *UserDataV3Service) UpdateFlightId(flightId string) {
 
 func (aaa *UserDataV3Service) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *UserDataV3Service) GetUserLeaderboardRankingsAdminV3Short(input *user
 	}
 	if tempFlightIdUserDataV3 != nil {
 		input.XFlightId = tempFlightIdUserDataV3
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.UserDataV3.GetUserLeaderboardRankingsAdminV3Short(input, authInfoWriter)

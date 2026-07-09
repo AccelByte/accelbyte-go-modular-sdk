@@ -15,11 +15,8 @@ import (
 )
 
 type AsyncMessagingService struct {
-	Client           *csmclient.JusticeCsmService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *csmclient.JusticeCsmService
+	Session repository.Session
 }
 
 var tempFlightIdAsyncMessaging *string
@@ -30,9 +27,9 @@ func (aaa *AsyncMessagingService) UpdateFlightId(flightId string) {
 
 func (aaa *AsyncMessagingService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AsyncMessagingService) CreateSubscriptionHandlerShort(input *async_me
 	}
 	if tempFlightIdAsyncMessaging != nil {
 		input.XFlightId = tempFlightIdAsyncMessaging
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AsyncMessaging.CreateSubscriptionHandlerShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AsyncMessagingService) UnsubscribeTopicHandlerShort(input *async_mess
 	}
 	if tempFlightIdAsyncMessaging != nil {
 		input.XFlightId = tempFlightIdAsyncMessaging
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AsyncMessaging.UnsubscribeTopicHandlerShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AsyncMessagingService) ListTopicsHandlerShort(input *async_messaging.
 	}
 	if tempFlightIdAsyncMessaging != nil {
 		input.XFlightId = tempFlightIdAsyncMessaging
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AsyncMessaging.ListTopicsHandlerShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *AsyncMessagingService) CreateTopicHandlerShort(input *async_messaging
 	}
 	if tempFlightIdAsyncMessaging != nil {
 		input.XFlightId = tempFlightIdAsyncMessaging
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AsyncMessaging.CreateTopicHandlerShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *AsyncMessagingService) DeleteTopicHandlerShort(input *async_messaging
 	}
 	if tempFlightIdAsyncMessaging != nil {
 		input.XFlightId = tempFlightIdAsyncMessaging
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AsyncMessaging.DeleteTopicHandlerShort(input, authInfoWriter)

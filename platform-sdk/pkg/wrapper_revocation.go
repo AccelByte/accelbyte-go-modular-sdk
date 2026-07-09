@@ -15,11 +15,8 @@ import (
 )
 
 type RevocationService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdRevocation *string
@@ -30,9 +27,9 @@ func (aaa *RevocationService) UpdateFlightId(flightId string) {
 
 func (aaa *RevocationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *RevocationService) GetRevocationConfigShort(input *revocation.GetRevo
 	}
 	if tempFlightIdRevocation != nil {
 		input.XFlightId = tempFlightIdRevocation
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Revocation.GetRevocationConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *RevocationService) UpdateRevocationConfigShort(input *revocation.Upda
 	}
 	if tempFlightIdRevocation != nil {
 		input.XFlightId = tempFlightIdRevocation
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Revocation.UpdateRevocationConfigShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *RevocationService) DeleteRevocationConfigShort(input *revocation.Dele
 	}
 	if tempFlightIdRevocation != nil {
 		input.XFlightId = tempFlightIdRevocation
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Revocation.DeleteRevocationConfigShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *RevocationService) QueryRevocationHistoriesShort(input *revocation.Qu
 	}
 	if tempFlightIdRevocation != nil {
 		input.XFlightId = tempFlightIdRevocation
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Revocation.QueryRevocationHistoriesShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *RevocationService) DoRevocationShort(input *revocation.DoRevocationPa
 	}
 	if tempFlightIdRevocation != nil {
 		input.XFlightId = tempFlightIdRevocation
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Revocation.DoRevocationShort(input, authInfoWriter)

@@ -144,9 +144,10 @@ func NewPublicPlatformLinkV3NoContent() *PublicPlatformLinkV3NoContent {
 	return &PublicPlatformLinkV3NoContent{}
 }
 
-/*PublicPlatformLinkV3NoContent handles this case with default header values.
+/*
+PublicPlatformLinkV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicPlatformLinkV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewPublicPlatformLinkV3BadRequest() *PublicPlatformLinkV3BadRequest {
 	return &PublicPlatformLinkV3BadRequest{}
 }
 
-/*PublicPlatformLinkV3BadRequest handles this case with default header values.
+/*
+PublicPlatformLinkV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicPlatformLinkV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewPublicPlatformLinkV3Unauthorized() *PublicPlatformLinkV3Unauthorized {
 	return &PublicPlatformLinkV3Unauthorized{}
 }
 
-/*PublicPlatformLinkV3Unauthorized handles this case with default header values.
+/*
+PublicPlatformLinkV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicPlatformLinkV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewPublicPlatformLinkV3NotFound() *PublicPlatformLinkV3NotFound {
 	return &PublicPlatformLinkV3NotFound{}
 }
 
-/*PublicPlatformLinkV3NotFound handles this case with default header values.
+/*
+PublicPlatformLinkV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10174</td><td>platform client not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10174</td><td>platform client not found</td></tr></table>
 */
 type PublicPlatformLinkV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewPublicPlatformLinkV3Conflict() *PublicPlatformLinkV3Conflict {
 	return &PublicPlatformLinkV3Conflict{}
 }
 
-/*PublicPlatformLinkV3Conflict handles this case with default header values.
+/*
+PublicPlatformLinkV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr><tr><td>10172</td><td>platform user is already linked with the account</td></tr><tr><td>10173</td><td>platform is already linked with another user account</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10163</td><td>platform is already linked with the user account</td></tr><tr><td>10172</td><td>platform user is already linked with the account</td></tr><tr><td>10173</td><td>platform is already linked with another user account</td></tr></table>
 */
 type PublicPlatformLinkV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewPublicPlatformLinkV3InternalServerError() *PublicPlatformLinkV3InternalS
 	return &PublicPlatformLinkV3InternalServerError{}
 }
 
-/*PublicPlatformLinkV3InternalServerError handles this case with default header values.
+/*
+PublicPlatformLinkV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicPlatformLinkV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

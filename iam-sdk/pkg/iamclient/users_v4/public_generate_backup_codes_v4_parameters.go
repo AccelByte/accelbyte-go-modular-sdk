@@ -57,7 +57,8 @@ func NewPublicGenerateBackupCodesV4ParamsWithHTTPClient(client *http.Client) *Pu
 	}
 }
 
-/*PublicGenerateBackupCodesV4Params contains all the parameters to send to the API endpoint
+/*
+PublicGenerateBackupCodesV4Params contains all the parameters to send to the API endpoint
 for the public generate backup codes v4 operation typically these are written to a http.Request
 */
 type PublicGenerateBackupCodesV4Params struct {

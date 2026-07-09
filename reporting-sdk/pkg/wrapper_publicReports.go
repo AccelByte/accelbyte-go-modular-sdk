@@ -15,11 +15,8 @@ import (
 )
 
 type PublicReportsService struct {
-	Client           *reportingclient.JusticeReportingService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *reportingclient.JusticeReportingService
+	Session repository.Session
 }
 
 var tempFlightIdPublicReports *string
@@ -30,9 +27,9 @@ func (aaa *PublicReportsService) UpdateFlightId(flightId string) {
 
 func (aaa *PublicReportsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicReportsService) SubmitReportShort(input *public_reports.SubmitR
 	}
 	if tempFlightIdPublicReports != nil {
 		input.XFlightId = tempFlightIdPublicReports
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PublicReports.SubmitReportShort(input, authInfoWriter)

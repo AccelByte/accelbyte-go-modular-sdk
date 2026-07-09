@@ -115,9 +115,10 @@ func NewDisableUserBanOK() *DisableUserBanOK {
 	return &DisableUserBanOK{}
 }
 
-/*DisableUserBanOK handles this case with default header values.
+/*
+DisableUserBanOK handles this case with default header values.
 
-  OK
+	OK
 */
 type DisableUserBanOK struct {
 	Payload *iamclientmodels.ModelUserBanResponse
@@ -169,9 +170,10 @@ func NewDisableUserBanUnauthorized() *DisableUserBanUnauthorized {
 	return &DisableUserBanUnauthorized{}
 }
 
-/*DisableUserBanUnauthorized handles this case with default header values.
+/*
+DisableUserBanUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type DisableUserBanUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewDisableUserBanForbidden() *DisableUserBanForbidden {
 	return &DisableUserBanForbidden{}
 }
 
-/*DisableUserBanForbidden handles this case with default header values.
+/*
+DisableUserBanForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10145</td><td>disallow game access publisher user's ban</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10145</td><td>disallow game access publisher user's ban</td></tr></table>
 */
 type DisableUserBanForbidden struct {
 }
@@ -250,9 +253,10 @@ func NewDisableUserBanNotFound() *DisableUserBanNotFound {
 	return &DisableUserBanNotFound{}
 }
 
-/*DisableUserBanNotFound handles this case with default header values.
+/*
+DisableUserBanNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10158</td><td>ban not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10158</td><td>ban not found</td></tr></table>
 */
 type DisableUserBanNotFound struct {
 }
@@ -277,9 +281,10 @@ func NewDisableUserBanInternalServerError() *DisableUserBanInternalServerError {
 	return &DisableUserBanInternalServerError{}
 }
 
-/*DisableUserBanInternalServerError handles this case with default header values.
+/*
+DisableUserBanInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type DisableUserBanInternalServerError struct {
 }

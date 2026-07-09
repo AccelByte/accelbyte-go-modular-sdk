@@ -15,11 +15,8 @@ import (
 )
 
 type SlotConfigService struct {
-	Client           *socialclient.JusticeSocialService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *socialclient.JusticeSocialService
+	Session repository.Session
 }
 
 var tempFlightIdSlotConfig *string
@@ -30,9 +27,9 @@ func (aaa *SlotConfigService) UpdateFlightId(flightId string) {
 
 func (aaa *SlotConfigService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *SlotConfigService) GetNamespaceSlotConfigShort(input *slot_config.Get
 	}
 	if tempFlightIdSlotConfig != nil {
 		input.XFlightId = tempFlightIdSlotConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.SlotConfig.GetNamespaceSlotConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *SlotConfigService) UpdateNamespaceSlotConfigShort(input *slot_config.
 	}
 	if tempFlightIdSlotConfig != nil {
 		input.XFlightId = tempFlightIdSlotConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.SlotConfig.UpdateNamespaceSlotConfigShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *SlotConfigService) DeleteNamespaceSlotConfigShort(input *slot_config.
 	}
 	if tempFlightIdSlotConfig != nil {
 		input.XFlightId = tempFlightIdSlotConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.SlotConfig.DeleteNamespaceSlotConfigShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *SlotConfigService) GetUserSlotConfigShort(input *slot_config.GetUserS
 	}
 	if tempFlightIdSlotConfig != nil {
 		input.XFlightId = tempFlightIdSlotConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.SlotConfig.GetUserSlotConfigShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *SlotConfigService) UpdateUserSlotConfigShort(input *slot_config.Updat
 	}
 	if tempFlightIdSlotConfig != nil {
 		input.XFlightId = tempFlightIdSlotConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.SlotConfig.UpdateUserSlotConfigShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *SlotConfigService) DeleteUserSlotConfigShort(input *slot_config.Delet
 	}
 	if tempFlightIdSlotConfig != nil {
 		input.XFlightId = tempFlightIdSlotConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.SlotConfig.DeleteUserSlotConfigShort(input, authInfoWriter)

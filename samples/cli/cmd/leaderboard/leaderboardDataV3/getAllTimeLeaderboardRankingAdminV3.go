@@ -11,6 +11,7 @@ import (
 
 	leaderboard "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/leaderboard_data_v3"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,18 +23,22 @@ var GetAllTimeLeaderboardRankingAdminV3Cmd = &cobra.Command{
 	Long:  `Get all time leaderboard ranking admin V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		leaderboardDataV3Service := &leaderboard.LeaderboardDataV3Service{
-			Client:          leaderboard.NewLeaderboardClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: leaderboard.NewLeaderboardHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		leaderboardCode, _ := cmd.Flags().GetString("leaderboardCode")
 		namespace, _ := cmd.Flags().GetString("namespace")
+		includeHiddenUsers, _ := cmd.Flags().GetBool("includeHiddenUsers")
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		input := &leaderboard_data_v3.GetAllTimeLeaderboardRankingAdminV3Params{
-			LeaderboardCode: leaderboardCode,
-			Namespace:       namespace,
-			Limit:           &limit,
-			Offset:          &offset,
+			LeaderboardCode:    leaderboardCode,
+			Namespace:          namespace,
+			IncludeHiddenUsers: &includeHiddenUsers,
+			Limit:              &limit,
+			Offset:             &offset,
 		}
 		ok, errOK := leaderboardDataV3Service.GetAllTimeLeaderboardRankingAdminV3Short(input)
 		if errOK != nil {
@@ -53,6 +58,7 @@ func init() {
 	_ = GetAllTimeLeaderboardRankingAdminV3Cmd.MarkFlagRequired("leaderboardCode")
 	GetAllTimeLeaderboardRankingAdminV3Cmd.Flags().String("namespace", "", "Namespace")
 	_ = GetAllTimeLeaderboardRankingAdminV3Cmd.MarkFlagRequired("namespace")
+	GetAllTimeLeaderboardRankingAdminV3Cmd.Flags().Bool("includeHiddenUsers", false, "Include hidden users")
 	GetAllTimeLeaderboardRankingAdminV3Cmd.Flags().Int64("limit", 20, "Limit")
 	GetAllTimeLeaderboardRankingAdminV3Cmd.Flags().Int64("offset", 0, "Offset")
 }

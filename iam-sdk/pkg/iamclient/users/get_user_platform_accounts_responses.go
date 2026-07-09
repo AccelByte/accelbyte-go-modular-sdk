@@ -115,9 +115,10 @@ func NewGetUserPlatformAccountsOK() *GetUserPlatformAccountsOK {
 	return &GetUserPlatformAccountsOK{}
 }
 
-/*GetUserPlatformAccountsOK handles this case with default header values.
+/*
+GetUserPlatformAccountsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetUserPlatformAccountsOK struct {
 	Payload []*iamclientmodels.AccountcommonUserLinkedPlatform
@@ -167,9 +168,10 @@ func NewGetUserPlatformAccountsBadRequest() *GetUserPlatformAccountsBadRequest {
 	return &GetUserPlatformAccountsBadRequest{}
 }
 
-/*GetUserPlatformAccountsBadRequest handles this case with default header values.
+/*
+GetUserPlatformAccountsBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type GetUserPlatformAccountsBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -221,9 +223,10 @@ func NewGetUserPlatformAccountsUnauthorized() *GetUserPlatformAccountsUnauthoriz
 	return &GetUserPlatformAccountsUnauthorized{}
 }
 
-/*GetUserPlatformAccountsUnauthorized handles this case with default header values.
+/*
+GetUserPlatformAccountsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetUserPlatformAccountsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -275,9 +278,10 @@ func NewGetUserPlatformAccountsForbidden() *GetUserPlatformAccountsForbidden {
 	return &GetUserPlatformAccountsForbidden{}
 }
 
-/*GetUserPlatformAccountsForbidden handles this case with default header values.
+/*
+GetUserPlatformAccountsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetUserPlatformAccountsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

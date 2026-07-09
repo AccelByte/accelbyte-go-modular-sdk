@@ -15,11 +15,8 @@ import (
 )
 
 type TicketV1Service struct {
-	Client           *loginqueueclient.JusticeLoginqueueService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *loginqueueclient.JusticeLoginqueueService
+	Session repository.Session
 }
 
 var tempFlightIdTicketV1 *string
@@ -30,9 +27,9 @@ func (aaa *TicketV1Service) UpdateFlightId(flightId string) {
 
 func (aaa *TicketV1Service) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *TicketV1Service) RefreshTicketShort(input *ticket_v1.RefreshTicketPar
 	}
 	if tempFlightIdTicketV1 != nil {
 		input.XFlightId = tempFlightIdTicketV1
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.TicketV1.RefreshTicketShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *TicketV1Service) CancelTicketShort(input *ticket_v1.CancelTicketParam
 	}
 	if tempFlightIdTicketV1 != nil {
 		input.XFlightId = tempFlightIdTicketV1
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.TicketV1.CancelTicketShort(input, authInfoWriter)

@@ -115,9 +115,10 @@ func NewGenerateTokenByNewHeadlessAccountV3OK() *GenerateTokenByNewHeadlessAccou
 	return &GenerateTokenByNewHeadlessAccountV3OK{}
 }
 
-/*GenerateTokenByNewHeadlessAccountV3OK handles this case with default header values.
+/*
+GenerateTokenByNewHeadlessAccountV3OK handles this case with default header values.
 
-  Succeed to create headless account and response token info.
+	Succeed to create headless account and response token info.
 */
 type GenerateTokenByNewHeadlessAccountV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3
@@ -169,9 +170,10 @@ func NewGenerateTokenByNewHeadlessAccountV3BadRequest() *GenerateTokenByNewHeadl
 	return &GenerateTokenByNewHeadlessAccountV3BadRequest{}
 }
 
-/*GenerateTokenByNewHeadlessAccountV3BadRequest handles this case with default header values.
+/*
+GenerateTokenByNewHeadlessAccountV3BadRequest handles this case with default header values.
 
-  Invalid platform linking token or clientID not match.
+	Invalid platform linking token or clientID not match.
 */
 type GenerateTokenByNewHeadlessAccountV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewGenerateTokenByNewHeadlessAccountV3Unauthorized() *GenerateTokenByNewHea
 	return &GenerateTokenByNewHeadlessAccountV3Unauthorized{}
 }
 
-/*GenerateTokenByNewHeadlessAccountV3Unauthorized handles this case with default header values.
+/*
+GenerateTokenByNewHeadlessAccountV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
 */
 type GenerateTokenByNewHeadlessAccountV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewGenerateTokenByNewHeadlessAccountV3NotFound() *GenerateTokenByNewHeadles
 	return &GenerateTokenByNewHeadlessAccountV3NotFound{}
 }
 
-/*GenerateTokenByNewHeadlessAccountV3NotFound handles this case with default header values.
+/*
+GenerateTokenByNewHeadlessAccountV3NotFound handles this case with default header values.
 
-  Platform linking token not found.
+	Platform linking token not found.
 */
 type GenerateTokenByNewHeadlessAccountV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

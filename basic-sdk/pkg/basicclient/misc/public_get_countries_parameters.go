@@ -69,7 +69,8 @@ func NewPublicGetCountriesParamsWithHTTPClient(client *http.Client) *PublicGetCo
 	}
 }
 
-/*PublicGetCountriesParams contains all the parameters to send to the API endpoint
+/*
+PublicGetCountriesParams contains all the parameters to send to the API endpoint
 for the public get countries operation typically these are written to a http.Request
 */
 type PublicGetCountriesParams struct {

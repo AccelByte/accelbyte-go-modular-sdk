@@ -9,6 +9,7 @@ package adminGroup
 import (
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	ugc "github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk/pkg/ugcclient/admin_group"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -22,8 +23,10 @@ var AdminGetUserGroupContentsV2Cmd = &cobra.Command{
 	Long:  `Admin get user group contents V2`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminGroupService := &ugc.AdminGroupService{
-			Client:          ugc.NewUgcClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ugc.NewUgcHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		groupId, _ := cmd.Flags().GetString("groupId")
 		namespace, _ := cmd.Flags().GetString("namespace")

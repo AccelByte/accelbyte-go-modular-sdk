@@ -130,9 +130,10 @@ func NewAdminGetUserDeletionStatusV3OK() *AdminGetUserDeletionStatusV3OK {
 	return &AdminGetUserDeletionStatusV3OK{}
 }
 
-/*AdminGetUserDeletionStatusV3OK handles this case with default header values.
+/*
+AdminGetUserDeletionStatusV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetUserDeletionStatusV3OK struct {
 	Payload *iamclientmodels.ModelUserDeletionStatusResponse
@@ -184,9 +185,10 @@ func NewAdminGetUserDeletionStatusV3Unauthorized() *AdminGetUserDeletionStatusV3
 	return &AdminGetUserDeletionStatusV3Unauthorized{}
 }
 
-/*AdminGetUserDeletionStatusV3Unauthorized handles this case with default header values.
+/*
+AdminGetUserDeletionStatusV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserDeletionStatusV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminGetUserDeletionStatusV3Forbidden() *AdminGetUserDeletionStatusV3For
 	return &AdminGetUserDeletionStatusV3Forbidden{}
 }
 
-/*AdminGetUserDeletionStatusV3Forbidden handles this case with default header values.
+/*
+AdminGetUserDeletionStatusV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserDeletionStatusV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetUserDeletionStatusV3NotFound() *AdminGetUserDeletionStatusV3NotF
 	return &AdminGetUserDeletionStatusV3NotFound{}
 }
 
-/*AdminGetUserDeletionStatusV3NotFound handles this case with default header values.
+/*
+AdminGetUserDeletionStatusV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminGetUserDeletionStatusV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetUserDeletionStatusV3InternalServerError() *AdminGetUserDeletionS
 	return &AdminGetUserDeletionStatusV3InternalServerError{}
 }
 
-/*AdminGetUserDeletionStatusV3InternalServerError handles this case with default header values.
+/*
+AdminGetUserDeletionStatusV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetUserDeletionStatusV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

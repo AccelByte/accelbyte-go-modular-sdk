@@ -15,11 +15,8 @@ import (
 )
 
 type NotificationService struct {
-	Client           *lobbyclient.JusticeLobbyService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *lobbyclient.JusticeLobbyService
+	Session repository.Session
 }
 
 var tempFlightIdNotification *string
@@ -30,9 +27,9 @@ func (aaa *NotificationService) UpdateFlightId(flightId string) {
 
 func (aaa *NotificationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *NotificationService) SendMultipleUsersFreeformNotificationV1AdminShor
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.SendMultipleUsersFreeformNotificationV1AdminShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *NotificationService) SendUsersFreeformNotificationV1AdminShort(input 
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.SendUsersFreeformNotificationV1AdminShort(input, authInfoWriter)
@@ -114,8 +111,8 @@ func (aaa *NotificationService) SendPartyFreeformNotificationV1AdminShort(input 
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.SendPartyFreeformNotificationV1AdminShort(input, authInfoWriter)
@@ -144,8 +141,8 @@ func (aaa *NotificationService) SendPartyTemplatedNotificationV1AdminShort(input
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.SendPartyTemplatedNotificationV1AdminShort(input, authInfoWriter)
@@ -174,8 +171,8 @@ func (aaa *NotificationService) GetAllNotificationTemplatesV1AdminShort(input *n
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Notification.GetAllNotificationTemplatesV1AdminShort(input, authInfoWriter)
@@ -208,8 +205,8 @@ func (aaa *NotificationService) CreateNotificationTemplateV1AdminShort(input *no
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.CreateNotificationTemplateV1AdminShort(input, authInfoWriter)
@@ -238,8 +235,8 @@ func (aaa *NotificationService) SendUsersTemplatedNotificationV1AdminShort(input
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.SendUsersTemplatedNotificationV1AdminShort(input, authInfoWriter)
@@ -268,8 +265,8 @@ func (aaa *NotificationService) GetTemplateSlugLocalizationsTemplateV1AdminShort
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Notification.GetTemplateSlugLocalizationsTemplateV1AdminShort(input, authInfoWriter)
@@ -302,8 +299,8 @@ func (aaa *NotificationService) DeleteNotificationTemplateSlugV1AdminShort(input
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.DeleteNotificationTemplateSlugV1AdminShort(input, authInfoWriter)
@@ -332,8 +329,8 @@ func (aaa *NotificationService) GetSingleTemplateLocalizationV1AdminShort(input 
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Notification.GetSingleTemplateLocalizationV1AdminShort(input, authInfoWriter)
@@ -366,8 +363,8 @@ func (aaa *NotificationService) UpdateTemplateLocalizationV1AdminShort(input *no
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.UpdateTemplateLocalizationV1AdminShort(input, authInfoWriter)
@@ -396,8 +393,8 @@ func (aaa *NotificationService) DeleteTemplateLocalizationV1AdminShort(input *no
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.DeleteTemplateLocalizationV1AdminShort(input, authInfoWriter)
@@ -426,8 +423,8 @@ func (aaa *NotificationService) PublishTemplateLocalizationV1AdminShort(input *n
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.PublishTemplateLocalizationV1AdminShort(input, authInfoWriter)
@@ -456,8 +453,8 @@ func (aaa *NotificationService) GetAllNotificationTopicsV1AdminShort(input *noti
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Notification.GetAllNotificationTopicsV1AdminShort(input, authInfoWriter)
@@ -490,8 +487,8 @@ func (aaa *NotificationService) CreateNotificationTopicV1AdminShort(input *notif
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.CreateNotificationTopicV1AdminShort(input, authInfoWriter)
@@ -520,8 +517,8 @@ func (aaa *NotificationService) GetNotificationTopicV1AdminShort(input *notifica
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Notification.GetNotificationTopicV1AdminShort(input, authInfoWriter)
@@ -554,8 +551,8 @@ func (aaa *NotificationService) UpdateNotificationTopicV1AdminShort(input *notif
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.UpdateNotificationTopicV1AdminShort(input, authInfoWriter)
@@ -584,8 +581,8 @@ func (aaa *NotificationService) DeleteNotificationTopicV1AdminShort(input *notif
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.DeleteNotificationTopicV1AdminShort(input, authInfoWriter)
@@ -614,8 +611,8 @@ func (aaa *NotificationService) SendSpecificUserFreeformNotificationV1AdminShort
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.SendSpecificUserFreeformNotificationV1AdminShort(input, authInfoWriter)
@@ -644,8 +641,8 @@ func (aaa *NotificationService) SendSpecificUserTemplatedNotificationV1AdminShor
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.SendSpecificUserTemplatedNotificationV1AdminShort(input, authInfoWriter)
@@ -674,8 +671,8 @@ func (aaa *NotificationService) GetMyNotificationsShort(input *notification.GetM
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Notification.GetMyNotificationsShort(input, authInfoWriter)
@@ -708,8 +705,8 @@ func (aaa *NotificationService) GetMyOfflineNotificationsShort(input *notificati
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Notification.GetMyOfflineNotificationsShort(input, authInfoWriter)
@@ -742,8 +739,8 @@ func (aaa *NotificationService) GetTopicByNamespaceShort(input *notification.Get
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Notification.GetTopicByNamespaceShort(input, authInfoWriter)
@@ -776,8 +773,8 @@ func (aaa *NotificationService) CreateTopicShort(input *notification.CreateTopic
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.CreateTopicShort(input, authInfoWriter)
@@ -806,8 +803,8 @@ func (aaa *NotificationService) GetTopicByTopicNameShort(input *notification.Get
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Notification.GetTopicByTopicNameShort(input, authInfoWriter)
@@ -840,8 +837,8 @@ func (aaa *NotificationService) UpdateTopicByTopicNameShort(input *notification.
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.UpdateTopicByTopicNameShort(input, authInfoWriter)
@@ -870,8 +867,8 @@ func (aaa *NotificationService) DeleteTopicByTopicNameShort(input *notification.
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.DeleteTopicByTopicNameShort(input, authInfoWriter)
@@ -900,8 +897,8 @@ func (aaa *NotificationService) FreeFormNotificationByUserIDShort(input *notific
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.FreeFormNotificationByUserIDShort(input, authInfoWriter)
@@ -930,8 +927,8 @@ func (aaa *NotificationService) NotificationWithTemplateByUserIDShort(input *not
 	}
 	if tempFlightIdNotification != nil {
 		input.XFlightId = tempFlightIdNotification
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Notification.NotificationWithTemplateByUserIDShort(input, authInfoWriter)

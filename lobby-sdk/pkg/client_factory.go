@@ -13,7 +13,38 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewLobbyClient(configRepository repository.ConfigRepository) *lobbyclient.JusticeLobbyService {
+type LobbyClient struct {
+	Friends         *FriendsService
+	Blocks          *BlocksService
+	Config          *ConfigService
+	Admin           *AdminService
+	Notification    *NotificationService
+	Party           *PartyService
+	LobbyOperations *LobbyOperationsService
+	Player          *PlayerService
+	Profanity       *ProfanityService
+	ThirdParty      *ThirdPartyService
+	Presence        *PresenceService
+}
+
+func NewLobbyClient(session repository.Session) *LobbyClient {
+	httpClient := NewLobbyHttpClient(session.ConfigRepository)
+	return &LobbyClient{
+		Friends:         &FriendsService{Client: httpClient, Session: session},
+		Blocks:          &BlocksService{Client: httpClient, Session: session},
+		Config:          &ConfigService{Client: httpClient, Session: session},
+		Admin:           &AdminService{Client: httpClient, Session: session},
+		Notification:    &NotificationService{Client: httpClient, Session: session},
+		Party:           &PartyService{Client: httpClient, Session: session},
+		LobbyOperations: &LobbyOperationsService{Client: httpClient, Session: session},
+		Player:          &PlayerService{Client: httpClient, Session: session},
+		Profanity:       &ProfanityService{Client: httpClient, Session: session},
+		ThirdParty:      &ThirdPartyService{Client: httpClient, Session: session},
+		Presence:        &PresenceService{Client: httpClient, Session: session},
+	}
+}
+
+func NewLobbyHttpClient(configRepository repository.ConfigRepository) *lobbyclient.JusticeLobbyService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

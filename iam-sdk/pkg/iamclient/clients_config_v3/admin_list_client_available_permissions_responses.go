@@ -100,9 +100,10 @@ func NewAdminListClientAvailablePermissionsOK() *AdminListClientAvailablePermiss
 	return &AdminListClientAvailablePermissionsOK{}
 }
 
-/*AdminListClientAvailablePermissionsOK handles this case with default header values.
+/*
+AdminListClientAvailablePermissionsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminListClientAvailablePermissionsOK struct {
 	Payload *iamclientmodels.ClientmodelListClientPermissionSet
@@ -154,9 +155,10 @@ func NewAdminListClientAvailablePermissionsUnauthorized() *AdminListClientAvaila
 	return &AdminListClientAvailablePermissionsUnauthorized{}
 }
 
-/*AdminListClientAvailablePermissionsUnauthorized handles this case with default header values.
+/*
+AdminListClientAvailablePermissionsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminListClientAvailablePermissionsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -208,9 +210,10 @@ func NewAdminListClientAvailablePermissionsForbidden() *AdminListClientAvailable
 	return &AdminListClientAvailablePermissionsForbidden{}
 }
 
-/*AdminListClientAvailablePermissionsForbidden handles this case with default header values.
+/*
+AdminListClientAvailablePermissionsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminListClientAvailablePermissionsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

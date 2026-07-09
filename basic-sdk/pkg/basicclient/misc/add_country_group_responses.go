@@ -130,9 +130,10 @@ func NewAddCountryGroupCreated() *AddCountryGroupCreated {
 	return &AddCountryGroupCreated{}
 }
 
-/*AddCountryGroupCreated handles this case with default header values.
+/*
+AddCountryGroupCreated handles this case with default header values.
 
-  successful operation
+	successful operation
 */
 type AddCountryGroupCreated struct {
 	Payload *basicclientmodels.AddCountryGroupResponse
@@ -184,9 +185,10 @@ func NewAddCountryGroupBadRequest() *AddCountryGroupBadRequest {
 	return &AddCountryGroupBadRequest{}
 }
 
-/*AddCountryGroupBadRequest handles this case with default header values.
+/*
+AddCountryGroupBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>11234</td><td>Unable to {action}: A country can't be assigned to more than one country group</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>11234</td><td>Unable to {action}: A country can't be assigned to more than one country group</td></tr></table>
 */
 type AddCountryGroupBadRequest struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -238,9 +240,10 @@ func NewAddCountryGroupUnauthorized() *AddCountryGroupUnauthorized {
 	return &AddCountryGroupUnauthorized{}
 }
 
-/*AddCountryGroupUnauthorized handles this case with default header values.
+/*
+AddCountryGroupUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type AddCountryGroupUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewAddCountryGroupForbidden() *AddCountryGroupForbidden {
 	return &AddCountryGroupForbidden{}
 }
 
-/*AddCountryGroupForbidden handles this case with default header values.
+/*
+AddCountryGroupForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type AddCountryGroupForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewAddCountryGroupConflict() *AddCountryGroupConflict {
 	return &AddCountryGroupConflict{}
 }
 
-/*AddCountryGroupConflict handles this case with default header values.
+/*
+AddCountryGroupConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11235</td><td>Unable to {action}: Country group with specified code is already exist</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11235</td><td>Unable to {action}: Country group with specified code is already exist</td></tr></table>
 */
 type AddCountryGroupConflict struct {
 	Payload *basicclientmodels.ErrorEntity

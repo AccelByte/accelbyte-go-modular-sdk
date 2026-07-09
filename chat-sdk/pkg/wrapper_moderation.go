@@ -15,11 +15,8 @@ import (
 )
 
 type ModerationService struct {
-	Client           *chatclient.JusticeChatService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *chatclient.JusticeChatService
+	Session repository.Session
 }
 
 var tempFlightIdModeration *string
@@ -30,9 +27,9 @@ func (aaa *ModerationService) UpdateFlightId(flightId string) {
 
 func (aaa *ModerationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ModerationService) AdminGetChatSnapshotShort(input *moderation.AdminG
 	}
 	if tempFlightIdModeration != nil {
 		input.XFlightId = tempFlightIdModeration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Moderation.AdminGetChatSnapshotShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ModerationService) AdminDeleteChatSnapshotShort(input *moderation.Adm
 	}
 	if tempFlightIdModeration != nil {
 		input.XFlightId = tempFlightIdModeration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Moderation.AdminDeleteChatSnapshotShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *ModerationService) PublicGetChatSnapshotShort(input *moderation.Publi
 	}
 	if tempFlightIdModeration != nil {
 		input.XFlightId = tempFlightIdModeration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Moderation.PublicGetChatSnapshotShort(input, authInfoWriter)

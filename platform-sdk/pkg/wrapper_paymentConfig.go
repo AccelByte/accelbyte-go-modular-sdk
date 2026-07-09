@@ -15,11 +15,8 @@ import (
 )
 
 type PaymentConfigService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdPaymentConfig *string
@@ -30,9 +27,9 @@ func (aaa *PaymentConfigService) UpdateFlightId(flightId string) {
 
 func (aaa *PaymentConfigService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PaymentConfigService) GetPaymentMerchantConfigShort(input *payment_co
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.GetPaymentMerchantConfigShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PaymentConfigService) UpdatePaymentDomainWhitelistConfigShort(input *
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdatePaymentDomainWhitelistConfigShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PaymentConfigService) TestAdyenConfigShort(input *payment_config.Test
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestAdyenConfigShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PaymentConfigService) TestAliPayConfigShort(input *payment_config.Tes
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestAliPayConfigShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *PaymentConfigService) TestCheckoutConfigShort(input *payment_config.T
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestCheckoutConfigShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *PaymentConfigService) DebugMatchedPaymentMerchantConfigShort(input *p
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.DebugMatchedPaymentMerchantConfigShort(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *PaymentConfigService) TestNeonPayConfigShort(input *payment_config.Te
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestNeonPayConfigShort(input, authInfoWriter)
@@ -292,8 +289,8 @@ func (aaa *PaymentConfigService) TestPayPalConfigShort(input *payment_config.Tes
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestPayPalConfigShort(input, authInfoWriter)
@@ -326,8 +323,8 @@ func (aaa *PaymentConfigService) TestStripeConfigShort(input *payment_config.Tes
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestStripeConfigShort(input, authInfoWriter)
@@ -360,8 +357,8 @@ func (aaa *PaymentConfigService) TestWxPayConfigShort(input *payment_config.Test
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestWxPayConfigShort(input, authInfoWriter)
@@ -394,8 +391,8 @@ func (aaa *PaymentConfigService) TestXsollaConfigShort(input *payment_config.Tes
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestXsollaConfigShort(input, authInfoWriter)
@@ -428,8 +425,8 @@ func (aaa *PaymentConfigService) GetPaymentMerchantConfig1Short(input *payment_c
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.GetPaymentMerchantConfig1Short(input, authInfoWriter)
@@ -462,8 +459,8 @@ func (aaa *PaymentConfigService) UpdateAdyenConfigShort(input *payment_config.Up
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdateAdyenConfigShort(input, authInfoWriter)
@@ -496,8 +493,8 @@ func (aaa *PaymentConfigService) TestAdyenConfigByIDShort(input *payment_config.
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestAdyenConfigByIDShort(input, authInfoWriter)
@@ -530,8 +527,8 @@ func (aaa *PaymentConfigService) UpdateAliPayConfigShort(input *payment_config.U
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdateAliPayConfigShort(input, authInfoWriter)
@@ -564,8 +561,8 @@ func (aaa *PaymentConfigService) TestAliPayConfigByIDShort(input *payment_config
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestAliPayConfigByIDShort(input, authInfoWriter)
@@ -598,8 +595,8 @@ func (aaa *PaymentConfigService) UpdateCheckoutConfigShort(input *payment_config
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdateCheckoutConfigShort(input, authInfoWriter)
@@ -632,8 +629,8 @@ func (aaa *PaymentConfigService) TestCheckoutConfigByIDShort(input *payment_conf
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestCheckoutConfigByIDShort(input, authInfoWriter)
@@ -666,8 +663,8 @@ func (aaa *PaymentConfigService) UpdateNeonPayConfigShort(input *payment_config.
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdateNeonPayConfigShort(input, authInfoWriter)
@@ -700,8 +697,8 @@ func (aaa *PaymentConfigService) TestNeonPayConfigByIDShort(input *payment_confi
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestNeonPayConfigByIDShort(input, authInfoWriter)
@@ -734,8 +731,8 @@ func (aaa *PaymentConfigService) UpdatePayPalConfigShort(input *payment_config.U
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdatePayPalConfigShort(input, authInfoWriter)
@@ -768,8 +765,8 @@ func (aaa *PaymentConfigService) TestPayPalConfigByIDShort(input *payment_config
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestPayPalConfigByIDShort(input, authInfoWriter)
@@ -802,8 +799,8 @@ func (aaa *PaymentConfigService) UpdateStripeConfigShort(input *payment_config.U
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdateStripeConfigShort(input, authInfoWriter)
@@ -836,8 +833,8 @@ func (aaa *PaymentConfigService) TestStripeConfigByIDShort(input *payment_config
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestStripeConfigByIDShort(input, authInfoWriter)
@@ -870,8 +867,8 @@ func (aaa *PaymentConfigService) UpdateWxPayConfigShort(input *payment_config.Up
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdateWxPayConfigShort(input, authInfoWriter)
@@ -904,8 +901,8 @@ func (aaa *PaymentConfigService) UpdateWxPayConfigCertShort(input *payment_confi
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdateWxPayConfigCertShort(input, authInfoWriter)
@@ -938,8 +935,8 @@ func (aaa *PaymentConfigService) TestWxPayConfigByIDShort(input *payment_config.
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestWxPayConfigByIDShort(input, authInfoWriter)
@@ -972,8 +969,8 @@ func (aaa *PaymentConfigService) UpdateXsollaConfigShort(input *payment_config.U
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdateXsollaConfigShort(input, authInfoWriter)
@@ -1006,8 +1003,8 @@ func (aaa *PaymentConfigService) TestXsollaConfigByIDShort(input *payment_config
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.TestXsollaConfigByIDShort(input, authInfoWriter)
@@ -1040,8 +1037,8 @@ func (aaa *PaymentConfigService) UpdateXsollaUIConfigShort(input *payment_config
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdateXsollaUIConfigShort(input, authInfoWriter)
@@ -1074,8 +1071,8 @@ func (aaa *PaymentConfigService) QueryPaymentProviderConfigShort(input *payment_
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.QueryPaymentProviderConfigShort(input, authInfoWriter)
@@ -1108,8 +1105,8 @@ func (aaa *PaymentConfigService) CreatePaymentProviderConfigShort(input *payment
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.CreatePaymentProviderConfigShort(input, authInfoWriter)
@@ -1142,8 +1139,8 @@ func (aaa *PaymentConfigService) GetAggregatePaymentProvidersShort(input *paymen
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.GetAggregatePaymentProvidersShort(input, authInfoWriter)
@@ -1176,8 +1173,8 @@ func (aaa *PaymentConfigService) DebugMatchedPaymentProviderConfigShort(input *p
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.DebugMatchedPaymentProviderConfigShort(input, authInfoWriter)
@@ -1210,8 +1207,8 @@ func (aaa *PaymentConfigService) GetSpecialPaymentProvidersShort(input *payment_
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.GetSpecialPaymentProvidersShort(input, authInfoWriter)
@@ -1244,8 +1241,8 @@ func (aaa *PaymentConfigService) UpdatePaymentProviderConfigShort(input *payment
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdatePaymentProviderConfigShort(input, authInfoWriter)
@@ -1278,8 +1275,8 @@ func (aaa *PaymentConfigService) DeletePaymentProviderConfigShort(input *payment
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PaymentConfig.DeletePaymentProviderConfigShort(input, authInfoWriter)
@@ -1308,8 +1305,8 @@ func (aaa *PaymentConfigService) GetPaymentTaxConfigShort(input *payment_config.
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.GetPaymentTaxConfigShort(input, authInfoWriter)
@@ -1342,8 +1339,8 @@ func (aaa *PaymentConfigService) UpdatePaymentTaxConfigShort(input *payment_conf
 	}
 	if tempFlightIdPaymentConfig != nil {
 		input.XFlightId = tempFlightIdPaymentConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentConfig.UpdatePaymentTaxConfigShort(input, authInfoWriter)

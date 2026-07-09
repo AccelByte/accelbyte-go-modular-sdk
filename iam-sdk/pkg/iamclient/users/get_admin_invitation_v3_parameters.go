@@ -57,7 +57,8 @@ func NewGetAdminInvitationV3ParamsWithHTTPClient(client *http.Client) *GetAdminI
 	}
 }
 
-/*GetAdminInvitationV3Params contains all the parameters to send to the API endpoint
+/*
+GetAdminInvitationV3Params contains all the parameters to send to the API endpoint
 for the get admin invitation v3 operation typically these are written to a http.Request
 */
 type GetAdminInvitationV3Params struct {

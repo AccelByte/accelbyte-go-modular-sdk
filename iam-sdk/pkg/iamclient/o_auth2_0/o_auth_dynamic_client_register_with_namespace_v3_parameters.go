@@ -59,7 +59,8 @@ func NewOAuthDynamicClientRegisterWithNamespaceV3ParamsWithHTTPClient(client *ht
 	}
 }
 
-/*OAuthDynamicClientRegisterWithNamespaceV3Params contains all the parameters to send to the API endpoint
+/*
+OAuthDynamicClientRegisterWithNamespaceV3Params contains all the parameters to send to the API endpoint
 for the o auth dynamic client register with namespace v3 operation typically these are written to a http.Request
 */
 type OAuthDynamicClientRegisterWithNamespaceV3Params struct {

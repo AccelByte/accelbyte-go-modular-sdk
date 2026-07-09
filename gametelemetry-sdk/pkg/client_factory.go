@@ -13,7 +13,20 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewGametelemetryClient(configRepository repository.ConfigRepository) *gametelemetryclient.JusticeGametelemetryService {
+type GametelemetryClient struct {
+	Telemetry               *TelemetryService
+	GametelemetryOperations *GametelemetryOperationsService
+}
+
+func NewGametelemetryClient(session repository.Session) *GametelemetryClient {
+	httpClient := NewGametelemetryHttpClient(session.ConfigRepository)
+	return &GametelemetryClient{
+		Telemetry:               &TelemetryService{Client: httpClient, Session: session},
+		GametelemetryOperations: &GametelemetryOperationsService{Client: httpClient, Session: session},
+	}
+}
+
+func NewGametelemetryHttpClient(configRepository repository.ConfigRepository) *gametelemetryclient.JusticeGametelemetryService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

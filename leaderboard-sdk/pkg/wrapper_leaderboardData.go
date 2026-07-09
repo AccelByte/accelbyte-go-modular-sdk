@@ -15,11 +15,8 @@ import (
 )
 
 type LeaderboardDataService struct {
-	Client           *leaderboardclient.JusticeLeaderboardService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *leaderboardclient.JusticeLeaderboardService
+	Session repository.Session
 }
 
 var tempFlightIdLeaderboardData *string
@@ -30,9 +27,9 @@ func (aaa *LeaderboardDataService) UpdateFlightId(flightId string) {
 
 func (aaa *LeaderboardDataService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *LeaderboardDataService) AdminGetArchivedLeaderboardRankingDataV1Handl
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.AdminGetArchivedLeaderboardRankingDataV1HandlerShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *LeaderboardDataService) CreateArchivedLeaderboardRankingDataV1Handler
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.LeaderboardData.CreateArchivedLeaderboardRankingDataV1HandlerShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *LeaderboardDataService) GetAllTimeLeaderboardRankingAdminV1Short(inpu
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetAllTimeLeaderboardRankingAdminV1Short(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *LeaderboardDataService) GetCurrentMonthLeaderboardRankingAdminV1Short
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetCurrentMonthLeaderboardRankingAdminV1Short(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *LeaderboardDataService) DeleteUserRankingByLeaderboardCodeAdminV1Shor
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.LeaderboardData.DeleteUserRankingByLeaderboardCodeAdminV1Short(input, authInfoWriter)
@@ -216,8 +213,8 @@ func (aaa *LeaderboardDataService) GetCurrentSeasonLeaderboardRankingAdminV1Shor
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetCurrentSeasonLeaderboardRankingAdminV1Short(input, authInfoWriter)
@@ -250,8 +247,8 @@ func (aaa *LeaderboardDataService) GetTodayLeaderboardRankingAdminV1Short(input 
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetTodayLeaderboardRankingAdminV1Short(input, authInfoWriter)
@@ -284,8 +281,8 @@ func (aaa *LeaderboardDataService) GetUserRankingAdminV1Short(input *leaderboard
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetUserRankingAdminV1Short(input, authInfoWriter)
@@ -318,8 +315,8 @@ func (aaa *LeaderboardDataService) UpdateUserPointAdminV1Short(input *leaderboar
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.UpdateUserPointAdminV1Short(input, authInfoWriter)
@@ -352,8 +349,8 @@ func (aaa *LeaderboardDataService) DeleteUserRankingAdminV1Short(input *leaderbo
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.LeaderboardData.DeleteUserRankingAdminV1Short(input, authInfoWriter)
@@ -382,8 +379,8 @@ func (aaa *LeaderboardDataService) GetCurrentWeekLeaderboardRankingAdminV1Short(
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetCurrentWeekLeaderboardRankingAdminV1Short(input, authInfoWriter)
@@ -416,8 +413,8 @@ func (aaa *LeaderboardDataService) DeleteUserRankingsAdminV1Short(input *leaderb
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.LeaderboardData.DeleteUserRankingsAdminV1Short(input, authInfoWriter)
@@ -446,8 +443,8 @@ func (aaa *LeaderboardDataService) GetAllTimeLeaderboardRankingPublicV1Short(inp
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetAllTimeLeaderboardRankingPublicV1Short(input, authInfoWriter)
@@ -480,8 +477,8 @@ func (aaa *LeaderboardDataService) GetArchivedLeaderboardRankingDataV1HandlerSho
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetArchivedLeaderboardRankingDataV1HandlerShort(input, authInfoWriter)
@@ -514,8 +511,8 @@ func (aaa *LeaderboardDataService) GetCurrentMonthLeaderboardRankingPublicV1Shor
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetCurrentMonthLeaderboardRankingPublicV1Short(input, authInfoWriter)
@@ -548,8 +545,8 @@ func (aaa *LeaderboardDataService) GetCurrentSeasonLeaderboardRankingPublicV1Sho
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetCurrentSeasonLeaderboardRankingPublicV1Short(input, authInfoWriter)
@@ -582,8 +579,8 @@ func (aaa *LeaderboardDataService) GetTodayLeaderboardRankingPublicV1Short(input
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetTodayLeaderboardRankingPublicV1Short(input, authInfoWriter)
@@ -616,8 +613,8 @@ func (aaa *LeaderboardDataService) GetUserRankingPublicV1Short(input *leaderboar
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetUserRankingPublicV1Short(input, authInfoWriter)
@@ -650,8 +647,8 @@ func (aaa *LeaderboardDataService) DeleteUserRankingPublicV1Short(input *leaderb
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.LeaderboardData.DeleteUserRankingPublicV1Short(input, authInfoWriter)
@@ -680,8 +677,8 @@ func (aaa *LeaderboardDataService) GetCurrentWeekLeaderboardRankingPublicV1Short
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetCurrentWeekLeaderboardRankingPublicV1Short(input, authInfoWriter)
@@ -714,8 +711,8 @@ func (aaa *LeaderboardDataService) GetAllTimeLeaderboardRankingPublicV2Short(inp
 	}
 	if tempFlightIdLeaderboardData != nil {
 		input.XFlightId = tempFlightIdLeaderboardData
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LeaderboardData.GetAllTimeLeaderboardRankingPublicV2Short(input, authInfoWriter)

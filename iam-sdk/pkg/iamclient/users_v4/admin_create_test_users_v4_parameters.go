@@ -59,7 +59,8 @@ func NewAdminCreateTestUsersV4ParamsWithHTTPClient(client *http.Client) *AdminCr
 	}
 }
 
-/*AdminCreateTestUsersV4Params contains all the parameters to send to the API endpoint
+/*
+AdminCreateTestUsersV4Params contains all the parameters to send to the API endpoint
 for the admin create test users v4 operation typically these are written to a http.Request
 */
 type AdminCreateTestUsersV4Params struct {

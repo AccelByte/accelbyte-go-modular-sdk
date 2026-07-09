@@ -130,9 +130,10 @@ func NewPublicGetNamespacePublisherOK() *PublicGetNamespacePublisherOK {
 	return &PublicGetNamespacePublisherOK{}
 }
 
-/*PublicGetNamespacePublisherOK handles this case with default header values.
+/*
+PublicGetNamespacePublisherOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type PublicGetNamespacePublisherOK struct {
 	Payload *basicclientmodels.NamespacePublisherInfo
@@ -184,9 +185,10 @@ func NewPublicGetNamespacePublisherBadRequest() *PublicGetNamespacePublisherBadR
 	return &PublicGetNamespacePublisherBadRequest{}
 }
 
-/*PublicGetNamespacePublisherBadRequest handles this case with default header values.
+/*
+PublicGetNamespacePublisherBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicGetNamespacePublisherBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -238,9 +240,10 @@ func NewPublicGetNamespacePublisherUnauthorized() *PublicGetNamespacePublisherUn
 	return &PublicGetNamespacePublisherUnauthorized{}
 }
 
-/*PublicGetNamespacePublisherUnauthorized handles this case with default header values.
+/*
+PublicGetNamespacePublisherUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type PublicGetNamespacePublisherUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewPublicGetNamespacePublisherForbidden() *PublicGetNamespacePublisherForbi
 	return &PublicGetNamespacePublisherForbidden{}
 }
 
-/*PublicGetNamespacePublisherForbidden handles this case with default header values.
+/*
+PublicGetNamespacePublisherForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type PublicGetNamespacePublisherForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewPublicGetNamespacePublisherNotFound() *PublicGetNamespacePublisherNotFou
 	return &PublicGetNamespacePublisherNotFound{}
 }
 
-/*PublicGetNamespacePublisherNotFound handles this case with default header values.
+/*
+PublicGetNamespacePublisherNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
 */
 type PublicGetNamespacePublisherNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

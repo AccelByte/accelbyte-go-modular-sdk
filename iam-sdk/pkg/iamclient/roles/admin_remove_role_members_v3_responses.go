@@ -144,9 +144,10 @@ func NewAdminRemoveRoleMembersV3NoContent() *AdminRemoveRoleMembersV3NoContent {
 	return &AdminRemoveRoleMembersV3NoContent{}
 }
 
-/*AdminRemoveRoleMembersV3NoContent handles this case with default header values.
+/*
+AdminRemoveRoleMembersV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminRemoveRoleMembersV3NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminRemoveRoleMembersV3BadRequest() *AdminRemoveRoleMembersV3BadRequest
 	return &AdminRemoveRoleMembersV3BadRequest{}
 }
 
-/*AdminRemoveRoleMembersV3BadRequest handles this case with default header values.
+/*
+AdminRemoveRoleMembersV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10457</td><td>specified role is not admin role</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10457</td><td>specified role is not admin role</td></tr></table>
 */
 type AdminRemoveRoleMembersV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminRemoveRoleMembersV3Unauthorized() *AdminRemoveRoleMembersV3Unauthor
 	return &AdminRemoveRoleMembersV3Unauthorized{}
 }
 
-/*AdminRemoveRoleMembersV3Unauthorized handles this case with default header values.
+/*
+AdminRemoveRoleMembersV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminRemoveRoleMembersV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminRemoveRoleMembersV3Forbidden() *AdminRemoveRoleMembersV3Forbidden {
 	return &AdminRemoveRoleMembersV3Forbidden{}
 }
 
-/*AdminRemoveRoleMembersV3Forbidden handles this case with default header values.
+/*
+AdminRemoveRoleMembersV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10459</td><td>operator is not a role manager</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10459</td><td>operator is not a role manager</td></tr></table>
 */
 type AdminRemoveRoleMembersV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminRemoveRoleMembersV3NotFound() *AdminRemoveRoleMembersV3NotFound {
 	return &AdminRemoveRoleMembersV3NotFound{}
 }
 
-/*AdminRemoveRoleMembersV3NotFound handles this case with default header values.
+/*
+AdminRemoveRoleMembersV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminRemoveRoleMembersV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminRemoveRoleMembersV3InternalServerError() *AdminRemoveRoleMembersV3I
 	return &AdminRemoveRoleMembersV3InternalServerError{}
 }
 
-/*AdminRemoveRoleMembersV3InternalServerError handles this case with default header values.
+/*
+AdminRemoveRoleMembersV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminRemoveRoleMembersV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

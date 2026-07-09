@@ -68,9 +68,10 @@ func NewPublicUpgradeHeadlessWithCodeV4ForwardFound() *PublicUpgradeHeadlessWith
 	return &PublicUpgradeHeadlessWithCodeV4ForwardFound{}
 }
 
-/*PublicUpgradeHeadlessWithCodeV4ForwardFound handles this case with default header values.
+/*
+PublicUpgradeHeadlessWithCodeV4ForwardFound handles this case with default header values.
 
-  Found. Redirected to login website with result.</br> If validateOnly=true, then the redirection with contain validate result;</br>If validateOnly=false, then the redirection will contain the upgrade result. If upgrade succeed, then the response will contain upgrade_success_token
+	Found. Redirected to login website with result.</br> If validateOnly=true, then the redirection with contain validate result;</br>If validateOnly=false, then the redirection will contain the upgrade result. If upgrade succeed, then the response will contain upgrade_success_token
 */
 type PublicUpgradeHeadlessWithCodeV4ForwardFound struct {
 	Location string

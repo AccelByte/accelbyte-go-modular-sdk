@@ -10,6 +10,7 @@ import (
 	"encoding/json"
 	"log/slog"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/user_statistic_cycle"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -23,8 +24,10 @@ var PublicListMyStatCycleItemsCmd = &cobra.Command{
 	Long:  `Public list my stat cycle items`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		userStatisticCycleService := &social.UserStatisticCycleService{
-			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: social.NewSocialHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		cycleId, _ := cmd.Flags().GetString("cycleId")
 		namespace, _ := cmd.Flags().GetString("namespace")

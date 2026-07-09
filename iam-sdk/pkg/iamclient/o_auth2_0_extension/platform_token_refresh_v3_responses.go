@@ -130,9 +130,10 @@ func NewPlatformTokenRefreshV3OK() *PlatformTokenRefreshV3OK {
 	return &PlatformTokenRefreshV3OK{}
 }
 
-/*PlatformTokenRefreshV3OK handles this case with default header values.
+/*
+PlatformTokenRefreshV3OK handles this case with default header values.
 
-  Token returned
+	Token returned
 */
 type PlatformTokenRefreshV3OK struct {
 	Payload *iamclientmodels.OauthmodelPlatformTokenRefreshResponseV3
@@ -184,9 +185,10 @@ func NewPlatformTokenRefreshV3BadRequest() *PlatformTokenRefreshV3BadRequest {
 	return &PlatformTokenRefreshV3BadRequest{}
 }
 
-/*PlatformTokenRefreshV3BadRequest handles this case with default header values.
+/*
+PlatformTokenRefreshV3BadRequest handles this case with default header values.
 
-  General request error
+	General request error
 */
 type PlatformTokenRefreshV3BadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -238,9 +240,10 @@ func NewPlatformTokenRefreshV3Unauthorized() *PlatformTokenRefreshV3Unauthorized
 	return &PlatformTokenRefreshV3Unauthorized{}
 }
 
-/*PlatformTokenRefreshV3Unauthorized handles this case with default header values.
+/*
+PlatformTokenRefreshV3Unauthorized handles this case with default header values.
 
-  Client authentication failed
+	Client authentication failed
 */
 type PlatformTokenRefreshV3Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -292,9 +295,10 @@ func NewPlatformTokenRefreshV3Forbidden() *PlatformTokenRefreshV3Forbidden {
 	return &PlatformTokenRefreshV3Forbidden{}
 }
 
-/*PlatformTokenRefreshV3Forbidden handles this case with default header values.
+/*
+PlatformTokenRefreshV3Forbidden handles this case with default header values.
 
-  Forbidden
+	Forbidden
 */
 type PlatformTokenRefreshV3Forbidden struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -346,9 +350,10 @@ func NewPlatformTokenRefreshV3ServiceUnavailable() *PlatformTokenRefreshV3Servic
 	return &PlatformTokenRefreshV3ServiceUnavailable{}
 }
 
-/*PlatformTokenRefreshV3ServiceUnavailable handles this case with default header values.
+/*
+PlatformTokenRefreshV3ServiceUnavailable handles this case with default header values.
 
-  Third Party Server timeout or unavailable
+	Third Party Server timeout or unavailable
 */
 type PlatformTokenRefreshV3ServiceUnavailable struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

@@ -57,7 +57,8 @@ func NewAdminGetListJusticePlatformAccountsParamsWithHTTPClient(client *http.Cli
 	}
 }
 
-/*AdminGetListJusticePlatformAccountsParams contains all the parameters to send to the API endpoint
+/*
+AdminGetListJusticePlatformAccountsParams contains all the parameters to send to the API endpoint
 for the admin get list justice platform accounts operation typically these are written to a http.Request
 */
 type AdminGetListJusticePlatformAccountsParams struct {

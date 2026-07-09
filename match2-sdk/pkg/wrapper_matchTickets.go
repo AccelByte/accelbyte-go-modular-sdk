@@ -15,11 +15,8 @@ import (
 )
 
 type MatchTicketsService struct {
-	Client           *match2client.JusticeMatch2Service
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *match2client.JusticeMatch2Service
+	Session repository.Session
 }
 
 var tempFlightIdMatchTickets *string
@@ -30,9 +27,9 @@ func (aaa *MatchTicketsService) UpdateFlightId(flightId string) {
 
 func (aaa *MatchTicketsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *MatchTicketsService) CreateMatchTicketShort(input *match_tickets.Crea
 	}
 	if tempFlightIdMatchTickets != nil {
 		input.XFlightId = tempFlightIdMatchTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.MatchTickets.CreateMatchTicketShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *MatchTicketsService) GetMyMatchTicketsShort(input *match_tickets.GetM
 	}
 	if tempFlightIdMatchTickets != nil {
 		input.XFlightId = tempFlightIdMatchTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MatchTickets.GetMyMatchTicketsShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *MatchTicketsService) MatchTicketDetailsShort(input *match_tickets.Mat
 	}
 	if tempFlightIdMatchTickets != nil {
 		input.XFlightId = tempFlightIdMatchTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.MatchTickets.MatchTicketDetailsShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *MatchTicketsService) DeleteMatchTicketShort(input *match_tickets.Dele
 	}
 	if tempFlightIdMatchTickets != nil {
 		input.XFlightId = tempFlightIdMatchTickets
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.MatchTickets.DeleteMatchTicketShort(input, authInfoWriter)

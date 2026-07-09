@@ -12,6 +12,7 @@ import (
 
 	challenge "github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk/pkg/challengeclient/goal_configuration"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -23,8 +24,10 @@ var AdminGetGoalsCmd = &cobra.Command{
 	Long:  `Admin get goals`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		goalConfigurationService := &challenge.GoalConfigurationService{
-			Client:          challenge.NewChallengeClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: challenge.NewChallengeHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		challengeCode, _ := cmd.Flags().GetString("challengeCode")
 		namespace, _ := cmd.Flags().GetString("namespace")

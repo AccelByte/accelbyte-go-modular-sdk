@@ -17,11 +17,8 @@ import (
 )
 
 type ExportService struct {
-	Client           *seasonpassclient.JusticeSeasonpassService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *seasonpassclient.JusticeSeasonpassService
+	Session repository.Session
 }
 
 var tempFlightIdExport *string
@@ -32,9 +29,9 @@ func (aaa *ExportService) UpdateFlightId(flightId string) {
 
 func (aaa *ExportService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -56,8 +53,8 @@ func (aaa *ExportService) ExportSeasonShort(input *export.ExportSeasonParams, wr
 	}
 	if tempFlightIdExport != nil {
 		input.XFlightId = tempFlightIdExport
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Export.ExportSeasonShort(input, authInfoWriter, writer)

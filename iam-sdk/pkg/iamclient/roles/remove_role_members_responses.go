@@ -124,9 +124,10 @@ func NewRemoveRoleMembersNoContent() *RemoveRoleMembersNoContent {
 	return &RemoveRoleMembersNoContent{}
 }
 
-/*RemoveRoleMembersNoContent handles this case with default header values.
+/*
+RemoveRoleMembersNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type RemoveRoleMembersNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewRemoveRoleMembersBadRequest() *RemoveRoleMembersBadRequest {
 	return &RemoveRoleMembersBadRequest{}
 }
 
-/*RemoveRoleMembersBadRequest handles this case with default header values.
+/*
+RemoveRoleMembersBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type RemoveRoleMembersBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewRemoveRoleMembersUnauthorized() *RemoveRoleMembersUnauthorized {
 	return &RemoveRoleMembersUnauthorized{}
 }
 
-/*RemoveRoleMembersUnauthorized handles this case with default header values.
+/*
+RemoveRoleMembersUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type RemoveRoleMembersUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewRemoveRoleMembersForbidden() *RemoveRoleMembersForbidden {
 	return &RemoveRoleMembersForbidden{}
 }
 
-/*RemoveRoleMembersForbidden handles this case with default header values.
+/*
+RemoveRoleMembersForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type RemoveRoleMembersForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewRemoveRoleMembersNotFound() *RemoveRoleMembersNotFound {
 	return &RemoveRoleMembersNotFound{}
 }
 
-/*RemoveRoleMembersNotFound handles this case with default header values.
+/*
+RemoveRoleMembersNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type RemoveRoleMembersNotFound struct {
 }

@@ -15,11 +15,8 @@ import (
 )
 
 type SeasonService struct {
-	Client           *seasonpassclient.JusticeSeasonpassService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *seasonpassclient.JusticeSeasonpassService
+	Session repository.Session
 }
 
 var tempFlightIdSeason *string
@@ -30,9 +27,9 @@ func (aaa *SeasonService) UpdateFlightId(flightId string) {
 
 func (aaa *SeasonService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *SeasonService) QuerySeasonsShort(input *season.QuerySeasonsParams) (*
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.QuerySeasonsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *SeasonService) CreateSeasonShort(input *season.CreateSeasonParams) (*
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Season.CreateSeasonShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *SeasonService) GetCurrentSeasonShort(input *season.GetCurrentSeasonPa
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.GetCurrentSeasonShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *SeasonService) BulkGetUserSeasonProgressionShort(input *season.BulkGe
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.BulkGetUserSeasonProgressionShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *SeasonService) GetSeasonShort(input *season.GetSeasonParams) (*season
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.GetSeasonShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *SeasonService) DeleteSeasonShort(input *season.DeleteSeasonParams) er
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Season.DeleteSeasonShort(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *SeasonService) UpdateSeasonShort(input *season.UpdateSeasonParams) (*
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.UpdateSeasonShort(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *SeasonService) CloneSeasonShort(input *season.CloneSeasonParams) (*se
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.CloneSeasonShort(input, authInfoWriter)
@@ -322,8 +319,8 @@ func (aaa *SeasonService) GetFullSeasonShort(input *season.GetFullSeasonParams) 
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.GetFullSeasonShort(input, authInfoWriter)
@@ -356,8 +353,8 @@ func (aaa *SeasonService) PublishSeasonShort(input *season.PublishSeasonParams) 
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.PublishSeasonShort(input, authInfoWriter)
@@ -390,8 +387,8 @@ func (aaa *SeasonService) RetireSeasonShort(input *season.RetireSeasonParams) (*
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.RetireSeasonShort(input, authInfoWriter)
@@ -424,8 +421,8 @@ func (aaa *SeasonService) UnpublishSeasonShort(input *season.UnpublishSeasonPara
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.UnpublishSeasonShort(input, authInfoWriter)
@@ -458,8 +455,8 @@ func (aaa *SeasonService) GetUserParticipatedSeasonsShort(input *season.GetUserP
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.GetUserParticipatedSeasonsShort(input, authInfoWriter)
@@ -492,8 +489,8 @@ func (aaa *SeasonService) ExistsAnyPassByPassCodesShort(input *season.ExistsAnyP
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.ExistsAnyPassByPassCodesShort(input, authInfoWriter)
@@ -526,8 +523,8 @@ func (aaa *SeasonService) GetCurrentUserSeasonProgressionShort(input *season.Get
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.GetCurrentUserSeasonProgressionShort(input, authInfoWriter)
@@ -560,8 +557,8 @@ func (aaa *SeasonService) CheckSeasonPurchasableShort(input *season.CheckSeasonP
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Season.CheckSeasonPurchasableShort(input, authInfoWriter)
@@ -590,8 +587,8 @@ func (aaa *SeasonService) ResetUserSeasonShort(input *season.ResetUserSeasonPara
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Season.ResetUserSeasonShort(input, authInfoWriter)
@@ -620,8 +617,8 @@ func (aaa *SeasonService) QueryUserExpGrantHistoryShort(input *season.QueryUserE
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.QueryUserExpGrantHistoryShort(input, authInfoWriter)
@@ -654,8 +651,8 @@ func (aaa *SeasonService) QueryUserExpGrantHistoryTagShort(input *season.QueryUs
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.QueryUserExpGrantHistoryTagShort(input, authInfoWriter)
@@ -688,8 +685,8 @@ func (aaa *SeasonService) GetUserSeasonShort(input *season.GetUserSeasonParams) 
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.GetUserSeasonShort(input, authInfoWriter)
@@ -722,8 +719,8 @@ func (aaa *SeasonService) PublicGetCurrentSeasonShort(input *season.PublicGetCur
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.PublicGetCurrentSeasonShort(input, authInfoWriter)
@@ -756,8 +753,8 @@ func (aaa *SeasonService) PublicGetCurrentUserSeasonShort(input *season.PublicGe
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.PublicGetCurrentUserSeasonShort(input, authInfoWriter)
@@ -790,8 +787,8 @@ func (aaa *SeasonService) PublicGetUserSeasonShort(input *season.PublicGetUserSe
 	}
 	if tempFlightIdSeason != nil {
 		input.XFlightId = tempFlightIdSeason
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Season.PublicGetUserSeasonShort(input, authInfoWriter)

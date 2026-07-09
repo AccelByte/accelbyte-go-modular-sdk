@@ -13,7 +13,20 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewLoginqueueClient(configRepository repository.ConfigRepository) *loginqueueclient.JusticeLoginqueueService {
+type LoginqueueClient struct {
+	AdminV1  *AdminV1Service
+	TicketV1 *TicketV1Service
+}
+
+func NewLoginqueueClient(session repository.Session) *LoginqueueClient {
+	httpClient := NewLoginqueueHttpClient(session.ConfigRepository)
+	return &LoginqueueClient{
+		AdminV1:  &AdminV1Service{Client: httpClient, Session: session},
+		TicketV1: &TicketV1Service{Client: httpClient, Session: session},
+	}
+}
+
+func NewLoginqueueHttpClient(configRepository repository.ConfigRepository) *loginqueueclient.JusticeLoginqueueService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

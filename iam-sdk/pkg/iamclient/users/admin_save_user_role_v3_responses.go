@@ -159,9 +159,10 @@ func NewAdminSaveUserRoleV3NoContent() *AdminSaveUserRoleV3NoContent {
 	return &AdminSaveUserRoleV3NoContent{}
 }
 
-/*AdminSaveUserRoleV3NoContent handles this case with default header values.
+/*
+AdminSaveUserRoleV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminSaveUserRoleV3NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewAdminSaveUserRoleV3BadRequest() *AdminSaveUserRoleV3BadRequest {
 	return &AdminSaveUserRoleV3BadRequest{}
 }
 
-/*AdminSaveUserRoleV3BadRequest handles this case with default header values.
+/*
+AdminSaveUserRoleV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminSaveUserRoleV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewAdminSaveUserRoleV3Unauthorized() *AdminSaveUserRoleV3Unauthorized {
 	return &AdminSaveUserRoleV3Unauthorized{}
 }
 
-/*AdminSaveUserRoleV3Unauthorized handles this case with default header values.
+/*
+AdminSaveUserRoleV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminSaveUserRoleV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewAdminSaveUserRoleV3Forbidden() *AdminSaveUserRoleV3Forbidden {
 	return &AdminSaveUserRoleV3Forbidden{}
 }
 
-/*AdminSaveUserRoleV3Forbidden handles this case with default header values.
+/*
+AdminSaveUserRoleV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminSaveUserRoleV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewAdminSaveUserRoleV3NotFound() *AdminSaveUserRoleV3NotFound {
 	return &AdminSaveUserRoleV3NotFound{}
 }
 
-/*AdminSaveUserRoleV3NotFound handles this case with default header values.
+/*
+AdminSaveUserRoleV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10156</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10156</td><td>role not found</td></tr></table>
 */
 type AdminSaveUserRoleV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewAdminSaveUserRoleV3UnprocessableEntity() *AdminSaveUserRoleV3Unprocessab
 	return &AdminSaveUserRoleV3UnprocessableEntity{}
 }
 
-/*AdminSaveUserRoleV3UnprocessableEntity handles this case with default header values.
+/*
+AdminSaveUserRoleV3UnprocessableEntity handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>422</td><td>request is unprocessable</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>422</td><td>request is unprocessable</td></tr></table>
 */
 type AdminSaveUserRoleV3UnprocessableEntity struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewAdminSaveUserRoleV3InternalServerError() *AdminSaveUserRoleV3InternalSer
 	return &AdminSaveUserRoleV3InternalServerError{}
 }
 
-/*AdminSaveUserRoleV3InternalServerError handles this case with default header values.
+/*
+AdminSaveUserRoleV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminSaveUserRoleV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

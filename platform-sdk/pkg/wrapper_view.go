@@ -15,11 +15,8 @@ import (
 )
 
 type ViewService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdView *string
@@ -30,9 +27,9 @@ func (aaa *ViewService) UpdateFlightId(flightId string) {
 
 func (aaa *ViewService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ViewService) ListViewsShort(input *view.ListViewsParams) (*view.ListV
 	}
 	if tempFlightIdView != nil {
 		input.XFlightId = tempFlightIdView
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.View.ListViewsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ViewService) CreateViewShort(input *view.CreateViewParams) (*view.Cre
 	}
 	if tempFlightIdView != nil {
 		input.XFlightId = tempFlightIdView
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.View.CreateViewShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ViewService) GetViewShort(input *view.GetViewParams) (*view.GetViewRe
 	}
 	if tempFlightIdView != nil {
 		input.XFlightId = tempFlightIdView
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.View.GetViewShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *ViewService) UpdateViewShort(input *view.UpdateViewParams) (*view.Upd
 	}
 	if tempFlightIdView != nil {
 		input.XFlightId = tempFlightIdView
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.View.UpdateViewShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *ViewService) DeleteViewShort(input *view.DeleteViewParams) error {
 	}
 	if tempFlightIdView != nil {
 		input.XFlightId = tempFlightIdView
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.View.DeleteViewShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *ViewService) PublicListViewsShort(input *view.PublicListViewsParams) 
 	}
 	if tempFlightIdView != nil {
 		input.XFlightId = tempFlightIdView
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.View.PublicListViewsShort(input, authInfoWriter)

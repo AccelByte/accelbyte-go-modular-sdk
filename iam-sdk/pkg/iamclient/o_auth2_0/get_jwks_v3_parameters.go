@@ -57,7 +57,8 @@ func NewGetJWKSV3ParamsWithHTTPClient(client *http.Client) *GetJWKSV3Params {
 	}
 }
 
-/*GetJWKSV3Params contains all the parameters to send to the API endpoint
+/*
+GetJWKSV3Params contains all the parameters to send to the API endpoint
 for the get jwksv3 operation typically these are written to a http.Request
 */
 type GetJWKSV3Params struct {

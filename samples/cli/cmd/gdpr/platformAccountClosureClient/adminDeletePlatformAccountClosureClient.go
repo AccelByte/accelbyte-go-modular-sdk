@@ -11,6 +11,7 @@ import (
 
 	gdpr "github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk/pkg/gdprclient/platform_account_closure_client"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminDeletePlatformAccountClosureClientCmd = &cobra.Command{
 	Long:  `Admin delete platform account closure client`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		platformAccountClosureClientService := &gdpr.PlatformAccountClosureClientService{
-			Client:          gdpr.NewGdprClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: gdpr.NewGdprHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		platform, _ := cmd.Flags().GetString("platform")

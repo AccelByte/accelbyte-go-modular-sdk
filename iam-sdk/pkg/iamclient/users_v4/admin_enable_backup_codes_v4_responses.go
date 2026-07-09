@@ -159,9 +159,10 @@ func NewAdminEnableBackupCodesV4OK() *AdminEnableBackupCodesV4OK {
 	return &AdminEnableBackupCodesV4OK{}
 }
 
-/*AdminEnableBackupCodesV4OK handles this case with default header values.
+/*
+AdminEnableBackupCodesV4OK handles this case with default header values.
 
-  Backup codes enabled
+	Backup codes enabled
 */
 type AdminEnableBackupCodesV4OK struct {
 }
@@ -186,9 +187,10 @@ func NewAdminEnableBackupCodesV4BadRequest() *AdminEnableBackupCodesV4BadRequest
 	return &AdminEnableBackupCodesV4BadRequest{}
 }
 
-/*AdminEnableBackupCodesV4BadRequest handles this case with default header values.
+/*
+AdminEnableBackupCodesV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10194</td><td>factor already enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10194</td><td>factor already enabled</td></tr><tr><td>10171</td><td>email address not found</td></tr></table>
 */
 type AdminEnableBackupCodesV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewAdminEnableBackupCodesV4Unauthorized() *AdminEnableBackupCodesV4Unauthor
 	return &AdminEnableBackupCodesV4Unauthorized{}
 }
 
-/*AdminEnableBackupCodesV4Unauthorized handles this case with default header values.
+/*
+AdminEnableBackupCodesV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminEnableBackupCodesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewAdminEnableBackupCodesV4Forbidden() *AdminEnableBackupCodesV4Forbidden {
 	return &AdminEnableBackupCodesV4Forbidden{}
 }
 
-/*AdminEnableBackupCodesV4Forbidden handles this case with default header values.
+/*
+AdminEnableBackupCodesV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminEnableBackupCodesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewAdminEnableBackupCodesV4NotFound() *AdminEnableBackupCodesV4NotFound {
 	return &AdminEnableBackupCodesV4NotFound{}
 }
 
-/*AdminEnableBackupCodesV4NotFound handles this case with default header values.
+/*
+AdminEnableBackupCodesV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminEnableBackupCodesV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewAdminEnableBackupCodesV4Conflict() *AdminEnableBackupCodesV4Conflict {
 	return &AdminEnableBackupCodesV4Conflict{}
 }
 
-/*AdminEnableBackupCodesV4Conflict handles this case with default header values.
+/*
+AdminEnableBackupCodesV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10194</td><td>factor already enabled</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10194</td><td>factor already enabled</td></tr></table>
 */
 type AdminEnableBackupCodesV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewAdminEnableBackupCodesV4InternalServerError() *AdminEnableBackupCodesV4I
 	return &AdminEnableBackupCodesV4InternalServerError{}
 }
 
-/*AdminEnableBackupCodesV4InternalServerError handles this case with default header values.
+/*
+AdminEnableBackupCodesV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminEnableBackupCodesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

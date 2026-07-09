@@ -15,11 +15,8 @@ import (
 )
 
 type AdminStagingContentService struct {
-	Client           *ugcclient.JusticeUgcService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
 }
 
 var tempFlightIdAdminStagingContent *string
@@ -30,9 +27,9 @@ func (aaa *AdminStagingContentService) UpdateFlightId(flightId string) {
 
 func (aaa *AdminStagingContentService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminStagingContentService) AdminListStagingContentsShort(input *admi
 	}
 	if tempFlightIdAdminStagingContent != nil {
 		input.XFlightId = tempFlightIdAdminStagingContent
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminStagingContent.AdminListStagingContentsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AdminStagingContentService) AdminGetStagingContentByIDShort(input *ad
 	}
 	if tempFlightIdAdminStagingContent != nil {
 		input.XFlightId = tempFlightIdAdminStagingContent
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminStagingContent.AdminGetStagingContentByIDShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AdminStagingContentService) AdminApproveStagingContentShort(input *ad
 	}
 	if tempFlightIdAdminStagingContent != nil {
 		input.XFlightId = tempFlightIdAdminStagingContent
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminStagingContent.AdminApproveStagingContentShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *AdminStagingContentService) AdminListUserStagingContentsShort(input *
 	}
 	if tempFlightIdAdminStagingContent != nil {
 		input.XFlightId = tempFlightIdAdminStagingContent
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminStagingContent.AdminListUserStagingContentsShort(input, authInfoWriter)

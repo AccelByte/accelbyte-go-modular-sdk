@@ -160,9 +160,10 @@ func NewPublicUpgradeHeadlessAccountV3OK() *PublicUpgradeHeadlessAccountV3OK {
 	return &PublicUpgradeHeadlessAccountV3OK{}
 }
 
-/*PublicUpgradeHeadlessAccountV3OK handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicUpgradeHeadlessAccountV3OK struct {
 	Payload *iamclientmodels.ModelUserResponseV3
@@ -214,9 +215,10 @@ func NewPublicUpgradeHeadlessAccountV3BadRequest() *PublicUpgradeHeadlessAccount
 	return &PublicUpgradeHeadlessAccountV3BadRequest{}
 }
 
-/*PublicUpgradeHeadlessAccountV3BadRequest handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -268,9 +270,10 @@ func NewPublicUpgradeHeadlessAccountV3Unauthorized() *PublicUpgradeHeadlessAccou
 	return &PublicUpgradeHeadlessAccountV3Unauthorized{}
 }
 
-/*PublicUpgradeHeadlessAccountV3Unauthorized handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,9 +325,10 @@ func NewPublicUpgradeHeadlessAccountV3Forbidden() *PublicUpgradeHeadlessAccountV
 	return &PublicUpgradeHeadlessAccountV3Forbidden{}
 }
 
-/*PublicUpgradeHeadlessAccountV3Forbidden handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -376,9 +380,10 @@ func NewPublicUpgradeHeadlessAccountV3NotFound() *PublicUpgradeHeadlessAccountV3
 	return &PublicUpgradeHeadlessAccountV3NotFound{}
 }
 
-/*PublicUpgradeHeadlessAccountV3NotFound handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -430,9 +435,10 @@ func NewPublicUpgradeHeadlessAccountV3Conflict() *PublicUpgradeHeadlessAccountV3
 	return &PublicUpgradeHeadlessAccountV3Conflict{}
 }
 
-/*PublicUpgradeHeadlessAccountV3Conflict handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -484,9 +490,10 @@ func NewPublicUpgradeHeadlessAccountV3InternalServerError() *PublicUpgradeHeadle
 	return &PublicUpgradeHeadlessAccountV3InternalServerError{}
 }
 
-/*PublicUpgradeHeadlessAccountV3InternalServerError handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

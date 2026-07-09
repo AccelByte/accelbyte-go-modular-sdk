@@ -15,11 +15,8 @@ import (
 )
 
 type ImagesService struct {
-	Client           *amsclient.JusticeAmsService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *amsclient.JusticeAmsService
+	Session repository.Session
 }
 
 var tempFlightIdImages *string
@@ -30,9 +27,9 @@ func (aaa *ImagesService) UpdateFlightId(flightId string) {
 
 func (aaa *ImagesService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ImagesService) ImageListShort(input *images.ImageListParams) (*images
 	}
 	if tempFlightIdImages != nil {
 		input.XFlightId = tempFlightIdImages
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Images.ImageListShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ImagesService) ImagesStorageShort(input *images.ImagesStorageParams) 
 	}
 	if tempFlightIdImages != nil {
 		input.XFlightId = tempFlightIdImages
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Images.ImagesStorageShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ImagesService) ImageGetShort(input *images.ImageGetParams) (*images.I
 	}
 	if tempFlightIdImages != nil {
 		input.XFlightId = tempFlightIdImages
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Images.ImageGetShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *ImagesService) ImageMarkForDeletionShort(input *images.ImageMarkForDe
 	}
 	if tempFlightIdImages != nil {
 		input.XFlightId = tempFlightIdImages
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Images.ImageMarkForDeletionShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *ImagesService) ImagePatchShort(input *images.ImagePatchParams) (*imag
 	}
 	if tempFlightIdImages != nil {
 		input.XFlightId = tempFlightIdImages
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Images.ImagePatchShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *ImagesService) ImageUnmarkForDeletionShort(input *images.ImageUnmarkF
 	}
 	if tempFlightIdImages != nil {
 		input.XFlightId = tempFlightIdImages
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Images.ImageUnmarkForDeletionShort(input, authInfoWriter)

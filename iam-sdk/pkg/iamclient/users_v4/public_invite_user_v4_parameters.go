@@ -59,7 +59,8 @@ func NewPublicInviteUserV4ParamsWithHTTPClient(client *http.Client) *PublicInvit
 	}
 }
 
-/*PublicInviteUserV4Params contains all the parameters to send to the API endpoint
+/*
+PublicInviteUserV4Params contains all the parameters to send to the API endpoint
 for the public invite user v4 operation typically these are written to a http.Request
 */
 type PublicInviteUserV4Params struct {

@@ -130,9 +130,10 @@ func NewAdminCursorGetUserV3OK() *AdminCursorGetUserV3OK {
 	return &AdminCursorGetUserV3OK{}
 }
 
-/*AdminCursorGetUserV3OK handles this case with default header values.
+/*
+AdminCursorGetUserV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminCursorGetUserV3OK struct {
 	Payload *iamclientmodels.ModelCursorGetUserResponse
@@ -184,9 +185,10 @@ func NewAdminCursorGetUserV3BadRequest() *AdminCursorGetUserV3BadRequest {
 	return &AdminCursorGetUserV3BadRequest{}
 }
 
-/*AdminCursorGetUserV3BadRequest handles this case with default header values.
+/*
+AdminCursorGetUserV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminCursorGetUserV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminCursorGetUserV3Unauthorized() *AdminCursorGetUserV3Unauthorized {
 	return &AdminCursorGetUserV3Unauthorized{}
 }
 
-/*AdminCursorGetUserV3Unauthorized handles this case with default header values.
+/*
+AdminCursorGetUserV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminCursorGetUserV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminCursorGetUserV3Forbidden() *AdminCursorGetUserV3Forbidden {
 	return &AdminCursorGetUserV3Forbidden{}
 }
 
-/*AdminCursorGetUserV3Forbidden handles this case with default header values.
+/*
+AdminCursorGetUserV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminCursorGetUserV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminCursorGetUserV3InternalServerError() *AdminCursorGetUserV3InternalS
 	return &AdminCursorGetUserV3InternalServerError{}
 }
 
-/*AdminCursorGetUserV3InternalServerError handles this case with default header values.
+/*
+AdminCursorGetUserV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminCursorGetUserV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

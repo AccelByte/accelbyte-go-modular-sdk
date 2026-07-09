@@ -115,9 +115,10 @@ func NewUpdateMyZipCodeOK() *UpdateMyZipCodeOK {
 	return &UpdateMyZipCodeOK{}
 }
 
-/*UpdateMyZipCodeOK handles this case with default header values.
+/*
+UpdateMyZipCodeOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type UpdateMyZipCodeOK struct {
 	Payload *basicclientmodels.UserZipCode
@@ -169,9 +170,10 @@ func NewUpdateMyZipCodeBadRequest() *UpdateMyZipCodeBadRequest {
 	return &UpdateMyZipCodeBadRequest{}
 }
 
-/*UpdateMyZipCodeBadRequest handles this case with default header values.
+/*
+UpdateMyZipCodeBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type UpdateMyZipCodeBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -223,9 +225,10 @@ func NewUpdateMyZipCodeUnauthorized() *UpdateMyZipCodeUnauthorized {
 	return &UpdateMyZipCodeUnauthorized{}
 }
 
-/*UpdateMyZipCodeUnauthorized handles this case with default header values.
+/*
+UpdateMyZipCodeUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type UpdateMyZipCodeUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -277,9 +280,10 @@ func NewUpdateMyZipCodeForbidden() *UpdateMyZipCodeForbidden {
 	return &UpdateMyZipCodeForbidden{}
 }
 
-/*UpdateMyZipCodeForbidden handles this case with default header values.
+/*
+UpdateMyZipCodeForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdateMyZipCodeForbidden struct {
 	Payload *basicclientmodels.ErrorEntity

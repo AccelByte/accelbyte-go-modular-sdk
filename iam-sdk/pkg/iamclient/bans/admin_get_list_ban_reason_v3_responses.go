@@ -115,9 +115,10 @@ func NewAdminGetListBanReasonV3OK() *AdminGetListBanReasonV3OK {
 	return &AdminGetListBanReasonV3OK{}
 }
 
-/*AdminGetListBanReasonV3OK handles this case with default header values.
+/*
+AdminGetListBanReasonV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetListBanReasonV3OK struct {
 	Payload *iamclientmodels.AccountcommonBanReasonsV3
@@ -169,9 +170,10 @@ func NewAdminGetListBanReasonV3Unauthorized() *AdminGetListBanReasonV3Unauthoriz
 	return &AdminGetListBanReasonV3Unauthorized{}
 }
 
-/*AdminGetListBanReasonV3Unauthorized handles this case with default header values.
+/*
+AdminGetListBanReasonV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetListBanReasonV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetListBanReasonV3Forbidden() *AdminGetListBanReasonV3Forbidden {
 	return &AdminGetListBanReasonV3Forbidden{}
 }
 
-/*AdminGetListBanReasonV3Forbidden handles this case with default header values.
+/*
+AdminGetListBanReasonV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetListBanReasonV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetListBanReasonV3InternalServerError() *AdminGetListBanReasonV3Int
 	return &AdminGetListBanReasonV3InternalServerError{}
 }
 
-/*AdminGetListBanReasonV3InternalServerError handles this case with default header values.
+/*
+AdminGetListBanReasonV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetListBanReasonV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -11,6 +11,7 @@ import (
 
 	ams "github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk/pkg/amsclient/fleets"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,14 +23,18 @@ var FleetGetCmd = &cobra.Command{
 	Long:  `Fleet get`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fleetsService := &ams.FleetsService{
-			Client:          ams.NewAmsClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: ams.NewAmsHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		fleetID, _ := cmd.Flags().GetString("fleetID")
 		namespace, _ := cmd.Flags().GetString("namespace")
+		includeInactiveRegions, _ := cmd.Flags().GetBool("includeInactiveRegions")
 		input := &fleets.FleetGetParams{
-			FleetID:   fleetID,
-			Namespace: namespace,
+			FleetID:                fleetID,
+			Namespace:              namespace,
+			IncludeInactiveRegions: &includeInactiveRegions,
 		}
 		ok, errOK := fleetsService.FleetGetShort(input)
 		if errOK != nil {
@@ -49,4 +54,5 @@ func init() {
 	_ = FleetGetCmd.MarkFlagRequired("fleetID")
 	FleetGetCmd.Flags().String("namespace", "", "Namespace")
 	_ = FleetGetCmd.MarkFlagRequired("namespace")
+	FleetGetCmd.Flags().Bool("includeInactiveRegions", false, "Include inactive regions")
 }

@@ -69,9 +69,10 @@ func NewGetCountryLocationV3OK() *GetCountryLocationV3OK {
 	return &GetCountryLocationV3OK{}
 }
 
-/*GetCountryLocationV3OK handles this case with default header values.
+/*
+GetCountryLocationV3OK handles this case with default header values.
 
-  Country Location info returned
+	Country Location info returned
 */
 type GetCountryLocationV3OK struct {
 	Payload *iamclientmodels.OauthmodelCountryLocationResponse

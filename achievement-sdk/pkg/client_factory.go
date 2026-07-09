@@ -13,7 +13,28 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewAchievementClient(configRepository repository.ConfigRepository) *achievementclient.JusticeAchievementService {
+type AchievementClient struct {
+	Achievements        *AchievementsService
+	GlobalAchievements  *GlobalAchievementsService
+	PlatformAchievement *PlatformAchievementService
+	Tags                *TagsService
+	UserAchievements    *UserAchievementsService
+	Anonymization       *AnonymizationService
+}
+
+func NewAchievementClient(session repository.Session) *AchievementClient {
+	httpClient := NewAchievementHttpClient(session.ConfigRepository)
+	return &AchievementClient{
+		Achievements:        &AchievementsService{Client: httpClient, Session: session},
+		GlobalAchievements:  &GlobalAchievementsService{Client: httpClient, Session: session},
+		PlatformAchievement: &PlatformAchievementService{Client: httpClient, Session: session},
+		Tags:                &TagsService{Client: httpClient, Session: session},
+		UserAchievements:    &UserAchievementsService{Client: httpClient, Session: session},
+		Anonymization:       &AnonymizationService{Client: httpClient, Session: session},
+	}
+}
+
+func NewAchievementHttpClient(configRepository repository.ConfigRepository) *achievementclient.JusticeAchievementService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

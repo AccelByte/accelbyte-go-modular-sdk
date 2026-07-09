@@ -59,7 +59,8 @@ func NewAdminUpdateModulePackageParamsWithHTTPClient(client *http.Client) *Admin
 	}
 }
 
-/*AdminUpdateModulePackageParams contains all the parameters to send to the API endpoint
+/*
+AdminUpdateModulePackageParams contains all the parameters to send to the API endpoint
 for the admin update module package operation typically these are written to a http.Request
 */
 type AdminUpdateModulePackageParams struct {

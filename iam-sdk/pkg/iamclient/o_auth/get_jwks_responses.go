@@ -69,9 +69,10 @@ func NewGetJWKSOK() *GetJWKSOK {
 	return &GetJWKSOK{}
 }
 
-/*GetJWKSOK handles this case with default header values.
+/*
+GetJWKSOK handles this case with default header values.
 
-  JWKS returned
+	JWKS returned
 */
 type GetJWKSOK struct {
 	Payload *iamclientmodels.OauthcommonJWKSet

@@ -57,7 +57,8 @@ func NewAdminCreateUserRolesV2ParamsWithHTTPClient(client *http.Client) *AdminCr
 	}
 }
 
-/*AdminCreateUserRolesV2Params contains all the parameters to send to the API endpoint
+/*
+AdminCreateUserRolesV2Params contains all the parameters to send to the API endpoint
 for the admin create user roles v2 operation typically these are written to a http.Request
 */
 type AdminCreateUserRolesV2Params struct {

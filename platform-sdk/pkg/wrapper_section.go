@@ -15,11 +15,8 @@ import (
 )
 
 type SectionService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdSection *string
@@ -30,9 +27,9 @@ func (aaa *SectionService) UpdateFlightId(flightId string) {
 
 func (aaa *SectionService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *SectionService) QuerySectionsShort(input *section.QuerySectionsParams
 	}
 	if tempFlightIdSection != nil {
 		input.XFlightId = tempFlightIdSection
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Section.QuerySectionsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *SectionService) CreateSectionShort(input *section.CreateSectionParams
 	}
 	if tempFlightIdSection != nil {
 		input.XFlightId = tempFlightIdSection
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Section.CreateSectionShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *SectionService) PurgeExpiredSectionShort(input *section.PurgeExpiredS
 	}
 	if tempFlightIdSection != nil {
 		input.XFlightId = tempFlightIdSection
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Section.PurgeExpiredSectionShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *SectionService) GetSectionShort(input *section.GetSectionParams) (*se
 	}
 	if tempFlightIdSection != nil {
 		input.XFlightId = tempFlightIdSection
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Section.GetSectionShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *SectionService) UpdateSectionShort(input *section.UpdateSectionParams
 	}
 	if tempFlightIdSection != nil {
 		input.XFlightId = tempFlightIdSection
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Section.UpdateSectionShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *SectionService) DeleteSectionShort(input *section.DeleteSectionParams
 	}
 	if tempFlightIdSection != nil {
 		input.XFlightId = tempFlightIdSection
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Section.DeleteSectionShort(input, authInfoWriter)
@@ -250,8 +247,8 @@ func (aaa *SectionService) PublicListActiveSectionsShort(input *section.PublicLi
 	}
 	if tempFlightIdSection != nil {
 		input.XFlightId = tempFlightIdSection
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Section.PublicListActiveSectionsShort(input, authInfoWriter)

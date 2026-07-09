@@ -11,6 +11,7 @@ import (
 
 	legal "github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk/pkg/legalclient/agreement_with_namespace"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var InitiateExportAgreementsToCSVCmd = &cobra.Command{
 	Long:  `Initiate export agreements to CSV`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		agreementWithNamespaceService := &legal.AgreementWithNamespaceService{
-			Client:          legal.NewLegalClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: legal.NewLegalHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		policyVersionId, _ := cmd.Flags().GetString("policyVersionId")

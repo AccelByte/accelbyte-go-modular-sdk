@@ -15,11 +15,8 @@ import (
 )
 
 type DSMCDefaultConfigurationService struct {
-	Client           *sessionclient.JusticeSessionService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *sessionclient.JusticeSessionService
+	Session repository.Session
 }
 
 var tempFlightIdDSMCDefaultConfiguration *string
@@ -30,9 +27,9 @@ func (aaa *DSMCDefaultConfigurationService) UpdateFlightId(flightId string) {
 
 func (aaa *DSMCDefaultConfigurationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *DSMCDefaultConfigurationService) AdminGetDSMCConfigurationDefaultShor
 	}
 	if tempFlightIdDSMCDefaultConfiguration != nil {
 		input.XFlightId = tempFlightIdDSMCDefaultConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DsmcDefaultConfiguration.AdminGetDSMCConfigurationDefaultShort(input, authInfoWriter)

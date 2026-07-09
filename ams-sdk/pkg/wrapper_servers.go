@@ -15,11 +15,8 @@ import (
 )
 
 type ServersService struct {
-	Client           *amsclient.JusticeAmsService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *amsclient.JusticeAmsService
+	Session repository.Session
 }
 
 var tempFlightIdServers *string
@@ -30,9 +27,9 @@ func (aaa *ServersService) UpdateFlightId(flightId string) {
 
 func (aaa *ServersService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ServersService) FleetServerHistoryShort(input *servers.FleetServerHis
 	}
 	if tempFlightIdServers != nil {
 		input.XFlightId = tempFlightIdServers
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Servers.FleetServerHistoryShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ServersService) FleetServerInfoShort(input *servers.FleetServerInfoPa
 	}
 	if tempFlightIdServers != nil {
 		input.XFlightId = tempFlightIdServers
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Servers.FleetServerInfoShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ServersService) FleetServerConnectionInfoShort(input *servers.FleetSe
 	}
 	if tempFlightIdServers != nil {
 		input.XFlightId = tempFlightIdServers
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Servers.FleetServerConnectionInfoShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *ServersService) ServerHistoryShort(input *servers.ServerHistoryParams
 	}
 	if tempFlightIdServers != nil {
 		input.XFlightId = tempFlightIdServers
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Servers.ServerHistoryShort(input, authInfoWriter)

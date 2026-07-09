@@ -57,7 +57,8 @@ func NewPublicGetUserPublicInfoByUserIDV4ParamsWithHTTPClient(client *http.Clien
 	}
 }
 
-/*PublicGetUserPublicInfoByUserIDV4Params contains all the parameters to send to the API endpoint
+/*
+PublicGetUserPublicInfoByUserIDV4Params contains all the parameters to send to the API endpoint
 for the public get user public info by user id v4 operation typically these are written to a http.Request
 */
 type PublicGetUserPublicInfoByUserIDV4Params struct {

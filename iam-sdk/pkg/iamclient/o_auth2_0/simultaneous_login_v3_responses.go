@@ -130,9 +130,10 @@ func NewSimultaneousLoginV3OK() *SimultaneousLoginV3OK {
 	return &SimultaneousLoginV3OK{}
 }
 
-/*SimultaneousLoginV3OK handles this case with default header values.
+/*
+SimultaneousLoginV3OK handles this case with default header values.
 
-  Token returned.
+	Token returned.
 */
 type SimultaneousLoginV3OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3
@@ -184,9 +185,10 @@ func NewSimultaneousLoginV3BadRequest() *SimultaneousLoginV3BadRequest {
 	return &SimultaneousLoginV3BadRequest{}
 }
 
-/*SimultaneousLoginV3BadRequest handles this case with default header values.
+/*
+SimultaneousLoginV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10216</td><td>Native ticket is required</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10216</td><td>Native ticket is required</td></tr></table>
 */
 type SimultaneousLoginV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewSimultaneousLoginV3Unauthorized() *SimultaneousLoginV3Unauthorized {
 	return &SimultaneousLoginV3Unauthorized{}
 }
 
-/*SimultaneousLoginV3Unauthorized handles this case with default header values.
+/*
+SimultaneousLoginV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SimultaneousLoginV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewSimultaneousLoginV3Conflict() *SimultaneousLoginV3Conflict {
 	return &SimultaneousLoginV3Conflict{}
 }
 
-/*SimultaneousLoginV3Conflict handles this case with default header values.
+/*
+SimultaneousLoginV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10215</td><td>Simultaneous ticket is required</td></tr><tr><td>10220</td><td>Native ticket's account linked AGS account is different with the one which simultaneous ticket's linked to</td></tr><tr><td>10219</td><td>Native ticket's account linked AGS is already linked simultaneous but different with the input simultaneous ticket's</td></tr><tr><td>10217</td><td>Native ticket's account linked AGS account has different linking history with input simultaneous ticket's</td></tr><tr><td>10221</td><td>Simultaneous ticket's account linked AGS is already linked native but different with the input native ticket's</td></tr><tr><td>10218</td><td>Simultaneous ticket's account linked AGS account has different linking history with input native ticket's</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10215</td><td>Simultaneous ticket is required</td></tr><tr><td>10220</td><td>Native ticket's account linked AGS account is different with the one which simultaneous ticket's linked to</td></tr><tr><td>10219</td><td>Native ticket's account linked AGS is already linked simultaneous but different with the input simultaneous ticket's</td></tr><tr><td>10217</td><td>Native ticket's account linked AGS account has different linking history with input simultaneous ticket's</td></tr><tr><td>10221</td><td>Simultaneous ticket's account linked AGS is already linked native but different with the input native ticket's</td></tr><tr><td>10218</td><td>Simultaneous ticket's account linked AGS account has different linking history with input native ticket's</td></tr></table>
 */
 type SimultaneousLoginV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewSimultaneousLoginV3InternalServerError() *SimultaneousLoginV3InternalSer
 	return &SimultaneousLoginV3InternalServerError{}
 }
 
-/*SimultaneousLoginV3InternalServerError handles this case with default header values.
+/*
+SimultaneousLoginV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type SimultaneousLoginV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

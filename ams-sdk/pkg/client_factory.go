@@ -13,7 +13,38 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewAmsClient(configRepository repository.ConfigRepository) *amsclient.JusticeAmsService {
+type AmsClient struct {
+	Auth           *AuthService
+	FleetCommander *FleetCommanderService
+	Account        *AccountService
+	Artifacts      *ArtifactsService
+	Development    *DevelopmentService
+	Fleets         *FleetsService
+	Servers        *ServersService
+	Images         *ImagesService
+	AMSQoS         *AMSQoSService
+	AMSInfo        *AMSInfoService
+	Watchdogs      *WatchdogsService
+}
+
+func NewAmsClient(session repository.Session) *AmsClient {
+	httpClient := NewAmsHttpClient(session.ConfigRepository)
+	return &AmsClient{
+		Auth:           &AuthService{Client: httpClient, Session: session},
+		FleetCommander: &FleetCommanderService{Client: httpClient, Session: session},
+		Account:        &AccountService{Client: httpClient, Session: session},
+		Artifacts:      &ArtifactsService{Client: httpClient, Session: session},
+		Development:    &DevelopmentService{Client: httpClient, Session: session},
+		Fleets:         &FleetsService{Client: httpClient, Session: session},
+		Servers:        &ServersService{Client: httpClient, Session: session},
+		Images:         &ImagesService{Client: httpClient, Session: session},
+		AMSQoS:         &AMSQoSService{Client: httpClient, Session: session},
+		AMSInfo:        &AMSInfoService{Client: httpClient, Session: session},
+		Watchdogs:      &WatchdogsService{Client: httpClient, Session: session},
+	}
+}
+
+func NewAmsHttpClient(configRepository repository.ConfigRepository) *amsclient.JusticeAmsService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

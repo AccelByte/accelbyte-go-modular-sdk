@@ -17,11 +17,8 @@ import (
 )
 
 type StatCycleConfigurationService struct {
-	Client           *socialclient.JusticeSocialService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *socialclient.JusticeSocialService
+	Session repository.Session
 }
 
 var tempFlightIdStatCycleConfiguration *string
@@ -32,9 +29,9 @@ func (aaa *StatCycleConfigurationService) UpdateFlightId(flightId string) {
 
 func (aaa *StatCycleConfigurationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -56,8 +53,8 @@ func (aaa *StatCycleConfigurationService) GetStatCyclesShort(input *stat_cycle_c
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.GetStatCyclesShort(input, authInfoWriter)
@@ -90,8 +87,8 @@ func (aaa *StatCycleConfigurationService) CreateStatCycleShort(input *stat_cycle
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.StatCycleConfiguration.CreateStatCycleShort(input, authInfoWriter)
@@ -124,8 +121,8 @@ func (aaa *StatCycleConfigurationService) BulkGetStatCycleShort(input *stat_cycl
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.BulkGetStatCycleShort(input, authInfoWriter)
@@ -158,8 +155,8 @@ func (aaa *StatCycleConfigurationService) ExportStatCycleShort(input *stat_cycle
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.ExportStatCycleShort(input, authInfoWriter, writer)
@@ -192,8 +189,8 @@ func (aaa *StatCycleConfigurationService) ImportStatCycleShort(input *stat_cycle
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.StatCycleConfiguration.ImportStatCycleShort(input, authInfoWriter)
@@ -226,8 +223,8 @@ func (aaa *StatCycleConfigurationService) GetStatCycleShort(input *stat_cycle_co
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.GetStatCycleShort(input, authInfoWriter)
@@ -260,8 +257,8 @@ func (aaa *StatCycleConfigurationService) UpdateStatCycleShort(input *stat_cycle
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.UpdateStatCycleShort(input, authInfoWriter)
@@ -294,8 +291,8 @@ func (aaa *StatCycleConfigurationService) DeleteStatCycleShort(input *stat_cycle
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.StatCycleConfiguration.DeleteStatCycleShort(input, authInfoWriter)
@@ -324,8 +321,8 @@ func (aaa *StatCycleConfigurationService) ResetStatCycleShort(input *stat_cycle_
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.StatCycleConfiguration.ResetStatCycleShort(input, authInfoWriter)
@@ -354,8 +351,8 @@ func (aaa *StatCycleConfigurationService) BulkAddStatsShort(input *stat_cycle_co
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.BulkAddStatsShort(input, authInfoWriter)
@@ -388,8 +385,8 @@ func (aaa *StatCycleConfigurationService) StopStatCycleShort(input *stat_cycle_c
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.StopStatCycleShort(input, authInfoWriter)
@@ -422,8 +419,8 @@ func (aaa *StatCycleConfigurationService) GetStatCycles1Short(input *stat_cycle_
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.GetStatCycles1Short(input, authInfoWriter)
@@ -456,8 +453,8 @@ func (aaa *StatCycleConfigurationService) BulkGetStatCycle1Short(input *stat_cyc
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.BulkGetStatCycle1Short(input, authInfoWriter)
@@ -490,8 +487,8 @@ func (aaa *StatCycleConfigurationService) GetStatCycle1Short(input *stat_cycle_c
 	}
 	if tempFlightIdStatCycleConfiguration != nil {
 		input.XFlightId = tempFlightIdStatCycleConfiguration
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.StatCycleConfiguration.GetStatCycle1Short(input, authInfoWriter)

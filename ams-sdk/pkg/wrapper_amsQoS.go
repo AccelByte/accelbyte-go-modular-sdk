@@ -15,11 +15,8 @@ import (
 )
 
 type AMSQoSService struct {
-	Client           *amsclient.JusticeAmsService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *amsclient.JusticeAmsService
+	Session repository.Session
 }
 
 var tempFlightIdAMSQoS *string
@@ -30,9 +27,9 @@ func (aaa *AMSQoSService) UpdateFlightId(flightId string) {
 
 func (aaa *AMSQoSService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AMSQoSService) QoSRegionsGetShort(input *a_m_s_qo_s.QoSRegionsGetPara
 	}
 	if tempFlightIdAMSQoS != nil {
 		input.XFlightId = tempFlightIdAMSQoS
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AmsQos.QoSRegionsGetShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AMSQoSService) QoSRegionsUpdateShort(input *a_m_s_qo_s.QoSRegionsUpda
 	}
 	if tempFlightIdAMSQoS != nil {
 		input.XFlightId = tempFlightIdAMSQoS
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.AmsQos.QoSRegionsUpdateShort(input, authInfoWriter)

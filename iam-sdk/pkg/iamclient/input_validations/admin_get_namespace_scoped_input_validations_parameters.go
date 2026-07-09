@@ -57,7 +57,8 @@ func NewAdminGetNamespaceScopedInputValidationsParamsWithHTTPClient(client *http
 	}
 }
 
-/*AdminGetNamespaceScopedInputValidationsParams contains all the parameters to send to the API endpoint
+/*
+AdminGetNamespaceScopedInputValidationsParams contains all the parameters to send to the API endpoint
 for the admin get namespace scoped input validations operation typically these are written to a http.Request
 */
 type AdminGetNamespaceScopedInputValidationsParams struct {

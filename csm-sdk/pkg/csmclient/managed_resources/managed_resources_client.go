@@ -49,8 +49,6 @@ type ClientService interface {
 
 /*
 CreateNewNoSQLDatabaseCredentialV2Short creates a new database credential for the customer
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASECREDENTIALS [CREATE]`
-
 Creates a new database credential for the customer. This will soft-delete the old credential and create a new one.
 
 `acknowledgements.acceptNosqlSecureCredentialHandling` is optional when previously accepted during database creation. Otherwise, it MUST be set to true to proceed with credential creation, indicating the customer accepts the secure credential handling mechanism.
@@ -156,8 +154,6 @@ func (a *Client) CreateNewNoSQLDatabaseCredentialV2Short(params *CreateNewNoSQLD
 
 /*
 CreateNoSQLDatabaseCredentialV2Short creates a new database credential for the customer
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASECREDENTIALS [CREATE]`
-
 Creates a new database credential for the customer. This will soft-delete the old credential and create a new one.
 
 `acknowledgements.acceptNosqlSecureCredentialHandling` is optional when previously accepted during database creation. Otherwise, it MUST be set to true to proceed with credential creation, indicating the customer accepts the secure credential handling mechanism.
@@ -263,22 +259,20 @@ func (a *Client) CreateNoSQLDatabaseCredentialV2Short(params *CreateNoSQLDatabas
 
 /*
 GetNoSQLDatabaseV2Short get nosql database for extend app
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASES [READ]`
-
 Get a NoSQL database information returns the NoSQL database related information by given game namespace
 and app name.
 
 `resourceStatus` field - indicates the NoSQL cluster status:
-- `available` : The cluster is accessible.
+- `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max DCU).
 - `creating` : The cluster or instance is being created and is not yet accessible.
+- `deleting` : The cluster is in the process of being deleted and is not accessible.
 - `failed` : The cluster failed to provision or is in an error state and not accessible.
 - `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
-- `maintenance` : The cluster is undergoing maintenance operations and is not accessible.
-- `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max DCU).
-- `deleting` : The cluster is in the process of being deleted and is not accessible.
 - `stopped` : The cluster is stopped and not accessible.
 - `starting` : The cluster is transitioning from stopped to running, or is rebooting.
 - `unknown` : The cluster status is not recognized
+- `available` : The cluster is accessible.
+- `maintenance` : The cluster is undergoing maintenance operations and is not accessible.
 */
 func (a *Client) GetNoSQLDatabaseV2Short(params *GetNoSQLDatabaseV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNoSQLDatabaseV2Response, error) {
 	// TODO: Validate the params before sending
@@ -360,8 +354,6 @@ func (a *Client) GetNoSQLDatabaseV2Short(params *GetNoSQLDatabaseV2Params, authI
 
 /*
 CreateNoSQLDatabaseV2Short creates nosql database for extend app
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASES [CREATE]`
-
 Creates a NoSQL database along with its credentials associated with given extend app. The database will be created in the provisioned NoSQL cluster.
 
 `acknowledgements.acceptNosqlSecureCredentialHandling` MUST be set to true to proceed with database creation, indicating the customer accepts the secure credential handling mechanism.
@@ -467,8 +459,6 @@ func (a *Client) CreateNoSQLDatabaseV2Short(params *CreateNoSQLDatabaseV2Params,
 
 /*
 DeleteNoSQLDatabaseV2Short deletes nosql database for extend app
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:DATABASES [DELETE]`
-
 Deletes a NoSQL database and its credentials associated with given extend app and game namespace. The database will be removed from the provisioned NoSQL cluster.
 */
 func (a *Client) DeleteNoSQLDatabaseV2Short(params *DeleteNoSQLDatabaseV2Params, authInfo runtime.ClientAuthInfoWriter) (*DeleteNoSQLDatabaseV2Response, error) {
@@ -565,21 +555,19 @@ func (a *Client) DeleteNoSQLDatabaseV2Short(params *DeleteNoSQLDatabaseV2Params,
 
 /*
 GetNoSQLClusterV2Short get nosql cluster information
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [READ]`
-
 Get NoSQL cluster information returns the NoSQL cluster related information by given studio/publisher namespace.
 
 `status` field - indicates the NoSQL cluster status:
-- `starting` : The cluster is transitioning from stopped to running, or is rebooting.
 - `unknown` : The cluster status is not recognized
 - `available` : The cluster is accessible.
-- `creating` : The cluster or instance is being created and is not yet accessible.
-- `failed` : The cluster failed to provision or is in an error state and not accessible.
-- `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
 - `maintenance` : The cluster is undergoing maintenance operations and is not accessible.
 - `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max DCU).
+- `creating` : The cluster or instance is being created and is not yet accessible.
 - `deleting` : The cluster is in the process of being deleted and is not accessible.
+- `failed` : The cluster failed to provision or is in an error state and not accessible.
+- `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
 - `stopped` : The cluster is stopped and not accessible.
+- `starting` : The cluster is transitioning from stopped to running, or is rebooting.
 */
 func (a *Client) GetNoSQLClusterV2Short(params *GetNoSQLClusterV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNoSQLClusterV2Response, error) {
 	// TODO: Validate the params before sending
@@ -668,8 +656,6 @@ func (a *Client) GetNoSQLClusterV2Short(params *GetNoSQLClusterV2Params, authInf
 
 /*
 UpdateNoSQLClusterV2Short update nosql cluster configurations
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [UPDATE]`
-
 Update NoSQL cluster configurations such as min/max DCU (Database Capacity Units) for the NoSQL cluster in the given studio/publisher namespace.
 The cluster must be in an available state to allow configuration updates.
 
@@ -769,8 +755,6 @@ func (a *Client) UpdateNoSQLClusterV2Short(params *UpdateNoSQLClusterV2Params, a
 
 /*
 CreateNoSQLClusterV2Short creates nosql cluster
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [CREATE]`
-
 Provision NoSQL database cluster and instances that can be used by extend apps in game namespace within the studio.
 Only one NoSQL resource can be created for one studio/publisher namespace.
 
@@ -863,8 +847,6 @@ func (a *Client) CreateNoSQLClusterV2Short(params *CreateNoSQLClusterV2Params, a
 
 /*
 DeleteNoSQLClusterV2Short delete nosql cluster
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [DELETE]`
-
 You can only delete the cluster when its status is "available".
 
 Deleting the cluster will:
@@ -959,8 +941,6 @@ func (a *Client) DeleteNoSQLClusterV2Short(params *DeleteNoSQLClusterV2Params, a
 
 /*
 StartNoSQLClusterV2Short start nosql cluster
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [UPDATE]`
-
 Start NoSQL cluster.
 You can only start the cluster when its status is "stopped".
 
@@ -1059,8 +1039,6 @@ func (a *Client) StartNoSQLClusterV2Short(params *StartNoSQLClusterV2Params, aut
 
 /*
 StopNoSQLClusterV2Short stop nosql cluster
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [UPDATE]`
-
 Stop NoSQL cluster.
 You can only start the cluster when its status is "available".
 
@@ -1241,18 +1219,16 @@ func (a *Client) GetNoSQLAccessTunnelV2Short(params *GetNoSQLAccessTunnelV2Param
 
 /*
 GetNoSQLAppListV2Short get list of extend app using nosql
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:NOSQL:CLUSTERS [READ]`
-
 Get List of Extend App using NoSQL database by given studio/publisher namespace and the NoSQL cluster resourceId.
 - `starting` : The cluster is transitioning from stopped to running, or is rebooting.
 - `unknown` : The cluster status is not recognized
 - `available` : The cluster is accessible.
-- `creating` : The cluster or instance is being created and is not yet accessible.
-- `failed` : The cluster failed to provision or is in an error state and not accessible.
-- `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
 - `maintenance` : The cluster is undergoing maintenance operations and is not accessible.
 - `updating` : The cluster is being modified and is not yet accessible (e.g., updating min/max DCU).
+- `creating` : The cluster or instance is being created and is not yet accessible.
 - `deleting` : The cluster is in the process of being deleted and is not accessible.
+- `failed` : The cluster failed to provision or is in an error state and not accessible.
+- `stopping` : The cluster is in the process of stopping and will soon become inaccessible.
 - `stopped` : The cluster is stopped and not accessible.
 */
 func (a *Client) GetNoSQLAppListV2Short(params *GetNoSQLAppListV2Params, authInfo runtime.ClientAuthInfoWriter) (*GetNoSQLAppListV2Response, error) {

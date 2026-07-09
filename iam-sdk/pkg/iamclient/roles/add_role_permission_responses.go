@@ -124,9 +124,10 @@ func NewAddRolePermissionNoContent() *AddRolePermissionNoContent {
 	return &AddRolePermissionNoContent{}
 }
 
-/*AddRolePermissionNoContent handles this case with default header values.
+/*
+AddRolePermissionNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AddRolePermissionNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewAddRolePermissionBadRequest() *AddRolePermissionBadRequest {
 	return &AddRolePermissionBadRequest{}
 }
 
-/*AddRolePermissionBadRequest handles this case with default header values.
+/*
+AddRolePermissionBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type AddRolePermissionBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewAddRolePermissionUnauthorized() *AddRolePermissionUnauthorized {
 	return &AddRolePermissionUnauthorized{}
 }
 
-/*AddRolePermissionUnauthorized handles this case with default header values.
+/*
+AddRolePermissionUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AddRolePermissionUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewAddRolePermissionForbidden() *AddRolePermissionForbidden {
 	return &AddRolePermissionForbidden{}
 }
 
-/*AddRolePermissionForbidden handles this case with default header values.
+/*
+AddRolePermissionForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AddRolePermissionForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewAddRolePermissionNotFound() *AddRolePermissionNotFound {
 	return &AddRolePermissionNotFound{}
 }
 
-/*AddRolePermissionNotFound handles this case with default header values.
+/*
+AddRolePermissionNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type AddRolePermissionNotFound struct {
 }

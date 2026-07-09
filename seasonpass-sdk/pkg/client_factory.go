@@ -13,7 +13,28 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewSeasonpassClient(configRepository repository.ConfigRepository) *seasonpassclient.JusticeSeasonpassService {
+type SeasonpassClient struct {
+	Export    *ExportService
+	Season    *SeasonService
+	Utilities *UtilitiesService
+	Pass      *PassService
+	Reward    *RewardService
+	Tier      *TierService
+}
+
+func NewSeasonpassClient(session repository.Session) *SeasonpassClient {
+	httpClient := NewSeasonpassHttpClient(session.ConfigRepository)
+	return &SeasonpassClient{
+		Export:    &ExportService{Client: httpClient, Session: session},
+		Season:    &SeasonService{Client: httpClient, Session: session},
+		Utilities: &UtilitiesService{Client: httpClient, Session: session},
+		Pass:      &PassService{Client: httpClient, Session: session},
+		Reward:    &RewardService{Client: httpClient, Session: session},
+		Tier:      &TierService{Client: httpClient, Session: session},
+	}
+}
+
+func NewSeasonpassHttpClient(configRepository repository.ConfigRepository) *seasonpassclient.JusticeSeasonpassService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

@@ -15,11 +15,8 @@ import (
 )
 
 type AnonymizationService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdAnonymization *string
@@ -30,9 +27,9 @@ func (aaa *AnonymizationService) UpdateFlightId(flightId string) {
 
 func (aaa *AnonymizationService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AnonymizationService) AnonymizeCampaignShort(input *anonymization.Ano
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AnonymizeCampaignShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *AnonymizationService) AnonymizeEntitlementShort(input *anonymization.
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AnonymizeEntitlementShort(input, authInfoWriter)
@@ -114,8 +111,8 @@ func (aaa *AnonymizationService) AnonymizeFulfillmentShort(input *anonymization.
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AnonymizeFulfillmentShort(input, authInfoWriter)
@@ -144,8 +141,8 @@ func (aaa *AnonymizationService) AnonymizeIntegrationShort(input *anonymization.
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AnonymizeIntegrationShort(input, authInfoWriter)
@@ -174,8 +171,8 @@ func (aaa *AnonymizationService) AnonymizeOrderShort(input *anonymization.Anonym
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AnonymizeOrderShort(input, authInfoWriter)
@@ -204,8 +201,8 @@ func (aaa *AnonymizationService) AnonymizePaymentShort(input *anonymization.Anon
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AnonymizePaymentShort(input, authInfoWriter)
@@ -234,8 +231,8 @@ func (aaa *AnonymizationService) AnonymizeRevocationShort(input *anonymization.A
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AnonymizeRevocationShort(input, authInfoWriter)
@@ -264,8 +261,8 @@ func (aaa *AnonymizationService) AnonymizeSubscriptionShort(input *anonymization
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AnonymizeSubscriptionShort(input, authInfoWriter)
@@ -294,8 +291,8 @@ func (aaa *AnonymizationService) AnonymizeWalletShort(input *anonymization.Anony
 	}
 	if tempFlightIdAnonymization != nil {
 		input.XFlightId = tempFlightIdAnonymization
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Anonymization.AnonymizeWalletShort(input, authInfoWriter)

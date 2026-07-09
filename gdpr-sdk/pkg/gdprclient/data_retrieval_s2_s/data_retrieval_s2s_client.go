@@ -212,10 +212,10 @@ func (a *Client) S2SGetDataRequestByRequestIDShort(params *S2SGetDataRequestByRe
 }
 
 /*
-S2SRequestDataRetrievalShort submit user personal data retrieval request
+S2SRequestDataRetrievalShort submit user's personal data request
 Scope: account
 
-Submit user personal data retrieval request.
+Submit user's personal data request.
 
 **Limitation:** This API only accepts requests with a publisher userId and does not support game userId requests at this time.
 

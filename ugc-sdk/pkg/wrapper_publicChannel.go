@@ -15,11 +15,8 @@ import (
 )
 
 type PublicChannelService struct {
-	Client           *ugcclient.JusticeUgcService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
 }
 
 var tempFlightIdPublicChannel *string
@@ -30,9 +27,9 @@ func (aaa *PublicChannelService) UpdateFlightId(flightId string) {
 
 func (aaa *PublicChannelService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicChannelService) GetChannelsShort(input *public_channel.GetChann
 	}
 	if tempFlightIdPublicChannel != nil {
 		input.XFlightId = tempFlightIdPublicChannel
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicChannel.GetChannelsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PublicChannelService) PublicCreateChannelShort(input *public_channel.
 	}
 	if tempFlightIdPublicChannel != nil {
 		input.XFlightId = tempFlightIdPublicChannel
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PublicChannel.PublicCreateChannelShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PublicChannelService) UpdateChannelShort(input *public_channel.Update
 	}
 	if tempFlightIdPublicChannel != nil {
 		input.XFlightId = tempFlightIdPublicChannel
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicChannel.UpdateChannelShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PublicChannelService) DeleteChannelShort(input *public_channel.Delete
 	}
 	if tempFlightIdPublicChannel != nil {
 		input.XFlightId = tempFlightIdPublicChannel
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PublicChannel.DeleteChannelShort(input, authInfoWriter)

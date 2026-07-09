@@ -59,7 +59,8 @@ func NewAdminCreateUserV4ParamsWithHTTPClient(client *http.Client) *AdminCreateU
 	}
 }
 
-/*AdminCreateUserV4Params contains all the parameters to send to the API endpoint
+/*
+AdminCreateUserV4Params contains all the parameters to send to the API endpoint
 for the admin create user v4 operation typically these are written to a http.Request
 */
 type AdminCreateUserV4Params struct {

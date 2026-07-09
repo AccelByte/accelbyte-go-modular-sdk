@@ -57,7 +57,8 @@ func NewPlatformAuthenticationV3ParamsWithHTTPClient(client *http.Client) *Platf
 	}
 }
 
-/*PlatformAuthenticationV3Params contains all the parameters to send to the API endpoint
+/*
+PlatformAuthenticationV3Params contains all the parameters to send to the API endpoint
 for the platform authentication v3 operation typically these are written to a http.Request
 */
 type PlatformAuthenticationV3Params struct {

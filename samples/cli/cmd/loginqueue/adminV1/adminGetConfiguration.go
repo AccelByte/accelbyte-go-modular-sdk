@@ -11,6 +11,7 @@ import (
 
 	loginqueue "github.com/AccelByte/accelbyte-go-modular-sdk/loginqueue-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/loginqueue-sdk/pkg/loginqueueclient/admin_v1"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var AdminGetConfigurationCmd = &cobra.Command{
 	Long:  `Admin get configuration`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		adminV1Service := &loginqueue.AdminV1Service{
-			Client:          loginqueue.NewLoginqueueClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: loginqueue.NewLoginqueueHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		input := &admin_v1.AdminGetConfigurationParams{

@@ -11,6 +11,7 @@ import (
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/presence"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var UsersPresenceHandlerV1Cmd = &cobra.Command{
 	Long:  `Users presence handler V1`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		presenceService := &lobby.PresenceService{
-			Client:          lobby.NewLobbyClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: lobby.NewLobbyHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		userIds, _ := cmd.Flags().GetString("userIds")

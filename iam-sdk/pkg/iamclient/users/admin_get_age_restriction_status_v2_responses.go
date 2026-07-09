@@ -110,9 +110,10 @@ func NewAdminGetAgeRestrictionStatusV2OK() *AdminGetAgeRestrictionStatusV2OK {
 	return &AdminGetAgeRestrictionStatusV2OK{}
 }
 
-/*AdminGetAgeRestrictionStatusV2OK handles this case with default header values.
+/*
+AdminGetAgeRestrictionStatusV2OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetAgeRestrictionStatusV2OK struct {
 	Payload *iamclientmodels.ModelAgeRestrictionResponse
@@ -164,9 +165,10 @@ func NewAdminGetAgeRestrictionStatusV2Unauthorized() *AdminGetAgeRestrictionStat
 	return &AdminGetAgeRestrictionStatusV2Unauthorized{}
 }
 
-/*AdminGetAgeRestrictionStatusV2Unauthorized handles this case with default header values.
+/*
+AdminGetAgeRestrictionStatusV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetAgeRestrictionStatusV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -218,9 +220,10 @@ func NewAdminGetAgeRestrictionStatusV2Forbidden() *AdminGetAgeRestrictionStatusV
 	return &AdminGetAgeRestrictionStatusV2Forbidden{}
 }
 
-/*AdminGetAgeRestrictionStatusV2Forbidden handles this case with default header values.
+/*
+AdminGetAgeRestrictionStatusV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetAgeRestrictionStatusV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -272,9 +275,10 @@ func NewAdminGetAgeRestrictionStatusV2NotFound() *AdminGetAgeRestrictionStatusV2
 	return &AdminGetAgeRestrictionStatusV2NotFound{}
 }
 
-/*AdminGetAgeRestrictionStatusV2NotFound handles this case with default header values.
+/*
+AdminGetAgeRestrictionStatusV2NotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type AdminGetAgeRestrictionStatusV2NotFound struct {
 }

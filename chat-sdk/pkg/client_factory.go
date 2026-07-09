@@ -13,7 +13,28 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewChatClient(configRepository repository.ConfigRepository) *chatclient.JusticeChatService {
+type ChatClient struct {
+	Topic      *TopicService
+	Config     *ConfigService
+	Inbox      *InboxService
+	Moderation *ModerationService
+	Profanity  *ProfanityService
+	Operations *OperationsService
+}
+
+func NewChatClient(session repository.Session) *ChatClient {
+	httpClient := NewChatHttpClient(session.ConfigRepository)
+	return &ChatClient{
+		Topic:      &TopicService{Client: httpClient, Session: session},
+		Config:     &ConfigService{Client: httpClient, Session: session},
+		Inbox:      &InboxService{Client: httpClient, Session: session},
+		Moderation: &ModerationService{Client: httpClient, Session: session},
+		Profanity:  &ProfanityService{Client: httpClient, Session: session},
+		Operations: &OperationsService{Client: httpClient, Session: session},
+	}
+}
+
+func NewChatHttpClient(configRepository repository.ConfigRepository) *chatclient.JusticeChatService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

@@ -145,9 +145,10 @@ func NewCreateUserFromInvitationV4Created() *CreateUserFromInvitationV4Created {
 	return &CreateUserFromInvitationV4Created{}
 }
 
-/*CreateUserFromInvitationV4Created handles this case with default header values.
+/*
+CreateUserFromInvitationV4Created handles this case with default header values.
 
-  Created
+	Created
 */
 type CreateUserFromInvitationV4Created struct {
 	Payload *iamclientmodels.AccountCreateUserResponseV4
@@ -199,9 +200,10 @@ func NewCreateUserFromInvitationV4BadRequest() *CreateUserFromInvitationV4BadReq
 	return &CreateUserFromInvitationV4BadRequest{}
 }
 
-/*CreateUserFromInvitationV4BadRequest handles this case with default header values.
+/*
+CreateUserFromInvitationV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
 */
 type CreateUserFromInvitationV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewCreateUserFromInvitationV4Forbidden() *CreateUserFromInvitationV4Forbidd
 	return &CreateUserFromInvitationV4Forbidden{}
 }
 
-/*CreateUserFromInvitationV4Forbidden handles this case with default header values.
+/*
+CreateUserFromInvitationV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
 */
 type CreateUserFromInvitationV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewCreateUserFromInvitationV4NotFound() *CreateUserFromInvitationV4NotFound
 	return &CreateUserFromInvitationV4NotFound{}
 }
 
-/*CreateUserFromInvitationV4NotFound handles this case with default header values.
+/*
+CreateUserFromInvitationV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10180</td><td>admin invitation not found or expired</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10180</td><td>admin invitation not found or expired</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
 */
 type CreateUserFromInvitationV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewCreateUserFromInvitationV4Conflict() *CreateUserFromInvitationV4Conflict
 	return &CreateUserFromInvitationV4Conflict{}
 }
 
-/*CreateUserFromInvitationV4Conflict handles this case with default header values.
+/*
+CreateUserFromInvitationV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
 */
 type CreateUserFromInvitationV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewCreateUserFromInvitationV4InternalServerError() *CreateUserFromInvitatio
 	return &CreateUserFromInvitationV4InternalServerError{}
 }
 
-/*CreateUserFromInvitationV4InternalServerError handles this case with default header values.
+/*
+CreateUserFromInvitationV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type CreateUserFromInvitationV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

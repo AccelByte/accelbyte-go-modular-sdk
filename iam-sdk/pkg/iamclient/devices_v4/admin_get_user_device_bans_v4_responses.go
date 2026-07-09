@@ -130,9 +130,10 @@ func NewAdminGetUserDeviceBansV4OK() *AdminGetUserDeviceBansV4OK {
 	return &AdminGetUserDeviceBansV4OK{}
 }
 
-/*AdminGetUserDeviceBansV4OK handles this case with default header values.
+/*
+AdminGetUserDeviceBansV4OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminGetUserDeviceBansV4OK struct {
 	Payload *iamclientmodels.ModelDeviceBansResponseV4
@@ -184,9 +185,10 @@ func NewAdminGetUserDeviceBansV4Unauthorized() *AdminGetUserDeviceBansV4Unauthor
 	return &AdminGetUserDeviceBansV4Unauthorized{}
 }
 
-/*AdminGetUserDeviceBansV4Unauthorized handles this case with default header values.
+/*
+AdminGetUserDeviceBansV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetUserDeviceBansV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminGetUserDeviceBansV4Forbidden() *AdminGetUserDeviceBansV4Forbidden {
 	return &AdminGetUserDeviceBansV4Forbidden{}
 }
 
-/*AdminGetUserDeviceBansV4Forbidden handles this case with default header values.
+/*
+AdminGetUserDeviceBansV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetUserDeviceBansV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminGetUserDeviceBansV4NotFound() *AdminGetUserDeviceBansV4NotFound {
 	return &AdminGetUserDeviceBansV4NotFound{}
 }
 
-/*AdminGetUserDeviceBansV4NotFound handles this case with default header values.
+/*
+AdminGetUserDeviceBansV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type AdminGetUserDeviceBansV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminGetUserDeviceBansV4InternalServerError() *AdminGetUserDeviceBansV4I
 	return &AdminGetUserDeviceBansV4InternalServerError{}
 }
 
-/*AdminGetUserDeviceBansV4InternalServerError handles this case with default header values.
+/*
+AdminGetUserDeviceBansV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetUserDeviceBansV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

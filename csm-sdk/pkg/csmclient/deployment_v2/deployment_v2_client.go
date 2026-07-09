@@ -40,9 +40,7 @@ type ClientService interface {
 
 /*
 CreateDeploymentV2Short creates deployment
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [CREATE]`
-
-# Creates Deployment for extend service
+Creates Deployment for extend service
 
 # This Endpoint will create new deployment and apply all of the secrets and variable as environment variable
 
@@ -139,9 +137,7 @@ func (a *Client) CreateDeploymentV2Short(params *CreateDeploymentV2Params, authI
 
 /*
 GetListOfDeploymentV2Short fetches the list of deployments
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [READ]`
-
-# Filters the List of Deployments
+Filters the List of Deployments
 
 This endpoint intended to get list of Deployment done for the given publisher and game.
 Request :
@@ -235,9 +231,7 @@ func (a *Client) GetListOfDeploymentV2Short(params *GetListOfDeploymentV2Params,
 
 /*
 GetDeploymentV2Short get deployment by deployment id
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [READ]`
-
-# Get Deployment information by given DeploymentID
+Get Deployment information by given DeploymentID
 
 This endpoint intended to get Deployment information.
 
@@ -323,9 +317,7 @@ func (a *Client) GetDeploymentV2Short(params *GetDeploymentV2Params, authInfo ru
 
 /*
 DeleteDeploymentV2Short delete deployment by deployment id
-Required permission : `ADMIN:NAMESPACE:{namespace}:EXTEND:DEPLOYMENT [DELETE]`
-
-# Delete Deployment information by given DeploymentID
+Delete Deployment information by given DeploymentID
 
 # This endpoint will delete release object for the service deployment in the cluster
 

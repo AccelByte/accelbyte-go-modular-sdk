@@ -15,11 +15,8 @@ import (
 )
 
 type ManagedResourcesKeyValueService struct {
-	Client           *csmclient.JusticeCsmService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *csmclient.JusticeCsmService
+	Session repository.Session
 }
 
 var tempFlightIdManagedResourcesKeyValue *string
@@ -30,9 +27,9 @@ func (aaa *ManagedResourcesKeyValueService) UpdateFlightId(flightId string) {
 
 func (aaa *ManagedResourcesKeyValueService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ManagedResourcesKeyValueService) CreateKeyValueCredentialV2Short(inpu
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ManagedResourcesKeyValue.CreateKeyValueCredentialV2Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *ManagedResourcesKeyValueService) GetIntegrationAppKeyValueClusterV2Sh
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ManagedResourcesKeyValue.GetIntegrationAppKeyValueClusterV2Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *ManagedResourcesKeyValueService) IntegrateAppKeyValueClusterV2Short(i
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ManagedResourcesKeyValue.IntegrateAppKeyValueClusterV2Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *ManagedResourcesKeyValueService) RemoveIntegrationAppKeyValueClusterV
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ManagedResourcesKeyValue.RemoveIntegrationAppKeyValueClusterV2Short(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *ManagedResourcesKeyValueService) GetKeyValueClusterV2Short(input *man
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ManagedResourcesKeyValue.GetKeyValueClusterV2Short(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *ManagedResourcesKeyValueService) ListKeyValueClusterV2Short(input *ma
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ManagedResourcesKeyValue.ListKeyValueClusterV2Short(input, authInfoWriter)
@@ -254,8 +251,8 @@ func (aaa *ManagedResourcesKeyValueService) CreateKeyValueClusterV2Short(input *
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.ManagedResourcesKeyValue.CreateKeyValueClusterV2Short(input, authInfoWriter)
@@ -288,8 +285,8 @@ func (aaa *ManagedResourcesKeyValueService) GetKeyValueClusterLimitConfigV2Short
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ManagedResourcesKeyValue.GetKeyValueClusterLimitConfigV2Short(input, authInfoWriter)
@@ -322,8 +319,8 @@ func (aaa *ManagedResourcesKeyValueService) UpdateKeyValueClusterV2Short(input *
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ManagedResourcesKeyValue.UpdateKeyValueClusterV2Short(input, authInfoWriter)
@@ -356,8 +353,8 @@ func (aaa *ManagedResourcesKeyValueService) DeleteKeyValueClusterV2Short(input *
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ManagedResourcesKeyValue.DeleteKeyValueClusterV2Short(input, authInfoWriter)
@@ -390,8 +387,8 @@ func (aaa *ManagedResourcesKeyValueService) GetListIntegratedAppKeyValueClusterV
 	}
 	if tempFlightIdManagedResourcesKeyValue != nil {
 		input.XFlightId = tempFlightIdManagedResourcesKeyValue
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ManagedResourcesKeyValue.GetListIntegratedAppKeyValueClusterV2Short(input, authInfoWriter)

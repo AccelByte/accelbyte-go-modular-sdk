@@ -68,9 +68,10 @@ func NewPlatformAuthenticationV3Found() *PlatformAuthenticationV3Found {
 	return &PlatformAuthenticationV3Found{}
 }
 
-/*PlatformAuthenticationV3Found handles this case with default header values.
+/*
+PlatformAuthenticationV3Found handles this case with default header values.
 
-  Found. Redirect to clients redirection URL with either code or error on the query parameter
+	Found. Redirect to clients redirection URL with either code or error on the query parameter
 */
 type PlatformAuthenticationV3Found struct {
 	Location string

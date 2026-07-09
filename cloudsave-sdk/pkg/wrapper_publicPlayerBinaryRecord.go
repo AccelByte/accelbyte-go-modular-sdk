@@ -15,11 +15,8 @@ import (
 )
 
 type PublicPlayerBinaryRecordService struct {
-	Client           *cloudsaveclient.JusticeCloudsaveService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *cloudsaveclient.JusticeCloudsaveService
+	Session repository.Session
 }
 
 var tempFlightIdPublicPlayerBinaryRecord *string
@@ -30,9 +27,9 @@ func (aaa *PublicPlayerBinaryRecordService) UpdateFlightId(flightId string) {
 
 func (aaa *PublicPlayerBinaryRecordService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicPlayerBinaryRecordService) BulkGetPlayerPublicBinaryRecordsV1Sh
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.BulkGetPlayerPublicBinaryRecordsV1Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PublicPlayerBinaryRecordService) ListMyBinaryRecordsV1Short(input *pu
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.ListMyBinaryRecordsV1Short(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PublicPlayerBinaryRecordService) BulkGetMyBinaryRecordV1Short(input *
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.BulkGetMyBinaryRecordV1Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryRecordV1Short(input 
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PublicPlayerBinaryRecord.PostPlayerBinaryRecordV1Short(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *PublicPlayerBinaryRecordService) ListOtherPlayerPublicBinaryRecordsV1
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.ListOtherPlayerPublicBinaryRecordsV1Short(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *PublicPlayerBinaryRecordService) BulkGetOtherPlayerPublicBinaryRecord
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.BulkGetOtherPlayerPublicBinaryRecordsV1Short(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *PublicPlayerBinaryRecordService) GetPlayerBinaryRecordV1Short(input *
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.GetPlayerBinaryRecordV1Short(input, authInfoWriter)
@@ -292,8 +289,8 @@ func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecordV1Short(input *
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.PutPlayerBinaryRecordV1Short(input, authInfoWriter)
@@ -326,8 +323,8 @@ func (aaa *PublicPlayerBinaryRecordService) DeletePlayerBinaryRecordV1Short(inpu
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.PublicPlayerBinaryRecord.DeletePlayerBinaryRecordV1Short(input, authInfoWriter)
@@ -356,8 +353,8 @@ func (aaa *PublicPlayerBinaryRecordService) PutPlayerBinaryRecorMetadataV1Short(
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.PutPlayerBinaryRecorMetadataV1Short(input, authInfoWriter)
@@ -390,8 +387,8 @@ func (aaa *PublicPlayerBinaryRecordService) PostPlayerBinaryPresignedURLV1Short(
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PublicPlayerBinaryRecord.PostPlayerBinaryPresignedURLV1Short(input, authInfoWriter)
@@ -424,8 +421,8 @@ func (aaa *PublicPlayerBinaryRecordService) GetPlayerPublicBinaryRecordsV1Short(
 	}
 	if tempFlightIdPublicPlayerBinaryRecord != nil {
 		input.XFlightId = tempFlightIdPublicPlayerBinaryRecord
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicPlayerBinaryRecord.GetPlayerPublicBinaryRecordsV1Short(input, authInfoWriter)

@@ -11,6 +11,7 @@ import (
 
 	match2 "github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk/pkg/match2client/match_functions"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var MatchFunctionGetCmd = &cobra.Command{
 	Long:  `Match function get`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		matchFunctionsService := &match2.MatchFunctionsService{
-			Client:          match2.NewMatch2Client(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: match2.NewMatch2HttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		name, _ := cmd.Flags().GetString("name")
 		namespace, _ := cmd.Flags().GetString("namespace")

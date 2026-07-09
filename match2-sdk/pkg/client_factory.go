@@ -13,7 +13,36 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewMatch2Client(configRepository repository.ConfigRepository) *match2client.JusticeMatch2Service {
+type Match2Client struct {
+	Operations           *OperationsService
+	Config               *ConfigService
+	PlayFeatureFlag      *PlayFeatureFlagService
+	XRayConfig           *XRayConfigService
+	EnvironmentVariables *EnvironmentVariablesService
+	Backfill             *BackfillService
+	MatchFunctions       *MatchFunctionsService
+	MatchPools           *MatchPoolsService
+	MatchTickets         *MatchTicketsService
+	RuleSets             *RuleSetsService
+}
+
+func NewMatch2Client(session repository.Session) *Match2Client {
+	httpClient := NewMatch2HttpClient(session.ConfigRepository)
+	return &Match2Client{
+		Operations:           &OperationsService{Client: httpClient, Session: session},
+		Config:               &ConfigService{Client: httpClient, Session: session},
+		PlayFeatureFlag:      &PlayFeatureFlagService{Client: httpClient, Session: session},
+		XRayConfig:           &XRayConfigService{Client: httpClient, Session: session},
+		EnvironmentVariables: &EnvironmentVariablesService{Client: httpClient, Session: session},
+		Backfill:             &BackfillService{Client: httpClient, Session: session},
+		MatchFunctions:       &MatchFunctionsService{Client: httpClient, Session: session},
+		MatchPools:           &MatchPoolsService{Client: httpClient, Session: session},
+		MatchTickets:         &MatchTicketsService{Client: httpClient, Session: session},
+		RuleSets:             &RuleSetsService{Client: httpClient, Session: session},
+	}
+}
+
+func NewMatch2HttpClient(configRepository repository.ConfigRepository) *match2client.JusticeMatch2Service {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

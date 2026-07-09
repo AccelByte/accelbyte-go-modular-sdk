@@ -57,7 +57,8 @@ func NewGetClientsbyNamespaceParamsWithHTTPClient(client *http.Client) *GetClien
 	}
 }
 
-/*GetClientsbyNamespaceParams contains all the parameters to send to the API endpoint
+/*
+GetClientsbyNamespaceParams contains all the parameters to send to the API endpoint
 for the get clientsby namespace operation typically these are written to a http.Request
 */
 type GetClientsbyNamespaceParams struct {

@@ -92,9 +92,10 @@ func NewVerify2FACodeV4OK() *Verify2FACodeV4OK {
 	return &Verify2FACodeV4OK{}
 }
 
-/*Verify2FACodeV4OK handles this case with default header values.
+/*
+Verify2FACodeV4OK handles this case with default header values.
 
-  Token returned
+	Token returned
 */
 type Verify2FACodeV4OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3
@@ -146,9 +147,10 @@ func NewVerify2FACodeV4Accepted() *Verify2FACodeV4Accepted {
 	return &Verify2FACodeV4Accepted{}
 }
 
-/*Verify2FACodeV4Accepted handles this case with default header values.
+/*
+Verify2FACodeV4Accepted handles this case with default header values.
 
-  Login queue ticket returned
+	Login queue ticket returned
 */
 type Verify2FACodeV4Accepted struct {
 	Payload *iamclientmodels.OauthmodelLoginQueueTicketResponse
@@ -200,9 +202,10 @@ func NewVerify2FACodeV4Unauthorized() *Verify2FACodeV4Unauthorized {
 	return &Verify2FACodeV4Unauthorized{}
 }
 
-/*Verify2FACodeV4Unauthorized handles this case with default header values.
+/*
+Verify2FACodeV4Unauthorized handles this case with default header values.
 
-  Unauthorized
+	Unauthorized
 */
 type Verify2FACodeV4Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

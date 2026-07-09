@@ -115,9 +115,10 @@ func NewAdminGetDeviceTypesV4OK() *AdminGetDeviceTypesV4OK {
 	return &AdminGetDeviceTypesV4OK{}
 }
 
-/*AdminGetDeviceTypesV4OK handles this case with default header values.
+/*
+AdminGetDeviceTypesV4OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminGetDeviceTypesV4OK struct {
 	Payload *iamclientmodels.ModelDeviceTypesResponseV4
@@ -169,9 +170,10 @@ func NewAdminGetDeviceTypesV4Unauthorized() *AdminGetDeviceTypesV4Unauthorized {
 	return &AdminGetDeviceTypesV4Unauthorized{}
 }
 
-/*AdminGetDeviceTypesV4Unauthorized handles this case with default header values.
+/*
+AdminGetDeviceTypesV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetDeviceTypesV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +225,10 @@ func NewAdminGetDeviceTypesV4Forbidden() *AdminGetDeviceTypesV4Forbidden {
 	return &AdminGetDeviceTypesV4Forbidden{}
 }
 
-/*AdminGetDeviceTypesV4Forbidden handles this case with default header values.
+/*
+AdminGetDeviceTypesV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetDeviceTypesV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +280,10 @@ func NewAdminGetDeviceTypesV4InternalServerError() *AdminGetDeviceTypesV4Interna
 	return &AdminGetDeviceTypesV4InternalServerError{}
 }
 
-/*AdminGetDeviceTypesV4InternalServerError handles this case with default header values.
+/*
+AdminGetDeviceTypesV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetDeviceTypesV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

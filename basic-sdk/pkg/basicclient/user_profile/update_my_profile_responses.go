@@ -130,9 +130,10 @@ func NewUpdateMyProfileOK() *UpdateMyProfileOK {
 	return &UpdateMyProfileOK{}
 }
 
-/*UpdateMyProfileOK handles this case with default header values.
+/*
+UpdateMyProfileOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type UpdateMyProfileOK struct {
 	Payload *basicclientmodels.UserProfilePrivateInfo
@@ -184,9 +185,10 @@ func NewUpdateMyProfileBadRequest() *UpdateMyProfileBadRequest {
 	return &UpdateMyProfileBadRequest{}
 }
 
-/*UpdateMyProfileBadRequest handles this case with default header values.
+/*
+UpdateMyProfileBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type UpdateMyProfileBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -238,9 +240,10 @@ func NewUpdateMyProfileUnauthorized() *UpdateMyProfileUnauthorized {
 	return &UpdateMyProfileUnauthorized{}
 }
 
-/*UpdateMyProfileUnauthorized handles this case with default header values.
+/*
+UpdateMyProfileUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type UpdateMyProfileUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewUpdateMyProfileForbidden() *UpdateMyProfileForbidden {
 	return &UpdateMyProfileForbidden{}
 }
 
-/*UpdateMyProfileForbidden handles this case with default header values.
+/*
+UpdateMyProfileForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type UpdateMyProfileForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewUpdateMyProfileNotFound() *UpdateMyProfileNotFound {
 	return &UpdateMyProfileNotFound{}
 }
 
-/*UpdateMyProfileNotFound handles this case with default header values.
+/*
+UpdateMyProfileNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>20017</td><td>user not linked</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>20017</td><td>user not linked</td></tr><tr><td>11440</td><td>Unable to {action}: User profile not found in namespace [{namespace}]</td></tr></table>
 */
 type UpdateMyProfileNotFound struct {
 	Payload *basicclientmodels.ErrorEntity

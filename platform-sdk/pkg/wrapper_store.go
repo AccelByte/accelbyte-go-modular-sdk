@@ -17,11 +17,8 @@ import (
 )
 
 type StoreService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdStore *string
@@ -32,9 +29,9 @@ func (aaa *StoreService) UpdateFlightId(flightId string) {
 
 func (aaa *StoreService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -56,8 +53,8 @@ func (aaa *StoreService) GetCatalogConfigShort(input *store.GetCatalogConfigPara
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.GetCatalogConfigShort(input, authInfoWriter)
@@ -90,8 +87,8 @@ func (aaa *StoreService) UpdateCatalogConfigShort(input *store.UpdateCatalogConf
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.UpdateCatalogConfigShort(input, authInfoWriter)
@@ -124,8 +121,8 @@ func (aaa *StoreService) ListStoresShort(input *store.ListStoresParams) (*store.
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.ListStoresShort(input, authInfoWriter)
@@ -158,8 +155,8 @@ func (aaa *StoreService) CreateStoreShort(input *store.CreateStoreParams) (*stor
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Store.CreateStoreShort(input, authInfoWriter)
@@ -192,8 +189,8 @@ func (aaa *StoreService) GetCatalogDefinitionShort(input *store.GetCatalogDefini
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.GetCatalogDefinitionShort(input, authInfoWriter)
@@ -226,8 +223,8 @@ func (aaa *StoreService) DownloadCSVTemplatesShort(input *store.DownloadCSVTempl
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.DownloadCSVTemplatesShort(input, authInfoWriter, writer)
@@ -260,8 +257,8 @@ func (aaa *StoreService) ExportStoreByCSVShort(input *store.ExportStoreByCSVPara
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.ExportStoreByCSVShort(input, authInfoWriter, writer)
@@ -294,8 +291,8 @@ func (aaa *StoreService) ImportStoreShort(input *store.ImportStoreParams) (*stor
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.ImportStoreShort(input, authInfoWriter)
@@ -328,8 +325,8 @@ func (aaa *StoreService) GetPublishedStoreShort(input *store.GetPublishedStorePa
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.GetPublishedStoreShort(input, authInfoWriter)
@@ -362,8 +359,8 @@ func (aaa *StoreService) DeletePublishedStoreShort(input *store.DeletePublishedS
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.DeletePublishedStoreShort(input, authInfoWriter)
@@ -396,8 +393,8 @@ func (aaa *StoreService) GetPublishedStoreBackupShort(input *store.GetPublishedS
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.GetPublishedStoreBackupShort(input, authInfoWriter)
@@ -430,8 +427,8 @@ func (aaa *StoreService) RollbackPublishedStoreShort(input *store.RollbackPublis
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.RollbackPublishedStoreShort(input, authInfoWriter)
@@ -464,8 +461,8 @@ func (aaa *StoreService) GetStoreShort(input *store.GetStoreParams) (*store.GetS
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.GetStoreShort(input, authInfoWriter)
@@ -498,8 +495,8 @@ func (aaa *StoreService) UpdateStoreShort(input *store.UpdateStoreParams) (*stor
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.UpdateStoreShort(input, authInfoWriter)
@@ -532,8 +529,8 @@ func (aaa *StoreService) DeleteStoreShort(input *store.DeleteStoreParams) (*stor
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.DeleteStoreShort(input, authInfoWriter)
@@ -566,8 +563,8 @@ func (aaa *StoreService) CloneStoreShort(input *store.CloneStoreParams) (*store.
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.CloneStoreShort(input, authInfoWriter)
@@ -600,8 +597,8 @@ func (aaa *StoreService) ExportStoreShort(input *store.ExportStoreParams, writer
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.ExportStoreShort(input, authInfoWriter, writer)
@@ -634,8 +631,8 @@ func (aaa *StoreService) QueryImportHistoryShort(input *store.QueryImportHistory
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.QueryImportHistoryShort(input, authInfoWriter)
@@ -668,8 +665,8 @@ func (aaa *StoreService) ImportStoreByCSVShort(input *store.ImportStoreByCSVPara
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.ImportStoreByCSVShort(input, authInfoWriter)
@@ -695,8 +692,8 @@ func (aaa *StoreService) PublicListStoresShort(input *store.PublicListStoresPara
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.PublicListStoresShort(input)
@@ -729,8 +726,8 @@ func (aaa *StoreService) ImportStore1Short(input *store.ImportStore1Params) (*st
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.ImportStore1Short(input, authInfoWriter)
@@ -763,8 +760,8 @@ func (aaa *StoreService) ExportStore1Short(input *store.ExportStore1Params, writ
 	}
 	if tempFlightIdStore != nil {
 		input.XFlightId = tempFlightIdStore
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Store.ExportStore1Short(input, authInfoWriter, writer)

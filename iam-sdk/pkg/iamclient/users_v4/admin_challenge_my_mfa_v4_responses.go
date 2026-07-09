@@ -151,9 +151,10 @@ func NewAdminChallengeMyMFAV4OK() *AdminChallengeMyMFAV4OK {
 	return &AdminChallengeMyMFAV4OK{}
 }
 
-/*AdminChallengeMyMFAV4OK handles this case with default header values.
+/*
+AdminChallengeMyMFAV4OK handles this case with default header values.
 
-  MFA token generated
+	MFA token generated
 */
 type AdminChallengeMyMFAV4OK struct {
 	Payload *iamclientmodels.ModelUserMFATokenResponseV4
@@ -205,9 +206,10 @@ func NewAdminChallengeMyMFAV4NoContent() *AdminChallengeMyMFAV4NoContent {
 	return &AdminChallengeMyMFAV4NoContent{}
 }
 
-/*AdminChallengeMyMFAV4NoContent handles this case with default header values.
+/*
+AdminChallengeMyMFAV4NoContent handles this case with default header values.
 
-  No MFA token generated
+	No MFA token generated
 */
 type AdminChallengeMyMFAV4NoContent struct {
 }
@@ -232,9 +234,10 @@ func NewAdminChallengeMyMFAV4BadRequest() *AdminChallengeMyMFAV4BadRequest {
 	return &AdminChallengeMyMFAV4BadRequest{}
 }
 
-/*AdminChallengeMyMFAV4BadRequest handles this case with default header values.
+/*
+AdminChallengeMyMFAV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10137</td><td>code is expired</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10137</td><td>code is expired</td></tr></table>
 */
 type AdminChallengeMyMFAV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -286,9 +289,10 @@ func NewAdminChallengeMyMFAV4Unauthorized() *AdminChallengeMyMFAV4Unauthorized {
 	return &AdminChallengeMyMFAV4Unauthorized{}
 }
 
-/*AdminChallengeMyMFAV4Unauthorized handles this case with default header values.
+/*
+AdminChallengeMyMFAV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminChallengeMyMFAV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -340,9 +344,10 @@ func NewAdminChallengeMyMFAV4Forbidden() *AdminChallengeMyMFAV4Forbidden {
 	return &AdminChallengeMyMFAV4Forbidden{}
 }
 
-/*AdminChallengeMyMFAV4Forbidden handles this case with default header values.
+/*
+AdminChallengeMyMFAV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr></table>
 */
 type AdminChallengeMyMFAV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -394,9 +399,10 @@ func NewAdminChallengeMyMFAV4NotFound() *AdminChallengeMyMFAV4NotFound {
 	return &AdminChallengeMyMFAV4NotFound{}
 }
 
-/*AdminChallengeMyMFAV4NotFound handles this case with default header values.
+/*
+AdminChallengeMyMFAV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminChallengeMyMFAV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -448,9 +454,10 @@ func NewAdminChallengeMyMFAV4InternalServerError() *AdminChallengeMyMFAV4Interna
 	return &AdminChallengeMyMFAV4InternalServerError{}
 }
 
-/*AdminChallengeMyMFAV4InternalServerError handles this case with default header values.
+/*
+AdminChallengeMyMFAV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminChallengeMyMFAV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

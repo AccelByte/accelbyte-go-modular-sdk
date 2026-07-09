@@ -57,7 +57,8 @@ func NewPublicGetUserByUserIDV2ParamsWithHTTPClient(client *http.Client) *Public
 	}
 }
 
-/*PublicGetUserByUserIDV2Params contains all the parameters to send to the API endpoint
+/*
+PublicGetUserByUserIDV2Params contains all the parameters to send to the API endpoint
 for the public get user by user idv2 operation typically these are written to a http.Request
 */
 type PublicGetUserByUserIDV2Params struct {

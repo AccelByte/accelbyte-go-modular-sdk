@@ -115,9 +115,10 @@ func NewAdminCreateTagV3Created() *AdminCreateTagV3Created {
 	return &AdminCreateTagV3Created{}
 }
 
-/*AdminCreateTagV3Created handles this case with default header values.
+/*
+AdminCreateTagV3Created handles this case with default header values.
 
-  Created
+	Created
 */
 type AdminCreateTagV3Created struct {
 	Payload *iamclientmodels.AccountcommonTagResponse
@@ -169,9 +170,10 @@ func NewAdminCreateTagV3BadRequest() *AdminCreateTagV3BadRequest {
 	return &AdminCreateTagV3BadRequest{}
 }
 
-/*AdminCreateTagV3BadRequest handles this case with default header values.
+/*
+AdminCreateTagV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminCreateTagV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,10 +225,9 @@ func NewAdminCreateTagV3Conflict() *AdminCreateTagV3Conflict {
 	return &AdminCreateTagV3Conflict{}
 }
 
-/*AdminCreateTagV3Conflict handles this case with default header values.
-
-
- */
+/*
+AdminCreateTagV3Conflict handles this case with default header values.
+*/
 type AdminCreateTagV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
 }
@@ -277,9 +278,10 @@ func NewAdminCreateTagV3InternalServerError() *AdminCreateTagV3InternalServerErr
 	return &AdminCreateTagV3InternalServerError{}
 }
 
-/*AdminCreateTagV3InternalServerError handles this case with default header values.
+/*
+AdminCreateTagV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminCreateTagV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

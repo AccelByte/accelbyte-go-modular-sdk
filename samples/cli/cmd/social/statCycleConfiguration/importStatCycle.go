@@ -10,6 +10,7 @@ import (
 	"log/slog"
 	"os"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/stat_cycle_configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -23,8 +24,10 @@ var ImportStatCycleCmd = &cobra.Command{
 	Long:  `Import stat cycle`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		statCycleConfigurationService := &social.StatCycleConfigurationService{
-			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: social.NewSocialHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		outputFile := cmd.Flag("file").Value.String()

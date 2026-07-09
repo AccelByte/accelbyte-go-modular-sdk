@@ -11,6 +11,7 @@ import (
 
 	lobby "github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk/pkg/lobbyclient/lobby_operations"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,8 +23,10 @@ var PublicGetMessagesCmd = &cobra.Command{
 	Long:  `Public get messages`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		lobbyOperationsService := &lobby.LobbyOperationsService{
-			Client:          lobby.NewLobbyClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: lobby.NewLobbyHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		input := &lobby_operations.PublicGetMessagesParams{}
 		ok, errOK := lobbyOperationsService.PublicGetMessagesShort(input)

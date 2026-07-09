@@ -15,11 +15,8 @@ import (
 )
 
 type CertificateService struct {
-	Client           *sessionclient.JusticeSessionService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *sessionclient.JusticeSessionService
+	Session repository.Session
 }
 
 var tempFlightIdCertificate *string
@@ -30,9 +27,9 @@ func (aaa *CertificateService) UpdateFlightId(flightId string) {
 
 func (aaa *CertificateService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *CertificateService) AdminUploadXBoxCertificateShort(input *certificat
 	}
 	if tempFlightIdCertificate != nil {
 		input.XFlightId = tempFlightIdCertificate
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Certificate.AdminUploadXBoxCertificateShort(input, authInfoWriter)

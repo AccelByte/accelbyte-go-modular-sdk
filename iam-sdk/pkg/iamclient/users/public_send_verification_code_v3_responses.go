@@ -159,9 +159,10 @@ func NewPublicSendVerificationCodeV3NoContent() *PublicSendVerificationCodeV3NoC
 	return &PublicSendVerificationCodeV3NoContent{}
 }
 
-/*PublicSendVerificationCodeV3NoContent handles this case with default header values.
+/*
+PublicSendVerificationCodeV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicSendVerificationCodeV3NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewPublicSendVerificationCodeV3BadRequest() *PublicSendVerificationCodeV3Ba
 	return &PublicSendVerificationCodeV3BadRequest{}
 }
 
-/*PublicSendVerificationCodeV3BadRequest handles this case with default header values.
+/*
+PublicSendVerificationCodeV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PublicSendVerificationCodeV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewPublicSendVerificationCodeV3Unauthorized() *PublicSendVerificationCodeV3
 	return &PublicSendVerificationCodeV3Unauthorized{}
 }
 
-/*PublicSendVerificationCodeV3Unauthorized handles this case with default header values.
+/*
+PublicSendVerificationCodeV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicSendVerificationCodeV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewPublicSendVerificationCodeV3Forbidden() *PublicSendVerificationCodeV3For
 	return &PublicSendVerificationCodeV3Forbidden{}
 }
 
-/*PublicSendVerificationCodeV3Forbidden handles this case with default header values.
+/*
+PublicSendVerificationCodeV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10146</td><td>userID not match</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10146</td><td>userID not match</td></tr></table>
 */
 type PublicSendVerificationCodeV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewPublicSendVerificationCodeV3NotFound() *PublicSendVerificationCodeV3NotF
 	return &PublicSendVerificationCodeV3NotFound{}
 }
 
-/*PublicSendVerificationCodeV3NotFound handles this case with default header values.
+/*
+PublicSendVerificationCodeV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type PublicSendVerificationCodeV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewPublicSendVerificationCodeV3Conflict() *PublicSendVerificationCodeV3Conf
 	return &PublicSendVerificationCodeV3Conflict{}
 }
 
-/*PublicSendVerificationCodeV3Conflict handles this case with default header values.
+/*
+PublicSendVerificationCodeV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10140</td><td>user verified</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10140</td><td>user verified</td></tr><tr><td>10133</td><td>email already used</td></tr></table>
 */
 type PublicSendVerificationCodeV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewPublicSendVerificationCodeV3TooManyRequests() *PublicSendVerificationCod
 	return &PublicSendVerificationCodeV3TooManyRequests{}
 }
 
-/*PublicSendVerificationCodeV3TooManyRequests handles this case with default header values.
+/*
+PublicSendVerificationCodeV3TooManyRequests handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20007</td><td>too many requests</td></tr></table>
 */
 type PublicSendVerificationCodeV3TooManyRequests struct {
 	Payload *iamclientmodels.RestErrorResponse

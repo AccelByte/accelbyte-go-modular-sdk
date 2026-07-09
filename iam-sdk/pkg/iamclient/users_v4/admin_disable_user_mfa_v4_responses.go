@@ -144,9 +144,10 @@ func NewAdminDisableUserMFAV4NoContent() *AdminDisableUserMFAV4NoContent {
 	return &AdminDisableUserMFAV4NoContent{}
 }
 
-/*AdminDisableUserMFAV4NoContent handles this case with default header values.
+/*
+AdminDisableUserMFAV4NoContent handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminDisableUserMFAV4NoContent struct {
 }
@@ -171,9 +172,10 @@ func NewAdminDisableUserMFAV4BadRequest() *AdminDisableUserMFAV4BadRequest {
 	return &AdminDisableUserMFAV4BadRequest{}
 }
 
-/*AdminDisableUserMFAV4BadRequest handles this case with default header values.
+/*
+AdminDisableUserMFAV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10193</td><td>mfa not enabled</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10191</td><td>email address not verified</td></tr><tr><td>10171</td><td>email address not found</td></tr><tr><td>10193</td><td>mfa not enabled</td></tr></table>
 */
 type AdminDisableUserMFAV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminDisableUserMFAV4Unauthorized() *AdminDisableUserMFAV4Unauthorized {
 	return &AdminDisableUserMFAV4Unauthorized{}
 }
 
-/*AdminDisableUserMFAV4Unauthorized handles this case with default header values.
+/*
+AdminDisableUserMFAV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type AdminDisableUserMFAV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminDisableUserMFAV4Forbidden() *AdminDisableUserMFAV4Forbidden {
 	return &AdminDisableUserMFAV4Forbidden{}
 }
 
-/*AdminDisableUserMFAV4Forbidden handles this case with default header values.
+/*
+AdminDisableUserMFAV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminDisableUserMFAV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminDisableUserMFAV4NotFound() *AdminDisableUserMFAV4NotFound {
 	return &AdminDisableUserMFAV4NotFound{}
 }
 
-/*AdminDisableUserMFAV4NotFound handles this case with default header values.
+/*
+AdminDisableUserMFAV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type AdminDisableUserMFAV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminDisableUserMFAV4InternalServerError() *AdminDisableUserMFAV4Interna
 	return &AdminDisableUserMFAV4InternalServerError{}
 }
 
-/*AdminDisableUserMFAV4InternalServerError handles this case with default header values.
+/*
+AdminDisableUserMFAV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminDisableUserMFAV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

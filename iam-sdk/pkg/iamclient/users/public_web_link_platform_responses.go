@@ -26,6 +26,7 @@ type PublicWebLinkPlatformResponse struct {
 	Error400 *iamclientmodels.RestErrorResponse
 	Error401 *iamclientmodels.RestErrorResponse
 	Error404 *iamclientmodels.RestErrorResponse
+	Error500 *iamclientmodels.RestErrorResponse
 }
 
 func (m *PublicWebLinkPlatformResponse) Unpack() (*iamclientmodels.ModelWebLinkingResponse, *iamclientmodels.ApiError) {
@@ -53,6 +54,14 @@ func (m *PublicWebLinkPlatformResponse) Unpack() (*iamclientmodels.ModelWebLinki
 
 		case 404:
 			e, err := m.Error404.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 500:
+			e, err := m.Error500.TranslateToApiError()
 			if err != nil {
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
@@ -99,6 +108,12 @@ func (o *PublicWebLinkPlatformReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return result, nil
+	case 500:
+		result := NewPublicWebLinkPlatformInternalServerError()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
 
 	default:
 		data, err := ioutil.ReadAll(response.Body())
@@ -115,9 +130,10 @@ func NewPublicWebLinkPlatformOK() *PublicWebLinkPlatformOK {
 	return &PublicWebLinkPlatformOK{}
 }
 
-/*PublicWebLinkPlatformOK handles this case with default header values.
+/*
+PublicWebLinkPlatformOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicWebLinkPlatformOK struct {
 	Payload *iamclientmodels.ModelWebLinkingResponse
@@ -169,9 +185,10 @@ func NewPublicWebLinkPlatformBadRequest() *PublicWebLinkPlatformBadRequest {
 	return &PublicWebLinkPlatformBadRequest{}
 }
 
-/*PublicWebLinkPlatformBadRequest handles this case with default header values.
+/*
+PublicWebLinkPlatformBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicWebLinkPlatformBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -223,9 +240,10 @@ func NewPublicWebLinkPlatformUnauthorized() *PublicWebLinkPlatformUnauthorized {
 	return &PublicWebLinkPlatformUnauthorized{}
 }
 
-/*PublicWebLinkPlatformUnauthorized handles this case with default header values.
+/*
+PublicWebLinkPlatformUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicWebLinkPlatformUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -277,9 +295,10 @@ func NewPublicWebLinkPlatformNotFound() *PublicWebLinkPlatformNotFound {
 	return &PublicWebLinkPlatformNotFound{}
 }
 
-/*PublicWebLinkPlatformNotFound handles this case with default header values.
+/*
+PublicWebLinkPlatformNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10365</td><td>client not found</td></tr><tr><td>10174</td><td>platform client not found</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PublicWebLinkPlatformNotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -309,6 +328,61 @@ func (o *PublicWebLinkPlatformNotFound) GetPayload() *iamclientmodels.RestErrorR
 }
 
 func (o *PublicWebLinkPlatformNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// handle file responses
+	contentDisposition := response.GetHeader("Content-Disposition")
+	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
+		consumer = runtime.ByteStreamConsumer()
+	}
+
+	o.Payload = new(iamclientmodels.RestErrorResponse)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewPublicWebLinkPlatformInternalServerError creates a PublicWebLinkPlatformInternalServerError with default headers values
+func NewPublicWebLinkPlatformInternalServerError() *PublicWebLinkPlatformInternalServerError {
+	return &PublicWebLinkPlatformInternalServerError{}
+}
+
+/*
+PublicWebLinkPlatformInternalServerError handles this case with default header values.
+
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+*/
+type PublicWebLinkPlatformInternalServerError struct {
+	Payload *iamclientmodels.RestErrorResponse
+}
+
+func (o *PublicWebLinkPlatformInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /iam/v3/public/namespaces/{namespace}/users/me/platforms/{platformId}/web/link][%d] publicWebLinkPlatformInternalServerError  %+v", 500, o.ToJSONString())
+}
+
+func (o *PublicWebLinkPlatformInternalServerError) ToJSONString() string {
+	if o.Payload == nil {
+		return "{}"
+	}
+
+	b, err := json.Marshal(o.Payload)
+	if err != nil {
+		fmt.Println(err)
+
+		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
+	}
+
+	return fmt.Sprintf("%+v", string(b))
+}
+
+func (o *PublicWebLinkPlatformInternalServerError) GetPayload() *iamclientmodels.RestErrorResponse {
+	return o.Payload
+}
+
+func (o *PublicWebLinkPlatformInternalServerError) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// handle file responses
 	contentDisposition := response.GetHeader("Content-Disposition")

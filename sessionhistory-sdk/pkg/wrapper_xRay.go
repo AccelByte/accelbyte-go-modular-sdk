@@ -15,11 +15,8 @@ import (
 )
 
 type XRayService struct {
-	Client           *sessionhistoryclient.JusticeSessionhistoryService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *sessionhistoryclient.JusticeSessionhistoryService
+	Session repository.Session
 }
 
 var tempFlightIdXRay *string
@@ -30,9 +27,9 @@ func (aaa *XRayService) UpdateFlightId(flightId string) {
 
 func (aaa *XRayService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *XRayService) CreateXrayTicketObservabilityShort(input *x_ray.CreateXr
 	}
 	if tempFlightIdXRay != nil {
 		input.XFlightId = tempFlightIdXRay
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.XRay.CreateXrayTicketObservabilityShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *XRayService) CreateXrayBulkTicketObservabilityShort(input *x_ray.Crea
 	}
 	if tempFlightIdXRay != nil {
 		input.XFlightId = tempFlightIdXRay
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.XRay.CreateXrayBulkTicketObservabilityShort(input, authInfoWriter)

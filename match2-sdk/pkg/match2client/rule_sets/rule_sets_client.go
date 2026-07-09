@@ -211,7 +211,8 @@ func (a *Client) CreateRuleSetShort(params *CreateRuleSetParams, authInfo runtim
 
 /*
 RuleSetDetailsShort get details for a specific rule set
-Get details for a specific rule set
+Get details for a specific rule set, including its name and the rule data used to
+configure matchmaking logic.
 */
 func (a *Client) RuleSetDetailsShort(params *RuleSetDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*RuleSetDetailsResponse, error) {
 	// TODO: Validate the params before sending

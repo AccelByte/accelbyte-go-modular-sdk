@@ -15,11 +15,8 @@ import (
 )
 
 type AdminIntegrationConfigurationsService struct {
-	Client           *inventoryclient.JusticeInventoryService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *inventoryclient.JusticeInventoryService
+	Session repository.Session
 }
 
 var tempFlightIdAdminIntegrationConfigurations *string
@@ -30,9 +27,9 @@ func (aaa *AdminIntegrationConfigurationsService) UpdateFlightId(flightId string
 
 func (aaa *AdminIntegrationConfigurationsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *AdminIntegrationConfigurationsService) AdminListIntegrationConfigurat
 	}
 	if tempFlightIdAdminIntegrationConfigurations != nil {
 		input.XFlightId = tempFlightIdAdminIntegrationConfigurations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminIntegrationConfigurations.AdminListIntegrationConfigurationsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *AdminIntegrationConfigurationsService) AdminCreateIntegrationConfigur
 	}
 	if tempFlightIdAdminIntegrationConfigurations != nil {
 		input.XFlightId = tempFlightIdAdminIntegrationConfigurations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.AdminIntegrationConfigurations.AdminCreateIntegrationConfigurationShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *AdminIntegrationConfigurationsService) AdminUpdateIntegrationConfigur
 	}
 	if tempFlightIdAdminIntegrationConfigurations != nil {
 		input.XFlightId = tempFlightIdAdminIntegrationConfigurations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminIntegrationConfigurations.AdminUpdateIntegrationConfigurationShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *AdminIntegrationConfigurationsService) AdminUpdateStatusIntegrationCo
 	}
 	if tempFlightIdAdminIntegrationConfigurations != nil {
 		input.XFlightId = tempFlightIdAdminIntegrationConfigurations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.AdminIntegrationConfigurations.AdminUpdateStatusIntegrationConfigurationShort(input, authInfoWriter)

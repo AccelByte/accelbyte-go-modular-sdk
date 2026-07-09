@@ -59,7 +59,8 @@ func NewPublicBulkGetUserProfilePublicInfoParamsWithHTTPClient(client *http.Clie
 	}
 }
 
-/*PublicBulkGetUserProfilePublicInfoParams contains all the parameters to send to the API endpoint
+/*
+PublicBulkGetUserProfilePublicInfoParams contains all the parameters to send to the API endpoint
 for the public bulk get user profile public info operation typically these are written to a http.Request
 */
 type PublicBulkGetUserProfilePublicInfoParams struct {

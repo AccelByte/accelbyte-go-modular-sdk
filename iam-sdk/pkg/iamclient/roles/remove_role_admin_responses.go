@@ -124,9 +124,10 @@ func NewRemoveRoleAdminNoContent() *RemoveRoleAdminNoContent {
 	return &RemoveRoleAdminNoContent{}
 }
 
-/*RemoveRoleAdminNoContent handles this case with default header values.
+/*
+RemoveRoleAdminNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type RemoveRoleAdminNoContent struct {
 }
@@ -151,9 +152,10 @@ func NewRemoveRoleAdminBadRequest() *RemoveRoleAdminBadRequest {
 	return &RemoveRoleAdminBadRequest{}
 }
 
-/*RemoveRoleAdminBadRequest handles this case with default header values.
+/*
+RemoveRoleAdminBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type RemoveRoleAdminBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewRemoveRoleAdminUnauthorized() *RemoveRoleAdminUnauthorized {
 	return &RemoveRoleAdminUnauthorized{}
 }
 
-/*RemoveRoleAdminUnauthorized handles this case with default header values.
+/*
+RemoveRoleAdminUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type RemoveRoleAdminUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewRemoveRoleAdminForbidden() *RemoveRoleAdminForbidden {
 	return &RemoveRoleAdminForbidden{}
 }
 
-/*RemoveRoleAdminForbidden handles this case with default header values.
+/*
+RemoveRoleAdminForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type RemoveRoleAdminForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewRemoveRoleAdminNotFound() *RemoveRoleAdminNotFound {
 	return &RemoveRoleAdminNotFound{}
 }
 
-/*RemoveRoleAdminNotFound handles this case with default header values.
+/*
+RemoveRoleAdminNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type RemoveRoleAdminNotFound struct {
 }

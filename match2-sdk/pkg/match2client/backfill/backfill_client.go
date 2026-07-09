@@ -43,7 +43,10 @@ type ClientService interface {
 
 /*
 AdminQueryBackfillShort admin query backfill ticket
-Admin Query backfill ticket
+Admin Query backfill ticket.
+
+Supports filtering by session ID, match pool, time range, active status, player ID, and region.
+Use pagination parameters offset and limit to control result size.
 */
 func (a *Client) AdminQueryBackfillShort(params *AdminQueryBackfillParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryBackfillResponse, error) {
 	// TODO: Validate the params before sending
@@ -228,7 +231,10 @@ func (a *Client) CreateBackfillShort(params *CreateBackfillParams, authInfo runt
 
 /*
 GetBackfillProposalShort get backfill proposal
-Get backfill proposal
+Get backfill proposal for the given session.
+
+Returns the current pending backfill proposal associated with the session ID.
+Returns 404 if no proposal exists for the session.
 */
 func (a *Client) GetBackfillProposalShort(params *GetBackfillProposalParams, authInfo runtime.ClientAuthInfoWriter) (*GetBackfillProposalResponse, error) {
 	// TODO: Validate the params before sending

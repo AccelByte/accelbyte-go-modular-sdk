@@ -11,6 +11,7 @@ import (
 
 	leaderboard "github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk/pkg/leaderboardclient/leaderboard_data_v3"
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	"github.com/AccelByte/sample-apps/pkg/repository"
 	"github.com/spf13/cobra"
 )
@@ -22,22 +23,26 @@ var GetCurrentCycleLeaderboardRankingAdminV3Cmd = &cobra.Command{
 	Long:  `Get current cycle leaderboard ranking admin V3`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		leaderboardDataV3Service := &leaderboard.LeaderboardDataV3Service{
-			Client:          leaderboard.NewLeaderboardClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: leaderboard.NewLeaderboardHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		cycleId, _ := cmd.Flags().GetString("cycleId")
 		leaderboardCode, _ := cmd.Flags().GetString("leaderboardCode")
 		namespace, _ := cmd.Flags().GetString("namespace")
+		includeHiddenUsers, _ := cmd.Flags().GetBool("includeHiddenUsers")
 		limit, _ := cmd.Flags().GetInt64("limit")
 		offset, _ := cmd.Flags().GetInt64("offset")
 		previousVersion, _ := cmd.Flags().GetInt64("previousVersion")
 		input := &leaderboard_data_v3.GetCurrentCycleLeaderboardRankingAdminV3Params{
-			CycleID:         cycleId,
-			LeaderboardCode: leaderboardCode,
-			Namespace:       namespace,
-			Limit:           &limit,
-			Offset:          &offset,
-			PreviousVersion: &previousVersion,
+			CycleID:            cycleId,
+			LeaderboardCode:    leaderboardCode,
+			Namespace:          namespace,
+			IncludeHiddenUsers: &includeHiddenUsers,
+			Limit:              &limit,
+			Offset:             &offset,
+			PreviousVersion:    &previousVersion,
 		}
 		ok, errOK := leaderboardDataV3Service.GetCurrentCycleLeaderboardRankingAdminV3Short(input)
 		if errOK != nil {
@@ -59,6 +64,7 @@ func init() {
 	_ = GetCurrentCycleLeaderboardRankingAdminV3Cmd.MarkFlagRequired("leaderboardCode")
 	GetCurrentCycleLeaderboardRankingAdminV3Cmd.Flags().String("namespace", "", "Namespace")
 	_ = GetCurrentCycleLeaderboardRankingAdminV3Cmd.MarkFlagRequired("namespace")
+	GetCurrentCycleLeaderboardRankingAdminV3Cmd.Flags().Bool("includeHiddenUsers", false, "Include hidden users")
 	GetCurrentCycleLeaderboardRankingAdminV3Cmd.Flags().Int64("limit", 20, "Limit")
 	GetCurrentCycleLeaderboardRankingAdminV3Cmd.Flags().Int64("offset", 0, "Offset")
 	GetCurrentCycleLeaderboardRankingAdminV3Cmd.Flags().Int64("previousVersion", 0, "Previous version")

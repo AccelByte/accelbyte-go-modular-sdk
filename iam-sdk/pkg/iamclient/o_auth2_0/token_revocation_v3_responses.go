@@ -99,9 +99,10 @@ func NewTokenRevocationV3OK() *TokenRevocationV3OK {
 	return &TokenRevocationV3OK{}
 }
 
-/*TokenRevocationV3OK handles this case with default header values.
+/*
+TokenRevocationV3OK handles this case with default header values.
 
-  Token revoked or does not exist
+	Token revoked or does not exist
 */
 type TokenRevocationV3OK struct {
 }
@@ -126,9 +127,10 @@ func NewTokenRevocationV3BadRequest() *TokenRevocationV3BadRequest {
 	return &TokenRevocationV3BadRequest{}
 }
 
-/*TokenRevocationV3BadRequest handles this case with default header values.
+/*
+TokenRevocationV3BadRequest handles this case with default header values.
 
-  Invalid input
+	Invalid input
 */
 type TokenRevocationV3BadRequest struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse
@@ -180,9 +182,10 @@ func NewTokenRevocationV3Unauthorized() *TokenRevocationV3Unauthorized {
 	return &TokenRevocationV3Unauthorized{}
 }
 
-/*TokenRevocationV3Unauthorized handles this case with default header values.
+/*
+TokenRevocationV3Unauthorized handles this case with default header values.
 
-  Invalid basic auth header
+	Invalid basic auth header
 */
 type TokenRevocationV3Unauthorized struct {
 	Payload *iamclientmodels.OauthmodelErrorResponse

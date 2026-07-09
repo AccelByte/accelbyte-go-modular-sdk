@@ -58,7 +58,8 @@ func NewAuthenticationWithPlatformLinkV4ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*AuthenticationWithPlatformLinkV4Params contains all the parameters to send to the API endpoint
+/*
+AuthenticationWithPlatformLinkV4Params contains all the parameters to send to the API endpoint
 for the authentication with platform link v4 operation typically these are written to a http.Request
 */
 type AuthenticationWithPlatformLinkV4Params struct {

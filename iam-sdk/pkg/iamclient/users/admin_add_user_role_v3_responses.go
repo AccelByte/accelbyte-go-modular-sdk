@@ -159,9 +159,10 @@ func NewAdminAddUserRoleV3NoContent() *AdminAddUserRoleV3NoContent {
 	return &AdminAddUserRoleV3NoContent{}
 }
 
-/*AdminAddUserRoleV3NoContent handles this case with default header values.
+/*
+AdminAddUserRoleV3NoContent handles this case with default header values.
 
-  No Content
+	No Content
 */
 type AdminAddUserRoleV3NoContent struct {
 }
@@ -186,9 +187,10 @@ func NewAdminAddUserRoleV3BadRequest() *AdminAddUserRoleV3BadRequest {
 	return &AdminAddUserRoleV3BadRequest{}
 }
 
-/*AdminAddUserRoleV3BadRequest handles this case with default header values.
+/*
+AdminAddUserRoleV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminAddUserRoleV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -240,9 +242,10 @@ func NewAdminAddUserRoleV3Unauthorized() *AdminAddUserRoleV3Unauthorized {
 	return &AdminAddUserRoleV3Unauthorized{}
 }
 
-/*AdminAddUserRoleV3Unauthorized handles this case with default header values.
+/*
+AdminAddUserRoleV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminAddUserRoleV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -294,9 +297,10 @@ func NewAdminAddUserRoleV3Forbidden() *AdminAddUserRoleV3Forbidden {
 	return &AdminAddUserRoleV3Forbidden{}
 }
 
-/*AdminAddUserRoleV3Forbidden handles this case with default header values.
+/*
+AdminAddUserRoleV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10159</td><td>operator is not a role manager</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr><tr><td>10159</td><td>operator is not a role manager</td></tr></table>
 */
 type AdminAddUserRoleV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -348,9 +352,10 @@ func NewAdminAddUserRoleV3NotFound() *AdminAddUserRoleV3NotFound {
 	return &AdminAddUserRoleV3NotFound{}
 }
 
-/*AdminAddUserRoleV3NotFound handles this case with default header values.
+/*
+AdminAddUserRoleV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10156</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10156</td><td>role not found</td></tr></table>
 */
 type AdminAddUserRoleV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -402,9 +407,10 @@ func NewAdminAddUserRoleV3Conflict() *AdminAddUserRoleV3Conflict {
 	return &AdminAddUserRoleV3Conflict{}
 }
 
-/*AdminAddUserRoleV3Conflict handles this case with default header values.
+/*
+AdminAddUserRoleV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10160</td><td>user already has the role</td></tr><tr><td>10161</td><td>user already the role member</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10160</td><td>user already has the role</td></tr><tr><td>10161</td><td>user already the role member</td></tr></table>
 */
 type AdminAddUserRoleV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -456,9 +462,10 @@ func NewAdminAddUserRoleV3InternalServerError() *AdminAddUserRoleV3InternalServe
 	return &AdminAddUserRoleV3InternalServerError{}
 }
 
-/*AdminAddUserRoleV3InternalServerError handles this case with default header values.
+/*
+AdminAddUserRoleV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminAddUserRoleV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

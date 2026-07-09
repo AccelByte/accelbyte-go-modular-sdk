@@ -15,11 +15,8 @@ import (
 )
 
 type GlobalStatisticService struct {
-	Client           *socialclient.JusticeSocialService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *socialclient.JusticeSocialService
+	Session repository.Session
 }
 
 var tempFlightIdGlobalStatistic *string
@@ -30,9 +27,9 @@ func (aaa *GlobalStatisticService) UpdateFlightId(flightId string) {
 
 func (aaa *GlobalStatisticService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemsShort(input *global_statist
 	}
 	if tempFlightIdGlobalStatistic != nil {
 		input.XFlightId = tempFlightIdGlobalStatistic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItemsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCodeShort(input *globa
 	}
 	if tempFlightIdGlobalStatistic != nil {
 		input.XFlightId = tempFlightIdGlobalStatistic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItemByStatCodeShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *GlobalStatisticService) GetGlobalStatItems1Short(input *global_statis
 	}
 	if tempFlightIdGlobalStatistic != nil {
 		input.XFlightId = tempFlightIdGlobalStatistic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItems1Short(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *GlobalStatisticService) GetGlobalStatItemByStatCode1Short(input *glob
 	}
 	if tempFlightIdGlobalStatistic != nil {
 		input.XFlightId = tempFlightIdGlobalStatistic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.GlobalStatistic.GetGlobalStatItemByStatCode1Short(input, authInfoWriter)

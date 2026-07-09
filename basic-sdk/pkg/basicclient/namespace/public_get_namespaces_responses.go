@@ -85,9 +85,10 @@ func NewPublicGetNamespacesOK() *PublicGetNamespacesOK {
 	return &PublicGetNamespacesOK{}
 }
 
-/*PublicGetNamespacesOK handles this case with default header values.
+/*
+PublicGetNamespacesOK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type PublicGetNamespacesOK struct {
 	Payload []*basicclientmodels.NamespaceInfo
@@ -137,9 +138,10 @@ func NewPublicGetNamespacesUnauthorized() *PublicGetNamespacesUnauthorized {
 	return &PublicGetNamespacesUnauthorized{}
 }
 
-/*PublicGetNamespacesUnauthorized handles this case with default header values.
+/*
+PublicGetNamespacesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type PublicGetNamespacesUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity

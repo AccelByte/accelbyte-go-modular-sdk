@@ -66,7 +66,7 @@ type ClientService interface {
 
 /*
 AdminQueryGameSessionsShort get all game sessions.
-Get all game sessions.
+Returns paginated list of game sessions matching the provided filter criteria. Supports filtering by namespace, status, members, and joinability.
 */
 func (a *Client) AdminQueryGameSessionsShort(params *AdminQueryGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryGameSessionsResponse, error) {
 	// TODO: Validate the params before sending
@@ -244,7 +244,7 @@ func (a *Client) AdminQueryGameSessionsByAttributesShort(params *AdminQueryGameS
 
 /*
 AdminDeleteBulkGameSessionsShort delete bulk game sessions.
-Delete bulk game sessions.
+Permanently deletes multiple game sessions by their IDs. Returns a summary of deleted and failed sessions. Any allocated dedicated servers are released.
 */
 func (a *Client) AdminDeleteBulkGameSessionsShort(params *AdminDeleteBulkGameSessionsParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkGameSessionsResponse, error) {
 	// TODO: Validate the params before sending
@@ -497,7 +497,7 @@ func (a *Client) AdminUpdateDSInformationShort(params *AdminUpdateDSInformationP
 
 /*
 AdminKickGameSessionMemberShort kick member from a game session.
-Kick member from a game session.
+Removes the specified member from a game session and sets their status to KICKED. Can be used by admins to forcefully remove members.
 */
 func (a *Client) AdminKickGameSessionMemberShort(params *AdminKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*AdminKickGameSessionMemberResponse, error) {
 	// TODO: Validate the params before sending
@@ -1316,7 +1316,7 @@ func (a *Client) UpdateGameSessionShort(params *UpdateGameSessionParams, authInf
 
 /*
 DeleteGameSessionShort delete a game session.
-Delete a game session.
+Permanently deletes a game session. Only the session leader or an admin can delete the session. Any allocated dedicated server will be released.
 */
 func (a *Client) DeleteGameSessionShort(params *DeleteGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*DeleteGameSessionResponse, error) {
 	// TODO: Validate the params before sending
@@ -1838,7 +1838,7 @@ func (a *Client) PublicGameSessionInviteShort(params *PublicGameSessionInvitePar
 
 /*
 JoinGameSessionShort join a game session.
-Join a game session.
+Joins a game session. For PASSWORD_PROTECTED sessions, the request body must include the session password. The session must have OPEN or INVITE_ONLY joinability and available slots.
 */
 func (a *Client) JoinGameSessionShort(params *JoinGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*JoinGameSessionResponse, error) {
 	// TODO: Validate the params before sending
@@ -2028,7 +2028,7 @@ func (a *Client) PublicPromoteGameSessionLeaderShort(params *PublicPromoteGameSe
 
 /*
 LeaveGameSessionShort leave a game session.
-Leave a game session.
+Leaves a game session, removing the caller from the member list. If the caller is the leader, leadership transfers to another active member.
 */
 func (a *Client) LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*LeaveGameSessionResponse, error) {
 	// TODO: Validate the params before sending
@@ -2116,7 +2116,7 @@ func (a *Client) LeaveGameSessionShort(params *LeaveGameSessionParams, authInfo 
 
 /*
 PublicKickGameSessionMemberShort kick member from a game session, only leader can kick member.
-Kick member from a game session, only leader can kick member.
+Removes the specified member from a game session. Only the session leader can kick members. The kicked member's status is set to KICKED.
 */
 func (a *Client) PublicKickGameSessionMemberShort(params *PublicKickGameSessionMemberParams, authInfo runtime.ClientAuthInfoWriter) (*PublicKickGameSessionMemberResponse, error) {
 	// TODO: Validate the params before sending
@@ -2381,7 +2381,7 @@ func (a *Client) PublicUpdateGameSessionPasswordShort(params *PublicUpdateGameSe
 
 /*
 PublicGameSessionRejectShort reject a game session invitation.
-Reject a game session invitation.
+Rejects a pending game session invitation. The caller must have INVITED status. The session invitation will be marked as REJECTED.
 */
 func (a *Client) PublicGameSessionRejectShort(params *PublicGameSessionRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionRejectResponse, error) {
 	// TODO: Validate the params before sending
@@ -2579,7 +2579,7 @@ func (a *Client) GetSessionServerSecretShort(params *GetSessionServerSecretParam
 
 /*
 AppendTeamGameSessionShort append new member or team to session. please use patchupdategamesession instead
-Append new member or team to session. Please use patchUpdateGameSession instead
+**Deprecated.** Appends new members or teams to a game session. Use PATCH updateGameSession instead, which supports partial updates and is more efficient.
 */
 func (a *Client) AppendTeamGameSessionShort(params *AppendTeamGameSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AppendTeamGameSessionResponse, error) {
 	// TODO: Validate the params before sending
@@ -2661,7 +2661,7 @@ func (a *Client) AppendTeamGameSessionShort(params *AppendTeamGameSessionParams,
 
 /*
 PublicGameSessionCancelShort cancel a game session invitation.
-cancel a game session invitation.
+Cancels a pending game session invitation sent to the specified user. Only the session leader or the inviting member can cancel the invitation.
 */
 func (a *Client) PublicGameSessionCancelShort(params *PublicGameSessionCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGameSessionCancelResponse, error) {
 	// TODO: Validate the params before sending

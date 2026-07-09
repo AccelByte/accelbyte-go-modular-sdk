@@ -100,9 +100,10 @@ func NewAdminGetNamespaceScopedInputValidationsOK() *AdminGetNamespaceScopedInpu
 	return &AdminGetNamespaceScopedInputValidationsOK{}
 }
 
-/*AdminGetNamespaceScopedInputValidationsOK handles this case with default header values.
+/*
+AdminGetNamespaceScopedInputValidationsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetNamespaceScopedInputValidationsOK struct {
 	Payload *iamclientmodels.ModelInputValidationsResponse
@@ -154,9 +155,10 @@ func NewAdminGetNamespaceScopedInputValidationsUnauthorized() *AdminGetNamespace
 	return &AdminGetNamespaceScopedInputValidationsUnauthorized{}
 }
 
-/*AdminGetNamespaceScopedInputValidationsUnauthorized handles this case with default header values.
+/*
+AdminGetNamespaceScopedInputValidationsUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetNamespaceScopedInputValidationsUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -208,9 +210,10 @@ func NewAdminGetNamespaceScopedInputValidationsForbidden() *AdminGetNamespaceSco
 	return &AdminGetNamespaceScopedInputValidationsForbidden{}
 }
 
-/*AdminGetNamespaceScopedInputValidationsForbidden handles this case with default header values.
+/*
+AdminGetNamespaceScopedInputValidationsForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetNamespaceScopedInputValidationsForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse

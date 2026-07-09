@@ -70,7 +70,8 @@ func NewGetGameNamespacesParamsWithHTTPClient(client *http.Client) *GetGameNames
 	}
 }
 
-/*GetGameNamespacesParams contains all the parameters to send to the API endpoint
+/*
+GetGameNamespacesParams contains all the parameters to send to the API endpoint
 for the get game namespaces operation typically these are written to a http.Request
 */
 type GetGameNamespacesParams struct {

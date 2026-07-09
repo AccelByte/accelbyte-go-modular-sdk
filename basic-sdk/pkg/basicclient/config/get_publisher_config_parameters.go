@@ -57,7 +57,8 @@ func NewGetPublisherConfigParamsWithHTTPClient(client *http.Client) *GetPublishe
 	}
 }
 
-/*GetPublisherConfigParams contains all the parameters to send to the API endpoint
+/*
+GetPublisherConfigParams contains all the parameters to send to the API endpoint
 for the get publisher config operation typically these are written to a http.Request
 */
 type GetPublisherConfigParams struct {

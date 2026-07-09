@@ -248,7 +248,8 @@ func (a *Client) GetMyMatchTicketsShort(params *GetMyMatchTicketsParams, authInf
 
 /*
 MatchTicketDetailsShort get details for a specific match ticket
-Get details for a specific match ticket
+Get details for a specific match ticket, including its current matching status and
+the session ID if a match has been found.
 */
 func (a *Client) MatchTicketDetailsShort(params *MatchTicketDetailsParams, authInfo runtime.ClientAuthInfoWriter) (*MatchTicketDetailsResponse, error) {
 	// TODO: Validate the params before sending

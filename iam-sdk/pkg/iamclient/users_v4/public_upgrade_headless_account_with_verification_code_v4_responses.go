@@ -160,9 +160,10 @@ func NewPublicUpgradeHeadlessAccountWithVerificationCodeV4OK() *PublicUpgradeHea
 	return &PublicUpgradeHeadlessAccountWithVerificationCodeV4OK{}
 }
 
-/*PublicUpgradeHeadlessAccountWithVerificationCodeV4OK handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountWithVerificationCodeV4OK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicUpgradeHeadlessAccountWithVerificationCodeV4OK struct {
 	Payload *iamclientmodels.AccountUserResponseV4
@@ -214,9 +215,10 @@ func NewPublicUpgradeHeadlessAccountWithVerificationCodeV4BadRequest() *PublicUp
 	return &PublicUpgradeHeadlessAccountWithVerificationCodeV4BadRequest{}
 }
 
-/*PublicUpgradeHeadlessAccountWithVerificationCodeV4BadRequest handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountWithVerificationCodeV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>10155</td><td>country is not defined</td></tr><tr><td>10130</td><td>user under age</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountWithVerificationCodeV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -268,9 +270,10 @@ func NewPublicUpgradeHeadlessAccountWithVerificationCodeV4Unauthorized() *Public
 	return &PublicUpgradeHeadlessAccountWithVerificationCodeV4Unauthorized{}
 }
 
-/*PublicUpgradeHeadlessAccountWithVerificationCodeV4Unauthorized handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountWithVerificationCodeV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountWithVerificationCodeV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -322,9 +325,10 @@ func NewPublicUpgradeHeadlessAccountWithVerificationCodeV4Forbidden() *PublicUpg
 	return &PublicUpgradeHeadlessAccountWithVerificationCodeV4Forbidden{}
 }
 
-/*PublicUpgradeHeadlessAccountWithVerificationCodeV4Forbidden handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountWithVerificationCodeV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr><tr><td>10213</td><td>country is blocked</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountWithVerificationCodeV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -376,9 +380,10 @@ func NewPublicUpgradeHeadlessAccountWithVerificationCodeV4NotFound() *PublicUpgr
 	return &PublicUpgradeHeadlessAccountWithVerificationCodeV4NotFound{}
 }
 
-/*PublicUpgradeHeadlessAccountWithVerificationCodeV4NotFound handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountWithVerificationCodeV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>10154</td><td>country not found</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountWithVerificationCodeV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -430,9 +435,10 @@ func NewPublicUpgradeHeadlessAccountWithVerificationCodeV4Conflict() *PublicUpgr
 	return &PublicUpgradeHeadlessAccountWithVerificationCodeV4Conflict{}
 }
 
-/*PublicUpgradeHeadlessAccountWithVerificationCodeV4Conflict handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountWithVerificationCodeV4Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10153</td><td>user exist</td></tr><tr><td>10170</td><td>account is already a full account</td></tr><tr><td>10222</td><td>unique display name already exists</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountWithVerificationCodeV4Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -484,9 +490,10 @@ func NewPublicUpgradeHeadlessAccountWithVerificationCodeV4InternalServerError() 
 	return &PublicUpgradeHeadlessAccountWithVerificationCodeV4InternalServerError{}
 }
 
-/*PublicUpgradeHeadlessAccountWithVerificationCodeV4InternalServerError handles this case with default header values.
+/*
+PublicUpgradeHeadlessAccountWithVerificationCodeV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicUpgradeHeadlessAccountWithVerificationCodeV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

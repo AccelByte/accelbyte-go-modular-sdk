@@ -13,7 +13,32 @@ import (
 	"github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 )
 
-func NewReportingClient(configRepository repository.ConfigRepository) *reportingclient.JusticeReportingService {
+type ReportingClient struct {
+	AdminExtensionCategoriesandAutoModerationActions *AdminExtensionCategoriesandAutoModerationActionsService
+	AdminConfigurations                              *AdminConfigurationsService
+	AdminReasons                                     *AdminReasonsService
+	AdminReports                                     *AdminReportsService
+	AdminModerationRule                              *AdminModerationRuleService
+	AdminTickets                                     *AdminTicketsService
+	PublicReasons                                    *PublicReasonsService
+	PublicReports                                    *PublicReportsService
+}
+
+func NewReportingClient(session repository.Session) *ReportingClient {
+	httpClient := NewReportingHttpClient(session.ConfigRepository)
+	return &ReportingClient{
+		AdminExtensionCategoriesandAutoModerationActions: &AdminExtensionCategoriesandAutoModerationActionsService{Client: httpClient, Session: session},
+		AdminConfigurations: &AdminConfigurationsService{Client: httpClient, Session: session},
+		AdminReasons:        &AdminReasonsService{Client: httpClient, Session: session},
+		AdminReports:        &AdminReportsService{Client: httpClient, Session: session},
+		AdminModerationRule: &AdminModerationRuleService{Client: httpClient, Session: session},
+		AdminTickets:        &AdminTicketsService{Client: httpClient, Session: session},
+		PublicReasons:       &PublicReasonsService{Client: httpClient, Session: session},
+		PublicReports:       &PublicReportsService{Client: httpClient, Session: session},
+	}
+}
+
+func NewReportingHttpClient(configRepository repository.ConfigRepository) *reportingclient.JusticeReportingService {
 	baseURL := strings.TrimSuffix(configRepository.GetJusticeBaseUrl(), "/")
 
 	if extendedConfigRepository, ok := configRepository.(repository.ExtendedConfigRepository); ok {

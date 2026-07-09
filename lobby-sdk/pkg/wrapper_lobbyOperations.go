@@ -15,11 +15,8 @@ import (
 )
 
 type LobbyOperationsService struct {
-	Client           *lobbyclient.JusticeLobbyService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *lobbyclient.JusticeLobbyService
+	Session repository.Session
 }
 
 var tempFlightIdLobbyOperations *string
@@ -30,9 +27,9 @@ func (aaa *LobbyOperationsService) UpdateFlightId(flightId string) {
 
 func (aaa *LobbyOperationsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *LobbyOperationsService) AdminUpdatePartyAttributesV1Short(input *lobb
 	}
 	if tempFlightIdLobbyOperations != nil {
 		input.XFlightId = tempFlightIdLobbyOperations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LobbyOperations.AdminUpdatePartyAttributesV1Short(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *LobbyOperationsService) AdminJoinPartyV1Short(input *lobby_operations
 	}
 	if tempFlightIdLobbyOperations != nil {
 		input.XFlightId = tempFlightIdLobbyOperations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.LobbyOperations.AdminJoinPartyV1Short(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *LobbyOperationsService) PublicGetMessagesShort(input *lobby_operation
 	}
 	if tempFlightIdLobbyOperations != nil {
 		input.XFlightId = tempFlightIdLobbyOperations
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.LobbyOperations.PublicGetMessagesShort(input, authInfoWriter)

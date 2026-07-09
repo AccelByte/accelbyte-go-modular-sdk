@@ -95,9 +95,10 @@ func NewPublicGetInputValidationsOK() *PublicGetInputValidationsOK {
 	return &PublicGetInputValidationsOK{}
 }
 
-/*PublicGetInputValidationsOK handles this case with default header values.
+/*
+PublicGetInputValidationsOK handles this case with default header values.
 
-  OK
+	OK
 */
 type PublicGetInputValidationsOK struct {
 	Payload *iamclientmodels.ModelInputValidationsPublicResponse
@@ -149,9 +150,10 @@ func NewPublicGetInputValidationsNotFound() *PublicGetInputValidationsNotFound {
 	return &PublicGetInputValidationsNotFound{}
 }
 
-/*PublicGetInputValidationsNotFound handles this case with default header values.
+/*
+PublicGetInputValidationsNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type PublicGetInputValidationsNotFound struct {
 }
@@ -176,9 +178,10 @@ func NewPublicGetInputValidationsInternalServerError() *PublicGetInputValidation
 	return &PublicGetInputValidationsInternalServerError{}
 }
 
-/*PublicGetInputValidationsInternalServerError handles this case with default header values.
+/*
+PublicGetInputValidationsInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PublicGetInputValidationsInternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -130,9 +130,10 @@ func NewAdminUpdateRoleV4OK() *AdminUpdateRoleV4OK {
 	return &AdminUpdateRoleV4OK{}
 }
 
-/*AdminUpdateRoleV4OK handles this case with default header values.
+/*
+AdminUpdateRoleV4OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminUpdateRoleV4OK struct {
 	Payload *iamclientmodels.ModelRoleV4Response
@@ -184,9 +185,10 @@ func NewAdminUpdateRoleV4BadRequest() *AdminUpdateRoleV4BadRequest {
 	return &AdminUpdateRoleV4BadRequest{}
 }
 
-/*AdminUpdateRoleV4BadRequest handles this case with default header values.
+/*
+AdminUpdateRoleV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type AdminUpdateRoleV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -238,9 +240,10 @@ func NewAdminUpdateRoleV4Unauthorized() *AdminUpdateRoleV4Unauthorized {
 	return &AdminUpdateRoleV4Unauthorized{}
 }
 
-/*AdminUpdateRoleV4Unauthorized handles this case with default header values.
+/*
+AdminUpdateRoleV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminUpdateRoleV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -292,9 +295,10 @@ func NewAdminUpdateRoleV4Forbidden() *AdminUpdateRoleV4Forbidden {
 	return &AdminUpdateRoleV4Forbidden{}
 }
 
-/*AdminUpdateRoleV4Forbidden handles this case with default header values.
+/*
+AdminUpdateRoleV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminUpdateRoleV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -346,9 +350,10 @@ func NewAdminUpdateRoleV4NotFound() *AdminUpdateRoleV4NotFound {
 	return &AdminUpdateRoleV4NotFound{}
 }
 
-/*AdminUpdateRoleV4NotFound handles this case with default header values.
+/*
+AdminUpdateRoleV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10456</td><td>role not found</td></tr></table>
 */
 type AdminUpdateRoleV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse

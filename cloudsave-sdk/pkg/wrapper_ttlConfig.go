@@ -15,11 +15,8 @@ import (
 )
 
 type TTLConfigService struct {
-	Client           *cloudsaveclient.JusticeCloudsaveService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *cloudsaveclient.JusticeCloudsaveService
+	Session repository.Session
 }
 
 var tempFlightIdTTLConfig *string
@@ -30,9 +27,9 @@ func (aaa *TTLConfigService) UpdateFlightId(flightId string) {
 
 func (aaa *TTLConfigService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *TTLConfigService) DeleteAdminGameRecordTTLConfigShort(input *ttl_conf
 	}
 	if tempFlightIdTTLConfig != nil {
 		input.XFlightId = tempFlightIdTTLConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.TTLConfig.DeleteAdminGameRecordTTLConfigShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *TTLConfigService) DeleteGameBinaryRecordTTLConfigShort(input *ttl_con
 	}
 	if tempFlightIdTTLConfig != nil {
 		input.XFlightId = tempFlightIdTTLConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.TTLConfig.DeleteGameBinaryRecordTTLConfigShort(input, authInfoWriter)
@@ -114,8 +111,8 @@ func (aaa *TTLConfigService) DeleteGameRecordTTLConfigShort(input *ttl_config.De
 	}
 	if tempFlightIdTTLConfig != nil {
 		input.XFlightId = tempFlightIdTTLConfig
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.TTLConfig.DeleteGameRecordTTLConfigShort(input, authInfoWriter)

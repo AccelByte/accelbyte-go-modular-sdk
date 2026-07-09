@@ -130,9 +130,10 @@ func NewCreateNamespaceCreated() *CreateNamespaceCreated {
 	return &CreateNamespaceCreated{}
 }
 
-/*CreateNamespaceCreated handles this case with default header values.
+/*
+CreateNamespaceCreated handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type CreateNamespaceCreated struct {
 	Payload *basicclientmodels.NamespaceInfo
@@ -184,9 +185,10 @@ func NewCreateNamespaceBadRequest() *CreateNamespaceBadRequest {
 	return &CreateNamespaceBadRequest{}
 }
 
-/*CreateNamespaceBadRequest handles this case with default header values.
+/*
+CreateNamespaceBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>11338</td><td>Unable to {action}: Namespace contains invalid character(s)</td></tr><tr><td>11339</td><td>Unable to {action}: Display name contains invalid character(s)</td></tr><tr><td>11340</td><td>Unable to {action}: The maximum number of games namespace for studio:{studio} has been exceeded</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>11338</td><td>Unable to {action}: Namespace contains invalid character(s)</td></tr><tr><td>11339</td><td>Unable to {action}: Display name contains invalid character(s)</td></tr><tr><td>11340</td><td>Unable to {action}: The maximum number of games namespace for studio:{studio} has been exceeded</td></tr></table>
 */
 type CreateNamespaceBadRequest struct {
 	Payload *basicclientmodels.ValidationErrorEntity
@@ -238,9 +240,10 @@ func NewCreateNamespaceUnauthorized() *CreateNamespaceUnauthorized {
 	return &CreateNamespaceUnauthorized{}
 }
 
-/*CreateNamespaceUnauthorized handles this case with default header values.
+/*
+CreateNamespaceUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized</td></tr></table>
 */
 type CreateNamespaceUnauthorized struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -292,9 +295,10 @@ func NewCreateNamespaceForbidden() *CreateNamespaceForbidden {
 	return &CreateNamespaceForbidden{}
 }
 
-/*CreateNamespaceForbidden handles this case with default header values.
+/*
+CreateNamespaceForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permission</td></tr></table>
 */
 type CreateNamespaceForbidden struct {
 	Payload *basicclientmodels.ErrorEntity
@@ -346,9 +350,10 @@ func NewCreateNamespaceConflict() *CreateNamespaceConflict {
 	return &CreateNamespaceConflict{}
 }
 
-/*CreateNamespaceConflict handles this case with default header values.
+/*
+CreateNamespaceConflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11336</td><td>Unable to {action}: Namespace already exists</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11336</td><td>Unable to {action}: Namespace already exists</td></tr></table>
 */
 type CreateNamespaceConflict struct {
 	Payload *basicclientmodels.ErrorEntity

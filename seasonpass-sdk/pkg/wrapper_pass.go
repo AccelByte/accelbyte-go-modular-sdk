@@ -15,11 +15,8 @@ import (
 )
 
 type PassService struct {
-	Client           *seasonpassclient.JusticeSeasonpassService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *seasonpassclient.JusticeSeasonpassService
+	Session repository.Session
 }
 
 var tempFlightIdPass *string
@@ -30,9 +27,9 @@ func (aaa *PassService) UpdateFlightId(flightId string) {
 
 func (aaa *PassService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PassService) QueryPassesShort(input *pass.QueryPassesParams) (*pass.Q
 	}
 	if tempFlightIdPass != nil {
 		input.XFlightId = tempFlightIdPass
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Pass.QueryPassesShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PassService) CreatePassShort(input *pass.CreatePassParams) (*pass.Cre
 	}
 	if tempFlightIdPass != nil {
 		input.XFlightId = tempFlightIdPass
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.Pass.CreatePassShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PassService) GetPassShort(input *pass.GetPassParams) (*pass.GetPassRe
 	}
 	if tempFlightIdPass != nil {
 		input.XFlightId = tempFlightIdPass
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Pass.GetPassShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *PassService) DeletePassShort(input *pass.DeletePassParams) error {
 	}
 	if tempFlightIdPass != nil {
 		input.XFlightId = tempFlightIdPass
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Pass.DeletePassShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *PassService) UpdatePassShort(input *pass.UpdatePassParams) (*pass.Upd
 	}
 	if tempFlightIdPass != nil {
 		input.XFlightId = tempFlightIdPass
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Pass.UpdatePassShort(input, authInfoWriter)
@@ -220,8 +217,8 @@ func (aaa *PassService) GrantUserPassShort(input *pass.GrantUserPassParams) (*pa
 	}
 	if tempFlightIdPass != nil {
 		input.XFlightId = tempFlightIdPass
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Pass.GrantUserPassShort(input, authInfoWriter)

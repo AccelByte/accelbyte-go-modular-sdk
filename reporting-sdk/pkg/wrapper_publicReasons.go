@@ -15,11 +15,8 @@ import (
 )
 
 type PublicReasonsService struct {
-	Client           *reportingclient.JusticeReportingService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *reportingclient.JusticeReportingService
+	Session repository.Session
 }
 
 var tempFlightIdPublicReasons *string
@@ -30,9 +27,9 @@ func (aaa *PublicReasonsService) UpdateFlightId(flightId string) {
 
 func (aaa *PublicReasonsService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicReasonsService) PublicListReasonGroupsShort(input *public_reaso
 	}
 	if tempFlightIdPublicReasons != nil {
 		input.XFlightId = tempFlightIdPublicReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicReasons.PublicListReasonGroupsShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PublicReasonsService) PublicGetReasonsShort(input *public_reasons.Pub
 	}
 	if tempFlightIdPublicReasons != nil {
 		input.XFlightId = tempFlightIdPublicReasons
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicReasons.PublicGetReasonsShort(input, authInfoWriter)

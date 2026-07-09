@@ -57,7 +57,8 @@ func NewAdminGetDevicesByUserV4ParamsWithHTTPClient(client *http.Client) *AdminG
 	}
 }
 
-/*AdminGetDevicesByUserV4Params contains all the parameters to send to the API endpoint
+/*
+AdminGetDevicesByUserV4Params contains all the parameters to send to the API endpoint
 for the admin get devices by user v4 operation typically these are written to a http.Request
 */
 type AdminGetDevicesByUserV4Params struct {

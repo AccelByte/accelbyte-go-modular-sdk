@@ -145,9 +145,10 @@ func NewAdminGetThirdPartyPlatformTokenLinkStatusV3OK() *AdminGetThirdPartyPlatf
 	return &AdminGetThirdPartyPlatformTokenLinkStatusV3OK{}
 }
 
-/*AdminGetThirdPartyPlatformTokenLinkStatusV3OK handles this case with default header values.
+/*
+AdminGetThirdPartyPlatformTokenLinkStatusV3OK handles this case with default header values.
 
-  OK
+	OK
 */
 type AdminGetThirdPartyPlatformTokenLinkStatusV3OK struct {
 	Payload *iamclientmodels.ModelTokenThirdPartyLinkStatusResponse
@@ -199,9 +200,10 @@ func NewAdminGetThirdPartyPlatformTokenLinkStatusV3BadRequest() *AdminGetThirdPa
 	return &AdminGetThirdPartyPlatformTokenLinkStatusV3BadRequest{}
 }
 
-/*AdminGetThirdPartyPlatformTokenLinkStatusV3BadRequest handles this case with default header values.
+/*
+AdminGetThirdPartyPlatformTokenLinkStatusV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10208</td><td>platform token expired</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr><tr><td>10208</td><td>platform token expired</td></tr></table>
 */
 type AdminGetThirdPartyPlatformTokenLinkStatusV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewAdminGetThirdPartyPlatformTokenLinkStatusV3Unauthorized() *AdminGetThird
 	return &AdminGetThirdPartyPlatformTokenLinkStatusV3Unauthorized{}
 }
 
-/*AdminGetThirdPartyPlatformTokenLinkStatusV3Unauthorized handles this case with default header values.
+/*
+AdminGetThirdPartyPlatformTokenLinkStatusV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetThirdPartyPlatformTokenLinkStatusV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,9 +310,10 @@ func NewAdminGetThirdPartyPlatformTokenLinkStatusV3Forbidden() *AdminGetThirdPar
 	return &AdminGetThirdPartyPlatformTokenLinkStatusV3Forbidden{}
 }
 
-/*AdminGetThirdPartyPlatformTokenLinkStatusV3Forbidden handles this case with default header values.
+/*
+AdminGetThirdPartyPlatformTokenLinkStatusV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20003</td><td>forbidden access</td></tr></table>
 */
 type AdminGetThirdPartyPlatformTokenLinkStatusV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -361,9 +365,10 @@ func NewAdminGetThirdPartyPlatformTokenLinkStatusV3NotFound() *AdminGetThirdPart
 	return &AdminGetThirdPartyPlatformTokenLinkStatusV3NotFound{}
 }
 
-/*AdminGetThirdPartyPlatformTokenLinkStatusV3NotFound handles this case with default header values.
+/*
+AdminGetThirdPartyPlatformTokenLinkStatusV3NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10139</td><td>platform account not found</td></tr></table>
 */
 type AdminGetThirdPartyPlatformTokenLinkStatusV3NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +420,10 @@ func NewAdminGetThirdPartyPlatformTokenLinkStatusV3InternalServerError() *AdminG
 	return &AdminGetThirdPartyPlatformTokenLinkStatusV3InternalServerError{}
 }
 
-/*AdminGetThirdPartyPlatformTokenLinkStatusV3InternalServerError handles this case with default header values.
+/*
+AdminGetThirdPartyPlatformTokenLinkStatusV3InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetThirdPartyPlatformTokenLinkStatusV3InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

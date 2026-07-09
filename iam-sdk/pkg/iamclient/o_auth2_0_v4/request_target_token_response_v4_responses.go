@@ -76,9 +76,10 @@ func NewRequestTargetTokenResponseV4OK() *RequestTargetTokenResponseV4OK {
 	return &RequestTargetTokenResponseV4OK{}
 }
 
-/*RequestTargetTokenResponseV4OK handles this case with default header values.
+/*
+RequestTargetTokenResponseV4OK handles this case with default header values.
 
-  Succeed to exchange token.
+	Succeed to exchange token.
 */
 type RequestTargetTokenResponseV4OK struct {
 	Payload *iamclientmodels.OauthmodelTokenResponseV3
@@ -130,9 +131,10 @@ func NewRequestTargetTokenResponseV4Accepted() *RequestTargetTokenResponseV4Acce
 	return &RequestTargetTokenResponseV4Accepted{}
 }
 
-/*RequestTargetTokenResponseV4Accepted handles this case with default header values.
+/*
+RequestTargetTokenResponseV4Accepted handles this case with default header values.
 
-  Login queue ticket returned
+	Login queue ticket returned
 */
 type RequestTargetTokenResponseV4Accepted struct {
 	Payload *iamclientmodels.OauthmodelLoginQueueTicketResponse

@@ -15,11 +15,8 @@ import (
 )
 
 type ChallengeProgressionService struct {
-	Client           *challengeclient.JusticeChallengeService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *challengeclient.JusticeChallengeService
+	Session repository.Session
 }
 
 var tempFlightIdChallengeProgression *string
@@ -30,9 +27,9 @@ func (aaa *ChallengeProgressionService) UpdateFlightId(flightId string) {
 
 func (aaa *ChallengeProgressionService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *ChallengeProgressionService) AdminEvaluateProgressShort(input *challe
 	}
 	if tempFlightIdChallengeProgression != nil {
 		input.XFlightId = tempFlightIdChallengeProgression
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.ChallengeProgression.AdminEvaluateProgressShort(input, authInfoWriter)
@@ -84,8 +81,8 @@ func (aaa *ChallengeProgressionService) AdminGetUserProgressionShort(input *chal
 	}
 	if tempFlightIdChallengeProgression != nil {
 		input.XFlightId = tempFlightIdChallengeProgression
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeProgression.AdminGetUserProgressionShort(input, authInfoWriter)
@@ -100,7 +97,7 @@ func (aaa *ChallengeProgressionService) AdminGetUserProgressionShort(input *chal
 	return ok, nil
 }
 
-func (aaa *ChallengeProgressionService) EvaluateMyProgressShort(input *challenge_progression.EvaluateMyProgressParams) error {
+func (aaa *ChallengeProgressionService) PublicEvaluateMyProgressShort(input *challenge_progression.PublicEvaluateMyProgressParams) error {
 	authInfoWriter := input.AuthInfoWriter
 	if authInfoWriter == nil {
 		security := [][]string{
@@ -118,11 +115,11 @@ func (aaa *ChallengeProgressionService) EvaluateMyProgressShort(input *challenge
 	}
 	if tempFlightIdChallengeProgression != nil {
 		input.XFlightId = tempFlightIdChallengeProgression
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
-	_, err := aaa.Client.ChallengeProgression.EvaluateMyProgressShort(input, authInfoWriter)
+	_, err := aaa.Client.ChallengeProgression.PublicEvaluateMyProgressShort(input, authInfoWriter)
 	if err != nil {
 		return err
 	}
@@ -148,8 +145,8 @@ func (aaa *ChallengeProgressionService) PublicGetUserProgressionShort(input *cha
 	}
 	if tempFlightIdChallengeProgression != nil {
 		input.XFlightId = tempFlightIdChallengeProgression
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeProgression.PublicGetUserProgressionShort(input, authInfoWriter)
@@ -182,8 +179,8 @@ func (aaa *ChallengeProgressionService) PublicGetPastUserProgressionShort(input 
 	}
 	if tempFlightIdChallengeProgression != nil {
 		input.XFlightId = tempFlightIdChallengeProgression
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.ChallengeProgression.PublicGetPastUserProgressionShort(input, authInfoWriter)

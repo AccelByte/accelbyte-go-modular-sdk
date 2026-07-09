@@ -110,9 +110,10 @@ func NewGetListCountryAgeRestrictionOK() *GetListCountryAgeRestrictionOK {
 	return &GetListCountryAgeRestrictionOK{}
 }
 
-/*GetListCountryAgeRestrictionOK handles this case with default header values.
+/*
+GetListCountryAgeRestrictionOK handles this case with default header values.
 
-  OK
+	OK
 */
 type GetListCountryAgeRestrictionOK struct {
 	Payload []*iamclientmodels.AccountcommonCountryAgeRestriction
@@ -162,9 +163,10 @@ func NewGetListCountryAgeRestrictionUnauthorized() *GetListCountryAgeRestriction
 	return &GetListCountryAgeRestrictionUnauthorized{}
 }
 
-/*GetListCountryAgeRestrictionUnauthorized handles this case with default header values.
+/*
+GetListCountryAgeRestrictionUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type GetListCountryAgeRestrictionUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -216,9 +218,10 @@ func NewGetListCountryAgeRestrictionForbidden() *GetListCountryAgeRestrictionFor
 	return &GetListCountryAgeRestrictionForbidden{}
 }
 
-/*GetListCountryAgeRestrictionForbidden handles this case with default header values.
+/*
+GetListCountryAgeRestrictionForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type GetListCountryAgeRestrictionForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -270,9 +273,10 @@ func NewGetListCountryAgeRestrictionNotFound() *GetListCountryAgeRestrictionNotF
 	return &GetListCountryAgeRestrictionNotFound{}
 }
 
-/*GetListCountryAgeRestrictionNotFound handles this case with default header values.
+/*
+GetListCountryAgeRestrictionNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type GetListCountryAgeRestrictionNotFound struct {
 }

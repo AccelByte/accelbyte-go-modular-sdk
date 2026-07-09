@@ -129,9 +129,10 @@ func NewPublicUserVerificationV3NoContent() *PublicUserVerificationV3NoContent {
 	return &PublicUserVerificationV3NoContent{}
 }
 
-/*PublicUserVerificationV3NoContent handles this case with default header values.
+/*
+PublicUserVerificationV3NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PublicUserVerificationV3NoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPublicUserVerificationV3BadRequest() *PublicUserVerificationV3BadRequest
 	return &PublicUserVerificationV3BadRequest{}
 }
 
-/*PublicUserVerificationV3BadRequest handles this case with default header values.
+/*
+PublicUserVerificationV3BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type PublicUserVerificationV3BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -210,9 +212,10 @@ func NewPublicUserVerificationV3Unauthorized() *PublicUserVerificationV3Unauthor
 	return &PublicUserVerificationV3Unauthorized{}
 }
 
-/*PublicUserVerificationV3Unauthorized handles this case with default header values.
+/*
+PublicUserVerificationV3Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr><tr><td>20022</td><td>token is not user token</td></tr></table>
 */
 type PublicUserVerificationV3Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -264,9 +267,10 @@ func NewPublicUserVerificationV3Forbidden() *PublicUserVerificationV3Forbidden {
 	return &PublicUserVerificationV3Forbidden{}
 }
 
-/*PublicUserVerificationV3Forbidden handles this case with default header values.
+/*
+PublicUserVerificationV3Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10152</td><td>verification code not found</td></tr><tr><td>10137</td><td>code is expired</td></tr><tr><td>10136</td><td>code is either been used or not valid anymore</td></tr><tr><td>10138</td><td>code not match</td></tr><tr><td>10149</td><td>verification contact type doesn't match</td></tr><tr><td>10148</td><td>verification code context doesn't match the required context</td></tr></table>
 */
 type PublicUserVerificationV3Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -318,9 +322,10 @@ func NewPublicUserVerificationV3Conflict() *PublicUserVerificationV3Conflict {
 	return &PublicUserVerificationV3Conflict{}
 }
 
-/*PublicUserVerificationV3Conflict handles this case with default header values.
+/*
+PublicUserVerificationV3Conflict handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10141</td><td>email verified</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>10141</td><td>email verified</td></tr></table>
 */
 type PublicUserVerificationV3Conflict struct {
 	Payload *iamclientmodels.RestErrorResponse

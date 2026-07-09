@@ -15,11 +15,8 @@ import (
 )
 
 type PublicCreatorService struct {
-	Client           *ugcclient.JusticeUgcService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *ugcclient.JusticeUgcService
+	Session repository.Session
 }
 
 var tempFlightIdPublicCreator *string
@@ -30,9 +27,9 @@ func (aaa *PublicCreatorService) UpdateFlightId(flightId string) {
 
 func (aaa *PublicCreatorService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PublicCreatorService) PublicSearchCreatorShort(input *public_creator.
 	}
 	if tempFlightIdPublicCreator != nil {
 		input.XFlightId = tempFlightIdPublicCreator
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicCreator.PublicSearchCreatorShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PublicCreatorService) PublicGetCreatorShort(input *public_creator.Pub
 	}
 	if tempFlightIdPublicCreator != nil {
 		input.XFlightId = tempFlightIdPublicCreator
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PublicCreator.PublicGetCreatorShort(input, authInfoWriter)

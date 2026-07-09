@@ -144,9 +144,10 @@ func NewAdminGenerateReportV4OK() *AdminGenerateReportV4OK {
 	return &AdminGenerateReportV4OK{}
 }
 
-/*AdminGenerateReportV4OK handles this case with default header values.
+/*
+AdminGenerateReportV4OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminGenerateReportV4OK struct {
 }
@@ -171,9 +172,10 @@ func NewAdminGenerateReportV4BadRequest() *AdminGenerateReportV4BadRequest {
 	return &AdminGenerateReportV4BadRequest{}
 }
 
-/*AdminGenerateReportV4BadRequest handles this case with default header values.
+/*
+AdminGenerateReportV4BadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20002</td><td>validation error</td></tr></table>
 */
 type AdminGenerateReportV4BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -225,9 +227,10 @@ func NewAdminGenerateReportV4Unauthorized() *AdminGenerateReportV4Unauthorized {
 	return &AdminGenerateReportV4Unauthorized{}
 }
 
-/*AdminGenerateReportV4Unauthorized handles this case with default header values.
+/*
+AdminGenerateReportV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGenerateReportV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -279,9 +282,10 @@ func NewAdminGenerateReportV4Forbidden() *AdminGenerateReportV4Forbidden {
 	return &AdminGenerateReportV4Forbidden{}
 }
 
-/*AdminGenerateReportV4Forbidden handles this case with default header values.
+/*
+AdminGenerateReportV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGenerateReportV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -333,9 +337,10 @@ func NewAdminGenerateReportV4NotFound() *AdminGenerateReportV4NotFound {
 	return &AdminGenerateReportV4NotFound{}
 }
 
-/*AdminGenerateReportV4NotFound handles this case with default header values.
+/*
+AdminGenerateReportV4NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>10158</td><td>ban not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr><tr><td>10139</td><td>platform account not found</td></tr><tr><td>10158</td><td>ban not found</td></tr></table>
 */
 type AdminGenerateReportV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -387,9 +392,10 @@ func NewAdminGenerateReportV4InternalServerError() *AdminGenerateReportV4Interna
 	return &AdminGenerateReportV4InternalServerError{}
 }
 
-/*AdminGenerateReportV4InternalServerError handles this case with default header values.
+/*
+AdminGenerateReportV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGenerateReportV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse

@@ -129,9 +129,10 @@ func NewPlatformUnlinkNoContent() *PlatformUnlinkNoContent {
 	return &PlatformUnlinkNoContent{}
 }
 
-/*PlatformUnlinkNoContent handles this case with default header values.
+/*
+PlatformUnlinkNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type PlatformUnlinkNoContent struct {
 }
@@ -156,9 +157,10 @@ func NewPlatformUnlinkBadRequest() *PlatformUnlinkBadRequest {
 	return &PlatformUnlinkBadRequest{}
 }
 
-/*PlatformUnlinkBadRequest handles this case with default header values.
+/*
+PlatformUnlinkBadRequest handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20019</td><td>unable to parse request body</td></tr></table>
 */
 type PlatformUnlinkBadRequest struct {
 }
@@ -183,9 +185,10 @@ func NewPlatformUnlinkUnauthorized() *PlatformUnlinkUnauthorized {
 	return &PlatformUnlinkUnauthorized{}
 }
 
-/*PlatformUnlinkUnauthorized handles this case with default header values.
+/*
+PlatformUnlinkUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type PlatformUnlinkUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -237,9 +240,10 @@ func NewPlatformUnlinkForbidden() *PlatformUnlinkForbidden {
 	return &PlatformUnlinkForbidden{}
 }
 
-/*PlatformUnlinkForbidden handles this case with default header values.
+/*
+PlatformUnlinkForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type PlatformUnlinkForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -291,9 +295,10 @@ func NewPlatformUnlinkNotFound() *PlatformUnlinkNotFound {
 	return &PlatformUnlinkNotFound{}
 }
 
-/*PlatformUnlinkNotFound handles this case with default header values.
+/*
+PlatformUnlinkNotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20008</td><td>user not found</td></tr></table>
 */
 type PlatformUnlinkNotFound struct {
 }
@@ -318,9 +323,10 @@ func NewPlatformUnlinkInternalServerError() *PlatformUnlinkInternalServerError {
 	return &PlatformUnlinkInternalServerError{}
 }
 
-/*PlatformUnlinkInternalServerError handles this case with default header values.
+/*
+PlatformUnlinkInternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type PlatformUnlinkInternalServerError struct {
 }

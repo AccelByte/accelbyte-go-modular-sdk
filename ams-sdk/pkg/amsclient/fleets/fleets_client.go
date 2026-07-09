@@ -175,6 +175,13 @@ func (a *Client) FleetCreateShort(params *FleetCreateParams, authInfo runtime.Cl
 		response.IsSuccess = false
 
 		return response, v
+	case *FleetCreateConflict:
+		response := &FleetCreateResponse{}
+		response.Error409 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *FleetCreateInternalServerError:
 		response := &FleetCreateResponse{}
 		response.Error500 = v.Payload
@@ -448,6 +455,13 @@ func (a *Client) FleetUpdateShort(params *FleetUpdateParams, authInfo runtime.Cl
 	case *FleetUpdateNotFound:
 		response := &FleetUpdateResponse{}
 		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
+	case *FleetUpdateConflict:
+		response := &FleetUpdateResponse{}
+		response.Error409 = v.Payload
 
 		response.IsSuccess = false
 

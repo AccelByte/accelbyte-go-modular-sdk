@@ -124,9 +124,10 @@ func NewAdminPutUserRolesV2NoContent() *AdminPutUserRolesV2NoContent {
 	return &AdminPutUserRolesV2NoContent{}
 }
 
-/*AdminPutUserRolesV2NoContent handles this case with default header values.
+/*
+AdminPutUserRolesV2NoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminPutUserRolesV2NoContent struct {
 }
@@ -151,9 +152,10 @@ func NewAdminPutUserRolesV2BadRequest() *AdminPutUserRolesV2BadRequest {
 	return &AdminPutUserRolesV2BadRequest{}
 }
 
-/*AdminPutUserRolesV2BadRequest handles this case with default header values.
+/*
+AdminPutUserRolesV2BadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type AdminPutUserRolesV2BadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -205,9 +207,10 @@ func NewAdminPutUserRolesV2Unauthorized() *AdminPutUserRolesV2Unauthorized {
 	return &AdminPutUserRolesV2Unauthorized{}
 }
 
-/*AdminPutUserRolesV2Unauthorized handles this case with default header values.
+/*
+AdminPutUserRolesV2Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminPutUserRolesV2Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -259,9 +262,10 @@ func NewAdminPutUserRolesV2Forbidden() *AdminPutUserRolesV2Forbidden {
 	return &AdminPutUserRolesV2Forbidden{}
 }
 
-/*AdminPutUserRolesV2Forbidden handles this case with default header values.
+/*
+AdminPutUserRolesV2Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminPutUserRolesV2Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -313,9 +317,10 @@ func NewAdminPutUserRolesV2NotFound() *AdminPutUserRolesV2NotFound {
 	return &AdminPutUserRolesV2NotFound{}
 }
 
-/*AdminPutUserRolesV2NotFound handles this case with default header values.
+/*
+AdminPutUserRolesV2NotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type AdminPutUserRolesV2NotFound struct {
 }

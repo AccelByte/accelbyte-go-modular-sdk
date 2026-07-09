@@ -57,7 +57,8 @@ func NewAdminMakeFactorMyDefaultV4ParamsWithHTTPClient(client *http.Client) *Adm
 	}
 }
 
-/*AdminMakeFactorMyDefaultV4Params contains all the parameters to send to the API endpoint
+/*
+AdminMakeFactorMyDefaultV4Params contains all the parameters to send to the API endpoint
 for the admin make factor my default v4 operation typically these are written to a http.Request
 */
 type AdminMakeFactorMyDefaultV4Params struct {

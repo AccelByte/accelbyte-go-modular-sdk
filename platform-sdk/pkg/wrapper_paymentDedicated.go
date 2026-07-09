@@ -15,11 +15,8 @@ import (
 )
 
 type PaymentDedicatedService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdPaymentDedicated *string
@@ -30,9 +27,9 @@ func (aaa *PaymentDedicatedService) UpdateFlightId(flightId string) {
 
 func (aaa *PaymentDedicatedService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *PaymentDedicatedService) CreatePaymentOrderByDedicatedShort(input *pa
 	}
 	if tempFlightIdPaymentDedicated != nil {
 		input.XFlightId = tempFlightIdPaymentDedicated
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	created, err := aaa.Client.PaymentDedicated.CreatePaymentOrderByDedicatedShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *PaymentDedicatedService) RefundPaymentOrderByDedicatedShort(input *pa
 	}
 	if tempFlightIdPaymentDedicated != nil {
 		input.XFlightId = tempFlightIdPaymentDedicated
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentDedicated.RefundPaymentOrderByDedicatedShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *PaymentDedicatedService) SyncPaymentOrdersShort(input *payment_dedica
 	}
 	if tempFlightIdPaymentDedicated != nil {
 		input.XFlightId = tempFlightIdPaymentDedicated
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.PaymentDedicated.SyncPaymentOrdersShort(input, authInfoWriter)

@@ -57,7 +57,8 @@ func NewGetListBanReasonParamsWithHTTPClient(client *http.Client) *GetListBanRea
 	}
 }
 
-/*GetListBanReasonParams contains all the parameters to send to the API endpoint
+/*
+GetListBanReasonParams contains all the parameters to send to the API endpoint
 for the get list ban reason operation typically these are written to a http.Request
 */
 type GetListBanReasonParams struct {

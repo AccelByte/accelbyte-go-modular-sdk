@@ -15,11 +15,8 @@ import (
 )
 
 type TopicService struct {
-	Client           *chatclient.JusticeChatService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *chatclient.JusticeChatService
+	Session repository.Session
 }
 
 var tempFlightIdTopic *string
@@ -30,9 +27,9 @@ func (aaa *TopicService) UpdateFlightId(flightId string) {
 
 func (aaa *TopicService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *TopicService) AdminFilterChatMessageShort(input *topic.AdminFilterCha
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminFilterChatMessageShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *TopicService) AdminChatHistoryShort(input *topic.AdminChatHistoryPara
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminChatHistoryShort(input, authInfoWriter)
@@ -122,8 +119,8 @@ func (aaa *TopicService) AdminCreateNamespaceTopicShort(input *topic.AdminCreate
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminCreateNamespaceTopicShort(input, authInfoWriter)
@@ -156,8 +153,8 @@ func (aaa *TopicService) AdminTopicListShort(input *topic.AdminTopicListParams) 
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminTopicListShort(input, authInfoWriter)
@@ -190,8 +187,8 @@ func (aaa *TopicService) AdminCreateTopicShort(input *topic.AdminCreateTopicPara
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminCreateTopicShort(input, authInfoWriter)
@@ -224,8 +221,8 @@ func (aaa *TopicService) AdminChannelTopicListShort(input *topic.AdminChannelTop
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminChannelTopicListShort(input, authInfoWriter)
@@ -258,8 +255,8 @@ func (aaa *TopicService) AdminChannelTopicSummaryShort(input *topic.AdminChannel
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminChannelTopicSummaryShort(input, authInfoWriter)
@@ -292,8 +289,8 @@ func (aaa *TopicService) AdminQueryTopicLogShort(input *topic.AdminQueryTopicLog
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminQueryTopicLogShort(input, authInfoWriter)
@@ -326,8 +323,8 @@ func (aaa *TopicService) AdminUpdateTopicShort(input *topic.AdminUpdateTopicPara
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminUpdateTopicShort(input, authInfoWriter)
@@ -360,8 +357,8 @@ func (aaa *TopicService) AdminDeleteTopicShort(input *topic.AdminDeleteTopicPara
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminDeleteTopicShort(input, authInfoWriter)
@@ -394,8 +391,8 @@ func (aaa *TopicService) AdminBanTopicMembersShort(input *topic.AdminBanTopicMem
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminBanTopicMembersShort(input, authInfoWriter)
@@ -428,8 +425,8 @@ func (aaa *TopicService) AdminChannelTopicInfoShort(input *topic.AdminChannelTop
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminChannelTopicInfoShort(input, authInfoWriter)
@@ -462,8 +459,8 @@ func (aaa *TopicService) AdminTopicChatHistoryShort(input *topic.AdminTopicChatH
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminTopicChatHistoryShort(input, authInfoWriter)
@@ -496,8 +493,8 @@ func (aaa *TopicService) AdminSendChatShort(input *topic.AdminSendChatParams) (*
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminSendChatShort(input, authInfoWriter)
@@ -530,8 +527,8 @@ func (aaa *TopicService) AdminDeleteChatShort(input *topic.AdminDeleteChatParams
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Topic.AdminDeleteChatShort(input, authInfoWriter)
@@ -560,8 +557,8 @@ func (aaa *TopicService) AdminTopicMembersShort(input *topic.AdminTopicMembersPa
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminTopicMembersShort(input, authInfoWriter)
@@ -594,8 +591,8 @@ func (aaa *TopicService) AdminTopicShardsShort(input *topic.AdminTopicShardsPara
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminTopicShardsShort(input, authInfoWriter)
@@ -628,8 +625,8 @@ func (aaa *TopicService) AdminUnbanTopicMembersShort(input *topic.AdminUnbanTopi
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminUnbanTopicMembersShort(input, authInfoWriter)
@@ -662,8 +659,8 @@ func (aaa *TopicService) AdminAddTopicMemberShort(input *topic.AdminAddTopicMemb
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminAddTopicMemberShort(input, authInfoWriter)
@@ -696,8 +693,8 @@ func (aaa *TopicService) AdminRemoveTopicMemberShort(input *topic.AdminRemoveTop
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminRemoveTopicMemberShort(input, authInfoWriter)
@@ -730,8 +727,8 @@ func (aaa *TopicService) AdminQueryTopicShort(input *topic.AdminQueryTopicParams
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminQueryTopicShort(input, authInfoWriter)
@@ -764,8 +761,8 @@ func (aaa *TopicService) AdminQueryUsersTopicShort(input *topic.AdminQueryUsersT
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.AdminQueryUsersTopicShort(input, authInfoWriter)
@@ -798,8 +795,8 @@ func (aaa *TopicService) PublicGetMutedTopicsShort(input *topic.PublicGetMutedTo
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.PublicGetMutedTopicsShort(input, authInfoWriter)
@@ -832,8 +829,8 @@ func (aaa *TopicService) PublicTopicListShort(input *topic.PublicTopicListParams
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.PublicTopicListShort(input, authInfoWriter)
@@ -866,8 +863,8 @@ func (aaa *TopicService) PublicBanTopicMembersShort(input *topic.PublicBanTopicM
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.PublicBanTopicMembersShort(input, authInfoWriter)
@@ -900,8 +897,8 @@ func (aaa *TopicService) PublicChatHistoryShort(input *topic.PublicChatHistoryPa
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.PublicChatHistoryShort(input, authInfoWriter)
@@ -934,8 +931,8 @@ func (aaa *TopicService) PublicDeleteChatShort(input *topic.PublicDeleteChatPara
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Topic.PublicDeleteChatShort(input, authInfoWriter)
@@ -964,8 +961,8 @@ func (aaa *TopicService) PublicMuteUserShort(input *topic.PublicMuteUserParams) 
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Topic.PublicMuteUserShort(input, authInfoWriter)
@@ -994,8 +991,8 @@ func (aaa *TopicService) PublicUnbanTopicMembersShort(input *topic.PublicUnbanTo
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.Topic.PublicUnbanTopicMembersShort(input, authInfoWriter)
@@ -1028,8 +1025,8 @@ func (aaa *TopicService) PublicUnmuteUserShort(input *topic.PublicUnmuteUserPara
 	}
 	if tempFlightIdTopic != nil {
 		input.XFlightId = tempFlightIdTopic
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.Topic.PublicUnmuteUserShort(input, authInfoWriter)

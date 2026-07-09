@@ -11,6 +11,7 @@ import (
 	"log/slog"
 	"os"
 
+	sdkrepository "github.com/AccelByte/accelbyte-go-modular-sdk/services-api/pkg/repository"
 	social "github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg"
 	"github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk/pkg/socialclient/stat_configuration"
 	"github.com/AccelByte/sample-apps/pkg/repository"
@@ -24,8 +25,10 @@ var ExportStatsCmd = &cobra.Command{
 	Long:  `Export stats`,
 	RunE: func(cmd *cobra.Command, args []string) error {
 		statConfigurationService := &social.StatConfigurationService{
-			Client:          social.NewSocialClient(&repository.ConfigRepositoryImpl{}),
-			TokenRepository: &repository.TokenRepositoryImpl{},
+			Client: social.NewSocialHttpClient(&repository.ConfigRepositoryImpl{}),
+			Session: sdkrepository.Session{
+				TokenRepository: &repository.TokenRepositoryImpl{},
+			},
 		}
 		namespace, _ := cmd.Flags().GetString("namespace")
 		file, errFile := os.Create("file")

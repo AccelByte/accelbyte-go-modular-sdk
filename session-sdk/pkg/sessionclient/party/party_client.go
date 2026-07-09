@@ -56,7 +56,7 @@ type ClientService interface {
 
 /*
 AdminQueryPartiesShort query parties.
-Query parties.
+Returns paginated list of party sessions matching the provided filter criteria. Supports filtering by namespace, members, leader, and joinability mode.
 */
 func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminQueryPartiesResponse, error) {
 	// TODO: Validate the params before sending
@@ -131,7 +131,7 @@ func (a *Client) AdminQueryPartiesShort(params *AdminQueryPartiesParams, authInf
 
 /*
 AdminDeleteBulkPartiesShort delete bulk parties.
-Delete bulk parties.
+Permanently deletes multiple party sessions by their IDs. Returns a summary of deleted and failed sessions.
 */
 func (a *Client) AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParams, authInfo runtime.ClientAuthInfoWriter) (*AdminDeleteBulkPartiesResponse, error) {
 	// TODO: Validate the params before sending
@@ -213,7 +213,7 @@ func (a *Client) AdminDeleteBulkPartiesShort(params *AdminDeleteBulkPartiesParam
 
 /*
 AdminSyncNativeSessionShort trigger user's active party session to native platform.
-Trigger user's active party session to native platform.
+Triggers synchronization of the user's active party session to the native platform (PSN, Xbox). Useful when native session state is out of sync with the AccelByte session state.
 */
 func (a *Client) AdminSyncNativeSessionShort(params *AdminSyncNativeSessionParams, authInfo runtime.ClientAuthInfoWriter) (*AdminSyncNativeSessionResponse, error) {
 	// TODO: Validate the params before sending
@@ -383,7 +383,7 @@ func (a *Client) PublicPartyJoinCodeShort(params *PublicPartyJoinCodeParams, aut
 
 /*
 PublicGetPartyShort get party details.
-Get party details.
+Returns party session details including members, configuration, and leader. The caller must be a party member or have admin access.
 */
 func (a *Client) PublicGetPartyShort(params *PublicGetPartyParams, authInfo runtime.ClientAuthInfoWriter) (*PublicGetPartyResponse, error) {
 	// TODO: Validate the params before sending
@@ -1366,7 +1366,7 @@ func (a *Client) PublicPartyLeaveShort(params *PublicPartyLeaveParams, authInfo 
 
 /*
 PublicPartyRejectShort reject a party invitation.
-Reject a party invitation.
+Rejects a pending party invitation. The caller must have INVITED status. Once rejected, the caller must be re-invited to rejoin.
 */
 func (a *Client) PublicPartyRejectShort(params *PublicPartyRejectParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyRejectResponse, error) {
 	// TODO: Validate the params before sending
@@ -1454,7 +1454,7 @@ func (a *Client) PublicPartyRejectShort(params *PublicPartyRejectParams, authInf
 
 /*
 PublicPartyCancelShort cancel a party invitation.
-Cancel a party invitation.
+Cancels a pending party invitation sent to the specified user. Only the party leader or the inviting member can cancel the invitation.
 */
 func (a *Client) PublicPartyCancelShort(params *PublicPartyCancelParams, authInfo runtime.ClientAuthInfoWriter) (*PublicPartyCancelResponse, error) {
 	// TODO: Validate the params before sending

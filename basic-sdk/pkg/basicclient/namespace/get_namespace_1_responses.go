@@ -85,9 +85,10 @@ func NewGetNamespace1OK() *GetNamespace1OK {
 	return &GetNamespace1OK{}
 }
 
-/*GetNamespace1OK handles this case with default header values.
+/*
+GetNamespace1OK handles this case with default header values.
 
-  Successful operation
+	Successful operation
 */
 type GetNamespace1OK struct {
 	Payload *basicclientmodels.NamespaceSimpleInfo
@@ -139,9 +140,10 @@ func NewGetNamespace1NotFound() *GetNamespace1NotFound {
 	return &GetNamespace1NotFound{}
 }
 
-/*GetNamespace1NotFound handles this case with default header values.
+/*
+GetNamespace1NotFound handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>11337</td><td>Unable to {action}: Namespace not found</td></tr></table>
 */
 type GetNamespace1NotFound struct {
 	Payload *basicclientmodels.ErrorEntity

@@ -58,7 +58,8 @@ func NewVerify2FACodeV4ParamsWithHTTPClient(client *http.Client) *Verify2FACodeV
 	}
 }
 
-/*Verify2FACodeV4Params contains all the parameters to send to the API endpoint
+/*
+Verify2FACodeV4Params contains all the parameters to send to the API endpoint
 for the verify2fa code v4 operation typically these are written to a http.Request
 */
 type Verify2FACodeV4Params struct {

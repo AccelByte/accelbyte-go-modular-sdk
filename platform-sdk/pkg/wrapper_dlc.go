@@ -15,11 +15,8 @@ import (
 )
 
 type DLCService struct {
-	Client           *platformclient.JusticePlatformService
-	ConfigRepository repository.ConfigRepository
-	TokenRepository  repository.TokenRepository
-
-	FlightIdRepository *utils.FlightIdContainer
+	Client  *platformclient.JusticePlatformService
+	Session repository.Session
 }
 
 var tempFlightIdDLC *string
@@ -30,9 +27,9 @@ func (aaa *DLCService) UpdateFlightId(flightId string) {
 
 func (aaa *DLCService) GetAuthSession() auth.Session {
 	return auth.Session{
-		aaa.TokenRepository,
-		aaa.ConfigRepository,
-		nil,
+		Token:   aaa.Session.TokenRepository,
+		Config:  aaa.Session.ConfigRepository,
+		Refresh: nil,
 	}
 }
 
@@ -54,8 +51,8 @@ func (aaa *DLCService) GetDLCItemConfigHistoryShort(input *dlc.GetDLCItemConfigH
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DLC.GetDLCItemConfigHistoryShort(input, authInfoWriter)
@@ -88,8 +85,8 @@ func (aaa *DLCService) RestoreDLCItemConfigHistoryShort(input *dlc.RestoreDLCIte
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DLC.RestoreDLCItemConfigHistoryShort(input, authInfoWriter)
@@ -118,8 +115,8 @@ func (aaa *DLCService) GetDLCItemConfigShort(input *dlc.GetDLCItemConfigParams) 
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DLC.GetDLCItemConfigShort(input, authInfoWriter)
@@ -152,8 +149,8 @@ func (aaa *DLCService) UpdateDLCItemConfigShort(input *dlc.UpdateDLCItemConfigPa
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DLC.UpdateDLCItemConfigShort(input, authInfoWriter)
@@ -186,8 +183,8 @@ func (aaa *DLCService) DeleteDLCItemConfigShort(input *dlc.DeleteDLCItemConfigPa
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DLC.DeleteDLCItemConfigShort(input, authInfoWriter)
@@ -216,8 +213,8 @@ func (aaa *DLCService) GetPlatformDLCConfigShort(input *dlc.GetPlatformDLCConfig
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DLC.GetPlatformDLCConfigShort(input, authInfoWriter)
@@ -250,8 +247,8 @@ func (aaa *DLCService) UpdatePlatformDLCConfigShort(input *dlc.UpdatePlatformDLC
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DLC.UpdatePlatformDLCConfigShort(input, authInfoWriter)
@@ -284,8 +281,8 @@ func (aaa *DLCService) DeletePlatformDLCConfigShort(input *dlc.DeletePlatformDLC
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DLC.DeletePlatformDLCConfigShort(input, authInfoWriter)
@@ -314,8 +311,8 @@ func (aaa *DLCService) GetUserDLCByPlatformShort(input *dlc.GetUserDLCByPlatform
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DLC.GetUserDLCByPlatformShort(input, authInfoWriter)
@@ -348,8 +345,8 @@ func (aaa *DLCService) GetUserDLCShort(input *dlc.GetUserDLCParams) (*dlc.GetUse
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DLC.GetUserDLCShort(input, authInfoWriter)
@@ -382,8 +379,8 @@ func (aaa *DLCService) GeDLCDurableRewardShortMapShort(input *dlc.GeDLCDurableRe
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DLC.GeDLCDurableRewardShortMapShort(input, authInfoWriter)
@@ -416,8 +413,8 @@ func (aaa *DLCService) SyncEpicGameDLCShort(input *dlc.SyncEpicGameDLCParams) er
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DLC.SyncEpicGameDLCShort(input, authInfoWriter)
@@ -446,8 +443,8 @@ func (aaa *DLCService) SyncOculusDLCShort(input *dlc.SyncOculusDLCParams) error 
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DLC.SyncOculusDLCShort(input, authInfoWriter)
@@ -476,8 +473,8 @@ func (aaa *DLCService) PublicSyncPsnDLCInventoryShort(input *dlc.PublicSyncPsnDL
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DLC.PublicSyncPsnDLCInventoryShort(input, authInfoWriter)
@@ -506,8 +503,8 @@ func (aaa *DLCService) PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(i
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DLC.PublicSyncPsnDLCInventoryWithMultipleServiceLabelsShort(input, authInfoWriter)
@@ -536,8 +533,8 @@ func (aaa *DLCService) SyncSteamDLCShort(input *dlc.SyncSteamDLCParams) error {
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DLC.SyncSteamDLCShort(input, authInfoWriter)
@@ -566,8 +563,8 @@ func (aaa *DLCService) SyncXboxDLCShort(input *dlc.SyncXboxDLCParams) error {
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	_, err := aaa.Client.DLC.SyncXboxDLCShort(input, authInfoWriter)
@@ -596,8 +593,8 @@ func (aaa *DLCService) PublicGetMyDLCContentShort(input *dlc.PublicGetMyDLCConte
 	}
 	if tempFlightIdDLC != nil {
 		input.XFlightId = tempFlightIdDLC
-	} else if aaa.FlightIdRepository != nil {
-		utils.GetDefaultFlightID().SetFlightID(aaa.FlightIdRepository.Value)
+	} else if aaa.Session.FlightIdRepository != nil {
+		utils.GetDefaultFlightID().SetFlightID(aaa.Session.FlightIdRepository.Value)
 	}
 
 	ok, err := aaa.Client.DLC.PublicGetMyDLCContentShort(input, authInfoWriter)

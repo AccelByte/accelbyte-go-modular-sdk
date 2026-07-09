@@ -59,7 +59,8 @@ func NewLinkHeadlessAccountToMyAccountV3ParamsWithHTTPClient(client *http.Client
 	}
 }
 
-/*LinkHeadlessAccountToMyAccountV3Params contains all the parameters to send to the API endpoint
+/*
+LinkHeadlessAccountToMyAccountV3Params contains all the parameters to send to the API endpoint
 for the link headless account to my account v3 operation typically these are written to a http.Request
 */
 type LinkHeadlessAccountToMyAccountV3Params struct {

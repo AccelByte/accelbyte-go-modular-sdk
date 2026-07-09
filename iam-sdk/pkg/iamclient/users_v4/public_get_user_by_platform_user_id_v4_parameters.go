@@ -57,7 +57,8 @@ func NewPublicGetUserByPlatformUserIDV4ParamsWithHTTPClient(client *http.Client)
 	}
 }
 
-/*PublicGetUserByPlatformUserIDV4Params contains all the parameters to send to the API endpoint
+/*
+PublicGetUserByPlatformUserIDV4Params contains all the parameters to send to the API endpoint
 for the public get user by platform user idv4 operation typically these are written to a http.Request
 */
 type PublicGetUserByPlatformUserIDV4Params struct {

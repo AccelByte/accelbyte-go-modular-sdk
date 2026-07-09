@@ -111,6 +111,13 @@ func (a *Client) AdminGetUserPlatformAccountClosureHistoriesShort(params *AdminG
 		response.IsSuccess = false
 
 		return response, v
+	case *AdminGetUserPlatformAccountClosureHistoriesNotFound:
+		response := &AdminGetUserPlatformAccountClosureHistoriesResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *AdminGetUserPlatformAccountClosureHistoriesInternalServerError:
 		response := &AdminGetUserPlatformAccountClosureHistoriesResponse{}
 		response.Error500 = v.Payload

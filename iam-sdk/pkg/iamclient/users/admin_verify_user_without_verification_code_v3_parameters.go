@@ -57,7 +57,8 @@ func NewAdminVerifyUserWithoutVerificationCodeV3ParamsWithHTTPClient(client *htt
 	}
 }
 
-/*AdminVerifyUserWithoutVerificationCodeV3Params contains all the parameters to send to the API endpoint
+/*
+AdminVerifyUserWithoutVerificationCodeV3Params contains all the parameters to send to the API endpoint
 for the admin verify user without verification code v3 operation typically these are written to a http.Request
 */
 type AdminVerifyUserWithoutVerificationCodeV3Params struct {

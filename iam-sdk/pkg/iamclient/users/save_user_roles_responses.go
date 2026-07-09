@@ -134,9 +134,10 @@ func NewSaveUserRolesNoContent() *SaveUserRolesNoContent {
 	return &SaveUserRolesNoContent{}
 }
 
-/*SaveUserRolesNoContent handles this case with default header values.
+/*
+SaveUserRolesNoContent handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type SaveUserRolesNoContent struct {
 }
@@ -161,9 +162,10 @@ func NewSaveUserRolesBadRequest() *SaveUserRolesBadRequest {
 	return &SaveUserRolesBadRequest{}
 }
 
-/*SaveUserRolesBadRequest handles this case with default header values.
+/*
+SaveUserRolesBadRequest handles this case with default header values.
 
-  Invalid request
+	Invalid request
 */
 type SaveUserRolesBadRequest struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -215,9 +217,10 @@ func NewSaveUserRolesUnauthorized() *SaveUserRolesUnauthorized {
 	return &SaveUserRolesUnauthorized{}
 }
 
-/*SaveUserRolesUnauthorized handles this case with default header values.
+/*
+SaveUserRolesUnauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type SaveUserRolesUnauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -269,9 +272,10 @@ func NewSaveUserRolesForbidden() *SaveUserRolesForbidden {
 	return &SaveUserRolesForbidden{}
 }
 
-/*SaveUserRolesForbidden handles this case with default header values.
+/*
+SaveUserRolesForbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type SaveUserRolesForbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -323,9 +327,10 @@ func NewSaveUserRolesNotFound() *SaveUserRolesNotFound {
 	return &SaveUserRolesNotFound{}
 }
 
-/*SaveUserRolesNotFound handles this case with default header values.
+/*
+SaveUserRolesNotFound handles this case with default header values.
 
-  Data not found
+	Data not found
 */
 type SaveUserRolesNotFound struct {
 }
@@ -350,9 +355,10 @@ func NewSaveUserRolesConflict() *SaveUserRolesConflict {
 	return &SaveUserRolesConflict{}
 }
 
-/*SaveUserRolesConflict handles this case with default header values.
+/*
+SaveUserRolesConflict handles this case with default header values.
 
-  Conflict
+	Conflict
 */
 type SaveUserRolesConflict struct {
 }

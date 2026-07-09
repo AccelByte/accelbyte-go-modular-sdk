@@ -196,6 +196,13 @@ func (a *Client) AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPerso
 		response.IsSuccess = false
 
 		return response, v
+	case *AdminGetUserPersonalDataRequestsNotFound:
+		response := &AdminGetUserPersonalDataRequestsResponse{}
+		response.Error404 = v.Payload
+
+		response.IsSuccess = false
+
+		return response, v
 	case *AdminGetUserPersonalDataRequestsInternalServerError:
 		response := &AdminGetUserPersonalDataRequestsResponse{}
 		response.Error500 = v.Payload
@@ -210,8 +217,8 @@ func (a *Client) AdminGetUserPersonalDataRequestsShort(params *AdminGetUserPerso
 }
 
 /*
-AdminRequestDataRetrievalShort submit user personal data retrieval request
-Submit user personal data retrieval request.
+AdminRequestDataRetrievalShort submit user's personal data request
+Submit user's personal data request.
 Scope: account
 
 ### Request Header:
@@ -386,10 +393,9 @@ func (a *Client) AdminCancelUserPersonalDataRequestShort(params *AdminCancelUser
 
 /*
 AdminGeneratePersonalDataURLShort generate personal data download url
-
-Required permission `ADMIN:NAMESPACE:{namespace}:INFORMATION:USER:{userId} [READ]` and scope `account`
-
-If admin request data for themselves, password is need to be set
+Generate personal data download url.
+If admin request data for themselves, password is need to be set.
+Scope: account
 */
 func (a *Client) AdminGeneratePersonalDataURLShort(params *AdminGeneratePersonalDataURLParams, authInfo runtime.ClientAuthInfoWriter) (*AdminGeneratePersonalDataURLResponse, error) {
 	// TODO: Validate the params before sending
@@ -547,8 +553,8 @@ func (a *Client) PublicGetUserPersonalDataRequestsShort(params *PublicGetUserPer
 }
 
 /*
-PublicRequestDataRetrievalShort submit personal data retrieval request
-Submit personal data retrieval request.
+PublicRequestDataRetrievalShort submit user's personal data request
+Submit user's personal data request.
 Scope: account
 
 ### Request Header:

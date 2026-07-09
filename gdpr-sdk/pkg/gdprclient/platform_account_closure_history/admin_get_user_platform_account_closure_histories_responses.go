@@ -26,6 +26,7 @@ type AdminGetUserPlatformAccountClosureHistoriesResponse struct {
 	Error400 *gdprclientmodels.ResponseError
 	Error401 *gdprclientmodels.ResponseError
 	Error403 *gdprclientmodels.ResponseError
+	Error404 *gdprclientmodels.ResponseError
 	Error500 *gdprclientmodels.ResponseError
 }
 
@@ -54,6 +55,14 @@ func (m *AdminGetUserPlatformAccountClosureHistoriesResponse) Unpack() (*gdprcli
 
 		case 403:
 			e, err := m.Error403.TranslateToApiError()
+			if err != nil {
+				_ = fmt.Errorf("failed to translate error. %v", err)
+			}
+
+			return nil, e
+
+		case 404:
+			e, err := m.Error404.TranslateToApiError()
 			if err != nil {
 				_ = fmt.Errorf("failed to translate error. %v", err)
 			}
@@ -104,6 +113,12 @@ func (o *AdminGetUserPlatformAccountClosureHistoriesReader) ReadResponse(respons
 		return result, nil
 	case 403:
 		result := NewAdminGetUserPlatformAccountClosureHistoriesForbidden()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return result, nil
+	case 404:
+		result := NewAdminGetUserPlatformAccountClosureHistoriesNotFound()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -328,6 +343,61 @@ func (o *AdminGetUserPlatformAccountClosureHistoriesForbidden) GetPayload() *gdp
 }
 
 func (o *AdminGetUserPlatformAccountClosureHistoriesForbidden) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	// handle file responses
+	contentDisposition := response.GetHeader("Content-Disposition")
+	if strings.Contains(strings.ToLower(contentDisposition), "filename=") {
+		consumer = runtime.ByteStreamConsumer()
+	}
+
+	o.Payload = new(gdprclientmodels.ResponseError)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
+// NewAdminGetUserPlatformAccountClosureHistoriesNotFound creates a AdminGetUserPlatformAccountClosureHistoriesNotFound with default headers values
+func NewAdminGetUserPlatformAccountClosureHistoriesNotFound() *AdminGetUserPlatformAccountClosureHistoriesNotFound {
+	return &AdminGetUserPlatformAccountClosureHistoriesNotFound{}
+}
+
+/*
+AdminGetUserPlatformAccountClosureHistoriesNotFound handles this case with default header values.
+
+	Not Found
+*/
+type AdminGetUserPlatformAccountClosureHistoriesNotFound struct {
+	Payload *gdprclientmodels.ResponseError
+}
+
+func (o *AdminGetUserPlatformAccountClosureHistoriesNotFound) Error() string {
+	return fmt.Sprintf("[GET /gdpr/admin/namespaces/{namespace}/users/platforms/closure/histories][%d] adminGetUserPlatformAccountClosureHistoriesNotFound  %+v", 404, o.ToJSONString())
+}
+
+func (o *AdminGetUserPlatformAccountClosureHistoriesNotFound) ToJSONString() string {
+	if o.Payload == nil {
+		return "{}"
+	}
+
+	b, err := json.Marshal(o.Payload)
+	if err != nil {
+		fmt.Println(err)
+
+		return fmt.Sprintf("Failed to marshal the payload: %+v", o.Payload)
+	}
+
+	return fmt.Sprintf("%+v", string(b))
+}
+
+func (o *AdminGetUserPlatformAccountClosureHistoriesNotFound) GetPayload() *gdprclientmodels.ResponseError {
+	return o.Payload
+}
+
+func (o *AdminGetUserPlatformAccountClosureHistoriesNotFound) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	// handle file responses
 	contentDisposition := response.GetHeader("Content-Disposition")

@@ -57,7 +57,8 @@ func NewListCrossNamespaceAccountLinkParamsWithHTTPClient(client *http.Client) *
 	}
 }
 
-/*ListCrossNamespaceAccountLinkParams contains all the parameters to send to the API endpoint
+/*
+ListCrossNamespaceAccountLinkParams contains all the parameters to send to the API endpoint
 for the list cross namespace account link operation typically these are written to a http.Request
 */
 type ListCrossNamespaceAccountLinkParams struct {

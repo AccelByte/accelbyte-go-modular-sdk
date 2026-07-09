@@ -145,9 +145,10 @@ func NewAdminGetNamespaceInvitationHistoryV4OK() *AdminGetNamespaceInvitationHis
 	return &AdminGetNamespaceInvitationHistoryV4OK{}
 }
 
-/*AdminGetNamespaceInvitationHistoryV4OK handles this case with default header values.
+/*
+AdminGetNamespaceInvitationHistoryV4OK handles this case with default header values.
 
-  Operation succeeded
+	Operation succeeded
 */
 type AdminGetNamespaceInvitationHistoryV4OK struct {
 	Payload *iamclientmodels.ModelInvitationHistoryResponse
@@ -199,9 +200,10 @@ func NewAdminGetNamespaceInvitationHistoryV4Unauthorized() *AdminGetNamespaceInv
 	return &AdminGetNamespaceInvitationHistoryV4Unauthorized{}
 }
 
-/*AdminGetNamespaceInvitationHistoryV4Unauthorized handles this case with default header values.
+/*
+AdminGetNamespaceInvitationHistoryV4Unauthorized handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20001</td><td>unauthorized access</td></tr></table>
 */
 type AdminGetNamespaceInvitationHistoryV4Unauthorized struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -253,9 +255,10 @@ func NewAdminGetNamespaceInvitationHistoryV4Forbidden() *AdminGetNamespaceInvita
 	return &AdminGetNamespaceInvitationHistoryV4Forbidden{}
 }
 
-/*AdminGetNamespaceInvitationHistoryV4Forbidden handles this case with default header values.
+/*
+AdminGetNamespaceInvitationHistoryV4Forbidden handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20013</td><td>insufficient permissions</td></tr></table>
 */
 type AdminGetNamespaceInvitationHistoryV4Forbidden struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -307,10 +310,9 @@ func NewAdminGetNamespaceInvitationHistoryV4NotFound() *AdminGetNamespaceInvitat
 	return &AdminGetNamespaceInvitationHistoryV4NotFound{}
 }
 
-/*AdminGetNamespaceInvitationHistoryV4NotFound handles this case with default header values.
-
-
- */
+/*
+AdminGetNamespaceInvitationHistoryV4NotFound handles this case with default header values.
+*/
 type AdminGetNamespaceInvitationHistoryV4NotFound struct {
 	Payload *iamclientmodels.RestErrorResponse
 }
@@ -361,9 +363,10 @@ func NewAdminGetNamespaceInvitationHistoryV4InternalServerError() *AdminGetNames
 	return &AdminGetNamespaceInvitationHistoryV4InternalServerError{}
 }
 
-/*AdminGetNamespaceInvitationHistoryV4InternalServerError handles this case with default header values.
+/*
+AdminGetNamespaceInvitationHistoryV4InternalServerError handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20000</td><td>internal server error</td></tr></table>
 */
 type AdminGetNamespaceInvitationHistoryV4InternalServerError struct {
 	Payload *iamclientmodels.RestErrorResponse
@@ -415,9 +418,10 @@ func NewAdminGetNamespaceInvitationHistoryV4NotImplemented() *AdminGetNamespaceI
 	return &AdminGetNamespaceInvitationHistoryV4NotImplemented{}
 }
 
-/*AdminGetNamespaceInvitationHistoryV4NotImplemented handles this case with default header values.
+/*
+AdminGetNamespaceInvitationHistoryV4NotImplemented handles this case with default header values.
 
-  <table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
+	<table><tr><td>errorCode</td><td>errorMessage</td></tr><tr><td>20024</td><td>not implemented</td></tr></table>
 */
 type AdminGetNamespaceInvitationHistoryV4NotImplemented struct {
 	Payload *iamclientmodels.RestErrorResponse
