@@ -9,13 +9,13 @@ replace (
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.1.0-alpha.15
-	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.1.0-alpha.1
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.10.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.4.0
 	github.com/AccelByte/accelbyte-go-modular-sdk/services-api v0.1.0
 )
 
 require (
-	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.3.0 // indirect
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.4.0 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 )

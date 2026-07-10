@@ -14,11 +14,37 @@ require (
 )
 
 require (
+	github.com/AccelByte/accelbyte-go-modular-sdk/achievement-sdk v0.3.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/ams-sdk v0.8.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/basic-sdk v0.4.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/challenge-sdk v0.7.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/chat-sdk v0.5.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/cloudsave-sdk v0.3.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/csm-sdk v0.9.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/gametelemetry-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/gdpr-sdk v0.4.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/group-sdk v0.3.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/iam-sdk v0.10.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/inventory-sdk v0.4.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/leaderboard-sdk v0.5.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/legal-sdk v0.5.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/lobby-sdk v0.4.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/loginqueue-sdk v0.1.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/match2-sdk v0.9.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/platform-sdk v0.10.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/reporting-sdk v0.2.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/seasonpass-sdk v0.4.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/session-sdk v0.10.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/sessionhistory-sdk v0.5.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/social-sdk v0.6.0
+	github.com/AccelByte/accelbyte-go-modular-sdk/ugc-sdk v0.2.0
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/gorilla/websocket v1.5.3
 )
 
 require (
+	github.com/AccelByte/bloom v0.0.0-20180915202807-98c052463922 // indirect
+	github.com/AccelByte/go-jose v2.1.4+incompatible // indirect
 	github.com/PuerkitoBio/purell v1.1.1 // indirect
 	github.com/PuerkitoBio/urlesc v0.0.0-20170810143723-de5bf2ad4578 // indirect
 	github.com/asaskevich/govalidator v0.0.0-20210307081110-f21760c49a8d // indirect
@@ -35,12 +61,16 @@ require (
 	github.com/mitchellh/mapstructure v1.4.3 // indirect
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/opentracing/opentracing-go v1.2.0 // indirect
+	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/stretchr/objx v0.5.0 // indirect
+	github.com/willf/bitset v1.1.11 // indirect
 	go.mongodb.org/mongo-driver v1.10.0 // indirect
 	go.opentelemetry.io/otel v1.14.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.14.0 // indirect
 	go.opentelemetry.io/otel/trace v1.14.0 // indirect
+	golang.org/x/crypto v0.36.0 // indirect
 	golang.org/x/net v0.38.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
