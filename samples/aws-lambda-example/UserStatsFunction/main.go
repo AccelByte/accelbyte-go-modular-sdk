@@ -36,8 +36,12 @@ var (
 		},
 	}
 	userStatisticService = &social.UserStatisticService{
-		Client:          social.NewSocialClient(&configRepo),
-		TokenRepository: &tokenRepo,
+		Client: social.NewSocialHttpClient(&configRepo),
+		Session: repository.Session{
+			ConfigRepository:       &configRepo,
+			TokenRepository:        &tokenRepo,
+			RefreshTokenRepository: refreshRepo,
+		},
 	}
 )
 

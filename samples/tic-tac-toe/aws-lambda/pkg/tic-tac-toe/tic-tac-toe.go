@@ -58,8 +58,11 @@ var (
 		},
 	}
 	gameNotificationService = &lobby.NotificationService{
-		Client:          lobby.NewLobbyClient(&configImpl),
-		TokenRepository: &tokenImpl,
+		Client: lobby.NewLobbyHttpClient(&configImpl),
+		Session: repository.Session{
+			ConfigRepository: &configImpl,
+			TokenRepository:  &tokenImpl,
+		},
 	}
 )
 

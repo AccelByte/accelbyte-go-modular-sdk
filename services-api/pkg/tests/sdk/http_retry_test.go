@@ -55,8 +55,11 @@ var (
 		},
 	}
 	lobbyConfigService = &lobby.ConfigService{
-		Client:          lobby.NewLobbyClient(&configRepo),
-		TokenRepository: &tokenRepo,
+		Client: lobby.NewLobbyHttpClient(&configRepo),
+		Session: repository.Session{
+			ConfigRepository: &configRepo,
+			TokenRepository:  &tokenRepo,
+		},
 	}
 	mockServerBaseUrl                    = "http://127.0.0.1:8080"
 	mockServerClientId                   = "admin"
