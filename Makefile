@@ -160,7 +160,19 @@ version_module:
 	fi && \
 	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/service/$(SERVICE)/go.mod && \
 	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/services-api\/pkg\/service\/$(SERVICE) v$$VERSION_NEW/" $(SERVICE)-sdk/go.mod && \
-	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/pkg/factory/go.mod
+	sed -i "s/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v[0-9]\+\.[0-9]\+\.[0-9]\+.*/github.com\/AccelByte\/accelbyte-go-modular-sdk\/$(SERVICE)-sdk v$$VERSION_NEW/" services-api/go.mod
+# services-api is a single module (pkg/factory is just a package in it, not its own module), and
+# services-api/go.mod is what actually carries the require line on <svc>-sdk, so that's the sed
+# target above. services-api/go.mod has no replace directives though, so it can't be `go mod
+# tidy`'d until the bumped <svc>-sdk version has a real git tag (see bumpif_module below).
+
+bumpif_module:
+	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)
+	@SERVICE=$(SERVICE) bash scripts/bumpif.sh
+
+bumpif_all:
+	@find ./spec -type f -iname '*.json' | grep -oP '(?<=/)\w+(?=.json)' | sort | xargs -I{} \
+		sh -c 'SERVICE={} bash scripts/bumpif.sh; STATUS=$$?; [ $$STATUS -eq 0 -o $$STATUS -eq 2 ] || exit 255'
 
 tag_module:
 	@test -n "$(SERVICE)" || (echo "SERVICE is not set" ; exit 1)

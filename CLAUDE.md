@@ -80,7 +80,17 @@ make version_ags [PATCH=1|MAJOR=1]                       # bump root AGS version
 make version_module SERVICE=iam [PATCH=1]                # bump one service module
 make version_services_api UPDATE_SERVICE=all             # bump shared runtime + fan out deps
 make tag_module SERVICE=iam                              # create the module's git tag
+make bumpif_module SERVICE=iam / bumpif_all               # bump+tidy modules changed this run
 ```
+
+`make bumpif_all` (`scripts/bumpif.sh` under the hood) runs automatically, every nightly run, as
+part of `Jenkinsfile.generate` — right after codegen regenerates files but before that job's
+commit. It checks each service's uncommitted working-tree diff (codegen has written files to
+disk but nothing is committed yet, so this is exactly "what changed this generation run"),
+bumps the MINOR version of any changed module via `version_module`, and tidies the bumped
+`<svc>-sdk` and its compat wrapper (`services-api/pkg/service/<svc>`). It does **not** tidy
+`services-api` itself — that module has no `replace` directives, so its `go.mod` needs the new
+`<svc>-sdk` git tags to exist first, which only happens later, manually, when cutting a release.
 
 `make outstanding_deprecation` flags `// Deprecated: <date>` markers older than 6 months.
 
@@ -88,7 +98,8 @@ make tag_module SERVICE=iam                              # create the module's g
 
 - **Commits**: Conventional Commits (`type(scope): description`) enforced by `commitlint`
   (`make check-commits`). CI runs on Jenkins (`Jenkinsfile*`); `Jenkinsfile.generate` is the
-  nightly regeneration job that rebuilds this repo from the generator on `rc-nightly`.
+  nightly regeneration job that rebuilds this repo from the generator on `rc-nightly` and bumps
+  any changed service module's version (`make bumpif_all`) in the same commit.
 - **CHANGELOG.md** is curated and user-facing — not a mirror of git history.
 - SDK usage (auth, automatic/on-demand token refresh, local token validation, WebSocket,
   FlightID, call-response handling) is documented in `README.md` and `docs/`.
